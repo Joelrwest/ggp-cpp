@@ -10,9 +10,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 4 1 red ) )",
-            "ins": [
-                1073
-            ],
+            "in": 1073,
             "outs": [
                 366,
                 492,
@@ -86,9 +84,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                603
-            ],
+            "in": 603,
             "outs": [
                 500
             ]
@@ -108,9 +104,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 5 6 black ) )",
-            "ins": [
-                1013
-            ],
+            "in": 1013,
             "outs": [
                 803,
                 943,
@@ -129,9 +123,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                300
-            ],
+            "in": 300,
             "outs": [
                 406
             ]
@@ -142,9 +134,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal black ( drop 2 ) )",
-            "ins": [
-                812
-            ],
+            "in": 812,
             "outs": []
         },
         {
@@ -210,9 +200,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 5 red ) )",
-            "ins": [
-                999
-            ],
+            "in": 999,
             "outs": [
                 223,
                 604,
@@ -439,9 +427,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 4 3 red ) )",
-            "ins": [
-                1058
-            ],
+            "in": 1058,
             "outs": [
                 613,
                 367,
@@ -466,9 +452,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                566
-            ],
+            "in": 566,
             "outs": [
                 939
             ]
@@ -552,9 +536,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 8 1 )",
-            "ins": [
-                550
-            ],
+            "in": 550,
             "outs": [
                 504,
                 396
@@ -566,9 +548,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                675
-            ],
+            "in": 675,
             "outs": [
                 580
             ]
@@ -617,9 +597,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 6 6 red ) )",
-            "ins": [
-                1052
-            ],
+            "in": 1052,
             "outs": [
                 210,
                 91,
@@ -652,9 +630,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 6 1 black ) )",
-            "ins": [
-                1005
-            ],
+            "in": 1005,
             "outs": [
                 560,
                 891,
@@ -688,9 +664,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 7 5 )",
-            "ins": [
-                658
-            ],
+            "in": 658,
             "outs": [
                 768,
                 884,
@@ -710,9 +684,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                965
-            ],
+            "in": 965,
             "outs": [
                 450
             ]
@@ -760,9 +732,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 4 3 )",
-            "ins": [
-                126
-            ],
+            "in": 126,
             "outs": [
                 898,
                 546,
@@ -839,9 +809,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal red ( drop 1 ) )",
-            "ins": [
-                147
-            ],
+            "in": 147,
             "outs": []
         },
         {
@@ -850,9 +818,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 2 black ) )",
-            "ins": [
-                1055
-            ],
+            "in": 1055,
             "outs": [
                 373,
                 256,
@@ -946,9 +912,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                628
-            ],
+            "in": 628,
             "outs": [
                 624
             ]
@@ -995,9 +959,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 2 red ) )",
-            "ins": [
-                1016
-            ],
+            "in": 1016,
             "outs": [
                 213,
                 52,
@@ -1015,9 +977,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 8 3 )",
-            "ins": [
-                938
-            ],
+            "in": 938,
             "outs": [
                 900,
                 243,
@@ -1044,9 +1004,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                17
-            ],
+            "in": 17,
             "outs": [
                 820
             ]
@@ -1057,9 +1015,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                623
-            ],
+            "in": 623,
             "outs": [
                 157
             ]
@@ -1079,9 +1035,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal black ( drop 1 ) )",
-            "ins": [
-                154
-            ],
+            "in": 154,
             "outs": []
         },
         {
@@ -1090,9 +1044,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 2 black ) )",
-            "ins": [
-                997
-            ],
+            "in": 997,
             "outs": [
                 558,
                 849,
@@ -1112,9 +1064,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal black ( drop 5 ) )",
-            "ins": [
-                468
-            ],
+            "in": 468,
             "outs": []
         },
         {
@@ -1123,9 +1073,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 8 1 black ) )",
-            "ins": [
-                1034
-            ],
+            "in": 1034,
             "outs": [
                 199,
                 824,
@@ -1152,9 +1100,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                917
-            ],
+            "in": 917,
             "outs": [
                 629
             ]
@@ -1165,9 +1111,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                25
-            ],
+            "in": 25,
             "outs": [
                 328
             ]
@@ -1196,9 +1140,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                467
-            ],
+            "in": 467,
             "outs": [
                 659
             ]
@@ -1255,9 +1197,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 4 2 )",
-            "ins": [
-                306
-            ],
+            "in": 306,
             "outs": [
                 221,
                 713,
@@ -1319,9 +1259,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                192
-            ],
+            "in": 192,
             "outs": [
                 181
             ]
@@ -1347,9 +1285,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal red ( drop 8 ) )",
-            "ins": [
-                69
-            ],
+            "in": 69,
             "outs": []
         },
         {
@@ -1370,9 +1306,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                523
-            ],
+            "in": 523,
             "outs": [
                 176
             ]
@@ -1390,9 +1324,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                332
-            ],
+            "in": 332,
             "outs": [
                 443
             ]
@@ -1428,9 +1360,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 3 3 )",
-            "ins": [
-                291
-            ],
+            "in": 291,
             "outs": [
                 790,
                 12,
@@ -1452,9 +1382,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal black ( drop 4 ) )",
-            "ins": [
-                886
-            ],
+            "in": 886,
             "outs": []
         },
         {
@@ -1463,9 +1391,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                485
-            ],
+            "in": 485,
             "outs": [
                 904
             ]
@@ -1616,9 +1542,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                199
-            ],
+            "in": 199,
             "outs": [
                 557
             ]
@@ -1652,9 +1576,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                201
-            ],
+            "in": 201,
             "outs": [
                 794
             ]
@@ -1665,9 +1587,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                285
-            ],
+            "in": 285,
             "outs": [
                 402
             ]
@@ -1697,9 +1617,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 7 2 red ) )",
-            "ins": [
-                994
-            ],
+            "in": 994,
             "outs": [
                 447,
                 763,
@@ -1729,9 +1647,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                57
-            ],
+            "in": 57,
             "outs": [
                 837
             ]
@@ -1786,9 +1702,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                897
-            ],
+            "in": 897,
             "outs": [
                 774
             ]
@@ -1799,9 +1713,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 8 3 red ) )",
-            "ins": [
-                1068
-            ],
+            "in": 1068,
             "outs": [
                 678,
                 440,
@@ -1891,9 +1803,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 4 1 black ) )",
-            "ins": [
-                1017
-            ],
+            "in": 1017,
             "outs": [
                 597,
                 386,
@@ -1922,9 +1832,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                631
-            ],
+            "in": 631,
             "outs": [
                 187
             ]
@@ -2040,9 +1948,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 2 4 )",
-            "ins": [
-                864
-            ],
+            "in": 864,
             "outs": [
                 958,
                 513,
@@ -2150,9 +2056,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 1 6 )",
-            "ins": [
-                156
-            ],
+            "in": 156,
             "outs": [
                 970,
                 116,
@@ -2165,9 +2069,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                13
-            ],
+            "in": 13,
             "outs": [
                 335
             ]
@@ -2178,9 +2080,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                553
-            ],
+            "in": 553,
             "outs": [
                 361
             ]
@@ -2241,9 +2141,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                23
-            ],
+            "in": 23,
             "outs": [
                 177
             ]
@@ -2323,9 +2221,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                491
-            ],
+            "in": 491,
             "outs": [
                 215
             ]
@@ -2336,9 +2232,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 6 6 black ) )",
-            "ins": [
-                1010
-            ],
+            "in": 1010,
             "outs": [
                 762,
                 152,
@@ -2399,9 +2293,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                421
-            ],
+            "in": 421,
             "outs": [
                 270
             ]
@@ -2450,9 +2342,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 2 2 )",
-            "ins": [
-                554
-            ],
+            "in": 554,
             "outs": [
                 208,
                 639,
@@ -2477,9 +2367,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 6 red ) )",
-            "ins": [
-                1038
-            ],
+            "in": 1038,
             "outs": [
                 117,
                 236,
@@ -2494,9 +2382,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 5 1 red ) )",
-            "ins": [
-                1062
-            ],
+            "in": 1062,
             "outs": [
                 17,
                 366,
@@ -2606,9 +2492,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( columnEmpty 1 )",
-            "ins": [
-                686
-            ],
+            "in": 686,
             "outs": [
                 307,
                 667
@@ -2635,9 +2519,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                239
-            ],
+            "in": 239,
             "outs": [
                 87
             ]
@@ -2648,9 +2530,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                571
-            ],
+            "in": 571,
             "outs": [
                 647
             ]
@@ -2751,9 +2631,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                422
-            ],
+            "in": 422,
             "outs": [
                 241
             ]
@@ -2778,9 +2656,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 4 4 red ) )",
-            "ins": [
-                1011
-            ],
+            "in": 1011,
             "outs": [
                 367,
                 247,
@@ -2805,9 +2681,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 2 1 )",
-            "ins": [
-                292
-            ],
+            "in": 292,
             "outs": [
                 220,
                 668
@@ -2842,9 +2716,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                926
-            ],
+            "in": 926,
             "outs": [
                 885
             ]
@@ -2887,9 +2759,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                40
-            ],
+            "in": 40,
             "outs": [
                 359
             ]
@@ -2900,9 +2770,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 1 5 )",
-            "ins": [
-                893
-            ],
+            "in": 893,
             "outs": [
                 92,
                 174,
@@ -2954,9 +2822,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal red ( drop 6 ) )",
-            "ins": [
-                967
-            ],
+            "in": 967,
             "outs": []
         },
         {
@@ -3031,9 +2897,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 6 black ) )",
-            "ins": [
-                1028
-            ],
+            "in": 1028,
             "outs": [
                 803,
                 152,
@@ -3081,9 +2945,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                188
-            ],
+            "in": 188,
             "outs": [
                 825
             ]
@@ -3227,9 +3089,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( columnOpen 6 )",
-            "ins": [
-                750
-            ],
+            "in": 750,
             "outs": [
                 375,
                 967,
@@ -3291,9 +3151,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "goal",
             "gdl": "( goal red 0 )",
-            "ins": [
-                470
-            ]
+            "in": 470
         },
         {
             "id": 260,
@@ -3347,9 +3205,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 8 4 )",
-            "ins": [
-                477
-            ],
+            "in": 477,
             "outs": [
                 345,
                 2,
@@ -3362,9 +3218,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 3 black ) )",
-            "ins": [
-                1019
-            ],
+            "in": 1019,
             "outs": [
                 614,
                 905,
@@ -3381,9 +3235,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                189
-            ],
+            "in": 189,
             "outs": [
                 280
             ]
@@ -3406,9 +3258,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                969
-            ],
+            "in": 969,
             "outs": [
                 888
             ]
@@ -3440,9 +3290,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                371
-            ],
+            "in": 371,
             "outs": [
                 278
             ]
@@ -3453,9 +3301,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( columnOpen 8 )",
-            "ins": [
-                497
-            ],
+            "in": 497,
             "outs": [
                 412,
                 69,
@@ -3507,9 +3353,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 5 4 red ) )",
-            "ins": [
-                1036
-            ],
+            "in": 1036,
             "outs": [
                 729,
                 247,
@@ -3575,9 +3419,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 5 6 )",
-            "ins": [
-                81
-            ],
+            "in": 81,
             "outs": [
                 903,
                 426,
@@ -3631,9 +3473,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                927
-            ],
+            "in": 927,
             "outs": [
                 793
             ]
@@ -3651,9 +3491,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 2 red ) )",
-            "ins": [
-                1025
-            ],
+            "in": 1025,
             "outs": [
                 18,
                 418,
@@ -3725,9 +3563,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 5 1 black ) )",
-            "ins": [
-                1057
-            ],
+            "in": 1057,
             "outs": [
                 597,
                 896,
@@ -3784,9 +3620,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 6 3 red ) )",
-            "ins": [
-                1012
-            ],
+            "in": 1012,
             "outs": [
                 91,
                 134,
@@ -3809,9 +3643,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                712
-            ],
+            "in": 712,
             "outs": [
                 921
             ]
@@ -3834,9 +3666,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 8 2 black ) )",
-            "ins": [
-                1014
-            ],
+            "in": 1014,
             "outs": [
                 831,
                 19,
@@ -3852,9 +3682,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                423
-            ],
+            "in": 423,
             "outs": [
                 649
             ]
@@ -3878,9 +3706,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 3 red ) )",
-            "ins": [
-                1059
-            ],
+            "in": 1059,
             "outs": [
                 613,
                 201,
@@ -3962,9 +3788,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                401
-            ],
+            "in": 401,
             "outs": [
                 419
             ]
@@ -3975,9 +3799,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 5 5 red ) )",
-            "ins": [
-                1061
-            ],
+            "in": 1061,
             "outs": [
                 645,
                 729,
@@ -3999,9 +3821,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                129
-            ],
+            "in": 129,
             "outs": [
                 190
             ]
@@ -4024,9 +3844,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 8 2 red ) )",
-            "ins": [
-                1006
-            ],
+            "in": 1006,
             "outs": [
                 678,
                 955,
@@ -4042,9 +3860,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal black ( drop 3 ) )",
-            "ins": [
-                740
-            ],
+            "in": 740,
             "outs": []
         },
         {
@@ -4103,9 +3919,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( columnOpen 2 )",
-            "ins": [
-                408
-            ],
+            "in": 408,
             "outs": [
                 812,
                 240,
@@ -4144,9 +3958,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( columnOpen 7 )",
-            "ins": [
-                807
-            ],
+            "in": 807,
             "outs": [
                 502,
                 142,
@@ -4166,9 +3978,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                810
-            ],
+            "in": 810,
             "outs": [
                 662
             ]
@@ -4283,9 +4093,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                313
-            ],
+            "in": 313,
             "outs": [
                 572
             ]
@@ -4469,9 +4277,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 8 5 black ) )",
-            "ins": [
-                1040
-            ],
+            "in": 1040,
             "outs": [
                 831,
                 680,
@@ -4487,9 +4293,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 5 3 red ) )",
-            "ins": [
-                1069
-            ],
+            "in": 1069,
             "outs": [
                 729,
                 62,
@@ -4514,9 +4318,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( columnEmpty 6 )",
-            "ins": [
-                520
-            ],
+            "in": 520,
             "outs": [
                 108,
                 252
@@ -4528,9 +4330,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 7 5 red ) )",
-            "ins": [
-                1026
-            ],
+            "in": 1026,
             "outs": [
                 447,
                 123,
@@ -4610,9 +4410,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 6 5 )",
-            "ins": [
-                600
-            ],
+            "in": 600,
             "outs": [
                 360,
                 407,
@@ -4634,9 +4432,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 8 6 red ) )",
-            "ins": [
-                1071
-            ],
+            "in": 1071,
             "outs": [
                 351,
                 173,
@@ -4686,9 +4482,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 4 red ) )",
-            "ins": [
-                1033
-            ],
+            "in": 1033,
             "outs": [
                 248,
                 711,
@@ -4717,9 +4511,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "terminal",
             "gdl": "terminal",
-            "ins": [
-                508
-            ],
+            "in": 508,
             "outs": []
         },
         {
@@ -4793,9 +4585,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( columnOpen 3 )",
-            "ins": [
-                400
-            ],
+            "in": 400,
             "outs": [
                 740,
                 834,
@@ -4822,9 +4612,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 4 red ) )",
-            "ins": [
-                992
-            ],
+            "in": 992,
             "outs": [
                 346,
                 530,
@@ -4844,9 +4632,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal red ( drop 4 ) )",
-            "ins": [
-                336
-            ],
+            "in": 336,
             "outs": []
         },
         {
@@ -4885,9 +4671,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 3 red ) )",
-            "ins": [
-                1048
-            ],
+            "in": 1048,
             "outs": [
                 613,
                 289,
@@ -4950,9 +4734,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 6 4 )",
-            "ins": [
-                913
-            ],
+            "in": 913,
             "outs": [
                 200,
                 798,
@@ -4995,9 +4777,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 5 black ) )",
-            "ins": [
-                1018
-            ],
+            "in": 1018,
             "outs": [
                 433,
                 883,
@@ -5041,9 +4821,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( columnEmpty 8 )",
-            "ins": [
-                36
-            ],
+            "in": 36,
             "outs": [
                 665,
                 878
@@ -5069,9 +4847,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 4 5 black ) )",
-            "ins": [
-                1053
-            ],
+            "in": 1053,
             "outs": [
                 731,
                 943,
@@ -5107,9 +4883,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 3 6 )",
-            "ins": [
-                295
-            ],
+            "in": 295,
             "outs": [
                 103,
                 376,
@@ -5154,9 +4928,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 6 4 red ) )",
-            "ins": [
-                1015
-            ],
+            "in": 1015,
             "outs": [
                 91,
                 247,
@@ -5208,9 +4980,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 2 6 )",
-            "ins": [
-                344
-            ],
+            "in": 344,
             "outs": [
                 249,
                 258,
@@ -5223,9 +4993,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 4 5 red ) )",
-            "ins": [
-                981
-            ],
+            "in": 981,
             "outs": [
                 367,
                 472,
@@ -5296,9 +5064,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                721
-            ],
+            "in": 721,
             "outs": [
                 127
             ]
@@ -5309,9 +5075,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 6 3 )",
-            "ins": [
-                772
-            ],
+            "in": 772,
             "outs": [
                 144,
                 963,
@@ -5411,9 +5175,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 5 3 )",
-            "ins": [
-                356
-            ],
+            "in": 356,
             "outs": [
                 654,
                 382,
@@ -5440,9 +5202,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( columnOpen 5 )",
-            "ins": [
-                282
-            ],
+            "in": 282,
             "outs": [
                 462,
                 468,
@@ -5495,9 +5255,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                974
-            ],
+            "in": 974,
             "outs": [
                 100
             ]
@@ -5508,9 +5266,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                588
-            ],
+            "in": 588,
             "outs": [
                 158
             ]
@@ -5521,9 +5277,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                102
-            ],
+            "in": 102,
             "outs": [
                 452
             ]
@@ -5570,9 +5324,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                464
-            ],
+            "in": 464,
             "outs": [
                 608
             ]
@@ -5675,9 +5427,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( control black ) )",
-            "ins": [
-                1072
-            ],
+            "in": 1072,
             "outs": [
                 740,
                 812,
@@ -5737,9 +5487,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( line black )",
-            "ins": [
-                21
-            ],
+            "in": 21,
             "outs": [
                 726,
                 56,
@@ -5793,9 +5541,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 5 red ) )",
-            "ins": [
-                1063
-            ],
+            "in": 1063,
             "outs": [
                 458,
                 289,
@@ -5824,9 +5570,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 7 4 )",
-            "ins": [
-                68
-            ],
+            "in": 68,
             "outs": [
                 93,
                 633,
@@ -5874,9 +5618,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                98
-            ],
+            "in": 98,
             "outs": [
                 583
             ]
@@ -6032,9 +5774,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                517
-            ],
+            "in": 517,
             "outs": [
                 912
             ]
@@ -6059,9 +5799,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                838
-            ],
+            "in": 838,
             "outs": [
                 765
             ]
@@ -6072,9 +5810,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 4 black ) )",
-            "ins": [
-                1065
-            ],
+            "in": 1065,
             "outs": [
                 4,
                 528,
@@ -6189,9 +5925,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( control red ) )",
-            "ins": [
-                983
-            ],
+            "in": 983,
             "outs": [
                 834,
                 147,
@@ -6211,9 +5945,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                351
-            ],
+            "in": 351,
             "outs": [
                 892
             ]
@@ -6224,9 +5956,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                281
-            ],
+            "in": 281,
             "outs": [
                 110
             ]
@@ -6251,9 +5981,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal black ( drop 7 ) )",
-            "ins": [
-                502
-            ],
+            "in": 502,
             "outs": []
         },
         {
@@ -6316,9 +6044,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                679
-            ],
+            "in": 679,
             "outs": [
                 976
             ]
@@ -6329,9 +6055,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                170
-            ],
+            "in": 170,
             "outs": [
                 758
             ]
@@ -6342,9 +6066,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 1 2 )",
-            "ins": [
-                250
-            ],
+            "in": 250,
             "outs": [
                 309,
                 533,
@@ -6357,9 +6079,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 8 6 )",
-            "ins": [
-                907
-            ],
+            "in": 907,
             "outs": [
                 652,
                 272,
@@ -6372,9 +6092,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 7 1 red ) )",
-            "ins": [
-                1039
-            ],
+            "in": 1039,
             "outs": [
                 363,
                 217,
@@ -6449,9 +6167,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal red ( drop 2 ) )",
-            "ins": [
-                240
-            ],
+            "in": 240,
             "outs": []
         },
         {
@@ -6460,9 +6176,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 3 red ) )",
-            "ins": [
-                993
-            ],
+            "in": 993,
             "outs": [
                 613,
                 213,
@@ -6511,9 +6225,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 3 black ) )",
-            "ins": [
-                984
-            ],
+            "in": 984,
             "outs": [
                 510,
                 338,
@@ -6542,9 +6254,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                578
-            ],
+            "in": 578,
             "outs": [
                 42
             ]
@@ -6555,9 +6265,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 6 2 black ) )",
-            "ins": [
-                1021
-            ],
+            "in": 1021,
             "outs": [
                 558,
                 896,
@@ -6615,9 +6323,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "goal",
             "gdl": "( goal black 0 )",
-            "ins": [
-                26
-            ]
+            "in": 26
         },
         {
             "id": 517,
@@ -6637,9 +6343,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 5 4 )",
-            "ins": [
-                733
-            ],
+            "in": 733,
             "outs": [
                 380,
                 595,
@@ -6652,9 +6356,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 7 4 black ) )",
-            "ins": [
-                1066
-            ],
+            "in": 1066,
             "outs": [
                 446,
                 841,
@@ -6674,9 +6376,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 6 1 )",
-            "ins": [
-                484
-            ],
+            "in": 484,
             "outs": [
                 354,
                 45
@@ -6697,9 +6397,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 4 2 black ) )",
-            "ins": [
-                1030
-            ],
+            "in": 1030,
             "outs": [
                 558,
                 849,
@@ -6733,9 +6431,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 4 black ) )",
-            "ins": [
-                1064
-            ],
+            "in": 1064,
             "outs": [
                 425,
                 453,
@@ -6758,9 +6454,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 4 1 )",
-            "ins": [
-                582
-            ],
+            "in": 582,
             "outs": [
                 541,
                 255
@@ -6772,9 +6466,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                70
-            ],
+            "in": 70,
             "outs": [
                 320
             ]
@@ -6851,9 +6543,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 2 red ) )",
-            "ins": [
-                1077
-            ],
+            "in": 1077,
             "outs": [
                 679,
                 472,
@@ -6879,9 +6569,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "goal",
             "gdl": "( goal red 50 )",
-            "ins": [
-                556
-            ]
+            "in": 556
         },
         {
             "id": 535,
@@ -6908,9 +6596,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                322
-            ],
+            "in": 322,
             "outs": [
                 592
             ]
@@ -6921,9 +6607,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                621
-            ],
+            "in": 621,
             "outs": [
                 139
             ]
@@ -6962,9 +6646,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( columnEmpty 4 )",
-            "ins": [
-                525
-            ],
+            "in": 525,
             "outs": [
                 615,
                 230
@@ -6976,9 +6658,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 5 3 black ) )",
-            "ins": [
-                1027
-            ],
+            "in": 1027,
             "outs": [
                 783,
                 499,
@@ -7017,9 +6697,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 8 3 black ) )",
-            "ins": [
-                982
-            ],
+            "in": 982,
             "outs": [
                 527,
                 831,
@@ -7063,9 +6741,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( columnEmpty 7 )",
-            "ins": [
-                724
-            ],
+            "in": 724,
             "outs": [
                 730,
                 648
@@ -7077,9 +6753,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal black ( drop 8 ) )",
-            "ins": [
-                412
-            ],
+            "in": 412,
             "outs": []
         },
         {
@@ -7088,9 +6762,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 5 red ) )",
-            "ins": [
-                1050
-            ],
+            "in": 1050,
             "outs": [
                 346,
                 52,
@@ -7163,9 +6835,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 4 3 black ) )",
-            "ins": [
-                989
-            ],
+            "in": 989,
             "outs": [
                 731,
                 499,
@@ -7272,9 +6942,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( columnOpen 1 )",
-            "ins": [
-                165
-            ],
+            "in": 165,
             "outs": [
                 147,
                 154,
@@ -7287,9 +6955,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 1 black ) )",
-            "ins": [
-                1024
-            ],
+            "in": 1024,
             "outs": [
                 263,
                 597,
@@ -7325,9 +6991,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                24
-            ],
+            "in": 24,
             "outs": [
                 656
             ]
@@ -7365,9 +7029,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 3 black ) )",
-            "ins": [
-                988
-            ],
+            "in": 988,
             "outs": [
                 499,
                 453,
@@ -7428,9 +7090,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 5 1 )",
-            "ins": [
-                709
-            ],
+            "in": 709,
             "outs": [
                 947,
                 895
@@ -7448,9 +7108,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 6 4 black ) )",
-            "ins": [
-                1067
-            ],
+            "in": 1067,
             "outs": [
                 682,
                 425,
@@ -7485,9 +7143,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 5 2 red ) )",
-            "ins": [
-                986
-            ],
+            "in": 986,
             "outs": [
                 729,
                 18,
@@ -7516,9 +7172,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                420
-            ],
+            "in": 420,
             "outs": [
                 702
             ]
@@ -7644,9 +7298,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                746
-            ],
+            "in": 746,
             "outs": [
                 275
             ]
@@ -7657,9 +7309,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 5 black ) )",
-            "ins": [
-                1043
-            ],
+            "in": 1043,
             "outs": [
                 7,
                 683,
@@ -7687,9 +7337,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 6 black ) )",
-            "ins": [
-                1029
-            ],
+            "in": 1029,
             "outs": [
                 803,
                 461,
@@ -7758,9 +7406,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                573
-            ],
+            "in": 573,
             "outs": [
                 716
             ]
@@ -7823,9 +7469,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                741
-            ],
+            "in": 741,
             "outs": [
                 319
             ]
@@ -7836,9 +7480,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                833
-            ],
+            "in": 833,
             "outs": [
                 808
             ]
@@ -7883,9 +7525,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                699
-            ],
+            "in": 699,
             "outs": [
                 118
             ]
@@ -7896,9 +7536,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal black ( drop 6 ) )",
-            "ins": [
-                375
-            ],
+            "in": 375,
             "outs": []
         },
         {
@@ -7951,9 +7589,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                701
-            ],
+            "in": 701,
             "outs": [
                 389
             ]
@@ -7964,9 +7600,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 7 1 black ) )",
-            "ins": [
-                985
-            ],
+            "in": 985,
             "outs": [
                 783,
                 882,
@@ -7982,9 +7616,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 7 4 red ) )",
-            "ins": [
-                1075
-            ],
+            "in": 1075,
             "outs": [
                 447,
                 269,
@@ -8004,9 +7636,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 3 1 )",
-            "ins": [
-                138
-            ],
+            "in": 138,
             "outs": [
                 929,
                 663
@@ -8063,9 +7693,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 1 black ) )",
-            "ins": [
-                1074
-            ],
+            "in": 1074,
             "outs": [
                 372,
                 905,
@@ -8080,9 +7708,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                433
-            ],
+            "in": 433,
             "outs": [
                 342
             ]
@@ -8093,9 +7719,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 3 4 )",
-            "ins": [
-                308
-            ],
+            "in": 308,
             "outs": [
                 466,
                 930,
@@ -8148,9 +7772,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 5 5 )",
-            "ins": [
-                846
-            ],
+            "in": 846,
             "outs": [
                 163,
                 751,
@@ -8176,9 +7798,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "goal",
             "gdl": "( goal red 100 )",
-            "ins": [
-                931
-            ]
+            "in": 931
         },
         {
             "id": 635,
@@ -8186,9 +7806,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 5 4 black ) )",
-            "ins": [
-                1060
-            ],
+            "in": 1060,
             "outs": [
                 842,
                 425,
@@ -8213,9 +7831,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 7 6 black ) )",
-            "ins": [
-                1044
-            ],
+            "in": 1044,
             "outs": [
                 841,
                 762,
@@ -8231,9 +7847,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                338
-            ],
+            "in": 338,
             "outs": [
                 48
             ]
@@ -8244,9 +7858,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 5 2 )",
-            "ins": [
-                442
-            ],
+            "in": 442,
             "outs": [
                 791,
                 185,
@@ -8283,9 +7895,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 5 6 red ) )",
-            "ins": [
-                1070
-            ],
+            "in": 1070,
             "outs": [
                 173,
                 661,
@@ -8383,9 +7993,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 6 black ) )",
-            "ins": [
-                1023
-            ],
+            "in": 1023,
             "outs": [
                 701,
                 683,
@@ -8503,9 +8111,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                296
-            ],
+            "in": 296,
             "outs": [
                 297
             ]
@@ -8568,9 +8174,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                677
-            ],
+            "in": 677,
             "outs": [
                 294
             ]
@@ -8593,9 +8197,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( columnEmpty 2 )",
-            "ins": [
-                219
-            ],
+            "in": 219,
             "outs": [
                 267,
                 698
@@ -8607,9 +8209,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 7 2 black ) )",
-            "ins": [
-                1031
-            ],
+            "in": 1031,
             "outs": [
                 257,
                 434,
@@ -8640,9 +8240,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 7 3 black ) )",
-            "ins": [
-                1056
-            ],
+            "in": 1056,
             "outs": [
                 527,
                 841,
@@ -8662,9 +8260,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 7 2 )",
-            "ins": [
-                754
-            ],
+            "in": 754,
             "outs": [
                 700,
                 435,
@@ -8677,9 +8273,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 8 6 black ) )",
-            "ins": [
-                980
-            ],
+            "in": 980,
             "outs": [
                 680,
                 762,
@@ -8844,9 +8438,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 1 1 )",
-            "ins": [
-                133
-            ],
+            "in": 133,
             "outs": [
                 203,
                 535
@@ -8886,9 +8478,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                682
-            ],
+            "in": 682,
             "outs": [
                 854
             ]
@@ -8909,9 +8499,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 2 black ) )",
-            "ins": [
-                1007
-            ],
+            "in": 1007,
             "outs": [
                 372,
                 849,
@@ -8929,9 +8517,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 8 5 )",
-            "ins": [
-                761
-            ],
+            "in": 761,
             "outs": [
                 441,
                 657,
@@ -8944,9 +8530,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 4 6 black ) )",
-            "ins": [
-                996
-            ],
+            "in": 996,
             "outs": [
                 803,
                 731,
@@ -8978,9 +8562,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                257
-            ],
+            "in": 257,
             "outs": [
                 465
             ]
@@ -8991,9 +8573,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 4 4 black ) )",
-            "ins": [
-                1037
-            ],
+            "in": 1037,
             "outs": [
                 731,
                 783,
@@ -9018,9 +8598,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                937
-            ],
+            "in": 937,
             "outs": [
                 863
             ]
@@ -9111,9 +8689,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 4 6 red ) )",
-            "ins": [
-                1008
-            ],
+            "in": 1008,
             "outs": [
                 367,
                 289,
@@ -9159,9 +8735,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 8 4 black ) )",
-            "ins": [
-                1047
-            ],
+            "in": 1047,
             "outs": [
                 896,
                 571,
@@ -9257,9 +8831,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 7 3 )",
-            "ins": [
-                767
-            ],
+            "in": 767,
             "outs": [
                 814,
                 480,
@@ -9333,9 +8905,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 7 3 red ) )",
-            "ins": [
-                1046
-            ],
+            "in": 1046,
             "outs": [
                 447,
                 5,
@@ -9364,9 +8934,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 7 1 )",
-            "ins": [
-                262
-            ],
+            "in": 262,
             "outs": [
                 890,
                 547
@@ -9391,9 +8959,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "goal",
             "gdl": "( goal black 100 )",
-            "ins": [
-                449
-            ]
+            "in": 449
         },
         {
             "id": 727,
@@ -9401,9 +8967,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 6 red ) )",
-            "ins": [
-                1022
-            ],
+            "in": 1022,
             "outs": [
                 835,
                 906,
@@ -9498,9 +9062,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                818
-            ],
+            "in": 818,
             "outs": [
                 120
             ]
@@ -9511,9 +9073,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                704
-            ],
+            "in": 704,
             "outs": [
                 821
             ]
@@ -9533,9 +9093,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( columnOpen 4 )",
-            "ins": [
-                881
-            ],
+            "in": 881,
             "outs": [
                 886,
                 336,
@@ -9548,9 +9106,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                94
-            ],
+            "in": 94,
             "outs": [
                 908
             ]
@@ -9594,9 +9150,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                33
-            ],
+            "in": 33,
             "outs": [
                 574
             ]
@@ -9607,9 +9161,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                150
-            ],
+            "in": 150,
             "outs": [
                 287
             ]
@@ -9629,9 +9181,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 4 red ) )",
-            "ins": [
-                1003
-            ],
+            "in": 1003,
             "outs": [
                 247,
                 661,
@@ -9666,9 +9216,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 5 5 black ) )",
-            "ins": [
-                1041
-            ],
+            "in": 1041,
             "outs": [
                 880,
                 813,
@@ -9690,9 +9238,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 6 5 red ) )",
-            "ins": [
-                1051
-            ],
+            "in": 1051,
             "outs": [
                 91,
                 123,
@@ -9724,9 +9270,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 6 6 )",
-            "ins": [
-                870
-            ],
+            "in": 870,
             "outs": [
                 459,
                 972,
@@ -9752,9 +9296,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 8 4 red ) )",
-            "ins": [
-                1049
-            ],
+            "in": 1049,
             "outs": [
                 678,
                 24,
@@ -9771,9 +9313,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 4 5 )",
-            "ins": [
-                602
-            ],
+            "in": 602,
             "outs": [
                 27,
                 318,
@@ -9798,9 +9338,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                261
-            ],
+            "in": 261,
             "outs": [
                 501
             ]
@@ -9853,9 +9391,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 6 1 red ) )",
-            "ins": [
-                987
-            ],
+            "in": 987,
             "outs": [
                 366,
                 531,
@@ -9983,9 +9519,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                232
-            ],
+            "in": 232,
             "outs": [
                 830
             ]
@@ -9996,9 +9530,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 5 black ) )",
-            "ins": [
-                1002
-            ],
+            "in": 1002,
             "outs": [
                 559,
                 823,
@@ -10030,9 +9562,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                451
-            ],
+            "in": 451,
             "outs": [
                 31
             ]
@@ -10050,9 +9580,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                369
-            ],
+            "in": 369,
             "outs": [
                 20
             ]
@@ -10092,9 +9620,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 2 3 )",
-            "ins": [
-                684
-            ],
+            "in": 684,
             "outs": [
                 681,
                 874,
@@ -10107,9 +9633,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal red ( drop 7 ) )",
-            "ins": [
-                142
-            ],
+            "in": 142,
             "outs": []
         },
         {
@@ -10118,9 +9642,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 3 5 )",
-            "ins": [
-                482
-            ],
+            "in": 482,
             "outs": [
                 865,
                 394,
@@ -10147,9 +9669,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                39
-            ],
+            "in": 39,
             "outs": [
                 584
             ]
@@ -10174,9 +9694,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                703
-            ],
+            "in": 703,
             "outs": [
                 365
             ]
@@ -10187,9 +9705,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 1 red ) )",
-            "ins": [
-                1001
-            ],
+            "in": 1001,
             "outs": [
                 491,
                 235,
@@ -10226,9 +9742,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                5
-            ],
+            "in": 5,
             "outs": [
                 644
             ]
@@ -10350,9 +9864,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 1 red ) )",
-            "ins": [
-                1004
-            ],
+            "in": 1004,
             "outs": [
                 366,
                 421,
@@ -10369,9 +9881,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 1 4 )",
-            "ins": [
-                411
-            ],
+            "in": 411,
             "outs": [
                 690,
                 305,
@@ -10384,9 +9894,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 6 5 black ) )",
-            "ins": [
-                995
-            ],
+            "in": 995,
             "outs": [
                 523,
                 339,
@@ -10406,9 +9914,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                961
-            ],
+            "in": 961,
             "outs": [
                 184
             ]
@@ -10433,9 +9939,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 4 4 )",
-            "ins": [
-                478
-            ],
+            "in": 478,
             "outs": [
                 694,
                 796,
@@ -10448,9 +9952,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                445
-            ],
+            "in": 445,
             "outs": [
                 653
             ]
@@ -10468,9 +9970,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 7 6 )",
-            "ins": [
-                448
-            ],
+            "in": 448,
             "outs": [
                 153,
                 14,
@@ -10577,9 +10077,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 7 5 black ) )",
-            "ins": [
-                1035
-            ],
+            "in": 1035,
             "outs": [
                 841,
                 339,
@@ -10649,9 +10147,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 4 2 red ) )",
-            "ins": [
-                1000
-            ],
+            "in": 1000,
             "outs": [
                 18,
                 973,
@@ -10698,9 +10194,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                54
-            ],
+            "in": 54,
             "outs": [
                 246
             ]
@@ -10739,9 +10233,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 3 2 )",
-            "ins": [
-                811
-            ],
+            "in": 811,
             "outs": [
                 869,
                 374,
@@ -10775,9 +10267,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 1 black ) )",
-            "ins": [
-                1032
-            ],
+            "in": 1032,
             "outs": [
                 597,
                 115,
@@ -10831,9 +10321,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 5 2 black ) )",
-            "ins": [
-                1045
-            ],
+            "in": 1045,
             "outs": [
                 558,
                 616,
@@ -10874,9 +10362,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                842
-            ],
+            "in": 842,
             "outs": [
                 806
             ]
@@ -10887,9 +10373,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal black noop )",
-            "ins": [
-                485
-            ],
+            "in": 485,
             "outs": []
         },
         {
@@ -10951,9 +10435,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 4 black ) )",
-            "ins": [
-                1076
-            ],
+            "in": 1076,
             "outs": [
                 528,
                 905,
@@ -10982,9 +10464,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "boardOpen",
-            "ins": [
-                84
-            ],
+            "in": 84,
             "outs": [
                 725,
                 710,
@@ -10997,9 +10477,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                920
-            ],
+            "in": 920,
             "outs": [
                 381
             ]
@@ -11046,9 +10524,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal red noop )",
-            "ins": [
-                445
-            ],
+            "in": 445,
             "outs": []
         },
         {
@@ -11073,9 +10549,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 6 3 black ) )",
-            "ins": [
-                1054
-            ],
+            "in": 1054,
             "outs": [
                 499,
                 58,
@@ -11110,9 +10584,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "goal",
             "gdl": "( goal black 50 )",
-            "ins": [
-                706
-            ]
+            "in": 706
         },
         {
             "id": 858,
@@ -11252,9 +10724,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                610
-            ],
+            "in": 610,
             "outs": [
                 109
             ]
@@ -11308,9 +10778,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                789
-            ],
+            "in": 789,
             "outs": [
                 756
             ]
@@ -11321,9 +10789,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal red ( drop 3 ) )",
-            "ins": [
-                834
-            ],
+            "in": 834,
             "outs": []
         },
         {
@@ -11371,9 +10837,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 8 2 )",
-            "ins": [
-                589
-            ],
+            "in": 589,
             "outs": [
                 529,
                 599,
@@ -11386,9 +10850,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 6 red ) )",
-            "ins": [
-                990
-            ],
+            "in": 990,
             "outs": [
                 346,
                 906,
@@ -11492,9 +10954,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 4 6 )",
-            "ins": [
-                655
-            ],
+            "in": 655,
             "outs": [
                 427,
                 787,
@@ -11627,9 +11087,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 1 3 )",
-            "ins": [
-                850
-            ],
+            "in": 850,
             "outs": [
                 561,
                 228,
@@ -11688,9 +11146,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 6 2 )",
-            "ins": [
-                562
-            ],
+            "in": 562,
             "outs": [
                 851,
                 797,
@@ -11716,9 +11172,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 6 2 red ) )",
-            "ins": [
-                1042
-            ],
+            "in": 1042,
             "outs": [
                 18,
                 763,
@@ -11952,9 +11406,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                413
-            ],
+            "in": 413,
             "outs": [
                 565
             ]
@@ -12025,9 +11477,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 8 1 red ) )",
-            "ins": [
-                991
-            ],
+            "in": 991,
             "outs": [
                 211,
                 399,
@@ -12042,9 +11492,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( columnEmpty 3 )",
-            "ins": [
-                620
-            ],
+            "in": 620,
             "outs": [
                 429,
                 32
@@ -12069,9 +11517,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( line red )",
-            "ins": [
-                858
-            ],
+            "in": 858,
             "outs": [
                 483,
                 26,
@@ -12112,9 +11558,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 8 5 red ) )",
-            "ins": [
-                1009
-            ],
+            "in": 1009,
             "outs": [
                 678,
                 123,
@@ -12130,9 +11574,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 1 red ) )",
-            "ins": [
-                1020
-            ],
+            "in": 1020,
             "outs": [
                 553,
                 514,
@@ -12201,9 +11643,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                749
-            ],
+            "in": 749,
             "outs": [
                 395
             ]
@@ -12228,9 +11668,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                160
-            ],
+            "in": 160,
             "outs": [
                 327
             ]
@@ -12250,9 +11688,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                880
-            ],
+            "in": 880,
             "outs": [
                 585
             ]
@@ -12263,9 +11699,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( columnEmpty 5 )",
-            "ins": [
-                575
-            ],
+            "in": 575,
             "outs": [
                 728,
                 479
@@ -12301,9 +11735,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 7 6 red ) )",
-            "ins": [
-                998
-            ],
+            "in": 998,
             "outs": [
                 173,
                 646,
@@ -12319,9 +11751,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal red ( drop 5 ) )",
-            "ins": [
-                462
-            ],
+            "in": 462,
             "outs": []
         },
         {
@@ -12353,9 +11783,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                674
-            ],
+            "in": 674,
             "outs": [
                 334
             ]
@@ -12561,9 +11989,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "ins": [
-                856
-            ],
+            "in": 856,
             "outs": [
                 325
             ]
@@ -12613,9 +12039,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( cellOpen 2 5 )",
-            "ins": [
-                769
-            ],
+            "in": 769,
             "outs": [
                 843,
                 957,

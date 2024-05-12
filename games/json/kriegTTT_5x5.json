@@ -22,9 +22,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 2 b ) )",
-            "ins": [
-                1678
-            ],
+            "in": 1678,
             "outs": [
                 218,
                 969,
@@ -88,9 +86,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal oplayer ( mark 1 4 ) )",
-            "ins": [
-                1416
-            ],
+            "in": 1416,
             "outs": []
         },
         {
@@ -110,9 +106,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( step 22 ) )",
-            "ins": [
-                1488
-            ],
+            "in": 1488,
             "outs": [
                 1255
             ]
@@ -134,9 +128,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal oplayer ( mark 3 4 ) )",
-            "ins": [
-                101
-            ],
+            "in": 101,
             "outs": []
         },
         {
@@ -171,9 +163,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal oplayer ( mark 2 3 ) )",
-            "ins": [
-                271
-            ],
+            "in": 271,
             "outs": []
         },
         {
@@ -182,9 +172,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried xplayer 5 5 ) )",
-            "ins": [
-                1748
-            ],
+            "in": 1748,
             "outs": [
                 1577,
                 1067
@@ -208,9 +196,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 4 2 xplayer ) )",
-            "ins": [
-                984
-            ],
+            "in": 984,
             "outs": [
                 1550
             ]
@@ -247,9 +233,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove xplayer 1 1 )",
-            "ins": [
-                464
-            ],
+            "in": 464,
             "outs": [
                 636,
                 1163,
@@ -262,9 +246,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( yougotit 3 4 ) )",
-            "ins": [
-                1198
-            ]
+            "in": 1198
         },
         {
             "id": 24,
@@ -347,9 +329,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove xplayer 4 2 )",
-            "ins": [
-                790
-            ],
+            "in": 790,
             "outs": [
                 967,
                 1126,
@@ -383,9 +363,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 4 1 )",
-            "ins": [
-                46
-            ],
+            "in": 46,
             "outs": [
                 676
             ]
@@ -396,9 +374,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 5 1 xplayer ) )",
-            "ins": [
-                1641
-            ],
+            "in": 1641,
             "outs": [
                 475,
                 1483,
@@ -424,9 +400,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( step 9 ) )",
-            "ins": [
-                1694
-            ],
+            "in": 1694,
             "outs": [
                 609
             ]
@@ -461,9 +435,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 4 5 xplayer ) )",
-            "ins": [
-                1640
-            ],
+            "in": 1640,
             "outs": [
                 1481,
                 383,
@@ -518,9 +490,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 4 5 b ) )",
-            "ins": [
-                774
-            ],
+            "in": 774,
             "outs": [
                 861
             ]
@@ -580,9 +550,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 5 4 xplayer ) )",
-            "ins": [
-                1709
-            ],
+            "in": 1709,
             "outs": [
                 1483,
                 1321,
@@ -639,9 +607,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( yougotit 4 3 ) )",
-            "ins": [
-                1407
-            ]
+            "in": 1407
         },
         {
             "id": 53,
@@ -673,9 +639,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal xplayer ( mark 3 3 ) )",
-            "ins": [
-                160
-            ],
+            "in": 160,
             "outs": []
         },
         {
@@ -746,9 +710,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 4 4 oplayer ) )",
-            "ins": [
-                819
-            ],
+            "in": 819,
             "outs": [
                 679
             ]
@@ -759,9 +721,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked_tmp1 1 1 )",
-            "ins": [
-                1296
-            ],
+            "in": 1296,
             "outs": [
                 508
             ]
@@ -783,9 +743,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal xplayer ( mark 1 1 ) )",
-            "ins": [
-                1412
-            ],
+            "in": 1412,
             "outs": []
         },
         {
@@ -839,9 +797,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( yougotit 5 4 ) )",
-            "ins": [
-                177
-            ]
+            "in": 177
         },
         {
             "id": 70,
@@ -849,9 +805,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried xplayer 1 3 ) )",
-            "ins": [
-                1745
-            ],
+            "in": 1745,
             "outs": [
                 600,
                 1402
@@ -874,9 +828,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove oplayer 2 1 )",
-            "ins": [
-                490
-            ],
+            "in": 490,
             "outs": [
                 941,
                 1533,
@@ -932,9 +884,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried xplayer 2 3 ) )",
-            "ins": [
-                693
-            ],
+            "in": 693,
             "outs": [
                 1542
             ]
@@ -972,9 +922,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( yougotit 5 4 ) )",
-            "ins": [
-                1331
-            ]
+            "in": 1331
         },
         {
             "id": 81,
@@ -1015,9 +963,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( yougotit 2 3 ) )",
-            "ins": [
-                471
-            ]
+            "in": 471
         },
         {
             "id": 85,
@@ -1025,9 +971,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( step 14 ) )",
-            "ins": [
-                1728
-            ],
+            "in": 1728,
             "outs": [
                 591
             ]
@@ -1038,9 +982,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal xplayer ( mark 2 5 ) )",
-            "ins": [
-                106
-            ],
+            "in": 106,
             "outs": []
         },
         {
@@ -1049,9 +991,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 2 oplayer ) )",
-            "ins": [
-                1741
-            ],
+            "in": 1741,
             "outs": [
                 948,
                 1629,
@@ -1111,9 +1051,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( mark 4 3 ) )",
-            "ins": [
-                1149
-            ]
+            "in": 1149
         },
         {
             "id": 93,
@@ -1121,9 +1059,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal xplayer ( mark 5 5 ) )",
-            "ins": [
-                346
-            ],
+            "in": 346,
             "outs": []
         },
         {
@@ -1160,9 +1096,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried oplayer 1 3 ) )",
-            "ins": [
-                413
-            ],
+            "in": 413,
             "outs": [
                 929
             ]
@@ -1228,9 +1162,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried oplayer 3 5 ) )",
-            "ins": [
-                1732
-            ],
+            "in": 1732,
             "outs": [
                 597,
                 297
@@ -1295,9 +1227,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( yougotit 5 3 ) )",
-            "ins": [
-                1479
-            ]
+            "in": 1479
         },
         {
             "id": 110,
@@ -1360,9 +1290,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( mark 5 4 ) )",
-            "ins": [
-                1434
-            ]
+            "in": 1434
         },
         {
             "id": 116,
@@ -1370,9 +1298,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 1 3 )",
-            "ins": [
-                1028
-            ],
+            "in": 1028,
             "outs": [
                 130
             ]
@@ -1395,9 +1321,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( mark 4 1 ) )",
-            "ins": [
-                1017
-            ]
+            "in": 1017
         },
         {
             "id": 119,
@@ -1405,9 +1329,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove xplayer 4 5 )",
-            "ins": [
-                159
-            ],
+            "in": 159,
             "outs": [
                 1481,
                 211,
@@ -1420,9 +1342,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( step 16 ) )",
-            "ins": [
-                1293
-            ],
+            "in": 1293,
             "outs": [
                 1399
             ]
@@ -1455,9 +1375,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked_tmp1 5 2 )",
-            "ins": [
-                845
-            ],
+            "in": 845,
             "outs": [
                 909
             ]
@@ -1468,9 +1386,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( step 9 ) )",
-            "ins": [
-                1312
-            ],
+            "in": 1312,
             "outs": [
                 617
             ]
@@ -1481,9 +1397,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove oplayer 2 2 )",
-            "ins": [
-                1613
-            ],
+            "in": 1613,
             "outs": [
                 538,
                 459,
@@ -1531,9 +1445,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 1 4 oplayer ) )",
-            "ins": [
-                1225
-            ],
+            "in": 1225,
             "outs": [
                 89
             ]
@@ -1630,9 +1542,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried xplayer 4 3 ) )",
-            "ins": [
-                1770
-            ],
+            "in": 1770,
             "outs": [
                 1539,
                 1453
@@ -1687,9 +1597,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 4 2 b ) )",
-            "ins": [
-                1688
-            ],
+            "in": 1688,
             "outs": [
                 1132,
                 790,
@@ -1742,9 +1650,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried xplayer 4 4 ) )",
-            "ins": [
-                328
-            ],
+            "in": 328,
             "outs": [
                 722
             ]
@@ -1791,9 +1697,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 5 2 oplayer ) )",
-            "ins": [
-                1789
-            ],
+            "in": 1789,
             "outs": [
                 1517,
                 1011,
@@ -1829,9 +1733,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 2 2 xplayer ) )",
-            "ins": [
-                1229
-            ],
+            "in": 1229,
             "outs": [
                 1278
             ]
@@ -1915,9 +1817,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 3 5 oplayer ) )",
-            "ins": [
-                1576
-            ],
+            "in": 1576,
             "outs": [
                 336
             ]
@@ -1928,9 +1828,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 4 4 oplayer ) )",
-            "ins": [
-                1703
-            ],
+            "in": 1703,
             "outs": [
                 1059,
                 985,
@@ -1970,9 +1868,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove oplayer 4 2 )",
-            "ins": [
-                1349
-            ],
+            "in": 1349,
             "outs": [
                 739,
                 237,
@@ -2011,9 +1907,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove oplayer 4 3 )",
-            "ins": [
-                295
-            ],
+            "in": 295,
             "outs": [
                 503,
                 952,
@@ -2026,9 +1920,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 2 2 b ) )",
-            "ins": [
-                359
-            ],
+            "in": 359,
             "outs": [
                 416
             ]
@@ -2039,9 +1931,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove xplayer 5 5 )",
-            "ins": [
-                1526
-            ],
+            "in": 1526,
             "outs": [
                 1309,
                 1547,
@@ -2054,9 +1944,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 1 oplayer ) )",
-            "ins": [
-                1647
-            ],
+            "in": 1647,
             "outs": [
                 589,
                 1025,
@@ -2071,9 +1959,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried xplayer 5 2 ) )",
-            "ins": [
-                140
-            ],
+            "in": 140,
             "outs": [
                 1451
             ]
@@ -2131,9 +2017,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove xplayer 5 4 )",
-            "ins": [
-                586
-            ],
+            "in": 586,
             "outs": [
                 69,
                 1063,
@@ -2251,9 +2135,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove oplayer 2 5 )",
-            "ins": [
-                261
-            ],
+            "in": 261,
             "outs": [
                 858,
                 951,
@@ -2266,9 +2148,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried oplayer 5 1 ) )",
-            "ins": [
-                1419
-            ],
+            "in": 1419,
             "outs": [
                 1167
             ]
@@ -2333,9 +2213,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 4 4 xplayer ) )",
-            "ins": [
-                1507
-            ],
+            "in": 1507,
             "outs": [
                 371
             ]
@@ -2346,9 +2224,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal oplayer ( mark 4 2 ) )",
-            "ins": [
-                1205
-            ],
+            "in": 1205,
             "outs": []
         },
         {
@@ -2369,9 +2245,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 5 xplayer ) )",
-            "ins": [
-                1777
-            ],
+            "in": 1777,
             "outs": [
                 783,
                 436,
@@ -2386,9 +2260,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried xplayer 4 5 ) )",
-            "ins": [
-                1785
-            ],
+            "in": 1785,
             "outs": [
                 439,
                 753
@@ -2400,9 +2272,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove xplayer 2 1 )",
-            "ins": [
-                167
-            ],
+            "in": 167,
             "outs": [
                 1070,
                 1606,
@@ -2415,9 +2285,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 1 5 xplayer ) )",
-            "ins": [
-                1308
-            ],
+            "in": 1308,
             "outs": [
                 1458
             ]
@@ -2439,9 +2307,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 5 3 xplayer ) )",
-            "ins": [
-                552
-            ],
+            "in": 552,
             "outs": [
                 1190
             ]
@@ -2459,9 +2325,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( mark 1 5 ) )",
-            "ins": [
-                1021
-            ]
+            "in": 1021
         },
         {
             "id": 204,
@@ -2493,9 +2357,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( yougotit 1 3 ) )",
-            "ins": [
-                272
-            ]
+            "in": 272
         },
         {
             "id": 207,
@@ -2503,9 +2365,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal oplayer ( mark 1 2 ) )",
-            "ins": [
-                1417
-            ],
+            "in": 1417,
             "outs": []
         },
         {
@@ -2544,9 +2404,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( yougotit 4 5 ) )",
-            "ins": [
-                119
-            ]
+            "in": 119
         },
         {
             "id": 212,
@@ -2554,9 +2412,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 5 3 oplayer ) )",
-            "ins": [
-                114
-            ],
+            "in": 114,
             "outs": [
                 186
             ]
@@ -2618,9 +2474,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( yougotit 1 4 ) )",
-            "ins": [
-                1499
-            ]
+            "in": 1499
         },
         {
             "id": 218,
@@ -2640,9 +2494,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 4 xplayer ) )",
-            "ins": [
-                1659
-            ],
+            "in": 1659,
             "outs": [
                 1112,
                 436,
@@ -2719,9 +2571,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( step 3 ) )",
-            "ins": [
-                1654
-            ],
+            "in": 1654,
             "outs": [
                 549
             ]
@@ -2732,9 +2582,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove xplayer 2 5 )",
-            "ins": [
-                442
-            ],
+            "in": 442,
             "outs": [
                 797,
                 1445,
@@ -2747,9 +2595,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove oplayer 4 5 )",
-            "ins": [
-                959
-            ],
+            "in": 959,
             "outs": [
                 524,
                 1352,
@@ -2775,9 +2621,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 1 1 )",
-            "ins": [
-                508
-            ],
+            "in": 508,
             "outs": [
                 355
             ]
@@ -2788,9 +2632,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( step 19 ) )",
-            "ins": [
-                747
-            ],
+            "in": 747,
             "outs": [
                 893
             ]
@@ -2801,9 +2643,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 5 5 oplayer ) )",
-            "ins": [
-                1755
-            ],
+            "in": 1755,
             "outs": [
                 1194,
                 925,
@@ -2829,9 +2669,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 4 b ) )",
-            "ins": [
-                1723
-            ],
+            "in": 1723,
             "outs": [
                 510,
                 1113,
@@ -2892,9 +2730,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 3 2 )",
-            "ins": [
-                1359
-            ],
+            "in": 1359,
             "outs": [
                 927
             ]
@@ -2950,9 +2786,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal xplayer ( mark 3 5 ) )",
-            "ins": [
-                1261
-            ],
+            "in": 1261,
             "outs": []
         },
         {
@@ -2961,9 +2795,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried oplayer 5 3 ) )",
-            "ins": [
-                683
-            ],
+            "in": 683,
             "outs": [
                 470
             ]
@@ -3013,9 +2845,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( step 12 ) )",
-            "ins": [
-                665
-            ],
+            "in": 665,
             "outs": [
                 922
             ]
@@ -3026,9 +2856,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( mark 3 4 ) )",
-            "ins": [
-                1258
-            ]
+            "in": 1258
         },
         {
             "id": 250,
@@ -3066,9 +2894,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( line xplayer )",
-            "ins": [
-                573
-            ],
+            "in": 573,
             "outs": [
                 842,
                 1235,
@@ -3101,9 +2927,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried xplayer 3 1 ) )",
-            "ins": [
-                700
-            ],
+            "in": 700,
             "outs": [
                 479
             ]
@@ -3176,9 +3000,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried xplayer 3 5 ) )",
-            "ins": [
-                1135
-            ],
+            "in": 1135,
             "outs": [
                 107
             ]
@@ -3189,9 +3011,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal oplayer ( mark 3 3 ) )",
-            "ins": [
-                727
-            ],
+            "in": 727,
             "outs": []
         },
         {
@@ -3212,9 +3032,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 1 1 xplayer ) )",
-            "ins": [
-                636
-            ],
+            "in": 636,
             "outs": [
                 338
             ]
@@ -3234,9 +3052,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 3 1 oplayer ) )",
-            "ins": [
-                293
-            ],
+            "in": 293,
             "outs": [
                 94
             ]
@@ -3247,9 +3063,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 4 1 b ) )",
-            "ins": [
-                933
-            ],
+            "in": 933,
             "outs": [
                 800
             ]
@@ -3284,9 +3098,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove oplayer 1 3 )",
-            "ins": [
-                622
-            ],
+            "in": 622,
             "outs": [
                 206,
                 1543,
@@ -3377,9 +3189,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( mark 1 3 ) )",
-            "ins": [
-                718
-            ]
+            "in": 718
         },
         {
             "id": 281,
@@ -3399,9 +3209,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 4 1 xplayer ) )",
-            "ins": [
-                1532
-            ],
+            "in": 1532,
             "outs": [
                 1441
             ]
@@ -3426,9 +3234,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 5 3 b ) )",
-            "ins": [
-                1680
-            ],
+            "in": 1680,
             "outs": [
                 350,
                 354,
@@ -3445,9 +3251,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( yougotit 5 2 ) )",
-            "ins": [
-                375
-            ]
+            "in": 375
         },
         {
             "id": 286,
@@ -3505,9 +3309,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked_tmp1 1 4 )",
-            "ins": [
-                1557
-            ],
+            "in": 1557,
             "outs": [
                 99
             ]
@@ -3530,9 +3332,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal xplayer ( mark 5 3 ) )",
-            "ins": [
-                1363
-            ],
+            "in": 1363,
             "outs": []
         },
         {
@@ -3573,9 +3373,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 2 oplayer ) )",
-            "ins": [
-                1751
-            ],
+            "in": 1751,
             "outs": [
                 589,
                 1517,
@@ -3602,9 +3400,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( yougotit 5 1 ) )",
-            "ins": [
-                1186
-            ]
+            "in": 1186
         },
         {
             "id": 299,
@@ -3612,9 +3408,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal xplayer ( mark 5 2 ) )",
-            "ins": [
-                799
-            ],
+            "in": 799,
             "outs": []
         },
         {
@@ -3635,9 +3429,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( mark 4 3 ) )",
-            "ins": [
-                830
-            ]
+            "in": 830
         },
         {
             "id": 302,
@@ -3681,9 +3473,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal oplayer ( mark 5 1 ) )",
-            "ins": [
-                686
-            ],
+            "in": 686,
             "outs": []
         },
         {
@@ -3711,9 +3501,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "goal",
             "gdl": "( goal xplayer 0 )",
-            "ins": [
-                786
-            ]
+            "in": 786
         },
         {
             "id": 309,
@@ -3721,9 +3509,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( mark 1 4 ) )",
-            "ins": [
-                728
-            ]
+            "in": 728
         },
         {
             "id": 310,
@@ -3731,9 +3517,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 1 1 oplayer ) )",
-            "ins": [
-                74
-            ],
+            "in": 74,
             "outs": [
                 255
             ]
@@ -3756,9 +3540,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked_tmp1 3 4 )",
-            "ins": [
-                137
-            ],
+            "in": 137,
             "outs": [
                 711
             ]
@@ -3840,9 +3622,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 5 2 )",
-            "ins": [
-                909
-            ],
+            "in": 909,
             "outs": [
                 476
             ]
@@ -3868,9 +3648,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried oplayer 2 2 ) )",
-            "ins": [
-                1562
-            ],
+            "in": 1562,
             "outs": [
                 1134
             ]
@@ -3881,9 +3659,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked_tmp1 2 5 )",
-            "ins": [
-                1075
-            ],
+            "in": 1075,
             "outs": [
                 1400
             ]
@@ -3961,9 +3737,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "goal",
             "gdl": "( goal oplayer 0 )",
-            "ins": [
-                253
-            ]
+            "in": 253
         },
         {
             "id": 330,
@@ -3971,9 +3745,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( step 10 ) )",
-            "ins": [
-                1771
-            ],
+            "in": 1771,
             "outs": [
                 782
             ]
@@ -3984,9 +3756,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked_tmp1 2 3 )",
-            "ins": [
-                451
-            ],
+            "in": 451,
             "outs": [
                 968
             ]
@@ -4075,9 +3845,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried xplayer 3 2 ) )",
-            "ins": [
-                1267
-            ],
+            "in": 1267,
             "outs": [
                 306
             ]
@@ -4127,9 +3895,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried oplayer 5 5 ) )",
-            "ins": [
-                153
-            ],
+            "in": 153,
             "outs": [
                 208
             ]
@@ -4140,9 +3906,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 1 3 xplayer ) )",
-            "ins": [
-                1357
-            ],
+            "in": 1357,
             "outs": [
                 647
             ]
@@ -4177,9 +3941,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( mark 3 3 ) )",
-            "ins": [
-                1508
-            ]
+            "in": 1508
         },
         {
             "id": 348,
@@ -4217,9 +3979,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal xplayer ( mark 4 1 ) )",
-            "ins": [
-                213
-            ],
+            "in": 213,
             "outs": []
         },
         {
@@ -4235,9 +3995,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal oplayer ( mark 3 2 ) )",
-            "ins": [
-                390
-            ],
+            "in": 390,
             "outs": []
         },
         {
@@ -4267,9 +4025,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked_tmp1 3 5 )",
-            "ins": [
-                528
-            ],
+            "in": 528,
             "outs": [
                 176
             ]
@@ -4280,9 +4036,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 4 4 xplayer ) )",
-            "ins": [
-                1674
-            ],
+            "in": 1674,
             "outs": [
                 335,
                 383,
@@ -4298,9 +4052,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked_tmp1 1 2 )",
-            "ins": [
-                463
-            ],
+            "in": 463,
             "outs": [
                 385
             ]
@@ -4359,9 +4111,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal xplayer ( mark 3 2 ) )",
-            "ins": [
-                827
-            ],
+            "in": 827,
             "outs": []
         },
         {
@@ -4370,9 +4120,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next_tmp1 xplayer )",
-            "ins": [
-                993
-            ],
+            "in": 993,
             "outs": [
                 600,
                 387,
@@ -4407,9 +4155,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( mark 5 5 ) )",
-            "ins": [
-                1346
-            ]
+            "in": 1346
         },
         {
             "id": 366,
@@ -4424,9 +4170,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal xplayer ( mark 2 2 ) )",
-            "ins": [
-                704
-            ],
+            "in": 704,
             "outs": []
         },
         {
@@ -4435,9 +4179,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried oplayer 1 4 ) )",
-            "ins": [
-                923
-            ],
+            "in": 923,
             "outs": [
                 349
             ]
@@ -4517,9 +4259,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove xplayer 5 2 )",
-            "ins": [
-                27
-            ],
+            "in": 27,
             "outs": [
                 1048,
                 285,
@@ -4548,9 +4288,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( mark 4 4 ) )",
-            "ins": [
-                210
-            ]
+            "in": 210
         },
         {
             "id": 379,
@@ -4558,9 +4296,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 1 xplayer ) )",
-            "ins": [
-                1750
-            ],
+            "in": 1750,
             "outs": [
                 417,
                 1216,
@@ -4594,9 +4330,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 3 1 xplayer ) )",
-            "ins": [
-                437
-            ],
+            "in": 437,
             "outs": [
                 1164
             ]
@@ -4621,9 +4355,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 2 b ) )",
-            "ins": [
-                1696
-            ],
+            "in": 1696,
             "outs": [
                 1150,
                 359,
@@ -4689,9 +4421,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked_tmp1 2 2 )",
-            "ins": [
-                504
-            ],
+            "in": 504,
             "outs": [
                 685
             ]
@@ -4714,9 +4444,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal oplayer ( mark 1 1 ) )",
-            "ins": [
-                882
-            ],
+            "in": 882,
             "outs": []
         },
         {
@@ -4752,9 +4480,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( step 20 ) )",
-            "ins": [
-                1682
-            ],
+            "in": 1682,
             "outs": [
                 536
             ]
@@ -4784,9 +4510,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 5 1 oplayer ) )",
-            "ins": [
-                1692
-            ],
+            "in": 1692,
             "outs": [
                 1025,
                 1514,
@@ -4800,9 +4524,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 5 2 xplayer ) )",
-            "ins": [
-                1781
-            ],
+            "in": 1781,
             "outs": [
                 1048,
                 1483,
@@ -4856,9 +4578,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 2 4 b ) )",
-            "ins": [
-                1337
-            ],
+            "in": 1337,
             "outs": [
                 323
             ]
@@ -4880,9 +4600,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( mark 5 3 ) )",
-            "ins": [
-                1491
-            ]
+            "in": 1491
         },
         {
             "id": 405,
@@ -4902,9 +4620,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 3 4 oplayer ) )",
-            "ins": [
-                713
-            ],
+            "in": 713,
             "outs": [
                 911
             ]
@@ -4915,9 +4631,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove xplayer 1 3 )",
-            "ins": [
-                228
-            ],
+            "in": 228,
             "outs": [
                 1357,
                 1459,
@@ -4942,9 +4656,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 5 4 b ) )",
-            "ins": [
-                1712
-            ],
+            "in": 1712,
             "outs": [
                 897,
                 1083,
@@ -5023,9 +4735,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal oplayer ( mark 2 2 ) )",
-            "ins": [
-                1387
-            ],
+            "in": 1387,
             "outs": []
         },
         {
@@ -5060,9 +4770,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal xplayer ( mark 4 3 ) )",
-            "ins": [
-                150
-            ],
+            "in": 150,
             "outs": []
         },
         {
@@ -5071,9 +4779,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal oplayer ( mark 5 2 ) )",
-            "ins": [
-                175
-            ],
+            "in": 175,
             "outs": []
         },
         {
@@ -5082,9 +4788,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( mark 5 1 ) )",
-            "ins": [
-                1204
-            ]
+            "in": 1204
         },
         {
             "id": 421,
@@ -5092,9 +4796,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( yougotit 3 1 ) )",
-            "ins": [
-                1316
-            ]
+            "in": 1316
         },
         {
             "id": 422,
@@ -5114,9 +4816,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( mark 4 1 ) )",
-            "ins": [
-                530
-            ]
+            "in": 530
         },
         {
             "id": 424,
@@ -5124,9 +4824,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried oplayer 1 4 ) )",
-            "ins": [
-                1671
-            ],
+            "in": 1671,
             "outs": [
                 1336,
                 1498
@@ -5157,9 +4855,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 4 2 )",
-            "ins": [
-                1601
-            ],
+            "in": 1601,
             "outs": [
                 1282
             ]
@@ -5213,9 +4909,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( mark 1 5 ) )",
-            "ins": [
-                1109
-            ]
+            "in": 1109
         },
         {
             "id": 433,
@@ -5280,9 +4974,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 3 2 b ) )",
-            "ins": [
-                218
-            ],
+            "in": 218,
             "outs": [
                 836
             ]
@@ -5311,9 +5003,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried xplayer 2 1 ) )",
-            "ins": [
-                13
-            ],
+            "in": 13,
             "outs": [
                 136
             ]
@@ -5348,9 +5038,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried oplayer 1 2 ) )",
-            "ins": [
-                1721
-            ],
+            "in": 1721,
             "outs": [
                 593,
                 388
@@ -5369,9 +5057,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( step 23 ) )",
-            "ins": [
-                1689
-            ],
+            "in": 1689,
             "outs": [
                 1473
             ]
@@ -5382,9 +5068,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( mark 2 1 ) )",
-            "ins": [
-                1317
-            ]
+            "in": 1317
         },
         {
             "id": 448,
@@ -5392,9 +5076,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( mark 3 2 ) )",
-            "ins": [
-                291
-            ]
+            "in": 291
         },
         {
             "id": 449,
@@ -5402,9 +5084,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( mark 1 4 ) )",
-            "ins": [
-                1264
-            ]
+            "in": 1264
         },
         {
             "id": 450,
@@ -5460,9 +5140,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried oplayer 4 3 ) )",
-            "ins": [
-                1764
-            ],
+            "in": 1764,
             "outs": [
                 1200,
                 1297
@@ -5488,9 +5166,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried xplayer 3 1 ) )",
-            "ins": [
-                1687
-            ],
+            "in": 1687,
             "outs": [
                 242,
                 1029
@@ -5598,9 +5274,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal oplayer ( mark 1 3 ) )",
-            "ins": [
-                262
-            ],
+            "in": 262,
             "outs": []
         },
         {
@@ -5609,9 +5283,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( step 20 ) )",
-            "ins": [
-                1302
-            ],
+            "in": 1302,
             "outs": [
                 445
             ]
@@ -5622,9 +5294,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked_tmp1 2 4 )",
-            "ins": [
-                691
-            ],
+            "in": 691,
             "outs": [
                 1174
             ]
@@ -5635,9 +5305,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried xplayer 3 4 ) )",
-            "ins": [
-                65
-            ],
+            "in": 65,
             "outs": [
                 756
             ]
@@ -5655,9 +5323,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove oplayer 2 3 )",
-            "ins": [
-                829
-            ],
+            "in": 829,
             "outs": [
                 1018,
                 84,
@@ -5733,9 +5399,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove oplayer 5 5 )",
-            "ins": [
-                224
-            ],
+            "in": 224,
             "outs": [
                 484,
                 258,
@@ -5769,9 +5433,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove xplayer 2 3 )",
-            "ins": [
-                487
-            ],
+            "in": 487,
             "outs": [
                 682,
                 820,
@@ -5796,9 +5458,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "goal",
             "gdl": "( goal xplayer 50 )",
-            "ins": [
-                43
-            ]
+            "in": 43
         },
         {
             "id": 484,
@@ -5806,9 +5466,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( yougotit 5 5 ) )",
-            "ins": [
-                478
-            ]
+            "in": 478
         },
         {
             "id": 485,
@@ -5853,9 +5511,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 4 oplayer ) )",
-            "ins": [
-                1672
-            ],
+            "in": 1672,
             "outs": [
                 529,
                 283,
@@ -5871,9 +5527,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( mark 1 2 ) )",
-            "ins": [
-                950
-            ]
+            "in": 950
         },
         {
             "id": 490,
@@ -5929,9 +5583,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried xplayer 4 3 ) )",
-            "ins": [
-                477
-            ],
+            "in": 477,
             "outs": [
                 1468
             ]
@@ -5942,9 +5594,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( mark 1 1 ) )",
-            "ins": [
-                1501
-            ]
+            "in": 1501
         },
         {
             "id": 496,
@@ -5952,9 +5602,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 4 2 oplayer ) )",
-            "ins": [
-                1746
-            ],
+            "in": 1746,
             "outs": [
                 1517,
                 792,
@@ -5970,9 +5618,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 4 3 xplayer ) )",
-            "ins": [
-                1609
-            ],
+            "in": 1609,
             "outs": [
                 668
             ]
@@ -5995,9 +5641,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 4 2 xplayer ) )",
-            "ins": [
-                1780
-            ],
+            "in": 1780,
             "outs": [
                 1009,
                 785,
@@ -6013,9 +5657,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( mark 4 5 ) )",
-            "ins": [
-                955
-            ]
+            "in": 955
         },
         {
             "id": 501,
@@ -6023,9 +5665,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried xplayer 1 5 ) )",
-            "ins": [
-                1727
-            ],
+            "in": 1727,
             "outs": [
                 554,
                 918
@@ -6086,9 +5726,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 3 oplayer ) )",
-            "ins": [
-                1772
-            ],
+            "in": 1772,
             "outs": [
                 529,
                 283,
@@ -6104,9 +5742,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( mark 4 5 ) )",
-            "ins": [
-                164
-            ]
+            "in": 164
         },
         {
             "id": 508,
@@ -6150,9 +5786,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried xplayer 4 2 ) )",
-            "ins": [
-                1466
-            ],
+            "in": 1466,
             "outs": [
                 25
             ]
@@ -6163,9 +5797,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 4 3 xplayer ) )",
-            "ins": [
-                1701
-            ],
+            "in": 1701,
             "outs": [
                 1609,
                 455,
@@ -6224,9 +5856,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( yougotit 2 2 ) )",
-            "ins": [
-                1055
-            ]
+            "in": 1055
         },
         {
             "id": 518,
@@ -6234,9 +5864,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 4 1 oplayer ) )",
-            "ins": [
-                1691
-            ],
+            "in": 1691,
             "outs": [
                 1025,
                 66,
@@ -6251,9 +5879,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 4 4 b ) )",
-            "ins": [
-                79
-            ],
+            "in": 79,
             "outs": [
                 1585
             ]
@@ -6293,9 +5919,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 2 1 oplayer ) )",
-            "ins": [
-                1533
-            ],
+            "in": 1533,
             "outs": [
                 1169
             ]
@@ -6306,9 +5930,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried xplayer 2 3 ) )",
-            "ins": [
-                1779
-            ],
+            "in": 1779,
             "outs": [
                 1289,
                 735
@@ -6344,9 +5966,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried xplayer 4 4 ) )",
-            "ins": [
-                1708
-            ],
+            "in": 1708,
             "outs": [
                 1268,
                 251
@@ -6420,9 +6040,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried oplayer 4 5 ) )",
-            "ins": [
-                746
-            ],
+            "in": 746,
             "outs": [
                 1619
             ]
@@ -6433,9 +6051,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 1 b ) )",
-            "ins": [
-                1644
-            ],
+            "in": 1644,
             "outs": [
                 490,
                 179,
@@ -6452,9 +6068,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 1 2 oplayer ) )",
-            "ins": [
-                450
-            ],
+            "in": 450,
             "outs": [
                 1192
             ]
@@ -6477,9 +6091,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( step 21 ) )",
-            "ins": [
-                394
-            ],
+            "in": 394,
             "outs": [
                 1559
             ]
@@ -6502,9 +6114,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( yougotit 2 2 ) )",
-            "ins": [
-                125
-            ]
+            "in": 125
         },
         {
             "id": 539,
@@ -6524,9 +6134,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried oplayer 1 1 ) )",
-            "ins": [
-                1146
-            ],
+            "in": 1146,
             "outs": [
                 260
             ]
@@ -6549,9 +6157,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( yougotit 4 4 ) )",
-            "ins": [
-                803
-            ]
+            "in": 803
         },
         {
             "id": 543,
@@ -6571,9 +6177,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried xplayer 4 5 ) )",
-            "ins": [
-                163
-            ],
+            "in": 163,
             "outs": [
                 1564
             ]
@@ -6603,9 +6207,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 5 5 xplayer ) )",
-            "ins": [
-                1778
-            ],
+            "in": 1778,
             "outs": [
                 1524,
                 1547,
@@ -6631,9 +6233,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( step 4 ) )",
-            "ins": [
-                225
-            ],
+            "in": 225,
             "outs": [
                 1480
             ]
@@ -6656,9 +6256,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( mark 3 1 ) )",
-            "ins": [
-                859
-            ]
+            "in": 859
         },
         {
             "id": 552,
@@ -6754,9 +6352,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( mark 5 4 ) )",
-            "ins": [
-                1605
-            ]
+            "in": 1605
         },
         {
             "id": 561,
@@ -6800,9 +6396,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried xplayer 3 5 ) )",
-            "ins": [
-                1650
-            ],
+            "in": 1650,
             "outs": [
                 174,
                 1435
@@ -6833,9 +6427,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( step 16 ) )",
-            "ins": [
-                1762
-            ],
+            "in": 1762,
             "outs": [
                 1465
             ]
@@ -6869,9 +6461,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal xplayer ( mark 2 4 ) )",
-            "ins": [
-                1097
-            ],
+            "in": 1097,
             "outs": []
         },
         {
@@ -6891,9 +6481,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove xplayer 3 2 )",
-            "ins": [
-                652
-            ],
+            "in": 652,
             "outs": [
                 221,
                 582,
@@ -6936,9 +6524,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( yougotit 3 3 ) )",
-            "ins": [
-                788
-            ]
+            "in": 788
         },
         {
             "id": 575,
@@ -6958,9 +6544,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried oplayer 2 4 ) )",
-            "ins": [
-                810
-            ],
+            "in": 810,
             "outs": [
                 181
             ]
@@ -6981,9 +6565,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( step 26 ) )",
-            "ins": [
-                1506
-            ],
+            "in": 1506,
             "outs": [
                 901
             ]
@@ -6994,9 +6576,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 3 b ) )",
-            "ins": [
-                1718
-            ],
+            "in": 1718,
             "outs": [
                 1024,
                 228,
@@ -7141,9 +6721,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( step 15 ) )",
-            "ins": [
-                85
-            ],
+            "in": 85,
             "outs": [
                 1527
             ]
@@ -7154,9 +6732,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove xplayer 2 4 )",
-            "ins": [
-                1423
-            ],
+            "in": 1423,
             "outs": [
                 637,
                 516,
@@ -7193,9 +6769,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried xplayer 2 5 ) )",
-            "ins": [
-                1697
-            ],
+            "in": 1697,
             "outs": [
                 571,
                 1269
@@ -7207,9 +6781,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried xplayer 3 3 ) )",
-            "ins": [
-                1700
-            ],
+            "in": 1700,
             "outs": [
                 10,
                 422
@@ -7276,9 +6848,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove oplayer 1 1 )",
-            "ins": [
-                619
-            ],
+            "in": 619,
             "outs": [
                 1461,
                 1467,
@@ -7315,9 +6885,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried oplayer 2 3 ) )",
-            "ins": [
-                1638
-            ],
+            "in": 1638,
             "outs": [
                 1076,
                 1634
@@ -7341,9 +6909,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 4 5 xplayer ) )",
-            "ins": [
-                1481
-            ],
+            "in": 1481,
             "outs": [
                 19
             ]
@@ -7354,9 +6920,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal xplayer ( mark 5 1 ) )",
-            "ins": [
-                17
-            ],
+            "in": 17,
             "outs": []
         },
         {
@@ -7365,9 +6929,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( step 10 ) )",
-            "ins": [
-                37
-            ],
+            "in": 37,
             "outs": [
                 1471
             ]
@@ -7402,9 +6964,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove oplayer 1 5 )",
-            "ins": [
-                1306
-            ],
+            "in": 1306,
             "outs": [
                 1425,
                 1226,
@@ -7432,9 +6992,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( yougotit 3 1 ) )",
-            "ins": [
-                1177
-            ]
+            "in": 1177
         },
         {
             "id": 615,
@@ -7454,9 +7012,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove oplayer 1 4 )",
-            "ins": [
-                610
-            ],
+            "in": 610,
             "outs": [
                 1225,
                 1475,
@@ -7500,9 +7056,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried xplayer 2 4 ) )",
-            "ins": [
-                1560
-            ],
+            "in": 1560,
             "outs": [
                 294
             ]
@@ -7560,9 +7114,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked_tmp1 5 4 )",
-            "ins": [
-                1581
-            ],
+            "in": 1581,
             "outs": [
                 431
             ]
@@ -7585,9 +7137,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 2 4 )",
-            "ins": [
-                1174
-            ],
+            "in": 1174,
             "outs": [
                 1013
             ]
@@ -7641,9 +7191,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 5 2 b ) )",
-            "ins": [
-                1702
-            ],
+            "in": 1702,
             "outs": [
                 27,
                 281,
@@ -7702,9 +7250,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( yougotit 2 4 ) )",
-            "ins": [
-                592
-            ]
+            "in": 592
         },
         {
             "id": 638,
@@ -7747,9 +7293,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( mark 5 1 ) )",
-            "ins": [
-                661
-            ]
+            "in": 661
         },
         {
             "id": 642,
@@ -7769,9 +7313,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( step 6 ) )",
-            "ins": [
-                1690
-            ],
+            "in": 1690,
             "outs": [
                 1213
             ]
@@ -7820,9 +7362,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 1 oplayer ) )",
-            "ins": [
-                1738
-            ],
+            "in": 1738,
             "outs": [
                 529,
                 1025,
@@ -7849,9 +7389,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 4 3 b ) )",
-            "ins": [
-                1684
-            ],
+            "in": 1684,
             "outs": [
                 342,
                 435,
@@ -7912,9 +7450,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked_tmp1 4 4 )",
-            "ins": [
-                67
-            ],
+            "in": 67,
             "outs": [
                 1492
             ]
@@ -7949,9 +7485,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried xplayer 1 2 ) )",
-            "ins": [
-                1683
-            ],
+            "in": 1683,
             "outs": [
                 348,
                 895
@@ -7963,9 +7497,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried xplayer 2 4 ) )",
-            "ins": [
-                1666
-            ],
+            "in": 1666,
             "outs": [
                 1183,
                 1570
@@ -8001,9 +7533,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried xplayer 5 4 ) )",
-            "ins": [
-                1681
-            ],
+            "in": 1681,
             "outs": [
                 313,
                 1175
@@ -8015,9 +7545,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 5 4 )",
-            "ins": [
-                431
-            ],
+            "in": 431,
             "outs": [
                 32
             ]
@@ -8040,9 +7568,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( step 11 ) )",
-            "ins": [
-                1639
-            ],
+            "in": 1639,
             "outs": [
                 248
             ]
@@ -8053,9 +7579,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "goal",
             "gdl": "( goal oplayer 50 )",
-            "ins": [
-                1019
-            ]
+            "in": 1019
         },
         {
             "id": 667,
@@ -8084,9 +7608,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried oplayer 3 3 ) )",
-            "ins": [
-                1705
-            ],
+            "in": 1705,
             "outs": [
                 559,
                 1166
@@ -8110,9 +7632,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 5 b ) )",
-            "ins": [
-                1643
-            ],
+            "in": 1643,
             "outs": [
                 190,
                 82,
@@ -8129,9 +7649,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( mark 2 1 ) )",
-            "ins": [
-                1037
-            ]
+            "in": 1037
         },
         {
             "id": 674,
@@ -8139,9 +7657,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 5 1 b ) )",
-            "ins": [
-                39
-            ],
+            "in": 39,
             "outs": [
                 405
             ]
@@ -8152,9 +7668,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove xplayer 4 1 )",
-            "ins": [
-                166
-            ],
+            "in": 166,
             "outs": [
                 766,
                 1153,
@@ -8207,9 +7721,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( step 7 ) )",
-            "ins": [
-                1713
-            ],
+            "in": 1713,
             "outs": [
                 1569
             ]
@@ -8227,9 +7739,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( yougotit 2 3 ) )",
-            "ins": [
-                481
-            ]
+            "in": 481
         },
         {
             "id": 683,
@@ -8337,9 +7847,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 3 5 xplayer ) )",
-            "ins": [
-                783
-            ],
+            "in": 783,
             "outs": [
                 1531
             ]
@@ -8362,9 +7870,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 4 5 oplayer ) )",
-            "ins": [
-                1660
-            ],
+            "in": 1660,
             "outs": [
                 1334,
                 629,
@@ -8391,9 +7897,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal xplayer ( mark 3 4 ) )",
-            "ins": [
-                631
-            ],
+            "in": 631,
             "outs": []
         },
         {
@@ -8414,9 +7918,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 1 2 b ) )",
-            "ins": [
-                245
-            ],
+            "in": 245,
             "outs": [
                 1384
             ]
@@ -8427,9 +7929,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( step 2 ) )",
-            "ins": [
-                1403
-            ],
+            "in": 1403,
             "outs": [
                 377
             ]
@@ -8479,9 +7979,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 2 1 xplayer ) )",
-            "ins": [
-                304
-            ],
+            "in": 304,
             "outs": [
                 1244
             ]
@@ -8532,9 +8030,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried oplayer 3 1 ) )",
-            "ins": [
-                1742
-            ],
+            "in": 1742,
             "outs": [
                 998,
                 1326
@@ -8601,9 +8097,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried oplayer 4 1 ) )",
-            "ins": [
-                1679
-            ],
+            "in": 1679,
             "outs": [
                 1171,
                 1377
@@ -8627,9 +8121,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 4 3 )",
-            "ins": [
-                561
-            ],
+            "in": 561,
             "outs": [
                 1115
             ]
@@ -8653,9 +8145,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( mark 3 1 ) )",
-            "ins": [
-                1450
-            ]
+            "in": 1450
         },
         {
             "id": 717,
@@ -8663,9 +8153,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 2 xplayer ) )",
-            "ins": [
-                1753
-            ],
+            "in": 1753,
             "outs": [
                 785,
                 521,
@@ -8717,9 +8205,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked_tmp1 5 5 )",
-            "ins": [
-                53
-            ],
+            "in": 53,
             "outs": [
                 327
             ]
@@ -8752,9 +8238,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal xplayer ( mark 5 4 ) )",
-            "ins": [
-                270
-            ],
+            "in": 270,
             "outs": []
         },
         {
@@ -8763,9 +8247,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 2 5 xplayer ) )",
-            "ins": [
-                633
-            ],
+            "in": 633,
             "outs": [
                 991
             ]
@@ -8776,9 +8258,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( mark 2 4 ) )",
-            "ins": [
-                433
-            ]
+            "in": 433
         },
         {
             "id": 727,
@@ -8810,9 +8290,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried oplayer 5 1 ) )",
-            "ins": [
-                1737
-            ],
+            "in": 1737,
             "outs": [
                 443,
                 630
@@ -8835,9 +8313,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 5 1 oplayer ) )",
-            "ins": [
-                1514
-            ],
+            "in": 1514,
             "outs": [
                 587
             ]
@@ -8860,9 +8336,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked_tmp1 4 1 )",
-            "ins": [
-                1215
-            ],
+            "in": 1215,
             "outs": [
                 46
             ]
@@ -8937,9 +8411,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( yougotit 4 2 ) )",
-            "ins": [
-                165
-            ]
+            "in": 165
         },
         {
             "id": 740,
@@ -8984,9 +8456,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( step 30 ) )",
-            "ins": [
-                1787
-            ],
+            "in": 1787,
             "outs": [
                 842
             ]
@@ -8997,9 +8467,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 5 1 b ) )",
-            "ins": [
-                1707
-            ],
+            "in": 1707,
             "outs": [
                 36,
                 39,
@@ -9039,9 +8507,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( step 18 ) )",
-            "ins": [
-                1754
-            ],
+            "in": 1754,
             "outs": [
                 230
             ]
@@ -9091,9 +8557,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( mark 3 5 ) )",
-            "ins": [
-                1344
-            ]
+            "in": 1344
         },
         {
             "id": 752,
@@ -9101,9 +8565,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 5 oplayer ) )",
-            "ins": [
-                1669
-            ],
+            "in": 1669,
             "outs": [
                 1576,
                 1620,
@@ -9130,9 +8592,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 1 3 oplayer ) )",
-            "ins": [
-                302
-            ],
+            "in": 302,
             "outs": [
                 1556
             ]
@@ -9157,9 +8617,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried oplayer 4 4 ) )",
-            "ins": [
-                1786
-            ],
+            "in": 1786,
             "outs": [
                 771,
                 515
@@ -9171,9 +8629,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 1 1 b ) )",
-            "ins": [
-                337
-            ],
+            "in": 337,
             "outs": [
                 651
             ]
@@ -9184,9 +8640,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 2 3 b ) )",
-            "ins": [
-                374
-            ],
+            "in": 374,
             "outs": [
                 91
             ]
@@ -9209,9 +8663,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal oplayer ( mark 2 5 ) )",
-            "ins": [
-                708
-            ],
+            "in": 708,
             "outs": []
         },
         {
@@ -9239,9 +8691,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried xplayer 3 2 ) )",
-            "ins": [
-                1667
-            ],
+            "in": 1667,
             "outs": [
                 1310,
                 1061
@@ -9335,9 +8785,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( step 13 ) )",
-            "ins": [
-                1022
-            ],
+            "in": 1022,
             "outs": [
                 763
             ]
@@ -9348,9 +8796,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 5 xplayer ) )",
-            "ins": [
-                1768
-            ],
+            "in": 1768,
             "outs": [
                 362,
                 1308,
@@ -9388,9 +8834,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 3 b ) )",
-            "ins": [
-                1790
-            ],
+            "in": 1790,
             "outs": [
                 875,
                 829,
@@ -9443,9 +8887,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( step 27 ) )",
-            "ins": [
-                1333
-            ],
+            "in": 1333,
             "outs": [
                 276
             ]
@@ -9463,9 +8905,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( step 11 ) )",
-            "ins": [
-                330
-            ],
+            "in": 330,
             "outs": [
                 14
             ]
@@ -9488,9 +8928,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( step 4 ) )",
-            "ins": [
-                1774
-            ],
+            "in": 1774,
             "outs": [
                 1004
             ]
@@ -9515,9 +8953,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( line oplayer )",
-            "ins": [
-                688
-            ],
+            "in": 688,
             "outs": [
                 577,
                 842,
@@ -9538,9 +8974,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove oplayer 3 3 )",
-            "ins": [
-                411
-            ],
+            "in": 411,
             "outs": [
                 1238,
                 684,
@@ -9553,9 +8987,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( step 28 ) )",
-            "ins": [
-                1651
-            ],
+            "in": 1651,
             "outs": [
                 1247
             ]
@@ -9579,9 +9011,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried oplayer 1 5 ) )",
-            "ins": [
-                779
-            ],
+            "in": 779,
             "outs": [
                 395
             ]
@@ -9606,9 +9036,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( step 24 ) )",
-            "ins": [
-                1735
-            ],
+            "in": 1735,
             "outs": [
                 1170
             ]
@@ -9619,9 +9047,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 1 5 b ) )",
-            "ins": [
-                775
-            ],
+            "in": 775,
             "outs": [
                 1482
             ]
@@ -9632,9 +9058,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( step 22 ) )",
-            "ins": [
-                1752
-            ],
+            "in": 1752,
             "outs": [
                 1144
             ]
@@ -9645,9 +9069,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( mark 3 3 ) )",
-            "ins": [
-                324
-            ]
+            "in": 324
         },
         {
             "id": 797,
@@ -9655,9 +9077,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( yougotit 2 5 ) )",
-            "ins": [
-                226
-            ]
+            "in": 226
         },
         {
             "id": 798,
@@ -9700,9 +9120,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 5 2 oplayer ) )",
-            "ins": [
-                1011
-            ],
+            "in": 1011,
             "outs": [
                 1621
             ]
@@ -9725,9 +9143,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove xplayer 4 4 )",
-            "ins": [
-                1056
-            ],
+            "in": 1056,
             "outs": [
                 853,
                 542,
@@ -9740,9 +9156,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 5 oplayer ) )",
-            "ins": [
-                1714
-            ],
+            "in": 1714,
             "outs": [
                 283,
                 732,
@@ -9757,9 +9171,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 2 2 oplayer ) )",
-            "ins": [
-                459
-            ],
+            "in": 459,
             "outs": [
                 473
             ]
@@ -9770,9 +9182,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 4 b ) )",
-            "ins": [
-                1657
-            ],
+            "in": 1657,
             "outs": [
                 1191,
                 1151,
@@ -9789,9 +9199,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove xplayer 3 3 )",
-            "ins": [
-                1436
-            ],
+            "in": 1436,
             "outs": [
                 884,
                 1381,
@@ -9804,9 +9212,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 5 3 b ) )",
-            "ins": [
-                1389
-            ],
+            "in": 1389,
             "outs": [
                 514
             ]
@@ -9817,9 +9223,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 2 4 oplayer ) )",
-            "ins": [
-                462
-            ],
+            "in": 462,
             "outs": [
                 352
             ]
@@ -9891,9 +9295,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 5 b ) )",
-            "ins": [
-                1758
-            ],
+            "in": 1758,
             "outs": [
                 980,
                 48,
@@ -9933,9 +9335,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 1 2 )",
-            "ins": [
-                385
-            ],
+            "in": 385,
             "outs": [
                 1437
             ]
@@ -9980,9 +9380,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "open_tmp1",
-            "ins": [
-                1521
-            ],
+            "in": 1521,
             "outs": [
                 460
             ]
@@ -10005,9 +9403,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 1 b ) )",
-            "ins": [
-                1652
-            ],
+            "in": 1652,
             "outs": [
                 715,
                 1120,
@@ -10036,9 +9432,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( yougotit 5 3 ) )",
-            "ins": [
-                1136
-            ]
+            "in": 1136
         },
         {
             "id": 827,
@@ -10098,9 +9492,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal xplayer ( mark 4 4 ) )",
-            "ins": [
-                1420
-            ],
+            "in": 1420,
             "outs": []
         },
         {
@@ -10109,9 +9501,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( step 14 ) )",
-            "ins": [
-                1180
-            ],
+            "in": 1180,
             "outs": [
                 978
             ]
@@ -10122,9 +9512,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( yougotit 3 2 ) )",
-            "ins": [
-                1142
-            ]
+            "in": 1142
         },
         {
             "id": 834,
@@ -10132,9 +9520,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 5 3 )",
-            "ins": [
-                847
-            ],
+            "in": 847,
             "outs": [
                 848
             ]
@@ -10164,9 +9550,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove oplayer 5 1 )",
-            "ins": [
-                1062
-            ],
+            "in": 1062,
             "outs": [
                 8,
                 1514,
@@ -10179,9 +9563,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried xplayer 5 3 ) )",
-            "ins": [
-                1579
-            ],
+            "in": 1579,
             "outs": [
                 931
             ]
@@ -10241,9 +9623,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried xplayer 3 4 ) )",
-            "ins": [
-                1710
-            ],
+            "in": 1710,
             "outs": [
                 849,
                 47
@@ -10255,9 +9635,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( mark 2 2 ) )",
-            "ins": [
-                975
-            ]
+            "in": 975
         },
         {
             "id": 845,
@@ -10386,9 +9764,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried xplayer 1 5 ) )",
-            "ins": [
-                1094
-            ],
+            "in": 1094,
             "outs": [
                 953
             ]
@@ -10411,9 +9787,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried oplayer 1 2 ) )",
-            "ins": [
-                580
-            ],
+            "in": 580,
             "outs": [
                 907
             ]
@@ -10436,9 +9810,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( yougotit 2 5 ) )",
-            "ins": [
-                187
-            ]
+            "in": 187
         },
         {
             "id": 859,
@@ -10458,9 +9830,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal oplayer ( mark 2 4 ) )",
-            "ins": [
-                1421
-            ],
+            "in": 1421,
             "outs": []
         },
         {
@@ -10481,9 +9851,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal xplayer ( mark 1 5 ) )",
-            "ins": [
-                642
-            ],
+            "in": 642,
             "outs": []
         },
         {
@@ -10492,9 +9860,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried oplayer 1 5 ) )",
-            "ins": [
-                1677
-            ],
+            "in": 1677,
             "outs": [
                 778,
                 173
@@ -10532,9 +9898,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove oplayer 5 2 )",
-            "ins": [
-                1271
-            ],
+            "in": 1271,
             "outs": [
                 1011,
                 1158,
@@ -10547,9 +9911,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked_tmp1 5 3 )",
-            "ins": [
-                1429
-            ],
+            "in": 1429,
             "outs": [
                 847
             ]
@@ -10560,9 +9922,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 1 2 xplayer ) )",
-            "ins": [
-                1185
-            ],
+            "in": 1185,
             "outs": [
                 1124
             ]
@@ -10573,9 +9933,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( mark 2 5 ) )",
-            "ins": [
-                1095
-            ]
+            "in": 1095
         },
         {
             "id": 871,
@@ -10583,9 +9941,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next_tmp1 oplayer )",
-            "ins": [
-                51
-            ],
+            "in": 51,
             "outs": [
                 485,
                 1171,
@@ -10620,9 +9976,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 3 1 )",
-            "ins": [
-                1079
-            ],
+            "in": 1079,
             "outs": [
                 1030
             ]
@@ -10647,9 +10001,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( mark 4 2 ) )",
-            "ins": [
-                639
-            ]
+            "in": 639
         },
         {
             "id": 875,
@@ -10676,9 +10028,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove oplayer 4 1 )",
-            "ins": [
-                1516
-            ],
+            "in": 1516,
             "outs": [
                 1487,
                 491,
@@ -10703,9 +10053,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( mark 2 5 ) )",
-            "ins": [
-                498
-            ]
+            "in": 498
         },
         {
             "id": 880,
@@ -10785,9 +10133,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal oplayer ( mark 3 5 ) )",
-            "ins": [
-                562
-            ],
+            "in": 562,
             "outs": []
         },
         {
@@ -10796,9 +10142,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 4 b ) )",
-            "ins": [
-                1648
-            ],
+            "in": 1648,
             "outs": [
                 1315,
                 646,
@@ -10827,9 +10171,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried oplayer 2 1 ) )",
-            "ins": [
-                1673
-            ],
+            "in": 1673,
             "outs": [
                 33,
                 618
@@ -10853,9 +10195,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( mark 5 3 ) )",
-            "ins": [
-                220
-            ]
+            "in": 220
         },
         {
             "id": 892,
@@ -10882,9 +10222,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 3 2 oplayer ) )",
-            "ins": [
-                30
-            ],
+            "in": 30,
             "outs": [
                 1251
             ]
@@ -10974,9 +10312,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal xplayer ( mark 1 3 ) )",
-            "ins": [
-                883
-            ],
+            "in": 883,
             "outs": []
         },
         {
@@ -10997,9 +10333,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried oplayer 3 2 ) )",
-            "ins": [
-                1538
-            ],
+            "in": 1538,
             "outs": [
                 102
             ]
@@ -11022,9 +10356,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried oplayer 4 1 ) )",
-            "ins": [
-                145
-            ],
+            "in": 145,
             "outs": [
                 429
             ]
@@ -11123,9 +10455,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 4 3 b ) )",
-            "ins": [
-                1505
-            ],
+            "in": 1505,
             "outs": [
                 903
             ]
@@ -11148,9 +10478,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove oplayer 3 4 )",
-            "ins": [
-                814
-            ],
+            "in": 814,
             "outs": [
                 713,
                 286,
@@ -11163,9 +10491,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 1 xplayer ) )",
-            "ins": [
-                1736
-            ],
+            "in": 1736,
             "outs": [
                 1152,
                 417,
@@ -11207,9 +10533,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried xplayer 4 1 ) )",
-            "ins": [
-                1761
-            ],
+            "in": 1761,
             "outs": [
                 1504,
                 1217
@@ -11221,9 +10545,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( step 17 ) )",
-            "ins": [
-                1756
-            ],
+            "in": 1756,
             "outs": [
                 981
             ]
@@ -11260,9 +10582,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried oplayer 2 3 ) )",
-            "ins": [
-                1398
-            ],
+            "in": 1398,
             "outs": [
                 12
             ]
@@ -11308,9 +10628,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried oplayer 5 4 ) )",
-            "ins": [
-                1257
-            ],
+            "in": 1257,
             "outs": [
                 1375
             ]
@@ -11377,9 +10695,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( step 30 ) )",
-            "ins": [
-                1544
-            ],
+            "in": 1544,
             "outs": [
                 1612
             ]
@@ -11472,9 +10788,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried oplayer 3 4 ) )",
-            "ins": [
-                1749
-            ],
+            "in": 1749,
             "outs": [
                 1162,
                 71
@@ -11510,9 +10824,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 4 2 oplayer ) )",
-            "ins": [
-                598
-            ],
+            "in": 598,
             "outs": [
                 1232
             ]
@@ -11549,9 +10861,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 2 2 )",
-            "ins": [
-                685
-            ],
+            "in": 685,
             "outs": [
                 1348
             ]
@@ -11585,9 +10895,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( yougotit 4 3 ) )",
-            "ins": [
-                168
-            ]
+            "in": 168
         },
         {
             "id": 953,
@@ -11602,9 +10910,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 2 5 )",
-            "ins": [
-                1400
-            ],
+            "in": 1400,
             "outs": [
                 267
             ]
@@ -11627,9 +10933,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( mark 2 4 ) )",
-            "ins": [
-                0
-            ]
+            "in": 0
         },
         {
             "id": 957,
@@ -11637,9 +10941,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal oplayer ( mark 4 3 ) )",
-            "ins": [
-                707
-            ],
+            "in": 707,
             "outs": []
         },
         {
@@ -11648,9 +10950,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 5 b ) )",
-            "ins": [
-                1744
-            ],
+            "in": 1744,
             "outs": [
                 1306,
                 113,
@@ -11680,9 +10980,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 5 oplayer ) )",
-            "ins": [
-                1763
-            ],
+            "in": 1763,
             "outs": [
                 1425,
                 948,
@@ -11744,9 +11042,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove oplayer 3 5 )",
-            "ins": [
-                1193
-            ],
+            "in": 1193,
             "outs": [
                 1147,
                 1576,
@@ -11771,9 +11067,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( yougotit 4 2 ) )",
-            "ins": [
-                31
-            ]
+            "in": 31
         },
         {
             "id": 968,
@@ -11805,9 +11099,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( mark 3 2 ) )",
-            "ins": [
-                590
-            ]
+            "in": 590
         },
         {
             "id": 971,
@@ -11815,9 +11107,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 3 3 )",
-            "ins": [
-                1291
-            ],
+            "in": 1291,
             "outs": [
                 376
             ]
@@ -11828,9 +11118,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 2 3 xplayer ) )",
-            "ins": [
-                265
-            ],
+            "in": 265,
             "outs": [
                 866
             ]
@@ -11841,9 +11129,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 2 3 oplayer ) )",
-            "ins": [
-                555
-            ],
+            "in": 555,
             "outs": [
                 1474
             ]
@@ -11878,9 +11164,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried oplayer 5 5 ) )",
-            "ins": [
-                1658
-            ],
+            "in": 1658,
             "outs": [
                 1110,
                 1103
@@ -11892,9 +11176,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( yougotit 1 2 ) )",
-            "ins": [
-                1361
-            ]
+            "in": 1361
         },
         {
             "id": 978,
@@ -11936,9 +11218,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( step 18 ) )",
-            "ins": [
-                920
-            ],
+            "in": 920,
             "outs": [
                 1280
             ]
@@ -12002,9 +11282,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 2 4 xplayer ) )",
-            "ins": [
-                516
-            ],
+            "in": 516,
             "outs": [
                 3
             ]
@@ -12015,9 +11293,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried oplayer 4 3 ) )",
-            "ins": [
-                257
-            ],
+            "in": 257,
             "outs": [
                 1431
             ]
@@ -12028,9 +11304,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( step 5 ) )",
-            "ins": [
-                1731
-            ],
+            "in": 1731,
             "outs": [
                 1038
             ]
@@ -12146,9 +11420,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried oplayer 3 4 ) )",
-            "ins": [
-                892
-            ],
+            "in": 892,
             "outs": [
                 1236
             ]
@@ -12183,9 +11455,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal oplayer ( mark 5 4 ) )",
-            "ins": [
-                1184
-            ],
+            "in": 1184,
             "outs": []
         },
         {
@@ -12194,9 +11464,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried oplayer 2 5 ) )",
-            "ins": [
-                333
-            ],
+            "in": 333,
             "outs": [
                 601
             ]
@@ -12207,9 +11475,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 5 3 xplayer ) )",
-            "ins": [
-                1740
-            ],
+            "in": 1740,
             "outs": [
                 1511,
                 1483,
@@ -12248,9 +11514,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( step 5 ) )",
-            "ins": [
-                784
-            ],
+            "in": 784,
             "outs": [
                 1068
             ]
@@ -12273,9 +11537,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked_tmp1 1 5 )",
-            "ins": [
-                621
-            ],
+            "in": 621,
             "outs": [
                 1397
             ]
@@ -12298,9 +11560,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal xplayer ( mark 2 3 ) )",
-            "ins": [
-                914
-            ],
+            "in": 914,
             "outs": []
         },
         {
@@ -12369,9 +11629,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 2 1 b ) )",
-            "ins": [
-                392
-            ],
+            "in": 392,
             "outs": [
                 1597
             ]
@@ -12441,9 +11699,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal xplayer ( mark 4 5 ) )",
-            "ins": [
-                1635
-            ],
+            "in": 1635,
             "outs": []
         },
         {
@@ -12464,9 +11720,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( step 12 ) )",
-            "ins": [
-                1724
-            ],
+            "in": 1724,
             "outs": [
                 772
             ]
@@ -12515,9 +11769,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 4 3 oplayer ) )",
-            "ins": [
-                503
-            ],
+            "in": 503,
             "outs": [
                 1233
             ]
@@ -12528,9 +11780,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 4 4 )",
-            "ins": [
-                1492
-            ],
+            "in": 1492,
             "outs": [
                 457
             ]
@@ -12574,9 +11824,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried oplayer 1 1 ) )",
-            "ins": [
-                1664
-            ],
+            "in": 1664,
             "outs": [
                 1221,
                 1622
@@ -12611,9 +11859,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 3 4 xplayer ) )",
-            "ins": [
-                1112
-            ],
+            "in": 1112,
             "outs": [
                 236
             ]
@@ -12624,9 +11870,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 1 xplayer ) )",
-            "ins": [
-                1670
-            ],
+            "in": 1670,
             "outs": [
                 705,
                 671,
@@ -12664,9 +11908,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( step 6 ) )",
-            "ins": [
-                988
-            ],
+            "in": 988,
             "outs": [
                 556
             ]
@@ -12677,9 +11919,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( yougotit 1 5 ) )",
-            "ins": [
-                612
-            ]
+            "in": 612
         },
         {
             "id": 1040,
@@ -12687,9 +11927,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 3 xplayer ) )",
-            "ins": [
-                1773
-            ],
+            "in": 1773,
             "outs": [
                 936,
                 884,
@@ -12705,9 +11943,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove xplayer 3 5 )",
-            "ins": [
-                48
-            ],
+            "in": 48,
             "outs": [
                 1364,
                 816,
@@ -12720,9 +11956,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove oplayer 1 2 )",
-            "ins": [
-                768
-            ],
+            "in": 768,
             "outs": [
                 1439,
                 450,
@@ -12759,9 +11993,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal oplayer ( mark 4 4 ) )",
-            "ins": [
-                146
-            ],
+            "in": 146,
             "outs": []
         },
         {
@@ -12770,9 +12002,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 5 5 oplayer ) )",
-            "ins": [
-                303
-            ],
+            "in": 303,
             "outs": [
                 1292
             ]
@@ -12807,9 +12037,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 2 3 )",
-            "ins": [
-                968
-            ],
+            "in": 968,
             "outs": [
                 557
             ]
@@ -12820,9 +12048,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 4 3 oplayer ) )",
-            "ins": [
-                1747
-            ],
+            "in": 1747,
             "outs": [
                 503,
                 1627,
@@ -12838,9 +12064,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked_tmp1 5 1 )",
-            "ins": [
-                1159
-            ],
+            "in": 1159,
             "outs": [
                 279
             ]
@@ -12851,9 +12075,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal oplayer ( mark 5 3 ) )",
-            "ins": [
-                926
-            ],
+            "in": 926,
             "outs": []
         },
         {
@@ -12886,9 +12108,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove xplayer 2 2 )",
-            "ins": [
-                1522
-            ],
+            "in": 1522,
             "outs": [
                 209,
                 1229,
@@ -12947,9 +12167,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried xplayer 2 1 ) )",
-            "ins": [
-                1653
-            ],
+            "in": 1653,
             "outs": [
                 1272,
                 1617
@@ -13009,9 +12227,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried xplayer 1 4 ) )",
-            "ins": [
-                1775
-            ],
+            "in": 1775,
             "outs": [
                 200,
                 994
@@ -13023,9 +12239,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 5 5 )",
-            "ins": [
-                327
-            ],
+            "in": 327,
             "outs": [
                 152
             ]
@@ -13067,9 +12281,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( yougotit 2 1 ) )",
-            "ins": [
-                198
-            ]
+            "in": 198
         },
         {
             "id": 1071,
@@ -13314,9 +12526,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 4 oplayer ) )",
-            "ins": [
-                1722
-            ],
+            "in": 1722,
             "outs": [
                 589,
                 713,
@@ -13332,9 +12542,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 4 5 b ) )",
-            "ins": [
-                1715
-            ],
+            "in": 1715,
             "outs": [
                 1202,
                 774,
@@ -13351,9 +12559,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 5 3 oplayer ) )",
-            "ins": [
-                1656
-            ],
+            "in": 1656,
             "outs": [
                 114,
                 360,
@@ -13380,9 +12586,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal xplayer ( mark 1 4 ) )",
-            "ins": [
-                649
-            ],
+            "in": 649,
             "outs": []
         },
         {
@@ -13391,9 +12595,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked_tmp1 4 2 )",
-            "ins": [
-                961
-            ],
+            "in": 961,
             "outs": [
                 1601
             ]
@@ -13404,9 +12606,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried xplayer 4 1 ) )",
-            "ins": [
-                857
-            ],
+            "in": 857,
             "outs": [
                 1376
             ]
@@ -13429,9 +12629,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( mark 3 4 ) )",
-            "ins": [
-                1074
-            ]
+            "in": 1074
         },
         {
             "id": 1094,
@@ -13463,9 +12661,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 2 1 )",
-            "ins": [
-                1427
-            ],
+            "in": 1427,
             "outs": [
                 1401
             ]
@@ -13500,9 +12696,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( yougotit 2 4 ) )",
-            "ins": [
-                1358
-            ]
+            "in": 1358
         },
         {
             "id": 1100,
@@ -13510,9 +12704,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 3 b ) )",
-            "ins": [
-                1699
-            ],
+            "in": 1699,
             "outs": [
                 1436,
                 1598,
@@ -13529,9 +12721,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( yougotit 1 5 ) )",
-            "ins": [
-                1610
-            ]
+            "in": 1610
         },
         {
             "id": 1102,
@@ -13539,9 +12729,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 1 b ) )",
-            "ins": [
-                1645
-            ],
+            "in": 1645,
             "outs": [
                 626,
                 619,
@@ -13570,9 +12758,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 1 4 b ) )",
-            "ins": [
-                76
-            ],
+            "in": 76,
             "outs": [
                 288
             ]
@@ -13659,9 +12845,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried xplayer 2 5 ) )",
-            "ins": [
-                155
-            ],
+            "in": 155,
             "outs": [
                 645
             ]
@@ -13696,9 +12880,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 4 1 oplayer ) )",
-            "ins": [
-                1583
-            ],
+            "in": 1583,
             "outs": [
                 565
             ]
@@ -13718,9 +12900,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 2 oplayer ) )",
-            "ins": [
-                1686
-            ],
+            "in": 1686,
             "outs": [
                 529,
                 1517,
@@ -13747,9 +12927,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal xplayer ( mark 1 2 ) )",
-            "ins": [
-                1023
-            ],
+            "in": 1023,
             "outs": []
         },
         {
@@ -13758,9 +12936,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( yougotit 1 2 ) )",
-            "ins": [
-                1042
-            ]
+            "in": 1042
         },
         {
             "id": 1120,
@@ -13793,9 +12969,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "goal",
             "gdl": "( goal oplayer 100 )",
-            "ins": [
-                786
-            ]
+            "in": 786
         },
         {
             "id": 1123,
@@ -13803,9 +12977,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 4 oplayer ) )",
-            "ins": [
-                1646
-            ],
+            "in": 1646,
             "outs": [
                 1225,
                 948,
@@ -13862,9 +13034,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( yougotit 4 4 ) )",
-            "ins": [
-                1137
-            ]
+            "in": 1137
         },
         {
             "id": 1129,
@@ -13872,9 +13042,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 5 5 xplayer ) )",
-            "ins": [
-                1547
-            ],
+            "in": 1547,
             "outs": [
                 1536
             ]
@@ -13921,9 +13089,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal xplayer ( mark 4 2 ) )",
-            "ins": [
-                1525
-            ],
+            "in": 1525,
             "outs": []
         },
         {
@@ -13951,9 +13117,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove oplayer 5 3 )",
-            "ins": [
-                1371
-            ],
+            "in": 1371,
             "outs": [
                 114,
                 730,
@@ -13966,9 +13130,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove oplayer 4 4 )",
-            "ins": [
-                502
-            ],
+            "in": 502,
             "outs": [
                 1128,
                 819,
@@ -14028,9 +13190,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove oplayer 3 2 )",
-            "ins": [
-                42
-            ],
+            "in": 42,
             "outs": [
                 403,
                 30,
@@ -14058,9 +13218,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( step 23 ) )",
-            "ins": [
-                795
-            ],
+            "in": 795,
             "outs": [
                 546
             ]
@@ -14095,9 +13253,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( yougotit 3 5 ) )",
-            "ins": [
-                965
-            ]
+            "in": 965
         },
         {
             "id": 1148,
@@ -14160,9 +13316,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( yougotit 4 1 ) )",
-            "ins": [
-                675
-            ]
+            "in": 675
         },
         {
             "id": 1154,
@@ -14182,9 +13336,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( yougotit 1 1 ) )",
-            "ins": [
-                22
-            ]
+            "in": 22
         },
         {
             "id": 1156,
@@ -14215,9 +13367,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( yougotit 5 2 ) )",
-            "ins": [
-                867
-            ]
+            "in": 867
         },
         {
             "id": 1159,
@@ -14341,9 +13491,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( step 25 ) )",
-            "ins": [
-                793
-            ],
+            "in": 793,
             "outs": [
                 1173
             ]
@@ -14366,9 +13514,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( mark 2 3 ) )",
-            "ins": [
-                111
-            ]
+            "in": 111
         },
         {
             "id": 1173,
@@ -14407,9 +13553,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal xplayer ( mark 3 1 ) )",
-            "ins": [
-                144
-            ],
+            "in": 144,
             "outs": []
         },
         {
@@ -14418,9 +13562,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove xplayer 3 1 )",
-            "ins": [
-                715
-            ],
+            "in": 715,
             "outs": [
                 614,
                 134,
@@ -14433,9 +13575,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( mark 4 4 ) )",
-            "ins": [
-                1161
-            ]
+            "in": 1161
         },
         {
             "id": 1179,
@@ -14443,9 +13583,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried xplayer 5 5 ) )",
-            "ins": [
-                73
-            ],
+            "in": 73,
             "outs": [
                 1234
             ]
@@ -14456,9 +13594,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( step 13 ) )",
-            "ins": [
-                1711
-            ],
+            "in": 1711,
             "outs": [
                 832
             ]
@@ -14528,9 +13664,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove xplayer 5 1 )",
-            "ins": [
-                1283
-            ],
+            "in": 1283,
             "outs": [
                 298,
                 475,
@@ -14555,9 +13689,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried xplayer 5 1 ) )",
-            "ins": [
-                482
-            ],
+            "in": 482,
             "outs": [
                 1440
             ]
@@ -14632,9 +13764,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 3 oplayer ) )",
-            "ins": [
-                1783
-            ],
+            "in": 1783,
             "outs": [
                 1627,
                 948,
@@ -14649,9 +13779,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked_tmp1 2 1 )",
-            "ins": [
-                539
-            ],
+            "in": 539,
             "outs": [
                 1427
             ]
@@ -14674,9 +13802,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove xplayer 3 4 )",
-            "ins": [
-                1385
-            ],
+            "in": 1385,
             "outs": [
                 1112,
                 23,
@@ -14689,9 +13815,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "doublehit",
-            "ins": [
-                912
-            ],
+            "in": 912,
             "outs": [
                 1081
             ]
@@ -14768,9 +13892,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 4 5 oplayer ) )",
-            "ins": [
-                629
-            ],
+            "in": 629,
             "outs": [
                 241
             ]
@@ -14793,9 +13915,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( step 28 ) )",
-            "ins": [
-                1380
-            ],
+            "in": 1380,
             "outs": [
                 110
             ]
@@ -14840,9 +13960,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 4 1 xplayer ) )",
-            "ins": [
-                1766
-            ],
+            "in": 1766,
             "outs": [
                 417,
                 335,
@@ -14857,9 +13975,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( step 7 ) )",
-            "ins": [
-                643
-            ],
+            "in": 643,
             "outs": [
                 787
             ]
@@ -14870,9 +13986,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried oplayer 1 3 ) )",
-            "ins": [
-                1725
-            ],
+            "in": 1725,
             "outs": [
                 131,
                 738
@@ -14922,9 +14036,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried oplayer 5 4 ) )",
-            "ins": [
-                1760
-            ],
+            "in": 1760,
             "outs": [
                 1603,
                 1561
@@ -14948,9 +14060,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( step 3 ) )",
-            "ins": [
-                1489
-            ],
+            "in": 1489,
             "outs": [
                 139
             ]
@@ -14997,9 +14107,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal oplayer ( mark 4 1 ) )",
-            "ins": [
-                141
-            ],
+            "in": 141,
             "outs": []
         },
         {
@@ -15146,9 +14254,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried oplayer 2 1 ) )",
-            "ins": [
-                966
-            ],
+            "in": 966,
             "outs": [
                 366
             ]
@@ -15159,9 +14265,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried oplayer 3 3 ) )",
-            "ins": [
-                278
-            ],
+            "in": 278,
             "outs": [
                 702
             ]
@@ -15172,9 +14276,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried xplayer 5 1 ) )",
-            "ins": [
-                1765
-            ],
+            "in": 1765,
             "outs": [
                 937,
                 817
@@ -15241,9 +14343,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( step 29 ) )",
-            "ins": [
-                789
-            ],
+            "in": 789,
             "outs": [
                 864
             ]
@@ -15254,9 +14354,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 3 xplayer ) )",
-            "ins": [
-                1717
-            ],
+            "in": 1717,
             "outs": [
                 615,
                 455,
@@ -15272,9 +14370,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( yougotit 2 1 ) )",
-            "ins": [
-                72
-            ]
+            "in": 72
         },
         {
             "id": 1250,
@@ -15282,9 +14378,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( yougotit 5 1 ) )",
-            "ins": [
-                837
-            ]
+            "in": 837
         },
         {
             "id": 1251,
@@ -15299,9 +14393,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried xplayer 4 2 ) )",
-            "ins": [
-                1642
-            ],
+            "in": 1642,
             "outs": [
                 687,
                 964
@@ -15313,9 +14405,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 2 5 oplayer ) )",
-            "ins": [
-                214
-            ],
+            "in": 214,
             "outs": [
                 835
             ]
@@ -15326,9 +14416,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal xplayer ( mark 2 1 ) )",
-            "ins": [
-                1294
-            ],
+            "in": 1294,
             "outs": []
         },
         {
@@ -15392,9 +14480,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked_tmp1 4 3 )",
-            "ins": [
-                942
-            ],
+            "in": 942,
             "outs": [
                 561
             ]
@@ -15429,9 +14515,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( mark 3 5 ) )",
-            "ins": [
-                997
-            ]
+            "in": 997
         },
         {
             "id": 1264,
@@ -15511,9 +14595,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( mark 5 5 ) )",
-            "ins": [
-                1058
-            ]
+            "in": 1058
         },
         {
             "id": 1271,
@@ -15545,9 +14627,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 2 xplayer ) )",
-            "ins": [
-                1733
-            ],
+            "in": 1733,
             "outs": [
                 705,
                 785,
@@ -15574,9 +14654,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked_tmp1 3 1 )",
-            "ins": [
-                180
-            ],
+            "in": 180,
             "outs": [
                 1079
             ]
@@ -15618,9 +14696,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 5 4 oplayer ) )",
-            "ins": [
-                277
-            ],
+            "in": 277,
             "outs": [
                 1552
             ]
@@ -15672,9 +14748,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 1 5 )",
-            "ins": [
-                1397
-            ],
+            "in": 1397,
             "outs": [
                 5
             ]
@@ -15685,9 +14759,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 4 5 )",
-            "ins": [
-                1189
-            ],
+            "in": 1189,
             "outs": [
                 68
             ]
@@ -15698,9 +14770,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 3 3 oplayer ) )",
-            "ins": [
-                1238
-            ],
+            "in": 1238,
             "outs": [
                 703
             ]
@@ -15723,9 +14793,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 3 xplayer ) )",
-            "ins": [
-                1698
-            ],
+            "in": 1698,
             "outs": [
                 1357,
                 705,
@@ -15783,9 +14851,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( step 15 ) )",
-            "ins": [
-                1776
-            ],
+            "in": 1776,
             "outs": [
                 120
             ]
@@ -15856,9 +14922,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried xplayer 5 2 ) )",
-            "ins": [
-                1767
-            ],
+            "in": 1767,
             "outs": [
                 1182,
                 750
@@ -15870,9 +14934,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 3 1 b ) )",
-            "ins": [
-                345
-            ],
+            "in": 345,
             "outs": [
                 195
             ]
@@ -15898,9 +14960,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( step 19 ) )",
-            "ins": [
-                1719
-            ],
+            "in": 1719,
             "outs": [
                 467
             ]
@@ -15911,9 +14971,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried xplayer 3 3 ) )",
-            "ins": [
-                458
-            ],
+            "in": 458,
             "outs": [
                 667
             ]
@@ -15924,9 +14982,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 3 5 b ) )",
-            "ins": [
-                1071
-            ],
+            "in": 1071,
             "outs": [
                 505
             ]
@@ -15962,9 +15018,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 5 1 xplayer ) )",
-            "ins": [
-                475
-            ],
+            "in": 475,
             "outs": [
                 20
             ]
@@ -16020,9 +15074,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( step 8 ) )",
-            "ins": [
-                1637
-            ],
+            "in": 1637,
             "outs": [
                 124
             ]
@@ -16033,9 +15085,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal oplayer ( mark 1 5 ) )",
-            "ins": [
-                1383
-            ],
+            "in": 1383,
             "outs": []
         },
         {
@@ -16044,9 +15094,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 2 b ) )",
-            "ins": [
-                1730
-            ],
+            "in": 1730,
             "outs": [
                 604,
                 1503,
@@ -16076,9 +15124,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove oplayer 3 1 )",
-            "ins": [
-                1120
-            ],
+            "in": 1120,
             "outs": [
                 293,
                 1366,
@@ -16103,9 +15149,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried xplayer 2 2 ) )",
-            "ins": [
-                541
-            ],
+            "in": 541,
             "outs": [
                 1368
             ]
@@ -16171,9 +15215,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 1 4 xplayer ) )",
-            "ins": [
-                1259
-            ],
+            "in": 1259,
             "outs": [
                 1211
             ]
@@ -16219,9 +15261,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried oplayer 3 1 ) )",
-            "ins": [
-                1456
-            ],
+            "in": 1456,
             "outs": [
                 1201
             ]
@@ -16259,9 +15299,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove oplayer 5 4 )",
-            "ins": [
-                897
-            ],
+            "in": 897,
             "outs": [
                 634,
                 277,
@@ -16288,9 +15326,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( step 26 ) )",
-            "ins": [
-                1720
-            ],
+            "in": 1720,
             "outs": [
                 780
             ]
@@ -16313,9 +15349,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 3 3 xplayer ) )",
-            "ins": [
-                884
-            ],
+            "in": 884,
             "outs": [
                 1477
             ]
@@ -16349,9 +15383,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 1 5 oplayer ) )",
-            "ins": [
-                1425
-            ],
+            "in": 1425,
             "outs": [
                 1406
             ]
@@ -16362,9 +15394,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried xplayer 1 1 ) )",
-            "ins": [
-                1704
-            ],
+            "in": 1704,
             "outs": [
                 273,
                 770
@@ -16388,9 +15418,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried oplayer 2 5 ) )",
-            "ins": [
-                1693
-            ],
+            "in": 1693,
             "outs": [
                 584,
                 157
@@ -16414,9 +15442,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( mark 1 3 ) )",
-            "ins": [
-                1447
-            ]
+            "in": 1447
         },
         {
             "id": 1344,
@@ -16460,9 +15486,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 3 4 )",
-            "ins": [
-                711
-            ],
+            "in": 711,
             "outs": [
                 104
             ]
@@ -16495,9 +15519,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 5 2 b ) )",
-            "ins": [
-                183
-            ],
+            "in": 183,
             "outs": [
                 1464
             ]
@@ -16508,9 +15530,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried oplayer 2 2 ) )",
-            "ins": [
-                1734
-            ],
+            "in": 1734,
             "outs": [
                 485,
                 640
@@ -16522,9 +15542,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( yougotit 4 5 ) )",
-            "ins": [
-                227
-            ]
+            "in": 227
         },
         {
             "id": 1353,
@@ -16544,9 +15562,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 4 1 b ) )",
-            "ins": [
-                1769
-            ],
+            "in": 1769,
             "outs": [
                 1588,
                 158,
@@ -16598,9 +15614,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove oplayer 2 4 )",
-            "ins": [
-                1315
-            ],
+            "in": 1315,
             "outs": [
                 1099,
                 462,
@@ -16632,9 +15646,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove xplayer 1 2 )",
-            "ins": [
-                740
-            ],
+            "in": 740,
             "outs": [
                 1185,
                 977,
@@ -16666,9 +15678,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( yougotit 3 5 ) )",
-            "ins": [
-                1041
-            ]
+            "in": 1041
         },
         {
             "id": 1365,
@@ -16676,9 +15686,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 4 xplayer ) )",
-            "ins": [
-                1743
-            ],
+            "in": 1743,
             "outs": [
                 705,
                 1259,
@@ -16704,9 +15712,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( mark 2 2 ) )",
-            "ins": [
-                1245
-            ]
+            "in": 1245
         },
         {
             "id": 1368,
@@ -16787,9 +15793,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 5 4 oplayer ) )",
-            "ins": [
-                1782
-            ],
+            "in": 1782,
             "outs": [
                 1298,
                 925,
@@ -16852,9 +15856,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( step 27 ) )",
-            "ins": [
-                1665
-            ],
+            "in": 1665,
             "outs": [
                 1208
             ]
@@ -16865,9 +15867,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( yougotit 3 3 ) )",
-            "ins": [
-                807
-            ]
+            "in": 807
         },
         {
             "id": 1382,
@@ -16875,9 +15875,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "goal",
             "gdl": "( goal xplayer 100 )",
-            "ins": [
-                253
-            ]
+            "in": 253
         },
         {
             "id": 1383,
@@ -16922,9 +15920,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( mark 5 2 ) )",
-            "ins": [
-                2
-            ]
+            "in": 2
         },
         {
             "id": 1387,
@@ -16980,9 +15976,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked_tmp1 1 3 )",
-            "ins": [
-                1553
-            ],
+            "in": 1553,
             "outs": [
                 1028
             ]
@@ -16993,9 +15987,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried xplayer 1 1 ) )",
-            "ins": [
-                1168
-            ],
+            "in": 1168,
             "outs": [
                 681
             ]
@@ -17006,9 +15998,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 3 4 b ) )",
-            "ins": [
-                1548
-            ],
+            "in": 1548,
             "outs": [
                 1325
             ]
@@ -17117,9 +16107,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( step 1 ) )",
-            "ins": [
-                1661
-            ],
+            "in": 1661,
             "outs": [
                 697
             ]
@@ -17142,9 +16130,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( mark 4 2 ) )",
-            "ins": [
-                1033
-            ]
+            "in": 1033
         },
         {
             "id": 1406,
@@ -17159,9 +16145,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove xplayer 4 3 )",
-            "ins": [
-                342
-            ],
+            "in": 342,
             "outs": [
                 745,
                 1609,
@@ -17174,9 +16158,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( yougotit 3 4 ) )",
-            "ins": [
-                915
-            ]
+            "in": 915
         },
         {
             "id": 1409,
@@ -17211,9 +16193,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 3 3 b ) )",
-            "ins": [
-                1256
-            ],
+            "in": 1256,
             "outs": [
                 1537
             ]
@@ -17236,9 +16216,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried oplayer 4 5 ) )",
-            "ins": [
-                1788
-            ],
+            "in": 1788,
             "outs": [
                 127,
                 315
@@ -17250,9 +16228,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 1 oplayer ) )",
-            "ins": [
-                1662
-            ],
+            "in": 1662,
             "outs": [
                 1098,
                 1629,
@@ -17266,9 +16242,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( mark 1 1 ) )",
-            "ins": [
-                736
-            ]
+            "in": 736
         },
         {
             "id": 1416,
@@ -17348,9 +16322,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "terminal",
             "gdl": "terminal",
-            "ins": [
-                842
-            ],
+            "in": 842,
             "outs": []
         },
         {
@@ -17372,9 +16344,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal oplayer ( mark 3 1 ) )",
-            "ins": [
-                1502
-            ],
+            "in": 1502,
             "outs": []
         },
         {
@@ -17422,9 +16392,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 4 xplayer ) )",
-            "ins": [
-                1636
-            ],
+            "in": 1636,
             "outs": [
                 521,
                 1106,
@@ -17483,9 +16451,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried xplayer 1 4 ) )",
-            "ins": [
-                1054
-            ],
+            "in": 1054,
             "outs": [
                 1509
             ]
@@ -17578,9 +16544,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( mark 2 3 ) )",
-            "ins": [
-                585
-            ]
+            "in": 585
         },
         {
             "id": 1443,
@@ -17665,9 +16629,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked_tmp1 3 3 )",
-            "ins": [
-                742
-            ],
+            "in": 742,
             "outs": [
                 1291
             ]
@@ -17721,9 +16683,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 2 5 b ) )",
-            "ins": [
-                29
-            ],
+            "in": 29,
             "outs": [
                 545
             ]
@@ -17734,9 +16694,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried oplayer 3 2 ) )",
-            "ins": [
-                1649
-            ],
+            "in": 1649,
             "outs": [
                 369,
                 317
@@ -17760,9 +16718,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked_tmp1 3 2 )",
-            "ins": [
-                992
-            ],
+            "in": 992,
             "outs": [
                 1359
             ]
@@ -17780,9 +16736,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( yougotit 1 3 ) )",
-            "ins": [
-                407
-            ]
+            "in": 407
         },
         {
             "id": 1460,
@@ -17813,9 +16767,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried oplayer 2 4 ) )",
-            "ins": [
-                1655
-            ],
+            "in": 1655,
             "outs": [
                 192,
                 568
@@ -17846,9 +16798,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( step 17 ) )",
-            "ins": [
-                567
-            ],
+            "in": 567,
             "outs": [
                 1322
             ]
@@ -17871,9 +16821,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( yougotit 1 1 ) )",
-            "ins": [
-                602
-            ]
+            "in": 602
         },
         {
             "id": 1468,
@@ -17919,9 +16867,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked_tmp1 4 5 )",
-            "ins": [
-                1589
-            ],
+            "in": 1589,
             "outs": [
                 1189
             ]
@@ -17932,9 +16878,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( step 24 ) )",
-            "ins": [
-                446
-            ],
+            "in": 446,
             "outs": [
                 1148
             ]
@@ -17952,9 +16896,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( yougotit 1 4 ) )",
-            "ins": [
-                616
-            ]
+            "in": 616
         },
         {
             "id": 1476,
@@ -18019,9 +16961,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove xplayer 5 3 )",
-            "ins": [
-                105
-            ],
+            "in": 105,
             "outs": [
                 109,
                 552,
@@ -18106,9 +17046,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal oplayer ( mark 5 5 ) )",
-            "ins": [
-                4
-            ],
+            "in": 4,
             "outs": []
         },
         {
@@ -18117,9 +17055,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( yougotit 4 1 ) )",
-            "ins": [
-                877
-            ]
+            "in": 877
         },
         {
             "id": 1488,
@@ -18127,9 +17063,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( step 21 ) )",
-            "ins": [
-                1784
-            ],
+            "in": 1784,
             "outs": [
                 9
             ]
@@ -18140,9 +17074,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( step 2 ) )",
-            "ins": [
-                1675
-            ],
+            "in": 1675,
             "outs": [
                 1220
             ]
@@ -18200,9 +17132,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "open",
-            "ins": [
-                460
-            ],
+            "in": 460,
             "outs": [
                 1355
             ]
@@ -18240,9 +17170,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 1 4 )",
-            "ins": [
-                99
-            ],
+            "in": 99,
             "outs": [
                 83
             ]
@@ -18265,9 +17193,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove xplayer 1 4 )",
-            "ins": [
-                1191
-            ],
+            "in": 1191,
             "outs": [
                 217,
                 1259,
@@ -18280,9 +17206,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried oplayer 4 2 ) )",
-            "ins": [
-                1668
-            ],
+            "in": 1668,
             "outs": [
                 798,
                 1432
@@ -18353,9 +17277,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( step 25 ) )",
-            "ins": [
-                1739
-            ],
+            "in": 1739,
             "outs": [
                 578
             ]
@@ -18421,9 +17343,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried xplayer 1 3 ) )",
-            "ins": [
-                888
-            ],
+            "in": 888,
             "outs": [
                 1231
             ]
@@ -18434,9 +17354,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "open_tmp3",
-            "ins": [
-                1478
-            ],
+            "in": 1478,
             "outs": [
                 460
             ]
@@ -18459,9 +17377,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 3 oplayer ) )",
-            "ins": [
-                1706
-            ],
+            "in": 1706,
             "outs": [
                 589,
                 767,
@@ -18504,9 +17420,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried xplayer 1 2 ) )",
-            "ins": [
-                149
-            ],
+            "in": 149,
             "outs": [
                 461
             ]
@@ -18529,9 +17443,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried oplayer 3 5 ) )",
-            "ins": [
-                428
-            ],
+            "in": 428,
             "outs": [
                 1078
             ]
@@ -18590,9 +17502,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 3 2 xplayer ) )",
-            "ins": [
-                221
-            ],
+            "in": 221,
             "outs": [
                 628
             ]
@@ -18659,9 +17569,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 4 4 b ) )",
-            "ins": [
-                1663
-            ],
+            "in": 1663,
             "outs": [
                 502,
                 1056,
@@ -18793,9 +17701,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried xplayer 5 3 ) )",
-            "ins": [
-                1726
-            ],
+            "in": 1726,
             "outs": [
                 387,
                 1117
@@ -18807,9 +17713,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 2 xplayer ) )",
-            "ins": [
-                1695
-            ],
+            "in": 1695,
             "outs": [
                 436,
                 785,
@@ -18843,9 +17747,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( step 29 ) )",
-            "ins": [
-                1716
-            ],
+            "in": 1716,
             "outs": [
                 935
             ]
@@ -18907,9 +17809,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried xplayer 2 2 ) )",
-            "ins": [
-                1759
-            ],
+            "in": 1759,
             "outs": [
                 1493,
                 108
@@ -18997,9 +17897,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried oplayer 5 2 ) )",
-            "ins": [
-                1084
-            ],
+            "in": 1084,
             "outs": [
                 381
             ]
@@ -19093,9 +17991,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried oplayer 4 4 ) )",
-            "ins": [
-                250
-            ],
+            "in": 250,
             "outs": [
                 1565
             ]
@@ -19106,9 +18002,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 5 4 xplayer ) )",
-            "ins": [
-                664
-            ],
+            "in": 664,
             "outs": [
                 755
             ]
@@ -19119,9 +18013,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( step 8 ) )",
-            "ins": [
-                680
-            ],
+            "in": 680,
             "outs": [
                 6
             ]
@@ -19143,9 +18035,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 3 5 )",
-            "ins": [
-                176
-            ],
+            "in": 176,
             "outs": [
                 205
             ]
@@ -19156,9 +18046,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried oplayer 5 3 ) )",
-            "ins": [
-                1685
-            ],
+            "in": 1685,
             "outs": [
                 414,
                 1607
@@ -19170,9 +18058,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees oplayer ( mark 1 2 ) )",
-            "ins": [
-                896
-            ]
+            "in": 896
         },
         {
             "id": 1574,
@@ -19180,9 +18066,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 1 3 b ) )",
-            "ins": [
-                940
-            ],
+            "in": 940,
             "outs": [
                 1015
             ]
@@ -19372,9 +18256,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 5 1 )",
-            "ins": [
-                279
-            ],
+            "in": 279,
             "outs": [
                 1266
             ]
@@ -19385,9 +18267,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 5 2 xplayer ) )",
-            "ins": [
-                1048
-            ],
+            "in": 1048,
             "outs": [
                 1551
             ]
@@ -19398,9 +18278,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( mark 5 2 ) )",
-            "ins": [
-                1053
-            ]
+            "in": 1053
         },
         {
             "id": 1593,
@@ -19482,9 +18360,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 5 5 b ) )",
-            "ins": [
-                1578
-            ],
+            "in": 1578,
             "outs": [
                 812
             ]
@@ -19519,9 +18395,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 5 5 b ) )",
-            "ins": [
-                1757
-            ],
+            "in": 1757,
             "outs": [
                 1003,
                 1578,
@@ -19596,9 +18470,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 5 4 b ) )",
-            "ins": [
-                644
-            ],
+            "in": 644,
             "outs": [
                 606
             ]
@@ -19621,9 +18493,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( validmove xplayer 1 5 )",
-            "ins": [
-                525
-            ],
+            "in": 525,
             "outs": [
                 1308,
                 1101,
@@ -19668,9 +18538,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal oplayer ( mark 2 1 ) )",
-            "ins": [
-                1430
-            ],
+            "in": 1430,
             "outs": []
         },
         {
@@ -19679,9 +18547,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried xplayer 5 4 ) )",
-            "ins": [
-                563
-            ],
+            "in": 563,
             "outs": [
                 440
             ]
@@ -19692,9 +18558,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried oplayer 5 2 ) )",
-            "ins": [
-                1676
-            ],
+            "in": 1676,
             "outs": [
                 247,
                 474
@@ -19718,9 +18582,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 4 2 b ) )",
-            "ins": [
-                88
-            ],
+            "in": 88,
             "outs": [
                 493
             ]
@@ -19768,9 +18630,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( yougotit 5 5 ) )",
-            "ins": [
-                170
-            ]
+            "in": 170
         },
         {
             "id": 1624,
@@ -19778,9 +18638,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried oplayer 4 2 ) )",
-            "ins": [
-                938
-            ],
+            "in": 938,
             "outs": [
                 326
             ]
@@ -19829,9 +18687,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal oplayer ( mark 4 5 ) )",
-            "ins": [
-                1409
-            ],
+            "in": 1409,
             "outs": []
         },
         {
@@ -19861,9 +18717,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 5 xplayer ) )",
-            "ins": [
-                1729
-            ],
+            "in": 1729,
             "outs": [
                 898,
                 521,
@@ -19890,9 +18744,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees xplayer ( yougotit 3 2 ) )",
-            "ins": [
-                572
-            ]
+            "in": 572
         },
         {
             "id": 1634,

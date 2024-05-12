@@ -98,7 +98,10 @@ def map_entry(entry):
 
         ins = entry[3]
         if extra_fields['proposition_type'] not in (init, input):
-            extra_fields['ins'] = ins
+            if len(ins) != 1:
+                logging.error(f"Expected a single in: {entry}")
+                exit(1)
+            extra_fields['in'] = ins[0]
         elif ins:
             logging.error(f"Missed ins: {entry}")
             exit(1)

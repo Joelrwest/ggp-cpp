@@ -47,9 +47,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( sees_tmp7 3 )",
-            "ins": [
-                449
-            ],
+            "in": 449,
             "outs": [
                 61,
                 510,
@@ -63,9 +61,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried o 1 3 ) )",
-            "ins": [
-                546
-            ],
+            "in": 546,
             "outs": [
                 183,
                 303
@@ -77,9 +73,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried o 1 1 ) )",
-            "ins": [
-                89
-            ],
+            "in": 89,
             "outs": [
                 310
             ]
@@ -110,9 +104,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next_tmp3 1 )",
-            "ins": [
-                385
-            ],
+            "in": 385,
             "outs": [
                 97,
                 529,
@@ -194,9 +186,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 2 x ) )",
-            "ins": [
-                545
-            ],
+            "in": 545,
             "outs": [
                 301,
                 78,
@@ -243,9 +233,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried o 2 3 ) )",
-            "ins": [
-                36
-            ],
+            "in": 36,
             "outs": [
                 226
             ]
@@ -318,9 +306,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( column 2 x )",
-            "ins": [
-                122
-            ],
+            "in": 122,
             "outs": [
                 174
             ]
@@ -343,9 +329,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "goal",
             "gdl": "( goal o 100 )",
-            "ins": [
-                363
-            ]
+            "in": 363
         },
         {
             "id": 27,
@@ -366,9 +350,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next_tmp3 2 )",
-            "ins": [
-                242
-            ],
+            "in": 242,
             "outs": [
                 423,
                 458,
@@ -454,9 +436,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 2 o ) )",
-            "ins": [
-                573
-            ],
+            "in": 573,
             "outs": [
                 194,
                 432,
@@ -494,9 +474,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 3 1 b ) )",
-            "ins": [
-                114
-            ],
+            "in": 114,
             "outs": [
                 25
             ]
@@ -507,9 +485,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "goal",
             "gdl": "( goal o 0 )",
-            "ins": [
-                98
-            ]
+            "in": 98
         },
         {
             "id": 40,
@@ -542,9 +518,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried o 3 1 ) )",
-            "ins": [
-                585
-            ],
+            "in": 585,
             "outs": [
                 107,
                 101
@@ -556,9 +530,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( sees_tmp1 2 o )",
-            "ins": [
-                471
-            ],
+            "in": 471,
             "outs": [
                 172,
                 517
@@ -626,9 +598,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( sees_tmp3 o 1 )",
-            "ins": [
-                318
-            ],
+            "in": 318,
             "outs": [
                 523,
                 40
@@ -665,9 +635,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( sees_tmp1 1 o )",
-            "ins": [
-                291
-            ],
+            "in": 291,
             "outs": [
                 470,
                 344
@@ -695,9 +663,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 1 3 o ) )",
-            "ins": [
-                189
-            ],
+            "in": 189,
             "outs": [
                 123
             ]
@@ -720,9 +686,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( column 3 x )",
-            "ins": [
-                200
-            ],
+            "in": 200,
             "outs": [
                 174
             ]
@@ -766,9 +730,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 1 2 x ) )",
-            "ins": [
-                145
-            ],
+            "in": 145,
             "outs": [
                 535
             ]
@@ -830,9 +792,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next_tmp7 2 )",
-            "ins": [
-                490
-            ],
+            "in": 490,
             "outs": [
                 315,
                 87,
@@ -861,9 +821,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried o 1 1 ) )",
-            "ins": [
-                569
-            ],
+            "in": 569,
             "outs": [
                 89,
                 446
@@ -937,9 +895,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "goal",
             "gdl": "( goal x 100 )",
-            "ins": [
-                524
-            ]
+            "in": 524
         },
         {
             "id": 74,
@@ -970,9 +926,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next_tmp7 1 )",
-            "ins": [
-                430
-            ],
+            "in": 430,
             "outs": [
                 333,
                 466,
@@ -1065,9 +1019,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 1 2 o ) )",
-            "ins": [
-                222
-            ],
+            "in": 222,
             "outs": [
                 340
             ]
@@ -1078,9 +1030,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 3 2 )",
-            "ins": [
-                277
-            ],
+            "in": 277,
             "outs": [
                 29
             ]
@@ -1235,9 +1185,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 2 3 x ) )",
-            "ins": [
-                494
-            ],
+            "in": 494,
             "outs": [
                 16
             ]
@@ -1307,9 +1255,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 1 x ) )",
-            "ins": [
-                552
-            ],
+            "in": 552,
             "outs": [
                 268,
                 275,
@@ -1362,9 +1308,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "open",
-            "ins": [
-                76
-            ],
+            "in": 76,
             "outs": [
                 362
             ]
@@ -1375,9 +1319,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( sees_tmp7 2 )",
-            "ins": [
-                256
-            ],
+            "in": 256,
             "outs": [
                 125,
                 137,
@@ -1391,9 +1333,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 1 o ) )",
-            "ins": [
-                584
-            ],
+            "in": 584,
             "outs": [
                 64,
                 432,
@@ -1419,9 +1359,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( column 3 o )",
-            "ins": [
-                475
-            ],
+            "in": 475,
             "outs": [
                 473
             ]
@@ -1460,9 +1398,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 1 x ) )",
-            "ins": [
-                589
-            ],
+            "in": 589,
             "outs": [
                 78,
                 268,
@@ -1540,9 +1476,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal o ( mark 2 1 ) )",
-            "ins": [
-                289
-            ],
+            "in": 289,
             "outs": []
         },
         {
@@ -1551,9 +1485,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( column 1 o )",
-            "ins": [
-                50
-            ],
+            "in": 50,
             "outs": [
                 473
             ]
@@ -1564,9 +1496,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 3 2 x ) )",
-            "ins": [
-                332
-            ],
+            "in": 332,
             "outs": [
                 477
             ]
@@ -1589,9 +1519,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried x 1 1 ) )",
-            "ins": [
-                495
-            ],
+            "in": 495,
             "outs": [
                 267
             ]
@@ -1667,9 +1595,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 2 1 x ) )",
-            "ins": [
-                245
-            ],
+            "in": 245,
             "outs": [
                 102
             ]
@@ -1680,9 +1606,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried x 2 1 ) )",
-            "ins": [
-                154
-            ],
+            "in": 154,
             "outs": [
                 485
             ]
@@ -1700,9 +1624,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 2 b ) )",
-            "ins": [
-                556
-            ],
+            "in": 556,
             "outs": [
                 76,
                 325,
@@ -1741,9 +1663,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried x 1 3 ) )",
-            "ins": [
-                561
-            ],
+            "in": 561,
             "outs": [
                 88,
                 253
@@ -1780,9 +1700,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 3 x ) )",
-            "ins": [
-                567
-            ],
+            "in": 567,
             "outs": [
                 207,
                 78,
@@ -1815,9 +1733,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried x 1 3 ) )",
-            "ins": [
-                88
-            ],
+            "in": 88,
             "outs": [
                 201
             ]
@@ -1884,9 +1800,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried x 3 1 ) )",
-            "ins": [
-                570
-            ],
+            "in": 570,
             "outs": [
                 404,
                 63
@@ -1926,9 +1840,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 2 x ) )",
-            "ins": [
-                581
-            ],
+            "in": 581,
             "outs": [
                 122,
                 332,
@@ -1963,9 +1875,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 3 b ) )",
-            "ins": [
-                577
-            ],
+            "in": 577,
             "outs": [
                 76,
                 423,
@@ -2014,9 +1924,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal x ( mark 2 1 ) )",
-            "ins": [
-                468
-            ],
+            "in": 468,
             "outs": []
         },
         {
@@ -2113,9 +2021,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 2 1 o ) )",
-            "ins": [
-                110
-            ],
+            "in": 110,
             "outs": [
                 478
             ]
@@ -2175,9 +2081,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next_tmp5 1 )",
-            "ins": [
-                262
-            ],
+            "in": 262,
             "outs": [
                 518,
                 347,
@@ -2208,9 +2112,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 2 3 )",
-            "ins": [
-                451
-            ],
+            "in": 451,
             "outs": [
                 241
             ]
@@ -2252,9 +2154,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 2 2 o ) )",
-            "ins": [
-                33
-            ],
+            "in": 33,
             "outs": [
                 408
             ]
@@ -2277,9 +2177,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next_tmp1 2 )",
-            "ins": [
-                335
-            ],
+            "in": 335,
             "outs": [
                 371,
                 193,
@@ -2325,9 +2223,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 2 b ) )",
-            "ins": [
-                586
-            ],
+            "in": 586,
             "outs": [
                 76,
                 403,
@@ -2353,9 +2249,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried x 1 2 ) )",
-            "ins": [
-                588
-            ],
+            "in": 588,
             "outs": [
                 531,
                 427
@@ -2367,9 +2261,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal x ( mark 2 2 ) )",
-            "ins": [
-                77
-            ],
+            "in": 77,
             "outs": []
         },
         {
@@ -2390,9 +2282,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 1 1 x ) )",
-            "ins": [
-                479
-            ],
+            "in": 479,
             "outs": [
                 126
             ]
@@ -2415,9 +2305,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried x 3 3 ) )",
-            "ins": [
-                576
-            ],
+            "in": 576,
             "outs": [
                 500,
                 199
@@ -2484,9 +2372,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 1 3 b ) )",
-            "ins": [
-                320
-            ],
+            "in": 320,
             "outs": [
                 103
             ]
@@ -2512,9 +2398,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried x 2 1 ) )",
-            "ins": [
-                583
-            ],
+            "in": 583,
             "outs": [
                 468,
                 154
@@ -2539,9 +2423,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried o 3 2 ) )",
-            "ins": [
-                161
-            ],
+            "in": 161,
             "outs": [
                 321
             ]
@@ -2626,9 +2508,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal o ( mark 1 1 ) )",
-            "ins": [
-                446
-            ],
+            "in": 446,
             "outs": []
         },
         {
@@ -2669,9 +2549,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees x ok )",
-            "ins": [
-                390
-            ]
+            "in": 390
         },
         {
             "id": 203,
@@ -2679,9 +2557,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 3 x ) )",
-            "ins": [
-                547
-            ],
+            "in": 547,
             "outs": [
                 494,
                 200,
@@ -2750,9 +2626,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 3 3 o ) )",
-            "ins": [
-                155
-            ],
+            "in": 155,
             "outs": [
                 152
             ]
@@ -2763,9 +2637,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 1 1 b ) )",
-            "ins": [
-                487
-            ],
+            "in": 487,
             "outs": [
                 185
             ]
@@ -2822,9 +2694,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried x 2 3 ) )",
-            "ins": [
-                120
-            ],
+            "in": 120,
             "outs": [
                 328
             ]
@@ -2835,9 +2705,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( sees_tmp1 3 o )",
-            "ins": [
-                124
-            ],
+            "in": 124,
             "outs": [
                 137,
                 317
@@ -2849,9 +2717,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal x ( mark 1 3 ) )",
-            "ins": [
-                253
-            ],
+            "in": 253,
             "outs": []
         },
         {
@@ -2860,9 +2726,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 3 3 x ) )",
-            "ins": [
-                452
-            ],
+            "in": 452,
             "outs": [
                 228
             ]
@@ -2899,9 +2763,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried x 3 2 ) )",
-            "ins": [
-                528
-            ],
+            "in": 528,
             "outs": [
                 184
             ]
@@ -2992,9 +2854,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( sees_tmp3 x 2 )",
-            "ins": [
-                431
-            ],
+            "in": 431,
             "outs": [
                 459,
                 197
@@ -3032,9 +2892,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 3 3 b ) )",
-            "ins": [
-                2
-            ],
+            "in": 2,
             "outs": [
                 507
             ]
@@ -3057,9 +2915,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal x ( mark 3 2 ) )",
-            "ins": [
-                95
-            ],
+            "in": 95,
             "outs": []
         },
         {
@@ -3137,9 +2993,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried x 3 2 ) )",
-            "ins": [
-                560
-            ],
+            "in": 560,
             "outs": [
                 528,
                 95
@@ -3222,9 +3076,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal o ( mark 1 2 ) )",
-            "ins": [
-                422
-            ],
+            "in": 422,
             "outs": []
         },
         {
@@ -3233,9 +3085,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried o 1 2 ) )",
-            "ins": [
-                580
-            ],
+            "in": 580,
             "outs": [
                 422,
                 181
@@ -3260,9 +3110,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 3 b ) )",
-            "ins": [
-                549
-            ],
+            "in": 549,
             "outs": [
                 76,
                 112,
@@ -3317,9 +3165,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 2 b ) )",
-            "ins": [
-                564
-            ],
+            "in": 564,
             "outs": [
                 97,
                 76,
@@ -3404,9 +3250,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 3 o ) )",
-            "ins": [
-                557
-            ],
+            "in": 557,
             "outs": [
                 475,
                 283,
@@ -3442,9 +3286,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 1 2 )",
-            "ins": [
-                435
-            ],
+            "in": 435,
             "outs": [
                 509
             ]
@@ -3455,9 +3297,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( row 3 x )",
-            "ins": [
-                83
-            ],
+            "in": 83,
             "outs": [
                 174
             ]
@@ -3523,9 +3363,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried o 1 2 ) )",
-            "ins": [
-                181
-            ],
+            "in": 181,
             "outs": [
                 467
             ]
@@ -3593,9 +3431,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried x 3 1 ) )",
-            "ins": [
-                63
-            ],
+            "in": 63,
             "outs": [
                 313
             ]
@@ -3606,9 +3442,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 3 o ) )",
-            "ins": [
-                553
-            ],
+            "in": 553,
             "outs": [
                 475,
                 348,
@@ -3622,9 +3456,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( column 1 x )",
-            "ins": [
-                268
-            ],
+            "in": 268,
             "outs": [
                 174
             ]
@@ -3648,9 +3480,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried o 2 1 ) )",
-            "ins": [
-                551
-            ],
+            "in": 551,
             "outs": [
                 289,
                 533
@@ -3674,9 +3504,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried x 2 2 ) )",
-            "ins": [
-                548
-            ],
+            "in": 548,
             "outs": [
                 77,
                 426
@@ -3688,9 +3516,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried x 2 3 ) )",
-            "ins": [
-                572
-            ],
+            "in": 572,
             "outs": [
                 45,
                 120
@@ -3714,9 +3540,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next_tmp5 3 )",
-            "ins": [
-                305
-            ],
+            "in": 305,
             "outs": [
                 217,
                 206,
@@ -3758,9 +3582,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( diagonal o )",
-            "ins": [
-                379
-            ],
+            "in": 379,
             "outs": [
                 473
             ]
@@ -3771,9 +3593,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 2 3 b ) )",
-            "ins": [
-                269
-            ],
+            "in": 269,
             "outs": [
                 70
             ]
@@ -3797,9 +3617,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 3 1 x ) )",
-            "ins": [
-                322
-            ],
+            "in": 322,
             "outs": [
                 540
             ]
@@ -3853,9 +3671,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "goal",
             "gdl": "( goal o 50 )",
-            "ins": [
-                288
-            ]
+            "in": 288
         },
         {
             "id": 293,
@@ -3863,9 +3679,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( sees_tmp3 x 1 )",
-            "ins": [
-                158
-            ],
+            "in": 158,
             "outs": [
                 49,
                 21
@@ -3877,9 +3691,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried x 3 3 ) )",
-            "ins": [
-                199
-            ],
+            "in": 199,
             "outs": [
                 373
             ]
@@ -3902,9 +3714,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried o 2 1 ) )",
-            "ins": [
-                533
-            ],
+            "in": 533,
             "outs": [
                 72
             ]
@@ -3936,9 +3746,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "terminal",
             "gdl": "terminal",
-            "ins": [
-                414
-            ],
+            "in": 414,
             "outs": []
         },
         {
@@ -3947,9 +3755,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 2 2 x ) )",
-            "ins": [
-                412
-            ],
+            "in": 412,
             "outs": [
                 7
             ]
@@ -3973,9 +3779,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 1 o ) )",
-            "ins": [
-                575
-            ],
+            "in": 575,
             "outs": [
                 166,
                 348,
@@ -4057,9 +3861,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next_tmp1 1 )",
-            "ins": [
-                506
-            ],
+            "in": 506,
             "outs": [
                 127,
                 493,
@@ -4140,9 +3942,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried o 3 3 ) )",
-            "ins": [
-                12
-            ],
+            "in": 12,
             "outs": [
                 243
             ]
@@ -4276,9 +4076,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next_tmp5 2 )",
-            "ins": [
-                156
-            ],
+            "in": 156,
             "outs": [
                 306,
                 85,
@@ -4301,9 +4099,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried o 1 3 ) )",
-            "ins": [
-                183
-            ],
+            "in": 183,
             "outs": [
                 11
             ]
@@ -4314,9 +4110,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 2 1 )",
-            "ins": [
-                297
-            ],
+            "in": 297,
             "outs": [
                 157
             ]
@@ -4327,9 +4121,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 1 b ) )",
-            "ins": [
-                574
-            ],
+            "in": 574,
             "outs": [
                 440,
                 76,
@@ -4384,9 +4176,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( sees_tmp3 o 2 )",
-            "ins": [
-                271
-            ],
+            "in": 271,
             "outs": [
                 84,
                 324
@@ -4423,9 +4213,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "goal",
             "gdl": "( goal x 0 )",
-            "ins": [
-                233
-            ]
+            "in": 233
         },
         {
             "id": 338,
@@ -4492,9 +4280,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal o ( mark 3 3 ) )",
-            "ins": [
-                290
-            ],
+            "in": 290,
             "outs": []
         },
         {
@@ -4631,9 +4417,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 2 o ) )",
-            "ins": [
-                558
-            ],
+            "in": 558,
             "outs": [
                 194,
                 391,
@@ -4646,9 +4430,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( row 2 o )",
-            "ins": [
-                433
-            ],
+            "in": 433,
             "outs": [
                 473
             ]
@@ -4659,9 +4441,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried x 2 2 ) )",
-            "ins": [
-                426
-            ],
+            "in": 426,
             "outs": [
                 32
             ]
@@ -4684,9 +4464,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal x ( mark 1 2 ) )",
-            "ins": [
-                531
-            ],
+            "in": 531,
             "outs": []
         },
         {
@@ -4743,9 +4521,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 3 b ) )",
-            "ins": [
-                550
-            ],
+            "in": 550,
             "outs": [
                 76,
                 62,
@@ -4771,9 +4547,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal x ( mark 3 1 ) )",
-            "ins": [
-                404
-            ],
+            "in": 404,
             "outs": []
         },
         {
@@ -4782,9 +4556,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "goal",
             "gdl": "( goal x 50 )",
-            "ins": [
-                58
-            ]
+            "in": 58
         },
         {
             "id": 367,
@@ -4817,9 +4589,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 1 o ) )",
-            "ins": [
-                582
-            ],
+            "in": 582,
             "outs": [
                 433,
                 110,
@@ -4877,9 +4647,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( column 2 o )",
-            "ins": [
-                194
-            ],
+            "in": 194,
             "outs": [
                 473
             ]
@@ -4961,9 +4729,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried o 2 3 ) )",
-            "ins": [
-                562
-            ],
+            "in": 562,
             "outs": [
                 140,
                 36
@@ -4975,9 +4741,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 2 1 b ) )",
-            "ins": [
-                457
-            ],
+            "in": 457,
             "outs": [
                 23
             ]
@@ -4995,9 +4759,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( sees_tmp1 3 x )",
-            "ins": [
-                346
-            ],
+            "in": 346,
             "outs": [
                 125,
                 319
@@ -5009,9 +4771,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( sees_tmp7 1 )",
-            "ins": [
-                250
-            ],
+            "in": 250,
             "outs": [
                 388,
                 317,
@@ -5038,9 +4798,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 1 3 )",
-            "ins": [
-                221
-            ],
+            "in": 221,
             "outs": [
                 527
             ]
@@ -5051,9 +4809,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal o ( mark 2 2 ) )",
-            "ins": [
-                53
-            ],
+            "in": 53,
             "outs": []
         },
         {
@@ -5074,9 +4830,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( sees_tmp1 1 x )",
-            "ins": [
-                142
-            ],
+            "in": 142,
             "outs": [
                 61,
                 163
@@ -5175,9 +4929,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 1 1 o ) )",
-            "ins": [
-                64
-            ],
+            "in": 64,
             "outs": [
                 513
             ]
@@ -5188,9 +4940,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 2 x ) )",
-            "ins": [
-                587
-            ],
+            "in": 587,
             "outs": [
                 145,
                 207,
@@ -5216,9 +4966,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 3 2 o ) )",
-            "ins": [
-                391
-            ],
+            "in": 391,
             "outs": [
                 153
             ]
@@ -5257,9 +5005,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal x ( mark 1 1 ) )",
-            "ins": [
-                298
-            ],
+            "in": 298,
             "outs": []
         },
         {
@@ -5268,9 +5014,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 2 3 o ) )",
-            "ins": [
-                34
-            ],
+            "in": 34,
             "outs": [
                 413
             ]
@@ -5327,9 +5071,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( sees_tmp9 2 )",
-            "ins": [
-                400
-            ],
+            "in": 400,
             "outs": [
                 394,
                 523,
@@ -5350,9 +5092,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( line o )",
-            "ins": [
-                473
-            ],
+            "in": 473,
             "outs": [
                 363,
                 233,
@@ -5368,9 +5108,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( sees_tmp9 3 )",
-            "ins": [
-                219
-            ],
+            "in": 219,
             "outs": [
                 324,
                 197,
@@ -5384,9 +5122,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 3 3 )",
-            "ins": [
-                308
-            ],
+            "in": 308,
             "outs": [
                 447
             ]
@@ -5433,9 +5169,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( sees_tmp3 x 3 )",
-            "ins": [
-                248
-            ],
+            "in": 248,
             "outs": [
                 394,
                 425
@@ -5494,9 +5228,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal o ( mark 3 2 ) )",
-            "ins": [
-                255
-            ],
+            "in": 255,
             "outs": []
         },
         {
@@ -5613,9 +5345,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried o 3 3 ) )",
-            "ins": [
-                565
-            ],
+            "in": 565,
             "outs": [
                 290,
                 12
@@ -5679,9 +5409,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 3 o ) )",
-            "ins": [
-                579
-            ],
+            "in": 579,
             "outs": [
                 34,
                 475,
@@ -5706,9 +5434,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( diagonal x )",
-            "ins": [
-                406
-            ],
+            "in": 406,
             "outs": [
                 174
             ]
@@ -5769,9 +5495,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 3 1 )",
-            "ins": [
-                437
-            ],
+            "in": 437,
             "outs": [
                 307
             ]
@@ -5782,9 +5506,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( line x )",
-            "ins": [
-                174
-            ],
+            "in": 174,
             "outs": [
                 98,
                 524,
@@ -5812,9 +5534,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 1 2 b ) )",
-            "ins": [
-                349
-            ],
+            "in": 349,
             "outs": [
                 59
             ]
@@ -5856,9 +5576,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( row 2 x )",
-            "ins": [
-                275
-            ],
+            "in": 275,
             "outs": [
                 174
             ]
@@ -5885,9 +5603,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 1 b ) )",
-            "ins": [
-                555
-            ],
+            "in": 555,
             "outs": [
                 487,
                 76,
@@ -5941,9 +5657,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 3 2 b ) )",
-            "ins": [
-                336
-            ],
+            "in": 336,
             "outs": [
                 230
             ]
@@ -5954,9 +5668,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried o 3 1 ) )",
-            "ins": [
-                107
-            ],
+            "in": 107,
             "outs": [
                 530
             ]
@@ -5967,9 +5679,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 1 1 )",
-            "ins": [
-                232
-            ],
+            "in": 232,
             "outs": [
                 505
             ]
@@ -6029,9 +5739,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried o 2 2 ) )",
-            "ins": [
-                304
-            ],
+            "in": 304,
             "outs": [
                 244
             ]
@@ -6055,9 +5763,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next_tmp3 3 )",
-            "ins": [
-                511
-            ],
+            "in": 511,
             "outs": [
                 9,
                 397,
@@ -6073,9 +5779,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( row 3 o )",
-            "ins": [
-                314
-            ],
+            "in": 314,
             "outs": [
                 473
             ]
@@ -6086,9 +5790,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 2 2 )",
-            "ins": [
-                17
-            ],
+            "in": 17,
             "outs": [
                 57
             ]
@@ -6140,9 +5842,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal x ( mark 2 3 ) )",
-            "ins": [
-                45
-            ],
+            "in": 45,
             "outs": []
         },
         {
@@ -6231,9 +5931,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 1 b ) )",
-            "ins": [
-                559
-            ],
+            "in": 559,
             "outs": [
                 76,
                 424,
@@ -6289,9 +5987,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal x ( mark 3 3 ) )",
-            "ins": [
-                500
-            ],
+            "in": 500,
             "outs": []
         },
         {
@@ -6300,9 +5996,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 2 o ) )",
-            "ins": [
-                578
-            ],
+            "in": 578,
             "outs": [
                 33,
                 194,
@@ -6317,9 +6011,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 3 1 o ) )",
-            "ins": [
-                166
-            ],
+            "in": 166,
             "outs": [
                 351
             ]
@@ -6330,9 +6022,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried x 1 2 ) )",
-            "ins": [
-                427
-            ],
+            "in": 427,
             "outs": [
                 538
             ]
@@ -6362,9 +6052,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees o ok )",
-            "ins": [
-                143
-            ]
+            "in": 143
         },
         {
             "id": 487,
@@ -6384,9 +6072,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal o ( mark 3 1 ) )",
-            "ins": [
-                101
-            ],
+            "in": 101,
             "outs": []
         },
         {
@@ -6395,9 +6081,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried o 3 2 ) )",
-            "ins": [
-                571
-            ],
+            "in": 571,
             "outs": [
                 255,
                 161
@@ -6550,9 +6234,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next_tmp1 3 )",
-            "ins": [
-                254
-            ],
+            "in": 254,
             "outs": [
                 372,
                 27,
@@ -6568,9 +6250,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal o ( mark 2 3 ) )",
-            "ins": [
-                140
-            ],
+            "in": 140,
             "outs": []
         },
         {
@@ -6579,9 +6259,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried x 1 1 ) )",
-            "ins": [
-                568
-            ],
+            "in": 568,
             "outs": [
                 298,
                 495
@@ -6640,9 +6318,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 3 x ) )",
-            "ins": [
-                563
-            ],
+            "in": 563,
             "outs": [
                 301,
                 452,
@@ -6722,9 +6398,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried o 2 2 ) )",
-            "ins": [
-                566
-            ],
+            "in": 566,
             "outs": [
                 53,
                 304
@@ -6736,9 +6410,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( row 1 o )",
-            "ins": [
-                432
-            ],
+            "in": 432,
             "outs": [
                 473
             ]
@@ -6774,9 +6446,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 2 2 b ) )",
-            "ins": [
-                224
-            ],
+            "in": 224,
             "outs": [
                 22
             ]
@@ -6787,9 +6457,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal o ( mark 1 3 ) )",
-            "ins": [
-                303
-            ],
+            "in": 303,
             "outs": []
         },
         {
@@ -6798,9 +6466,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( sees_tmp1 2 x )",
-            "ins": [
-                445
-            ],
+            "in": 445,
             "outs": [
                 510,
                 388
@@ -6859,9 +6525,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 1 x ) )",
-            "ins": [
-                554
-            ],
+            "in": 554,
             "outs": [
                 479,
                 207,
@@ -6938,9 +6602,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next_tmp7 3 )",
-            "ins": [
-                342
-            ],
+            "in": 342,
             "outs": [
                 440,
                 325,
@@ -6995,9 +6657,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( sees_tmp3 o 3 )",
-            "ins": [
-                417
-            ],
+            "in": 417,
             "outs": [
                 179,
                 370
@@ -7016,9 +6676,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 1 3 x ) )",
-            "ins": [
-                491
-            ],
+            "in": 491,
             "outs": [
                 263
             ]
@@ -7072,9 +6730,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( sees_tmp9 1 )",
-            "ins": [
-                393
-            ],
+            "in": 393,
             "outs": [
                 84,
                 459,
@@ -7088,9 +6744,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( row 1 x )",
-            "ins": [
-                207
-            ],
+            "in": 207,
             "outs": [
                 174
             ]
