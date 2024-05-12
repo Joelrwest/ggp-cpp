@@ -1,0 +1,7768 @@
+{
+    "roles": [
+        "x",
+        "o",
+        "random"
+    ],
+    "entries": [
+        {
+            "id": 0,
+            "type": "PROPOSITION",
+            "ins": [
+                200
+            ],
+            "outs": [],
+            "proposition_type": "goal",
+            "gdl": "( goal x 0 )"
+        },
+        {
+            "id": 1,
+            "type": "AND",
+            "ins": [
+                414,
+                534
+            ],
+            "outs": [
+                591
+            ]
+        },
+        {
+            "id": 2,
+            "type": "OR",
+            "ins": [
+                87,
+                506
+            ],
+            "outs": [
+                432
+            ]
+        },
+        {
+            "id": 3,
+            "type": "AND",
+            "ins": [
+                66,
+                304,
+                199
+            ],
+            "outs": [
+                575
+            ]
+        },
+        {
+            "id": 4,
+            "type": "AND",
+            "ins": [
+                606,
+                87,
+                557,
+                506
+            ],
+            "outs": [
+                276
+            ]
+        },
+        {
+            "id": 5,
+            "type": "OR",
+            "ins": [
+                550,
+                516
+            ],
+            "outs": [
+                498
+            ]
+        },
+        {
+            "id": 6,
+            "type": "AND",
+            "ins": [
+                66,
+                587,
+                304
+            ],
+            "outs": [
+                575
+            ]
+        },
+        {
+            "id": 7,
+            "type": "AND",
+            "ins": [
+                187,
+                373
+            ],
+            "outs": [
+                614
+            ]
+        },
+        {
+            "id": 8,
+            "type": "PROPOSITION",
+            "ins": [
+                15
+            ],
+            "outs": [
+                88,
+                595,
+                201,
+                193,
+                338,
+                76
+            ],
+            "proposition_type": "other",
+            "gdl": "( next_tmp3 3 )"
+        },
+        {
+            "id": 9,
+            "type": "AND",
+            "ins": [
+                389,
+                460
+            ],
+            "outs": [
+                482
+            ]
+        },
+        {
+            "id": 10,
+            "type": "NOT",
+            "in": 337,
+            "outs": [
+                429
+            ]
+        },
+        {
+            "id": 11,
+            "type": "OR",
+            "ins": [
+                579,
+                52
+            ],
+            "outs": [
+                181
+            ]
+        },
+        {
+            "id": 12,
+            "type": "AND",
+            "ins": [
+                28,
+                380,
+                578
+            ],
+            "outs": [
+                86
+            ]
+        },
+        {
+            "id": 13,
+            "type": "PROPOSITION",
+            "ins": [
+                404
+            ],
+            "outs": [],
+            "proposition_type": "other",
+            "gdl": "( next ( cell 2 3 xSecondChance ) )"
+        },
+        {
+            "id": 14,
+            "type": "PROPOSITION",
+            "ins": [
+                190
+            ],
+            "outs": [
+                313
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( cell 3 2 b ) )"
+        },
+        {
+            "id": 15,
+            "type": "OR",
+            "ins": [
+                171,
+                433,
+                579
+            ],
+            "outs": [
+                8
+            ]
+        },
+        {
+            "id": 16,
+            "type": "PROPOSITION",
+            "ins": [
+                555
+            ],
+            "outs": [],
+            "proposition_type": "legal",
+            "gdl": "( legal x ( mark 1 2 ) )"
+        },
+        {
+            "id": 17,
+            "type": "OR",
+            "ins": [
+                66,
+                606,
+                494,
+                234,
+                151,
+                187,
+                446,
+                136,
+                147
+            ],
+            "outs": [
+                574
+            ]
+        },
+        {
+            "id": 18,
+            "type": "AND",
+            "ins": [
+                494,
+                134
+            ],
+            "outs": [
+                218
+            ]
+        },
+        {
+            "id": 19,
+            "type": "OR",
+            "ins": [
+                215,
+                600
+            ],
+            "outs": [
+                164
+            ]
+        },
+        {
+            "id": 20,
+            "type": "PROPOSITION",
+            "ins": [
+                381
+            ],
+            "outs": [
+                305
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( cell 2 1 x ) )"
+        },
+        {
+            "id": 21,
+            "type": "AND",
+            "ins": [
+                171,
+                234
+            ],
+            "outs": [
+                611
+            ]
+        },
+        {
+            "id": 22,
+            "type": "PROPOSITION",
+            "ins": [
+                614
+            ],
+            "outs": [
+                301,
+                110
+            ],
+            "proposition_type": "other",
+            "gdl": "( sees_tmp1 3 o )"
+        },
+        {
+            "id": 23,
+            "type": "AND",
+            "ins": [
+                606,
+                87
+            ],
+            "outs": [
+                302
+            ]
+        },
+        {
+            "id": 24,
+            "type": "PROPOSITION",
+            "ins": [
+                453
+            ],
+            "outs": [
+                522,
+                319,
+                284,
+                470
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( cell 1 1 o ) )"
+        },
+        {
+            "id": 25,
+            "type": "AND",
+            "ins": [
+                494,
+                134,
+                64
+            ],
+            "outs": [
+                381
+            ]
+        },
+        {
+            "id": 26,
+            "type": "NOT",
+            "in": 296,
+            "outs": [
+                461
+            ]
+        },
+        {
+            "id": 27,
+            "type": "AND",
+            "ins": [
+                87,
+                606,
+                321
+            ],
+            "outs": [
+                99
+            ]
+        },
+        {
+            "id": 28,
+            "type": "PROPOSITION",
+            "ins": [
+                186
+            ],
+            "outs": [
+                604,
+                12,
+                284,
+                100
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( cell 1 3 o ) )"
+        },
+        {
+            "id": 29,
+            "type": "TRANSITION",
+            "ins": [
+                133
+            ],
+            "outs": [
+                613
+            ]
+        },
+        {
+            "id": 30,
+            "type": "TRANSITION",
+            "ins": [
+                420
+            ],
+            "outs": [
+                97
+            ]
+        },
+        {
+            "id": 31,
+            "type": "OR",
+            "ins": [
+                168,
+                185,
+                457,
+                554,
+                566,
+                440,
+                338
+            ],
+            "outs": [
+                247
+            ]
+        },
+        {
+            "id": 32,
+            "type": "PROPOSITION",
+            "ins": [
+                99
+            ],
+            "outs": [
+                530
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( cell 2 2 o ) )"
+        },
+        {
+            "id": 33,
+            "type": "AND",
+            "ins": [
+                66,
+                433
+            ],
+            "outs": [
+                332
+            ]
+        },
+        {
+            "id": 34,
+            "type": "AND",
+            "ins": [
+                183,
+                196
+            ],
+            "outs": [
+                591
+            ]
+        },
+        {
+            "id": 35,
+            "type": "PROPOSITION",
+            "ins": [
+                270
+            ],
+            "outs": [],
+            "proposition_type": "legal",
+            "gdl": "( legal x ( mark 1 1 ) )"
+        },
+        {
+            "id": 36,
+            "type": "PROPOSITION",
+            "ins": [
+                82
+            ],
+            "outs": [
+                336
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( cell 3 3 o ) )"
+        },
+        {
+            "id": 37,
+            "type": "NOT",
+            "in": 315,
+            "outs": [
+                503
+            ]
+        },
+        {
+            "id": 38,
+            "type": "AND",
+            "ins": [
+                151,
+                445
+            ],
+            "outs": [
+                512
+            ]
+        },
+        {
+            "id": 39,
+            "type": "PROPOSITION",
+            "ins": [
+                591
+            ],
+            "outs": [],
+            "proposition_type": "sees",
+            "gdl": "( sees o ok )"
+        },
+        {
+            "id": 40,
+            "type": "NOT",
+            "in": 181,
+            "outs": [
+                250
+            ]
+        },
+        {
+            "id": 41,
+            "type": "PROPOSITION",
+            "ins": [
+                408
+            ],
+            "outs": [
+                419
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( cell 3 2 o ) )"
+        },
+        {
+            "id": 42,
+            "type": "PROPOSITION",
+            "ins": [
+                58
+            ],
+            "outs": [
+                254,
+                174
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( tried x 3 2 ) )"
+        },
+        {
+            "id": 43,
+            "type": "PROPOSITION",
+            "ins": [],
+            "outs": [
+                113,
+                413,
+                345,
+                91,
+                415,
+                313,
+                527,
+                316,
+                103
+            ],
+            "proposition_type": "init",
+            "gdl": "init"
+        },
+        {
+            "id": 44,
+            "type": "AND",
+            "ins": [
+                569,
+                442
+            ],
+            "outs": [
+                482
+            ]
+        },
+        {
+            "id": 45,
+            "type": "NOT",
+            "in": 94,
+            "outs": [
+                205
+            ]
+        },
+        {
+            "id": 46,
+            "type": "AND",
+            "ins": [
+                557,
+                303
+            ],
+            "outs": [
+                482
+            ]
+        },
+        {
+            "id": 47,
+            "type": "OR",
+            "ins": [
+                166,
+                215,
+                472
+            ],
+            "outs": [
+                540
+            ]
+        },
+        {
+            "id": 48,
+            "type": "AND",
+            "ins": [
+                494,
+                472,
+                532
+            ],
+            "outs": [
+                263
+            ]
+        },
+        {
+            "id": 49,
+            "type": "AND",
+            "ins": [
+                66,
+                433
+            ],
+            "outs": [
+                128
+            ]
+        },
+        {
+            "id": 50,
+            "type": "TRANSITION",
+            "ins": [
+                294
+            ],
+            "outs": [
+                118
+            ]
+        },
+        {
+            "id": 51,
+            "type": "AND",
+            "ins": [
+                596,
+                214,
+                147
+            ],
+            "outs": [
+                598
+            ]
+        },
+        {
+            "id": 52,
+            "type": "PROPOSITION",
+            "ins": [],
+            "outs": [
+                545,
+                582,
+                331,
+                495,
+                497,
+                407,
+                548,
+                476,
+                227,
+                111,
+                253,
+                11,
+                56,
+                233,
+                365,
+                367,
+                314,
+                529
+            ],
+            "proposition_type": "input",
+            "gdl": "( does x ( mark 3 3 ) )"
+        },
+        {
+            "id": 53,
+            "type": "TRANSITION",
+            "ins": [
+                164
+            ],
+            "outs": [
+                600
+            ]
+        },
+        {
+            "id": 54,
+            "type": "OR",
+            "ins": [
+                255,
+                579
+            ],
+            "outs": [
+                280
+            ]
+        },
+        {
+            "id": 55,
+            "type": "AND",
+            "ins": [
+                596,
+                532,
+                147
+            ],
+            "outs": [
+                598
+            ]
+        },
+        {
+            "id": 56,
+            "type": "AND",
+            "ins": [
+                446,
+                52
+            ],
+            "outs": [
+                236
+            ]
+        },
+        {
+            "id": 57,
+            "type": "PROPOSITION",
+            "ins": [
+                519
+            ],
+            "outs": [
+                510
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( tried o 1 3 ) )"
+        },
+        {
+            "id": 58,
+            "type": "TRANSITION",
+            "ins": [
+                292
+            ],
+            "outs": [
+                42
+            ]
+        },
+        {
+            "id": 59,
+            "type": "AND",
+            "ins": [
+                596,
+                147
+            ],
+            "outs": [
+                216
+            ]
+        },
+        {
+            "id": 60,
+            "type": "PROPOSITION",
+            "ins": [
+                444
+            ],
+            "outs": [
+                198
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( tried o 3 2 ) )"
+        },
+        {
+            "id": 61,
+            "type": "AND",
+            "ins": [
+                187,
+                535,
+                373
+            ],
+            "outs": [
+                408
+            ]
+        },
+        {
+            "id": 62,
+            "type": "OR",
+            "ins": [
+                115,
+                445,
+                304
+            ],
+            "outs": [
+                535
+            ]
+        },
+        {
+            "id": 63,
+            "type": "PROPOSITION",
+            "ins": [
+                580
+            ],
+            "outs": [
+                525
+            ],
+            "proposition_type": "other",
+            "gdl": "( row 3 o )"
+        },
+        {
+            "id": 64,
+            "type": "PROPOSITION",
+            "ins": [
+                421
+            ],
+            "outs": [
+                340,
+                564,
+                323,
+                476,
+                25,
+                206
+            ],
+            "proposition_type": "other",
+            "gdl": "( next_tmp1 1 )"
+        },
+        {
+            "id": 65,
+            "type": "AND",
+            "ins": [
+                377,
+                327,
+                185
+            ],
+            "outs": [
+                232
+            ]
+        },
+        {
+            "id": 66,
+            "type": "PROPOSITION",
+            "ins": [
+                148
+            ],
+            "outs": [
+                514,
+                378,
+                105,
+                3,
+                563,
+                6,
+                165,
+                500,
+                360,
+                384,
+                49,
+                463,
+                33,
+                387,
+                272,
+                521,
+                17,
+                483,
+                124,
+                556,
+                126
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( cell 1 3 b ) )"
+        },
+        {
+            "id": 67,
+            "type": "AND",
+            "ins": [
+                223,
+                462,
+                584
+            ],
+            "outs": [
+                117
+            ]
+        },
+        {
+            "id": 68,
+            "type": "TRANSITION",
+            "ins": [
+                597
+            ],
+            "outs": [
+                107
+            ]
+        },
+        {
+            "id": 69,
+            "type": "PROPOSITION",
+            "ins": [
+                419
+            ],
+            "outs": [
+                580,
+                71,
+                408
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( cell 3 2 o ) )"
+        },
+        {
+            "id": 70,
+            "type": "PROPOSITION",
+            "ins": [
+                598
+            ],
+            "outs": [
+                508
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( cell 1 2 o ) )"
+        },
+        {
+            "id": 71,
+            "type": "AND",
+            "ins": [
+                69,
+                380,
+                293
+            ],
+            "outs": [
+                222
+            ]
+        },
+        {
+            "id": 72,
+            "type": "AND",
+            "ins": [
+                494,
+                134
+            ],
+            "outs": [
+                217
+            ]
+        },
+        {
+            "id": 73,
+            "type": "PROPOSITION",
+            "ins": [
+                480
+            ],
+            "outs": [],
+            "proposition_type": "legal",
+            "gdl": "( legal o ( mark 2 3 ) )"
+        },
+        {
+            "id": 74,
+            "type": "PROPOSITION",
+            "ins": [
+                361
+            ],
+            "outs": [],
+            "proposition_type": "terminal",
+            "gdl": "terminal"
+        },
+        {
+            "id": 75,
+            "type": "AND",
+            "ins": [
+                136,
+                228
+            ],
+            "outs": [
+                358
+            ]
+        },
+        {
+            "id": 76,
+            "type": "AND",
+            "ins": [
+                281,
+                136,
+                8
+            ],
+            "outs": [
+                326
+            ]
+        },
+        {
+            "id": 77,
+            "type": "TRANSITION",
+            "ins": [
+                204
+            ],
+            "outs": [
+                578
+            ]
+        },
+        {
+            "id": 78,
+            "type": "OR",
+            "ins": [
+                107,
+                134
+            ],
+            "outs": [
+                597
+            ]
+        },
+        {
+            "id": 79,
+            "type": "AND",
+            "ins": [
+                281,
+                136
+            ],
+            "outs": [
+                218
+            ]
+        },
+        {
+            "id": 80,
+            "type": "CONSTANT",
+            "value": 1
+        },
+        {
+            "id": 81,
+            "type": "AND",
+            "ins": [
+                171,
+                234,
+                321
+            ],
+            "outs": [
+                371
+            ]
+        },
+        {
+            "id": 82,
+            "type": "OR",
+            "ins": [
+                375,
+                418,
+                163,
+                264,
+                602,
+                253
+            ],
+            "outs": [
+                36
+            ]
+        },
+        {
+            "id": 83,
+            "type": "PROPOSITION",
+            "ins": [
+                450
+            ],
+            "outs": [
+                113
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( cell 1 1 b ) )"
+        },
+        {
+            "id": 84,
+            "type": "PROPOSITION",
+            "ins": [
+                341
+            ],
+            "outs": [],
+            "proposition_type": "goal",
+            "gdl": "( goal x 100 )"
+        },
+        {
+            "id": 85,
+            "type": "AND",
+            "ins": [
+                166,
+                151,
+                196,
+                445
+            ],
+            "outs": [
+                522
+            ]
+        },
+        {
+            "id": 86,
+            "type": "OR",
+            "ins": [
+                12,
+                319
+            ],
+            "outs": [
+                177
+            ]
+        },
+        {
+            "id": 87,
+            "type": "PROPOSITION",
+            "ins": [],
+            "outs": [
+                179,
+                27,
+                454,
+                351,
+                149,
+                2,
+                4,
+                308,
+                95,
+                501,
+                388,
+                411,
+                143,
+                399,
+                23,
+                543,
+                243
+            ],
+            "proposition_type": "input",
+            "gdl": "( does o ( mark 2 2 ) )"
+        },
+        {
+            "id": 88,
+            "type": "AND",
+            "ins": [
+                114,
+                187,
+                8
+            ],
+            "outs": [
+                523
+            ]
+        },
+        {
+            "id": 89,
+            "type": "NOT",
+            "in": 106,
+            "outs": [
+                450
+            ]
+        },
+        {
+            "id": 90,
+            "type": "AND",
+            "ins": [
+                115,
+                557,
+                596,
+                147
+            ],
+            "outs": [
+                353
+            ]
+        },
+        {
+            "id": 91,
+            "type": "OR",
+            "ins": [
+                43,
+                546
+            ],
+            "outs": [
+                318
+            ]
+        },
+        {
+            "id": 92,
+            "type": "AND",
+            "ins": [
+                460,
+                197
+            ],
+            "outs": [
+                482
+            ]
+        },
+        {
+            "id": 93,
+            "type": "AND",
+            "ins": [
+                150,
+                414
+            ],
+            "outs": [
+                591
+            ]
+        },
+        {
+            "id": 94,
+            "type": "PROPOSITION",
+            "ins": [
+                265
+            ],
+            "outs": [
+                45
+            ],
+            "proposition_type": "other",
+            "gdl": "( marked 1 2 )"
+        },
+        {
+            "id": 95,
+            "type": "OR",
+            "ins": [
+                87,
+                115,
+                114,
+                596,
+                506,
+                373
+            ],
+            "outs": [
+                561
+            ]
+        },
+        {
+            "id": 96,
+            "type": "AND",
+            "ins": [
+                225,
+                295
+            ],
+            "outs": [
+                482
+            ]
+        },
+        {
+            "id": 97,
+            "type": "PROPOSITION",
+            "ins": [
+                30
+            ],
+            "outs": [
+                351,
+                423
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( tried o 2 2 ) )"
+        },
+        {
+            "id": 98,
+            "type": "AND",
+            "ins": [
+                115,
+                596,
+                435,
+                147
+            ],
+            "outs": [
+                353
+            ]
+        },
+        {
+            "id": 99,
+            "type": "OR",
+            "ins": [
+                27,
+                388,
+                380,
+                543,
+                501,
+                243
+            ],
+            "outs": [
+                32
+            ]
+        },
+        {
+            "id": 100,
+            "type": "OR",
+            "ins": [
+                272,
+                28,
+                378,
+                563,
+                126,
+                463
+            ],
+            "outs": [
+                153
+            ]
+        },
+        {
+            "id": 101,
+            "type": "PROPOSITION",
+            "ins": [
+                80
+            ],
+            "outs": [],
+            "proposition_type": "legal",
+            "gdl": "( legal random ( tiebreak o ) )"
+        },
+        {
+            "id": 102,
+            "type": "TRANSITION",
+            "ins": [
+                498
+            ],
+            "outs": [
+                550
+            ]
+        },
+        {
+            "id": 103,
+            "type": "OR",
+            "ins": [
+                43,
+                358
+            ],
+            "outs": [
+                428
+            ]
+        },
+        {
+            "id": 104,
+            "type": "NOT",
+            "in": 432,
+            "outs": [
+                526
+            ]
+        },
+        {
+            "id": 105,
+            "type": "AND",
+            "ins": [
+                66,
+                304,
+                585
+            ],
+            "outs": [
+                575
+            ]
+        },
+        {
+            "id": 106,
+            "type": "PROPOSITION",
+            "ins": [
+                109
+            ],
+            "outs": [
+                89
+            ],
+            "proposition_type": "other",
+            "gdl": "( marked 1 1 )"
+        },
+        {
+            "id": 107,
+            "type": "PROPOSITION",
+            "ins": [
+                68
+            ],
+            "outs": [
+                78,
+                210
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( tried x 2 1 ) )"
+        },
+        {
+            "id": 108,
+            "type": "PROPOSITION",
+            "ins": [
+                410
+            ],
+            "outs": [
+                242,
+                270
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( tried x 1 1 ) )"
+        },
+        {
+            "id": 109,
+            "type": "OR",
+            "ins": [
+                166,
+                445
+            ],
+            "outs": [
+                106
+            ]
+        },
+        {
+            "id": 110,
+            "type": "AND",
+            "ins": [
+                22,
+                197
+            ],
+            "outs": [
+                591
+            ]
+        },
+        {
+            "id": 111,
+            "type": "OR",
+            "ins": [
+                330,
+                52
+            ],
+            "outs": [
+                339
+            ]
+        },
+        {
+            "id": 112,
+            "type": "PROPOSITION",
+            "ins": [
+                594
+            ],
+            "outs": [
+                604,
+                202,
+                371
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( cell 2 3 o ) )"
+        },
+        {
+            "id": 113,
+            "type": "OR",
+            "ins": [
+                43,
+                83
+            ],
+            "outs": [
+                465
+            ]
+        },
+        {
+            "id": 114,
+            "type": "PROPOSITION",
+            "ins": [],
+            "outs": [
+                220,
+                129,
+                88,
+                456,
+                288,
+                95,
+                502,
+                254,
+                138,
+                340,
+                154,
+                233,
+                158,
+                368,
+                314,
+                278,
+                240,
+                317
+            ],
+            "proposition_type": "input",
+            "gdl": "( does x ( mark 3 2 ) )"
+        },
+        {
+            "id": 115,
+            "type": "PROPOSITION",
+            "ins": [],
+            "outs": [
+                220,
+                201,
+                251,
+                90,
+                265,
+                285,
+                290,
+                95,
+                98,
+                449,
+                325,
+                62,
+                274,
+                119,
+                417,
+                400,
+                144,
+                369
+            ],
+            "proposition_type": "input",
+            "gdl": "( does x ( mark 1 2 ) )"
+        },
+        {
+            "id": 116,
+            "type": "AND",
+            "ins": [
+                573,
+                382
+            ],
+            "outs": [
+                577
+            ]
+        },
+        {
+            "id": 117,
+            "type": "OR",
+            "ins": [
+                167,
+                67
+            ],
+            "outs": [
+                307
+            ]
+        },
+        {
+            "id": 118,
+            "type": "PROPOSITION",
+            "ins": [
+                50
+            ],
+            "outs": [
+                480,
+                207
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( tried o 2 3 ) )"
+        },
+        {
+            "id": 119,
+            "type": "OR",
+            "ins": [
+                166,
+                115,
+                596,
+                433,
+                445,
+                304
+            ],
+            "outs": [
+                197
+            ]
+        },
+        {
+            "id": 120,
+            "type": "AND",
+            "ins": [
+                516,
+                234
+            ],
+            "outs": [
+                488
+            ]
+        },
+        {
+            "id": 121,
+            "type": "OR",
+            "ins": [
+                517,
+                400,
+                502
+            ],
+            "outs": [
+                569
+            ]
+        },
+        {
+            "id": 122,
+            "type": "PROPOSITION",
+            "ins": [
+                523
+            ],
+            "outs": [
+                551
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( cell 3 2 x ) )"
+        },
+        {
+            "id": 123,
+            "type": "OR",
+            "ins": [
+                281,
+                134,
+                445
+            ],
+            "outs": [
+                321
+            ]
+        },
+        {
+            "id": 124,
+            "type": "AND",
+            "ins": [
+                66,
+                553
+            ],
+            "outs": [
+                277
+            ]
+        },
+        {
+            "id": 125,
+            "type": "PROPOSITION",
+            "ins": [
+                437
+            ],
+            "outs": [
+                524
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( tried o 2 1 ) )"
+        },
+        {
+            "id": 126,
+            "type": "AND",
+            "ins": [
+                66,
+                433,
+                532
+            ],
+            "outs": [
+                100
+            ]
+        },
+        {
+            "id": 127,
+            "type": "AND",
+            "ins": [
+                215,
+                136
+            ],
+            "outs": [
+                128
+            ]
+        },
+        {
+            "id": 128,
+            "type": "OR",
+            "ins": [
+                262,
+                504,
+                350,
+                335,
+                143,
+                542,
+                499,
+                127,
+                49
+            ],
+            "outs": [
+                183
+            ]
+        },
+        {
+            "id": 129,
+            "type": "AND",
+            "ins": [
+                114,
+                435,
+                187,
+                373
+            ],
+            "outs": [
+                523
+            ]
+        },
+        {
+            "id": 130,
+            "type": "AND",
+            "ins": [
+                494,
+                214,
+                472
+            ],
+            "outs": [
+                263
+            ]
+        },
+        {
+            "id": 131,
+            "type": "PROPOSITION",
+            "ins": [
+                423
+            ],
+            "outs": [],
+            "proposition_type": "legal",
+            "gdl": "( legal o ( mark 2 2 ) )"
+        },
+        {
+            "id": 132,
+            "type": "AND",
+            "ins": [
+                494,
+                472
+            ],
+            "outs": [
+                230
+            ]
+        },
+        {
+            "id": 133,
+            "type": "PROPOSITION",
+            "ins": [
+                263
+            ],
+            "outs": [
+                29
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( cell 2 1 o ) )"
+        },
+        {
+            "id": 134,
+            "type": "PROPOSITION",
+            "ins": [],
+            "outs": [
+                349,
+                454,
+                441,
+                248,
+                405,
+                72,
+                266,
+                268,
+                137,
+                477,
+                78,
+                18,
+                571,
+                193,
+                123,
+                469,
+                25,
+                244
+            ],
+            "proposition_type": "input",
+            "gdl": "( does x ( mark 2 1 ) )"
+        },
+        {
+            "id": 135,
+            "type": "AND",
+            "ins": [
+                171,
+                234
+            ],
+            "outs": [
+                302
+            ]
+        },
+        {
+            "id": 136,
+            "type": "PROPOSITION",
+            "ins": [
+                428
+            ],
+            "outs": [
+                184,
+                334,
+                562,
+                564,
+                75,
+                518,
+                310,
+                76,
+                605,
+                607,
+                79,
+                297,
+                298,
+                505,
+                17,
+                362,
+                393,
+                576,
+                127,
+                245,
+                246
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( cell 3 1 b ) )"
+        },
+        {
+            "id": 137,
+            "type": "OR",
+            "ins": [
+                506,
+                516,
+                134
+            ],
+            "outs": [
+                273
+            ]
+        },
+        {
+            "id": 138,
+            "type": "AND",
+            "ins": [
+                114,
+                587,
+                187
+            ],
+            "outs": [
+                523
+            ]
+        },
+        {
+            "id": 139,
+            "type": "PROPOSITION",
+            "ins": [
+                328
+            ],
+            "outs": [
+                345
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( cell 2 1 b ) )"
+        },
+        {
+            "id": 140,
+            "type": "AND",
+            "ins": [
+                520,
+                389
+            ],
+            "outs": [
+                591
+            ]
+        },
+        {
+            "id": 141,
+            "type": "PROPOSITION",
+            "ins": [
+                526
+            ],
+            "outs": [
+                415
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( cell 2 2 b ) )"
+        },
+        {
+            "id": 142,
+            "type": "AND",
+            "ins": [
+                171,
+                234,
+                516,
+                435
+            ],
+            "outs": [
+                430
+            ]
+        },
+        {
+            "id": 143,
+            "type": "AND",
+            "ins": [
+                606,
+                87
+            ],
+            "outs": [
+                128
+            ]
+        },
+        {
+            "id": 144,
+            "type": "AND",
+            "ins": [
+                115,
+                557,
+                596,
+                147
+            ],
+            "outs": [
+                533
+            ]
+        },
+        {
+            "id": 145,
+            "type": "NOT",
+            "in": 589,
+            "outs": [
+                190
+            ]
+        },
+        {
+            "id": 146,
+            "type": "TRANSITION",
+            "ins": [
+                339
+            ],
+            "outs": [
+                330
+            ]
+        },
+        {
+            "id": 147,
+            "type": "PROPOSITION",
+            "ins": [
+                487
+            ],
+            "outs": [
+                201,
+                251,
+                90,
+                205,
+                285,
+                290,
+                51,
+                98,
+                504,
+                449,
+                55,
+                17,
+                59,
+                274,
+                366,
+                175,
+                417,
+                400,
+                144,
+                439,
+                369
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( cell 1 2 b ) )"
+        },
+        {
+            "id": 148,
+            "type": "TRANSITION",
+            "ins": [
+                527
+            ],
+            "outs": [
+                66
+            ]
+        },
+        {
+            "id": 149,
+            "type": "AND",
+            "ins": [
+                606,
+                87,
+                557,
+                506
+            ],
+            "outs": [
+                267
+            ]
+        },
+        {
+            "id": 150,
+            "type": "PROPOSITION",
+            "ins": [
+                216
+            ],
+            "outs": [
+                93,
+                511
+            ],
+            "proposition_type": "other",
+            "gdl": "( sees_tmp3 2 o )"
+        },
+        {
+            "id": 151,
+            "type": "PROPOSITION",
+            "ins": [
+                465
+            ],
+            "outs": [
+                335,
+                457,
+                287,
+                566,
+                338,
+                603,
+                168,
+                466,
+                467,
+                256,
+                169,
+                17,
+                155,
+                450,
+                436,
+                38,
+                397,
+                194,
+                554,
+                85,
+                440
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( cell 1 1 b ) )"
+        },
+        {
+            "id": 152,
+            "type": "TRANSITION",
+            "ins": [
+                568
+            ],
+            "outs": [
+                475
+            ]
+        },
+        {
+            "id": 153,
+            "type": "PROPOSITION",
+            "ins": [
+                100
+            ],
+            "outs": [
+                186
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( cell 1 3 o ) )"
+        },
+        {
+            "id": 154,
+            "type": "AND",
+            "ins": [
+                114,
+                540,
+                187
+            ],
+            "outs": [
+                523
+            ]
+        },
+        {
+            "id": 155,
+            "type": "AND",
+            "ins": [
+                166,
+                557,
+                151,
+                445
+            ],
+            "outs": [
+                238
+            ]
+        },
+        {
+            "id": 156,
+            "type": "PROPOSITION",
+            "ins": [
+                430
+            ],
+            "outs": [
+                422
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( cell 2 3 x ) )"
+        },
+        {
+            "id": 157,
+            "type": "PROPOSITION",
+            "ins": [
+                342
+            ],
+            "outs": [],
+            "proposition_type": "legal",
+            "gdl": "( legal o ( mark 3 2 ) )"
+        },
+        {
+            "id": 158,
+            "type": "AND",
+            "ins": [
+                114,
+                187,
+                196,
+                373
+            ],
+            "outs": [
+                408
+            ]
+        },
+        {
+            "id": 159,
+            "type": "AND",
+            "ins": [
+                494,
+                472
+            ],
+            "outs": [
+                302
+            ]
+        },
+        {
+            "id": 160,
+            "type": "OR",
+            "ins": [
+                171,
+                516
+            ],
+            "outs": [
+                547
+            ]
+        },
+        {
+            "id": 161,
+            "type": "AND",
+            "ins": [
+                606,
+                506,
+                540
+            ],
+            "outs": [
+                267
+            ]
+        },
+        {
+            "id": 162,
+            "type": "PROPOSITION",
+            "ins": [
+                576
+            ],
+            "outs": [],
+            "proposition_type": "other",
+            "gdl": "( next ( cell 3 1 xSecondChance ) )"
+        },
+        {
+            "id": 163,
+            "type": "PROPOSITION",
+            "ins": [
+                336
+            ],
+            "outs": [
+                604,
+                580,
+                319,
+                82
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( cell 3 3 o ) )"
+        },
+        {
+            "id": 164,
+            "type": "PROPOSITION",
+            "ins": [
+                19
+            ],
+            "outs": [
+                53
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( tried o 3 1 ) )"
+        },
+        {
+            "id": 165,
+            "type": "AND",
+            "ins": [
+                66,
+                304
+            ],
+            "outs": [
+                512
+            ]
+        },
+        {
+            "id": 166,
+            "type": "PROPOSITION",
+            "ins": [],
+            "outs": [
+                421,
+                47,
+                335,
+                287,
+                109,
+                566,
+                477,
+                603,
+                169,
+                479,
+                155,
+                119,
+                436,
+                397,
+                194,
+                554,
+                85
+            ],
+            "proposition_type": "input",
+            "gdl": "( does o ( mark 1 1 ) )"
+        },
+        {
+            "id": 167,
+            "type": "AND",
+            "ins": [
+                573,
+                382
+            ],
+            "outs": [
+                117
+            ]
+        },
+        {
+            "id": 168,
+            "type": "AND",
+            "ins": [
+                151,
+                445,
+                199
+            ],
+            "outs": [
+                31
+            ]
+        },
+        {
+            "id": 169,
+            "type": "AND",
+            "ins": [
+                166,
+                273,
+                151
+            ],
+            "outs": [
+                522
+            ]
+        },
+        {
+            "id": 170,
+            "type": "AND",
+            "ins": [
+                197,
+                295
+            ],
+            "outs": [
+                482
+            ]
+        },
+        {
+            "id": 171,
+            "type": "PROPOSITION",
+            "ins": [],
+            "outs": [
+                160,
+                454,
+                350,
+                497,
+                404,
+                583,
+                424,
+                135,
+                207,
+                271,
+                15,
+                396,
+                142,
+                21,
+                399,
+                81,
+                329
+            ],
+            "proposition_type": "input",
+            "gdl": "( does o ( mark 2 3 ) )"
+        },
+        {
+            "id": 172,
+            "type": "AND",
+            "ins": [
+                389,
+                406
+            ],
+            "outs": [
+                482
+            ]
+        },
+        {
+            "id": 173,
+            "type": "PROPOSITION",
+            "ins": [
+                258
+            ],
+            "outs": [],
+            "proposition_type": "legal",
+            "gdl": "( legal o ( mark 1 2 ) )"
+        },
+        {
+            "id": 174,
+            "type": "NOT",
+            "in": 42,
+            "outs": [
+                572
+            ]
+        },
+        {
+            "id": 175,
+            "type": "AND",
+            "ins": [
+                596,
+                147
+            ],
+            "outs": [
+                332
+            ]
+        },
+        {
+            "id": 176,
+            "type": "OR",
+            "ins": [
+                215,
+                579,
+                373
+            ],
+            "outs": [
+                585
+            ]
+        },
+        {
+            "id": 177,
+            "type": "PROPOSITION",
+            "ins": [
+                86
+            ],
+            "outs": [
+                525
+            ],
+            "proposition_type": "other",
+            "gdl": "( diagonal o )"
+        },
+        {
+            "id": 178,
+            "type": "OR",
+            "ins": [
+                605,
+                607,
+                334,
+                578,
+                310,
+                246
+            ],
+            "outs": [
+                204
+            ]
+        },
+        {
+            "id": 179,
+            "type": "AND",
+            "ins": [
+                606,
+                87
+            ],
+            "outs": [
+                216
+            ]
+        },
+        {
+            "id": 180,
+            "type": "OR",
+            "ins": [
+                466,
+                290,
+                500
+            ],
+            "outs": [
+                406
+            ]
+        },
+        {
+            "id": 181,
+            "type": "PROPOSITION",
+            "ins": [
+                11
+            ],
+            "outs": [
+                40
+            ],
+            "proposition_type": "other",
+            "gdl": "( marked 3 3 )"
+        },
+        {
+            "id": 182,
+            "type": "OR",
+            "ins": [
+                304,
+                565
+            ],
+            "outs": [
+                455
+            ]
+        },
+        {
+            "id": 183,
+            "type": "PROPOSITION",
+            "ins": [
+                128
+            ],
+            "outs": [
+                34
+            ],
+            "proposition_type": "other",
+            "gdl": "( sees_tmp5 o )"
+        },
+        {
+            "id": 184,
+            "type": "AND",
+            "ins": [
+                281,
+                136
+            ],
+            "outs": [
+                488
+            ]
+        },
+        {
+            "id": 185,
+            "type": "PROPOSITION",
+            "ins": [
+                431
+            ],
+            "outs": [
+                412,
+                65,
+                359,
+                31
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( cell 1 1 x ) )"
+        },
+        {
+            "id": 186,
+            "type": "TRANSITION",
+            "ins": [
+                153
+            ],
+            "outs": [
+                28
+            ]
+        },
+        {
+            "id": 187,
+            "type": "PROPOSITION",
+            "ins": [
+                425
+            ],
+            "outs": [
+                129,
+                88,
+                456,
+                288,
+                190,
+                7,
+                499,
+                502,
+                409,
+                138,
+                208,
+                340,
+                154,
+                211,
+                17,
+                61,
+                158,
+                278,
+                240,
+                317,
+                261
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( cell 3 2 b ) )"
+        },
+        {
+            "id": 188,
+            "type": "AND",
+            "ins": [
+                386,
+                435
+            ],
+            "outs": [
+                482
+            ]
+        },
+        {
+            "id": 189,
+            "type": "PROPOSITION",
+            "ins": [
+                510
+            ],
+            "outs": [
+                320,
+                519
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( tried o 1 3 ) )"
+        },
+        {
+            "id": 190,
+            "type": "AND",
+            "ins": [
+                187,
+                145
+            ],
+            "outs": [
+                14
+            ]
+        },
+        {
+            "id": 191,
+            "type": "TRANSITION",
+            "ins": [
+                345
+            ],
+            "outs": [
+                494
+            ]
+        },
+        {
+            "id": 192,
+            "type": "NOT",
+            "in": 550,
+            "outs": [
+                347
+            ]
+        },
+        {
+            "id": 193,
+            "type": "AND",
+            "ins": [
+                494,
+                134,
+                8
+            ],
+            "outs": [
+                381
+            ]
+        },
+        {
+            "id": 194,
+            "type": "AND",
+            "ins": [
+                166,
+                151,
+                532
+            ],
+            "outs": [
+                522
+            ]
+        },
+        {
+            "id": 195,
+            "type": "NOT",
+            "in": 565,
+            "outs": [
+                471
+            ]
+        },
+        {
+            "id": 196,
+            "type": "PROPOSITION",
+            "ins": [],
+            "outs": [
+                449,
+                388,
+                34,
+                248,
+                378,
+                396,
+                158,
+                85,
+                310,
+                253
+            ],
+            "proposition_type": "input",
+            "gdl": "( does random ( tiebreak o ) )"
+        },
+        {
+            "id": 197,
+            "type": "PROPOSITION",
+            "ins": [
+                119
+            ],
+            "outs": [
+                586,
+                170,
+                92,
+                110
+            ],
+            "proposition_type": "other",
+            "gdl": "( sees_tmp9 1 )"
+        },
+        {
+            "id": 198,
+            "type": "TRANSITION",
+            "ins": [
+                60
+            ],
+            "outs": [
+                219
+            ]
+        },
+        {
+            "id": 199,
+            "type": "PROPOSITION",
+            "ins": [
+                411
+            ],
+            "outs": [
+                168,
+                571,
+                363,
+                3,
+                367,
+                245
+            ],
+            "proposition_type": "other",
+            "gdl": "( next_tmp3 2 )"
+        },
+        {
+            "id": 200,
+            "type": "AND",
+            "ins": [
+                223,
+                382
+            ],
+            "outs": [
+                0
+            ]
+        },
+        {
+            "id": 201,
+            "type": "AND",
+            "ins": [
+                115,
+                147,
+                8
+            ],
+            "outs": [
+                353
+            ]
+        },
+        {
+            "id": 202,
+            "type": "AND",
+            "ins": [
+                112,
+                380,
+                613
+            ],
+            "outs": [
+                592
+            ]
+        },
+        {
+            "id": 203,
+            "type": "AND",
+            "ins": [
+                569,
+                414
+            ],
+            "outs": [
+                482
+            ]
+        },
+        {
+            "id": 204,
+            "type": "PROPOSITION",
+            "ins": [
+                178
+            ],
+            "outs": [
+                77
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( cell 3 1 o ) )"
+        },
+        {
+            "id": 205,
+            "type": "AND",
+            "ins": [
+                45,
+                147
+            ],
+            "outs": [
+                599
+            ]
+        },
+        {
+            "id": 206,
+            "type": "AND",
+            "ins": [
+                606,
+                506,
+                64
+            ],
+            "outs": [
+                267
+            ]
+        },
+        {
+            "id": 207,
+            "type": "OR",
+            "ins": [
+                171,
+                118
+            ],
+            "outs": [
+                294
+            ]
+        },
+        {
+            "id": 208,
+            "type": "AND",
+            "ins": [
+                273,
+                187,
+                373
+            ],
+            "outs": [
+                408
+            ]
+        },
+        {
+            "id": 209,
+            "type": "PROPOSITION",
+            "ins": [
+                305
+            ],
+            "outs": [
+                412,
+                381,
+                374
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( cell 2 1 x ) )"
+        },
+        {
+            "id": 210,
+            "type": "NOT",
+            "in": 107,
+            "outs": [
+                468
+            ]
+        },
+        {
+            "id": 211,
+            "type": "AND",
+            "ins": [
+                187,
+                373
+            ],
+            "outs": [
+                216
+            ]
+        },
+        {
+            "id": 212,
+            "type": "TRANSITION",
+            "ins": [
+                455
+            ],
+            "outs": [
+                565
+            ]
+        },
+        {
+            "id": 213,
+            "type": "AND",
+            "ins": [
+                496,
+                414
+            ],
+            "outs": [
+                482
+            ]
+        },
+        {
+            "id": 214,
+            "type": "PROPOSITION",
+            "ins": [
+                227
+            ],
+            "outs": [
+                130,
+                51,
+                409,
+                501,
+                603,
+                246
+            ],
+            "proposition_type": "other",
+            "gdl": "( next_tmp7 3 )"
+        },
+        {
+            "id": 215,
+            "type": "PROPOSITION",
+            "ins": [],
+            "outs": [
+                47,
+                334,
+                518,
+                477,
+                310,
+                605,
+                607,
+                298,
+                19,
+                362,
+                257,
+                393,
+                576,
+                176,
+                314,
+                127,
+                246
+            ],
+            "proposition_type": "input",
+            "gdl": "( does o ( mark 3 1 ) )"
+        },
+        {
+            "id": 216,
+            "type": "OR",
+            "ins": [
+                179,
+                211,
+                59
+            ],
+            "outs": [
+                150
+            ]
+        },
+        {
+            "id": 217,
+            "type": "OR",
+            "ins": [
+                481,
+                451,
+                72
+            ],
+            "outs": [
+                460
+            ]
+        },
+        {
+            "id": 218,
+            "type": "OR",
+            "ins": [
+                79,
+                256,
+                18
+            ],
+            "outs": [
+                438
+            ]
+        },
+        {
+            "id": 219,
+            "type": "PROPOSITION",
+            "ins": [
+                198
+            ],
+            "outs": [
+                342,
+                444
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( tried o 3 2 ) )"
+        },
+        {
+            "id": 220,
+            "type": "OR",
+            "ins": [
+                114,
+                115,
+                506
+            ],
+            "outs": [
+                416
+            ]
+        },
+        {
+            "id": 221,
+            "type": "PROPOSITION",
+            "ins": [
+                371
+            ],
+            "outs": [
+                594
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( cell 2 3 o ) )"
+        },
+        {
+            "id": 222,
+            "type": "PROPOSITION",
+            "ins": [
+                71
+            ],
+            "outs": [
+                525
+            ],
+            "proposition_type": "other",
+            "gdl": "( column 2 o )"
+        },
+        {
+            "id": 223,
+            "type": "NOT",
+            "in": 573,
+            "outs": [
+                67,
+                235,
+                485,
+                200
+            ]
+        },
+        {
+            "id": 224,
+            "type": "PROPOSITION",
+            "ins": [
+                490
+            ],
+            "outs": [],
+            "proposition_type": "legal",
+            "gdl": "( legal o ( mark 3 1 ) )"
+        },
+        {
+            "id": 225,
+            "type": "PROPOSITION",
+            "ins": [
+                454
+            ],
+            "outs": [
+                301,
+                241,
+                96,
+                538
+            ],
+            "proposition_type": "other",
+            "gdl": "( sees_tmp9 2 )"
+        },
+        {
+            "id": 226,
+            "type": "TRANSITION",
+            "ins": [
+                610
+            ],
+            "outs": [
+                333
+            ]
+        },
+        {
+            "id": 227,
+            "type": "OR",
+            "ins": [
+                516,
+                304,
+                52
+            ],
+            "outs": [
+                214
+            ]
+        },
+        {
+            "id": 228,
+            "type": "NOT",
+            "in": 515,
+            "outs": [
+                75
+            ]
+        },
+        {
+            "id": 229,
+            "type": "PROPOSITION",
+            "ins": [
+                302
+            ],
+            "outs": [
+                586,
+                612
+            ],
+            "proposition_type": "other",
+            "gdl": "( sees_tmp1 2 o )"
+        },
+        {
+            "id": 230,
+            "type": "OR",
+            "ins": [
+                132,
+                436,
+                518
+            ],
+            "outs": [
+                474
+            ]
+        },
+        {
+            "id": 231,
+            "type": "PROPOSITION",
+            "ins": [
+                608
+            ],
+            "outs": [
+                283,
+                267,
+                259,
+                359,
+                374
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( cell 2 2 x ) )"
+        },
+        {
+            "id": 232,
+            "type": "PROPOSITION",
+            "ins": [
+                65
+            ],
+            "outs": [
+                492
+            ],
+            "proposition_type": "other",
+            "gdl": "( row 1 x )"
+        },
+        {
+            "id": 233,
+            "type": "OR",
+            "ins": [
+                114,
+                281,
+                52
+            ],
+            "outs": [
+                532
+            ]
+        },
+        {
+            "id": 234,
+            "type": "PROPOSITION",
+            "ins": [
+                318
+            ],
+            "outs": [
+                350,
+                404,
+                443,
+                583,
+                424,
+                323,
+                135,
+                324,
+                448,
+                271,
+                299,
+                17,
+                363,
+                451,
+                120,
+                396,
+                142,
+                21,
+                486,
+                81,
+                329
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( cell 2 3 b ) )"
+        },
+        {
+            "id": 235,
+            "type": "AND",
+            "ins": [
+                223,
+                382
+            ],
+            "outs": [
+                300
+            ]
+        },
+        {
+            "id": 236,
+            "type": "OR",
+            "ins": [
+                56,
+                562,
+                317
+            ],
+            "outs": [
+                295
+            ]
+        },
+        {
+            "id": 237,
+            "type": "AND",
+            "ins": [
+                494,
+                472,
+                535
+            ],
+            "outs": [
+                263
+            ]
+        },
+        {
+            "id": 238,
+            "type": "PROPOSITION",
+            "ins": [
+                155
+            ],
+            "outs": [],
+            "proposition_type": "other",
+            "gdl": "( next ( cell 1 1 xSecondChance ) )"
+        },
+        {
+            "id": 239,
+            "type": "AND",
+            "ins": [
+                494,
+                416,
+                472
+            ],
+            "outs": [
+                263
+            ]
+        },
+        {
+            "id": 240,
+            "type": "AND",
+            "ins": [
+                114,
+                187
+            ],
+            "outs": [
+                488
+            ]
+        },
+        {
+            "id": 241,
+            "type": "AND",
+            "ins": [
+                406,
+                225
+            ],
+            "outs": [
+                482
+            ]
+        },
+        {
+            "id": 242,
+            "type": "OR",
+            "ins": [
+                108,
+                445
+            ],
+            "outs": [
+                352
+            ]
+        },
+        {
+            "id": 243,
+            "type": "AND",
+            "ins": [
+                87,
+                606,
+                532
+            ],
+            "outs": [
+                99
+            ]
+        },
+        {
+            "id": 244,
+            "type": "AND",
+            "ins": [
+                494,
+                134
+            ],
+            "outs": [
+                488
+            ]
+        },
+        {
+            "id": 245,
+            "type": "AND",
+            "ins": [
+                281,
+                136,
+                199
+            ],
+            "outs": [
+                326
+            ]
+        },
+        {
+            "id": 246,
+            "type": "AND",
+            "ins": [
+                215,
+                214,
+                136
+            ],
+            "outs": [
+                178
+            ]
+        },
+        {
+            "id": 247,
+            "type": "PROPOSITION",
+            "ins": [
+                31
+            ],
+            "outs": [
+                431
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( cell 1 1 x ) )"
+        },
+        {
+            "id": 248,
+            "type": "AND",
+            "ins": [
+                494,
+                472,
+                134,
+                196
+            ],
+            "outs": [
+                263
+            ]
+        },
+        {
+            "id": 249,
+            "type": "AND",
+            "ins": [
+                446,
+                579
+            ],
+            "outs": [
+                611
+            ]
+        },
+        {
+            "id": 250,
+            "type": "AND",
+            "ins": [
+                446,
+                40
+            ],
+            "outs": [
+                355
+            ]
+        },
+        {
+            "id": 251,
+            "type": "AND",
+            "ins": [
+                115,
+                587,
+                147
+            ],
+            "outs": [
+                353
+            ]
+        },
+        {
+            "id": 252,
+            "type": "PROPOSITION",
+            "ins": [
+                577
+            ],
+            "outs": [],
+            "proposition_type": "goal",
+            "gdl": "( goal o 50 )"
+        },
+        {
+            "id": 253,
+            "type": "AND",
+            "ins": [
+                196,
+                446,
+                579,
+                52
+            ],
+            "outs": [
+                82
+            ]
+        },
+        {
+            "id": 254,
+            "type": "OR",
+            "ins": [
+                114,
+                42
+            ],
+            "outs": [
+                292
+            ]
+        },
+        {
+            "id": 255,
+            "type": "PROPOSITION",
+            "ins": [
+                391
+            ],
+            "outs": [
+                491,
+                54
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( tried o 3 3 ) )"
+        },
+        {
+            "id": 256,
+            "type": "AND",
+            "ins": [
+                151,
+                445
+            ],
+            "outs": [
+                218
+            ]
+        },
+        {
+            "id": 257,
+            "type": "OR",
+            "ins": [
+                281,
+                215
+            ],
+            "outs": [
+                515
+            ]
+        },
+        {
+            "id": 258,
+            "type": "NOT",
+            "in": 311,
+            "outs": [
+                173
+            ]
+        },
+        {
+            "id": 259,
+            "type": "AND",
+            "ins": [
+                231,
+                377,
+                509
+            ],
+            "outs": [
+                464
+            ]
+        },
+        {
+            "id": 260,
+            "type": "PROPOSITION",
+            "ins": [
+                522
+            ],
+            "outs": [
+                453
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( cell 1 1 o ) )"
+        },
+        {
+            "id": 261,
+            "type": "AND",
+            "ins": [
+                321,
+                187,
+                373
+            ],
+            "outs": [
+                408
+            ]
+        },
+        {
+            "id": 262,
+            "type": "AND",
+            "ins": [
+                446,
+                579
+            ],
+            "outs": [
+                128
+            ]
+        },
+        {
+            "id": 263,
+            "type": "OR",
+            "ins": [
+                248,
+                130,
+                613,
+                48,
+                237,
+                239
+            ],
+            "outs": [
+                133
+            ]
+        },
+        {
+            "id": 264,
+            "type": "AND",
+            "ins": [
+                321,
+                446,
+                579
+            ],
+            "outs": [
+                82
+            ]
+        },
+        {
+            "id": 265,
+            "type": "OR",
+            "ins": [
+                115,
+                596
+            ],
+            "outs": [
+                94
+            ]
+        },
+        {
+            "id": 266,
+            "type": "AND",
+            "ins": [
+                494,
+                134,
+                585
+            ],
+            "outs": [
+                381
+            ]
+        },
+        {
+            "id": 267,
+            "type": "OR",
+            "ins": [
+                161,
+                595,
+                231,
+                149,
+                308,
+                528,
+                206
+            ],
+            "outs": [
+                306
+            ]
+        },
+        {
+            "id": 268,
+            "type": "AND",
+            "ins": [
+                494,
+                557,
+                472,
+                134
+            ],
+            "outs": [
+                403
+            ]
+        },
+        {
+            "id": 269,
+            "type": "PROPOSITION",
+            "ins": [
+                552
+            ],
+            "outs": [
+                492
+            ],
+            "proposition_type": "other",
+            "gdl": "( row 3 x )"
+        },
+        {
+            "id": 270,
+            "type": "NOT",
+            "in": 108,
+            "outs": [
+                35
+            ]
+        },
+        {
+            "id": 271,
+            "type": "AND",
+            "ins": [
+                171,
+                234,
+                532
+            ],
+            "outs": [
+                371
+            ]
+        },
+        {
+            "id": 272,
+            "type": "AND",
+            "ins": [
+                66,
+                433,
+                321
+            ],
+            "outs": [
+                100
+            ]
+        },
+        {
+            "id": 273,
+            "type": "PROPOSITION",
+            "ins": [
+                137
+            ],
+            "outs": [
+                208,
+                607,
+                169,
+                366,
+                563,
+                602
+            ],
+            "proposition_type": "other",
+            "gdl": "( next_tmp5 2 )"
+        },
+        {
+            "id": 274,
+            "type": "AND",
+            "ins": [
+                115,
+                147,
+                585
+            ],
+            "outs": [
+                353
+            ]
+        },
+        {
+            "id": 275,
+            "type": "OR",
+            "ins": [
+                433,
+                304
+            ],
+            "outs": [
+                489
+            ]
+        },
+        {
+            "id": 276,
+            "type": "PROPOSITION",
+            "ins": [
+                4
+            ],
+            "outs": [],
+            "proposition_type": "other",
+            "gdl": "( next ( cell 2 2 xSecondChance ) )"
+        },
+        {
+            "id": 277,
+            "type": "PROPOSITION",
+            "ins": [
+                124
+            ],
+            "outs": [
+                527
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( cell 1 3 b ) )"
+        },
+        {
+            "id": 278,
+            "type": "AND",
+            "ins": [
+                114,
+                187
+            ],
+            "outs": [
+                512
+            ]
+        },
+        {
+            "id": 279,
+            "type": "TRANSITION",
+            "ins": [
+                567
+            ],
+            "outs": [
+                311
+            ]
+        },
+        {
+            "id": 280,
+            "type": "PROPOSITION",
+            "ins": [
+                54
+            ],
+            "outs": [
+                391
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( tried o 3 3 ) )"
+        },
+        {
+            "id": 281,
+            "type": "PROPOSITION",
+            "ins": [],
+            "outs": [
+                184,
+                562,
+                564,
+                536,
+                477,
+                310,
+                76,
+                79,
+                297,
+                505,
+                362,
+                233,
+                257,
+                393,
+                576,
+                123,
+                314,
+                245
+            ],
+            "proposition_type": "input",
+            "gdl": "( does x ( mark 3 1 ) )"
+        },
+        {
+            "id": 282,
+            "type": "PROPOSITION",
+            "ins": [
+                459
+            ],
+            "outs": [],
+            "proposition_type": "goal",
+            "gdl": "( goal o 0 )"
+        },
+        {
+            "id": 283,
+            "type": "AND",
+            "ins": [
+                231,
+                327,
+                475
+            ],
+            "outs": [
+                385
+            ]
+        },
+        {
+            "id": 284,
+            "type": "AND",
+            "ins": [
+                28,
+                24,
+                293
+            ],
+            "outs": [
+                427
+            ]
+        },
+        {
+            "id": 285,
+            "type": "AND",
+            "ins": [
+                115,
+                147
+            ],
+            "outs": [
+                488
+            ]
+        },
+        {
+            "id": 286,
+            "type": "AND",
+            "ins": [
+                561,
+                474
+            ],
+            "outs": [
+                591
+            ]
+        },
+        {
+            "id": 287,
+            "type": "AND",
+            "ins": [
+                166,
+                151
+            ],
+            "outs": [
+                332
+            ]
+        },
+        {
+            "id": 288,
+            "type": "AND",
+            "ins": [
+                114,
+                557,
+                187,
+                373
+            ],
+            "outs": [
+                523
+            ]
+        },
+        {
+            "id": 289,
+            "type": "TRANSITION",
+            "ins": [
+                390
+            ],
+            "outs": [
+                398
+            ]
+        },
+        {
+            "id": 290,
+            "type": "AND",
+            "ins": [
+                115,
+                147
+            ],
+            "outs": [
+                180
+            ]
+        },
+        {
+            "id": 291,
+            "type": "AND",
+            "ins": [
+                561,
+                534
+            ],
+            "outs": [
+                591
+            ]
+        },
+        {
+            "id": 292,
+            "type": "PROPOSITION",
+            "ins": [
+                254
+            ],
+            "outs": [
+                58
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( tried x 3 2 ) )"
+        },
+        {
+            "id": 293,
+            "type": "PROPOSITION",
+            "ins": [
+                508
+            ],
+            "outs": [
+                71,
+                284,
+                598
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( cell 1 2 o ) )"
+        },
+        {
+            "id": 294,
+            "type": "PROPOSITION",
+            "ins": [
+                207
+            ],
+            "outs": [
+                50
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( tried o 2 3 ) )"
+        },
+        {
+            "id": 295,
+            "type": "PROPOSITION",
+            "ins": [
+                236
+            ],
+            "outs": [
+                170,
+                96
+            ],
+            "proposition_type": "other",
+            "gdl": "( sees_tmp1 3 x )"
+        },
+        {
+            "id": 296,
+            "type": "PROPOSITION",
+            "ins": [
+                544
+            ],
+            "outs": [
+                593,
+                26
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( tried x 2 2 ) )"
+        },
+        {
+            "id": 297,
+            "type": "AND",
+            "ins": [
+                281,
+                136
+            ],
+            "outs": [
+                512
+            ]
+        },
+        {
+            "id": 298,
+            "type": "AND",
+            "ins": [
+                215,
+                136
+            ],
+            "outs": [
+                614
+            ]
+        },
+        {
+            "id": 299,
+            "type": "AND",
+            "ins": [
+                234,
+                516
+            ],
+            "outs": [
+                512
+            ]
+        },
+        {
+            "id": 300,
+            "type": "PROPOSITION",
+            "ins": [
+                235
+            ],
+            "outs": [],
+            "proposition_type": "goal",
+            "gdl": "( goal o 100 )"
+        },
+        {
+            "id": 301,
+            "type": "AND",
+            "ins": [
+                22,
+                225
+            ],
+            "outs": [
+                591
+            ]
+        },
+        {
+            "id": 302,
+            "type": "OR",
+            "ins": [
+                159,
+                135,
+                23
+            ],
+            "outs": [
+                229
+            ]
+        },
+        {
+            "id": 303,
+            "type": "PROPOSITION",
+            "ins": [
+                488
+            ],
+            "outs": [
+                46
+            ],
+            "proposition_type": "other",
+            "gdl": "sees_tmp7"
+        },
+        {
+            "id": 304,
+            "type": "PROPOSITION",
+            "ins": [],
+            "outs": [
+                514,
+                182,
+                378,
+                497,
+                105,
+                3,
+                6,
+                227,
+                165,
+                500,
+                384,
+                387,
+                521,
+                62,
+                483,
+                275,
+                119,
+                556
+            ],
+            "proposition_type": "input",
+            "gdl": "( does x ( mark 1 3 ) )"
+        },
+        {
+            "id": 305,
+            "type": "TRANSITION",
+            "ins": [
+                20
+            ],
+            "outs": [
+                209
+            ]
+        },
+        {
+            "id": 306,
+            "type": "PROPOSITION",
+            "ins": [
+                267
+            ],
+            "outs": [
+                608
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( cell 2 2 x ) )"
+        },
+        {
+            "id": 307,
+            "type": "PROPOSITION",
+            "ins": [
+                117
+            ],
+            "outs": [],
+            "proposition_type": "goal",
+            "gdl": "( goal x 50 )"
+        },
+        {
+            "id": 308,
+            "type": "AND",
+            "ins": [
+                606,
+                87,
+                506,
+                435
+            ],
+            "outs": [
+                267
+            ]
+        },
+        {
+            "id": 309,
+            "type": "NOT",
+            "in": 322,
+            "outs": [
+                328
+            ]
+        },
+        {
+            "id": 310,
+            "type": "AND",
+            "ins": [
+                281,
+                215,
+                196,
+                136
+            ],
+            "outs": [
+                178
+            ]
+        },
+        {
+            "id": 311,
+            "type": "PROPOSITION",
+            "ins": [
+                279
+            ],
+            "outs": [
+                560,
+                258
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( tried o 1 2 ) )"
+        },
+        {
+            "id": 312,
+            "type": "AND",
+            "ins": [
+                606,
+                506
+            ],
+            "outs": [
+                512
+            ]
+        },
+        {
+            "id": 313,
+            "type": "OR",
+            "ins": [
+                43,
+                14
+            ],
+            "outs": [
+                425
+            ]
+        },
+        {
+            "id": 314,
+            "type": "OR",
+            "ins": [
+                114,
+                215,
+                281,
+                579,
+                373,
+                52
+            ],
+            "outs": [
+                389
+            ]
+        },
+        {
+            "id": 315,
+            "type": "PROPOSITION",
+            "ins": [
+                493
+            ],
+            "outs": [
+                479,
+                37
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( tried o 1 1 ) )"
+        },
+        {
+            "id": 316,
+            "type": "OR",
+            "ins": [
+                43,
+                355
+            ],
+            "outs": [
+                478
+            ]
+        },
+        {
+            "id": 317,
+            "type": "AND",
+            "ins": [
+                114,
+                187
+            ],
+            "outs": [
+                236
+            ]
+        },
+        {
+            "id": 318,
+            "type": "TRANSITION",
+            "ins": [
+                91
+            ],
+            "outs": [
+                234
+            ]
+        },
+        {
+            "id": 319,
+            "type": "AND",
+            "ins": [
+                163,
+                380,
+                24
+            ],
+            "outs": [
+                86
+            ]
+        },
+        {
+            "id": 320,
+            "type": "NOT",
+            "in": 189,
+            "outs": [
+                588
+            ]
+        },
+        {
+            "id": 321,
+            "type": "PROPOSITION",
+            "ins": [
+                123
+            ],
+            "outs": [
+                27,
+                272,
+                264,
+                439,
+                81,
+                261
+            ],
+            "proposition_type": "other",
+            "gdl": "( next_tmp7 1 )"
+        },
+        {
+            "id": 322,
+            "type": "PROPOSITION",
+            "ins": [
+                349
+            ],
+            "outs": [
+                309
+            ],
+            "proposition_type": "other",
+            "gdl": "( marked 2 1 )"
+        },
+        {
+            "id": 323,
+            "type": "AND",
+            "ins": [
+                516,
+                234,
+                64
+            ],
+            "outs": [
+                430
+            ]
+        },
+        {
+            "id": 324,
+            "type": "AND",
+            "ins": [
+                234,
+                447
+            ],
+            "outs": [
+                546
+            ]
+        },
+        {
+            "id": 325,
+            "type": "OR",
+            "ins": [
+                115,
+                370
+            ],
+            "outs": [
+                376
+            ]
+        },
+        {
+            "id": 326,
+            "type": "OR",
+            "ins": [
+                505,
+                362,
+                393,
+                564,
+                475,
+                76,
+                245
+            ],
+            "outs": [
+                568
+            ]
+        },
+        {
+            "id": 327,
+            "type": "PROPOSITION",
+            "ins": [
+                434
+            ],
+            "outs": [
+                283,
+                575,
+                590,
+                65
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( cell 1 3 x ) )"
+        },
+        {
+            "id": 328,
+            "type": "AND",
+            "ins": [
+                494,
+                309
+            ],
+            "outs": [
+                139
+            ]
+        },
+        {
+            "id": 329,
+            "type": "AND",
+            "ins": [
+                171,
+                234,
+                416
+            ],
+            "outs": [
+                371
+            ]
+        },
+        {
+            "id": 330,
+            "type": "PROPOSITION",
+            "ins": [
+                146
+            ],
+            "outs": [
+                346,
+                111
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( tried x 3 3 ) )"
+        },
+        {
+            "id": 331,
+            "type": "AND",
+            "ins": [
+                435,
+                446,
+                579,
+                52
+            ],
+            "outs": [
+                458
+            ]
+        },
+        {
+            "id": 332,
+            "type": "OR",
+            "ins": [
+                33,
+                287,
+                175
+            ],
+            "outs": [
+                520
+            ]
+        },
+        {
+            "id": 333,
+            "type": "PROPOSITION",
+            "ins": [
+                226
+            ],
+            "outs": [
+                552,
+                458,
+                590,
+                359
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( cell 3 3 x ) )"
+        },
+        {
+            "id": 334,
+            "type": "AND",
+            "ins": [
+                215,
+                535,
+                136
+            ],
+            "outs": [
+                178
+            ]
+        },
+        {
+            "id": 335,
+            "type": "AND",
+            "ins": [
+                166,
+                151
+            ],
+            "outs": [
+                128
+            ]
+        },
+        {
+            "id": 336,
+            "type": "TRANSITION",
+            "ins": [
+                36
+            ],
+            "outs": [
+                163
+            ]
+        },
+        {
+            "id": 337,
+            "type": "PROPOSITION",
+            "ins": [
+                524
+            ],
+            "outs": [
+                10,
+                437
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( tried o 2 1 ) )"
+        },
+        {
+            "id": 338,
+            "type": "AND",
+            "ins": [
+                151,
+                445,
+                8
+            ],
+            "outs": [
+                31
+            ]
+        },
+        {
+            "id": 339,
+            "type": "PROPOSITION",
+            "ins": [
+                111
+            ],
+            "outs": [
+                146
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( tried x 3 3 ) )"
+        },
+        {
+            "id": 340,
+            "type": "AND",
+            "ins": [
+                114,
+                187,
+                64
+            ],
+            "outs": [
+                523
+            ]
+        },
+        {
+            "id": 341,
+            "type": "AND",
+            "ins": [
+                573,
+                584
+            ],
+            "outs": [
+                84
+            ]
+        },
+        {
+            "id": 342,
+            "type": "NOT",
+            "in": 219,
+            "outs": [
+                157
+            ]
+        },
+        {
+            "id": 343,
+            "type": "NOT",
+            "in": 398,
+            "outs": [
+                392
+            ]
+        },
+        {
+            "id": 344,
+            "type": "PROPOSITION",
+            "ins": [
+                80
+            ],
+            "outs": [],
+            "proposition_type": "goal",
+            "gdl": "( goal random 0 )"
+        },
+        {
+            "id": 345,
+            "type": "OR",
+            "ins": [
+                43,
+                139
+            ],
+            "outs": [
+                191
+            ]
+        },
+        {
+            "id": 346,
+            "type": "NOT",
+            "in": 330,
+            "outs": [
+                559
+            ]
+        },
+        {
+            "id": 347,
+            "type": "PROPOSITION",
+            "ins": [
+                192
+            ],
+            "outs": [],
+            "proposition_type": "legal",
+            "gdl": "( legal x ( mark 2 3 ) )"
+        },
+        {
+            "id": 348,
+            "type": "PROPOSITION",
+            "ins": [
+                590
+            ],
+            "outs": [
+                492
+            ],
+            "proposition_type": "other",
+            "gdl": "( column 3 x )"
+        },
+        {
+            "id": 349,
+            "type": "OR",
+            "ins": [
+                472,
+                134
+            ],
+            "outs": [
+                322
+            ]
+        },
+        {
+            "id": 350,
+            "type": "AND",
+            "ins": [
+                171,
+                234
+            ],
+            "outs": [
+                128
+            ]
+        },
+        {
+            "id": 351,
+            "type": "OR",
+            "ins": [
+                87,
+                97
+            ],
+            "outs": [
+                420
+            ]
+        },
+        {
+            "id": 352,
+            "type": "PROPOSITION",
+            "ins": [
+                242
+            ],
+            "outs": [
+                410
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( tried x 1 1 ) )"
+        },
+        {
+            "id": 353,
+            "type": "OR",
+            "ins": [
+                201,
+                377,
+                251,
+                90,
+                274,
+                417,
+                98
+            ],
+            "outs": [
+                601
+            ]
+        },
+        {
+            "id": 354,
+            "type": "PROPOSITION",
+            "ins": [
+                80
+            ],
+            "outs": [],
+            "proposition_type": "legal",
+            "gdl": "( legal random ( tiebreak xSecondChance ) )"
+        },
+        {
+            "id": 355,
+            "type": "PROPOSITION",
+            "ins": [
+                250
+            ],
+            "outs": [
+                316
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( cell 3 3 b ) )"
+        },
+        {
+            "id": 356,
+            "type": "OR",
+            "ins": [
+                486,
+                548,
+                384
+            ],
+            "outs": [
+                496
+            ]
+        },
+        {
+            "id": 357,
+            "type": "AND",
+            "ins": [
+                561,
+                438
+            ],
+            "outs": [
+                482
+            ]
+        },
+        {
+            "id": 358,
+            "type": "PROPOSITION",
+            "ins": [
+                75
+            ],
+            "outs": [
+                103
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( cell 3 1 b ) )"
+        },
+        {
+            "id": 359,
+            "type": "AND",
+            "ins": [
+                231,
+                333,
+                185
+            ],
+            "outs": [
+                385
+            ]
+        },
+        {
+            "id": 360,
+            "type": "AND",
+            "ins": [
+                66,
+                433
+            ],
+            "outs": [
+                611
+            ]
+        },
+        {
+            "id": 361,
+            "type": "OR",
+            "ins": [
+                382,
+                573,
+                462
+            ],
+            "outs": [
+                74
+            ]
+        },
+        {
+            "id": 362,
+            "type": "AND",
+            "ins": [
+                281,
+                215,
+                435,
+                136
+            ],
+            "outs": [
+                326
+            ]
+        },
+        {
+            "id": 363,
+            "type": "AND",
+            "ins": [
+                516,
+                234,
+                199
+            ],
+            "outs": [
+                430
+            ]
+        },
+        {
+            "id": 364,
+            "type": "PROPOSITION",
+            "ins": [
+                491
+            ],
+            "outs": [],
+            "proposition_type": "legal",
+            "gdl": "( legal o ( mark 3 3 ) )"
+        },
+        {
+            "id": 365,
+            "type": "AND",
+            "ins": [
+                446,
+                52
+            ],
+            "outs": [
+                488
+            ]
+        },
+        {
+            "id": 366,
+            "type": "AND",
+            "ins": [
+                596,
+                273,
+                147
+            ],
+            "outs": [
+                598
+            ]
+        },
+        {
+            "id": 367,
+            "type": "AND",
+            "ins": [
+                446,
+                199,
+                52
+            ],
+            "outs": [
+                458
+            ]
+        },
+        {
+            "id": 368,
+            "type": "OR",
+            "ins": [
+                114,
+                373
+            ],
+            "outs": [
+                589
+            ]
+        },
+        {
+            "id": 369,
+            "type": "AND",
+            "ins": [
+                115,
+                147
+            ],
+            "outs": [
+                512
+            ]
+        },
+        {
+            "id": 370,
+            "type": "PROPOSITION",
+            "ins": [
+                452
+            ],
+            "outs": [
+                325,
+                555
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( tried x 1 2 ) )"
+        },
+        {
+            "id": 371,
+            "type": "OR",
+            "ins": [
+                271,
+                112,
+                583,
+                396,
+                81,
+                329
+            ],
+            "outs": [
+                221
+            ]
+        },
+        {
+            "id": 372,
+            "type": "AND",
+            "ins": [
+                442,
+                438
+            ],
+            "outs": [
+                482
+            ]
+        },
+        {
+            "id": 373,
+            "type": "PROPOSITION",
+            "ins": [],
+            "outs": [
+                129,
+                456,
+                444,
+                288,
+                95,
+                7,
+                499,
+                409,
+                208,
+                411,
+                211,
+                61,
+                176,
+                158,
+                368,
+                314,
+                261
+            ],
+            "proposition_type": "input",
+            "gdl": "( does o ( mark 3 2 ) )"
+        },
+        {
+            "id": 374,
+            "type": "AND",
+            "ins": [
+                209,
+                231,
+                581
+            ],
+            "outs": [
+                426
+            ]
+        },
+        {
+            "id": 375,
+            "type": "AND",
+            "ins": [
+                535,
+                446,
+                579
+            ],
+            "outs": [
+                82
+            ]
+        },
+        {
+            "id": 376,
+            "type": "PROPOSITION",
+            "ins": [
+                325
+            ],
+            "outs": [
+                452
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( tried x 1 2 ) )"
+        },
+        {
+            "id": 377,
+            "type": "PROPOSITION",
+            "ins": [
+                609
+            ],
+            "outs": [
+                353,
+                259,
+                65
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( cell 1 2 x ) )"
+        },
+        {
+            "id": 378,
+            "type": "AND",
+            "ins": [
+                66,
+                433,
+                196,
+                304
+            ],
+            "outs": [
+                100
+            ]
+        },
+        {
+            "id": 379,
+            "type": "AND",
+            "ins": [
+                496,
+                561
+            ],
+            "outs": [
+                482
+            ]
+        },
+        {
+            "id": 380,
+            "type": "PROPOSITION",
+            "ins": [
+                530
+            ],
+            "outs": [
+                99,
+                12,
+                202,
+                319,
+                71
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( cell 2 2 o ) )"
+        },
+        {
+            "id": 381,
+            "type": "OR",
+            "ins": [
+                209,
+                441,
+                571,
+                266,
+                193,
+                469,
+                25
+            ],
+            "outs": [
+                20
+            ]
+        },
+        {
+            "id": 382,
+            "type": "PROPOSITION",
+            "ins": [
+                525
+            ],
+            "outs": [
+                167,
+                116,
+                235,
+                584,
+                361,
+                200
+            ],
+            "proposition_type": "other",
+            "gdl": "( line o )"
+        },
+        {
+            "id": 383,
+            "type": "PROPOSITION",
+            "ins": [
+                604
+            ],
+            "outs": [
+                525
+            ],
+            "proposition_type": "other",
+            "gdl": "( column 3 o )"
+        },
+        {
+            "id": 384,
+            "type": "AND",
+            "ins": [
+                66,
+                304
+            ],
+            "outs": [
+                356
+            ]
+        },
+        {
+            "id": 385,
+            "type": "OR",
+            "ins": [
+                283,
+                359
+            ],
+            "outs": [
+                473
+            ]
+        },
+        {
+            "id": 386,
+            "type": "PROPOSITION",
+            "ins": [
+                512
+            ],
+            "outs": [
+                188
+            ],
+            "proposition_type": "other",
+            "gdl": "( sees_tmp5 x )"
+        },
+        {
+            "id": 387,
+            "type": "AND",
+            "ins": [
+                66,
+                433,
+                435,
+                304
+            ],
+            "outs": [
+                575
+            ]
+        },
+        {
+            "id": 388,
+            "type": "AND",
+            "ins": [
+                606,
+                87,
+                506,
+                196
+            ],
+            "outs": [
+                99
+            ]
+        },
+        {
+            "id": 389,
+            "type": "PROPOSITION",
+            "ins": [
+                314
+            ],
+            "outs": [
+                9,
+                172,
+                140,
+                612
+            ],
+            "proposition_type": "other",
+            "gdl": "( sees_tmp9 3 )"
+        },
+        {
+            "id": 390,
+            "type": "PROPOSITION",
+            "ins": [
+                536
+            ],
+            "outs": [
+                289
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( tried x 3 1 ) )"
+        },
+        {
+            "id": 391,
+            "type": "TRANSITION",
+            "ins": [
+                280
+            ],
+            "outs": [
+                255
+            ]
+        },
+        {
+            "id": 392,
+            "type": "PROPOSITION",
+            "ins": [
+                343
+            ],
+            "outs": [],
+            "proposition_type": "legal",
+            "gdl": "( legal x ( mark 3 1 ) )"
+        },
+        {
+            "id": 393,
+            "type": "AND",
+            "ins": [
+                557,
+                281,
+                215,
+                136
+            ],
+            "outs": [
+                326
+            ]
+        },
+        {
+            "id": 394,
+            "type": "PROPOSITION",
+            "ins": [
+                582
+            ],
+            "outs": [],
+            "proposition_type": "other",
+            "gdl": "( next ( cell 3 3 xSecondChance ) )"
+        },
+        {
+            "id": 395,
+            "type": "AND",
+            "ins": [
+                442,
+                474
+            ],
+            "outs": [
+                591
+            ]
+        },
+        {
+            "id": 396,
+            "type": "AND",
+            "ins": [
+                171,
+                234,
+                516,
+                196
+            ],
+            "outs": [
+                371
+            ]
+        },
+        {
+            "id": 397,
+            "type": "AND",
+            "ins": [
+                166,
+                151,
+                416
+            ],
+            "outs": [
+                522
+            ]
+        },
+        {
+            "id": 398,
+            "type": "PROPOSITION",
+            "ins": [
+                289
+            ],
+            "outs": [
+                343,
+                536
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( tried x 3 1 ) )"
+        },
+        {
+            "id": 399,
+            "type": "OR",
+            "ins": [
+                87,
+                171,
+                472
+            ],
+            "outs": [
+                587
+            ]
+        },
+        {
+            "id": 400,
+            "type": "AND",
+            "ins": [
+                115,
+                147
+            ],
+            "outs": [
+                121
+            ]
+        },
+        {
+            "id": 401,
+            "type": "AND",
+            "ins": [
+                446,
+                579
+            ],
+            "outs": [
+                614
+            ]
+        },
+        {
+            "id": 402,
+            "type": "PROPOSITION",
+            "ins": [
+                470
+            ],
+            "outs": [
+                525
+            ],
+            "proposition_type": "other",
+            "gdl": "( column 1 o )"
+        },
+        {
+            "id": 403,
+            "type": "PROPOSITION",
+            "ins": [
+                268
+            ],
+            "outs": [],
+            "proposition_type": "other",
+            "gdl": "( next ( cell 2 1 xSecondChance ) )"
+        },
+        {
+            "id": 404,
+            "type": "AND",
+            "ins": [
+                557,
+                171,
+                234,
+                516
+            ],
+            "outs": [
+                13
+            ]
+        },
+        {
+            "id": 405,
+            "type": "AND",
+            "ins": [
+                494,
+                134
+            ],
+            "outs": [
+                512
+            ]
+        },
+        {
+            "id": 406,
+            "type": "PROPOSITION",
+            "ins": [
+                180
+            ],
+            "outs": [
+                172,
+                241
+            ],
+            "proposition_type": "other",
+            "gdl": "( sees_tmp1 1 x )"
+        },
+        {
+            "id": 407,
+            "type": "AND",
+            "ins": [
+                557,
+                446,
+                579,
+                52
+            ],
+            "outs": [
+                458
+            ]
+        },
+        {
+            "id": 408,
+            "type": "OR",
+            "ins": [
+                208,
+                69,
+                61,
+                158,
+                409,
+                261
+            ],
+            "outs": [
+                41
+            ]
+        },
+        {
+            "id": 409,
+            "type": "AND",
+            "ins": [
+                214,
+                187,
+                373
+            ],
+            "outs": [
+                408
+            ]
+        },
+        {
+            "id": 410,
+            "type": "TRANSITION",
+            "ins": [
+                352
+            ],
+            "outs": [
+                108
+            ]
+        },
+        {
+            "id": 411,
+            "type": "OR",
+            "ins": [
+                87,
+                596,
+                373
+            ],
+            "outs": [
+                199
+            ]
+        },
+        {
+            "id": 412,
+            "type": "AND",
+            "ins": [
+                209,
+                185,
+                475
+            ],
+            "outs": [
+                513
+            ]
+        },
+        {
+            "id": 413,
+            "type": "OR",
+            "ins": [
+                43,
+                599
+            ],
+            "outs": [
+                487
+            ]
+        },
+        {
+            "id": 414,
+            "type": "PROPOSITION",
+            "ins": [
+                477
+            ],
+            "outs": [
+                1,
+                213,
+                203,
+                93
+            ],
+            "proposition_type": "other",
+            "gdl": "( sees_tmp11 1 )"
+        },
+        {
+            "id": 415,
+            "type": "OR",
+            "ins": [
+                43,
+                141
+            ],
+            "outs": [
+                549
+            ]
+        },
+        {
+            "id": 416,
+            "type": "PROPOSITION",
+            "ins": [
+                220
+            ],
+            "outs": [
+                605,
+                418,
+                397,
+                239,
+                329,
+                463
+            ],
+            "proposition_type": "other",
+            "gdl": "( next_tmp7 2 )"
+        },
+        {
+            "id": 417,
+            "type": "AND",
+            "ins": [
+                115,
+                540,
+                147
+            ],
+            "outs": [
+                353
+            ]
+        },
+        {
+            "id": 418,
+            "type": "AND",
+            "ins": [
+                416,
+                446,
+                579
+            ],
+            "outs": [
+                82
+            ]
+        },
+        {
+            "id": 419,
+            "type": "TRANSITION",
+            "ins": [
+                41
+            ],
+            "outs": [
+                69
+            ]
+        },
+        {
+            "id": 420,
+            "type": "PROPOSITION",
+            "ins": [
+                351
+            ],
+            "outs": [
+                30
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( tried o 2 2 ) )"
+        },
+        {
+            "id": 421,
+            "type": "OR",
+            "ins": [
+                166,
+                596,
+                433
+            ],
+            "outs": [
+                64
+            ]
+        },
+        {
+            "id": 422,
+            "type": "TRANSITION",
+            "ins": [
+                156
+            ],
+            "outs": [
+                581
+            ]
+        },
+        {
+            "id": 423,
+            "type": "NOT",
+            "in": 97,
+            "outs": [
+                131
+            ]
+        },
+        {
+            "id": 424,
+            "type": "AND",
+            "ins": [
+                557,
+                171,
+                234,
+                516
+            ],
+            "outs": [
+                430
+            ]
+        },
+        {
+            "id": 425,
+            "type": "TRANSITION",
+            "ins": [
+                313
+            ],
+            "outs": [
+                187
+            ]
+        },
+        {
+            "id": 426,
+            "type": "PROPOSITION",
+            "ins": [
+                374
+            ],
+            "outs": [
+                492
+            ],
+            "proposition_type": "other",
+            "gdl": "( row 2 x )"
+        },
+        {
+            "id": 427,
+            "type": "PROPOSITION",
+            "ins": [
+                284
+            ],
+            "outs": [
+                525
+            ],
+            "proposition_type": "other",
+            "gdl": "( row 1 o )"
+        },
+        {
+            "id": 428,
+            "type": "TRANSITION",
+            "ins": [
+                103
+            ],
+            "outs": [
+                136
+            ]
+        },
+        {
+            "id": 429,
+            "type": "PROPOSITION",
+            "ins": [
+                10
+            ],
+            "outs": [],
+            "proposition_type": "legal",
+            "gdl": "( legal o ( mark 2 1 ) )"
+        },
+        {
+            "id": 430,
+            "type": "OR",
+            "ins": [
+                448,
+                581,
+                363,
+                443,
+                424,
+                142,
+                323
+            ],
+            "outs": [
+                156
+            ]
+        },
+        {
+            "id": 431,
+            "type": "TRANSITION",
+            "ins": [
+                247
+            ],
+            "outs": [
+                185
+            ]
+        },
+        {
+            "id": 432,
+            "type": "PROPOSITION",
+            "ins": [
+                2
+            ],
+            "outs": [
+                104
+            ],
+            "proposition_type": "other",
+            "gdl": "( marked 2 2 )"
+        },
+        {
+            "id": 433,
+            "type": "PROPOSITION",
+            "ins": [],
+            "outs": [
+                514,
+                421,
+                378,
+                497,
+                563,
+                519,
+                360,
+                49,
+                463,
+                33,
+                387,
+                272,
+                521,
+                15,
+                275,
+                119,
+                126
+            ],
+            "proposition_type": "input",
+            "gdl": "( does o ( mark 1 3 ) )"
+        },
+        {
+            "id": 434,
+            "type": "TRANSITION",
+            "ins": [
+                541
+            ],
+            "outs": [
+                327
+            ]
+        },
+        {
+            "id": 435,
+            "type": "PROPOSITION",
+            "ins": [],
+            "outs": [
+                387,
+                129,
+                441,
+                362,
+                331,
+                142,
+                188,
+                308,
+                554,
+                98
+            ],
+            "proposition_type": "input",
+            "gdl": "( does random ( tiebreak x ) )"
+        },
+        {
+            "id": 436,
+            "type": "AND",
+            "ins": [
+                166,
+                151
+            ],
+            "outs": [
+                230
+            ]
+        },
+        {
+            "id": 437,
+            "type": "OR",
+            "ins": [
+                472,
+                337
+            ],
+            "outs": [
+                125
+            ]
+        },
+        {
+            "id": 438,
+            "type": "PROPOSITION",
+            "ins": [
+                218
+            ],
+            "outs": [
+                357,
+                372
+            ],
+            "proposition_type": "other",
+            "gdl": "( sees_tmp3 1 x )"
+        },
+        {
+            "id": 439,
+            "type": "AND",
+            "ins": [
+                596,
+                321,
+                147
+            ],
+            "outs": [
+                598
+            ]
+        },
+        {
+            "id": 440,
+            "type": "AND",
+            "ins": [
+                151,
+                445,
+                585
+            ],
+            "outs": [
+                31
+            ]
+        },
+        {
+            "id": 441,
+            "type": "AND",
+            "ins": [
+                494,
+                435,
+                472,
+                134
+            ],
+            "outs": [
+                381
+            ]
+        },
+        {
+            "id": 442,
+            "type": "PROPOSITION",
+            "ins": [
+                497
+            ],
+            "outs": [
+                44,
+                395,
+                511,
+                372
+            ],
+            "proposition_type": "other",
+            "gdl": "( sees_tmp11 3 )"
+        },
+        {
+            "id": 443,
+            "type": "AND",
+            "ins": [
+                540,
+                516,
+                234
+            ],
+            "outs": [
+                430
+            ]
+        },
+        {
+            "id": 444,
+            "type": "OR",
+            "ins": [
+                219,
+                373
+            ],
+            "outs": [
+                60
+            ]
+        },
+        {
+            "id": 445,
+            "type": "PROPOSITION",
+            "ins": [],
+            "outs": [
+                457,
+                109,
+                566,
+                477,
+                338,
+                168,
+                466,
+                467,
+                256,
+                155,
+                62,
+                119,
+                38,
+                123,
+                554,
+                242,
+                85,
+                440
+            ],
+            "proposition_type": "input",
+            "gdl": "( does x ( mark 1 1 ) )"
+        },
+        {
+            "id": 446,
+            "type": "PROPOSITION",
+            "ins": [
+                478
+            ],
+            "outs": [
+                262,
+                545,
+                375,
+                418,
+                249,
+                582,
+                331,
+                495,
+                250,
+                264,
+                407,
+                548,
+                476,
+                602,
+                253,
+                56,
+                17,
+                365,
+                367,
+                401,
+                529
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( cell 3 3 b ) )"
+        },
+        {
+            "id": 447,
+            "type": "NOT",
+            "in": 547,
+            "outs": [
+                324
+            ]
+        },
+        {
+            "id": 448,
+            "type": "AND",
+            "ins": [
+                516,
+                234,
+                585
+            ],
+            "outs": [
+                430
+            ]
+        },
+        {
+            "id": 449,
+            "type": "AND",
+            "ins": [
+                115,
+                596,
+                196,
+                147
+            ],
+            "outs": [
+                598
+            ]
+        },
+        {
+            "id": 450,
+            "type": "AND",
+            "ins": [
+                89,
+                151
+            ],
+            "outs": [
+                83
+            ]
+        },
+        {
+            "id": 451,
+            "type": "AND",
+            "ins": [
+                234,
+                516
+            ],
+            "outs": [
+                217
+            ]
+        },
+        {
+            "id": 452,
+            "type": "TRANSITION",
+            "ins": [
+                376
+            ],
+            "outs": [
+                370
+            ]
+        },
+        {
+            "id": 453,
+            "type": "TRANSITION",
+            "ins": [
+                260
+            ],
+            "outs": [
+                24
+            ]
+        },
+        {
+            "id": 454,
+            "type": "OR",
+            "ins": [
+                87,
+                171,
+                506,
+                516,
+                472,
+                134
+            ],
+            "outs": [
+                225
+            ]
+        },
+        {
+            "id": 455,
+            "type": "PROPOSITION",
+            "ins": [
+                182
+            ],
+            "outs": [
+                212
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( tried x 1 3 ) )"
+        },
+        {
+            "id": 456,
+            "type": "AND",
+            "ins": [
+                114,
+                557,
+                187,
+                373
+            ],
+            "outs": [
+                537
+            ]
+        },
+        {
+            "id": 457,
+            "type": "AND",
+            "ins": [
+                587,
+                151,
+                445
+            ],
+            "outs": [
+                31
+            ]
+        },
+        {
+            "id": 458,
+            "type": "OR",
+            "ins": [
+                495,
+                331,
+                333,
+                367,
+                407,
+                476,
+                529
+            ],
+            "outs": [
+                610
+            ]
+        },
+        {
+            "id": 459,
+            "type": "AND",
+            "ins": [
+                573,
+                584
+            ],
+            "outs": [
+                282
+            ]
+        },
+        {
+            "id": 460,
+            "type": "PROPOSITION",
+            "ins": [
+                217
+            ],
+            "outs": [
+                9,
+                92
+            ],
+            "proposition_type": "other",
+            "gdl": "( sees_tmp1 2 x )"
+        },
+        {
+            "id": 461,
+            "type": "PROPOSITION",
+            "ins": [
+                26
+            ],
+            "outs": [],
+            "proposition_type": "legal",
+            "gdl": "( legal x ( mark 2 2 ) )"
+        },
+        {
+            "id": 462,
+            "type": "NOT",
+            "in": 574,
+            "outs": [
+                67,
+                485,
+                361
+            ]
+        },
+        {
+            "id": 463,
+            "type": "AND",
+            "ins": [
+                66,
+                433,
+                416
+            ],
+            "outs": [
+                100
+            ]
+        },
+        {
+            "id": 464,
+            "type": "PROPOSITION",
+            "ins": [
+                259
+            ],
+            "outs": [
+                492
+            ],
+            "proposition_type": "other",
+            "gdl": "( column 2 x )"
+        },
+        {
+            "id": 465,
+            "type": "TRANSITION",
+            "ins": [
+                113
+            ],
+            "outs": [
+                151
+            ]
+        },
+        {
+            "id": 466,
+            "type": "AND",
+            "ins": [
+                151,
+                445
+            ],
+            "outs": [
+                180
+            ]
+        },
+        {
+            "id": 467,
+            "type": "AND",
+            "ins": [
+                151,
+                445
+            ],
+            "outs": [
+                488
+            ]
+        },
+        {
+            "id": 468,
+            "type": "PROPOSITION",
+            "ins": [
+                210
+            ],
+            "outs": [],
+            "proposition_type": "legal",
+            "gdl": "( legal x ( mark 2 1 ) )"
+        },
+        {
+            "id": 469,
+            "type": "AND",
+            "ins": [
+                494,
+                557,
+                472,
+                134
+            ],
+            "outs": [
+                381
+            ]
+        },
+        {
+            "id": 470,
+            "type": "AND",
+            "ins": [
+                613,
+                24,
+                578
+            ],
+            "outs": [
+                402
+            ]
+        },
+        {
+            "id": 471,
+            "type": "PROPOSITION",
+            "ins": [
+                195
+            ],
+            "outs": [],
+            "proposition_type": "legal",
+            "gdl": "( legal x ( mark 1 3 ) )"
+        },
+        {
+            "id": 472,
+            "type": "PROPOSITION",
+            "ins": [],
+            "outs": [
+                349,
+                159,
+                454,
+                441,
+                248,
+                47,
+                130,
+                132,
+                48,
+                268,
+                477,
+                437,
+                542,
+                237,
+                399,
+                469,
+                239
+            ],
+            "proposition_type": "input",
+            "gdl": "( does o ( mark 2 1 ) )"
+        },
+        {
+            "id": 473,
+            "type": "PROPOSITION",
+            "ins": [
+                385
+            ],
+            "outs": [
+                492
+            ],
+            "proposition_type": "other",
+            "gdl": "( diagonal x )"
+        },
+        {
+            "id": 474,
+            "type": "PROPOSITION",
+            "ins": [
+                230
+            ],
+            "outs": [
+                286,
+                395
+            ],
+            "proposition_type": "other",
+            "gdl": "( sees_tmp3 1 o )"
+        },
+        {
+            "id": 475,
+            "type": "PROPOSITION",
+            "ins": [
+                152
+            ],
+            "outs": [
+                412,
+                326,
+                552,
+                283
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( cell 3 1 x ) )"
+        },
+        {
+            "id": 476,
+            "type": "AND",
+            "ins": [
+                446,
+                64,
+                52
+            ],
+            "outs": [
+                458
+            ]
+        },
+        {
+            "id": 477,
+            "type": "OR",
+            "ins": [
+                166,
+                281,
+                215,
+                472,
+                134,
+                445
+            ],
+            "outs": [
+                414
+            ]
+        },
+        {
+            "id": 478,
+            "type": "TRANSITION",
+            "ins": [
+                316
+            ],
+            "outs": [
+                446
+            ]
+        },
+        {
+            "id": 479,
+            "type": "OR",
+            "ins": [
+                166,
+                315
+            ],
+            "outs": [
+                484
+            ]
+        },
+        {
+            "id": 480,
+            "type": "NOT",
+            "in": 118,
+            "outs": [
+                73
+            ]
+        },
+        {
+            "id": 481,
+            "type": "AND",
+            "ins": [
+                606,
+                506
+            ],
+            "outs": [
+                217
+            ]
+        },
+        {
+            "id": 482,
+            "type": "OR",
+            "ins": [
+                44,
+                46,
+                379,
+                203,
+                92,
+                188,
+                357,
+                96,
+                9,
+                170,
+                172,
+                213,
+                241,
+                372
+            ],
+            "outs": [
+                539
+            ]
+        },
+        {
+            "id": 483,
+            "type": "AND",
+            "ins": [
+                66,
+                304
+            ],
+            "outs": [
+                488
+            ]
+        },
+        {
+            "id": 484,
+            "type": "PROPOSITION",
+            "ins": [
+                479
+            ],
+            "outs": [
+                493
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( tried o 1 1 ) )"
+        },
+        {
+            "id": 485,
+            "type": "AND",
+            "ins": [
+                223,
+                462,
+                584
+            ],
+            "outs": [
+                577
+            ]
+        },
+        {
+            "id": 486,
+            "type": "AND",
+            "ins": [
+                234,
+                516
+            ],
+            "outs": [
+                356
+            ]
+        },
+        {
+            "id": 487,
+            "type": "TRANSITION",
+            "ins": [
+                413
+            ],
+            "outs": [
+                147
+            ]
+        },
+        {
+            "id": 488,
+            "type": "OR",
+            "ins": [
+                467,
+                184,
+                531,
+                483,
+                285,
+                365,
+                120,
+                240,
+                244
+            ],
+            "outs": [
+                303
+            ]
+        },
+        {
+            "id": 489,
+            "type": "PROPOSITION",
+            "ins": [
+                275
+            ],
+            "outs": [
+                553
+            ],
+            "proposition_type": "other",
+            "gdl": "( marked 1 3 )"
+        },
+        {
+            "id": 490,
+            "type": "NOT",
+            "in": 600,
+            "outs": [
+                224
+            ]
+        },
+        {
+            "id": 491,
+            "type": "NOT",
+            "in": 255,
+            "outs": [
+                364
+            ]
+        },
+        {
+            "id": 492,
+            "type": "OR",
+            "ins": [
+                426,
+                464,
+                513,
+                232,
+                473,
+                269,
+                348
+            ],
+            "outs": [
+                573
+            ]
+        },
+        {
+            "id": 493,
+            "type": "TRANSITION",
+            "ins": [
+                484
+            ],
+            "outs": [
+                315
+            ]
+        },
+        {
+            "id": 494,
+            "type": "PROPOSITION",
+            "ins": [
+                191
+            ],
+            "outs": [
+                159,
+                441,
+                248,
+                130,
+                405,
+                132,
+                72,
+                266,
+                48,
+                268,
+                17,
+                18,
+                328,
+                571,
+                193,
+                542,
+                237,
+                469,
+                25,
+                239,
+                244
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( cell 2 1 b ) )"
+        },
+        {
+            "id": 495,
+            "type": "AND",
+            "ins": [
+                587,
+                446,
+                52
+            ],
+            "outs": [
+                458
+            ]
+        },
+        {
+            "id": 496,
+            "type": "PROPOSITION",
+            "ins": [
+                356
+            ],
+            "outs": [
+                213,
+                379
+            ],
+            "proposition_type": "other",
+            "gdl": "( sees_tmp3 3 x )"
+        },
+        {
+            "id": 497,
+            "type": "OR",
+            "ins": [
+                171,
+                433,
+                516,
+                304,
+                579,
+                52
+            ],
+            "outs": [
+                442
+            ]
+        },
+        {
+            "id": 498,
+            "type": "PROPOSITION",
+            "ins": [
+                5
+            ],
+            "outs": [
+                102
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( tried x 2 3 ) )"
+        },
+        {
+            "id": 499,
+            "type": "AND",
+            "ins": [
+                187,
+                373
+            ],
+            "outs": [
+                128
+            ]
+        },
+        {
+            "id": 500,
+            "type": "AND",
+            "ins": [
+                66,
+                304
+            ],
+            "outs": [
+                180
+            ]
+        },
+        {
+            "id": 501,
+            "type": "AND",
+            "ins": [
+                87,
+                606,
+                214
+            ],
+            "outs": [
+                99
+            ]
+        },
+        {
+            "id": 502,
+            "type": "AND",
+            "ins": [
+                114,
+                187
+            ],
+            "outs": [
+                121
+            ]
+        },
+        {
+            "id": 503,
+            "type": "PROPOSITION",
+            "ins": [
+                37
+            ],
+            "outs": [],
+            "proposition_type": "legal",
+            "gdl": "( legal o ( mark 1 1 ) )"
+        },
+        {
+            "id": 504,
+            "type": "AND",
+            "ins": [
+                596,
+                147
+            ],
+            "outs": [
+                128
+            ]
+        },
+        {
+            "id": 505,
+            "type": "AND",
+            "ins": [
+                587,
+                281,
+                136
+            ],
+            "outs": [
+                326
+            ]
+        },
+        {
+            "id": 506,
+            "type": "PROPOSITION",
+            "ins": [],
+            "outs": [
+                220,
+                454,
+                161,
+                595,
+                149,
+                2,
+                531,
+                4,
+                517,
+                308,
+                95,
+                137,
+                206,
+                388,
+                481,
+                312,
+                528,
+                593
+            ],
+            "proposition_type": "input",
+            "gdl": "( does x ( mark 2 2 ) )"
+        },
+        {
+            "id": 507,
+            "type": "PROPOSITION",
+            "ins": [
+                80
+            ],
+            "outs": [],
+            "proposition_type": "legal",
+            "gdl": "( legal random ( tiebreak x ) )"
+        },
+        {
+            "id": 508,
+            "type": "TRANSITION",
+            "ins": [
+                70
+            ],
+            "outs": [
+                293
+            ]
+        },
+        {
+            "id": 509,
+            "type": "PROPOSITION",
+            "ins": [
+                551
+            ],
+            "outs": [
+                523,
+                552,
+                259
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( cell 3 2 x ) )"
+        },
+        {
+            "id": 510,
+            "type": "TRANSITION",
+            "ins": [
+                57
+            ],
+            "outs": [
+                189
+            ]
+        },
+        {
+            "id": 511,
+            "type": "AND",
+            "ins": [
+                442,
+                150
+            ],
+            "outs": [
+                591
+            ]
+        },
+        {
+            "id": 512,
+            "type": "OR",
+            "ins": [
+                545,
+                297,
+                299,
+                405,
+                312,
+                38,
+                278,
+                369,
+                165
+            ],
+            "outs": [
+                386
+            ]
+        },
+        {
+            "id": 513,
+            "type": "PROPOSITION",
+            "ins": [
+                412
+            ],
+            "outs": [
+                492
+            ],
+            "proposition_type": "other",
+            "gdl": "( column 1 x )"
+        },
+        {
+            "id": 514,
+            "type": "AND",
+            "ins": [
+                66,
+                557,
+                433,
+                304
+            ],
+            "outs": [
+                570
+            ]
+        },
+        {
+            "id": 515,
+            "type": "PROPOSITION",
+            "ins": [
+                257
+            ],
+            "outs": [
+                228
+            ],
+            "proposition_type": "other",
+            "gdl": "( marked 3 1 )"
+        },
+        {
+            "id": 516,
+            "type": "PROPOSITION",
+            "ins": [],
+            "outs": [
+                160,
+                454,
+                497,
+                404,
+                443,
+                424,
+                5,
+                323,
+                227,
+                137,
+                448,
+                299,
+                363,
+                451,
+                120,
+                396,
+                142,
+                486
+            ],
+            "proposition_type": "input",
+            "gdl": "( does x ( mark 2 3 ) )"
+        },
+        {
+            "id": 517,
+            "type": "AND",
+            "ins": [
+                606,
+                506
+            ],
+            "outs": [
+                121
+            ]
+        },
+        {
+            "id": 518,
+            "type": "AND",
+            "ins": [
+                215,
+                136
+            ],
+            "outs": [
+                230
+            ]
+        },
+        {
+            "id": 519,
+            "type": "OR",
+            "ins": [
+                433,
+                189
+            ],
+            "outs": [
+                57
+            ]
+        },
+        {
+            "id": 520,
+            "type": "PROPOSITION",
+            "ins": [
+                332
+            ],
+            "outs": [
+                140,
+                538
+            ],
+            "proposition_type": "other",
+            "gdl": "( sees_tmp1 1 o )"
+        },
+        {
+            "id": 521,
+            "type": "AND",
+            "ins": [
+                66,
+                557,
+                433,
+                304
+            ],
+            "outs": [
+                575
+            ]
+        },
+        {
+            "id": 522,
+            "type": "OR",
+            "ins": [
+                169,
+                397,
+                194,
+                24,
+                85,
+                603
+            ],
+            "outs": [
+                260
+            ]
+        },
+        {
+            "id": 523,
+            "type": "OR",
+            "ins": [
+                138,
+                129,
+                154,
+                340,
+                88,
+                509,
+                288
+            ],
+            "outs": [
+                122
+            ]
+        },
+        {
+            "id": 524,
+            "type": "TRANSITION",
+            "ins": [
+                125
+            ],
+            "outs": [
+                337
+            ]
+        },
+        {
+            "id": 525,
+            "type": "OR",
+            "ins": [
+                427,
+                222,
+                63,
+                383,
+                402,
+                177,
+                592
+            ],
+            "outs": [
+                382
+            ]
+        },
+        {
+            "id": 526,
+            "type": "AND",
+            "ins": [
+                606,
+                104
+            ],
+            "outs": [
+                141
+            ]
+        },
+        {
+            "id": 527,
+            "type": "OR",
+            "ins": [
+                43,
+                277
+            ],
+            "outs": [
+                148
+            ]
+        },
+        {
+            "id": 528,
+            "type": "AND",
+            "ins": [
+                606,
+                506,
+                585
+            ],
+            "outs": [
+                267
+            ]
+        },
+        {
+            "id": 529,
+            "type": "AND",
+            "ins": [
+                540,
+                446,
+                52
+            ],
+            "outs": [
+                458
+            ]
+        },
+        {
+            "id": 530,
+            "type": "TRANSITION",
+            "ins": [
+                32
+            ],
+            "outs": [
+                380
+            ]
+        },
+        {
+            "id": 531,
+            "type": "AND",
+            "ins": [
+                606,
+                506
+            ],
+            "outs": [
+                488
+            ]
+        },
+        {
+            "id": 532,
+            "type": "PROPOSITION",
+            "ins": [
+                233
+            ],
+            "outs": [
+                271,
+                55,
+                48,
+                194,
+                126,
+                243
+            ],
+            "proposition_type": "other",
+            "gdl": "( next_tmp5 3 )"
+        },
+        {
+            "id": 533,
+            "type": "PROPOSITION",
+            "ins": [
+                144
+            ],
+            "outs": [],
+            "proposition_type": "other",
+            "gdl": "( next ( cell 1 2 xSecondChance ) )"
+        },
+        {
+            "id": 534,
+            "type": "PROPOSITION",
+            "ins": [
+                611
+            ],
+            "outs": [
+                1,
+                291
+            ],
+            "proposition_type": "other",
+            "gdl": "( sees_tmp3 3 o )"
+        },
+        {
+            "id": 535,
+            "type": "PROPOSITION",
+            "ins": [
+                62
+            ],
+            "outs": [
+                375,
+                334,
+                61,
+                583,
+                237,
+                543
+            ],
+            "proposition_type": "other",
+            "gdl": "( next_tmp5 1 )"
+        },
+        {
+            "id": 536,
+            "type": "OR",
+            "ins": [
+                281,
+                398
+            ],
+            "outs": [
+                390
+            ]
+        },
+        {
+            "id": 537,
+            "type": "PROPOSITION",
+            "ins": [
+                456
+            ],
+            "outs": [],
+            "proposition_type": "other",
+            "gdl": "( next ( cell 3 2 xSecondChance ) )"
+        },
+        {
+            "id": 538,
+            "type": "AND",
+            "ins": [
+                520,
+                225
+            ],
+            "outs": [
+                591
+            ]
+        },
+        {
+            "id": 539,
+            "type": "PROPOSITION",
+            "ins": [
+                482
+            ],
+            "outs": [],
+            "proposition_type": "sees",
+            "gdl": "( sees x ok )"
+        },
+        {
+            "id": 540,
+            "type": "PROPOSITION",
+            "ins": [
+                47
+            ],
+            "outs": [
+                154,
+                161,
+                443,
+                417,
+                556,
+                529
+            ],
+            "proposition_type": "other",
+            "gdl": "( next_tmp3 1 )"
+        },
+        {
+            "id": 541,
+            "type": "PROPOSITION",
+            "ins": [
+                575
+            ],
+            "outs": [
+                434
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( cell 1 3 x ) )"
+        },
+        {
+            "id": 542,
+            "type": "AND",
+            "ins": [
+                494,
+                472
+            ],
+            "outs": [
+                128
+            ]
+        },
+        {
+            "id": 543,
+            "type": "AND",
+            "ins": [
+                87,
+                606,
+                535
+            ],
+            "outs": [
+                99
+            ]
+        },
+        {
+            "id": 544,
+            "type": "TRANSITION",
+            "ins": [
+                558
+            ],
+            "outs": [
+                296
+            ]
+        },
+        {
+            "id": 545,
+            "type": "AND",
+            "ins": [
+                446,
+                52
+            ],
+            "outs": [
+                512
+            ]
+        },
+        {
+            "id": 546,
+            "type": "PROPOSITION",
+            "ins": [
+                324
+            ],
+            "outs": [
+                91
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( cell 2 3 b ) )"
+        },
+        {
+            "id": 547,
+            "type": "PROPOSITION",
+            "ins": [
+                160
+            ],
+            "outs": [
+                447
+            ],
+            "proposition_type": "other",
+            "gdl": "( marked 2 3 )"
+        },
+        {
+            "id": 548,
+            "type": "AND",
+            "ins": [
+                446,
+                52
+            ],
+            "outs": [
+                356
+            ]
+        },
+        {
+            "id": 549,
+            "type": "TRANSITION",
+            "ins": [
+                415
+            ],
+            "outs": [
+                606
+            ]
+        },
+        {
+            "id": 550,
+            "type": "PROPOSITION",
+            "ins": [
+                102
+            ],
+            "outs": [
+                192,
+                5
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( tried x 2 3 ) )"
+        },
+        {
+            "id": 551,
+            "type": "TRANSITION",
+            "ins": [
+                122
+            ],
+            "outs": [
+                509
+            ]
+        },
+        {
+            "id": 552,
+            "type": "AND",
+            "ins": [
+                333,
+                509,
+                475
+            ],
+            "outs": [
+                269
+            ]
+        },
+        {
+            "id": 553,
+            "type": "NOT",
+            "in": 489,
+            "outs": [
+                124
+            ]
+        },
+        {
+            "id": 554,
+            "type": "AND",
+            "ins": [
+                166,
+                435,
+                151,
+                445
+            ],
+            "outs": [
+                31
+            ]
+        },
+        {
+            "id": 555,
+            "type": "NOT",
+            "in": 370,
+            "outs": [
+                16
+            ]
+        },
+        {
+            "id": 556,
+            "type": "AND",
+            "ins": [
+                66,
+                540,
+                304
+            ],
+            "outs": [
+                575
+            ]
+        },
+        {
+            "id": 557,
+            "type": "PROPOSITION",
+            "ins": [],
+            "outs": [
+                514,
+                46,
+                582,
+                456,
+                404,
+                149,
+                90,
+                4,
+                424,
+                407,
+                288,
+                268,
+                566,
+                521,
+                155,
+                393,
+                576,
+                144,
+                469
+            ],
+            "proposition_type": "input",
+            "gdl": "( does random ( tiebreak xSecondChance ) )"
+        },
+        {
+            "id": 558,
+            "type": "PROPOSITION",
+            "ins": [
+                593
+            ],
+            "outs": [
+                544
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( tried x 2 2 ) )"
+        },
+        {
+            "id": 559,
+            "type": "PROPOSITION",
+            "ins": [
+                346
+            ],
+            "outs": [],
+            "proposition_type": "legal",
+            "gdl": "( legal x ( mark 3 3 ) )"
+        },
+        {
+            "id": 560,
+            "type": "OR",
+            "ins": [
+                311,
+                596
+            ],
+            "outs": [
+                567
+            ]
+        },
+        {
+            "id": 561,
+            "type": "PROPOSITION",
+            "ins": [
+                95
+            ],
+            "outs": [
+                379,
+                286,
+                291,
+                357
+            ],
+            "proposition_type": "other",
+            "gdl": "( sees_tmp11 2 )"
+        },
+        {
+            "id": 562,
+            "type": "AND",
+            "ins": [
+                281,
+                136
+            ],
+            "outs": [
+                236
+            ]
+        },
+        {
+            "id": 563,
+            "type": "AND",
+            "ins": [
+                66,
+                433,
+                273
+            ],
+            "outs": [
+                100
+            ]
+        },
+        {
+            "id": 564,
+            "type": "AND",
+            "ins": [
+                281,
+                136,
+                64
+            ],
+            "outs": [
+                326
+            ]
+        },
+        {
+            "id": 565,
+            "type": "PROPOSITION",
+            "ins": [
+                212
+            ],
+            "outs": [
+                182,
+                195
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( tried x 1 3 ) )"
+        },
+        {
+            "id": 566,
+            "type": "AND",
+            "ins": [
+                166,
+                557,
+                151,
+                445
+            ],
+            "outs": [
+                31
+            ]
+        },
+        {
+            "id": 567,
+            "type": "PROPOSITION",
+            "ins": [
+                560
+            ],
+            "outs": [
+                279
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( tried o 1 2 ) )"
+        },
+        {
+            "id": 568,
+            "type": "PROPOSITION",
+            "ins": [
+                326
+            ],
+            "outs": [
+                152
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( cell 3 1 x ) )"
+        },
+        {
+            "id": 569,
+            "type": "PROPOSITION",
+            "ins": [
+                121
+            ],
+            "outs": [
+                44,
+                203
+            ],
+            "proposition_type": "other",
+            "gdl": "( sees_tmp3 2 x )"
+        },
+        {
+            "id": 570,
+            "type": "PROPOSITION",
+            "ins": [
+                514
+            ],
+            "outs": [],
+            "proposition_type": "other",
+            "gdl": "( next ( cell 1 3 xSecondChance ) )"
+        },
+        {
+            "id": 571,
+            "type": "AND",
+            "ins": [
+                494,
+                134,
+                199
+            ],
+            "outs": [
+                381
+            ]
+        },
+        {
+            "id": 572,
+            "type": "PROPOSITION",
+            "ins": [
+                174
+            ],
+            "outs": [],
+            "proposition_type": "legal",
+            "gdl": "( legal x ( mark 3 2 ) )"
+        },
+        {
+            "id": 573,
+            "type": "PROPOSITION",
+            "ins": [
+                492
+            ],
+            "outs": [
+                341,
+                167,
+                116,
+                223,
+                459,
+                361
+            ],
+            "proposition_type": "other",
+            "gdl": "( line x )"
+        },
+        {
+            "id": 574,
+            "type": "PROPOSITION",
+            "ins": [
+                17
+            ],
+            "outs": [
+                462
+            ],
+            "proposition_type": "other",
+            "gdl": "open"
+        },
+        {
+            "id": 575,
+            "type": "OR",
+            "ins": [
+                387,
+                521,
+                327,
+                105,
+                3,
+                6,
+                556
+            ],
+            "outs": [
+                541
+            ]
+        },
+        {
+            "id": 576,
+            "type": "AND",
+            "ins": [
+                557,
+                281,
+                215,
+                136
+            ],
+            "outs": [
+                162
+            ]
+        },
+        {
+            "id": 577,
+            "type": "OR",
+            "ins": [
+                116,
+                485
+            ],
+            "outs": [
+                252
+            ]
+        },
+        {
+            "id": 578,
+            "type": "PROPOSITION",
+            "ins": [
+                77
+            ],
+            "outs": [
+                580,
+                12,
+                178,
+                470
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( cell 3 1 o ) )"
+        },
+        {
+            "id": 579,
+            "type": "PROPOSITION",
+            "ins": [],
+            "outs": [
+                262,
+                375,
+                418,
+                249,
+                582,
+                331,
+                497,
+                264,
+                407,
+                602,
+                54,
+                253,
+                11,
+                15,
+                176,
+                401,
+                314
+            ],
+            "proposition_type": "input",
+            "gdl": "( does o ( mark 3 3 ) )"
+        },
+        {
+            "id": 580,
+            "type": "AND",
+            "ins": [
+                163,
+                69,
+                578
+            ],
+            "outs": [
+                63
+            ]
+        },
+        {
+            "id": 581,
+            "type": "PROPOSITION",
+            "ins": [
+                422
+            ],
+            "outs": [
+                430,
+                590,
+                374
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( cell 2 3 x ) )"
+        },
+        {
+            "id": 582,
+            "type": "AND",
+            "ins": [
+                557,
+                446,
+                579,
+                52
+            ],
+            "outs": [
+                394
+            ]
+        },
+        {
+            "id": 583,
+            "type": "AND",
+            "ins": [
+                171,
+                234,
+                535
+            ],
+            "outs": [
+                371
+            ]
+        },
+        {
+            "id": 584,
+            "type": "NOT",
+            "in": 382,
+            "outs": [
+                341,
+                67,
+                485,
+                459
+            ]
+        },
+        {
+            "id": 585,
+            "type": "PROPOSITION",
+            "ins": [
+                176
+            ],
+            "outs": [
+                448,
+                105,
+                274,
+                266,
+                440,
+                528
+            ],
+            "proposition_type": "other",
+            "gdl": "( next_tmp1 3 )"
+        },
+        {
+            "id": 586,
+            "type": "AND",
+            "ins": [
+                197,
+                229
+            ],
+            "outs": [
+                591
+            ]
+        },
+        {
+            "id": 587,
+            "type": "PROPOSITION",
+            "ins": [
+                399
+            ],
+            "outs": [
+                138,
+                505,
+                495,
+                251,
+                457,
+                6
+            ],
+            "proposition_type": "other",
+            "gdl": "( next_tmp1 2 )"
+        },
+        {
+            "id": 588,
+            "type": "PROPOSITION",
+            "ins": [
+                320
+            ],
+            "outs": [],
+            "proposition_type": "legal",
+            "gdl": "( legal o ( mark 1 3 ) )"
+        },
+        {
+            "id": 589,
+            "type": "PROPOSITION",
+            "ins": [
+                368
+            ],
+            "outs": [
+                145
+            ],
+            "proposition_type": "other",
+            "gdl": "( marked 3 2 )"
+        },
+        {
+            "id": 590,
+            "type": "AND",
+            "ins": [
+                581,
+                327,
+                333
+            ],
+            "outs": [
+                348
+            ]
+        },
+        {
+            "id": 591,
+            "type": "OR",
+            "ins": [
+                1,
+                286,
+                291,
+                93,
+                110,
+                538,
+                34,
+                586,
+                301,
+                140,
+                612,
+                395,
+                511
+            ],
+            "outs": [
+                39
+            ]
+        },
+        {
+            "id": 592,
+            "type": "PROPOSITION",
+            "ins": [
+                202
+            ],
+            "outs": [
+                525
+            ],
+            "proposition_type": "other",
+            "gdl": "( row 2 o )"
+        },
+        {
+            "id": 593,
+            "type": "OR",
+            "ins": [
+                296,
+                506
+            ],
+            "outs": [
+                558
+            ]
+        },
+        {
+            "id": 594,
+            "type": "TRANSITION",
+            "ins": [
+                221
+            ],
+            "outs": [
+                112
+            ]
+        },
+        {
+            "id": 595,
+            "type": "AND",
+            "ins": [
+                606,
+                506,
+                8
+            ],
+            "outs": [
+                267
+            ]
+        },
+        {
+            "id": 596,
+            "type": "PROPOSITION",
+            "ins": [],
+            "outs": [
+                560,
+                421,
+                90,
+                265,
+                95,
+                51,
+                98,
+                504,
+                449,
+                55,
+                411,
+                59,
+                366,
+                119,
+                175,
+                144,
+                439
+            ],
+            "proposition_type": "input",
+            "gdl": "( does o ( mark 1 2 ) )"
+        },
+        {
+            "id": 597,
+            "type": "PROPOSITION",
+            "ins": [
+                78
+            ],
+            "outs": [
+                68
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( tried x 2 1 ) )"
+        },
+        {
+            "id": 598,
+            "type": "OR",
+            "ins": [
+                55,
+                449,
+                366,
+                439,
+                51,
+                293
+            ],
+            "outs": [
+                70
+            ]
+        },
+        {
+            "id": 599,
+            "type": "PROPOSITION",
+            "ins": [
+                205
+            ],
+            "outs": [
+                413
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( cell 1 2 b ) )"
+        },
+        {
+            "id": 600,
+            "type": "PROPOSITION",
+            "ins": [
+                53
+            ],
+            "outs": [
+                19,
+                490
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( tried o 3 1 ) )"
+        },
+        {
+            "id": 601,
+            "type": "PROPOSITION",
+            "ins": [
+                353
+            ],
+            "outs": [
+                609
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( cell 1 2 x ) )"
+        },
+        {
+            "id": 602,
+            "type": "AND",
+            "ins": [
+                273,
+                446,
+                579
+            ],
+            "outs": [
+                82
+            ]
+        },
+        {
+            "id": 603,
+            "type": "AND",
+            "ins": [
+                166,
+                214,
+                151
+            ],
+            "outs": [
+                522
+            ]
+        },
+        {
+            "id": 604,
+            "type": "AND",
+            "ins": [
+                28,
+                112,
+                163
+            ],
+            "outs": [
+                383
+            ]
+        },
+        {
+            "id": 605,
+            "type": "AND",
+            "ins": [
+                215,
+                416,
+                136
+            ],
+            "outs": [
+                178
+            ]
+        },
+        {
+            "id": 606,
+            "type": "PROPOSITION",
+            "ins": [
+                549
+            ],
+            "outs": [
+                179,
+                27,
+                161,
+                595,
+                149,
+                531,
+                4,
+                517,
+                308,
+                501,
+                206,
+                388,
+                17,
+                481,
+                312,
+                143,
+                526,
+                23,
+                543,
+                528,
+                243
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( cell 2 2 b ) )"
+        },
+        {
+            "id": 607,
+            "type": "AND",
+            "ins": [
+                215,
+                273,
+                136
+            ],
+            "outs": [
+                178
+            ]
+        },
+        {
+            "id": 608,
+            "type": "TRANSITION",
+            "ins": [
+                306
+            ],
+            "outs": [
+                231
+            ]
+        },
+        {
+            "id": 609,
+            "type": "TRANSITION",
+            "ins": [
+                601
+            ],
+            "outs": [
+                377
+            ]
+        },
+        {
+            "id": 610,
+            "type": "PROPOSITION",
+            "ins": [
+                458
+            ],
+            "outs": [
+                226
+            ],
+            "proposition_type": "other",
+            "gdl": "( next ( cell 3 3 x ) )"
+        },
+        {
+            "id": 611,
+            "type": "OR",
+            "ins": [
+                249,
+                21,
+                360
+            ],
+            "outs": [
+                534
+            ]
+        },
+        {
+            "id": 612,
+            "type": "AND",
+            "ins": [
+                389,
+                229
+            ],
+            "outs": [
+                591
+            ]
+        },
+        {
+            "id": 613,
+            "type": "PROPOSITION",
+            "ins": [
+                29
+            ],
+            "outs": [
+                202,
+                263,
+                470
+            ],
+            "proposition_type": "base",
+            "gdl": "( true ( cell 2 1 o ) )"
+        },
+        {
+            "id": 614,
+            "type": "OR",
+            "ins": [
+                298,
+                401,
+                7
+            ],
+            "outs": [
+                22
+            ]
+        }
+    ]
+}
