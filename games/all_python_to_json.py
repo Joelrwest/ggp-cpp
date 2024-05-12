@@ -19,8 +19,22 @@ def main() -> None:
         process_game(game)
 
 def process_game(game: str) -> None:
+    print(f"Processing {game}")
     module = importlib.import_module(f"{PYTHON_FOLDER}.{game}")
     mapped_entries = list(map(map_entry, module.entries))
+
+    # Split the transitions apart into
+    # pre and post transitions
+    split_transitions(mapped_entries)
+
+    # Check that every id is taken
+    if (
+        any(entry['id'] < 0 for entry in mapped_entries) or
+        get_max_id(mapped_entries) + 1 != len(mapped_entries)
+    ):
+        logging.error(f"Invalid ids for game {game}")
+        exit(1)
+
     dict = {
         'roles': module.roles,
         'entries': mapped_entries,
@@ -35,10 +49,22 @@ def map_entry(entry):
 
     # Repetitive, but does the job
     if type == TRANSITION:
+        ins = entry[3]
+        num_ins = len(ins)
+        if num_ins != 1:
+            logging.error(f"For proposition of id = {id}, num_ins = {num_ins}")
+            exit(1)
+
+        outs = entry[4]
+        num_outs = len(outs)
+        if num_outs != 1:
+            logging.error(f"For proposition of id = {id}, num_outs = {num_outs}")
+            exit(1)
+
         extra_fields = {
             'type_name': 'TRANSITION',
-            'ins': entry[3],
-            'outs': entry[4],
+            'in': ins[0],
+            'out': outs[0],
         }
     elif type in (AND, OR):
         extra_fields = {
@@ -79,6 +105,38 @@ def map_entry(entry):
         'id': entry[0],
         'type': type,
     } | extra_fields
+
+def split_transitions(entries: list[dict]) -> None:
+    transitions = list(filter(lambda entry: entry['type'] == TRANSITION, entries))
+    for pre_transition in transitions:
+        post_transition = {
+            'id': get_max_id(entries) + 1,
+            'type': POST_TRANSITION,
+            'type_name': 'POST TRANSITION',
+            'in': pre_transition['id'],
+            'out': pre_transition['out']
+        }
+
+        out = post_transition['out']
+        if 'in' in entries[out]:
+            entries[out]['in'] = post_transition['id']
+        elif 'ins' in entries[out]:
+            entries[out]['ins'] = [
+                id if id != pre_transition['id'] else post_transition['id']
+                for id in entries[out]['ins']
+            ]
+        else:
+            logging.error('Tried to fix nodes outs where it wasn\'t present')
+            exit(1)
+
+        pre_transition['type'] = PRE_TRANSITION
+        pre_transition['type_name'] = 'PRE TRANSITION'
+        pre_transition['out'] = post_transition['id']
+
+        entries.append(post_transition)
+
+def get_max_id(entries: list[dict]) -> int:
+    return max(entry['id'] for entry in entries)
 
 if __name__ == '__main__':
     main()

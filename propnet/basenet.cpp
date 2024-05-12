@@ -19,9 +19,10 @@ namespace propnet
         And = 1,
         Or = 2,
         Proposition = 3,
-        Transition = 4,
         Not = 5,
-        Constant = 6
+        Constant = 6,
+        PreTransition = 8,
+        PostTransition = 9,
     };
 
     /*
@@ -73,8 +74,19 @@ namespace propnet
                     break;
                 case EntryType::Proposition:
                     break;
-                case EntryType::Transition:
-                    ++num_transitions;
+                case EntryType::PreTransition:
+                    add_node(PreTransitionNode {
+                        id,
+                        entry[IN_PROPS_KEY],
+                        entry[OUT_PROPS_KEY]
+                    });
+                    break;
+                case EntryType::PostTransition:
+                    add_node(PostTransitionNode {
+                        id,
+                        entry[IN_PROPS_KEY],
+                        entry[OUT_PROPS_KEY]
+                    });
                     break;
                 case EntryType::Not:
                     add_node(NotNode {

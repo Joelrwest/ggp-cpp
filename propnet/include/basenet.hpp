@@ -24,6 +24,7 @@ namespace propnet
             static constexpr auto TYPE_KEY {"type"};
             static constexpr auto IN_PROPS_KEY {"in"};
             static constexpr auto INS_PROPS_KEY {"ins"};
+            static constexpr auto OUT_PROPS_KEY {"out"};
             static constexpr auto OUTS_PROPS_KEY {"outs"};
             static constexpr auto VALUE_KEY {"value"};
 

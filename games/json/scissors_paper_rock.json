@@ -53,14 +53,10 @@
         },
         {
             "id": 4,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                50
-            ],
-            "outs": [
-                71
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 50,
+            "out": 84
         },
         {
             "id": 5,
@@ -124,14 +120,10 @@
         },
         {
             "id": 10,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                42
-            ],
-            "outs": [
-                34
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 42,
+            "out": 85
         },
         {
             "id": 11,
@@ -150,7 +142,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                23
+                86
             ],
             "outs": [
                 17
@@ -199,7 +191,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                72
+                91
             ],
             "outs": [
                 56,
@@ -284,14 +276,10 @@
         },
         {
             "id": 23,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                28
-            ],
-            "outs": [
-                12
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 28,
+            "out": 86
         },
         {
             "id": 24,
@@ -306,25 +294,17 @@
         },
         {
             "id": 25,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                7
-            ],
-            "outs": [
-                54
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 7,
+            "out": 87
         },
         {
             "id": 26,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                52
-            ],
-            "outs": [
-                74
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 52,
+            "out": 88
         },
         {
             "id": 27,
@@ -417,7 +397,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                10
+                85
             ],
             "outs": [
                 2,
@@ -656,7 +636,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                25
+                87
             ],
             "outs": [
                 56,
@@ -729,14 +709,10 @@
         },
         {
             "id": 60,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                18
-            ],
-            "outs": [
-                79
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 18,
+            "out": 89
         },
         {
             "id": 61,
@@ -785,14 +761,10 @@
         },
         {
             "id": 65,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                36
-            ],
-            "outs": [
-                76
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 36,
+            "out": 90
         },
         {
             "id": 66,
@@ -857,7 +829,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                4
+                84
             ],
             "outs": [
                 28,
@@ -873,14 +845,10 @@
         },
         {
             "id": 72,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                32
-            ],
-            "outs": [
-                16
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 32,
+            "out": 91
         },
         {
             "id": 73,
@@ -899,7 +867,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                26
+                88
             ],
             "outs": [
                 3,
@@ -928,7 +896,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                65
+                90
             ],
             "outs": [
                 2,
@@ -971,7 +939,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                60
+                89
             ],
             "outs": [
                 63,
@@ -1032,6 +1000,62 @@
             "outs": [
                 55
             ]
+        },
+        {
+            "id": 84,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 4,
+            "out": 71
+        },
+        {
+            "id": 85,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 10,
+            "out": 34
+        },
+        {
+            "id": 86,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 23,
+            "out": 12
+        },
+        {
+            "id": 87,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 25,
+            "out": 54
+        },
+        {
+            "id": 88,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 26,
+            "out": 74
+        },
+        {
+            "id": 89,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 60,
+            "out": 79
+        },
+        {
+            "id": 90,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 65,
+            "out": 76
+        },
+        {
+            "id": 91,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 72,
+            "out": 16
         }
     ]
 }

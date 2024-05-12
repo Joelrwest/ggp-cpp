@@ -82,14 +82,10 @@
         },
         {
             "id": 6,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1572
-            ],
-            "outs": [
-                1570
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1572,
+            "out": 2713
         },
         {
             "id": 7,
@@ -194,7 +190,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                341
+                2733
             ],
             "outs": [
                 888,
@@ -287,7 +283,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2166
+                2845
             ],
             "outs": [
                 738
@@ -297,14 +293,10 @@
         },
         {
             "id": 23,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1798
-            ],
-            "outs": [
-                1735
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1798,
+            "out": 2714
         },
         {
             "id": 24,
@@ -331,14 +323,10 @@
         },
         {
             "id": 26,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                795
-            ],
-            "outs": [
-                313
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 795,
+            "out": 2715
         },
         {
             "id": 27,
@@ -354,14 +342,10 @@
         },
         {
             "id": 28,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1404
-            ],
-            "outs": [
-                2200
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1404,
+            "out": 2716
         },
         {
             "id": 29,
@@ -566,7 +550,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2283
+                2856
             ],
             "outs": [
                 2075,
@@ -870,14 +854,10 @@
         },
         {
             "id": 69,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1842
-            ],
-            "outs": [
-                139
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1842,
+            "out": 2717
         },
         {
             "id": 70,
@@ -977,14 +957,10 @@
         },
         {
             "id": 78,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1582
-            ],
-            "outs": [
-                474
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1582,
+            "out": 2718
         },
         {
             "id": 79,
@@ -1018,7 +994,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1260
+                2786
             ],
             "outs": [
                 1424,
@@ -1033,14 +1009,10 @@
         },
         {
             "id": 82,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                781
-            ],
-            "outs": [
-                2680
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 781,
+            "out": 2719
         },
         {
             "id": 83,
@@ -1134,7 +1106,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                418
+                2737
             ],
             "outs": [
                 1401
@@ -1158,7 +1130,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2307
+                2858
             ],
             "outs": [
                 1900,
@@ -1196,14 +1168,10 @@
         },
         {
             "id": 95,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                864
-            ],
-            "outs": [
-                2157
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 864,
+            "out": 2720
         },
         {
             "id": 96,
@@ -1253,14 +1221,10 @@
         },
         {
             "id": 100,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1121
-            ],
-            "outs": [
-                1503
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1121,
+            "out": 2721
         },
         {
             "id": 101,
@@ -1571,14 +1535,10 @@
         },
         {
             "id": 126,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1338
-            ],
-            "outs": [
-                205
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1338,
+            "out": 2722
         },
         {
             "id": 127,
@@ -1593,14 +1553,10 @@
         },
         {
             "id": 128,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                807
-            ],
-            "outs": [
-                583
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 807,
+            "out": 2723
         },
         {
             "id": 129,
@@ -1629,7 +1585,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2471
+                2868
             ],
             "outs": [
                 50,
@@ -1695,7 +1651,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2254
+                2854
             ],
             "outs": [
                 1087,
@@ -1744,7 +1700,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                69
+                2717
             ],
             "outs": [
                 1194,
@@ -1788,14 +1744,10 @@
         },
         {
             "id": 141,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                157
-            ],
-            "outs": [
-                1879
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 157,
+            "out": 2724
         },
         {
             "id": 142,
@@ -2358,7 +2310,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2598
+                2874
             ],
             "outs": [
                 1394
@@ -2524,7 +2476,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                945
+                2765
             ],
             "outs": [
                 576,
@@ -2566,7 +2518,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                126
+                2722
             ],
             "outs": [
                 2641,
@@ -2622,7 +2574,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2248
+                2853
             ],
             "outs": [
                 2661,
@@ -2651,14 +2603,10 @@
         },
         {
             "id": 211,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1920
-            ],
-            "outs": [
-                923
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1920,
+            "out": 2725
         },
         {
             "id": 212,
@@ -2687,7 +2635,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2073
+                2834
             ],
             "outs": [
                 826,
@@ -2757,14 +2705,10 @@
         },
         {
             "id": 220,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2327
-            ],
-            "outs": [
-                2511
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2327,
+            "out": 2726
         },
         {
             "id": 221,
@@ -2832,7 +2776,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                268
+                2729
             ],
             "outs": [
                 1247,
@@ -2886,14 +2830,10 @@
         },
         {
             "id": 230,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                3
-            ],
-            "outs": [
-                808
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 3,
+            "out": 2727
         },
         {
             "id": 231,
@@ -2921,14 +2861,10 @@
         },
         {
             "id": 233,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                167
-            ],
-            "outs": [
-                456
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 167,
+            "out": 2728
         },
         {
             "id": 234,
@@ -3210,7 +3146,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1630
+                2809
             ],
             "outs": [
                 1501,
@@ -3272,7 +3208,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                797
+                2756
             ],
             "outs": [
                 2592,
@@ -3327,7 +3263,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2354
+                2861
             ],
             "outs": [
                 1050,
@@ -3364,14 +3300,10 @@
         },
         {
             "id": 268,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1187
-            ],
-            "outs": [
-                226
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1187,
+            "out": 2729
         },
         {
             "id": 269,
@@ -3521,7 +3453,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1814
+                2818
             ],
             "outs": [
                 44,
@@ -3561,14 +3493,10 @@
         },
         {
             "id": 284,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                480
-            ],
-            "outs": [
-                1669
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 480,
+            "out": 2730
         },
         {
             "id": 285,
@@ -3594,14 +3522,10 @@
         },
         {
             "id": 287,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2583
-            ],
-            "outs": [
-                2685
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2583,
+            "out": 2731
         },
         {
             "id": 288,
@@ -3665,14 +3589,10 @@
         },
         {
             "id": 293,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1221
-            ],
-            "outs": [
-                894
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1221,
+            "out": 2732
         },
         {
             "id": 294,
@@ -3924,7 +3844,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                26
+                2715
             ],
             "outs": [
                 2481,
@@ -4013,7 +3933,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2340
+                2860
             ],
             "outs": [
                 1330,
@@ -4220,7 +4140,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1075
+                2771
             ],
             "outs": [
                 2257,
@@ -4274,14 +4194,10 @@
         },
         {
             "id": 341,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                768
-            ],
-            "outs": [
-                15
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 768,
+            "out": 2733
         },
         {
             "id": 342,
@@ -4297,14 +4213,10 @@
         },
         {
             "id": 343,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2191
-            ],
-            "outs": [
-                1686
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2191,
+            "out": 2734
         },
         {
             "id": 344,
@@ -4332,14 +4244,10 @@
         },
         {
             "id": 346,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2547
-            ],
-            "outs": [
-                2251
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2547,
+            "out": 2735
         },
         {
             "id": 347,
@@ -4610,7 +4518,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1409
+                2796
             ],
             "outs": [
                 244
@@ -4799,7 +4707,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                635
+                2749
             ],
             "outs": [
                 913,
@@ -5116,14 +5024,10 @@
         },
         {
             "id": 408,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                443
-            ],
-            "outs": [
-                2074
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 443,
+            "out": 2736
         },
         {
             "id": 409,
@@ -5229,14 +5133,10 @@
         },
         {
             "id": 418,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1970
-            ],
-            "outs": [
-                90
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1970,
+            "out": 2737
         },
         {
             "id": 419,
@@ -5254,7 +5154,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                475
+                2741
             ],
             "outs": [
                 1955,
@@ -5491,14 +5391,10 @@
         },
         {
             "id": 439,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                625
-            ],
-            "outs": [
-                867
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 625,
+            "out": 2738
         },
         {
             "id": 440,
@@ -5675,21 +5571,17 @@
         },
         {
             "id": 455,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                780
-            ],
-            "outs": [
-                1332
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 780,
+            "out": 2739
         },
         {
             "id": 456,
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                233
+                2728
             ],
             "outs": [
                 634,
@@ -5754,7 +5646,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2028
+                2833
             ],
             "outs": [
                 2532,
@@ -5845,14 +5737,10 @@
         },
         {
             "id": 468,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1334
-            ],
-            "outs": [
-                1162
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1334,
+            "out": 2740
         },
         {
             "id": 469,
@@ -5921,7 +5809,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                78
+                2718
             ],
             "outs": [
                 2411,
@@ -5938,14 +5826,10 @@
         },
         {
             "id": 475,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2693
-            ],
-            "outs": [
-                420
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2693,
+            "out": 2741
         },
         {
             "id": 476,
@@ -5972,14 +5856,10 @@
         },
         {
             "id": 478,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1177
-            ],
-            "outs": [
-                628
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1177,
+            "out": 2742
         },
         {
             "id": 479,
@@ -6208,7 +6088,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1692
+                2813
             ],
             "outs": [
                 306,
@@ -6439,14 +6319,10 @@
         },
         {
             "id": 515,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1893
-            ],
-            "outs": [
-                903
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1893,
+            "out": 2743
         },
         {
             "id": 516,
@@ -6488,7 +6364,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2190
+                2848
             ],
             "outs": [
                 1087,
@@ -6635,14 +6511,10 @@
         },
         {
             "id": 527,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1183
-            ],
-            "outs": [
-                1481
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1183,
+            "out": 2744
         },
         {
             "id": 528,
@@ -6668,14 +6540,10 @@
         },
         {
             "id": 530,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                359
-            ],
-            "outs": [
-                1299
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 359,
+            "out": 2745
         },
         {
             "id": 531,
@@ -6914,7 +6782,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2241
+                2852
             ],
             "outs": [
                 2383,
@@ -6931,14 +6799,10 @@
         },
         {
             "id": 552,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1437
-            ],
-            "outs": [
-                2432
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1437,
+            "out": 2746
         },
         {
             "id": 553,
@@ -6993,7 +6857,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                641
+                2750
             ],
             "outs": [
                 435,
@@ -7313,7 +7177,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                128
+                2723
             ],
             "outs": [
                 1377,
@@ -7382,14 +7246,10 @@
         },
         {
             "id": 589,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2012
-            ],
-            "outs": [
-                1359
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2012,
+            "out": 2747
         },
         {
             "id": 590,
@@ -7682,14 +7542,10 @@
         },
         {
             "id": 614,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2466
-            ],
-            "outs": [
-                1046
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2466,
+            "out": 2748
         },
         {
             "id": 615,
@@ -7966,7 +7822,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                478
+                2742
             ],
             "outs": [
                 142,
@@ -7982,7 +7838,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2465
+                2867
             ],
             "outs": [
                 823,
@@ -8002,7 +7858,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2645
+                2877
             ],
             "outs": [
                 1189,
@@ -8099,14 +7955,10 @@
         },
         {
             "id": 635,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2517
-            ],
-            "outs": [
-                382
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2517,
+            "out": 2749
         },
         {
             "id": 636,
@@ -8166,14 +8018,10 @@
         },
         {
             "id": 641,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2295
-            ],
-            "outs": [
-                557
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2295,
+            "out": 2750
         },
         {
             "id": 642,
@@ -8216,7 +8064,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                852
+                2762
             ],
             "outs": [
                 756,
@@ -8305,14 +8153,10 @@
         },
         {
             "id": 652,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1526
-            ],
-            "outs": [
-                663
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1526,
+            "out": 2751
         },
         {
             "id": 653,
@@ -8352,14 +8196,10 @@
         },
         {
             "id": 656,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1536
-            ],
-            "outs": [
-                778
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1536,
+            "out": 2752
         },
         {
             "id": 657,
@@ -8436,7 +8276,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                652
+                2751
             ],
             "outs": [
                 2186,
@@ -8465,7 +8305,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1861
+                2824
             ],
             "outs": [
                 1195,
@@ -8604,14 +8444,10 @@
         },
         {
             "id": 675,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1068
-            ],
-            "outs": [
-                1148
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1068,
+            "out": 2753
         },
         {
             "id": 676,
@@ -8758,7 +8594,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1295
+                2788
             ],
             "outs": [
                 2019,
@@ -8964,7 +8800,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2404
+                2864
             ],
             "outs": [
                 2258,
@@ -8994,7 +8830,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1283
+                2787
             ],
             "outs": [
                 585,
@@ -9011,14 +8847,10 @@
         },
         {
             "id": 707,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2262
-            ],
-            "outs": [
-                2626
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2262,
+            "out": 2754
         },
         {
             "id": 708,
@@ -9120,14 +8952,10 @@
         },
         {
             "id": 716,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1399
-            ],
-            "outs": [
-                1297
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1399,
+            "out": 2755
         },
         {
             "id": 717,
@@ -9253,7 +9081,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2179
+                2847
             ],
             "outs": [
                 1491,
@@ -9876,7 +9704,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2025
+                2832
             ],
             "outs": [
                 2319,
@@ -9933,7 +9761,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                656
+                2752
             ],
             "outs": [
                 726,
@@ -10172,14 +10000,10 @@
         },
         {
             "id": 797,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1720
-            ],
-            "outs": [
-                262
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1720,
+            "out": 2756
         },
         {
             "id": 798,
@@ -10206,25 +10030,17 @@
         },
         {
             "id": 800,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1995
-            ],
-            "outs": [
-                2629
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1995,
+            "out": 2757
         },
         {
             "id": 801,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                720
-            ],
-            "outs": [
-                936
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 720,
+            "out": 2758
         },
         {
             "id": 802,
@@ -10303,7 +10119,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                230
+                2727
             ],
             "outs": [
                 840,
@@ -10320,14 +10136,10 @@
         },
         {
             "id": 809,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1946
-            ],
-            "outs": [
-                1392
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1946,
+            "out": 2759
         },
         {
             "id": 810,
@@ -10359,7 +10171,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2613
+                2875
             ],
             "outs": [
                 1226,
@@ -10379,7 +10191,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1840
+                2822
             ],
             "outs": [
                 168,
@@ -10557,14 +10369,10 @@
         },
         {
             "id": 828,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                16
-            ],
-            "outs": [
-                2088
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 16,
+            "out": 2760
         },
         {
             "id": 829,
@@ -10723,14 +10531,10 @@
         },
         {
             "id": 842,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2584
-            ],
-            "outs": [
-                1464
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2584,
+            "out": 2761
         },
         {
             "id": 843,
@@ -10848,14 +10652,10 @@
         },
         {
             "id": 852,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                350
-            ],
-            "outs": [
-                645
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 350,
+            "out": 2762
         },
         {
             "id": 853,
@@ -10888,7 +10688,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1378
+                2795
             ],
             "outs": [
                 578,
@@ -10910,7 +10710,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1225
+                2785
             ],
             "outs": [
                 777,
@@ -11054,7 +10854,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                439
+                2738
             ],
             "outs": [
                 1962,
@@ -11233,7 +11033,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2306
+                2857
             ],
             "outs": [
                 2069
@@ -11259,7 +11059,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2117
+                2839
             ],
             "outs": [
                 1468,
@@ -11389,21 +11189,17 @@
         },
         {
             "id": 893,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                976
-            ],
-            "outs": [
-                1868
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 976,
+            "out": 2763
         },
         {
             "id": 894,
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                293
+                2732
             ],
             "outs": [
                 2077,
@@ -11502,14 +11298,10 @@
         },
         {
             "id": 899,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                317
-            ],
-            "outs": [
-                2106
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 317,
+            "out": 2764
         },
         {
             "id": 900,
@@ -11552,7 +11344,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                515
+                2743
             ],
             "outs": [
                 1154,
@@ -11801,7 +11593,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                211
+                2725
             ],
             "outs": [
                 2109,
@@ -11925,7 +11717,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1031
+                2769
             ],
             "outs": [
                 1258,
@@ -11964,7 +11756,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                801
+                2758
             ],
             "outs": [
                 1303,
@@ -12077,14 +11869,10 @@
         },
         {
             "id": 945,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1245
-            ],
-            "outs": [
-                202
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1245,
+            "out": 2765
         },
         {
             "id": 946,
@@ -12209,7 +11997,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2095
+                2836
             ],
             "outs": [
                 2438,
@@ -12274,7 +12062,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1203
+                2780
             ],
             "outs": [
                 61,
@@ -12414,7 +12202,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1004
+                2768
             ],
             "outs": [
                 399
@@ -12600,14 +12388,10 @@
         },
         {
             "id": 986,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1596
-            ],
-            "outs": [
-                2180
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1596,
+            "out": 2766
         },
         {
             "id": 987,
@@ -12669,14 +12453,10 @@
         },
         {
             "id": 992,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1110
-            ],
-            "outs": [
-                1851
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1110,
+            "out": 2767
         },
         {
             "id": 993,
@@ -12824,14 +12604,10 @@
         },
         {
             "id": 1004,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                531
-            ],
-            "outs": [
-                970
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 531,
+            "out": 2768
         },
         {
             "id": 1005,
@@ -12864,7 +12640,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1835
+                2821
             ],
             "outs": [
                 912,
@@ -13006,7 +12782,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1421
+                2798
             ],
             "outs": [
                 1128,
@@ -13174,14 +12950,10 @@
         },
         {
             "id": 1031,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                558
-            ],
-            "outs": [
-                933
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 558,
+            "out": 2769
         },
         {
             "id": 1032,
@@ -13232,21 +13004,17 @@
         },
         {
             "id": 1036,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                511
-            ],
-            "outs": [
-                1726
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 511,
+            "out": 2770
         },
         {
             "id": 1037,
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2086
+                2835
             ],
             "outs": [
                 2581,
@@ -13366,7 +13134,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                614
+                2748
             ],
             "outs": [
                 1138,
@@ -13427,7 +13195,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2219
+                2850
             ],
             "outs": [
                 1987,
@@ -13751,7 +13519,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1831
+                2820
             ],
             "outs": [
                 1087,
@@ -13775,7 +13543,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2140
+                2841
             ],
             "outs": [
                 2589,
@@ -13788,14 +13556,10 @@
         },
         {
             "id": 1075,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1010
-            ],
-            "outs": [
-                337
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1010,
+            "out": 2771
         },
         {
             "id": 1076,
@@ -13891,14 +13655,10 @@
         },
         {
             "id": 1083,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1832
-            ],
-            "outs": [
-                1382
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1832,
+            "out": 2772
         },
         {
             "id": 1084,
@@ -14177,14 +13937,10 @@
         },
         {
             "id": 1105,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                803
-            ],
-            "outs": [
-                2040
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 803,
+            "out": 2773
         },
         {
             "id": 1106,
@@ -14376,14 +14132,10 @@
         },
         {
             "id": 1118,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2000
-            ],
-            "outs": [
-                1773
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2000,
+            "out": 2774
         },
         {
             "id": 1119,
@@ -14552,14 +14304,10 @@
         },
         {
             "id": 1132,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1679
-            ],
-            "outs": [
-                2027
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1679,
+            "out": 2775
         },
         {
             "id": 1133,
@@ -14739,7 +14487,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                675
+                2753
             ],
             "outs": [
                 960,
@@ -14766,14 +14514,10 @@
         },
         {
             "id": 1150,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                301
-            ],
-            "outs": [
-                2695
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 301,
+            "out": 2776
         },
         {
             "id": 1151,
@@ -14918,7 +14662,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2313
+                2859
             ],
             "outs": [
                 1691,
@@ -14948,7 +14692,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2635
+                2876
             ],
             "outs": [
                 2184,
@@ -14968,7 +14712,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                468
+                2740
             ],
             "outs": [
                 2230,
@@ -14985,14 +14729,10 @@
         },
         {
             "id": 1163,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1042
-            ],
-            "outs": [
-                1990
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1042,
+            "out": 2777
         },
         {
             "id": 1164,
@@ -15182,14 +14922,10 @@
         },
         {
             "id": 1179,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1099
-            ],
-            "outs": [
-                2274
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1099,
+            "out": 2778
         },
         {
             "id": 1180,
@@ -15357,7 +15093,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2023
+                2831
             ],
             "outs": [
                 2020,
@@ -15401,14 +15137,10 @@
         },
         {
             "id": 1196,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                159
-            ],
-            "outs": [
-                1628
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 159,
+            "out": 2779
         },
         {
             "id": 1197,
@@ -15489,25 +15221,17 @@
         },
         {
             "id": 1203,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1801
-            ],
-            "outs": [
-                961
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1801,
+            "out": 2780
         },
         {
             "id": 1204,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1061
-            ],
-            "outs": [
-                1436
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1061,
+            "out": 2781
         },
         {
             "id": 1205,
@@ -15547,14 +15271,10 @@
         },
         {
             "id": 1208,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1817
-            ],
-            "outs": [
-                1988
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1817,
+            "out": 2782
         },
         {
             "id": 1209,
@@ -15570,14 +15290,10 @@
         },
         {
             "id": 1210,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                489
-            ],
-            "outs": [
-                1704
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 489,
+            "out": 2783
         },
         {
             "id": 1211,
@@ -15615,14 +15331,10 @@
         },
         {
             "id": 1214,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                504
-            ],
-            "outs": [
-                1793
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 504,
+            "out": 2784
         },
         {
             "id": 1215,
@@ -15669,7 +15381,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2677
+                2880
             ],
             "outs": [
                 2215,
@@ -15758,14 +15470,10 @@
         },
         {
             "id": 1225,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2712
-            ],
-            "outs": [
-                856
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2712,
+            "out": 2785
         },
         {
             "id": 1226,
@@ -16212,14 +15920,10 @@
         },
         {
             "id": 1260,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                401
-            ],
-            "outs": [
-                81
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 401,
+            "out": 2786
         },
         {
             "id": 1261,
@@ -16481,7 +16185,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1362
+                2793
             ],
             "outs": [
                 175,
@@ -16498,14 +16202,10 @@
         },
         {
             "id": 1283,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2126
-            ],
-            "outs": [
-                706
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2126,
+            "out": 2787
         },
         {
             "id": 1284,
@@ -16525,7 +16225,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2562
+                2873
             ],
             "outs": [
                 2320,
@@ -16651,14 +16351,10 @@
         },
         {
             "id": 1295,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2300
-            ],
-            "outs": [
-                688
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2300,
+            "out": 2788
         },
         {
             "id": 1296,
@@ -16676,7 +16372,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                716
+                2755
             ],
             "outs": [
                 2566,
@@ -16722,7 +16418,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                530
+                2745
             ],
             "outs": [
                 1310,
@@ -16923,14 +16619,10 @@
         },
         {
             "id": 1315,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2444
-            ],
-            "outs": [
-                1585
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2444,
+            "out": 2789
         },
         {
             "id": 1316,
@@ -16971,14 +16663,10 @@
         },
         {
             "id": 1319,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2204
-            ],
-            "outs": [
-                2136
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2204,
+            "out": 2790
         },
         {
             "id": 1320,
@@ -16994,14 +16682,10 @@
         },
         {
             "id": 1321,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1346
-            ],
-            "outs": [
-                2370
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1346,
+            "out": 2791
         },
         {
             "id": 1322,
@@ -17125,7 +16809,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                455
+                2739
             ],
             "outs": [
                 2003,
@@ -17166,7 +16850,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2100
+                2838
             ],
             "outs": [
                 2697,
@@ -17452,14 +17136,10 @@
         },
         {
             "id": 1355,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1446
-            ],
-            "outs": [
-                1386
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1446,
+            "out": 2792
         },
         {
             "id": 1356,
@@ -17500,7 +17180,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                589
+                2747
             ],
             "outs": [
                 1086,
@@ -17557,14 +17237,10 @@
         },
         {
             "id": 1362,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1257
-            ],
-            "outs": [
-                1282
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1257,
+            "out": 2793
         },
         {
             "id": 1363,
@@ -17728,14 +17404,10 @@
         },
         {
             "id": 1376,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1746
-            ],
-            "outs": [
-                2476
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1746,
+            "out": 2794
         },
         {
             "id": 1377,
@@ -17751,14 +17423,10 @@
         },
         {
             "id": 1378,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                379
-            ],
-            "outs": [
-                855
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 379,
+            "out": 2795
         },
         {
             "id": 1379,
@@ -17799,7 +17467,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1083
+                2772
             ],
             "outs": [
                 1087,
@@ -17865,7 +17533,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1355
+                2792
             ],
             "outs": [
                 394
@@ -17939,7 +17607,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                809
+                2759
             ],
             "outs": [
                 1690,
@@ -18151,14 +17819,10 @@
         },
         {
             "id": 1409,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                598
-            ],
-            "outs": [
-                369
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 598,
+            "out": 2796
         },
         {
             "id": 1410,
@@ -18186,14 +17850,10 @@
         },
         {
             "id": 1412,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2607
-            ],
-            "outs": [
-                2160
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2607,
+            "out": 2797
         },
         {
             "id": 1413,
@@ -18288,14 +17948,10 @@
         },
         {
             "id": 1421,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                114
-            ],
-            "outs": [
-                1018
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 114,
+            "out": 2798
         },
         {
             "id": 1422,
@@ -18313,7 +17969,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1461
+                2801
             ],
             "outs": [
                 1480,
@@ -18357,7 +18013,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1623
+                2808
             ],
             "outs": [
                 2496,
@@ -18387,14 +18043,10 @@
         },
         {
             "id": 1428,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1170
-            ],
-            "outs": [
-                1871
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1170,
+            "out": 2799
         },
         {
             "id": 1429,
@@ -18414,7 +18066,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1515
+                2803
             ],
             "outs": [
                 2617,
@@ -18488,7 +18140,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1204
+                2781
             ],
             "outs": [
                 1961,
@@ -18737,7 +18389,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2099
+                2837
             ],
             "outs": [
                 1465,
@@ -18754,14 +18406,10 @@
         },
         {
             "id": 1457,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                760
-            ],
-            "outs": [
-                1667
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 760,
+            "out": 2800
         },
         {
             "id": 1458,
@@ -18791,7 +18439,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1954
+                2829
             ],
             "outs": [
                 1882,
@@ -18804,14 +18452,10 @@
         },
         {
             "id": 1461,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1097
-            ],
-            "outs": [
-                1423
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1097,
+            "out": 2801
         },
         {
             "id": 1462,
@@ -18843,7 +18487,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                842
+                2761
             ],
             "outs": [
                 1425,
@@ -18943,14 +18587,10 @@
         },
         {
             "id": 1472,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                14
-            ],
-            "outs": [
-                2385
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 14,
+            "out": 2802
         },
         {
             "id": 1473,
@@ -19055,7 +18695,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                527
+                2744
             ],
             "outs": [
                 462,
@@ -19326,7 +18966,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                100
+                2721
             ],
             "outs": [
                 910,
@@ -19392,7 +19032,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1567
+                2806
             ],
             "outs": [
                 387,
@@ -19483,14 +19123,10 @@
         },
         {
             "id": 1515,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2050
-            ],
-            "outs": [
-                1430
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2050,
+            "out": 2803
         },
         {
             "id": 1516,
@@ -19580,14 +19216,10 @@
         },
         {
             "id": 1523,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                380
-            ],
-            "outs": [
-                2377
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 380,
+            "out": 2804
         },
         {
             "id": 1524,
@@ -19607,7 +19239,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2382
+                2862
             ],
             "outs": [
                 1521,
@@ -19948,7 +19580,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2213
+                2849
             ],
             "outs": [
                 1847
@@ -19970,14 +19602,10 @@
         },
         {
             "id": 1549,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1964
-            ],
-            "outs": [
-                1820
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1964,
+            "out": 2805
         },
         {
             "id": 1550,
@@ -20232,25 +19860,17 @@
         },
         {
             "id": 1567,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1602
-            ],
-            "outs": [
-                1508
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1602,
+            "out": 2806
         },
         {
             "id": 1568,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1344
-            ],
-            "outs": [
-                1577
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1344,
+            "out": 2807
         },
         {
             "id": 1569,
@@ -20270,7 +19890,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                6
+                2713
             ],
             "outs": [
                 2622,
@@ -20286,7 +19906,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2406
+                2865
             ],
             "outs": [
                 195,
@@ -20362,7 +19982,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1568
+                2807
             ],
             "outs": [
                 1087,
@@ -20485,7 +20105,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1315
+                2789
             ],
             "outs": [
                 1175,
@@ -20513,7 +20133,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2519
+                2870
             ],
             "outs": [
                 2664,
@@ -20758,7 +20378,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1694
+                2814
             ],
             "outs": [
                 2002,
@@ -20964,14 +20584,10 @@
         },
         {
             "id": 1623,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1202
-            ],
-            "outs": [
-                1426
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1202,
+            "out": 2808
         },
         {
             "id": 1624,
@@ -21025,7 +20641,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1196
+                2779
             ],
             "outs": [
                 2261,
@@ -21054,14 +20670,10 @@
         },
         {
             "id": 1630,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1058
-            ],
-            "outs": [
-                257
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1058,
+            "out": 2809
         },
         {
             "id": 1631,
@@ -21157,14 +20769,10 @@
         },
         {
             "id": 1638,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2226
-            ],
-            "outs": [
-                2624
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2226,
+            "out": 2810
         },
         {
             "id": 1639,
@@ -21496,7 +21104,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1457
+                2800
             ],
             "outs": [
                 2373,
@@ -21513,21 +21121,17 @@
         },
         {
             "id": 1668,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1516
-            ],
-            "outs": [
-                2353
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1516,
+            "out": 2811
         },
         {
             "id": 1669,
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                284
+                2730
             ],
             "outs": [
                 577,
@@ -21579,14 +21183,10 @@
         },
         {
             "id": 1673,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2389
-            ],
-            "outs": [
-                2498
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2389,
+            "out": 2812
         },
         {
             "id": 1674,
@@ -21678,7 +21278,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2147
+                2842
             ],
             "outs": [
                 2109,
@@ -21750,7 +21350,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                343
+                2734
             ],
             "outs": [
                 1361,
@@ -21826,14 +21426,10 @@
         },
         {
             "id": 1692,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                882
-            ],
-            "outs": [
-                496
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 882,
+            "out": 2813
         },
         {
             "id": 1693,
@@ -21848,14 +21444,10 @@
         },
         {
             "id": 1694,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2202
-            ],
-            "outs": [
-                1607
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2202,
+            "out": 2814
         },
         {
             "id": 1695,
@@ -21953,21 +21545,17 @@
         },
         {
             "id": 1703,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2357
-            ],
-            "outs": [
-                1897
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2357,
+            "out": 2815
         },
         {
             "id": 1704,
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1210
+                2783
             ],
             "outs": [
                 98,
@@ -22228,7 +21816,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2662
+                2879
             ],
             "outs": [
                 1926
@@ -22252,7 +21840,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1036
+                2770
             ],
             "outs": [
                 72,
@@ -22303,14 +21891,10 @@
         },
         {
             "id": 1730,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1556
-            ],
-            "outs": [
-                1913
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1556,
+            "out": 2816
         },
         {
             "id": 1731,
@@ -22367,7 +21951,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                23
+                2714
             ],
             "outs": [
                 1194,
@@ -22621,14 +22205,10 @@
         },
         {
             "id": 1754,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2551
-            ],
-            "outs": [
-                2616
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2551,
+            "out": 2817
         },
         {
             "id": 1755,
@@ -22853,7 +22433,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1118
+                2774
             ],
             "outs": [
                 1328
@@ -23088,7 +22668,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1214
+                2784
             ],
             "outs": [
                 432,
@@ -23367,14 +22947,10 @@
         },
         {
             "id": 1814,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1190
-            ],
-            "outs": [
-                281
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1190,
+            "out": 2818
         },
         {
             "id": 1815,
@@ -23446,7 +23022,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1549
+                2805
             ],
             "outs": [
                 1691,
@@ -23546,14 +23122,10 @@
         },
         {
             "id": 1828,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1398
-            ],
-            "outs": [
-                2008
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1398,
+            "out": 2819
         },
         {
             "id": 1829,
@@ -23580,14 +23152,10 @@
         },
         {
             "id": 1831,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1448
-            ],
-            "outs": [
-                1073
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1448,
+            "out": 2820
         },
         {
             "id": 1832,
@@ -23627,14 +23195,10 @@
         },
         {
             "id": 1835,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                958
-            ],
-            "outs": [
-                1007
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 958,
+            "out": 2821
         },
         {
             "id": 1836,
@@ -23691,14 +23255,10 @@
         },
         {
             "id": 1840,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                761
-            ],
-            "outs": [
-                813
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 761,
+            "out": 2822
         },
         {
             "id": 1841,
@@ -23763,14 +23323,10 @@
         },
         {
             "id": 1846,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2167
-            ],
-            "outs": [
-                2409
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2167,
+            "out": 2823
         },
         {
             "id": 1847,
@@ -23825,7 +23381,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                992
+                2767
             ],
             "outs": [
                 1823,
@@ -23949,14 +23505,10 @@
         },
         {
             "id": 1861,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1120
-            ],
-            "outs": [
-                665
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1120,
+            "out": 2824
         },
         {
             "id": 1862,
@@ -24022,21 +23574,17 @@
         },
         {
             "id": 1867,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                355
-            ],
-            "outs": [
-                2502
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 355,
+            "out": 2825
         },
         {
             "id": 1868,
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                893
+                2763
             ],
             "outs": [
                 2215,
@@ -24079,7 +23627,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1428
+                2799
             ],
             "outs": [
                 677,
@@ -24184,7 +23732,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                141
+                2724
             ],
             "outs": [
                 1195,
@@ -24347,14 +23895,10 @@
         },
         {
             "id": 1892,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1234
-            ],
-            "outs": [
-                2290
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1234,
+            "out": 2826
         },
         {
             "id": 1893,
@@ -24409,7 +23953,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1703
+                2815
             ],
             "outs": [
                 1750,
@@ -24485,7 +24029,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1948
+                2828
             ],
             "outs": [
                 2611,
@@ -24613,7 +24157,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1730
+                2816
             ],
             "outs": [
                 1690,
@@ -24914,21 +24458,17 @@
         },
         {
             "id": 1938,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2474
-            ],
-            "outs": [
-                1939
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2474,
+            "out": 2827
         },
         {
             "id": 1939,
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1938
+                2827
             ],
             "outs": [
                 464,
@@ -25039,14 +24579,10 @@
         },
         {
             "id": 1948,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1455
-            ],
-            "outs": [
-                1903
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1455,
+            "out": 2828
         },
         {
             "id": 1949,
@@ -25109,14 +24645,10 @@
         },
         {
             "id": 1954,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1317
-            ],
-            "outs": [
-                1460
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1317,
+            "out": 2829
         },
         {
             "id": 1955,
@@ -25515,7 +25047,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1208
+                2782
             ],
             "outs": [
                 2554,
@@ -25546,7 +25078,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1163
+                2777
             ],
             "outs": [
                 1197,
@@ -25774,7 +25306,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1828
+                2819
             ],
             "outs": [
                 1231,
@@ -25862,14 +25394,10 @@
         },
         {
             "id": 2015,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1284
-            ],
-            "outs": [
-                2110
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1284,
+            "out": 2830
         },
         {
             "id": 2016,
@@ -25959,14 +25487,10 @@
         },
         {
             "id": 2023,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1906
-            ],
-            "outs": [
-                1193
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1906,
+            "out": 2831
         },
         {
             "id": 2024,
@@ -25982,14 +25506,10 @@
         },
         {
             "id": 2025,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2372
-            ],
-            "outs": [
-                774
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2372,
+            "out": 2832
         },
         {
             "id": 2026,
@@ -26007,7 +25527,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1132
+                2775
             ],
             "outs": [
                 2392,
@@ -26024,14 +25544,10 @@
         },
         {
             "id": 2028,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1966
-            ],
-            "outs": [
-                461
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1966,
+            "out": 2833
         },
         {
             "id": 2029,
@@ -26173,7 +25689,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1105
+                2773
             ],
             "outs": [
                 13
@@ -26186,7 +25702,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2439
+                2866
             ],
             "outs": [
                 1864,
@@ -26687,21 +26203,17 @@
         },
         {
             "id": 2073,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                682
-            ],
-            "outs": [
-                214
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 682,
+            "out": 2834
         },
         {
             "id": 2074,
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                408
+                2736
             ],
             "outs": [
                 1798,
@@ -26879,14 +26391,10 @@
         },
         {
             "id": 2086,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                437
-            ],
-            "outs": [
-                1037
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 437,
+            "out": 2835
         },
         {
             "id": 2087,
@@ -26904,7 +26412,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                828
+                2760
             ],
             "outs": [
                 1087,
@@ -27006,14 +26514,10 @@
         },
         {
             "id": 2095,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2033
-            ],
-            "outs": [
-                956
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2033,
+            "out": 2836
         },
         {
             "id": 2096,
@@ -27051,25 +26555,17 @@
         },
         {
             "id": 2099,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                85
-            ],
-            "outs": [
-                1456
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 85,
+            "out": 2837
         },
         {
             "id": 2100,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                467
-            ],
-            "outs": [
-                1335
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 467,
+            "out": 2838
         },
         {
             "id": 2101,
@@ -27140,7 +26636,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                899
+                2764
             ],
             "outs": [
                 1080,
@@ -27196,7 +26692,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2015
+                2830
             ],
             "outs": [
                 838,
@@ -27283,14 +26779,10 @@
         },
         {
             "id": 2117,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                444
-            ],
-            "outs": [
-                883
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 444,
+            "out": 2839
         },
         {
             "id": 2118,
@@ -27435,14 +26927,10 @@
         },
         {
             "id": 2130,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2605
-            ],
-            "outs": [
-                2263
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2605,
+            "out": 2840
         },
         {
             "id": 2131,
@@ -27507,7 +26995,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1319
+                2790
             ],
             "outs": [
                 1687,
@@ -27558,14 +27046,10 @@
         },
         {
             "id": 2140,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2625
-            ],
-            "outs": [
-                1074
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2625,
+            "out": 2841
         },
         {
             "id": 2141,
@@ -27642,14 +27126,10 @@
         },
         {
             "id": 2147,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2683
-            ],
-            "outs": [
-                1681
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2683,
+            "out": 2842
         },
         {
             "id": 2148,
@@ -27665,14 +27145,10 @@
         },
         {
             "id": 2149,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2627
-            ],
-            "outs": [
-                2280
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2627,
+            "out": 2843
         },
         {
             "id": 2150,
@@ -27761,7 +27237,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                95
+                2720
             ],
             "outs": [
                 424,
@@ -27804,7 +27280,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1412
+                2797
             ],
             "outs": [
                 521,
@@ -27848,14 +27324,10 @@
         },
         {
             "id": 2162,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2132
-            ],
-            "outs": [
-                2650
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2132,
+            "out": 2844
         },
         {
             "id": 2163,
@@ -27896,14 +27368,10 @@
         },
         {
             "id": 2166,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1215
-            ],
-            "outs": [
-                22
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1215,
+            "out": 2845
         },
         {
             "id": 2167,
@@ -27955,14 +27423,10 @@
         },
         {
             "id": 2171,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2144
-            ],
-            "outs": [
-                2216
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2144,
+            "out": 2846
         },
         {
             "id": 2172,
@@ -28051,21 +27515,17 @@
         },
         {
             "id": 2179,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2145
-            ],
-            "outs": [
-                724
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2145,
+            "out": 2847
         },
         {
             "id": 2180,
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                986
+                2766
             ],
             "outs": [
                 1139,
@@ -28085,7 +27545,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2234
+                2851
             ],
             "outs": [
                 765,
@@ -28197,14 +27657,10 @@
         },
         {
             "id": 2190,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                567
-            ],
-            "outs": [
-                519
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 567,
+            "out": 2848
         },
         {
             "id": 2191,
@@ -28319,7 +27775,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                28
+                2716
             ],
             "outs": [
                 44,
@@ -28496,14 +27952,10 @@
         },
         {
             "id": 2213,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2016
-            ],
-            "outs": [
-                1547
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2016,
+            "out": 2849
         },
         {
             "id": 2214,
@@ -28534,7 +27986,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2171
+                2846
             ],
             "outs": [
                 537,
@@ -28681,14 +28133,10 @@
         },
         {
             "id": 2219,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                609
-            ],
-            "outs": [
-                1048
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 609,
+            "out": 2850
         },
         {
             "id": 2220,
@@ -28858,14 +28306,10 @@
         },
         {
             "id": 2234,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1672
-            ],
-            "outs": [
-                2181
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1672,
+            "out": 2851
         },
         {
             "id": 2235,
@@ -28946,14 +28390,10 @@
         },
         {
             "id": 2241,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1117
-            ],
-            "outs": [
-                551
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1117,
+            "out": 2852
         },
         {
             "id": 2242,
@@ -29025,14 +28465,10 @@
         },
         {
             "id": 2248,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1390
-            ],
-            "outs": [
-                209
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1390,
+            "out": 2853
         },
         {
             "id": 2249,
@@ -29061,7 +28497,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                346
+                2735
             ],
             "outs": [
                 521,
@@ -29116,14 +28552,10 @@
         },
         {
             "id": 2254,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1438
-            ],
-            "outs": [
-                136
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1438,
+            "out": 2854
         },
         {
             "id": 2255,
@@ -29226,7 +28658,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2130
+                2840
             ],
             "outs": [
                 900
@@ -29285,14 +28717,10 @@
         },
         {
             "id": 2268,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                766
-            ],
-            "outs": [
-                2492
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 766,
+            "out": 2855
         },
         {
             "id": 2269,
@@ -29312,7 +28740,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2656
+                2878
             ],
             "outs": [
                 182,
@@ -29364,7 +28792,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1179
+                2778
             ],
             "outs": [
                 1627,
@@ -29442,7 +28870,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2149
+                2843
             ],
             "outs": [
                 70,
@@ -29484,14 +28912,10 @@
         },
         {
             "id": 2283,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                711
-            ],
-            "outs": [
-                45
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 711,
+            "out": 2856
         },
         {
             "id": 2284,
@@ -29573,7 +28997,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1892
+                2826
             ],
             "outs": [
                 1087,
@@ -29773,25 +29197,17 @@
         },
         {
             "id": 2306,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                709
-            ],
-            "outs": [
-                881
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 709,
+            "out": 2857
         },
         {
             "id": 2307,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                595
-            ],
-            "outs": [
-                92
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 595,
+            "out": 2858
         },
         {
             "id": 2308,
@@ -29892,14 +29308,10 @@
         },
         {
             "id": 2313,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2477
-            ],
-            "outs": [
-                1159
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2477,
+            "out": 2859
         },
         {
             "id": 2314,
@@ -30222,14 +29634,10 @@
         },
         {
             "id": 2340,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1006
-            ],
-            "outs": [
-                320
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1006,
+            "out": 2860
         },
         {
             "id": 2341,
@@ -30381,7 +29789,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1668
+                2811
             ],
             "outs": [
                 1304,
@@ -30398,14 +29806,10 @@
         },
         {
             "id": 2354,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                304
-            ],
-            "outs": [
-                266
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 304,
+            "out": 2861
         },
         {
             "id": 2355,
@@ -30594,7 +29998,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1321
+                2791
             ],
             "outs": [
                 1194,
@@ -30688,7 +30092,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1523
+                2804
             ],
             "outs": [
                 705,
@@ -30748,14 +30152,10 @@
         },
         {
             "id": 2382,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                290
-            ],
-            "outs": [
-                1525
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 290,
+            "out": 2862
         },
         {
             "id": 2383,
@@ -30772,21 +30172,17 @@
         },
         {
             "id": 2384,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1651
-            ],
-            "outs": [
-                2559
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1651,
+            "out": 2863
         },
         {
             "id": 2385,
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1472
+                2802
             ],
             "outs": [
                 1213,
@@ -30979,7 +30375,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2499
+                2869
             ],
             "outs": [
                 1087,
@@ -31028,14 +30424,10 @@
         },
         {
             "id": 2404,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2338
-            ],
-            "outs": [
-                704
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2338,
+            "out": 2864
         },
         {
             "id": 2405,
@@ -31050,14 +30442,10 @@
         },
         {
             "id": 2406,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1907
-            ],
-            "outs": [
-                1571
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1907,
+            "out": 2865
         },
         {
             "id": 2407,
@@ -31087,7 +30475,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1846
+                2823
             ],
             "outs": [
                 2649,
@@ -31371,7 +30759,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                552
+                2746
             ],
             "outs": [
                 1330,
@@ -31459,14 +30847,10 @@
         },
         {
             "id": 2439,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                436
-            ],
-            "outs": [
-                2041
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 436,
+            "out": 2866
         },
         {
             "id": 2440,
@@ -31585,7 +30969,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2526
+                2871
             ],
             "outs": [
                 1862,
@@ -31801,14 +31185,10 @@
         },
         {
             "id": 2465,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1349
-            ],
-            "outs": [
-                629
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1349,
+            "out": 2867
         },
         {
             "id": 2466,
@@ -31876,14 +31256,10 @@
         },
         {
             "id": 2471,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2052
-            ],
-            "outs": [
-                131
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2052,
+            "out": 2868
         },
         {
             "id": 2472,
@@ -31936,7 +31312,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1376
+                2794
             ],
             "outs": [
                 1140,
@@ -32137,7 +31513,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2268
+                2855
             ],
             "outs": [
                 1833,
@@ -32212,7 +31588,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1673
+                2812
             ],
             "outs": [
                 1087,
@@ -32232,14 +31608,10 @@
         },
         {
             "id": 2499,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1513
-            ],
-            "outs": [
-                2401
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1513,
+            "out": 2869
         },
         {
             "id": 2500,
@@ -32272,7 +31644,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1867
+                2825
             ],
             "outs": [
                 2506,
@@ -32384,7 +31756,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                220
+                2726
             ],
             "outs": [
                 374,
@@ -32480,14 +31852,10 @@
         },
         {
             "id": 2519,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1008
-            ],
-            "outs": [
-                1587
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1008,
+            "out": 2870
         },
         {
             "id": 2520,
@@ -32673,14 +32041,10 @@
         },
         {
             "id": 2526,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2446
-            ],
-            "outs": [
-                2449
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2446,
+            "out": 2871
         },
         {
             "id": 2527,
@@ -32769,7 +32133,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2542
+                2872
             ],
             "outs": [
                 1301,
@@ -32898,14 +32262,10 @@
         },
         {
             "id": 2542,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1149
-            ],
-            "outs": [
-                2534
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1149,
+            "out": 2872
         },
         {
             "id": 2543,
@@ -33107,7 +32467,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2384
+                2863
             ],
             "outs": [
                 1164
@@ -33144,14 +32504,10 @@
         },
         {
             "id": 2562,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2092
-            ],
-            "outs": [
-                1285
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2092,
+            "out": 2873
         },
         {
             "id": 2563,
@@ -33726,14 +33082,10 @@
         },
         {
             "id": 2598,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                193
-            ],
-            "outs": [
-                188
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 193,
+            "out": 2874
         },
         {
             "id": 2599,
@@ -33920,14 +33272,10 @@
         },
         {
             "id": 2613,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                2608
-            ],
-            "outs": [
-                812
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 2608,
+            "out": 2875
         },
         {
             "id": 2614,
@@ -33957,7 +33305,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1754
+                2817
             ],
             "outs": [
                 1883,
@@ -34060,7 +33408,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1638
+                2810
             ],
             "outs": [
                 2355,
@@ -34091,7 +33439,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                707
+                2754
             ],
             "outs": [
                 814,
@@ -34131,7 +33479,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                800
+                2757
             ],
             "outs": [
                 1293,
@@ -34206,14 +33554,10 @@
         },
         {
             "id": 2635,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                0
-            ],
-            "outs": [
-                1161
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 0,
+            "out": 2876
         },
         {
             "id": 2636,
@@ -34326,14 +33670,10 @@
         },
         {
             "id": 2645,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                539
-            ],
-            "outs": [
-                630
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 539,
+            "out": 2877
         },
         {
             "id": 2646,
@@ -34388,7 +33728,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                2162
+                2844
             ],
             "outs": [
                 1087,
@@ -34470,14 +33810,10 @@
         },
         {
             "id": 2656,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                580
-            ],
-            "outs": [
-                2270
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 580,
+            "out": 2878
         },
         {
             "id": 2657,
@@ -34538,14 +33874,10 @@
         },
         {
             "id": 2662,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                885
-            ],
-            "outs": [
-                1724
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 885,
+            "out": 2879
         },
         {
             "id": 2663,
@@ -34751,14 +34083,10 @@
         },
         {
             "id": 2677,
-            "type": 4,
-            "type_name": "TRANSITION",
-            "ins": [
-                1512
-            ],
-            "outs": [
-                1218
-            ]
+            "type": 8,
+            "type_name": "PRE TRANSITION",
+            "in": 1512,
+            "out": 2880
         },
         {
             "id": 2678,
@@ -34789,7 +34117,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                82
+                2719
             ],
             "outs": [
                 2133,
@@ -34852,7 +34180,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                287
+                2731
             ],
             "outs": [
                 2057,
@@ -34983,7 +34311,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "ins": [
-                1150
+                2776
             ],
             "outs": [
                 660,
@@ -35194,6 +34522,1182 @@
             ],
             "proposition_type": "other",
             "gdl": "( next ( has_dice p1 5 4 ) )"
+        },
+        {
+            "id": 2713,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 6,
+            "out": 1570
+        },
+        {
+            "id": 2714,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 23,
+            "out": 1735
+        },
+        {
+            "id": 2715,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 26,
+            "out": 313
+        },
+        {
+            "id": 2716,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 28,
+            "out": 2200
+        },
+        {
+            "id": 2717,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 69,
+            "out": 139
+        },
+        {
+            "id": 2718,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 78,
+            "out": 474
+        },
+        {
+            "id": 2719,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 82,
+            "out": 2680
+        },
+        {
+            "id": 2720,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 95,
+            "out": 2157
+        },
+        {
+            "id": 2721,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 100,
+            "out": 1503
+        },
+        {
+            "id": 2722,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 126,
+            "out": 205
+        },
+        {
+            "id": 2723,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 128,
+            "out": 583
+        },
+        {
+            "id": 2724,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 141,
+            "out": 1879
+        },
+        {
+            "id": 2725,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 211,
+            "out": 923
+        },
+        {
+            "id": 2726,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 220,
+            "out": 2511
+        },
+        {
+            "id": 2727,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 230,
+            "out": 808
+        },
+        {
+            "id": 2728,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 233,
+            "out": 456
+        },
+        {
+            "id": 2729,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 268,
+            "out": 226
+        },
+        {
+            "id": 2730,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 284,
+            "out": 1669
+        },
+        {
+            "id": 2731,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 287,
+            "out": 2685
+        },
+        {
+            "id": 2732,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 293,
+            "out": 894
+        },
+        {
+            "id": 2733,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 341,
+            "out": 15
+        },
+        {
+            "id": 2734,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 343,
+            "out": 1686
+        },
+        {
+            "id": 2735,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 346,
+            "out": 2251
+        },
+        {
+            "id": 2736,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 408,
+            "out": 2074
+        },
+        {
+            "id": 2737,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 418,
+            "out": 90
+        },
+        {
+            "id": 2738,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 439,
+            "out": 867
+        },
+        {
+            "id": 2739,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 455,
+            "out": 1332
+        },
+        {
+            "id": 2740,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 468,
+            "out": 1162
+        },
+        {
+            "id": 2741,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 475,
+            "out": 420
+        },
+        {
+            "id": 2742,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 478,
+            "out": 628
+        },
+        {
+            "id": 2743,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 515,
+            "out": 903
+        },
+        {
+            "id": 2744,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 527,
+            "out": 1481
+        },
+        {
+            "id": 2745,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 530,
+            "out": 1299
+        },
+        {
+            "id": 2746,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 552,
+            "out": 2432
+        },
+        {
+            "id": 2747,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 589,
+            "out": 1359
+        },
+        {
+            "id": 2748,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 614,
+            "out": 1046
+        },
+        {
+            "id": 2749,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 635,
+            "out": 382
+        },
+        {
+            "id": 2750,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 641,
+            "out": 557
+        },
+        {
+            "id": 2751,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 652,
+            "out": 663
+        },
+        {
+            "id": 2752,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 656,
+            "out": 778
+        },
+        {
+            "id": 2753,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 675,
+            "out": 1148
+        },
+        {
+            "id": 2754,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 707,
+            "out": 2626
+        },
+        {
+            "id": 2755,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 716,
+            "out": 1297
+        },
+        {
+            "id": 2756,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 797,
+            "out": 262
+        },
+        {
+            "id": 2757,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 800,
+            "out": 2629
+        },
+        {
+            "id": 2758,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 801,
+            "out": 936
+        },
+        {
+            "id": 2759,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 809,
+            "out": 1392
+        },
+        {
+            "id": 2760,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 828,
+            "out": 2088
+        },
+        {
+            "id": 2761,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 842,
+            "out": 1464
+        },
+        {
+            "id": 2762,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 852,
+            "out": 645
+        },
+        {
+            "id": 2763,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 893,
+            "out": 1868
+        },
+        {
+            "id": 2764,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 899,
+            "out": 2106
+        },
+        {
+            "id": 2765,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 945,
+            "out": 202
+        },
+        {
+            "id": 2766,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 986,
+            "out": 2180
+        },
+        {
+            "id": 2767,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 992,
+            "out": 1851
+        },
+        {
+            "id": 2768,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1004,
+            "out": 970
+        },
+        {
+            "id": 2769,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1031,
+            "out": 933
+        },
+        {
+            "id": 2770,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1036,
+            "out": 1726
+        },
+        {
+            "id": 2771,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1075,
+            "out": 337
+        },
+        {
+            "id": 2772,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1083,
+            "out": 1382
+        },
+        {
+            "id": 2773,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1105,
+            "out": 2040
+        },
+        {
+            "id": 2774,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1118,
+            "out": 1773
+        },
+        {
+            "id": 2775,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1132,
+            "out": 2027
+        },
+        {
+            "id": 2776,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1150,
+            "out": 2695
+        },
+        {
+            "id": 2777,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1163,
+            "out": 1990
+        },
+        {
+            "id": 2778,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1179,
+            "out": 2274
+        },
+        {
+            "id": 2779,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1196,
+            "out": 1628
+        },
+        {
+            "id": 2780,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1203,
+            "out": 961
+        },
+        {
+            "id": 2781,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1204,
+            "out": 1436
+        },
+        {
+            "id": 2782,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1208,
+            "out": 1988
+        },
+        {
+            "id": 2783,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1210,
+            "out": 1704
+        },
+        {
+            "id": 2784,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1214,
+            "out": 1793
+        },
+        {
+            "id": 2785,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1225,
+            "out": 856
+        },
+        {
+            "id": 2786,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1260,
+            "out": 81
+        },
+        {
+            "id": 2787,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1283,
+            "out": 706
+        },
+        {
+            "id": 2788,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1295,
+            "out": 688
+        },
+        {
+            "id": 2789,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1315,
+            "out": 1585
+        },
+        {
+            "id": 2790,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1319,
+            "out": 2136
+        },
+        {
+            "id": 2791,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1321,
+            "out": 2370
+        },
+        {
+            "id": 2792,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1355,
+            "out": 1386
+        },
+        {
+            "id": 2793,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1362,
+            "out": 1282
+        },
+        {
+            "id": 2794,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1376,
+            "out": 2476
+        },
+        {
+            "id": 2795,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1378,
+            "out": 855
+        },
+        {
+            "id": 2796,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1409,
+            "out": 369
+        },
+        {
+            "id": 2797,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1412,
+            "out": 2160
+        },
+        {
+            "id": 2798,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1421,
+            "out": 1018
+        },
+        {
+            "id": 2799,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1428,
+            "out": 1871
+        },
+        {
+            "id": 2800,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1457,
+            "out": 1667
+        },
+        {
+            "id": 2801,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1461,
+            "out": 1423
+        },
+        {
+            "id": 2802,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1472,
+            "out": 2385
+        },
+        {
+            "id": 2803,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1515,
+            "out": 1430
+        },
+        {
+            "id": 2804,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1523,
+            "out": 2377
+        },
+        {
+            "id": 2805,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1549,
+            "out": 1820
+        },
+        {
+            "id": 2806,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1567,
+            "out": 1508
+        },
+        {
+            "id": 2807,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1568,
+            "out": 1577
+        },
+        {
+            "id": 2808,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1623,
+            "out": 1426
+        },
+        {
+            "id": 2809,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1630,
+            "out": 257
+        },
+        {
+            "id": 2810,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1638,
+            "out": 2624
+        },
+        {
+            "id": 2811,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1668,
+            "out": 2353
+        },
+        {
+            "id": 2812,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1673,
+            "out": 2498
+        },
+        {
+            "id": 2813,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1692,
+            "out": 496
+        },
+        {
+            "id": 2814,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1694,
+            "out": 1607
+        },
+        {
+            "id": 2815,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1703,
+            "out": 1897
+        },
+        {
+            "id": 2816,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1730,
+            "out": 1913
+        },
+        {
+            "id": 2817,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1754,
+            "out": 2616
+        },
+        {
+            "id": 2818,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1814,
+            "out": 281
+        },
+        {
+            "id": 2819,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1828,
+            "out": 2008
+        },
+        {
+            "id": 2820,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1831,
+            "out": 1073
+        },
+        {
+            "id": 2821,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1835,
+            "out": 1007
+        },
+        {
+            "id": 2822,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1840,
+            "out": 813
+        },
+        {
+            "id": 2823,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1846,
+            "out": 2409
+        },
+        {
+            "id": 2824,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1861,
+            "out": 665
+        },
+        {
+            "id": 2825,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1867,
+            "out": 2502
+        },
+        {
+            "id": 2826,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1892,
+            "out": 2290
+        },
+        {
+            "id": 2827,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1938,
+            "out": 1939
+        },
+        {
+            "id": 2828,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1948,
+            "out": 1903
+        },
+        {
+            "id": 2829,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 1954,
+            "out": 1460
+        },
+        {
+            "id": 2830,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2015,
+            "out": 2110
+        },
+        {
+            "id": 2831,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2023,
+            "out": 1193
+        },
+        {
+            "id": 2832,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2025,
+            "out": 774
+        },
+        {
+            "id": 2833,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2028,
+            "out": 461
+        },
+        {
+            "id": 2834,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2073,
+            "out": 214
+        },
+        {
+            "id": 2835,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2086,
+            "out": 1037
+        },
+        {
+            "id": 2836,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2095,
+            "out": 956
+        },
+        {
+            "id": 2837,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2099,
+            "out": 1456
+        },
+        {
+            "id": 2838,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2100,
+            "out": 1335
+        },
+        {
+            "id": 2839,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2117,
+            "out": 883
+        },
+        {
+            "id": 2840,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2130,
+            "out": 2263
+        },
+        {
+            "id": 2841,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2140,
+            "out": 1074
+        },
+        {
+            "id": 2842,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2147,
+            "out": 1681
+        },
+        {
+            "id": 2843,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2149,
+            "out": 2280
+        },
+        {
+            "id": 2844,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2162,
+            "out": 2650
+        },
+        {
+            "id": 2845,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2166,
+            "out": 22
+        },
+        {
+            "id": 2846,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2171,
+            "out": 2216
+        },
+        {
+            "id": 2847,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2179,
+            "out": 724
+        },
+        {
+            "id": 2848,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2190,
+            "out": 519
+        },
+        {
+            "id": 2849,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2213,
+            "out": 1547
+        },
+        {
+            "id": 2850,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2219,
+            "out": 1048
+        },
+        {
+            "id": 2851,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2234,
+            "out": 2181
+        },
+        {
+            "id": 2852,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2241,
+            "out": 551
+        },
+        {
+            "id": 2853,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2248,
+            "out": 209
+        },
+        {
+            "id": 2854,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2254,
+            "out": 136
+        },
+        {
+            "id": 2855,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2268,
+            "out": 2492
+        },
+        {
+            "id": 2856,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2283,
+            "out": 45
+        },
+        {
+            "id": 2857,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2306,
+            "out": 881
+        },
+        {
+            "id": 2858,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2307,
+            "out": 92
+        },
+        {
+            "id": 2859,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2313,
+            "out": 1159
+        },
+        {
+            "id": 2860,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2340,
+            "out": 320
+        },
+        {
+            "id": 2861,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2354,
+            "out": 266
+        },
+        {
+            "id": 2862,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2382,
+            "out": 1525
+        },
+        {
+            "id": 2863,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2384,
+            "out": 2559
+        },
+        {
+            "id": 2864,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2404,
+            "out": 704
+        },
+        {
+            "id": 2865,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2406,
+            "out": 1571
+        },
+        {
+            "id": 2866,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2439,
+            "out": 2041
+        },
+        {
+            "id": 2867,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2465,
+            "out": 629
+        },
+        {
+            "id": 2868,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2471,
+            "out": 131
+        },
+        {
+            "id": 2869,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2499,
+            "out": 2401
+        },
+        {
+            "id": 2870,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2519,
+            "out": 1587
+        },
+        {
+            "id": 2871,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2526,
+            "out": 2449
+        },
+        {
+            "id": 2872,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2542,
+            "out": 2534
+        },
+        {
+            "id": 2873,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2562,
+            "out": 1285
+        },
+        {
+            "id": 2874,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2598,
+            "out": 188
+        },
+        {
+            "id": 2875,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2613,
+            "out": 812
+        },
+        {
+            "id": 2876,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2635,
+            "out": 1161
+        },
+        {
+            "id": 2877,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2645,
+            "out": 630
+        },
+        {
+            "id": 2878,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2656,
+            "out": 2270
+        },
+        {
+            "id": 2879,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2662,
+            "out": 1724
+        },
+        {
+            "id": 2880,
+            "type": 9,
+            "type_name": "POST TRANSITION",
+            "in": 2677,
+            "out": 1218
         }
     ]
 }

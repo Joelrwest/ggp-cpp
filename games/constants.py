@@ -6,6 +6,9 @@ NOT = 5
 CONSTANT = 6
 UNKNOWN = 7
 
+PRE_TRANSITION = 8
+POST_TRANSITION = 9
+
 init = "init"
 base = "base"
 input = "input"

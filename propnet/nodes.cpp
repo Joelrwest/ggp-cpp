@@ -52,14 +52,26 @@ namespace propnet
         return 0;
     }
 
+    PreTransitionNode::PreTransitionNode(std::uint32_t id, std::uint32_t in, std::uint32_t post_id) :
+        Node {id},
+        in {in},
+        post_id {post_id}
+    {}
+
     std::uint32_t PreTransitionNode::evaluate(const std::vector<std::uint32_t> data) const
     {
-        return 0;
+        return data.at(0); // TODO
     }
+
+    PostTransitionNode::PostTransitionNode(std::uint32_t id, std::uint32_t pre_id, std::uint32_t out) :
+        Node {id},
+        pre_id {pre_id},
+        out {out}
+    {}
 
     std::uint32_t PostTransitionNode::evaluate(const std::vector<std::uint32_t> data) const
     {
-        return 0;
+        return data.at(pre_id);
     }
 
     NotNode::NotNode(std::uint32_t id, std::uint32_t in, std::vector<uint32_t> outs) :
