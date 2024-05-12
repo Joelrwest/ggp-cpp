@@ -8,24 +8,22 @@
             "id": 0,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "goal",
+            "gdl": "( goal player1 75 )",
             "ins": [
                 2
-            ],
-            "outs": [],
-            "proposition_type": "goal",
-            "gdl": "( goal player1 75 )"
+            ]
         },
         {
             "id": 1,
             "type": 3,
             "type_name": "PROPOSITION",
-            "ins": [],
+            "proposition_type": "input",
+            "gdl": "( does player1 scissors )",
             "outs": [
                 20,
                 78
-            ],
-            "proposition_type": "input",
-            "gdl": "( does player1 scissors )"
+            ]
         },
         {
             "id": 2,
@@ -86,14 +84,14 @@
             "id": 7,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "other",
+            "gdl": "( next ( chosen player1 rock ) )",
             "ins": [
                 40
             ],
             "outs": [
                 25
-            ],
-            "proposition_type": "other",
-            "gdl": "( next ( chosen player1 rock ) )"
+            ]
         },
         {
             "id": 8,
@@ -111,12 +109,11 @@
             "id": 9,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "sees",
+            "gdl": "( sees player1 ( chose paper ) )",
             "ins": [
                 11
-            ],
-            "outs": [],
-            "proposition_type": "sees",
-            "gdl": "( sees player1 ( chose paper ) )"
+            ]
         },
         {
             "id": 10,
@@ -129,26 +126,25 @@
             "id": 11,
             "type": 3,
             "type_name": "PROPOSITION",
-            "ins": [],
+            "proposition_type": "input",
+            "gdl": "( does player1 paper )",
             "outs": [
                 9,
                 35
-            ],
-            "proposition_type": "input",
-            "gdl": "( does player1 paper )"
+            ]
         },
         {
             "id": 12,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "base",
+            "gdl": "( true ( step 2 ) )",
             "ins": [
                 86
             ],
             "outs": [
                 17
-            ],
-            "proposition_type": "base",
-            "gdl": "( true ( step 2 ) )"
+            ]
         },
         {
             "id": 13,
@@ -190,6 +186,8 @@
             "id": 16,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "base",
+            "gdl": "( true ( chosen player2 scissors ) )",
             "ins": [
                 91
             ],
@@ -200,33 +198,31 @@
                 6,
                 8,
                 82
-            ],
-            "proposition_type": "base",
-            "gdl": "( true ( chosen player2 scissors ) )"
+            ]
         },
         {
             "id": 17,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "terminal",
+            "gdl": "terminal",
             "ins": [
                 12
             ],
-            "outs": [],
-            "proposition_type": "terminal",
-            "gdl": "terminal"
+            "outs": []
         },
         {
             "id": 18,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "other",
+            "gdl": "( next ( chosen player1 scissors ) )",
             "ins": [
                 78
             ],
             "outs": [
                 60
-            ],
-            "proposition_type": "other",
-            "gdl": "( next ( chosen player1 scissors ) )"
+            ]
         },
         {
             "id": 19,
@@ -244,23 +240,21 @@
             "id": 20,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "sees",
+            "gdl": "( sees player1 ( chose scissors ) )",
             "ins": [
                 1
-            ],
-            "outs": [],
-            "proposition_type": "sees",
-            "gdl": "( sees player1 ( chose scissors ) )"
+            ]
         },
         {
             "id": 21,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "sees",
+            "gdl": "( sees player2 ( chose scissors ) )",
             "ins": [
                 44
-            ],
-            "outs": [],
-            "proposition_type": "sees",
-            "gdl": "( sees player2 ( chose scissors ) )"
+            ]
         },
         {
             "id": 22,
@@ -285,12 +279,12 @@
             "id": 24,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "legal",
+            "gdl": "( legal player1 rock )",
             "ins": [
                 71
             ],
-            "outs": [],
-            "proposition_type": "legal",
-            "gdl": "( legal player1 rock )"
+            "outs": []
         },
         {
             "id": 25,
@@ -322,25 +316,25 @@
             "id": 28,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "other",
+            "gdl": "( next ( step 2 ) )",
             "ins": [
                 71
             ],
             "outs": [
                 23
-            ],
-            "proposition_type": "other",
-            "gdl": "( next ( step 2 ) )"
+            ]
         },
         {
             "id": 29,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "legal",
+            "gdl": "( legal player2 rock )",
             "ins": [
                 71
             ],
-            "outs": [],
-            "proposition_type": "legal",
-            "gdl": "( legal player2 rock )"
+            "outs": []
         },
         {
             "id": 30,
@@ -371,14 +365,14 @@
             "id": 32,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "other",
+            "gdl": "( next ( chosen player2 scissors ) )",
             "ins": [
                 80
             ],
             "outs": [
                 72
-            ],
-            "proposition_type": "other",
-            "gdl": "( next ( chosen player2 scissors ) )"
+            ]
         },
         {
             "id": 33,
@@ -396,6 +390,8 @@
             "id": 34,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "base",
+            "gdl": "( true ( chosen player2 rock ) )",
             "ins": [
                 85
             ],
@@ -406,35 +402,33 @@
                 14,
                 77,
                 73
-            ],
-            "proposition_type": "base",
-            "gdl": "( true ( chosen player2 rock ) )"
+            ]
         },
         {
             "id": 35,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "other",
+            "gdl": "( next_chosen player1 paper )",
             "ins": [
                 11
             ],
             "outs": [
                 36
-            ],
-            "proposition_type": "other",
-            "gdl": "( next_chosen player1 paper )"
+            ]
         },
         {
             "id": 36,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "other",
+            "gdl": "( next ( chosen player1 paper ) )",
             "ins": [
                 35
             ],
             "outs": [
                 65
-            ],
-            "proposition_type": "other",
-            "gdl": "( next ( chosen player1 paper ) )"
+            ]
         },
         {
             "id": 37,
@@ -446,85 +440,81 @@
             "id": 38,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "sees",
+            "gdl": "( sees player2 ( chose paper ) )",
             "ins": [
                 57
-            ],
-            "outs": [],
-            "proposition_type": "sees",
-            "gdl": "( sees player2 ( chose paper ) )"
+            ]
         },
         {
             "id": 39,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "goal",
+            "gdl": "( goal player1 100 )",
             "ins": [
                 15
-            ],
-            "outs": [],
-            "proposition_type": "goal",
-            "gdl": "( goal player1 100 )"
+            ]
         },
         {
             "id": 40,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "other",
+            "gdl": "( next_chosen player1 rock )",
             "ins": [
                 48
             ],
             "outs": [
                 7
-            ],
-            "proposition_type": "other",
-            "gdl": "( next_chosen player1 rock )"
+            ]
         },
         {
             "id": 41,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "goal",
+            "gdl": "( goal player2 25 )",
             "ins": [
                 14
-            ],
-            "outs": [],
-            "proposition_type": "goal",
-            "gdl": "( goal player2 25 )"
+            ]
         },
         {
             "id": 42,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "other",
+            "gdl": "( next ( chosen player2 rock ) )",
             "ins": [
                 43
             ],
             "outs": [
                 10
-            ],
-            "proposition_type": "other",
-            "gdl": "( next ( chosen player2 rock ) )"
+            ]
         },
         {
             "id": 43,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "other",
+            "gdl": "( next_chosen player2 rock )",
             "ins": [
                 69
             ],
             "outs": [
                 42
-            ],
-            "proposition_type": "other",
-            "gdl": "( next_chosen player2 rock )"
+            ]
         },
         {
             "id": 44,
             "type": 3,
             "type_name": "PROPOSITION",
-            "ins": [],
+            "proposition_type": "input",
+            "gdl": "( does player2 scissors )",
             "outs": [
                 21,
                 80
-            ],
-            "proposition_type": "input",
-            "gdl": "( does player2 scissors )"
+            ]
         },
         {
             "id": 45,
@@ -542,99 +532,95 @@
             "id": 46,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "other",
+            "gdl": "( next_chosen player2 paper )",
             "ins": [
                 57
             ],
             "outs": [
                 52
-            ],
-            "proposition_type": "other",
-            "gdl": "( next_chosen player2 paper )"
+            ]
         },
         {
             "id": 47,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "goal",
+            "gdl": "( goal player1 25 )",
             "ins": [
                 13
-            ],
-            "outs": [],
-            "proposition_type": "goal",
-            "gdl": "( goal player1 25 )"
+            ]
         },
         {
             "id": 48,
             "type": 3,
             "type_name": "PROPOSITION",
-            "ins": [],
+            "proposition_type": "input",
+            "gdl": "( does player1 rock )",
             "outs": [
                 49,
                 40
-            ],
-            "proposition_type": "input",
-            "gdl": "( does player1 rock )"
+            ]
         },
         {
             "id": 49,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "sees",
+            "gdl": "( sees player1 ( chose rock ) )",
             "ins": [
                 48
-            ],
-            "outs": [],
-            "proposition_type": "sees",
-            "gdl": "( sees player1 ( chose rock ) )"
+            ]
         },
         {
             "id": 50,
             "type": 3,
             "type_name": "PROPOSITION",
-            "ins": [],
+            "proposition_type": "init",
+            "gdl": "init",
             "outs": [
                 4
-            ],
-            "proposition_type": "init",
-            "gdl": "init"
+            ]
         },
         {
             "id": 51,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "goal",
+            "gdl": "( goal player2 100 )",
             "ins": [
                 33
-            ],
-            "outs": [],
-            "proposition_type": "goal",
-            "gdl": "( goal player2 100 )"
+            ]
         },
         {
             "id": 52,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "other",
+            "gdl": "( next ( chosen player2 paper ) )",
             "ins": [
                 46
             ],
             "outs": [
                 26
-            ],
-            "proposition_type": "other",
-            "gdl": "( next ( chosen player2 paper ) )"
+            ]
         },
         {
             "id": 53,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "goal",
+            "gdl": "( goal player2 0 )",
             "ins": [
                 68
-            ],
-            "outs": [],
-            "proposition_type": "goal",
-            "gdl": "( goal player2 0 )"
+            ]
         },
         {
             "id": 54,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "base",
+            "gdl": "( true ( chosen player1 rock ) )",
             "ins": [
                 87
             ],
@@ -645,20 +631,17 @@
                 13,
                 77,
                 27
-            ],
-            "proposition_type": "base",
-            "gdl": "( true ( chosen player1 rock ) )"
+            ]
         },
         {
             "id": 55,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "goal",
+            "gdl": "( goal player1 50 )",
             "ins": [
                 83
-            ],
-            "outs": [],
-            "proposition_type": "goal",
-            "gdl": "( goal player1 50 )"
+            ]
         },
         {
             "id": 56,
@@ -676,24 +659,23 @@
             "id": 57,
             "type": 3,
             "type_name": "PROPOSITION",
-            "ins": [],
+            "proposition_type": "input",
+            "gdl": "( does player2 paper )",
             "outs": [
                 38,
                 46
-            ],
-            "proposition_type": "input",
-            "gdl": "( does player2 paper )"
+            ]
         },
         {
             "id": 58,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "legal",
+            "gdl": "( legal player1 paper )",
             "ins": [
                 71
             ],
-            "outs": [],
-            "proposition_type": "legal",
-            "gdl": "( legal player1 paper )"
+            "outs": []
         },
         {
             "id": 59,
@@ -718,23 +700,22 @@
             "id": 61,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "goal",
+            "gdl": "( goal player2 75 )",
             "ins": [
                 27
-            ],
-            "outs": [],
-            "proposition_type": "goal",
-            "gdl": "( goal player2 75 )"
+            ]
         },
         {
             "id": 62,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "legal",
+            "gdl": "( legal player1 scissors )",
             "ins": [
                 71
             ],
-            "outs": [],
-            "proposition_type": "legal",
-            "gdl": "( legal player1 scissors )"
+            "outs": []
         },
         {
             "id": 63,
@@ -752,12 +733,11 @@
             "id": 64,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "sees",
+            "gdl": "( sees player2 ( chose rock ) )",
             "ins": [
                 69
-            ],
-            "outs": [],
-            "proposition_type": "sees",
-            "gdl": "( sees player2 ( chose rock ) )"
+            ]
         },
         {
             "id": 65,
@@ -770,12 +750,11 @@
             "id": 66,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "goal",
+            "gdl": "( goal player2 50 )",
             "ins": [
                 31
-            ],
-            "outs": [],
-            "proposition_type": "goal",
-            "gdl": "( goal player2 50 )"
+            ]
         },
         {
             "id": 67,
@@ -805,29 +784,30 @@
             "id": 69,
             "type": 3,
             "type_name": "PROPOSITION",
-            "ins": [],
+            "proposition_type": "input",
+            "gdl": "( does player2 rock )",
             "outs": [
                 43,
                 64
-            ],
-            "proposition_type": "input",
-            "gdl": "( does player2 rock )"
+            ]
         },
         {
             "id": 70,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "legal",
+            "gdl": "( legal player2 paper )",
             "ins": [
                 71
             ],
-            "outs": [],
-            "proposition_type": "legal",
-            "gdl": "( legal player2 paper )"
+            "outs": []
         },
         {
             "id": 71,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "base",
+            "gdl": "( true ( step 1 ) )",
             "ins": [
                 84
             ],
@@ -839,9 +819,7 @@
                 58,
                 24,
                 70
-            ],
-            "proposition_type": "base",
-            "gdl": "( true ( step 1 ) )"
+            ]
         },
         {
             "id": 72,
@@ -866,6 +844,8 @@
             "id": 74,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "base",
+            "gdl": "( true ( chosen player2 paper ) )",
             "ins": [
                 88
             ],
@@ -876,25 +856,25 @@
                 67,
                 13,
                 27
-            ],
-            "proposition_type": "base",
-            "gdl": "( true ( chosen player2 paper ) )"
+            ]
         },
         {
             "id": 75,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "legal",
+            "gdl": "( legal player2 scissors )",
             "ins": [
                 71
             ],
-            "outs": [],
-            "proposition_type": "legal",
-            "gdl": "( legal player2 scissors )"
+            "outs": []
         },
         {
             "id": 76,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "base",
+            "gdl": "( true ( chosen player1 paper ) )",
             "ins": [
                 90
             ],
@@ -905,9 +885,7 @@
                 30,
                 14,
                 82
-            ],
-            "proposition_type": "base",
-            "gdl": "( true ( chosen player1 paper ) )"
+            ]
         },
         {
             "id": 77,
@@ -925,19 +903,21 @@
             "id": 78,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "other",
+            "gdl": "( next_chosen player1 scissors )",
             "ins": [
                 1
             ],
             "outs": [
                 18
-            ],
-            "proposition_type": "other",
-            "gdl": "( next_chosen player1 scissors )"
+            ]
         },
         {
             "id": 79,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "base",
+            "gdl": "( true ( chosen player1 scissors ) )",
             "ins": [
                 89
             ],
@@ -948,33 +928,30 @@
                 6,
                 67,
                 73
-            ],
-            "proposition_type": "base",
-            "gdl": "( true ( chosen player1 scissors ) )"
+            ]
         },
         {
             "id": 80,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "other",
+            "gdl": "( next_chosen player2 scissors )",
             "ins": [
                 44
             ],
             "outs": [
                 32
-            ],
-            "proposition_type": "other",
-            "gdl": "( next_chosen player2 scissors )"
+            ]
         },
         {
             "id": 81,
             "type": 3,
             "type_name": "PROPOSITION",
+            "proposition_type": "goal",
+            "gdl": "( goal player1 0 )",
             "ins": [
                 22
-            ],
-            "outs": [],
-            "proposition_type": "goal",
-            "gdl": "( goal player1 0 )"
+            ]
         },
         {
             "id": 82,

@@ -45,6 +45,13 @@ namespace propnet
         private:
     };
 
+    class PropositionNode : public Node
+    {
+        public:
+            bool evaluate(const PersistentArray<bool>& data) const override;
+        private:
+    };
+
     class PreTransitionNode : public Node
     {
         public:

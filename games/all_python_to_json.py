@@ -27,18 +27,23 @@ def process_game(game: str) -> None:
     # pre and post transitions
     split_transitions(mapped_entries)
 
-    # Check that every id is taken
-    if (
-        any(entry['id'] < 0 for entry in mapped_entries) or
-        get_max_id(mapped_entries) + 1 != len(mapped_entries)
-    ):
-        logging.error(f"Invalid ids for game {game}")
-        exit(1)
-
     dict = {
         'roles': module.roles,
         'entries': mapped_entries,
     }
+
+    # Check that every id is taken
+    if (
+        any(entry['id'] < 0 for entry in dict['entries']) or
+        get_max_id(dict['entries']) + 1 != len(dict['entries'])
+    ):
+        logging.error(f"Invalid ids for game {game}")
+        exit(1)
+
+    # Check that the random player is last
+    if 'random' in dict['roles'] and 'random' != dict['roles'][-1]:
+        logging.error(f"Random player is present and not in the final slot for {game}")
+        exit(1)
 
     json_file = f"{os.path.join(JSON_FOLDER, game)}.json"
     with open(json_file, 'w') as file:
@@ -87,11 +92,23 @@ def map_entry(entry):
     elif type == PROPOSITION:
         extra_fields = {
             'type_name': 'PROPOSITION',
-            'ins': entry[3],
-            'outs': entry[4],
             'proposition_type': entry[5],
             'gdl': entry[6],
         }
+
+        ins = entry[3]
+        if extra_fields['proposition_type'] not in (init, input):
+            extra_fields['ins'] = ins
+        elif ins:
+            logging.error(f"Missed ins: {entry}")
+            exit(1)
+
+        outs = entry[4]
+        if extra_fields['proposition_type'] not in (goal, sees):
+            extra_fields['outs'] = outs
+        elif outs:
+            logging.error(f"Missed outs: {entry}")
+            exit(1)
     elif type == CONSTANT:
         extra_fields = {
             'type_name': 'CONSTANT',

@@ -4,9 +4,9 @@
 from constants import *
 
 roles = [
-    'random',
     'p1',
     'p2',
+    'random',
 ]
 
 entries = (
