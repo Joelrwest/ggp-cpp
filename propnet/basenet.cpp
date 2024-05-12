@@ -50,8 +50,6 @@ namespace propnet
         roles = game_json[ROLES_KEY].template get<std::vector<std::string>>();
 
         const auto& entries {game_json[ENTRIES_KEY]};
-        const auto num_entries {static_cast<std::uint32_t>(entries.size())};
-        std::uint32_t num_transitions {0};
         for (const auto& entry : entries)
         {
             const std::uint32_t id {entry[ID_KEY]};
@@ -73,6 +71,13 @@ namespace propnet
                     });
                     break;
                 case EntryType::Proposition:
+                    add_proposition(
+                        id,
+                        entry[INS_PROPS_KEY],
+                        entry[OUTS_PROPS_KEY],
+                        entry[PROP_TYPE_KEY].template get<std::string>(),
+                        entry[GDL_KEY].template get<std::string>()
+                    );
                     break;
                 case EntryType::PreTransition:
                     add_node(PreTransitionNode {
@@ -106,5 +111,53 @@ namespace propnet
             }
         }
         std::cout << nodes.size() << '\n';
+    }
+
+    void BaseNet::add_proposition(std::uint32_t id, std::vector<std::uint32_t> ins, std::vector<std::uint32_t> outs, std::string_view type, std::string&& gdl)
+    {
+        /*
+        TODO: Repetitive, but it works for now at least
+
+        Must also match games/constants.py
+        */
+        if (type == "init")
+        {
+            // add_node(InitNode {
+            //     id,
+            //     entry[VALUE_KEY]
+            // });
+        }
+        else if (type == "base")
+        {
+            //
+        }
+        else if (type == "input")
+        {
+            //
+        }
+        else if (type == "legal")
+        {
+            //
+        }
+        else if (type == "goal")
+        {
+            //
+        }
+        else if (type == "sees")
+        {
+            //
+        }
+        else if (type == "terminal")
+        {
+            //
+        }
+        else if (type == "other")
+        {
+            //
+        }
+        else
+        {
+            throw std::runtime_error {"Got unknown proposition type"};
+        }
     }
 };

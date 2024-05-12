@@ -1,5 +1,7 @@
 #pragma once
 
+#include "persistent_array.hpp"
+
 #include <cstdint>
 #include <memory>
 #include <vector>
@@ -11,7 +13,7 @@ namespace propnet
         public:
             Node(std::uint32_t id);
             std::uint32_t get_id() const;
-            virtual std::uint32_t evaluate(const std::vector<std::uint32_t> data) const = 0;
+            virtual bool evaluate(const PersistentArray<bool>& data) const = 0;
         private:
             std::uint32_t id;
     };
@@ -20,7 +22,7 @@ namespace propnet
     {
         public:
             AndNode(std::uint32_t id, std::vector<std::uint32_t> ins, std::vector<std::uint32_t> outs);
-            std::uint32_t evaluate(const std::vector<std::uint32_t> data) const override;
+            bool evaluate(const PersistentArray<bool>& data) const override;
         private:
             std::vector<std::uint32_t> ins;
             std::vector<std::uint32_t> outs;
@@ -30,7 +32,7 @@ namespace propnet
     {
         public:
             OrNode(std::uint32_t id, std::vector<std::uint32_t> ins, std::vector<std::uint32_t> outs);
-            std::uint32_t evaluate(const std::vector<std::uint32_t> data) const override;
+            bool evaluate(const PersistentArray<bool>& data) const override;
         private:
             std::vector<std::uint32_t> ins;
             std::vector<std::uint32_t> outs;
@@ -39,7 +41,7 @@ namespace propnet
     class PropositionNode : public Node
     {
         public:
-            std::uint32_t evaluate(const std::vector<std::uint32_t> data) const override;
+            bool evaluate(const PersistentArray<bool>& data) const override;
         private:
     };
 
@@ -47,7 +49,7 @@ namespace propnet
     {
         public:
             PreTransitionNode(std::uint32_t id, std::uint32_t in, std::uint32_t post_id);
-            std::uint32_t evaluate(const std::vector<std::uint32_t> data) const override;
+            bool evaluate(const PersistentArray<bool>& data) const override;
         private:
             std::uint32_t in;
             std::uint32_t post_id;
@@ -57,7 +59,7 @@ namespace propnet
     {
         public:
             PostTransitionNode(std::uint32_t id, std::uint32_t pre_id, std::uint32_t out);
-            std::uint32_t evaluate(const std::vector<std::uint32_t> data) const override;
+            bool evaluate(const PersistentArray<bool>& data) const override;
         private:
             std::uint32_t pre_id;
             std::uint32_t out;
@@ -67,7 +69,7 @@ namespace propnet
     {
         public:
             NotNode(std::uint32_t id, std::uint32_t in, std::vector<std::uint32_t> outs);
-            std::uint32_t evaluate(const std::vector<std::uint32_t> data) const override;
+            bool evaluate(const PersistentArray<bool>& data) const override;
         private:
             std::uint32_t in;
             std::vector<std::uint32_t> outs;
@@ -76,9 +78,9 @@ namespace propnet
     class ConstantNode : public Node
     {
         public:
-            ConstantNode(std::uint32_t id, std::uint32_t value);
-            std::uint32_t evaluate(const std::vector<std::uint32_t> data) const override;
+            ConstantNode(std::uint32_t id, bool value);
+            bool evaluate(const PersistentArray<bool>& data) const override;
         private:
-            std::uint32_t value;
+            bool value;
     };
 };

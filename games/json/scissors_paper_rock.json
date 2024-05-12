@@ -440,7 +440,7 @@
             "id": 37,
             "type": 6,
             "type_name": "CONSTANT",
-            "value": 1
+            "value": true
         },
         {
             "id": 38,

@@ -95,7 +95,7 @@ def map_entry(entry):
     elif type == CONSTANT:
         extra_fields = {
             'type_name': 'CONSTANT',
-            'value': entry[1],
+            'value': entry[1] != 0,
         }
     else:
         logging.error(f"type = {type} is unknown")

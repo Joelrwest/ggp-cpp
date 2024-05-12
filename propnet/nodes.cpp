@@ -17,16 +17,16 @@ namespace propnet
         outs {outs}
     {}
 
-    std::uint32_t AndNode::evaluate(const std::vector<std::uint32_t> data) const
+    bool AndNode::evaluate(const PersistentArray<bool>& data) const
     {
         for (const auto in : ins)
         {
             if (!data.at(in))
             {
-                return 0;
+                return false;
             }
         }
-        return 1;
+        return true;
     }
 
     OrNode::OrNode(std::uint32_t id, std::vector<std::uint32_t> ins, std::vector<uint32_t> outs) :
@@ -35,21 +35,22 @@ namespace propnet
         outs {outs}
     {}
 
-    std::uint32_t OrNode::evaluate(const std::vector<std::uint32_t> data) const
+    bool OrNode::evaluate(const PersistentArray<bool>& data) const
     {
         for (const auto in : ins)
         {
             if (data.at(in))
             {
-                return 1;
+                return true;
             }
         }
-        return 0;
+        return false;
     }
 
-    std::uint32_t PropositionNode::evaluate(const std::vector<std::uint32_t> data) const
+    bool PropositionNode::evaluate(const PersistentArray<bool>& data) const
     {
-        return 0;
+        // TODO
+        return false;
     }
 
     PreTransitionNode::PreTransitionNode(std::uint32_t id, std::uint32_t in, std::uint32_t post_id) :
@@ -58,7 +59,7 @@ namespace propnet
         post_id {post_id}
     {}
 
-    std::uint32_t PreTransitionNode::evaluate(const std::vector<std::uint32_t> data) const
+    bool PreTransitionNode::evaluate(const PersistentArray<bool>& data) const
     {
         return data.at(0); // TODO
     }
@@ -69,7 +70,7 @@ namespace propnet
         out {out}
     {}
 
-    std::uint32_t PostTransitionNode::evaluate(const std::vector<std::uint32_t> data) const
+    bool PostTransitionNode::evaluate(const PersistentArray<bool>& data) const
     {
         return data.at(pre_id);
     }
@@ -80,17 +81,17 @@ namespace propnet
         outs {outs}
     {}
 
-    std::uint32_t NotNode::evaluate(const std::vector<std::uint32_t> data) const
+    bool NotNode::evaluate(const PersistentArray<bool>& data) const
     {
-        return data.at(in) ? 0 : 1;
+        return !data.at(in);
     }
 
-    ConstantNode::ConstantNode(std::uint32_t id, std::uint32_t value) :
+    ConstantNode::ConstantNode(std::uint32_t id, bool value) :
         Node {id},
         value {value}
     {}
 
-    std::uint32_t ConstantNode::evaluate(const std::vector<std::uint32_t> data) const
+    bool ConstantNode::evaluate(const PersistentArray<bool>& data) const
     {
         return value;
     }

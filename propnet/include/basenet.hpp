@@ -10,6 +10,14 @@
 
 namespace propnet
 {
+    /*
+    Class that parses and stores the nodes to
+    the propositional network.
+
+    Does not store any state within it.
+    The propnet class instead stores a state
+    along with a read-only copy of this network.
+    */
     class BaseNet
     {
         public:
@@ -26,6 +34,8 @@ namespace propnet
             static constexpr auto INS_PROPS_KEY {"ins"};
             static constexpr auto OUT_PROPS_KEY {"out"};
             static constexpr auto OUTS_PROPS_KEY {"outs"};
+            static constexpr auto PROP_TYPE_KEY {"proposition_type"};
+            static constexpr auto GDL_KEY {"gdl"};
             static constexpr auto VALUE_KEY {"value"};
 
             template<std::derived_from<Node> T>
@@ -33,6 +43,8 @@ namespace propnet
             {
                 nodes.push_back(std::make_unique<const T>(node));
             }
+
+            void add_proposition(std::uint32_t id, std::vector<std::uint32_t> ins, std::vector<std::uint32_t> outs, std::string_view type, std::string&& gdl);
 
             std::vector<std::string> roles;
             std::vector<std::shared_ptr<const Node>> nodes;
