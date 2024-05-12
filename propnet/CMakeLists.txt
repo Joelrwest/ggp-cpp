@@ -1,4 +1,11 @@
-cmake_minimum_required(VERSION 3.1 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.11 FATAL_ERROR)
 
-add_library(propnet STATIC basenet.cpp)
+include(FetchContent)
+
+FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz)
+FetchContent_MakeAvailable(json)
+
+add_library(propnet STATIC basenet.cpp nodes.hpp nodes.cpp)
 target_include_directories(propnet PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+
+target_link_libraries(propnet PRIVATE nlohmann_json::nlohmann_json)
