@@ -6,7 +6,8 @@
     "entries": [
         {
             "id": 0,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 2
             ],
@@ -16,7 +17,8 @@
         },
         {
             "id": 1,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [
                 20,
@@ -27,7 +29,8 @@
         },
         {
             "id": 2,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 76,
                 34
@@ -38,7 +41,8 @@
         },
         {
             "id": 3,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 74,
                 76
@@ -49,7 +53,8 @@
         },
         {
             "id": 4,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 50
             ],
@@ -59,7 +64,8 @@
         },
         {
             "id": 5,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 76,
                 16
@@ -70,7 +76,8 @@
         },
         {
             "id": 6,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 79,
                 16
@@ -81,7 +88,8 @@
         },
         {
             "id": 7,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 40
             ],
@@ -93,7 +101,8 @@
         },
         {
             "id": 8,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 54,
                 16
@@ -104,7 +113,8 @@
         },
         {
             "id": 9,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 11
             ],
@@ -114,7 +124,8 @@
         },
         {
             "id": 10,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 42
             ],
@@ -124,7 +135,8 @@
         },
         {
             "id": 11,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [
                 9,
@@ -135,7 +147,8 @@
         },
         {
             "id": 12,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 23
             ],
@@ -147,7 +160,8 @@
         },
         {
             "id": 13,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 54,
                 74
@@ -158,7 +172,8 @@
         },
         {
             "id": 14,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 76,
                 34
@@ -169,7 +184,8 @@
         },
         {
             "id": 15,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 8,
                 67
@@ -180,7 +196,8 @@
         },
         {
             "id": 16,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 72
             ],
@@ -197,7 +214,8 @@
         },
         {
             "id": 17,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 12
             ],
@@ -207,7 +225,8 @@
         },
         {
             "id": 18,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 78
             ],
@@ -219,7 +238,8 @@
         },
         {
             "id": 19,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 74,
                 79
@@ -230,7 +250,8 @@
         },
         {
             "id": 20,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 1
             ],
@@ -240,7 +261,8 @@
         },
         {
             "id": 21,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 44
             ],
@@ -250,7 +272,8 @@
         },
         {
             "id": 22,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 82,
                 73
@@ -261,7 +284,8 @@
         },
         {
             "id": 23,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 28
             ],
@@ -271,7 +295,8 @@
         },
         {
             "id": 24,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 71
             ],
@@ -281,7 +306,8 @@
         },
         {
             "id": 25,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 7
             ],
@@ -291,7 +317,8 @@
         },
         {
             "id": 26,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 52
             ],
@@ -301,7 +328,8 @@
         },
         {
             "id": 27,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 74,
                 54
@@ -312,7 +340,8 @@
         },
         {
             "id": 28,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 71
             ],
@@ -324,7 +353,8 @@
         },
         {
             "id": 29,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 71
             ],
@@ -334,7 +364,8 @@
         },
         {
             "id": 30,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 74,
                 76
@@ -345,7 +376,8 @@
         },
         {
             "id": 31,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 6,
                 30,
@@ -357,7 +389,8 @@
         },
         {
             "id": 32,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 80
             ],
@@ -369,7 +402,8 @@
         },
         {
             "id": 33,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 63,
                 5
@@ -380,7 +414,8 @@
         },
         {
             "id": 34,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 10
             ],
@@ -397,7 +432,8 @@
         },
         {
             "id": 35,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 11
             ],
@@ -409,7 +445,8 @@
         },
         {
             "id": 36,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 35
             ],
@@ -421,12 +458,14 @@
         },
         {
             "id": 37,
-            "type": "CONSTANT",
+            "type": 6,
+            "type_name": "CONSTANT",
             "value": 1
         },
         {
             "id": 38,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 57
             ],
@@ -436,7 +475,8 @@
         },
         {
             "id": 39,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 15
             ],
@@ -446,7 +486,8 @@
         },
         {
             "id": 40,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 48
             ],
@@ -458,7 +499,8 @@
         },
         {
             "id": 41,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 14
             ],
@@ -468,7 +510,8 @@
         },
         {
             "id": 42,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 43
             ],
@@ -480,7 +523,8 @@
         },
         {
             "id": 43,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 69
             ],
@@ -492,7 +536,8 @@
         },
         {
             "id": 44,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [
                 21,
@@ -503,7 +548,8 @@
         },
         {
             "id": 45,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 79,
                 16
@@ -514,7 +560,8 @@
         },
         {
             "id": 46,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 57
             ],
@@ -526,7 +573,8 @@
         },
         {
             "id": 47,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 13
             ],
@@ -536,7 +584,8 @@
         },
         {
             "id": 48,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [
                 49,
@@ -547,7 +596,8 @@
         },
         {
             "id": 49,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 48
             ],
@@ -557,7 +607,8 @@
         },
         {
             "id": 50,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [
                 4
@@ -567,7 +618,8 @@
         },
         {
             "id": 51,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 33
             ],
@@ -577,7 +629,8 @@
         },
         {
             "id": 52,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 46
             ],
@@ -589,7 +642,8 @@
         },
         {
             "id": 53,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 68
             ],
@@ -599,7 +653,8 @@
         },
         {
             "id": 54,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 25
             ],
@@ -616,7 +671,8 @@
         },
         {
             "id": 55,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 83
             ],
@@ -626,7 +682,8 @@
         },
         {
             "id": 56,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 54,
                 16
@@ -637,7 +694,8 @@
         },
         {
             "id": 57,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [
                 38,
@@ -648,7 +706,8 @@
         },
         {
             "id": 58,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 71
             ],
@@ -658,7 +717,8 @@
         },
         {
             "id": 59,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 54,
                 34
@@ -669,7 +729,8 @@
         },
         {
             "id": 60,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 18
             ],
@@ -679,7 +740,8 @@
         },
         {
             "id": 61,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 27
             ],
@@ -689,7 +751,8 @@
         },
         {
             "id": 62,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 71
             ],
@@ -699,7 +762,8 @@
         },
         {
             "id": 63,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 79,
                 34
@@ -710,7 +774,8 @@
         },
         {
             "id": 64,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 69
             ],
@@ -720,7 +785,8 @@
         },
         {
             "id": 65,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 36
             ],
@@ -730,7 +796,8 @@
         },
         {
             "id": 66,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 31
             ],
@@ -740,7 +807,8 @@
         },
         {
             "id": 67,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 74,
                 79
@@ -751,7 +819,8 @@
         },
         {
             "id": 68,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 19,
                 56
@@ -762,7 +831,8 @@
         },
         {
             "id": 69,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [
                 43,
@@ -773,7 +843,8 @@
         },
         {
             "id": 70,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 71
             ],
@@ -783,7 +854,8 @@
         },
         {
             "id": 71,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 4
             ],
@@ -801,7 +873,8 @@
         },
         {
             "id": 72,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 32
             ],
@@ -811,7 +884,8 @@
         },
         {
             "id": 73,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 79,
                 34
@@ -822,7 +896,8 @@
         },
         {
             "id": 74,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 26
             ],
@@ -839,7 +914,8 @@
         },
         {
             "id": 75,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 71
             ],
@@ -849,7 +925,8 @@
         },
         {
             "id": 76,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 65
             ],
@@ -866,7 +943,8 @@
         },
         {
             "id": 77,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 54,
                 34
@@ -877,7 +955,8 @@
         },
         {
             "id": 78,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 1
             ],
@@ -889,7 +968,8 @@
         },
         {
             "id": 79,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 60
             ],
@@ -906,7 +986,8 @@
         },
         {
             "id": 80,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 44
             ],
@@ -918,7 +999,8 @@
         },
         {
             "id": 81,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 22
             ],
@@ -928,7 +1010,8 @@
         },
         {
             "id": 82,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 76,
                 16
@@ -939,7 +1022,8 @@
         },
         {
             "id": 83,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 3,
                 45,

@@ -6,7 +6,8 @@
     "entries": [
         {
             "id": 0,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 98,
                 35,
@@ -18,7 +19,8 @@
         },
         {
             "id": 1,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 122
             ],
@@ -28,7 +30,8 @@
         },
         {
             "id": 2,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 55
             ],
@@ -40,7 +43,8 @@
         },
         {
             "id": 3,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 77
             ],
@@ -50,7 +54,8 @@
         },
         {
             "id": 4,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 77
             ],
@@ -60,7 +65,8 @@
         },
         {
             "id": 5,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [],
             "proposition_type": "input",
@@ -68,7 +74,8 @@
         },
         {
             "id": 6,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 25
             ],
@@ -78,7 +85,8 @@
         },
         {
             "id": 7,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 75,
                 36
@@ -89,7 +97,8 @@
         },
         {
             "id": 8,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 84
             ],
@@ -99,7 +108,8 @@
         },
         {
             "id": 9,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 105
             ],
@@ -111,7 +121,8 @@
         },
         {
             "id": 10,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 6
             ],
@@ -123,7 +134,8 @@
         },
         {
             "id": 11,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 104,
             "outs": [
                 0,
@@ -132,7 +144,8 @@
         },
         {
             "id": 12,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 47
             ],
@@ -148,7 +161,8 @@
         },
         {
             "id": 13,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [
                 75,
@@ -159,7 +173,8 @@
         },
         {
             "id": 14,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [
                 95
@@ -169,7 +184,8 @@
         },
         {
             "id": 15,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 123,
                 58,
@@ -181,7 +197,8 @@
         },
         {
             "id": 16,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [
                 70
@@ -191,7 +208,8 @@
         },
         {
             "id": 17,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [
                 119
@@ -201,7 +219,8 @@
         },
         {
             "id": 18,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 72
             ],
@@ -213,7 +232,8 @@
         },
         {
             "id": 19,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 37,
                 89
@@ -224,7 +244,8 @@
         },
         {
             "id": 20,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 113
             ],
@@ -234,7 +255,8 @@
         },
         {
             "id": 21,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 38
             ],
@@ -244,7 +266,8 @@
         },
         {
             "id": 22,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [
                 120,
@@ -257,7 +280,8 @@
         },
         {
             "id": 23,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 31
             ],
@@ -267,7 +291,8 @@
         },
         {
             "id": 24,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 35,
                 55
@@ -278,7 +303,8 @@
         },
         {
             "id": 25,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 77
             ],
@@ -290,7 +316,8 @@
         },
         {
             "id": 26,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [
                 68
@@ -300,7 +327,8 @@
         },
         {
             "id": 27,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 78,
             "outs": [
                 101,
@@ -309,7 +337,8 @@
         },
         {
             "id": 28,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 77,
                 105,
@@ -321,7 +350,8 @@
         },
         {
             "id": 29,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 116
             ],
@@ -331,7 +361,8 @@
         },
         {
             "id": 30,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 12,
                 87,
@@ -344,7 +375,8 @@
         },
         {
             "id": 31,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 12,
                 35,
@@ -357,7 +389,8 @@
         },
         {
             "id": 32,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 28
             ],
@@ -367,7 +400,8 @@
         },
         {
             "id": 33,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 109
             ],
@@ -377,7 +411,8 @@
         },
         {
             "id": 34,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 65
             ],
@@ -387,7 +422,8 @@
         },
         {
             "id": 35,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 34
             ],
@@ -403,7 +439,8 @@
         },
         {
             "id": 36,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 1
             ],
@@ -419,7 +456,8 @@
         },
         {
             "id": 37,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 79
             ],
@@ -435,7 +473,8 @@
         },
         {
             "id": 38,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [
                 21,
@@ -446,7 +485,8 @@
         },
         {
             "id": 39,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 88,
             "outs": [
                 90,
@@ -455,7 +495,8 @@
         },
         {
             "id": 40,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 51
             ],
@@ -465,7 +506,8 @@
         },
         {
             "id": 41,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 50
             ],
@@ -475,7 +517,8 @@
         },
         {
             "id": 42,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 62
             ],
@@ -485,7 +528,8 @@
         },
         {
             "id": 43,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 55,
                 37
@@ -496,7 +540,8 @@
         },
         {
             "id": 44,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 30
             ],
@@ -506,7 +551,8 @@
         },
         {
             "id": 45,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 98,
                 36,
@@ -518,7 +564,8 @@
         },
         {
             "id": 46,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 15
             ],
@@ -528,7 +575,8 @@
         },
         {
             "id": 47,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 2
             ],
@@ -538,7 +586,8 @@
         },
         {
             "id": 48,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 81
             ],
@@ -548,7 +597,8 @@
         },
         {
             "id": 49,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 107,
                 115
@@ -559,7 +609,8 @@
         },
         {
             "id": 50,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 12
             ],
@@ -571,7 +622,8 @@
         },
         {
             "id": 51,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 107,
                 76,
@@ -583,7 +635,8 @@
         },
         {
             "id": 52,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 97,
                 87
@@ -594,7 +647,8 @@
         },
         {
             "id": 53,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [
                 114,
@@ -605,7 +659,8 @@
         },
         {
             "id": 54,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 91
             ],
@@ -615,7 +670,8 @@
         },
         {
             "id": 55,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 110
             ],
@@ -633,7 +689,8 @@
         },
         {
             "id": 56,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 92
             ],
@@ -643,7 +700,8 @@
         },
         {
             "id": 57,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 78,
                 83
@@ -654,7 +712,8 @@
         },
         {
             "id": 58,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 78,
                 69
@@ -665,7 +724,8 @@
         },
         {
             "id": 59,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 103
             ],
@@ -675,7 +735,8 @@
         },
         {
             "id": 60,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 35,
                 80
@@ -686,7 +747,8 @@
         },
         {
             "id": 61,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 74
             ],
@@ -696,7 +758,8 @@
         },
         {
             "id": 62,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 55,
                 36
@@ -707,7 +770,8 @@
         },
         {
             "id": 63,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 19
             ],
@@ -719,7 +783,8 @@
         },
         {
             "id": 64,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 94
             ],
@@ -729,7 +794,8 @@
         },
         {
             "id": 65,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 22,
                 125
@@ -740,7 +806,8 @@
         },
         {
             "id": 66,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 9
             ],
@@ -750,7 +817,8 @@
         },
         {
             "id": 67,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 104,
                 100
@@ -761,7 +829,8 @@
         },
         {
             "id": 68,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 0,
                 26,
@@ -773,7 +842,8 @@
         },
         {
             "id": 69,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 54
             ],
@@ -788,7 +858,8 @@
         },
         {
             "id": 70,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 16,
                 101,
@@ -800,7 +871,8 @@
         },
         {
             "id": 71,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 18
             ],
@@ -810,7 +882,8 @@
         },
         {
             "id": 72,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 106,
                 88
@@ -821,7 +894,8 @@
         },
         {
             "id": 73,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 10
             ],
@@ -831,7 +905,8 @@
         },
         {
             "id": 74,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 108
             ],
@@ -843,7 +918,8 @@
         },
         {
             "id": 75,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 13,
             "outs": [
                 7
@@ -851,7 +927,8 @@
         },
         {
             "id": 76,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 95
             ],
@@ -864,7 +941,8 @@
         },
         {
             "id": 77,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 41
             ],
@@ -882,7 +960,8 @@
         },
         {
             "id": 78,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 61
             ],
@@ -897,7 +976,8 @@
         },
         {
             "id": 79,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 120
             ],
@@ -907,7 +987,8 @@
         },
         {
             "id": 80,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 38,
             "outs": [
                 60
@@ -915,7 +996,8 @@
         },
         {
             "id": 81,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 12,
                 27,
@@ -928,7 +1010,8 @@
         },
         {
             "id": 82,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 117
             ],
@@ -938,7 +1021,8 @@
         },
         {
             "id": 83,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 69,
             "outs": [
                 57,
@@ -947,7 +1031,8 @@
         },
         {
             "id": 84,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 108,
                 77,
@@ -959,7 +1044,8 @@
         },
         {
             "id": 85,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 78,
                 100
@@ -970,7 +1056,8 @@
         },
         {
             "id": 86,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 13
             ],
@@ -980,7 +1067,8 @@
         },
         {
             "id": 87,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 107,
             "outs": [
                 30,
@@ -989,7 +1077,8 @@
         },
         {
             "id": 88,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 71
             ],
@@ -1004,7 +1093,8 @@
         },
         {
             "id": 89,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 53,
             "outs": [
                 19
@@ -1012,7 +1102,8 @@
         },
         {
             "id": 90,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 104,
                 39
@@ -1023,7 +1114,8 @@
         },
         {
             "id": 91,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 119
             ],
@@ -1035,12 +1127,14 @@
         },
         {
             "id": 92,
-            "type": "CONSTANT",
+            "type": 6,
+            "type_name": "CONSTANT",
             "value": 1
         },
         {
             "id": 93,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [],
             "proposition_type": "input",
@@ -1048,7 +1142,8 @@
         },
         {
             "id": 94,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 49
             ],
@@ -1060,7 +1155,8 @@
         },
         {
             "id": 95,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 45,
                 14,
@@ -1072,7 +1168,8 @@
         },
         {
             "id": 96,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 97,
                 107
@@ -1083,7 +1180,8 @@
         },
         {
             "id": 97,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 33
             ],
@@ -1098,7 +1196,8 @@
         },
         {
             "id": 98,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [
                 0,
@@ -1111,7 +1210,8 @@
         },
         {
             "id": 99,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 97,
                 100
@@ -1122,7 +1222,8 @@
         },
         {
             "id": 100,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 98,
             "outs": [
                 67,
@@ -1132,7 +1233,8 @@
         },
         {
             "id": 101,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 98,
                 27,
@@ -1144,7 +1246,8 @@
         },
         {
             "id": 102,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 97,
             "outs": [
                 45,
@@ -1153,7 +1256,8 @@
         },
         {
             "id": 103,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 35,
                 55
@@ -1164,7 +1268,8 @@
         },
         {
             "id": 104,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 66
             ],
@@ -1179,7 +1284,8 @@
         },
         {
             "id": 105,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 68
             ],
@@ -1192,7 +1298,8 @@
         },
         {
             "id": 106,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [
                 72
@@ -1202,7 +1309,8 @@
         },
         {
             "id": 107,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 64
             ],
@@ -1217,7 +1325,8 @@
         },
         {
             "id": 108,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 70
             ],
@@ -1230,7 +1339,8 @@
         },
         {
             "id": 109,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 76
             ],
@@ -1242,7 +1352,8 @@
         },
         {
             "id": 110,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 22
             ],
@@ -1252,7 +1363,8 @@
         },
         {
             "id": 111,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 118
             ],
@@ -1262,7 +1374,8 @@
         },
         {
             "id": 112,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [],
             "proposition_type": "input",
@@ -1270,7 +1383,8 @@
         },
         {
             "id": 113,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 90,
                 57,
@@ -1282,7 +1396,8 @@
         },
         {
             "id": 114,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 53
             ],
@@ -1292,7 +1407,8 @@
         },
         {
             "id": 115,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [
                 49
@@ -1302,7 +1418,8 @@
         },
         {
             "id": 116,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 12,
                 77
@@ -1313,7 +1430,8 @@
         },
         {
             "id": 117,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 55,
                 36
@@ -1324,7 +1442,8 @@
         },
         {
             "id": 118,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 55,
                 37
@@ -1335,7 +1454,8 @@
         },
         {
             "id": 119,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 17,
                 69
@@ -1346,7 +1466,8 @@
         },
         {
             "id": 120,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 63,
                 22
@@ -1357,7 +1478,8 @@
         },
         {
             "id": 121,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 24
             ],
@@ -1367,7 +1489,8 @@
         },
         {
             "id": 122,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 22,
                 124
@@ -1378,7 +1501,8 @@
         },
         {
             "id": 123,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 104,
                 88
@@ -1389,7 +1513,8 @@
         },
         {
             "id": 124,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 7
             ],
@@ -1401,7 +1526,8 @@
         },
         {
             "id": 125,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 60
             ],
@@ -1413,7 +1539,8 @@
         },
         {
             "id": 126,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 43
             ],

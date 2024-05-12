@@ -31,56 +31,54 @@ def process_game(game: str) -> None:
         file.write(json.dumps(dict, indent = 4))
 
 def map_entry(entry):
-    id = entry[0]
-    python_type = entry[2]
+    type = entry[2]
 
     # Repetitive, but does the job
-    if python_type == TRANSITION:
-        return {
-            'id': id,
-            'type': 'TRANSITION',
+    if type == TRANSITION:
+        extra_fields = {
+            'type_name': 'TRANSITION',
             'ins': entry[3],
             'outs': entry[4],
         }
-    elif python_type in (AND, OR):
-        type = 'AND' if python_type == AND else 'OR'
-        return {
-            'id': id,
-            'type': type,
+    elif type in (AND, OR):
+        extra_fields = {
+            'type_name': 'AND' if type == AND else 'OR',
             'ins': entry[3],
             'outs': entry[4],
         }
-    elif python_type == NOT:
+    elif type == NOT:
         ins = entry[3]
         num_ins = len(ins)
         if num_ins != 1:
             logging.error(f"For proposition of id = {id}, num_ins = {num_ins}")
             exit(1)
 
-        return {
-            'id': id,
-            'type': 'NOT',
+        extra_fields = {
+            'type_name': 'NOT',
             'in': ins[0],
             'outs': entry[4],
         }
-    elif python_type == PROPOSITION:
-        return {
-            'id': id,
-            'type': 'PROPOSITION',
+    elif type == PROPOSITION:
+        extra_fields = {
+            'type_name': 'PROPOSITION',
             'ins': entry[3],
             'outs': entry[4],
             'proposition_type': entry[5],
             'gdl': entry[6],
         }
-    elif python_type == CONSTANT:
-        return {
-            'id': id,
-            'type': 'CONSTANT',
+    elif type == CONSTANT:
+        extra_fields = {
+            'type_name': 'CONSTANT',
             'value': entry[1],
         }
     else:
-        logging.error(f"python_type = {python_type} is unknown")
+        logging.error(f"type = {type} is unknown")
         exit(1)
+
+    return {
+        'id': entry[0],
+        'type': type,
+    } | extra_fields
 
 if __name__ == '__main__':
     main()

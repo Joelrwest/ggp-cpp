@@ -7,7 +7,8 @@
     "entries": [
         {
             "id": 0,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 241
             ],
@@ -36,7 +37,8 @@
         },
         {
             "id": 1,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 460
             ],
@@ -53,7 +55,8 @@
         },
         {
             "id": 2,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 542
             ],
@@ -65,7 +68,8 @@
         },
         {
             "id": 3,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 11
             ],
@@ -78,7 +82,8 @@
         },
         {
             "id": 4,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 57,
                 301
@@ -89,7 +94,8 @@
         },
         {
             "id": 5,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 426,
                 192,
@@ -101,7 +107,8 @@
         },
         {
             "id": 6,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 189,
                 171
@@ -112,7 +119,8 @@
         },
         {
             "id": 7,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 36
             ],
@@ -141,7 +149,8 @@
         },
         {
             "id": 8,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 7,
                 260,
@@ -153,7 +162,8 @@
         },
         {
             "id": 9,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 150,
                 171
@@ -164,7 +174,8 @@
         },
         {
             "id": 10,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 0,
                 268
@@ -175,7 +186,8 @@
         },
         {
             "id": 11,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 40,
                 551,
@@ -187,7 +199,8 @@
         },
         {
             "id": 12,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 244,
                 196
@@ -198,7 +211,8 @@
         },
         {
             "id": 13,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 41,
                 123
@@ -209,7 +223,8 @@
         },
         {
             "id": 14,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 30
             ],
@@ -238,7 +253,8 @@
         },
         {
             "id": 15,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 530,
             "outs": [
                 249
@@ -246,7 +262,8 @@
         },
         {
             "id": 16,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 187
             ],
@@ -259,7 +276,8 @@
         },
         {
             "id": 17,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 406,
                 229
@@ -270,7 +288,8 @@
         },
         {
             "id": 18,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 41,
                 455
@@ -281,7 +300,8 @@
         },
         {
             "id": 19,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 500,
                 82,
@@ -296,7 +316,8 @@
         },
         {
             "id": 20,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 560
             ],
@@ -306,7 +327,8 @@
         },
         {
             "id": 21,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 461
             ],
@@ -318,7 +340,8 @@
         },
         {
             "id": 22,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 89
             ],
@@ -331,7 +354,8 @@
         },
         {
             "id": 23,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 321
             ],
@@ -348,7 +372,8 @@
         },
         {
             "id": 24,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 502,
                 459
@@ -359,7 +384,8 @@
         },
         {
             "id": 25,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 236,
                 73
@@ -370,7 +396,8 @@
         },
         {
             "id": 26,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 317,
                 84
@@ -381,7 +408,8 @@
         },
         {
             "id": 27,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 62,
                 228
@@ -392,7 +420,8 @@
         },
         {
             "id": 28,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 220,
                 200,
@@ -414,7 +443,8 @@
         },
         {
             "id": 29,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 28
             ],
@@ -424,7 +454,8 @@
         },
         {
             "id": 30,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 265
             ],
@@ -434,7 +465,8 @@
         },
         {
             "id": 31,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 140,
                 526,
@@ -446,7 +478,8 @@
         },
         {
             "id": 32,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 111,
             "outs": [
                 120
@@ -454,7 +487,8 @@
         },
         {
             "id": 33,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 82,
                 268
@@ -465,7 +499,8 @@
         },
         {
             "id": 34,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 295
             ],
@@ -479,7 +514,8 @@
         },
         {
             "id": 35,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 549
             ],
@@ -491,7 +527,8 @@
         },
         {
             "id": 36,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 72
             ],
@@ -501,7 +538,8 @@
         },
         {
             "id": 37,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 153,
                 71
@@ -512,7 +550,8 @@
         },
         {
             "id": 38,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 131,
                 196
@@ -523,7 +562,8 @@
         },
         {
             "id": 39,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 6
             ],
@@ -533,7 +573,8 @@
         },
         {
             "id": 40,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 57,
                 301
@@ -544,7 +585,8 @@
         },
         {
             "id": 41,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [
                 55,
@@ -568,7 +610,8 @@
         },
         {
             "id": 42,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 185,
                 301
@@ -579,7 +622,8 @@
         },
         {
             "id": 43,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 349
             ],
@@ -589,7 +633,8 @@
         },
         {
             "id": 44,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 425,
                 316,
@@ -601,7 +646,8 @@
         },
         {
             "id": 45,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 168,
                 8,
@@ -616,7 +662,8 @@
         },
         {
             "id": 46,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 316,
                 525,
@@ -629,7 +676,8 @@
         },
         {
             "id": 47,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 41,
                 455
@@ -640,7 +688,8 @@
         },
         {
             "id": 48,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 437
             ],
@@ -652,7 +701,8 @@
         },
         {
             "id": 49,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 449
             ],
@@ -667,7 +717,8 @@
         },
         {
             "id": 50,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 490
             ],
@@ -681,7 +732,8 @@
         },
         {
             "id": 51,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 193
             ],
@@ -693,7 +745,8 @@
         },
         {
             "id": 52,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 82,
                 525,
@@ -706,7 +759,8 @@
         },
         {
             "id": 53,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 327
             ],
@@ -718,7 +772,8 @@
         },
         {
             "id": 54,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 251,
                 565,
@@ -733,7 +788,8 @@
         },
         {
             "id": 55,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 426,
                 41,
@@ -745,7 +801,8 @@
         },
         {
             "id": 56,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 547
             ],
@@ -755,7 +812,8 @@
         },
         {
             "id": 57,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [
                 180,
@@ -779,7 +837,8 @@
         },
         {
             "id": 58,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 84,
                 137
@@ -790,7 +849,8 @@
         },
         {
             "id": 59,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 84,
                 137,
@@ -802,7 +862,8 @@
         },
         {
             "id": 60,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 458
             ],
@@ -814,7 +875,8 @@
         },
         {
             "id": 61,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 80
             ],
@@ -826,7 +888,8 @@
         },
         {
             "id": 62,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [
                 450,
@@ -850,7 +913,8 @@
         },
         {
             "id": 63,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 426,
                 84,
@@ -862,7 +926,8 @@
         },
         {
             "id": 64,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 163
             ],
@@ -878,7 +943,8 @@
         },
         {
             "id": 65,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 169
             ],
@@ -890,7 +956,8 @@
         },
         {
             "id": 66,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 324,
                 93,
@@ -902,7 +969,8 @@
         },
         {
             "id": 67,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 82,
                 16
@@ -913,7 +981,8 @@
         },
         {
             "id": 68,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 41,
                 525,
@@ -926,7 +995,8 @@
         },
         {
             "id": 69,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 324,
                 425,
@@ -938,7 +1008,8 @@
         },
         {
             "id": 70,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 83
             ],
@@ -950,7 +1021,8 @@
         },
         {
             "id": 71,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 110
             ],
@@ -963,7 +1035,8 @@
         },
         {
             "id": 72,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 171,
                 219
@@ -974,7 +1047,8 @@
         },
         {
             "id": 73,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [
                 25,
@@ -998,7 +1072,8 @@
         },
         {
             "id": 74,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 515,
                 171
@@ -1009,7 +1084,8 @@
         },
         {
             "id": 75,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 62,
                 41,
@@ -1021,7 +1097,8 @@
         },
         {
             "id": 76,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 102
             ],
@@ -1031,7 +1108,8 @@
         },
         {
             "id": 77,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 82,
                 315,
@@ -1043,7 +1121,8 @@
         },
         {
             "id": 78,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 329,
                 119,
@@ -1059,7 +1138,8 @@
         },
         {
             "id": 79,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 291
             ],
@@ -1069,7 +1149,8 @@
         },
         {
             "id": 80,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 226,
                 278,
@@ -1084,7 +1165,8 @@
         },
         {
             "id": 81,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 239
             ],
@@ -1097,7 +1179,8 @@
         },
         {
             "id": 82,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [
                 144,
@@ -1121,7 +1204,8 @@
         },
         {
             "id": 83,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 450,
                 420,
@@ -1136,7 +1220,8 @@
         },
         {
             "id": 84,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 39
             ],
@@ -1165,7 +1250,8 @@
         },
         {
             "id": 85,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 82,
                 0
@@ -1176,7 +1262,8 @@
         },
         {
             "id": 86,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 477
             ],
@@ -1188,7 +1275,8 @@
         },
         {
             "id": 87,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 82,
                 0,
@@ -1200,7 +1288,8 @@
         },
         {
             "id": 88,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 236,
                 73
@@ -1211,7 +1300,8 @@
         },
         {
             "id": 89,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 379
             ],
@@ -1221,7 +1311,8 @@
         },
         {
             "id": 90,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 487
             ],
@@ -1231,7 +1322,8 @@
         },
         {
             "id": 91,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 217
             ],
@@ -1245,7 +1337,8 @@
         },
         {
             "id": 92,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 537
             ],
@@ -1258,7 +1351,8 @@
         },
         {
             "id": 93,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 204
             ],
@@ -1275,7 +1369,8 @@
         },
         {
             "id": 94,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 315,
                 316,
@@ -1287,7 +1382,8 @@
         },
         {
             "id": 95,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 478
             ],
@@ -1297,7 +1393,8 @@
         },
         {
             "id": 96,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 403,
                 0
@@ -1308,7 +1405,8 @@
         },
         {
             "id": 97,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 153,
                 93,
@@ -1320,7 +1418,8 @@
         },
         {
             "id": 98,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 404,
                 0,
@@ -1332,7 +1431,8 @@
         },
         {
             "id": 99,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 186
             ],
@@ -1344,7 +1444,8 @@
         },
         {
             "id": 100,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 108
             ],
@@ -1357,7 +1458,8 @@
         },
         {
             "id": 101,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 324,
                 82,
@@ -1372,7 +1474,8 @@
         },
         {
             "id": 102,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 182,
                 286,
@@ -1394,7 +1497,8 @@
         },
         {
             "id": 103,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 340,
             "outs": [
                 573
@@ -1402,7 +1506,8 @@
         },
         {
             "id": 104,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 153,
                 123,
@@ -1414,7 +1519,8 @@
         },
         {
             "id": 105,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 274
             ],
@@ -1431,7 +1537,8 @@
         },
         {
             "id": 106,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 24
             ],
@@ -1441,7 +1548,8 @@
         },
         {
             "id": 107,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 455,
                 123
@@ -1452,7 +1560,8 @@
         },
         {
             "id": 108,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 136,
                 446,
@@ -1464,7 +1573,8 @@
         },
         {
             "id": 109,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 514
             ],
@@ -1479,7 +1589,8 @@
         },
         {
             "id": 110,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 339
             ],
@@ -1489,7 +1600,8 @@
         },
         {
             "id": 111,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 135
             ],
@@ -1501,7 +1613,8 @@
         },
         {
             "id": 112,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 360
             ],
@@ -1513,7 +1626,8 @@
         },
         {
             "id": 113,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 82,
                 0,
@@ -1526,7 +1640,8 @@
         },
         {
             "id": 114,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 482,
                 123,
@@ -1538,7 +1653,8 @@
         },
         {
             "id": 115,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 14,
                 207
@@ -1549,7 +1665,8 @@
         },
         {
             "id": 116,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 381
             ],
@@ -1559,7 +1676,8 @@
         },
         {
             "id": 117,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 171,
                 557
@@ -1570,7 +1688,8 @@
         },
         {
             "id": 118,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 479
             ],
@@ -1585,7 +1704,8 @@
         },
         {
             "id": 119,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 444
             ],
@@ -1597,7 +1717,8 @@
         },
         {
             "id": 120,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 7,
                 32
@@ -1608,7 +1729,8 @@
         },
         {
             "id": 121,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 84,
                 1,
@@ -1620,7 +1742,8 @@
         },
         {
             "id": 122,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 64,
                 34,
@@ -1632,7 +1755,8 @@
         },
         {
             "id": 123,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [
                 503,
@@ -1656,7 +1780,8 @@
         },
         {
             "id": 124,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 276
             ],
@@ -1669,7 +1794,8 @@
         },
         {
             "id": 125,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 153,
                 301
@@ -1680,7 +1806,8 @@
         },
         {
             "id": 126,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 7,
                 500
@@ -1691,7 +1818,8 @@
         },
         {
             "id": 127,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 380,
                 229
@@ -1702,7 +1830,8 @@
         },
         {
             "id": 128,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 62,
                 238
@@ -1713,7 +1842,8 @@
         },
         {
             "id": 129,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 164
             ],
@@ -1728,7 +1858,8 @@
         },
         {
             "id": 130,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 42
             ],
@@ -1740,7 +1871,8 @@
         },
         {
             "id": 131,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 252
             ],
@@ -1753,7 +1885,8 @@
         },
         {
             "id": 132,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 316,
                 404,
@@ -1765,7 +1898,8 @@
         },
         {
             "id": 133,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 129,
                 472
@@ -1776,7 +1910,8 @@
         },
         {
             "id": 134,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 520,
                 502,
@@ -1788,7 +1923,8 @@
         },
         {
             "id": 135,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 500,
                 528
@@ -1799,7 +1935,8 @@
         },
         {
             "id": 136,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 7,
                 528
@@ -1810,7 +1947,8 @@
         },
         {
             "id": 137,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [
                 402,
@@ -1834,7 +1972,8 @@
         },
         {
             "id": 138,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 263
             ],
@@ -1844,7 +1983,8 @@
         },
         {
             "id": 139,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 153,
                 525,
@@ -1857,7 +1997,8 @@
         },
         {
             "id": 140,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 316,
                 531
@@ -1868,7 +2009,8 @@
         },
         {
             "id": 141,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 436
             ],
@@ -1880,7 +2022,8 @@
         },
         {
             "id": 142,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 380,
                 572
@@ -1891,7 +2034,8 @@
         },
         {
             "id": 143,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 285
             ],
@@ -1904,7 +2048,8 @@
         },
         {
             "id": 144,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 82,
                 0
@@ -1915,7 +2060,8 @@
         },
         {
             "id": 145,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 57,
                 1,
@@ -1927,7 +2073,8 @@
         },
         {
             "id": 146,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 9
             ],
@@ -1937,7 +2084,8 @@
         },
         {
             "id": 147,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 64,
                 372,
@@ -1949,7 +2097,8 @@
         },
         {
             "id": 148,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 212
             ],
@@ -1959,7 +2108,8 @@
         },
         {
             "id": 149,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 418
             ],
@@ -1969,7 +2119,8 @@
         },
         {
             "id": 150,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 439
             ],
@@ -1981,7 +2132,8 @@
         },
         {
             "id": 151,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 539
             ],
@@ -1991,7 +2143,8 @@
         },
         {
             "id": 152,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 74
             ],
@@ -2001,7 +2154,8 @@
         },
         {
             "id": 153,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [
                 328,
@@ -2025,7 +2179,8 @@
         },
         {
             "id": 154,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 2,
             "outs": [
                 232
@@ -2033,7 +2188,8 @@
         },
         {
             "id": 155,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 348
             ],
@@ -2043,7 +2199,8 @@
         },
         {
             "id": 156,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 14,
                 471
@@ -2054,7 +2211,8 @@
         },
         {
             "id": 157,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 281
             ],
@@ -2067,7 +2225,8 @@
         },
         {
             "id": 158,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 491
             ],
@@ -2082,7 +2241,8 @@
         },
         {
             "id": 159,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 508
             ],
@@ -2092,7 +2252,8 @@
         },
         {
             "id": 160,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 82,
                 0
@@ -2103,7 +2264,8 @@
         },
         {
             "id": 161,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 455,
                 123
@@ -2114,7 +2276,8 @@
         },
         {
             "id": 162,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 405,
                 47,
@@ -2126,7 +2289,8 @@
         },
         {
             "id": 163,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 172
             ],
@@ -2136,7 +2300,8 @@
         },
         {
             "id": 164,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 153,
                 41,
@@ -2151,7 +2316,8 @@
         },
         {
             "id": 165,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 316,
                 531,
@@ -2163,7 +2329,8 @@
         },
         {
             "id": 166,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 300
             ],
@@ -2179,7 +2346,8 @@
         },
         {
             "id": 167,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 426,
                 14,
@@ -2191,7 +2359,8 @@
         },
         {
             "id": 168,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 7,
                 315,
@@ -2203,7 +2372,8 @@
         },
         {
             "id": 169,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 192,
                 213
@@ -2214,7 +2384,8 @@
         },
         {
             "id": 170,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 351
             ],
@@ -2226,7 +2397,8 @@
         },
         {
             "id": 171,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [
                 378,
@@ -2244,7 +2416,8 @@
         },
         {
             "id": 172,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 375
             ],
@@ -2256,7 +2429,8 @@
         },
         {
             "id": 173,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [
                 225,
@@ -2280,7 +2454,8 @@
         },
         {
             "id": 174,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 316,
                 173,
@@ -2293,7 +2468,8 @@
         },
         {
             "id": 175,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 7,
                 500,
@@ -2306,7 +2482,8 @@
         },
         {
             "id": 176,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 62,
                 268,
@@ -2318,7 +2495,8 @@
         },
         {
             "id": 177,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 260,
                 84,
@@ -2330,7 +2508,8 @@
         },
         {
             "id": 178,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 383
             ],
@@ -2343,7 +2522,8 @@
         },
         {
             "id": 179,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 404,
                 192,
@@ -2355,7 +2535,8 @@
         },
         {
             "id": 180,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 57,
                 301
@@ -2366,7 +2547,8 @@
         },
         {
             "id": 181,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 534
             ],
@@ -2378,7 +2560,8 @@
         },
         {
             "id": 182,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 492,
                 234
@@ -2389,7 +2572,8 @@
         },
         {
             "id": 183,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 62,
                 238,
@@ -2401,7 +2585,8 @@
         },
         {
             "id": 184,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 373
             ],
@@ -2413,7 +2598,8 @@
         },
         {
             "id": 185,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 266,
             "outs": [
                 42
@@ -2421,7 +2607,8 @@
         },
         {
             "id": 186,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 402,
                 63,
@@ -2436,7 +2623,8 @@
         },
         {
             "id": 187,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 314
             ],
@@ -2446,7 +2634,8 @@
         },
         {
             "id": 188,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 365
             ],
@@ -2458,7 +2647,8 @@
         },
         {
             "id": 189,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 26
             ],
@@ -2470,7 +2660,8 @@
         },
         {
             "id": 190,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 180,
                 354,
@@ -2482,7 +2673,8 @@
         },
         {
             "id": 191,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 501
             ],
@@ -2492,7 +2684,8 @@
         },
         {
             "id": 192,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [
                 512,
@@ -2516,7 +2709,8 @@
         },
         {
             "id": 193,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 77,
                 34,
@@ -2531,7 +2725,8 @@
         },
         {
             "id": 194,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 199,
             "outs": [
                 412
@@ -2539,7 +2734,8 @@
         },
         {
             "id": 195,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 397
             ],
@@ -2552,7 +2748,8 @@
         },
         {
             "id": 196,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 19
             ],
@@ -2567,7 +2764,8 @@
         },
         {
             "id": 197,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 7,
                 500,
@@ -2580,7 +2778,8 @@
         },
         {
             "id": 198,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 82,
                 425,
@@ -2592,7 +2791,8 @@
         },
         {
             "id": 199,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 151
             ],
@@ -2605,7 +2805,8 @@
         },
         {
             "id": 200,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 492,
                 472
@@ -2616,7 +2817,8 @@
         },
         {
             "id": 201,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 533
             ],
@@ -2626,7 +2828,8 @@
         },
         {
             "id": 202,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 225,
                 417,
@@ -2641,7 +2844,8 @@
         },
         {
             "id": 203,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 471,
                 207
@@ -2652,7 +2856,8 @@
         },
         {
             "id": 204,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 500,
                 137,
@@ -2664,7 +2869,8 @@
         },
         {
             "id": 205,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 14,
                 294,
@@ -2676,7 +2882,8 @@
         },
         {
             "id": 206,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 500,
                 7,
@@ -2688,7 +2895,8 @@
         },
         {
             "id": 207,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [
                 510,
@@ -2712,7 +2920,8 @@
         },
         {
             "id": 208,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 16,
             "outs": [
                 394
@@ -2720,7 +2929,8 @@
         },
         {
             "id": 209,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 236,
                 192
@@ -2731,7 +2941,8 @@
         },
         {
             "id": 210,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 14,
                 471
@@ -2742,7 +2953,8 @@
         },
         {
             "id": 211,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 382,
                 401,
@@ -2757,7 +2969,8 @@
         },
         {
             "id": 212,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 45
             ],
@@ -2769,7 +2982,8 @@
         },
         {
             "id": 213,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 303
             ],
@@ -2782,7 +2996,8 @@
         },
         {
             "id": 214,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 143,
             "outs": [
                 550
@@ -2790,7 +3005,8 @@
         },
         {
             "id": 215,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 462
             ],
@@ -2802,7 +3018,8 @@
         },
         {
             "id": 216,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 129,
                 234
@@ -2813,7 +3030,8 @@
         },
         {
             "id": 217,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 387
             ],
@@ -2823,7 +3041,8 @@
         },
         {
             "id": 218,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 500,
                 7,
@@ -2835,7 +3054,8 @@
         },
         {
             "id": 219,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 120
             ],
@@ -2847,7 +3067,8 @@
         },
         {
             "id": 220,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 451,
                 3
@@ -2858,7 +3079,8 @@
         },
         {
             "id": 221,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 170
             ],
@@ -2868,7 +3090,8 @@
         },
         {
             "id": 222,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 221
             ],
@@ -2882,7 +3105,8 @@
         },
         {
             "id": 223,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 524
             ],
@@ -2892,7 +3116,8 @@
         },
         {
             "id": 224,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 14,
                 432
@@ -2903,7 +3128,8 @@
         },
         {
             "id": 225,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 316,
                 482,
@@ -2915,7 +3141,8 @@
         },
         {
             "id": 226,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 425,
                 14,
@@ -2927,7 +3154,8 @@
         },
         {
             "id": 227,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 41,
                 455,
@@ -2939,7 +3167,8 @@
         },
         {
             "id": 228,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 90
             ],
@@ -2952,7 +3181,8 @@
         },
         {
             "id": 229,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 422
             ],
@@ -2967,7 +3197,8 @@
         },
         {
             "id": 230,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 134,
                 388
@@ -2978,7 +3209,8 @@
         },
         {
             "id": 231,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 123,
                 455,
@@ -2990,7 +3222,8 @@
         },
         {
             "id": 232,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 316,
                 154
@@ -3001,7 +3234,8 @@
         },
         {
             "id": 233,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 104
             ],
@@ -3018,7 +3252,8 @@
         },
         {
             "id": 234,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 297
             ],
@@ -3031,7 +3266,8 @@
         },
         {
             "id": 235,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 528,
                 416,
@@ -3043,7 +3279,8 @@
         },
         {
             "id": 236,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 152
             ],
@@ -3072,7 +3309,8 @@
         },
         {
             "id": 237,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 248,
                 543,
@@ -3084,7 +3322,8 @@
         },
         {
             "id": 238,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 334
             ],
@@ -3113,7 +3352,8 @@
         },
         {
             "id": 239,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 86
             ],
@@ -3123,7 +3363,8 @@
         },
         {
             "id": 240,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 14,
                 207
@@ -3134,7 +3375,8 @@
         },
         {
             "id": 241,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 117
             ],
@@ -3144,7 +3386,8 @@
         },
         {
             "id": 242,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 196,
                 571
@@ -3155,7 +3398,8 @@
         },
         {
             "id": 243,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 511
             ],
@@ -3165,7 +3409,8 @@
         },
         {
             "id": 244,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 352
             ],
@@ -3178,7 +3423,8 @@
         },
         {
             "id": 245,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 84,
                 416,
@@ -3190,7 +3436,8 @@
         },
         {
             "id": 246,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 315,
                 153,
@@ -3202,7 +3449,8 @@
         },
         {
             "id": 247,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 545,
             "outs": [
                 563
@@ -3210,7 +3458,8 @@
         },
         {
             "id": 248,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 316,
                 531
@@ -3221,7 +3470,8 @@
         },
         {
             "id": 249,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 15,
                 236
@@ -3232,7 +3482,8 @@
         },
         {
             "id": 250,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 79
             ],
@@ -3245,7 +3496,8 @@
         },
         {
             "id": 251,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 236,
                 192,
@@ -3258,7 +3510,8 @@
         },
         {
             "id": 252,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 409,
                 88,
@@ -3270,7 +3523,8 @@
         },
         {
             "id": 253,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 443
             ],
@@ -3280,7 +3534,8 @@
         },
         {
             "id": 254,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 482,
                 236,
@@ -3292,7 +3547,8 @@
         },
         {
             "id": 255,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 382,
                 64,
@@ -3304,7 +3560,8 @@
         },
         {
             "id": 256,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 196,
                 395
@@ -3315,7 +3572,8 @@
         },
         {
             "id": 257,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 451,
                 195
@@ -3326,7 +3584,8 @@
         },
         {
             "id": 258,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 324,
                 62,
@@ -3339,7 +3598,8 @@
         },
         {
             "id": 259,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 328,
                 505,
@@ -3351,7 +3611,8 @@
         },
         {
             "id": 260,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 307
             ],
@@ -3368,7 +3629,8 @@
         },
         {
             "id": 261,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 330,
             "outs": [
                 439
@@ -3376,7 +3638,8 @@
         },
         {
             "id": 262,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 525,
                 84,
@@ -3389,7 +3652,8 @@
         },
         {
             "id": 263,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 23,
                 298
@@ -3400,7 +3664,8 @@
         },
         {
             "id": 264,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 316,
                 173
@@ -3411,7 +3676,8 @@
         },
         {
             "id": 265,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 320,
                 171
@@ -3422,7 +3688,8 @@
         },
         {
             "id": 266,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 431
             ],
@@ -3434,7 +3701,8 @@
         },
         {
             "id": 267,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 324,
                 416,
@@ -3446,7 +3714,8 @@
         },
         {
             "id": 268,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [
                 452,
@@ -3470,7 +3739,8 @@
         },
         {
             "id": 269,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 173,
                 554
@@ -3481,7 +3751,8 @@
         },
         {
             "id": 270,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 230
             ],
@@ -3491,7 +3762,8 @@
         },
         {
             "id": 271,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 192,
                 173,
@@ -3506,7 +3778,8 @@
         },
         {
             "id": 272,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 304
             ],
@@ -3518,7 +3791,8 @@
         },
         {
             "id": 273,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 324,
                 62,
@@ -3531,7 +3805,8 @@
         },
         {
             "id": 274,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 82,
                 153,
@@ -3543,7 +3818,8 @@
         },
         {
             "id": 275,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 84,
                 416,
@@ -3556,7 +3832,8 @@
         },
         {
             "id": 276,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 277
             ],
@@ -3566,7 +3843,8 @@
         },
         {
             "id": 277,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 504
             ],
@@ -3578,7 +3856,8 @@
         },
         {
             "id": 278,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 14,
                 471,
@@ -3591,7 +3870,8 @@
         },
         {
             "id": 279,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 235
             ],
@@ -3608,7 +3888,8 @@
         },
         {
             "id": 280,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 84,
                 416
@@ -3619,7 +3900,8 @@
         },
         {
             "id": 281,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 346
             ],
@@ -3629,7 +3911,8 @@
         },
         {
             "id": 282,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 7,
                 500
@@ -3640,7 +3923,8 @@
         },
         {
             "id": 283,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 335
             ],
@@ -3654,7 +3938,8 @@
         },
         {
             "id": 284,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 457
             ],
@@ -3664,7 +3949,8 @@
         },
         {
             "id": 285,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 308
             ],
@@ -3674,7 +3960,8 @@
         },
         {
             "id": 286,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 451,
                 100
@@ -3685,7 +3972,8 @@
         },
         {
             "id": 287,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 396
             ],
@@ -3695,7 +3983,8 @@
         },
         {
             "id": 288,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 62,
                 233,
@@ -3707,7 +3996,8 @@
         },
         {
             "id": 289,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 260,
                 123,
@@ -3719,7 +4009,8 @@
         },
         {
             "id": 290,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 500,
                 57,
@@ -3731,7 +4022,8 @@
         },
         {
             "id": 291,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 517
             ],
@@ -3743,7 +4035,8 @@
         },
         {
             "id": 292,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 471,
                 157
@@ -3754,7 +4047,8 @@
         },
         {
             "id": 293,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 84,
                 137
@@ -3765,7 +4059,8 @@
         },
         {
             "id": 294,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 176
             ],
@@ -3782,7 +4077,8 @@
         },
         {
             "id": 295,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 51
             ],
@@ -3792,7 +4088,8 @@
         },
         {
             "id": 296,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 493
             ],
@@ -3807,7 +4104,8 @@
         },
         {
             "id": 297,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 561,
                 160,
@@ -3819,7 +4117,8 @@
         },
         {
             "id": 298,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 459,
             "outs": [
                 353,
@@ -3830,7 +4129,8 @@
         },
         {
             "id": 299,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 184
             ],
@@ -3840,7 +4140,8 @@
         },
         {
             "id": 300,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 70
             ],
@@ -3850,7 +4151,8 @@
         },
         {
             "id": 301,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 529
             ],
@@ -3879,7 +4181,8 @@
         },
         {
             "id": 302,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 192,
                 236,
@@ -3891,7 +4194,8 @@
         },
         {
             "id": 303,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 65
             ],
@@ -3901,7 +4205,8 @@
         },
         {
             "id": 304,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 464,
                 73
@@ -3912,7 +4217,8 @@
         },
         {
             "id": 305,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 500,
                 7,
@@ -3924,7 +4230,8 @@
         },
         {
             "id": 306,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 440
             ],
@@ -3934,7 +4241,8 @@
         },
         {
             "id": 307,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 192,
                 531,
@@ -3946,7 +4254,8 @@
         },
         {
             "id": 308,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 510
             ],
@@ -3958,7 +4267,8 @@
         },
         {
             "id": 309,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 153,
                 301
@@ -3969,7 +4279,8 @@
         },
         {
             "id": 310,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 14,
                 105,
@@ -3981,7 +4292,8 @@
         },
         {
             "id": 311,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 324,
                 482,
@@ -3993,7 +4305,8 @@
         },
         {
             "id": 312,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 7,
                 528,
@@ -4005,7 +4318,8 @@
         },
         {
             "id": 313,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 7,
                 528
@@ -4016,7 +4330,8 @@
         },
         {
             "id": 314,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 67
             ],
@@ -4028,7 +4343,8 @@
         },
         {
             "id": 315,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 75
             ],
@@ -4045,7 +4361,8 @@
         },
         {
             "id": 316,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 322
             ],
@@ -4074,7 +4391,8 @@
         },
         {
             "id": 317,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 53,
             "outs": [
                 26
@@ -4082,7 +4400,8 @@
         },
         {
             "id": 318,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 390
             ],
@@ -4092,7 +4411,8 @@
         },
         {
             "id": 319,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 62,
                 238
@@ -4103,7 +4423,8 @@
         },
         {
             "id": 320,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 224
             ],
@@ -4115,7 +4436,8 @@
         },
         {
             "id": 321,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 521,
                 453,
@@ -4131,7 +4453,8 @@
         },
         {
             "id": 322,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 378
             ],
@@ -4141,7 +4464,8 @@
         },
         {
             "id": 323,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 57,
                 301,
@@ -4153,7 +4477,8 @@
         },
         {
             "id": 324,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [
                 435,
@@ -4177,7 +4502,8 @@
         },
         {
             "id": 325,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 538,
                 147
@@ -4188,7 +4514,8 @@
         },
         {
             "id": 326,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 153,
                 301,
@@ -4200,7 +4527,8 @@
         },
         {
             "id": 327,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 416,
                 137
@@ -4211,7 +4539,8 @@
         },
         {
             "id": 328,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 153,
                 301
@@ -4222,7 +4551,8 @@
         },
         {
             "id": 329,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 367
             ],
@@ -4234,7 +4564,8 @@
         },
         {
             "id": 330,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 13
             ],
@@ -4246,7 +4577,8 @@
         },
         {
             "id": 331,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 137,
                 199
@@ -4257,7 +4589,8 @@
         },
         {
             "id": 332,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 519
             ],
@@ -4269,7 +4602,8 @@
         },
         {
             "id": 333,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 25,
                 144,
@@ -4287,7 +4621,8 @@
         },
         {
             "id": 334,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 368
             ],
@@ -4297,7 +4632,8 @@
         },
         {
             "id": 335,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 481
             ],
@@ -4307,7 +4643,8 @@
         },
         {
             "id": 336,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 23,
                 298
@@ -4318,7 +4655,8 @@
         },
         {
             "id": 337,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 131,
                 229
@@ -4329,7 +4667,8 @@
         },
         {
             "id": 338,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 222,
                 427,
@@ -4341,7 +4680,8 @@
         },
         {
             "id": 339,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 37
             ],
@@ -4353,7 +4693,8 @@
         },
         {
             "id": 340,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 299
             ],
@@ -4366,7 +4707,8 @@
         },
         {
             "id": 341,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 357
             ],
@@ -4378,7 +4720,8 @@
         },
         {
             "id": 342,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 414
             ],
@@ -4390,7 +4733,8 @@
         },
         {
             "id": 343,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 349
             ],
@@ -4400,7 +4744,8 @@
         },
         {
             "id": 344,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 62,
                 238
@@ -4411,7 +4756,8 @@
         },
         {
             "id": 345,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 347
             ],
@@ -4423,7 +4769,8 @@
         },
         {
             "id": 346,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 292
             ],
@@ -4435,7 +4782,8 @@
         },
         {
             "id": 347,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 305,
                 49,
@@ -4450,7 +4798,8 @@
         },
         {
             "id": 348,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 211
             ],
@@ -4462,12 +4811,14 @@
         },
         {
             "id": 349,
-            "type": "CONSTANT",
+            "type": 6,
+            "type_name": "CONSTANT",
             "value": 1
         },
         {
             "id": 350,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 408
             ],
@@ -4477,7 +4828,8 @@
         },
         {
             "id": 351,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 434,
                 222,
@@ -4492,7 +4844,8 @@
         },
         {
             "id": 352,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 476,
                 463,
@@ -4504,7 +4857,8 @@
         },
         {
             "id": 353,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 520,
                 502,
@@ -4516,7 +4870,8 @@
         },
         {
             "id": 354,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 0,
                 268
@@ -4527,7 +4882,8 @@
         },
         {
             "id": 355,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 260,
                 153,
@@ -4539,7 +4895,8 @@
         },
         {
             "id": 356,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 41,
                 455
@@ -4550,7 +4907,8 @@
         },
         {
             "id": 357,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 167,
                 109,
@@ -4565,7 +4923,8 @@
         },
         {
             "id": 358,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 23,
                 459
@@ -4576,7 +4935,8 @@
         },
         {
             "id": 359,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 342
             ],
@@ -4586,7 +4946,8 @@
         },
         {
             "id": 360,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 50,
                 470,
@@ -4598,7 +4959,8 @@
         },
         {
             "id": 361,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 153,
                 57,
@@ -4611,7 +4973,8 @@
         },
         {
             "id": 362,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 148
             ],
@@ -4626,7 +4989,8 @@
         },
         {
             "id": 363,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 236,
                 73
@@ -4637,7 +5001,8 @@
         },
         {
             "id": 364,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 41,
                 57,
@@ -4649,7 +5014,8 @@
         },
         {
             "id": 365,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 509,
                 123
@@ -4660,7 +5026,8 @@
         },
         {
             "id": 366,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 424,
                 518
@@ -4671,7 +5038,8 @@
         },
         {
             "id": 367,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 372,
                 296,
@@ -4683,7 +5051,8 @@
         },
         {
             "id": 368,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 181,
                 171
@@ -4694,7 +5063,8 @@
         },
         {
             "id": 369,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 244,
                 572
@@ -4705,7 +5075,8 @@
         },
         {
             "id": 370,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 325
             ],
@@ -4717,7 +5088,8 @@
         },
         {
             "id": 371,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 14,
                 525,
@@ -4730,7 +5102,8 @@
         },
         {
             "id": 372,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 20
             ],
@@ -4745,7 +5118,8 @@
         },
         {
             "id": 373,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 340,
                 57
@@ -4756,7 +5130,8 @@
         },
         {
             "id": 374,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 250,
             "outs": [
                 541
@@ -4764,7 +5139,8 @@
         },
         {
             "id": 375,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 273,
                 64,
@@ -4779,7 +5155,8 @@
         },
         {
             "id": 376,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 451,
                 178
@@ -4790,7 +5167,8 @@
         },
         {
             "id": 377,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 203
             ],
@@ -4802,7 +5180,8 @@
         },
         {
             "id": 378,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 548,
                 171
@@ -4813,7 +5192,8 @@
         },
         {
             "id": 379,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 507
             ],
@@ -4825,7 +5205,8 @@
         },
         {
             "id": 380,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 190
             ],
@@ -4838,7 +5219,8 @@
         },
         {
             "id": 381,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 513
             ],
@@ -4850,7 +5232,8 @@
         },
         {
             "id": 382,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 155
             ],
@@ -4864,7 +5247,8 @@
         },
         {
             "id": 383,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 293,
                 282,
@@ -4876,7 +5260,8 @@
         },
         {
             "id": 384,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 158,
                 283,
@@ -4888,7 +5273,8 @@
         },
         {
             "id": 385,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 500,
                 528,
@@ -4903,7 +5289,8 @@
         },
         {
             "id": 386,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 527
             ],
@@ -4913,7 +5300,8 @@
         },
         {
             "id": 387,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 202
             ],
@@ -4925,7 +5313,8 @@
         },
         {
             "id": 388,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 23,
                 459
@@ -4936,7 +5325,8 @@
         },
         {
             "id": 389,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 84,
                 416
@@ -4947,7 +5337,8 @@
         },
         {
             "id": 390,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 497,
             "outs": [
                 318
@@ -4955,7 +5346,8 @@
         },
         {
             "id": 391,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 41,
                 455,
@@ -4967,7 +5359,8 @@
         },
         {
             "id": 392,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 531,
                 545
@@ -4978,7 +5371,8 @@
         },
         {
             "id": 393,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 316,
                 531,
@@ -4990,7 +5384,8 @@
         },
         {
             "id": 394,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 208
             ],
@@ -5000,7 +5395,8 @@
         },
         {
             "id": 395,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 237
             ],
@@ -5013,7 +5409,8 @@
         },
         {
             "id": 396,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 81,
             "outs": [
                 287
@@ -5021,7 +5418,8 @@
         },
         {
             "id": 397,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 363,
                 125,
@@ -5033,7 +5431,8 @@
         },
         {
             "id": 398,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 384
             ],
@@ -5045,7 +5444,8 @@
         },
         {
             "id": 399,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 324,
                 82,
@@ -5057,7 +5457,8 @@
         },
         {
             "id": 400,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 336
             ],
@@ -5067,7 +5468,8 @@
         },
         {
             "id": 401,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 425,
                 84,
@@ -5079,7 +5481,8 @@
         },
         {
             "id": 402,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 233,
                 84,
@@ -5091,7 +5494,8 @@
         },
         {
             "id": 403,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 428,
             "outs": [
                 96
@@ -5099,7 +5503,8 @@
         },
         {
             "id": 404,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 267
             ],
@@ -5116,7 +5521,8 @@
         },
         {
             "id": 405,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 84,
                 137
@@ -5127,7 +5533,8 @@
         },
         {
             "id": 406,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 259
             ],
@@ -5140,7 +5547,8 @@
         },
         {
             "id": 407,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 562
             ],
@@ -5152,7 +5560,8 @@
         },
         {
             "id": 408,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 228,
             "outs": [
                 350
@@ -5160,7 +5569,8 @@
         },
         {
             "id": 409,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 316,
                 173
@@ -5171,7 +5581,8 @@
         },
         {
             "id": 410,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 118,
                 49,
@@ -5183,7 +5594,8 @@
         },
         {
             "id": 411,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 130,
                 171
@@ -5194,7 +5606,8 @@
         },
         {
             "id": 412,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 194
             ],
@@ -5204,7 +5617,8 @@
         },
         {
             "id": 413,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 7,
                 316,
@@ -5222,7 +5636,8 @@
         },
         {
             "id": 414,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 452,
                 427,
@@ -5237,7 +5652,8 @@
         },
         {
             "id": 415,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 7,
                 425,
@@ -5249,7 +5665,8 @@
         },
         {
             "id": 416,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [
                 401,
@@ -5273,7 +5690,8 @@
         },
         {
             "id": 417,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 316,
                 93,
@@ -5285,7 +5703,8 @@
         },
         {
             "id": 418,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 157,
             "outs": [
                 149
@@ -5293,7 +5712,8 @@
         },
         {
             "id": 419,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 192,
                 236,
@@ -5305,7 +5725,8 @@
         },
         {
             "id": 420,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 62,
                 1,
@@ -5317,7 +5738,8 @@
         },
         {
             "id": 421,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 500,
                 7,
@@ -5329,7 +5751,8 @@
         },
         {
             "id": 422,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 324,
                 62,
@@ -5344,7 +5767,8 @@
         },
         {
             "id": 423,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 494
             ],
@@ -5354,7 +5778,8 @@
         },
         {
             "id": 424,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 333
             ],
@@ -5366,7 +5791,8 @@
         },
         {
             "id": 425,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 364
             ],
@@ -5383,7 +5809,8 @@
         },
         {
             "id": 426,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 399
             ],
@@ -5400,7 +5827,8 @@
         },
         {
             "id": 427,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 359
             ],
@@ -5414,7 +5842,8 @@
         },
         {
             "id": 428,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 33
             ],
@@ -5426,7 +5855,8 @@
         },
         {
             "id": 429,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 213,
             "outs": [
                 438
@@ -5434,7 +5864,8 @@
         },
         {
             "id": 430,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 82,
                 260,
@@ -5446,7 +5877,8 @@
         },
         {
             "id": 431,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 153,
                 57
@@ -5457,7 +5889,8 @@
         },
         {
             "id": 432,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 377,
             "outs": [
                 224
@@ -5465,7 +5898,8 @@
         },
         {
             "id": 433,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 566
             ],
@@ -5480,7 +5914,8 @@
         },
         {
             "id": 434,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 233,
                 316,
@@ -5492,7 +5927,8 @@
         },
         {
             "id": 435,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 324,
                 62
@@ -5503,7 +5939,8 @@
         },
         {
             "id": 436,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 158,
                 326,
@@ -5518,7 +5955,8 @@
         },
         {
             "id": 437,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 5,
                 118,
@@ -5533,7 +5971,8 @@
         },
         {
             "id": 438,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 429
             ],
@@ -5543,7 +5982,8 @@
         },
         {
             "id": 439,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 261,
                 455
@@ -5554,7 +5994,8 @@
         },
         {
             "id": 440,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 502,
                 459
@@ -5565,7 +6006,8 @@
         },
         {
             "id": 441,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 316,
                 173
@@ -5576,7 +6018,8 @@
         },
         {
             "id": 442,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 475,
                 209,
@@ -5594,7 +6037,8 @@
         },
         {
             "id": 443,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 92,
             "outs": [
                 253
@@ -5602,7 +6046,8 @@
         },
         {
             "id": 444,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 382,
                 296,
@@ -5614,7 +6059,8 @@
         },
         {
             "id": 445,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 109,
                 49,
@@ -5626,7 +6072,8 @@
         },
         {
             "id": 446,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 14,
                 471
@@ -5637,7 +6084,8 @@
         },
         {
             "id": 447,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 236,
                 192
@@ -5648,7 +6096,8 @@
         },
         {
             "id": 448,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 404,
                 57,
@@ -5660,7 +6109,8 @@
         },
         {
             "id": 449,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 345
             ],
@@ -5670,7 +6120,8 @@
         },
         {
             "id": 450,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 62,
                 238,
@@ -5682,7 +6133,8 @@
         },
         {
             "id": 451,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 101
             ],
@@ -5697,7 +6149,8 @@
         },
         {
             "id": 452,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 233,
                 0,
@@ -5709,7 +6162,8 @@
         },
         {
             "id": 453,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 338
             ],
@@ -5721,7 +6175,8 @@
         },
         {
             "id": 454,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 236,
                 294,
@@ -5733,7 +6188,8 @@
         },
         {
             "id": 455,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 146
             ],
@@ -5762,7 +6218,8 @@
         },
         {
             "id": 456,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 315,
                 236,
@@ -5774,7 +6231,8 @@
         },
         {
             "id": 457,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 124,
             "outs": [
                 284
@@ -5782,7 +6240,8 @@
         },
         {
             "id": 458,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 427,
                 49,
@@ -5794,7 +6253,8 @@
         },
         {
             "id": 459,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 78
             ],
@@ -5811,7 +6271,8 @@
         },
         {
             "id": 460,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 173,
                 471,
@@ -5823,7 +6284,8 @@
         },
         {
             "id": 461,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 118,
                 470,
@@ -5835,7 +6297,8 @@
         },
         {
             "id": 462,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 118,
                 222,
@@ -5847,7 +6310,8 @@
         },
         {
             "id": 463,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 324,
                 238
@@ -5858,7 +6322,8 @@
         },
         {
             "id": 464,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 469
             ],
@@ -5871,7 +6336,8 @@
         },
         {
             "id": 465,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 93,
                 123,
@@ -5883,7 +6349,8 @@
         },
         {
             "id": 466,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 349
             ],
@@ -5893,7 +6360,8 @@
         },
         {
             "id": 467,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 41,
                 455,
@@ -5906,7 +6374,8 @@
         },
         {
             "id": 468,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 442
             ],
@@ -5918,7 +6387,8 @@
         },
         {
             "id": 469,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 272
             ],
@@ -5928,7 +6398,8 @@
         },
         {
             "id": 470,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 386
             ],
@@ -5942,7 +6413,8 @@
         },
         {
             "id": 471,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [
                 226,
@@ -5966,7 +6438,8 @@
         },
         {
             "id": 472,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 31
             ],
@@ -5979,7 +6452,8 @@
         },
         {
             "id": 473,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 55,
                 391,
@@ -5994,7 +6468,8 @@
         },
         {
             "id": 474,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 483
             ],
@@ -6004,7 +6479,8 @@
         },
         {
             "id": 475,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 7,
                 500
@@ -6015,7 +6491,8 @@
         },
         {
             "id": 476,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 84,
                 416
@@ -6026,7 +6503,8 @@
         },
         {
             "id": 477,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 81,
                 324
@@ -6037,7 +6515,8 @@
         },
         {
             "id": 478,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 23,
                 520,
@@ -6049,7 +6528,8 @@
         },
         {
             "id": 479,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 48
             ],
@@ -6059,7 +6539,8 @@
         },
         {
             "id": 480,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 0,
                 1,
@@ -6071,7 +6552,8 @@
         },
         {
             "id": 481,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 522
             ],
@@ -6083,7 +6565,8 @@
         },
         {
             "id": 482,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 290
             ],
@@ -6100,7 +6583,8 @@
         },
         {
             "id": 483,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 464,
             "outs": [
                 474
@@ -6108,7 +6592,8 @@
         },
         {
             "id": 484,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 324,
                 260,
@@ -6120,7 +6605,8 @@
         },
         {
             "id": 485,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 435
             ],
@@ -6132,7 +6618,8 @@
         },
         {
             "id": 486,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 129,
                 100
@@ -6143,7 +6630,8 @@
         },
         {
             "id": 487,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 27
             ],
@@ -6155,7 +6643,8 @@
         },
         {
             "id": 488,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 122
             ],
@@ -6167,7 +6656,8 @@
         },
         {
             "id": 489,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 229,
                 395
@@ -6178,7 +6668,8 @@
         },
         {
             "id": 490,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 99
             ],
@@ -6188,7 +6679,8 @@
         },
         {
             "id": 491,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 141
             ],
@@ -6198,7 +6690,8 @@
         },
         {
             "id": 492,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 385
             ],
@@ -6213,7 +6706,8 @@
         },
         {
             "id": 493,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 61
             ],
@@ -6223,7 +6717,8 @@
         },
         {
             "id": 494,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 71,
             "outs": [
                 423
@@ -6231,7 +6726,8 @@
         },
         {
             "id": 495,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 404,
                 14,
@@ -6243,7 +6739,8 @@
         },
         {
             "id": 496,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 482,
                 84,
@@ -6255,7 +6752,8 @@
         },
         {
             "id": 497,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 116
             ],
@@ -6268,7 +6766,8 @@
         },
         {
             "id": 498,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 406,
                 572
@@ -6279,7 +6778,8 @@
         },
         {
             "id": 499,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 315,
                 14,
@@ -6291,7 +6791,8 @@
         },
         {
             "id": 500,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [
                 282,
@@ -6315,7 +6816,8 @@
         },
         {
             "id": 501,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 22,
             "outs": [
                 191
@@ -6323,7 +6825,8 @@
         },
         {
             "id": 502,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 23,
             "outs": [
                 24,
@@ -6334,7 +6837,8 @@
         },
         {
             "id": 503,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 455,
                 123
@@ -6345,7 +6849,8 @@
         },
         {
             "id": 504,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 528,
                 124
@@ -6356,7 +6861,8 @@
         },
         {
             "id": 505,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 7,
                 528
@@ -6367,7 +6873,8 @@
         },
         {
             "id": 506,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 188
             ],
@@ -6377,7 +6884,8 @@
         },
         {
             "id": 507,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 41,
                 22
@@ -6388,7 +6896,8 @@
         },
         {
             "id": 508,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 554,
             "outs": [
                 159
@@ -6396,7 +6905,8 @@
         },
         {
             "id": 509,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 506
             ],
@@ -6409,7 +6919,8 @@
         },
         {
             "id": 510,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 143,
                 207
@@ -6420,7 +6931,8 @@
         },
         {
             "id": 511,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 269
             ],
@@ -6432,7 +6944,8 @@
         },
         {
             "id": 512,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 192,
                 73
@@ -6443,7 +6956,8 @@
         },
         {
             "id": 513,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 497,
                 268
@@ -6454,7 +6968,8 @@
         },
         {
             "id": 514,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 341
             ],
@@ -6464,7 +6979,8 @@
         },
         {
             "id": 515,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 249
             ],
@@ -6476,7 +6992,8 @@
         },
         {
             "id": 516,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 482,
                 14,
@@ -6488,7 +7005,8 @@
         },
         {
             "id": 517,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 500,
                 250
@@ -6499,7 +7017,8 @@
         },
         {
             "id": 518,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [
                 251,
@@ -6518,7 +7037,8 @@
         },
         {
             "id": 519,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 416,
                 92
@@ -6529,7 +7049,8 @@
         },
         {
             "id": 520,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 570,
             "outs": [
                 478,
@@ -6539,7 +7060,8 @@
         },
         {
             "id": 521,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 445
             ],
@@ -6551,7 +7073,8 @@
         },
         {
             "id": 522,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 465,
                 283,
@@ -6566,7 +7089,8 @@
         },
         {
             "id": 523,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 492,
                 3
@@ -6577,7 +7101,8 @@
         },
         {
             "id": 524,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 353,
                 358
@@ -6588,7 +7113,8 @@
         },
         {
             "id": 525,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [
                 262,
@@ -6607,7 +7133,8 @@
         },
         {
             "id": 526,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 0,
                 268
@@ -6618,7 +7145,8 @@
         },
         {
             "id": 527,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 473
             ],
@@ -6630,7 +7158,8 @@
         },
         {
             "id": 528,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [
                 504,
@@ -6654,7 +7183,8 @@
         },
         {
             "id": 529,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 411
             ],
@@ -6664,7 +7194,8 @@
         },
         {
             "id": 530,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 512
             ],
@@ -6676,7 +7207,8 @@
         },
         {
             "id": 531,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [],
             "outs": [
                 140,
@@ -6700,7 +7232,8 @@
         },
         {
             "id": 532,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 316,
                 531
@@ -6711,7 +7244,8 @@
         },
         {
             "id": 533,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 509,
             "outs": [
                 201
@@ -6719,7 +7253,8 @@
         },
         {
             "id": 534,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 238,
                 556
@@ -6730,7 +7265,8 @@
         },
         {
             "id": 535,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 41,
                 1,
@@ -6742,7 +7278,8 @@
         },
         {
             "id": 536,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 109,
                 433,
@@ -6754,7 +7291,8 @@
         },
         {
             "id": 537,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 332
             ],
@@ -6764,7 +7302,8 @@
         },
         {
             "id": 538,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 158,
                 64,
@@ -6776,7 +7315,8 @@
         },
         {
             "id": 539,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 331
             ],
@@ -6788,7 +7328,8 @@
         },
         {
             "id": 540,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 233,
                 14,
@@ -6800,7 +7341,8 @@
         },
         {
             "id": 541,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 374
             ],
@@ -6810,7 +7352,8 @@
         },
         {
             "id": 542,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 173,
                 531
@@ -6821,7 +7364,8 @@
         },
         {
             "id": 543,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 14,
                 207
@@ -6832,7 +7376,8 @@
         },
         {
             "id": 544,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 525,
                 236,
@@ -6845,7 +7390,8 @@
         },
         {
             "id": 545,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 56
             ],
@@ -6858,7 +7404,8 @@
         },
         {
             "id": 546,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 255
             ],
@@ -6870,7 +7417,8 @@
         },
         {
             "id": 547,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 392
             ],
@@ -6882,7 +7430,8 @@
         },
         {
             "id": 548,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 232
             ],
@@ -6894,7 +7443,8 @@
         },
         {
             "id": 549,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 158,
                 34,
@@ -6906,7 +7456,8 @@
         },
         {
             "id": 550,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 214
             ],
@@ -6916,7 +7467,8 @@
         },
         {
             "id": 551,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 236,
                 192
@@ -6927,7 +7479,8 @@
         },
         {
             "id": 552,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 468,
                 525
@@ -6938,7 +7491,8 @@
         },
         {
             "id": 553,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 129,
                 178
@@ -6949,7 +7503,8 @@
         },
         {
             "id": 554,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 243
             ],
@@ -6962,7 +7517,8 @@
         },
         {
             "id": 555,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 492,
                 195
@@ -6973,7 +7529,8 @@
         },
         {
             "id": 556,
-            "type": "NOT",
+            "type": 5,
+            "type_name": "NOT",
             "in": 485,
             "outs": [
                 534
@@ -6981,7 +7538,8 @@
         },
         {
             "id": 557,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 96
             ],
@@ -6993,7 +7551,8 @@
         },
         {
             "id": 558,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 569
             ],
@@ -7005,7 +7564,8 @@
         },
         {
             "id": 559,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 426,
                 57,
@@ -7017,7 +7577,8 @@
         },
         {
             "id": 560,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 54
             ],
@@ -7029,7 +7590,8 @@
         },
         {
             "id": 561,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 324,
                 238
@@ -7040,7 +7602,8 @@
         },
         {
             "id": 562,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 145,
                 448,
@@ -7055,7 +7618,8 @@
         },
         {
             "id": 563,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 247
             ],
@@ -7065,7 +7629,8 @@
         },
         {
             "id": 564,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 571,
                 572
@@ -7076,7 +7641,8 @@
         },
         {
             "id": 565,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 236,
                 93,
@@ -7088,7 +7654,8 @@
         },
         {
             "id": 566,
-            "type": "TRANSITION",
+            "type": 4,
+            "type_name": "TRANSITION",
             "ins": [
                 407
             ],
@@ -7098,7 +7665,8 @@
         },
         {
             "id": 567,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 0,
                 268,
@@ -7110,7 +7678,8 @@
         },
         {
             "id": 568,
-            "type": "AND",
+            "type": 1,
+            "type_name": "AND",
             "ins": [
                 324,
                 238
@@ -7121,7 +7690,8 @@
         },
         {
             "id": 569,
-            "type": "OR",
+            "type": 2,
+            "type_name": "OR",
             "ins": [
                 536,
                 410
@@ -7132,7 +7702,8 @@
         },
         {
             "id": 570,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 413
             ],
@@ -7144,7 +7715,8 @@
         },
         {
             "id": 571,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 162
             ],
@@ -7157,7 +7729,8 @@
         },
         {
             "id": 572,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 271
             ],
@@ -7172,7 +7745,8 @@
         },
         {
             "id": 573,
-            "type": "PROPOSITION",
+            "type": 3,
+            "type_name": "PROPOSITION",
             "ins": [
                 103
             ],
