@@ -1,7 +1,21 @@
 {
     "roles": [
-        "player1",
-        "player2"
+        {
+            "role": "player1",
+            "sees": [
+                9,
+                20,
+                49
+            ]
+        },
+        {
+            "role": "player2",
+            "sees": [
+                21,
+                38,
+                64
+            ]
+        }
     ],
     "entries": [
         {

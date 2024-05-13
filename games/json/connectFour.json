@@ -1,7 +1,13 @@
 {
     "roles": [
-        "red",
-        "black"
+        {
+            "role": "red",
+            "sees": []
+        },
+        {
+            "role": "black",
+            "sees": []
+        }
     ],
     "entries": [
         {

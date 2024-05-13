@@ -3,12 +3,18 @@
 namespace propnet
 {
     State::State(std::uint32_t size) :
-        data {size}
+        data {size},
+        is_initial_state {true}
     {}
 
-    bool State::get_proposition(std::uint32_t id) const
+    State::State(const State& other) :
+        data {other.data},
+        is_initial_state {other.is_initial_state}
+    {}
+
+    bool State::eval_prop(std::uint32_t id) const
     {
-        return true;
+        return data.get(id);
     }
 
     bool State::get_is_initial_state() const

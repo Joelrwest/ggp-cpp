@@ -27,8 +27,24 @@ def process_game(game: str) -> None:
     # pre and post transitions
     split_transitions(mapped_entries)
 
+    # Add more metadata to each role now that entries are mapped
+    roles = [
+        {
+            'role': role,
+            'sees': [
+                entry['id']
+                for entry in mapped_entries
+                if (
+                    entry['type'] == PROPOSITION and
+                    entry['proposition_type'] == sees and
+                    role in entry['gdl']
+                )
+            ],
+        } for role in module.roles
+    ]
+
     dict = {
-        'roles': module.roles,
+        'roles': roles,
         'entries': mapped_entries,
     }
 

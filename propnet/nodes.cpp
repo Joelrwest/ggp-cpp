@@ -20,12 +20,17 @@ namespace propnet
     {
         for (const auto in : ins)
         {
-            if (!state.get_proposition(in))
+            if (!state.eval_prop(in))
             {
                 return false;
             }
         }
         return true;
+    }
+
+    std::vector<std::uint32_t> AndNode::get_ins() const
+    {
+        return std::vector<std::uint32_t> {ins};
     }
 
     OrNode::OrNode(std::uint32_t id, std::vector<std::uint32_t> ins) :
@@ -37,12 +42,17 @@ namespace propnet
     {
         for (const auto in : ins)
         {
-            if (state.get_proposition(in))
+            if (state.eval_prop(in))
             {
                 return true;
             }
         }
         return false;
+    }
+
+    std::vector<std::uint32_t> OrNode::get_ins() const
+    {
+        return std::vector<std::uint32_t> {ins};
     }
 
     PropositionNode::PropositionNode(std::uint32_t id, std::string_view gdl) :
@@ -62,7 +72,12 @@ namespace propnet
 
     bool BasicPropositionNode::evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const
     {
-        return state.get_proposition(in);
+        return state.eval_prop(in);
+    }
+
+    std::vector<std::uint32_t> BasicPropositionNode::get_ins() const
+    {
+        return std::vector<std::uint32_t> {in};
     }
 
     InputPropositionNode::InputPropositionNode(std::uint32_t id, std::string_view gdl) :
@@ -75,6 +90,11 @@ namespace propnet
         return actions.contains(id);
     }
 
+    std::vector<std::uint32_t> InputPropositionNode::get_ins() const
+    {
+        return std::vector<std::uint32_t> {};
+    }
+
     InitialPropositionNode::InitialPropositionNode(std::uint32_t id, std::string_view gdl) :
         PropositionNode {id, gdl}
     {}
@@ -84,6 +104,11 @@ namespace propnet
         return state.get_is_initial_state();
     }
 
+    std::vector<std::uint32_t> InitialPropositionNode::get_ins() const
+    {
+        return std::vector<std::uint32_t> {};
+    }
+
     PreTransitionNode::PreTransitionNode(std::uint32_t id, std::uint32_t in) :
         Node {id},
         in {in}
@@ -91,7 +116,12 @@ namespace propnet
 
     bool PreTransitionNode::evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const
     {
-        return state.get_proposition(in);
+        return state.eval_prop(in);
+    }
+
+    std::vector<std::uint32_t> PreTransitionNode::get_ins() const
+    {
+        return std::vector<std::uint32_t> {in};
     }
 
     PostTransitionNode::PostTransitionNode(std::uint32_t id, std::uint32_t pre_id) :
@@ -101,7 +131,12 @@ namespace propnet
 
     bool PostTransitionNode::evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const
     {
-        return state.get_proposition(pre_id);
+        return state.eval_prop(pre_id);
+    }
+
+    std::vector<std::uint32_t> PostTransitionNode::get_ins() const
+    {
+        return std::vector<std::uint32_t> {pre_id};
     }
 
     NotNode::NotNode(std::uint32_t id, std::uint32_t in) :
@@ -111,7 +146,12 @@ namespace propnet
 
     bool NotNode::evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const
     {
-        return !state.get_proposition(in);
+        return !state.eval_prop(in);
+    }
+
+    std::vector<std::uint32_t> NotNode::get_ins() const
+    {
+        return std::vector<std::uint32_t> {in};
     }
 
     TrueNode::TrueNode(std::uint32_t id) :
@@ -121,5 +161,10 @@ namespace propnet
     bool TrueNode::evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const
     {
         return true;
+    }
+
+    std::vector<std::uint32_t> TrueNode::get_ins() const
+    {
+        return std::vector<std::uint32_t> {};
     }
 };

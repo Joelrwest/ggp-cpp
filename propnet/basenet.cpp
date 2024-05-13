@@ -3,6 +3,7 @@
 
 #include <filesystem>
 #include <fstream>
+#include <stack>
 
 namespace propnet
 {
@@ -55,7 +56,14 @@ namespace propnet
         {
             const auto game_json = nlohmann::json::parse(game_file);
 
-            roles = game_json.at(ROLES_KEY).get<std::vector<std::string>>();
+            const auto& role_entries {game_json.at(ROLES_KEY)};
+            for (const auto& role_entry : role_entries)
+            {
+                roles.emplace_back(
+                    role_entry.at(ROLE_KEY).get<std::string>(),
+                    role_entry.at(SEES_KEY).get<std::vector<std::uint32_t>>()
+                );
+            }
 
             const auto& entries {game_json.at(ENTRIES_KEY)};
             for (const auto& entry : entries)
@@ -67,11 +75,23 @@ namespace propnet
         {
             throw ParsingError {error.what()};
         }
+
+        add_remaining_topologically_sorted_nodes();
+
+        if (terminal == nullptr)
+        {
+            throw ParsingError {"No terminal state found in definition"};
+        }
     }
 
     std::uint32_t BaseNet::num_nodes() const
     {
         return nodes.size();
+    }
+
+    const std::vector<Role>& BaseNet::get_roles() const
+    {
+        return roles;
     }
 
     void BaseNet::add_entry(const nlohmann::json& entry)
@@ -111,6 +131,7 @@ namespace propnet
                     id,
                     entry.at(IN_PROPS_KEY)
                 });
+                topologically_sorted_nodes.push_back(id);
                 break;
             case EntryType::Not:
                 add_node(NotNode {
@@ -135,14 +156,14 @@ namespace propnet
         {
             add_node(InitialPropositionNode {
                 id,
-                entry.at(GDL_KEY).get<std::string>()
+                gdl
             });
         }
         else if (type == BASE_PROP_TYPE)
         {
             add_node(BasicPropositionNode {
                 id,
-                entry.at(GDL_KEY).get<std::string>(),
+                gdl,
                 entry.at(IN_PROPS_KEY)
             });
         }
@@ -150,14 +171,14 @@ namespace propnet
         {
             add_node(InitialPropositionNode {
                 id,
-                entry.at(GDL_KEY).get<std::string>()
+                gdl,
             });
         }
         else if (type == LEGAL_PROP_TYPE)
         {
             add_node(BasicPropositionNode {
                 id,
-                entry.at(GDL_KEY).get<std::string>(),
+                gdl,
                 entry.at(IN_PROPS_KEY)
             });
         }
@@ -165,7 +186,7 @@ namespace propnet
         {
             add_node(BasicPropositionNode {
                 id,
-                entry.at(GDL_KEY).get<std::string>(),
+                gdl,
                 entry.at(IN_PROPS_KEY)
             });
         }
@@ -173,7 +194,7 @@ namespace propnet
         {
             add_node(BasicPropositionNode {
                 id,
-                entry.at(GDL_KEY).get<std::string>(),
+                gdl,
                 entry.at(IN_PROPS_KEY)
             });
         }
@@ -202,6 +223,53 @@ namespace propnet
         else
         {
             throw ParsingError {"Got unknown proposition type"};
+        }
+    }
+
+    /*
+    Intended to be called once at the end of the constructor to
+    add the remaining nodes.
+
+    Essentially copy-pasted from the original propnet code.
+    */
+    void BaseNet::add_remaining_topologically_sorted_nodes()
+    {
+        std::unordered_set<std::uint32_t> seen {
+            topologically_sorted_nodes.begin(),
+            topologically_sorted_nodes.end()
+        };
+
+        std::stack<std::pair<std::uint32_t, bool>> stack {};
+        for (const auto& node : topologically_sorted_nodes)
+        {
+            stack.emplace(node, false);
+        }
+
+        while (!stack.empty())
+        {
+            const auto [node, is_done] {stack.top()};
+            stack.pop();
+            if (!is_done)
+            {
+                if (seen.contains(node))
+                {
+                    continue;
+                }
+
+                seen.insert(node);
+                stack.emplace(node, true);
+                for (const auto in : nodes.at(node)->get_ins())
+                {
+                    if (!seen.contains(in))
+                    {
+                        stack.emplace(in, false);
+                    }
+                }
+            }
+            else
+            {
+                topologically_sorted_nodes.push_back(node);
+            }
         }
     }
 };

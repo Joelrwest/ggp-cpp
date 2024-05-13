@@ -1,7 +1,20 @@
 {
     "roles": [
-        "candidate",
-        "random"
+        {
+            "role": "candidate",
+            "sees": [
+                8,
+                21,
+                32,
+                40,
+                86,
+                114
+            ]
+        },
+        {
+            "role": "random",
+            "sees": []
+        }
     ],
     "entries": [
         {

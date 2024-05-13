@@ -1,8 +1,22 @@
 {
     "roles": [
-        "x",
-        "o",
-        "random"
+        {
+            "role": "x",
+            "sees": [
+                539
+            ]
+        },
+        {
+            "role": "o",
+            "sees": [
+                39,
+                539
+            ]
+        },
+        {
+            "role": "random",
+            "sees": []
+        }
     ],
     "entries": [
         {

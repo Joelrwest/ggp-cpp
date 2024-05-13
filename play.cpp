@@ -14,6 +14,14 @@ int main(void)
     propnet::Propnet {basenet};
     std::cout << "Propnet loaded\n";
 
+    std::cout << "Choose a role from:\n";
+    const auto& roles {basenet.get_roles()};
+    for (const auto& role : roles)
+    {
+        std::cout << role.get_name() << '\n';
+        std::cout << role.get_sees().size() << '\n';
+    }
+
     return 0;
 }
 

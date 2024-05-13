@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../nodes.hpp"
+#include "role.hpp"
 
 #include <nlohmann/json.hpp>
 #include <string_view>
@@ -32,11 +33,14 @@ namespace propnet
             BaseNet(std::string_view game);
 
             std::uint32_t num_nodes() const;
+            const std::vector<Role>& get_roles() const;
         private:
             static constexpr auto GAMES_PATH {"games/json/"};
             static constexpr auto JSON_EXTENSION {"json"};
 
             static constexpr auto ROLES_KEY {"roles"};
+            static constexpr auto ROLE_KEY {"role"};
+            static constexpr auto SEES_KEY {"sees"};
             static constexpr auto ENTRIES_KEY {"entries"};
             static constexpr auto ID_KEY {"id"};
             static constexpr auto TYPE_KEY {"type"};
@@ -63,9 +67,12 @@ namespace propnet
 
             void add_entry(const nlohmann::json& entry);
             void add_proposition(std::uint32_t id, std::string_view type, std::string&& gdl, const nlohmann::json& entry);
+            void add_remaining_topologically_sorted_nodes();
 
-            std::vector<std::string> roles {};
+            std::vector<Role> roles {};
             std::vector<std::shared_ptr<const Node>> nodes {};
             std::shared_ptr<const Node> terminal {nullptr};
+            std::unordered_map<std::string, std::vector<std::uint32_t>> sees {};
+            std::vector<std::uint32_t> topologically_sorted_nodes {};
     };
 };
