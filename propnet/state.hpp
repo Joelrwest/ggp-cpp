@@ -9,9 +9,10 @@ namespace propnet
     {
         public:
             State(std::size_t size);
-            bool get_id(std::uint32_t id) const;
+            bool get_proposition(std::uint32_t id) const;
+            bool get_is_initial_state() const;
         private:
+            bool is_initial_state {true};
             PersistentArray<bool> data;
-            bool initial_state {true};
     };
 };

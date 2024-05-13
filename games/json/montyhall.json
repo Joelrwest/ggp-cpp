@@ -989,8 +989,7 @@
         {
             "id": 92,
             "type": 6,
-            "type_name": "CONSTANT",
-            "value": true
+            "type_name": "CONSTANT"
         },
         {
             "id": 93,

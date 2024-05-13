@@ -122,9 +122,8 @@ namespace propnet
                 });
                 break;
             case EntryType::Constant:
-                add_node(ConstantNode {
-                    id,
-                    entry.at(VALUE_KEY)
+                add_node(TrueNode {
+                    id
                 });
                 break;
             default:

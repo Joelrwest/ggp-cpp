@@ -56,6 +56,20 @@ namespace propnet
         private:
     };
 
+    class InputPropositionNode : public PropositionNode
+    {
+        public:
+            InputPropositionNode(std::uint32_t id, std::string_view gdl);
+            bool evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const override;
+    };
+
+    class InitialPropositionNode : public PropositionNode
+    {
+        public:
+            InitialPropositionNode(std::uint32_t id, std::string_view gdl);
+            bool evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const override;
+    };
+
     class PreTransitionNode : public Node
     {
         public:
@@ -86,12 +100,10 @@ namespace propnet
             std::vector<std::uint32_t> outs;
     };
 
-    class ConstantNode : public Node
+    class TrueNode : public Node
     {
         public:
-            ConstantNode(std::uint32_t id, bool value);
+            TrueNode(std::uint32_t id);
             bool evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const override;
-        private:
-            bool value;
     };
 };

@@ -113,9 +113,12 @@ def map_entry(entry) -> dict[str, list]:
             logging.error(f"Missed outs: {entry}")
             exit(1)
     elif type == CONSTANT:
+        if entry[1] == 0:
+            logging.error(f"Found non true constant: {entry}")
+            exit(1)
+
         extra_fields = {
             'type_name': 'CONSTANT',
-            'value': entry[1] != 0,
         }
     else:
         logging.error(f"type = {type} is unknown")
@@ -156,7 +159,10 @@ def split_transitions(entries: list[dict]) -> None:
         entries.append(post_transition)
 
 def get_max_id(entries: list[dict]) -> int:
-    return max(entry['id'] for entry in entries)
+    return max(
+        entry['id']
+        for entry in entries
+    )
 
 if __name__ == '__main__':
     main()
