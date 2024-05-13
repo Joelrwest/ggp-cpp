@@ -1,3 +1,15 @@
+"""
+Takes python variants of propositional networks and puts them into
+a json format. Furthermore, does a lot of the complex parsing/pre-processing
+that would be awful in other languages (i.e., C++).
+
+Ideas/some code largely taken from the original propositional
+network code written in Cython.
+
+Not super concerned about time complexity since this is only done once,
+so it doesn't overly matter if it takes 3s or 1h (for the current games at least).
+"""
+
 import os
 import importlib
 import json
@@ -10,6 +22,7 @@ PYTHON_FOLDER = 'python'
 JSON_FOLDER = 'json'
 LEGAL_RE = re.compile(r'\( *legal *(\w+) *(.+) *\)')
 SEES_RE = re.compile(r'\( *sees *(\w+) *(.+) *\)')
+INPUT_RE = re.compile(r'\( *does *(\w+) *(.+) *\)')
 
 def main() -> None:
     games = (
@@ -31,6 +44,24 @@ def process_game(game: str) -> None:
     split_transitions(mapped_entries)
 
     # Add more metadata to each role now that entries are mapped
+    legal_entries = [
+        entry
+        for entry in mapped_entries
+        if (
+            entry['type'] == PROPOSITION and
+            entry['proposition_type'] == legal
+        )
+    ]
+
+    input_entries = [
+        entry
+        for entry in mapped_entries
+        if (
+            entry['type'] == PROPOSITION and
+            entry['proposition_type'] == input
+        )
+    ]
+
     roles = [
         {
             'role': role,
@@ -44,13 +75,9 @@ def process_game(game: str) -> None:
                 )
             ],
             'legals': [
-                entry['id']
-                for entry in mapped_entries
-                if (
-                    entry['type'] == PROPOSITION and
-                    entry['proposition_type'] == legal and
-                    role == LEGAL_RE.search(entry['gdl']).groups()[0]
-                )
+                legal_entry['id']
+                for legal_entry in legal_entries
+                if role == LEGAL_RE.search(legal_entry['gdl']).groups()[0]
             ],
         } for role in module.roles
     ]
@@ -61,6 +88,10 @@ def process_game(game: str) -> None:
         'roles': roles,
         'entries': mapped_entries,
         'topologically_sorted': topologically_sorted,
+        'legal_to_input': {
+            legal_entry['id']: find_matching_input(legal_entry['gdl'], input_entries)
+            for legal_entry in legal_entries
+        },
     }
 
     # Check that every id is taken
@@ -176,7 +207,7 @@ def get_max_id(entries: list[dict]) -> int:
         for entry in entries
     )
 
-def topologically_sort(nodes: list[dict]):
+def topologically_sort(nodes: list[dict]) -> list[int]:
     seen = set(
         node['id']
         for node in nodes
@@ -213,6 +244,20 @@ def topologically_sort(nodes: list[dict]):
             topologically_sorted.append(id)
 
     return topologically_sorted
+
+def find_matching_input(legal_gdl: str, input_entries: list[dict]) -> int:
+    legal_match = LEGAL_RE.search(legal_gdl).groups()
+    matching_inputs = list(filter(
+        lambda input_entry: INPUT_RE.search(input_entry['gdl']).groups() == legal_match,
+        input_entries
+    ))
+
+    num_matching_inputs = len(matching_inputs)
+    if num_matching_inputs != 1:
+        logging.error(f"Expected 1 to 1 relationship between legals and inputs but had 1 to {num_matching_inputs}")
+        exit(1)
+
+    return matching_inputs[0]['id']
 
 if __name__ == '__main__':
     main()
