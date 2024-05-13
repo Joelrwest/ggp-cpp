@@ -8,3 +8,5 @@ add_subdirectory(propnet)
 
 add_executable(play play.cpp)
 target_link_libraries(play PUBLIC propnet)
+
+set(CMAKE_CXX_FLAGS_RELEASE "-O3")

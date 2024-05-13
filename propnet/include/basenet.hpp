@@ -40,11 +40,18 @@ namespace propnet
             static constexpr auto TYPE_KEY {"type"};
             static constexpr auto IN_PROPS_KEY {"in"};
             static constexpr auto INS_PROPS_KEY {"ins"};
-            static constexpr auto OUT_PROPS_KEY {"out"};
-            static constexpr auto OUTS_PROPS_KEY {"outs"};
             static constexpr auto PROP_TYPE_KEY {"proposition_type"};
             static constexpr auto GDL_KEY {"gdl"};
             static constexpr auto VALUE_KEY {"value"};
+
+            static constexpr auto INITIAL_PROP_TYPE {"init"};
+            static constexpr auto BASE_PROP_TYPE {"base"};
+            static constexpr auto INPUT_PROP_TYPE {"input"};
+            static constexpr auto LEGAL_PROP_TYPE {"legal"};
+            static constexpr auto GOAL_PROP_TYPE {"goal"};
+            static constexpr auto SEES_PROP_TYPE {"sees"};
+            static constexpr auto TERMINAL_PROP_TYPE {"terminal"};
+            static constexpr auto OTHER_PROP_TYPE {"other"};
 
             template<std::derived_from<Node> T>
             void add_node(T node)

@@ -81,15 +81,13 @@ namespace propnet
             case EntryType::And:
                 add_node(AndNode {
                     id,
-                    entry.at(INS_PROPS_KEY),
-                    entry.at(OUTS_PROPS_KEY)
+                    entry.at(INS_PROPS_KEY)
                 });
                 break;
             case EntryType::Or:
                 add_node(OrNode {
                     id,
-                    entry.at(INS_PROPS_KEY),
-                    entry.at(OUTS_PROPS_KEY)
+                    entry.at(INS_PROPS_KEY)
                 });
                 break;
             case EntryType::Proposition:
@@ -103,22 +101,19 @@ namespace propnet
             case EntryType::PreTransition:
                 add_node(PreTransitionNode {
                     id,
-                    entry.at(IN_PROPS_KEY),
-                    entry.at(OUT_PROPS_KEY)
+                    entry.at(IN_PROPS_KEY)
                 });
                 break;
             case EntryType::PostTransition:
                 add_node(PostTransitionNode {
                     id,
-                    entry.at(IN_PROPS_KEY),
-                    entry.at(OUT_PROPS_KEY)
+                    entry.at(IN_PROPS_KEY)
                 });
                 break;
             case EntryType::Not:
                 add_node(NotNode {
                     id,
-                    entry.at(IN_PROPS_KEY),
-                    entry.at(OUTS_PROPS_KEY)
+                    entry.at(IN_PROPS_KEY)
                 });
                 break;
             case EntryType::Constant:
@@ -133,51 +128,74 @@ namespace propnet
 
     void BaseNet::add_proposition(std::uint32_t id, std::string_view type, std::string&& gdl, const nlohmann::json& entry)
     {
-        /*
-        TODO: Repetitive, but it works for now at least
-
-        Must also match games/constants.py
-        */
-        if (type == "init")
+        // TODO: Repetitive, but it works for now at least
+        if (type == INITIAL_PROP_TYPE)
         {
-            // add_node(InitNode {
-            //     id,
-            //     entry.at(VALUE_KEY]
-            // });
+            add_node(InitialPropositionNode {
+                id,
+                entry.at(GDL_KEY).get<std::string>()
+            });
         }
-        else if (type == "base")
+        else if (type == BASE_PROP_TYPE)
         {
-            //
+            add_node(BasicPropositionNode {
+                id,
+                entry.at(GDL_KEY).get<std::string>(),
+                entry.at(IN_PROPS_KEY)
+            });
         }
-        else if (type == "input")
+        else if (type == INPUT_PROP_TYPE)
         {
-            //
+            add_node(InitialPropositionNode {
+                id,
+                entry.at(GDL_KEY).get<std::string>()
+            });
         }
-        else if (type == "legal")
+        else if (type == LEGAL_PROP_TYPE)
         {
-            //
+            add_node(BasicPropositionNode {
+                id,
+                entry.at(GDL_KEY).get<std::string>(),
+                entry.at(IN_PROPS_KEY)
+            });
         }
-        else if (type == "goal")
+        else if (type == GOAL_PROP_TYPE)
         {
-            //
+            add_node(BasicPropositionNode {
+                id,
+                entry.at(GDL_KEY).get<std::string>(),
+                entry.at(IN_PROPS_KEY)
+            });
         }
-        else if (type == "sees")
+        else if (type == SEES_PROP_TYPE)
         {
-            //
+            add_node(BasicPropositionNode {
+                id,
+                entry.at(GDL_KEY).get<std::string>(),
+                entry.at(IN_PROPS_KEY)
+            });
         }
-        else if (type == "terminal")
+        else if (type == TERMINAL_PROP_TYPE)
         {
             if (terminal != nullptr)
             {
                 throw ParsingError {"More than one terminal state found whilst parsing"};
             }
 
-            // terminal = std::make_unique<BasicPropositionNode>();
-            // nodes.push_back(terminal);
+            terminal = std::make_unique<BasicPropositionNode>(
+                id,
+                entry.at(GDL_KEY).get<std::string>(),
+                entry.at(IN_PROPS_KEY)
+            );
+            nodes.push_back(terminal);
         }
-        else if (type == "other")
+        else if (type == OTHER_PROP_TYPE)
         {
-            //
+            add_node(BasicPropositionNode {
+                id,
+                entry.at(GDL_KEY).get<std::string>(),
+                entry.at(IN_PROPS_KEY)
+            });
         }
         else
         {

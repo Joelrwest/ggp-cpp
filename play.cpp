@@ -5,7 +5,7 @@
 int main(void)
 {
     std::cout << "Loading basenet\n";
-    const propnet::BaseNet basenet {"scissors_paper_rock"};
+    const propnet::BaseNet basenet {"backgammon"};
 
     return 0;
 }

@@ -2,7 +2,7 @@
 
 namespace propnet
 {
-    State::State(std::size_t size) :
+    State::State(std::uint32_t size) :
         data {size}
     {}
 
