@@ -9,6 +9,8 @@ namespace propnet
     class PersistentArray
     {
         public:
+            PersistentArray(std::size_t size) {}
+
             T at(std::size_t idx) const
             {
                 return T {};

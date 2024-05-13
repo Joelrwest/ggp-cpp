@@ -17,11 +17,11 @@ namespace propnet
         outs {outs}
     {}
 
-    bool AndNode::evaluate(const PersistentArray<bool>& data) const
+    bool AndNode::evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const
     {
         for (const auto in : ins)
         {
-            if (!data.at(in))
+            if (!state.get_id(in))
             {
                 return false;
             }
@@ -35,11 +35,11 @@ namespace propnet
         outs {outs}
     {}
 
-    bool OrNode::evaluate(const PersistentArray<bool>& data) const
+    bool OrNode::evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const
     {
         for (const auto in : ins)
         {
-            if (data.at(in))
+            if (state.get_id(in))
             {
                 return true;
             }
@@ -47,10 +47,19 @@ namespace propnet
         return false;
     }
 
-    bool PropositionNode::evaluate(const PersistentArray<bool>& data) const
+    PropositionNode::PropositionNode(std::uint32_t id, std::string_view gdl) :
+        Node {id},
+        gdl {gdl}
+    {}
+
+    std::string_view PropositionNode::get_gdl() const
     {
-        // TODO
-        return false;
+        return gdl;
+    }
+
+    bool BasicPropositionNode::evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const
+    {
+        return false; // TODO
     }
 
     PreTransitionNode::PreTransitionNode(std::uint32_t id, std::uint32_t in, std::uint32_t post_id) :
@@ -59,9 +68,9 @@ namespace propnet
         post_id {post_id}
     {}
 
-    bool PreTransitionNode::evaluate(const PersistentArray<bool>& data) const
+    bool PreTransitionNode::evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const
     {
-        return data.at(0); // TODO
+        return state.get_id(0); // TODO
     }
 
     PostTransitionNode::PostTransitionNode(std::uint32_t id, std::uint32_t pre_id, std::uint32_t out) :
@@ -70,9 +79,9 @@ namespace propnet
         out {out}
     {}
 
-    bool PostTransitionNode::evaluate(const PersistentArray<bool>& data) const
+    bool PostTransitionNode::evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const
     {
-        return data.at(pre_id);
+        return state.get_id(pre_id);
     }
 
     NotNode::NotNode(std::uint32_t id, std::uint32_t in, std::vector<uint32_t> outs) :
@@ -81,9 +90,9 @@ namespace propnet
         outs {outs}
     {}
 
-    bool NotNode::evaluate(const PersistentArray<bool>& data) const
+    bool NotNode::evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const
     {
-        return !data.at(in);
+        return !state.get_id(in);
     }
 
     ConstantNode::ConstantNode(std::uint32_t id, bool value) :
@@ -91,7 +100,7 @@ namespace propnet
         value {value}
     {}
 
-    bool ConstantNode::evaluate(const PersistentArray<bool>& data) const
+    bool ConstantNode::evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const
     {
         return value;
     }

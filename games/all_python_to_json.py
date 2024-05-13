@@ -49,7 +49,7 @@ def process_game(game: str) -> None:
     with open(json_file, 'w') as file:
         file.write(json.dumps(dict, indent = 4))
 
-def map_entry(entry):
+def map_entry(entry) -> dict[str, list]:
     type = entry[2]
 
     # Repetitive, but does the job

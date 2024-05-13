@@ -2,14 +2,22 @@
 
 #include "../nodes.hpp"
 
+#include <nlohmann/json.hpp>
 #include <string_view>
 #include <vector>
 #include <memory>
 #include <string>
 #include <concepts>
+#include <stdexcept>
 
 namespace propnet
 {
+    class ParsingError : public std::runtime_error
+    {
+        public:
+            ParsingError(const char* message);
+    };
+
     /*
     Class that parses and stores the nodes to
     the propositional network.
@@ -44,9 +52,11 @@ namespace propnet
                 nodes.push_back(std::make_unique<const T>(node));
             }
 
-            void add_proposition(std::uint32_t id, std::vector<std::uint32_t> ins, std::vector<std::uint32_t> outs, std::string_view type, std::string&& gdl);
+            void add_entry(const nlohmann::json& entry);
+            void add_proposition(std::uint32_t id, std::string_view type, std::string&& gdl, const nlohmann::json& entry);
 
-            std::vector<std::string> roles;
-            std::vector<std::shared_ptr<const Node>> nodes;
+            std::vector<std::string> roles {};
+            std::vector<std::shared_ptr<const Node>> nodes {};
+            std::shared_ptr<const Node> terminal {nullptr};
     };
 };

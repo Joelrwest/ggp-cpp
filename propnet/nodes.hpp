@@ -1,10 +1,11 @@
 #pragma once
 
-#include "persistent_array.hpp"
+#include "state.hpp"
 
 #include <cstdint>
 #include <memory>
 #include <vector>
+#include <unordered_set>
 
 namespace propnet
 {
@@ -13,7 +14,7 @@ namespace propnet
         public:
             Node(std::uint32_t id);
             std::uint32_t get_id() const;
-            virtual bool evaluate(const PersistentArray<bool>& data) const = 0;
+            virtual bool evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const = 0;
         private:
             std::uint32_t id;
     };
@@ -22,7 +23,7 @@ namespace propnet
     {
         public:
             AndNode(std::uint32_t id, std::vector<std::uint32_t> ins, std::vector<std::uint32_t> outs);
-            bool evaluate(const PersistentArray<bool>& data) const override;
+            bool evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const override;
         private:
             std::vector<std::uint32_t> ins;
             std::vector<std::uint32_t> outs;
@@ -32,7 +33,7 @@ namespace propnet
     {
         public:
             OrNode(std::uint32_t id, std::vector<std::uint32_t> ins, std::vector<std::uint32_t> outs);
-            bool evaluate(const PersistentArray<bool>& data) const override;
+            bool evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const override;
         private:
             std::vector<std::uint32_t> ins;
             std::vector<std::uint32_t> outs;
@@ -41,14 +42,17 @@ namespace propnet
     class PropositionNode : public Node
     {
         public:
-            bool evaluate(const PersistentArray<bool>& data) const override;
+            PropositionNode(std::uint32_t id, std::string_view gdl);
+            std::string_view get_gdl() const;
         private:
+            std::string gdl;
     };
 
-    class PropositionNode : public Node
+    class BasicPropositionNode : public PropositionNode
     {
         public:
-            bool evaluate(const PersistentArray<bool>& data) const override;
+            BasicPropositionNode(std::uint32_t id, std::string_view gdl);
+            bool evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const override;
         private:
     };
 
@@ -56,7 +60,7 @@ namespace propnet
     {
         public:
             PreTransitionNode(std::uint32_t id, std::uint32_t in, std::uint32_t post_id);
-            bool evaluate(const PersistentArray<bool>& data) const override;
+            bool evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const override;
         private:
             std::uint32_t in;
             std::uint32_t post_id;
@@ -66,7 +70,7 @@ namespace propnet
     {
         public:
             PostTransitionNode(std::uint32_t id, std::uint32_t pre_id, std::uint32_t out);
-            bool evaluate(const PersistentArray<bool>& data) const override;
+            bool evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const override;
         private:
             std::uint32_t pre_id;
             std::uint32_t out;
@@ -76,7 +80,7 @@ namespace propnet
     {
         public:
             NotNode(std::uint32_t id, std::uint32_t in, std::vector<std::uint32_t> outs);
-            bool evaluate(const PersistentArray<bool>& data) const override;
+            bool evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const override;
         private:
             std::uint32_t in;
             std::vector<std::uint32_t> outs;
@@ -86,7 +90,7 @@ namespace propnet
     {
         public:
             ConstantNode(std::uint32_t id, bool value);
-            bool evaluate(const PersistentArray<bool>& data) const override;
+            bool evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const override;
         private:
             bool value;
     };
