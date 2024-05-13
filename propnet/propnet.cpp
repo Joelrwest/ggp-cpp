@@ -1,8 +1,9 @@
-#include "propnet/include/propnet.hpp"
+#include "include/propnet.hpp"
 
 namespace propnet
 {
     Propnet::Propnet(const BaseNet& basenet) :
-        basenet {basenet}
+        basenet {basenet},
+        state {basenet.num_nodes()}
     {}
 };

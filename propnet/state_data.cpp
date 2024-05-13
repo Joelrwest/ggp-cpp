@@ -2,12 +2,28 @@
 
 namespace propnet
 {
-    StateDataNode::StateDataNode(std::uint32_t size) :
-        id {size / 2},
+    StateDataNode::StateDataNode(std::uint32_t id_lo, std::uint32_t id_hi) :
+        id {(id_lo + id_hi) / 2},
         generation {0},
-        left {construct_default_node(id - 1)},
-        right {construct_default_node(size - id - 1)},
+        left {construct_starting_node(id_lo, id)},
+        right {construct_starting_node(id == MAX_ID ? MAX_ID : id + 1, id_hi)},
         value {DEFAULT_VALUE}
+    {}
+
+    StateDataNode::StateDataNode(const StateDataNode& other, std::uint32_t generation, bool value) :
+        id {other.id},
+        generation {generation},
+        left {other.left},
+        right {other.right},
+        value {value}
+    {}
+
+    StateDataNode::StateDataNode(const StateDataNode& other, std::uint32_t generation, std::shared_ptr<StateDataNode> left, std::shared_ptr<StateDataNode> right) :
+        id {other.id},
+        generation {generation},
+        left {left},
+        right {right},
+        value {other.value}
     {}
 
     bool StateDataNode::get(std::uint32_t getting_id) const
@@ -33,50 +49,37 @@ namespace propnet
 
     std::shared_ptr<StateDataNode> StateDataNode::update(std::uint32_t updating_id, std::uint32_t new_generation, bool new_value)
     {
+        /*
+        TODO: This could probs be more efficient with less copies
+        but sack at the moment at least.
+
+        Same logic for not checking whilst dereferencing
+        in get applies here too
+        */
         if (updating_id == id)
         {
-            if (new_generation != generation)
-            {
-                // Create a new node to return
-            }
+            return std::make_shared<StateDataNode>(*this, new_generation, new_value);
         }
         else if (updating_id < id) {
-            // //
-            // new = self.left.update(i, start, mid, id, value)
-            // if self.id == id:
-            //     self.left = new
-            //     return self
-            // else:
-            //     me = TreeNode(start, end, id, create=False)
-            //     me.left = new
-            //     me.right = self.right
-            //     return me
+            const auto new_left {left->update(updating_id, new_generation, new_value)};
+            return std::make_shared<StateDataNode>(*this, new_generation, new_left, right);
         }
         else
         {
-            // //
-            // new = self.right.update(i, mid, end, id, value)
-            // if self.id == id:
-            //     self.right = new
-            //     return self
-            // else:
-            //     me = TreeNode(start, end, id, create=False)
-            //     me.left = self.left
-            //     me.right = new
-            //     return me
+            const auto new_right {right->update(updating_id, new_generation, new_value)};
+            return std::make_shared<StateDataNode>(*this, new_generation, left, new_right);
         }
-        return nullptr;
     }
 
-    std::shared_ptr<StateDataNode> StateDataNode::construct_default_node(std::uint32_t size)
+    std::shared_ptr<StateDataNode> StateDataNode::construct_starting_node(std::uint32_t id_lo, std::uint32_t id_hi)
     {
-        return size == 0 ? nullptr : std::make_unique<StateDataNode>(size);
+        return id_lo >= id_hi ? nullptr : std::make_unique<StateDataNode>(id_lo, id_hi);
     }
 
     StateData::StateData(std::uint32_t size) :
         size {size},
         generation {0},
-        root {size == 0 ? nullptr : std::make_unique<StateDataNode>(size)}
+        root {size == 0 ? nullptr : std::make_unique<StateDataNode>(0, size)}
     {}
 
     StateData::StateData(const StateData& other) :
@@ -95,7 +98,7 @@ namespace propnet
         return root->get(getting_id);
     }
 
-    StateData StateData::update(std::uint32_t updating_id, bool new_value)
+    void StateData::update(std::uint32_t updating_id, bool new_value)
     {
         if (updating_id >= size)
         {

@@ -30,6 +30,8 @@ namespace propnet
     {
         public:
             BaseNet(std::string_view game);
+
+            std::uint32_t num_nodes() const;
         private:
             static constexpr auto GAMES_PATH {"games/json/"};
             static constexpr auto JSON_EXTENSION {"json"};

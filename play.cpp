@@ -1,11 +1,39 @@
 #include "propnet/include/basenet.hpp"
+#include "propnet/include/propnet.hpp"
 
 #include <iostream>
 
+propnet::BaseNet load_basenet();
+
 int main(void)
 {
-    std::cout << "Loading basenet\n";
-    const propnet::BaseNet basenet {"backgammon"};
+    const propnet::BaseNet basenet {load_basenet()};
+    std::cout << "Basenet loaded\n";
+
+    std::cout << "Loading propnet\n";
+    propnet::Propnet {basenet};
+    std::cout << "Propnet loaded\n";
 
     return 0;
+}
+
+propnet::BaseNet load_basenet()
+{
+    while (true)
+    {
+        std::string game;
+        try
+        {
+            std::cout << "Enter game name (spelt same as json): ";
+            std::cin >> game;
+
+            std::cout << "Loading basenet\n";
+            return propnet::BaseNet {game};
+        }
+        catch (const propnet::ParsingError error)
+        {
+            std::cout << "Error occurred whilst trying to parse " << game << ": " << error.what() << '\n';
+            std::cout << "Please try again.\n";
+        }
+    }
 }

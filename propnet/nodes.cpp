@@ -91,7 +91,7 @@ namespace propnet
 
     bool PreTransitionNode::evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const
     {
-        return state.get_proposition(0); // TODO
+        return state.get_proposition(in);
     }
 
     PostTransitionNode::PostTransitionNode(std::uint32_t id, std::uint32_t pre_id) :

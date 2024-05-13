@@ -4,8 +4,6 @@
 #include <filesystem>
 #include <fstream>
 
-#include <iostream> // TODO: Remove
-
 namespace propnet
 {
     /*
@@ -64,12 +62,16 @@ namespace propnet
             {
                 add_entry(entry);
             }
-            std::cout << nodes.size() << '\n';
         }
         catch (const nlohmann::json::exception& error)
         {
             throw ParsingError {error.what()};
         }
+    }
+
+    std::uint32_t BaseNet::num_nodes() const
+    {
+        return nodes.size();
     }
 
     void BaseNet::add_entry(const nlohmann::json& entry)
