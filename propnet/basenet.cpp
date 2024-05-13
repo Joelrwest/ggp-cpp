@@ -70,13 +70,14 @@ namespace propnet
             {
                 add_entry(entry);
             }
+
+            topologically_sorted_nodes = game_json.at(TOPOLOGICALLY_SORTED_KEY).get<std::vector<std::uint32_t>>();
         }
         catch (const nlohmann::json::exception& error)
         {
             throw ParsingError {error.what()};
         }
 
-        add_remaining_topologically_sorted_nodes();
 
         if (terminal == nullptr)
         {
@@ -223,53 +224,6 @@ namespace propnet
         else
         {
             throw ParsingError {"Got unknown proposition type"};
-        }
-    }
-
-    /*
-    Intended to be called once at the end of the constructor to
-    add the remaining nodes.
-
-    Essentially copy-pasted from the original propnet code.
-    */
-    void BaseNet::add_remaining_topologically_sorted_nodes()
-    {
-        std::unordered_set<std::uint32_t> seen {
-            topologically_sorted_nodes.begin(),
-            topologically_sorted_nodes.end()
-        };
-
-        std::stack<std::pair<std::uint32_t, bool>> stack {};
-        for (const auto& node : topologically_sorted_nodes)
-        {
-            stack.emplace(node, false);
-        }
-
-        while (!stack.empty())
-        {
-            const auto [node, is_done] {stack.top()};
-            stack.pop();
-            if (!is_done)
-            {
-                if (seen.contains(node))
-                {
-                    continue;
-                }
-
-                seen.insert(node);
-                stack.emplace(node, true);
-                for (const auto in : nodes.at(node)->get_ins())
-                {
-                    if (!seen.contains(in))
-                    {
-                        stack.emplace(in, false);
-                    }
-                }
-            }
-            else
-            {
-                topologically_sorted_nodes.push_back(node);
-            }
         }
     }
 };

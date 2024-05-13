@@ -43,9 +43,12 @@ def process_game(game: str) -> None:
         } for role in module.roles
     ]
 
+    topologically_sorted = topologically_sort(mapped_entries)
+
     dict = {
         'roles': roles,
         'entries': mapped_entries,
+        'topologically_sorted': topologically_sorted,
     }
 
     # Check that every id is taken
@@ -160,6 +163,44 @@ def get_max_id(entries: list[dict]) -> int:
         entry['id']
         for entry in entries
     )
+
+def topologically_sort(nodes: list[dict]):
+    seen = set(
+        node['id']
+        for node in nodes
+        if node['type'] == POST_TRANSITION
+    )
+    topologically_sorted = list(seen)
+
+    stack = [
+        (node['id'], False)
+        for node in nodes
+        if node['id'] not in seen
+    ]
+    while stack:
+        id, is_done = stack.pop()
+        if not is_done:
+            if id in seen:
+                continue
+
+            seen.add(id)
+            stack.append((id, True))
+
+            node = nodes[id]
+            if 'in' in node:
+                ins = [node['in']]
+            elif 'ins' in node:
+                ins = node['ins']
+            else:
+                ins = []
+
+            for parent_id in ins:
+                if parent_id not in seen:
+                    stack.append((parent_id, False))
+        else:
+            topologically_sorted.append(id)
+
+    return topologically_sorted
 
 if __name__ == '__main__':
     main()

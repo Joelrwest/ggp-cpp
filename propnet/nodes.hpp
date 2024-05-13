@@ -16,14 +16,6 @@ namespace propnet
 
             std::uint32_t get_id() const;
             virtual bool evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const = 0;
-            /*
-            Not intended for performance critical sections
-            since there's a copy (since we can't return a reference because
-            some nodes don't actually have inputs).
-
-            Essentially only a hacky way to do topological sort.
-            */
-            virtual std::vector<std::uint32_t> get_ins() const = 0;
         private:
             std::uint32_t id;
     };
@@ -34,7 +26,6 @@ namespace propnet
             AndNode(std::uint32_t id, std::vector<std::uint32_t> ins);
 
             bool evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const override;
-            std::vector<std::uint32_t> get_ins() const override;
         private:
             std::vector<std::uint32_t> ins;
     };
@@ -45,7 +36,6 @@ namespace propnet
             OrNode(std::uint32_t id, std::vector<std::uint32_t> ins);
 
             bool evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const override;
-            std::vector<std::uint32_t> get_ins() const override;
         private:
             std::vector<std::uint32_t> ins;
     };
@@ -66,7 +56,6 @@ namespace propnet
             BasicPropositionNode(std::uint32_t id, std::string_view gdl, std::uint32_t in);
 
             bool evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const override;
-            std::vector<std::uint32_t> get_ins() const override;
         private:
             std::uint32_t in;
     };
@@ -76,7 +65,6 @@ namespace propnet
         public:
             InputPropositionNode(std::uint32_t id, std::string_view gdl);
             bool evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const override;
-            std::vector<std::uint32_t> get_ins() const override;
     };
 
     class InitialPropositionNode : public PropositionNode
@@ -84,7 +72,6 @@ namespace propnet
         public:
             InitialPropositionNode(std::uint32_t id, std::string_view gdl);
             bool evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const override;
-            std::vector<std::uint32_t> get_ins() const override;
     };
 
     class PreTransitionNode : public Node
@@ -93,7 +80,6 @@ namespace propnet
             PreTransitionNode(std::uint32_t id, std::uint32_t in);
 
             bool evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const override;
-            std::vector<std::uint32_t> get_ins() const override;
         private:
             std::uint32_t in;
     };
@@ -104,7 +90,6 @@ namespace propnet
             PostTransitionNode(std::uint32_t id, std::uint32_t pre_id);
 
             bool evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const override;
-            std::vector<std::uint32_t> get_ins() const override;
         private:
             std::uint32_t pre_id;
     };
@@ -115,7 +100,6 @@ namespace propnet
             NotNode(std::uint32_t id, std::uint32_t in);
 
             bool evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const override;
-            std::vector<std::uint32_t> get_ins() const override;
         private:
             std::uint32_t in;
     };
@@ -126,6 +110,5 @@ namespace propnet
             TrueNode(std::uint32_t id);
 
             bool evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const override;
-            std::vector<std::uint32_t> get_ins() const override;
     };
 };
