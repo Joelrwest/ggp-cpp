@@ -60,22 +60,14 @@ def map_entry(entry) -> dict[str, list]:
             logging.error(f"For proposition of id = {id}, num_ins = {num_ins}")
             exit(1)
 
-        outs = entry[4]
-        num_outs = len(outs)
-        if num_outs != 1:
-            logging.error(f"For proposition of id = {id}, num_outs = {num_outs}")
-            exit(1)
-
         extra_fields = {
             'type_name': 'TRANSITION',
             'in': ins[0],
-            'out': outs[0],
         }
     elif type in (AND, OR):
         extra_fields = {
             'type_name': 'AND' if type == AND else 'OR',
             'ins': entry[3],
-            'outs': entry[4],
         }
     elif type == NOT:
         ins = entry[3]
@@ -87,7 +79,6 @@ def map_entry(entry) -> dict[str, list]:
         extra_fields = {
             'type_name': 'NOT',
             'in': ins[0],
-            'outs': entry[4],
         }
     elif type == PROPOSITION:
         extra_fields = {
@@ -104,13 +95,6 @@ def map_entry(entry) -> dict[str, list]:
             extra_fields['in'] = ins[0]
         elif ins:
             logging.error(f"Missed ins: {entry}")
-            exit(1)
-
-        outs = entry[4]
-        if extra_fields['proposition_type'] not in (goal, sees):
-            extra_fields['outs'] = outs
-        elif outs:
-            logging.error(f"Missed outs: {entry}")
             exit(1)
     elif type == CONSTANT:
         if entry[1] == 0:
@@ -137,24 +121,21 @@ def split_transitions(entries: list[dict]) -> None:
             'type': POST_TRANSITION,
             'type_name': 'POST TRANSITION',
             'in': pre_transition['id'],
-            'out': pre_transition['out']
         }
 
-        out = post_transition['out']
-        if 'in' in entries[out]:
-            entries[out]['in'] = post_transition['id']
-        elif 'ins' in entries[out]:
-            entries[out]['ins'] = [
-                id if id != pre_transition['id'] else post_transition['id']
-                for id in entries[out]['ins']
-            ]
-        else:
-            logging.error('Tried to fix nodes outs where it wasn\'t present')
-            exit(1)
+        for entry in entries:
+            if 'in' in entry:
+                if pre_transition['id'] == entry['in']:
+                    entry['in'] = post_transition['id']
+            elif 'ins' in entry:
+                if pre_transition['id'] in entry['ins']:
+                    entry['ins'] = [
+                        id if id != pre_transition['id'] else post_transition['id']
+                        for id in entry['ins']
+                    ]
 
         pre_transition['type'] = PRE_TRANSITION
         pre_transition['type_name'] = 'PRE TRANSITION'
-        pre_transition['out'] = post_transition['id']
 
         entries.append(post_transition)
 

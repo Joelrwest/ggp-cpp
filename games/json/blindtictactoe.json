@@ -11,27 +11,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 2 b ) )",
-            "in": 594,
-            "outs": [
-                452,
-                144,
-                354,
-                160,
-                85,
-                87,
-                413,
-                77,
-                10,
-                526,
-                52,
-                567,
-                480,
-                113,
-                430,
-                96,
-                198,
-                98
-            ]
+            "in": 594
         },
         {
             "id": 1,
@@ -39,15 +19,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next_tmp5 3 )",
-            "in": 460,
-            "outs": [
-                420,
-                305,
-                535,
-                145,
-                121,
-                480
-            ]
+            "in": 460
         },
         {
             "id": 2,
@@ -55,10 +27,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 3 2 )",
-            "in": 542,
-            "outs": [
-                154
-            ]
+            "in": 542
         },
         {
             "id": 3,
@@ -66,11 +35,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( sees_tmp3 1 o )",
-            "in": 11,
-            "outs": [
-                220,
-                523
-            ]
+            "in": 11
         },
         {
             "id": 4,
@@ -79,9 +44,6 @@
             "ins": [
                 57,
                 301
-            ],
-            "outs": [
-                442
             ]
         },
         {
@@ -92,9 +54,6 @@
                 426,
                 192,
                 236
-            ],
-            "outs": [
-                437
             ]
         },
         {
@@ -104,9 +63,6 @@
             "ins": [
                 189,
                 171
-            ],
-            "outs": [
-                39
             ]
         },
         {
@@ -115,27 +71,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 3 b ) )",
-            "in": 576,
-            "outs": [
-                505,
-                282,
-                120,
-                421,
-                126,
-                206,
-                475,
-                168,
-                8,
-                305,
-                413,
-                415,
-                197,
-                312,
-                136,
-                175,
-                313,
-                218
-            ]
+            "in": 576
         },
         {
             "id": 8,
@@ -145,9 +81,6 @@
                 7,
                 260,
                 528
-            ],
-            "outs": [
-                45
             ]
         },
         {
@@ -157,9 +90,6 @@
             "ins": [
                 150,
                 171
-            ],
-            "outs": [
-                146
             ]
         },
         {
@@ -169,9 +99,6 @@
             "ins": [
                 0,
                 268
-            ],
-            "outs": [
-                442
             ]
         },
         {
@@ -182,9 +109,6 @@
                 40,
                 551,
                 18
-            ],
-            "outs": [
-                3
             ]
         },
         {
@@ -194,9 +118,6 @@
             "ins": [
                 244,
                 196
-            ],
-            "outs": [
-                102
             ]
         },
         {
@@ -206,9 +127,6 @@
             "ins": [
                 41,
                 123
-            ],
-            "outs": [
-                330
             ]
         },
         {
@@ -217,36 +135,13 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 3 b ) )",
-            "in": 575,
-            "outs": [
-                224,
-                226,
-                516,
-                205,
-                167,
-                413,
-                310,
-                210,
-                495,
-                540,
-                278,
-                371,
-                446,
-                543,
-                499,
-                156,
-                115,
-                240
-            ]
+            "in": 575
         },
         {
             "id": 15,
             "type": 5,
             "type_name": "NOT",
-            "in": 530,
-            "outs": [
-                249
-            ]
+            "in": 530
         },
         {
             "id": 16,
@@ -254,11 +149,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried x 1 2 ) )",
-            "in": 590,
-            "outs": [
-                67,
-                208
-            ]
+            "in": 590
         },
         {
             "id": 17,
@@ -267,9 +158,6 @@
             "ins": [
                 406,
                 229
-            ],
-            "outs": [
-                102
             ]
         },
         {
@@ -279,9 +167,6 @@
             "ins": [
                 41,
                 455
-            ],
-            "outs": [
-                11
             ]
         },
         {
@@ -295,17 +180,13 @@
                 528,
                 57,
                 268
-            ],
-            "outs": [
-                196
             ]
         },
         {
             "id": 20,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 560,
-            "out": 574
+            "in": 560
         },
         {
             "id": 21,
@@ -313,10 +194,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( column 1 o )",
-            "in": 461,
-            "outs": [
-                321
-            ]
+            "in": 461
         },
         {
             "id": 22,
@@ -324,11 +202,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried o 2 1 ) )",
-            "in": 580,
-            "outs": [
-                507,
-                501
-            ]
+            "in": 580
         },
         {
             "id": 23,
@@ -336,15 +210,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( line o )",
-            "in": 321,
-            "outs": [
-                502,
-                478,
-                263,
-                358,
-                388,
-                336
-            ]
+            "in": 321
         },
         {
             "id": 24,
@@ -353,9 +219,6 @@
             "ins": [
                 502,
                 459
-            ],
-            "outs": [
-                106
             ]
         },
         {
@@ -365,9 +228,6 @@
             "ins": [
                 236,
                 73
-            ],
-            "outs": [
-                333
             ]
         },
         {
@@ -377,9 +237,6 @@
             "ins": [
                 317,
                 84
-            ],
-            "outs": [
-                189
             ]
         },
         {
@@ -389,9 +246,6 @@
             "ins": [
                 62,
                 228
-            ],
-            "outs": [
-                487
             ]
         },
         {
@@ -412,9 +266,6 @@
                 256,
                 376,
                 242
-            ],
-            "outs": [
-                29
             ]
         },
         {
@@ -429,8 +280,7 @@
             "id": 30,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 265,
-            "out": 575
+            "in": 265
         },
         {
             "id": 31,
@@ -440,19 +290,13 @@
                 140,
                 526,
                 344
-            ],
-            "outs": [
-                472
             ]
         },
         {
             "id": 32,
             "type": 5,
             "type_name": "NOT",
-            "in": 111,
-            "outs": [
-                120
-            ]
+            "in": 111
         },
         {
             "id": 33,
@@ -461,9 +305,6 @@
             "ins": [
                 82,
                 268
-            ],
-            "outs": [
-                428
             ]
         },
         {
@@ -472,12 +313,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 2 x ) )",
-            "in": 599,
-            "outs": [
-                549,
-                193,
-                122
-            ]
+            "in": 599
         },
         {
             "id": 35,
@@ -485,17 +321,13 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( row 1 x )",
-            "in": 549,
-            "outs": [
-                78
-            ]
+            "in": 549
         },
         {
             "id": 36,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 72,
-            "out": 576
+            "in": 72
         },
         {
             "id": 37,
@@ -504,9 +336,6 @@
             "ins": [
                 153,
                 71
-            ],
-            "outs": [
-                339
             ]
         },
         {
@@ -516,17 +345,13 @@
             "ins": [
                 131,
                 196
-            ],
-            "outs": [
-                102
             ]
         },
         {
             "id": 39,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 6,
-            "out": 577
+            "in": 6
         },
         {
             "id": 40,
@@ -535,9 +360,6 @@
             "ins": [
                 57,
                 301
-            ],
-            "outs": [
-                11
             ]
         },
         {
@@ -545,24 +367,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does o ( mark 2 1 ) )",
-            "outs": [
-                55,
-                391,
-                227,
-                535,
-                356,
-                422,
-                164,
-                47,
-                75,
-                507,
-                364,
-                13,
-                18,
-                68,
-                467
-            ]
+            "gdl": "( does o ( mark 2 1 ) )"
         },
         {
             "id": 42,
@@ -571,9 +376,6 @@
             "ins": [
                 185,
                 301
-            ],
-            "outs": [
-                130
             ]
         },
         {
@@ -582,8 +384,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal random ( tiebreak x ) )",
-            "in": 349,
-            "outs": []
+            "in": 349
         },
         {
             "id": 44,
@@ -593,9 +394,6 @@
                 425,
                 316,
                 173
-            ],
-            "outs": [
-                202
             ]
         },
         {
@@ -609,9 +407,6 @@
                 197,
                 312,
                 362
-            ],
-            "outs": [
-                212
             ]
         },
         {
@@ -623,9 +418,6 @@
                 525,
                 173,
                 531
-            ],
-            "outs": [
-                351
             ]
         },
         {
@@ -635,9 +427,6 @@
             "ins": [
                 41,
                 455
-            ],
-            "outs": [
-                162
             ]
         },
         {
@@ -646,10 +435,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 3 1 o ) )",
-            "in": 437,
-            "outs": [
-                479
-            ]
+            "in": 437
         },
         {
             "id": 49,
@@ -657,13 +443,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 3 o ) )",
-            "in": 608,
-            "outs": [
-                445,
-                410,
-                458,
-                347
-            ]
+            "in": 608
         },
         {
             "id": 50,
@@ -671,12 +451,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 3 o ) )",
-            "in": 611,
-            "outs": [
-                445,
-                360,
-                186
-            ]
+            "in": 611
         },
         {
             "id": 51,
@@ -684,10 +459,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 1 2 x ) )",
-            "in": 193,
-            "outs": [
-                295
-            ]
+            "in": 193
         },
         {
             "id": 52,
@@ -698,9 +470,6 @@
                 525,
                 0,
                 268
-            ],
-            "outs": [
-                414
             ]
         },
         {
@@ -709,10 +478,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 2 3 )",
-            "in": 327,
-            "outs": [
-                317
-            ]
+            "in": 327
         },
         {
             "id": 54,
@@ -725,9 +491,6 @@
                 454,
                 372,
                 456
-            ],
-            "outs": [
-                560
             ]
         },
         {
@@ -738,41 +501,20 @@
                 426,
                 41,
                 455
-            ],
-            "outs": [
-                473
             ]
         },
         {
             "id": 56,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 547,
-            "out": 578
+            "in": 547
         },
         {
             "id": 57,
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does o ( mark 1 1 ) )",
-            "outs": [
-                180,
-                40,
-                145,
-                164,
-                323,
-                361,
-                4,
-                559,
-                290,
-                364,
-                19,
-                373,
-                431,
-                448,
-                139
-            ]
+            "gdl": "( does o ( mark 1 1 ) )"
         },
         {
             "id": 58,
@@ -781,9 +523,6 @@
             "ins": [
                 84,
                 137
-            ],
-            "outs": [
-                442
             ]
         },
         {
@@ -794,9 +533,6 @@
                 84,
                 137,
                 105
-            ],
-            "outs": [
-                186
             ]
         },
         {
@@ -805,10 +541,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( row 1 o )",
-            "in": 458,
-            "outs": [
-                321
-            ]
+            "in": 458
         },
         {
             "id": 61,
@@ -816,34 +549,14 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 3 3 x ) )",
-            "in": 80,
-            "outs": [
-                493
-            ]
+            "in": 80
         },
         {
             "id": 62,
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does o ( mark 2 2 ) )",
-            "outs": [
-                450,
-                420,
-                435,
-                319,
-                183,
-                101,
-                27,
-                422,
-                288,
-                75,
-                128,
-                273,
-                344,
-                176,
-                258
-            ]
+            "gdl": "( does o ( mark 2 2 ) )"
         },
         {
             "id": 63,
@@ -853,9 +566,6 @@
                 426,
                 84,
                 137
-            ],
-            "outs": [
-                186
             ]
         },
         {
@@ -864,14 +574,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 2 x ) )",
-            "in": 589,
-            "outs": [
-                538,
-                122,
-                255,
-                147,
-                375
-            ]
+            "in": 589
         },
         {
             "id": 65,
@@ -879,10 +582,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried o 3 1 ) )",
-            "in": 169,
-            "outs": [
-                303
-            ]
+            "in": 169
         },
         {
             "id": 66,
@@ -892,9 +592,6 @@
                 324,
                 93,
                 238
-            ],
-            "outs": [
-                375
             ]
         },
         {
@@ -904,9 +601,6 @@
             "ins": [
                 82,
                 16
-            ],
-            "outs": [
-                314
             ]
         },
         {
@@ -918,9 +612,6 @@
                 525,
                 455,
                 123
-            ],
-            "outs": [
-                473
             ]
         },
         {
@@ -931,9 +622,6 @@
                 324,
                 425,
                 238
-            ],
-            "outs": [
-                375
             ]
         },
         {
@@ -942,10 +630,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 2 2 o ) )",
-            "in": 83,
-            "outs": [
-                300
-            ]
+            "in": 83
         },
         {
             "id": 71,
@@ -953,11 +638,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried x 1 1 ) )",
-            "in": 582,
-            "outs": [
-                494,
-                37
-            ]
+            "in": 582
         },
         {
             "id": 72,
@@ -966,9 +647,6 @@
             "ins": [
                 171,
                 219
-            ],
-            "outs": [
-                36
             ]
         },
         {
@@ -976,24 +654,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does x ( mark 3 1 ) )",
-            "outs": [
-                25,
-                512,
-                454,
-                104,
-                164,
-                456,
-                304,
-                88,
-                460,
-                271,
-                363,
-                251,
-                565,
-                254,
-                544
-            ]
+            "gdl": "( does x ( mark 3 1 ) )"
         },
         {
             "id": 74,
@@ -1002,9 +663,6 @@
             "ins": [
                 515,
                 171
-            ],
-            "outs": [
-                152
             ]
         },
         {
@@ -1015,9 +673,6 @@
                 62,
                 41,
                 137
-            ],
-            "outs": [
-                315
             ]
         },
         {
@@ -1036,9 +691,6 @@
                 82,
                 315,
                 0
-            ],
-            "outs": [
-                193
             ]
         },
         {
@@ -1053,17 +705,13 @@
                 398,
                 488,
                 546
-            ],
-            "outs": [
-                459
             ]
         },
         {
             "id": 79,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 291,
-            "out": 579
+            "in": 291
         },
         {
             "id": 80,
@@ -1076,9 +724,6 @@
                 499,
                 296,
                 205
-            ],
-            "outs": [
-                61
             ]
         },
         {
@@ -1087,35 +732,14 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried x 2 2 ) )",
-            "in": 593,
-            "outs": [
-                477,
-                396
-            ]
+            "in": 593
         },
         {
             "id": 82,
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does x ( mark 1 2 ) )",
-            "outs": [
-                144,
-                160,
-                85,
-                101,
-                87,
-                77,
-                274,
-                33,
-                67,
-                52,
-                19,
-                113,
-                430,
-                198,
-                399
-            ]
+            "gdl": "( does x ( mark 1 2 ) )"
         },
         {
             "id": 83,
@@ -1128,9 +752,6 @@
                 288,
                 258,
                 166
-            ],
-            "outs": [
-                70
             ]
         },
         {
@@ -1139,27 +760,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 3 b ) )",
-            "in": 577,
-            "outs": [
-                401,
-                402,
-                405,
-                245,
-                262,
-                58,
-                26,
-                121,
-                59,
-                476,
-                63,
-                413,
-                275,
-                293,
-                496,
-                389,
-                177,
-                280
-            ]
+            "in": 577
         },
         {
             "id": 85,
@@ -1168,9 +769,6 @@
             "ins": [
                 82,
                 0
-            ],
-            "outs": [
-                259
             ]
         },
         {
@@ -1179,10 +777,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried x 2 2 ) )",
-            "in": 477,
-            "outs": [
-                239
-            ]
+            "in": 477
         },
         {
             "id": 87,
@@ -1192,9 +787,6 @@
                 82,
                 0,
                 93
-            ],
-            "outs": [
-                193
             ]
         },
         {
@@ -1204,24 +796,19 @@
             "ins": [
                 236,
                 73
-            ],
-            "outs": [
-                252
             ]
         },
         {
             "id": 89,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 379,
-            "out": 580
+            "in": 379
         },
         {
             "id": 90,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 487,
-            "out": 581
+            "in": 487
         },
         {
             "id": 91,
@@ -1229,12 +816,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 2 x ) )",
-            "in": 591,
-            "outs": [
-                202,
-                367,
-                122
-            ]
+            "in": 591
         },
         {
             "id": 92,
@@ -1242,11 +824,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried x 2 3 ) )",
-            "in": 617,
-            "outs": [
-                519,
-                443
-            ]
+            "in": 617
         },
         {
             "id": 93,
@@ -1254,15 +832,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next_tmp3 3 )",
-            "in": 204,
-            "outs": [
-                565,
-                465,
-                66,
-                417,
-                87,
-                97
-            ]
+            "in": 204
         },
         {
             "id": 94,
@@ -1272,9 +842,6 @@
                 315,
                 316,
                 173
-            ],
-            "outs": [
-                202
             ]
         },
         {
@@ -1283,8 +850,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "terminal",
             "gdl": "terminal",
-            "in": 478,
-            "outs": []
+            "in": 478
         },
         {
             "id": 96,
@@ -1293,9 +859,6 @@
             "ins": [
                 403,
                 0
-            ],
-            "outs": [
-                557
             ]
         },
         {
@@ -1306,9 +869,6 @@
                 153,
                 93,
                 301
-            ],
-            "outs": [
-                436
             ]
         },
         {
@@ -1319,9 +879,6 @@
                 404,
                 0,
                 268
-            ],
-            "outs": [
-                414
             ]
         },
         {
@@ -1330,10 +887,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 2 3 o ) )",
-            "in": 186,
-            "outs": [
-                490
-            ]
+            "in": 186
         },
         {
             "id": 100,
@@ -1341,11 +895,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( sees_tmp3 3 x )",
-            "in": 108,
-            "outs": [
-                286,
-                486
-            ]
+            "in": 108
         },
         {
             "id": 101,
@@ -1358,9 +908,6 @@
                 173,
                 268,
                 531
-            ],
-            "outs": [
-                451
             ]
         },
         {
@@ -1381,19 +928,13 @@
                 257,
                 216,
                 38
-            ],
-            "outs": [
-                76
             ]
         },
         {
             "id": 103,
             "type": 5,
             "type_name": "NOT",
-            "in": 340,
-            "outs": [
-                573
-            ]
+            "in": 340
         },
         {
             "id": 104,
@@ -1403,9 +944,6 @@
                 153,
                 123,
                 73
-            ],
-            "outs": [
-                233
             ]
         },
         {
@@ -1414,15 +952,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next_tmp5 1 )",
-            "in": 274,
-            "outs": [
-                227,
-                310,
-                183,
-                59,
-                302,
-                165
-            ]
+            "in": 274
         },
         {
             "id": 106,
@@ -1439,9 +969,6 @@
             "ins": [
                 455,
                 123
-            ],
-            "outs": [
-                397
             ]
         },
         {
@@ -1452,9 +979,6 @@
                 136,
                 446,
                 280
-            ],
-            "outs": [
-                100
             ]
         },
         {
@@ -1463,20 +987,13 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 3 o ) )",
-            "in": 615,
-            "outs": [
-                462,
-                536,
-                357,
-                445
-            ]
+            "in": 615
         },
         {
             "id": 110,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 339,
-            "out": 582
+            "in": 339
         },
         {
             "id": 111,
@@ -1484,10 +1001,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 1 3 )",
-            "in": 135,
-            "outs": [
-                32
-            ]
+            "in": 135
         },
         {
             "id": 112,
@@ -1495,10 +1009,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( row 2 o )",
-            "in": 360,
-            "outs": [
-                321
-            ]
+            "in": 360
         },
         {
             "id": 113,
@@ -1509,9 +1020,6 @@
                 0,
                 268,
                 518
-            ],
-            "outs": [
-                193
             ]
         },
         {
@@ -1522,9 +1030,6 @@
                 482,
                 123,
                 455
-            ],
-            "outs": [
-                522
             ]
         },
         {
@@ -1534,17 +1039,13 @@
             "ins": [
                 14,
                 207
-            ],
-            "outs": [
-                383
             ]
         },
         {
             "id": 116,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 381,
-            "out": 583
+            "in": 381
         },
         {
             "id": 117,
@@ -1553,9 +1054,6 @@
             "ins": [
                 171,
                 557
-            ],
-            "outs": [
-                241
             ]
         },
         {
@@ -1564,13 +1062,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 1 o ) )",
-            "in": 610,
-            "outs": [
-                462,
-                437,
-                410,
-                461
-            ]
+            "in": 610
         },
         {
             "id": 119,
@@ -1578,10 +1070,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( column 3 x )",
-            "in": 444,
-            "outs": [
-                78
-            ]
+            "in": 444
         },
         {
             "id": 120,
@@ -1590,9 +1079,6 @@
             "ins": [
                 7,
                 32
-            ],
-            "outs": [
-                219
             ]
         },
         {
@@ -1603,9 +1089,6 @@
                 84,
                 1,
                 137
-            ],
-            "outs": [
-                186
             ]
         },
         {
@@ -1616,9 +1099,6 @@
                 64,
                 34,
                 91
-            ],
-            "outs": [
-                488
             ]
         },
         {
@@ -1626,24 +1106,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does x ( mark 2 1 ) )",
-            "outs": [
-                503,
-                161,
-                267,
-                422,
-                104,
-                164,
-                289,
-                107,
-                231,
-                365,
-                13,
-                465,
-                68,
-                114,
-                467
-            ]
+            "gdl": "( does x ( mark 2 1 ) )"
         },
         {
             "id": 124,
@@ -1651,11 +1114,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried x 1 3 ) )",
-            "in": 596,
-            "outs": [
-                504,
-                457
-            ]
+            "in": 596
         },
         {
             "id": 125,
@@ -1664,9 +1123,6 @@
             "ins": [
                 153,
                 301
-            ],
-            "outs": [
-                397
             ]
         },
         {
@@ -1676,9 +1132,6 @@
             "ins": [
                 7,
                 500
-            ],
-            "outs": [
-                190
             ]
         },
         {
@@ -1688,9 +1141,6 @@
             "ins": [
                 380,
                 229
-            ],
-            "outs": [
-                28
             ]
         },
         {
@@ -1700,9 +1150,6 @@
             "ins": [
                 62,
                 238
-            ],
-            "outs": [
-                162
             ]
         },
         {
@@ -1711,13 +1158,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( sees_tmp9 1 )",
-            "in": 164,
-            "outs": [
-                133,
-                553,
-                486,
-                216
-            ]
+            "in": 164
         },
         {
             "id": 130,
@@ -1725,10 +1166,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 1 1 b ) )",
-            "in": 42,
-            "outs": [
-                411
-            ]
+            "in": 42
         },
         {
             "id": 131,
@@ -1736,11 +1174,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( sees_tmp1 3 x )",
-            "in": 252,
-            "outs": [
-                337,
-                38
-            ]
+            "in": 252
         },
         {
             "id": 132,
@@ -1750,9 +1184,6 @@
                 316,
                 404,
                 531
-            ],
-            "outs": [
-                351
             ]
         },
         {
@@ -1762,9 +1193,6 @@
             "ins": [
                 129,
                 472
-            ],
-            "outs": [
-                28
             ]
         },
         {
@@ -1775,9 +1203,6 @@
                 520,
                 502,
                 298
-            ],
-            "outs": [
-                230
             ]
         },
         {
@@ -1787,9 +1212,6 @@
             "ins": [
                 500,
                 528
-            ],
-            "outs": [
-                111
             ]
         },
         {
@@ -1799,9 +1221,6 @@
             "ins": [
                 7,
                 528
-            ],
-            "outs": [
-                108
             ]
         },
         {
@@ -1809,24 +1228,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does o ( mark 2 3 ) )",
-            "outs": [
-                402,
-                331,
-                405,
-                262,
-                58,
-                121,
-                422,
-                204,
-                59,
-                75,
-                63,
-                275,
-                385,
-                293,
-                327
-            ]
+            "gdl": "( does o ( mark 2 3 ) )"
         },
         {
             "id": 138,
@@ -1845,9 +1247,6 @@
                 525,
                 57,
                 301
-            ],
-            "outs": [
-                562
             ]
         },
         {
@@ -1857,9 +1256,6 @@
             "ins": [
                 316,
                 531
-            ],
-            "outs": [
-                31
             ]
         },
         {
@@ -1868,10 +1264,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 1 1 x ) )",
-            "in": 436,
-            "outs": [
-                491
-            ]
+            "in": 436
         },
         {
             "id": 142,
@@ -1880,9 +1273,6 @@
             "ins": [
                 380,
                 572
-            ],
-            "outs": [
-                28
             ]
         },
         {
@@ -1891,11 +1281,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried o 3 3 ) )",
-            "in": 598,
-            "outs": [
-                510,
-                214
-            ]
+            "in": 598
         },
         {
             "id": 144,
@@ -1904,9 +1290,6 @@
             "ins": [
                 82,
                 0
-            ],
-            "outs": [
-                333
             ]
         },
         {
@@ -1917,17 +1300,13 @@
                 57,
                 1,
                 301
-            ],
-            "outs": [
-                562
             ]
         },
         {
             "id": 146,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 9,
-            "out": 584
+            "in": 9
         },
         {
             "id": 147,
@@ -1937,17 +1316,13 @@
                 64,
                 372,
                 362
-            ],
-            "outs": [
-                325
             ]
         },
         {
             "id": 148,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 212,
-            "out": 585
+            "in": 212
         },
         {
             "id": 149,
@@ -1955,8 +1330,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal x ( mark 3 3 ) )",
-            "in": 418,
-            "outs": []
+            "in": 418
         },
         {
             "id": 150,
@@ -1964,64 +1338,38 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 2 1 b ) )",
-            "in": 439,
-            "outs": [
-                9
-            ]
+            "in": 439
         },
         {
             "id": 151,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 539,
-            "out": 586
+            "in": 539
         },
         {
             "id": 152,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 74,
-            "out": 587
+            "in": 74
         },
         {
             "id": 153,
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does x ( mark 1 1 ) )",
-            "outs": [
-                328,
-                246,
-                355,
-                104,
-                164,
-                125,
-                361,
-                274,
-                326,
-                309,
-                19,
-                431,
-                97,
-                37,
-                139
-            ]
+            "gdl": "( does x ( mark 1 1 ) )"
         },
         {
             "id": 154,
             "type": 5,
             "type_name": "NOT",
-            "in": 2,
-            "outs": [
-                232
-            ]
+            "in": 2
         },
         {
             "id": 155,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 348,
-            "out": 588
+            "in": 348
         },
         {
             "id": 156,
@@ -2030,9 +1378,6 @@
             "ins": [
                 14,
                 471
-            ],
-            "outs": [
-                252
             ]
         },
         {
@@ -2041,11 +1386,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried x 3 3 ) )",
-            "in": 597,
-            "outs": [
-                292,
-                418
-            ]
+            "in": 597
         },
         {
             "id": 158,
@@ -2053,13 +1394,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 1 x ) )",
-            "in": 612,
-            "outs": [
-                549,
-                538,
-                384,
-                436
-            ]
+            "in": 612
         },
         {
             "id": 159,
@@ -2067,8 +1402,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal x ( mark 3 2 ) )",
-            "in": 508,
-            "outs": []
+            "in": 508
         },
         {
             "id": 160,
@@ -2077,9 +1411,6 @@
             "ins": [
                 82,
                 0
-            ],
-            "outs": [
-                297
             ]
         },
         {
@@ -2089,9 +1420,6 @@
             "ins": [
                 455,
                 123
-            ],
-            "outs": [
-                333
             ]
         },
         {
@@ -2102,17 +1430,13 @@
                 405,
                 47,
                 128
-            ],
-            "outs": [
-                571
             ]
         },
         {
             "id": 163,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 172,
-            "out": 589
+            "in": 172
         },
         {
             "id": 164,
@@ -2125,9 +1449,6 @@
                 192,
                 123,
                 73
-            ],
-            "outs": [
-                129
             ]
         },
         {
@@ -2138,9 +1459,6 @@
                 316,
                 531,
                 105
-            ],
-            "outs": [
-                351
             ]
         },
         {
@@ -2149,14 +1467,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 2 o ) )",
-            "in": 601,
-            "outs": [
-                83,
-                536,
-                360,
-                410,
-                338
-            ]
+            "in": 601
         },
         {
             "id": 167,
@@ -2166,9 +1477,6 @@
                 426,
                 14,
                 207
-            ],
-            "outs": [
-                357
             ]
         },
         {
@@ -2179,9 +1487,6 @@
                 7,
                 315,
                 528
-            ],
-            "outs": [
-                45
             ]
         },
         {
@@ -2191,9 +1496,6 @@
             "ins": [
                 192,
                 213
-            ],
-            "outs": [
-                65
             ]
         },
         {
@@ -2202,28 +1504,14 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 3 2 o ) )",
-            "in": 351,
-            "outs": [
-                221
-            ]
+            "in": 351
         },
         {
             "id": 171,
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "init",
-            "gdl": "init",
-            "outs": [
-                378,
-                6,
-                117,
-                411,
-                9,
-                72,
-                265,
-                368,
-                74
-            ]
+            "gdl": "init"
         },
         {
             "id": 172,
@@ -2231,34 +1519,14 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 2 2 x ) )",
-            "in": 375,
-            "outs": [
-                163
-            ]
+            "in": 375
         },
         {
             "id": 173,
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does x ( mark 3 2 ) )",
-            "outs": [
-                225,
-                409,
-                264,
-                44,
-                101,
-                46,
-                441,
-                269,
-                460,
-                271,
-                417,
-                542,
-                94,
-                174,
-                399
-            ]
+            "gdl": "( does x ( mark 3 2 ) )"
         },
         {
             "id": 174,
@@ -2269,9 +1537,6 @@
                 173,
                 531,
                 518
-            ],
-            "outs": [
-                202
             ]
         },
         {
@@ -2283,9 +1548,6 @@
                 500,
                 525,
                 528
-            ],
-            "outs": [
-                347
             ]
         },
         {
@@ -2296,9 +1558,6 @@
                 62,
                 268,
                 531
-            ],
-            "outs": [
-                294
             ]
         },
         {
@@ -2309,9 +1568,6 @@
                 260,
                 84,
                 416
-            ],
-            "outs": [
-                211
             ]
         },
         {
@@ -2320,11 +1576,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( sees_tmp3 3 o )",
-            "in": 383,
-            "outs": [
-                553,
-                376
-            ]
+            "in": 383
         },
         {
             "id": 179,
@@ -2334,9 +1586,6 @@
                 404,
                 192,
                 236
-            ],
-            "outs": [
-                437
             ]
         },
         {
@@ -2346,9 +1595,6 @@
             "ins": [
                 57,
                 301
-            ],
-            "outs": [
-                190
             ]
         },
         {
@@ -2357,10 +1603,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 2 2 b ) )",
-            "in": 534,
-            "outs": [
-                368
-            ]
+            "in": 534
         },
         {
             "id": 182,
@@ -2369,9 +1612,6 @@
             "ins": [
                 492,
                 234
-            ],
-            "outs": [
-                102
             ]
         },
         {
@@ -2382,9 +1622,6 @@
                 62,
                 238,
                 105
-            ],
-            "outs": [
-                83
             ]
         },
         {
@@ -2393,19 +1630,13 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried o 1 1 ) )",
-            "in": 373,
-            "outs": [
-                299
-            ]
+            "in": 373
         },
         {
             "id": 185,
             "type": 5,
             "type_name": "NOT",
-            "in": 266,
-            "outs": [
-                42
-            ]
+            "in": 266
         },
         {
             "id": 186,
@@ -2418,17 +1649,13 @@
                 262,
                 121,
                 59
-            ],
-            "outs": [
-                99
             ]
         },
         {
             "id": 187,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 314,
-            "out": 590
+            "in": 314
         },
         {
             "id": 188,
@@ -2436,10 +1663,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried x 2 1 ) )",
-            "in": 365,
-            "outs": [
-                506
-            ]
+            "in": 365
         },
         {
             "id": 189,
@@ -2447,10 +1671,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 2 3 b ) )",
-            "in": 26,
-            "outs": [
-                6
-            ]
+            "in": 26
         },
         {
             "id": 190,
@@ -2460,9 +1681,6 @@
                 180,
                 354,
                 126
-            ],
-            "outs": [
-                380
             ]
         },
         {
@@ -2471,32 +1689,14 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal o ( mark 2 1 ) )",
-            "in": 501,
-            "outs": []
+            "in": 501
         },
         {
             "id": 192,
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does o ( mark 3 1 ) )",
-            "outs": [
-                512,
-                551,
-                164,
-                302,
-                271,
-                251,
-                5,
-                307,
-                364,
-                209,
-                169,
-                447,
-                544,
-                419,
-                179
-            ]
+            "gdl": "( does o ( mark 3 1 ) )"
         },
         {
             "id": 193,
@@ -2509,19 +1709,13 @@
                 113,
                 430,
                 198
-            ],
-            "outs": [
-                51
             ]
         },
         {
             "id": 194,
             "type": 5,
             "type_name": "NOT",
-            "in": 199,
-            "outs": [
-                412
-            ]
+            "in": 199
         },
         {
             "id": 195,
@@ -2529,11 +1723,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( sees_tmp3 1 x )",
-            "in": 397,
-            "outs": [
-                257,
-                555
-            ]
+            "in": 397
         },
         {
             "id": 196,
@@ -2541,13 +1731,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( sees_tmp7 1 )",
-            "in": 19,
-            "outs": [
-                12,
-                256,
-                38,
-                242
-            ]
+            "in": 19
         },
         {
             "id": 197,
@@ -2558,9 +1742,6 @@
                 500,
                 528,
                 518
-            ],
-            "outs": [
-                45
             ]
         },
         {
@@ -2571,9 +1752,6 @@
                 82,
                 425,
                 0
-            ],
-            "outs": [
-                193
             ]
         },
         {
@@ -2582,11 +1760,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried o 2 3 ) )",
-            "in": 586,
-            "outs": [
-                331,
-                194
-            ]
+            "in": 586
         },
         {
             "id": 200,
@@ -2595,9 +1769,6 @@
             "ins": [
                 492,
                 472
-            ],
-            "outs": [
-                28
             ]
         },
         {
@@ -2606,8 +1777,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal x ( mark 2 1 ) )",
-            "in": 533,
-            "outs": []
+            "in": 533
         },
         {
             "id": 202,
@@ -2620,9 +1790,6 @@
                 94,
                 174,
                 91
-            ],
-            "outs": [
-                387
             ]
         },
         {
@@ -2632,9 +1799,6 @@
             "ins": [
                 471,
                 207
-            ],
-            "outs": [
-                377
             ]
         },
         {
@@ -2645,9 +1809,6 @@
                 500,
                 137,
                 207
-            ],
-            "outs": [
-                93
             ]
         },
         {
@@ -2658,9 +1819,6 @@
                 14,
                 294,
                 471
-            ],
-            "outs": [
-                80
             ]
         },
         {
@@ -2671,9 +1829,6 @@
                 500,
                 7,
                 233
-            ],
-            "outs": [
-                347
             ]
         },
         {
@@ -2681,33 +1836,13 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does o ( mark 3 3 ) )",
-            "outs": [
-                510,
-                203,
-                204,
-                271,
-                167,
-                307,
-                310,
-                385,
-                495,
-                540,
-                278,
-                371,
-                543,
-                115,
-                240
-            ]
+            "gdl": "( does o ( mark 3 3 ) )"
         },
         {
             "id": 208,
             "type": 5,
             "type_name": "NOT",
-            "in": 16,
-            "outs": [
-                394
-            ]
+            "in": 16
         },
         {
             "id": 209,
@@ -2716,9 +1851,6 @@
             "ins": [
                 236,
                 192
-            ],
-            "outs": [
-                442
             ]
         },
         {
@@ -2728,9 +1860,6 @@
             "ins": [
                 14,
                 471
-            ],
-            "outs": [
-                333
             ]
         },
         {
@@ -2744,9 +1873,6 @@
                 245,
                 496,
                 177
-            ],
-            "outs": [
-                348
             ]
         },
         {
@@ -2755,10 +1881,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 1 3 x ) )",
-            "in": 45,
-            "outs": [
-                148
-            ]
+            "in": 45
         },
         {
             "id": 213,
@@ -2766,20 +1889,13 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried o 3 1 ) )",
-            "in": 602,
-            "outs": [
-                169,
-                429
-            ]
+            "in": 602
         },
         {
             "id": 214,
             "type": 5,
             "type_name": "NOT",
-            "in": 143,
-            "outs": [
-                550
-            ]
+            "in": 143
         },
         {
             "id": 215,
@@ -2787,10 +1903,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( row 3 o )",
-            "in": 462,
-            "outs": [
-                321
-            ]
+            "in": 462
         },
         {
             "id": 216,
@@ -2799,17 +1912,13 @@
             "ins": [
                 129,
                 234
-            ],
-            "outs": [
-                102
             ]
         },
         {
             "id": 217,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 387,
-            "out": 591
+            "in": 387
         },
         {
             "id": 218,
@@ -2819,9 +1928,6 @@
                 500,
                 7,
                 404
-            ],
-            "outs": [
-                347
             ]
         },
         {
@@ -2830,10 +1936,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 1 3 b ) )",
-            "in": 120,
-            "outs": [
-                72
-            ]
+            "in": 120
         },
         {
             "id": 220,
@@ -2842,17 +1945,13 @@
             "ins": [
                 451,
                 3
-            ],
-            "outs": [
-                28
             ]
         },
         {
             "id": 221,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 170,
-            "out": 592
+            "in": 170
         },
         {
             "id": 222,
@@ -2860,12 +1959,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 2 o ) )",
-            "in": 592,
-            "outs": [
-                462,
-                351,
-                338
-            ]
+            "in": 592
         },
         {
             "id": 223,
@@ -2882,9 +1976,6 @@
             "ins": [
                 14,
                 432
-            ],
-            "outs": [
-                320
             ]
         },
         {
@@ -2895,9 +1986,6 @@
                 316,
                 482,
                 173
-            ],
-            "outs": [
-                202
             ]
         },
         {
@@ -2908,9 +1996,6 @@
                 425,
                 14,
                 471
-            ],
-            "outs": [
-                80
             ]
         },
         {
@@ -2921,9 +2006,6 @@
                 41,
                 455,
                 105
-            ],
-            "outs": [
-                473
             ]
         },
         {
@@ -2932,11 +2014,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried o 2 2 ) )",
-            "in": 581,
-            "outs": [
-                408,
-                27
-            ]
+            "in": 581
         },
         {
             "id": 229,
@@ -2944,13 +2022,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( sees_tmp7 2 )",
-            "in": 422,
-            "outs": [
-                17,
-                337,
-                489,
-                127
-            ]
+            "in": 422
         },
         {
             "id": 230,
@@ -2959,9 +2031,6 @@
             "ins": [
                 134,
                 388
-            ],
-            "outs": [
-                270
             ]
         },
         {
@@ -2972,9 +2041,6 @@
                 123,
                 455,
                 294
-            ],
-            "outs": [
-                522
             ]
         },
         {
@@ -2984,9 +2050,6 @@
             "ins": [
                 316,
                 154
-            ],
-            "outs": [
-                548
             ]
         },
         {
@@ -2995,15 +2058,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next_tmp7 1 )",
-            "in": 104,
-            "outs": [
-                402,
-                434,
-                452,
-                540,
-                288,
-                206
-            ]
+            "in": 104
         },
         {
             "id": 234,
@@ -3011,11 +2066,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( sees_tmp3 2 x )",
-            "in": 297,
-            "outs": [
-                182,
-                216
-            ]
+            "in": 297
         },
         {
             "id": 235,
@@ -3025,9 +2076,6 @@
                 528,
                 416,
                 471
-            ],
-            "outs": [
-                279
             ]
         },
         {
@@ -3036,27 +2084,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 1 b ) )",
-            "in": 587,
-            "outs": [
-                25,
-                551,
-                454,
-                249,
-                456,
-                302,
-                88,
-                363,
-                251,
-                5,
-                413,
-                209,
-                565,
-                254,
-                447,
-                544,
-                419,
-                179
-            ]
+            "in": 587
         },
         {
             "id": 237,
@@ -3066,9 +2094,6 @@
                 248,
                 543,
                 447
-            ],
-            "outs": [
-                395
             ]
         },
         {
@@ -3077,34 +2102,13 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 2 b ) )",
-            "in": 604,
-            "outs": [
-                450,
-                420,
-                534,
-                319,
-                183,
-                484,
-                288,
-                128,
-                463,
-                561,
-                413,
-                273,
-                311,
-                344,
-                66,
-                568,
-                258,
-                69
-            ]
+            "in": 604
         },
         {
             "id": 239,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 86,
-            "out": 593
+            "in": 86
         },
         {
             "id": 240,
@@ -3113,17 +2117,13 @@
             "ins": [
                 14,
                 207
-            ],
-            "outs": [
-                442
             ]
         },
         {
             "id": 241,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 117,
-            "out": 594
+            "in": 117
         },
         {
             "id": 242,
@@ -3132,17 +2132,13 @@
             "ins": [
                 196,
                 571
-            ],
-            "outs": [
-                28
             ]
         },
         {
             "id": 243,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 511,
-            "out": 595
+            "in": 511
         },
         {
             "id": 244,
@@ -3150,11 +2146,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( sees_tmp1 2 x )",
-            "in": 352,
-            "outs": [
-                12,
-                369
-            ]
+            "in": 352
         },
         {
             "id": 245,
@@ -3164,9 +2156,6 @@
                 84,
                 416,
                 294
-            ],
-            "outs": [
-                211
             ]
         },
         {
@@ -3177,19 +2166,13 @@
                 315,
                 153,
                 301
-            ],
-            "outs": [
-                436
             ]
         },
         {
             "id": 247,
             "type": 5,
             "type_name": "NOT",
-            "in": 545,
-            "outs": [
-                563
-            ]
+            "in": 545
         },
         {
             "id": 248,
@@ -3198,9 +2181,6 @@
             "ins": [
                 316,
                 531
-            ],
-            "outs": [
-                237
             ]
         },
         {
@@ -3210,9 +2190,6 @@
             "ins": [
                 15,
                 236
-            ],
-            "outs": [
-                515
             ]
         },
         {
@@ -3221,11 +2198,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried o 1 3 ) )",
-            "in": 579,
-            "outs": [
-                374,
-                517
-            ]
+            "in": 579
         },
         {
             "id": 251,
@@ -3236,9 +2209,6 @@
                 192,
                 73,
                 518
-            ],
-            "outs": [
-                54
             ]
         },
         {
@@ -3249,9 +2219,6 @@
                 409,
                 88,
                 156
-            ],
-            "outs": [
-                131
             ]
         },
         {
@@ -3260,8 +2227,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal x ( mark 2 3 ) )",
-            "in": 443,
-            "outs": []
+            "in": 443
         },
         {
             "id": 254,
@@ -3271,9 +2237,6 @@
                 482,
                 236,
                 73
-            ],
-            "outs": [
-                54
             ]
         },
         {
@@ -3284,9 +2247,6 @@
                 382,
                 64,
                 283
-            ],
-            "outs": [
-                546
             ]
         },
         {
@@ -3296,9 +2256,6 @@
             "ins": [
                 196,
                 395
-            ],
-            "outs": [
-                28
             ]
         },
         {
@@ -3308,9 +2265,6 @@
             "ins": [
                 451,
                 195
-            ],
-            "outs": [
-                102
             ]
         },
         {
@@ -3322,9 +2276,6 @@
                 62,
                 525,
                 238
-            ],
-            "outs": [
-                83
             ]
         },
         {
@@ -3335,9 +2286,6 @@
                 328,
                 505,
                 85
-            ],
-            "outs": [
-                406
             ]
         },
         {
@@ -3346,24 +2294,13 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next_tmp1 3 )",
-            "in": 307,
-            "outs": [
-                8,
-                355,
-                484,
-                430,
-                177,
-                289
-            ]
+            "in": 307
         },
         {
             "id": 261,
             "type": 5,
             "type_name": "NOT",
-            "in": 330,
-            "outs": [
-                439
-            ]
+            "in": 330
         },
         {
             "id": 262,
@@ -3374,9 +2311,6 @@
                 84,
                 416,
                 137
-            ],
-            "outs": [
-                186
             ]
         },
         {
@@ -3386,9 +2320,6 @@
             "ins": [
                 23,
                 298
-            ],
-            "outs": [
-                138
             ]
         },
         {
@@ -3398,9 +2329,6 @@
             "ins": [
                 316,
                 173
-            ],
-            "outs": [
-                297
             ]
         },
         {
@@ -3410,9 +2338,6 @@
             "ins": [
                 320,
                 171
-            ],
-            "outs": [
-                30
             ]
         },
         {
@@ -3421,10 +2346,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 1 1 )",
-            "in": 431,
-            "outs": [
-                185
-            ]
+            "in": 431
         },
         {
             "id": 267,
@@ -3434,9 +2356,6 @@
                 324,
                 416,
                 123
-            ],
-            "outs": [
-                404
             ]
         },
         {
@@ -3444,24 +2363,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does o ( mark 1 2 ) )",
-            "outs": [
-                452,
-                513,
-                354,
-                101,
-                290,
-                10,
-                33,
-                526,
-                52,
-                567,
-                480,
-                19,
-                113,
-                176,
-                98
-            ]
+            "gdl": "( does o ( mark 1 2 ) )"
         },
         {
             "id": 269,
@@ -3470,9 +2372,6 @@
             "ins": [
                 173,
                 554
-            ],
-            "outs": [
-                511
             ]
         },
         {
@@ -3494,9 +2393,6 @@
                 73,
                 531,
                 207
-            ],
-            "outs": [
-                572
             ]
         },
         {
@@ -3505,10 +2401,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried x 3 1 ) )",
-            "in": 304,
-            "outs": [
-                469
-            ]
+            "in": 304
         },
         {
             "id": 273,
@@ -3519,9 +2412,6 @@
                 62,
                 238,
                 518
-            ],
-            "outs": [
-                375
             ]
         },
         {
@@ -3532,9 +2422,6 @@
                 82,
                 153,
                 528
-            ],
-            "outs": [
-                105
             ]
         },
         {
@@ -3546,17 +2433,13 @@
                 416,
                 137,
                 518
-            ],
-            "outs": [
-                211
             ]
         },
         {
             "id": 276,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 277,
-            "out": 596
+            "in": 277
         },
         {
             "id": 277,
@@ -3564,10 +2447,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried x 1 3 ) )",
-            "in": 504,
-            "outs": [
-                276
-            ]
+            "in": 504
         },
         {
             "id": 278,
@@ -3578,9 +2458,6 @@
                 471,
                 207,
                 518
-            ],
-            "outs": [
-                80
             ]
         },
         {
@@ -3589,15 +2466,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next_tmp7 3 )",
-            "in": 235,
-            "outs": [
-                450,
-                391,
-                393,
-                567,
-                323,
-                419
-            ]
+            "in": 235
         },
         {
             "id": 280,
@@ -3606,17 +2475,13 @@
             "ins": [
                 84,
                 416
-            ],
-            "outs": [
-                108
             ]
         },
         {
             "id": 281,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 346,
-            "out": 597
+            "in": 346
         },
         {
             "id": 282,
@@ -3625,9 +2490,6 @@
             "ins": [
                 7,
                 500
-            ],
-            "outs": [
-                383
             ]
         },
         {
@@ -3636,12 +2498,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 1 x ) )",
-            "in": 605,
-            "outs": [
-                522,
-                384,
-                255
-            ]
+            "in": 605
         },
         {
             "id": 284,
@@ -3649,15 +2506,13 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal x ( mark 1 3 ) )",
-            "in": 457,
-            "outs": []
+            "in": 457
         },
         {
             "id": 285,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 308,
-            "out": 598
+            "in": 308
         },
         {
             "id": 286,
@@ -3666,9 +2521,6 @@
             "ins": [
                 451,
                 100
-            ],
-            "outs": [
-                102
             ]
         },
         {
@@ -3677,8 +2529,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal x ( mark 2 2 ) )",
-            "in": 396,
-            "outs": []
+            "in": 396
         },
         {
             "id": 288,
@@ -3688,9 +2539,6 @@
                 62,
                 233,
                 238
-            ],
-            "outs": [
-                83
             ]
         },
         {
@@ -3701,9 +2549,6 @@
                 260,
                 123,
                 455
-            ],
-            "outs": [
-                522
             ]
         },
         {
@@ -3714,9 +2559,6 @@
                 500,
                 57,
                 268
-            ],
-            "outs": [
-                482
             ]
         },
         {
@@ -3725,10 +2567,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried o 1 3 ) )",
-            "in": 517,
-            "outs": [
-                79
-            ]
+            "in": 517
         },
         {
             "id": 292,
@@ -3737,9 +2576,6 @@
             "ins": [
                 471,
                 157
-            ],
-            "outs": [
-                346
             ]
         },
         {
@@ -3749,9 +2585,6 @@
             "ins": [
                 84,
                 137
-            ],
-            "outs": [
-                383
             ]
         },
         {
@@ -3760,22 +2593,13 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next_tmp3 2 )",
-            "in": 176,
-            "outs": [
-                326,
-                245,
-                312,
-                454,
-                205,
-                231
-            ]
+            "in": 176
         },
         {
             "id": 295,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 51,
-            "out": 599
+            "in": 51
         },
         {
             "id": 296,
@@ -3783,13 +2607,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 3 x ) )",
-            "in": 613,
-            "outs": [
-                538,
-                444,
-                367,
-                80
-            ]
+            "in": 613
         },
         {
             "id": 297,
@@ -3799,36 +2617,25 @@
                 561,
                 160,
                 264
-            ],
-            "outs": [
-                234
             ]
         },
         {
             "id": 298,
             "type": 5,
             "type_name": "NOT",
-            "in": 459,
-            "outs": [
-                353,
-                134,
-                263,
-                336
-            ]
+            "in": 459
         },
         {
             "id": 299,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 184,
-            "out": 600
+            "in": 184
         },
         {
             "id": 300,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 70,
-            "out": 601
+            "in": 70
         },
         {
             "id": 301,
@@ -3836,27 +2643,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 1 b ) )",
-            "in": 616,
-            "outs": [
-                328,
-                180,
-                40,
-                246,
-                42,
-                355,
-                145,
-                125,
-                323,
-                361,
-                4,
-                559,
-                413,
-                326,
-                309,
-                97,
-                448,
-                139
-            ]
+            "in": 616
         },
         {
             "id": 302,
@@ -3866,17 +2653,13 @@
                 192,
                 236,
                 105
-            ],
-            "outs": [
-                437
             ]
         },
         {
             "id": 303,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 65,
-            "out": 602
+            "in": 65
         },
         {
             "id": 304,
@@ -3885,9 +2668,6 @@
             "ins": [
                 464,
                 73
-            ],
-            "outs": [
-                272
             ]
         },
         {
@@ -3898,9 +2678,6 @@
                 500,
                 7,
                 1
-            ],
-            "outs": [
-                347
             ]
         },
         {
@@ -3919,9 +2696,6 @@
                 192,
                 531,
                 207
-            ],
-            "outs": [
-                260
             ]
         },
         {
@@ -3930,10 +2704,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried o 3 3 ) )",
-            "in": 510,
-            "outs": [
-                285
-            ]
+            "in": 510
         },
         {
             "id": 309,
@@ -3942,9 +2713,6 @@
             "ins": [
                 153,
                 301
-            ],
-            "outs": [
-                333
             ]
         },
         {
@@ -3955,9 +2723,6 @@
                 14,
                 105,
                 207
-            ],
-            "outs": [
-                357
             ]
         },
         {
@@ -3968,9 +2733,6 @@
                 324,
                 482,
                 238
-            ],
-            "outs": [
-                375
             ]
         },
         {
@@ -3981,9 +2743,6 @@
                 7,
                 528,
                 294
-            ],
-            "outs": [
-                45
             ]
         },
         {
@@ -3993,9 +2752,6 @@
             "ins": [
                 7,
                 528
-            ],
-            "outs": [
-                333
             ]
         },
         {
@@ -4004,10 +2760,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried x 1 2 ) )",
-            "in": 67,
-            "outs": [
-                187
-            ]
+            "in": 67
         },
         {
             "id": 315,
@@ -4015,15 +2768,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next_tmp1 2 )",
-            "in": 75,
-            "outs": [
-                168,
-                77,
-                246,
-                94,
-                499,
-                456
-            ]
+            "in": 75
         },
         {
             "id": 316,
@@ -4031,36 +2776,13 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 2 b ) )",
-            "in": 603,
-            "outs": [
-                140,
-                434,
-                225,
-                393,
-                409,
-                248,
-                264,
-                44,
-                46,
-                441,
-                165,
-                232,
-                413,
-                132,
-                417,
-                94,
-                174,
-                532
-            ]
+            "in": 603
         },
         {
             "id": 317,
             "type": 5,
             "type_name": "NOT",
-            "in": 53,
-            "outs": [
-                26
-            ]
+            "in": 53
         },
         {
             "id": 318,
@@ -4068,8 +2790,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal o ( mark 1 2 ) )",
-            "in": 390,
-            "outs": []
+            "in": 390
         },
         {
             "id": 319,
@@ -4078,9 +2799,6 @@
             "ins": [
                 62,
                 238
-            ],
-            "outs": [
-                442
             ]
         },
         {
@@ -4089,10 +2807,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 3 3 b ) )",
-            "in": 224,
-            "outs": [
-                265
-            ]
+            "in": 224
         },
         {
             "id": 321,
@@ -4106,17 +2821,13 @@
                 21,
                 60,
                 558
-            ],
-            "outs": [
-                23
             ]
         },
         {
             "id": 322,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 378,
-            "out": 603
+            "in": 378
         },
         {
             "id": 323,
@@ -4126,9 +2837,6 @@
                 57,
                 301,
                 279
-            ],
-            "outs": [
-                562
             ]
         },
         {
@@ -4136,24 +2844,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does x ( mark 2 2 ) )",
-            "outs": [
-                435,
-                484,
-                267,
-                101,
-                422,
-                463,
-                561,
-                477,
-                273,
-                311,
-                66,
-                568,
-                258,
-                399,
-                69
-            ]
+            "gdl": "( does x ( mark 2 2 ) )"
         },
         {
             "id": 325,
@@ -4162,9 +2853,6 @@
             "ins": [
                 538,
                 147
-            ],
-            "outs": [
-                370
             ]
         },
         {
@@ -4175,9 +2863,6 @@
                 153,
                 301,
                 294
-            ],
-            "outs": [
-                436
             ]
         },
         {
@@ -4187,9 +2872,6 @@
             "ins": [
                 416,
                 137
-            ],
-            "outs": [
-                53
             ]
         },
         {
@@ -4199,9 +2881,6 @@
             "ins": [
                 153,
                 301
-            ],
-            "outs": [
-                259
             ]
         },
         {
@@ -4210,10 +2889,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( row 3 x )",
-            "in": 367,
-            "outs": [
-                78
-            ]
+            "in": 367
         },
         {
             "id": 330,
@@ -4221,10 +2897,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 2 1 )",
-            "in": 13,
-            "outs": [
-                261
-            ]
+            "in": 13
         },
         {
             "id": 331,
@@ -4233,9 +2906,6 @@
             "ins": [
                 137,
                 199
-            ],
-            "outs": [
-                539
             ]
         },
         {
@@ -4244,10 +2914,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried x 2 3 ) )",
-            "in": 519,
-            "outs": [
-                537
-            ]
+            "in": 519
         },
         {
             "id": 333,
@@ -4263,24 +2930,19 @@
                 389,
                 313,
                 441
-            ],
-            "outs": [
-                424
             ]
         },
         {
             "id": 334,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 368,
-            "out": 604
+            "in": 368
         },
         {
             "id": 335,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 481,
-            "out": 605
+            "in": 481
         },
         {
             "id": 336,
@@ -4289,9 +2951,6 @@
             "ins": [
                 23,
                 298
-            ],
-            "outs": [
-                400
             ]
         },
         {
@@ -4301,9 +2960,6 @@
             "ins": [
                 131,
                 229
-            ],
-            "outs": [
-                102
             ]
         },
         {
@@ -4314,9 +2970,6 @@
                 222,
                 427,
                 166
-            ],
-            "outs": [
-                453
             ]
         },
         {
@@ -4325,10 +2978,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried x 1 1 ) )",
-            "in": 37,
-            "outs": [
-                110
-            ]
+            "in": 37
         },
         {
             "id": 340,
@@ -4336,11 +2986,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried o 1 1 ) )",
-            "in": 600,
-            "outs": [
-                373,
-                103
-            ]
+            "in": 600
         },
         {
             "id": 341,
@@ -4348,10 +2994,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 3 3 o ) )",
-            "in": 357,
-            "outs": [
-                514
-            ]
+            "in": 357
         },
         {
             "id": 342,
@@ -4359,10 +3002,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 1 2 o ) )",
-            "in": 414,
-            "outs": [
-                359
-            ]
+            "in": 414
         },
         {
             "id": 343,
@@ -4370,8 +3010,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal random ( tiebreak o ) )",
-            "in": 349,
-            "outs": []
+            "in": 349
         },
         {
             "id": 344,
@@ -4380,9 +3019,6 @@
             "ins": [
                 62,
                 238
-            ],
-            "outs": [
-                31
             ]
         },
         {
@@ -4391,10 +3027,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 1 3 o ) )",
-            "in": 347,
-            "outs": [
-                449
-            ]
+            "in": 347
         },
         {
             "id": 346,
@@ -4402,10 +3035,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried x 3 3 ) )",
-            "in": 292,
-            "outs": [
-                281
-            ]
+            "in": 292
         },
         {
             "id": 347,
@@ -4418,9 +3048,6 @@
                 175,
                 206,
                 218
-            ],
-            "outs": [
-                345
             ]
         },
         {
@@ -4429,10 +3056,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 2 3 x ) )",
-            "in": 211,
-            "outs": [
-                155
-            ]
+            "in": 211
         },
         {
             "id": 349,
@@ -4445,8 +3069,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal o ( mark 2 2 ) )",
-            "in": 408,
-            "outs": []
+            "in": 408
         },
         {
             "id": 351,
@@ -4459,9 +3082,6 @@
                 393,
                 46,
                 165
-            ],
-            "outs": [
-                170
             ]
         },
         {
@@ -4472,9 +3092,6 @@
                 476,
                 463,
                 503
-            ],
-            "outs": [
-                244
             ]
         },
         {
@@ -4485,9 +3102,6 @@
                 520,
                 502,
                 298
-            ],
-            "outs": [
-                524
             ]
         },
         {
@@ -4497,9 +3111,6 @@
             "ins": [
                 0,
                 268
-            ],
-            "outs": [
-                190
             ]
         },
         {
@@ -4510,9 +3121,6 @@
                 260,
                 153,
                 301
-            ],
-            "outs": [
-                436
             ]
         },
         {
@@ -4522,9 +3130,6 @@
             "ins": [
                 41,
                 455
-            ],
-            "outs": [
-                442
             ]
         },
         {
@@ -4538,9 +3143,6 @@
                 540,
                 495,
                 371
-            ],
-            "outs": [
-                341
             ]
         },
         {
@@ -4550,17 +3152,13 @@
             "ins": [
                 23,
                 459
-            ],
-            "outs": [
-                524
             ]
         },
         {
             "id": 359,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 342,
-            "out": 606
+            "in": 342
         },
         {
             "id": 360,
@@ -4570,9 +3168,6 @@
                 50,
                 470,
                 166
-            ],
-            "outs": [
-                112
             ]
         },
         {
@@ -4584,9 +3179,6 @@
                 57,
                 301,
                 518
-            ],
-            "outs": [
-                436
             ]
         },
         {
@@ -4595,13 +3187,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 3 x ) )",
-            "in": 585,
-            "outs": [
-                549,
-                444,
-                45,
-                147
-            ]
+            "in": 585
         },
         {
             "id": 363,
@@ -4610,9 +3196,6 @@
             "ins": [
                 236,
                 73
-            ],
-            "outs": [
-                397
             ]
         },
         {
@@ -4623,9 +3206,6 @@
                 41,
                 57,
                 192
-            ],
-            "outs": [
-                425
             ]
         },
         {
@@ -4635,9 +3215,6 @@
             "ins": [
                 509,
                 123
-            ],
-            "outs": [
-                188
             ]
         },
         {
@@ -4647,9 +3224,6 @@
             "ins": [
                 424,
                 518
-            ],
-            "outs": [
-                102
             ]
         },
         {
@@ -4660,9 +3234,6 @@
                 372,
                 296,
                 91
-            ],
-            "outs": [
-                329
             ]
         },
         {
@@ -4672,9 +3243,6 @@
             "ins": [
                 181,
                 171
-            ],
-            "outs": [
-                334
             ]
         },
         {
@@ -4684,9 +3252,6 @@
             "ins": [
                 244,
                 572
-            ],
-            "outs": [
-                102
             ]
         },
         {
@@ -4695,10 +3260,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( diagonal x )",
-            "in": 325,
-            "outs": [
-                78
-            ]
+            "in": 325
         },
         {
             "id": 371,
@@ -4709,9 +3271,6 @@
                 525,
                 471,
                 207
-            ],
-            "outs": [
-                357
             ]
         },
         {
@@ -4720,13 +3279,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 3 1 x ) )",
-            "in": 574,
-            "outs": [
-                384,
-                367,
-                147,
-                54
-            ]
+            "in": 574
         },
         {
             "id": 373,
@@ -4735,19 +3288,13 @@
             "ins": [
                 340,
                 57
-            ],
-            "outs": [
-                184
             ]
         },
         {
             "id": 374,
             "type": 5,
             "type_name": "NOT",
-            "in": 250,
-            "outs": [
-                541
-            ]
+            "in": 250
         },
         {
             "id": 375,
@@ -4760,9 +3307,6 @@
                 66,
                 484,
                 69
-            ],
-            "outs": [
-                172
             ]
         },
         {
@@ -4772,9 +3316,6 @@
             "ins": [
                 451,
                 178
-            ],
-            "outs": [
-                28
             ]
         },
         {
@@ -4783,10 +3324,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 3 3 )",
-            "in": 203,
-            "outs": [
-                432
-            ]
+            "in": 203
         },
         {
             "id": 378,
@@ -4795,9 +3333,6 @@
             "ins": [
                 548,
                 171
-            ],
-            "outs": [
-                322
             ]
         },
         {
@@ -4806,10 +3341,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried o 2 1 ) )",
-            "in": 507,
-            "outs": [
-                89
-            ]
+            "in": 507
         },
         {
             "id": 380,
@@ -4817,11 +3349,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( sees_tmp1 1 o )",
-            "in": 190,
-            "outs": [
-                142,
-                127
-            ]
+            "in": 190
         },
         {
             "id": 381,
@@ -4829,10 +3357,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried o 1 2 ) )",
-            "in": 513,
-            "outs": [
-                116
-            ]
+            "in": 513
         },
         {
             "id": 382,
@@ -4840,12 +3365,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 3 x ) )",
-            "in": 588,
-            "outs": [
-                444,
-                211,
-                255
-            ]
+            "in": 588
         },
         {
             "id": 383,
@@ -4855,9 +3375,6 @@
                 293,
                 282,
                 115
-            ],
-            "outs": [
-                178
             ]
         },
         {
@@ -4868,9 +3385,6 @@
                 158,
                 283,
                 372
-            ],
-            "outs": [
-                398
             ]
         },
         {
@@ -4884,17 +3398,13 @@
                 137,
                 471,
                 207
-            ],
-            "outs": [
-                492
             ]
         },
         {
             "id": 386,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 527,
-            "out": 607
+            "in": 527
         },
         {
             "id": 387,
@@ -4902,10 +3412,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 3 2 x ) )",
-            "in": 202,
-            "outs": [
-                217
-            ]
+            "in": 202
         },
         {
             "id": 388,
@@ -4914,9 +3421,6 @@
             "ins": [
                 23,
                 459
-            ],
-            "outs": [
-                230
             ]
         },
         {
@@ -4926,19 +3430,13 @@
             "ins": [
                 84,
                 416
-            ],
-            "outs": [
-                333
             ]
         },
         {
             "id": 390,
             "type": 5,
             "type_name": "NOT",
-            "in": 497,
-            "outs": [
-                318
-            ]
+            "in": 497
         },
         {
             "id": 391,
@@ -4948,9 +3446,6 @@
                 41,
                 455,
                 279
-            ],
-            "outs": [
-                473
             ]
         },
         {
@@ -4960,9 +3455,6 @@
             "ins": [
                 531,
                 545
-            ],
-            "outs": [
-                547
             ]
         },
         {
@@ -4973,9 +3465,6 @@
                 316,
                 531,
                 279
-            ],
-            "outs": [
-                351
             ]
         },
         {
@@ -4984,8 +3473,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal x ( mark 1 2 ) )",
-            "in": 208,
-            "outs": []
+            "in": 208
         },
         {
             "id": 395,
@@ -4993,20 +3481,13 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( sees_tmp1 3 o )",
-            "in": 237,
-            "outs": [
-                256,
-                489
-            ]
+            "in": 237
         },
         {
             "id": 396,
             "type": 5,
             "type_name": "NOT",
-            "in": 81,
-            "outs": [
-                287
-            ]
+            "in": 81
         },
         {
             "id": 397,
@@ -5016,9 +3497,6 @@
                 363,
                 125,
                 107
-            ],
-            "outs": [
-                195
             ]
         },
         {
@@ -5027,10 +3505,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( column 1 x )",
-            "in": 384,
-            "outs": [
-                78
-            ]
+            "in": 384
         },
         {
             "id": 399,
@@ -5040,9 +3515,6 @@
                 324,
                 82,
                 173
-            ],
-            "outs": [
-                426
             ]
         },
         {
@@ -5061,9 +3533,6 @@
                 425,
                 84,
                 416
-            ],
-            "outs": [
-                211
             ]
         },
         {
@@ -5074,19 +3543,13 @@
                 233,
                 84,
                 137
-            ],
-            "outs": [
-                186
             ]
         },
         {
             "id": 403,
             "type": 5,
             "type_name": "NOT",
-            "in": 428,
-            "outs": [
-                96
-            ]
+            "in": 428
         },
         {
             "id": 404,
@@ -5094,15 +3557,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next_tmp5 2 )",
-            "in": 267,
-            "outs": [
-                132,
-                495,
-                448,
-                98,
-                179,
-                218
-            ]
+            "in": 267
         },
         {
             "id": 405,
@@ -5111,9 +3566,6 @@
             "ins": [
                 84,
                 137
-            ],
-            "outs": [
-                162
             ]
         },
         {
@@ -5122,11 +3574,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( sees_tmp1 1 x )",
-            "in": 259,
-            "outs": [
-                17,
-                498
-            ]
+            "in": 259
         },
         {
             "id": 407,
@@ -5134,19 +3582,13 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 1 1 o ) )",
-            "in": 562,
-            "outs": [
-                566
-            ]
+            "in": 562
         },
         {
             "id": 408,
             "type": 5,
             "type_name": "NOT",
-            "in": 228,
-            "outs": [
-                350
-            ]
+            "in": 228
         },
         {
             "id": 409,
@@ -5155,9 +3597,6 @@
             "ins": [
                 316,
                 173
-            ],
-            "outs": [
-                252
             ]
         },
         {
@@ -5168,9 +3607,6 @@
                 118,
                 49,
                 166
-            ],
-            "outs": [
-                569
             ]
         },
         {
@@ -5180,9 +3616,6 @@
             "ins": [
                 130,
                 171
-            ],
-            "outs": [
-                529
             ]
         },
         {
@@ -5191,8 +3624,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal o ( mark 2 3 ) )",
-            "in": 194,
-            "outs": []
+            "in": 194
         },
         {
             "id": 413,
@@ -5208,9 +3640,6 @@
                 301,
                 238,
                 455
-            ],
-            "outs": [
-                570
             ]
         },
         {
@@ -5224,9 +3653,6 @@
                 567,
                 480,
                 98
-            ],
-            "outs": [
-                342
             ]
         },
         {
@@ -5237,9 +3663,6 @@
                 7,
                 425,
                 528
-            ],
-            "outs": [
-                45
             ]
         },
         {
@@ -5247,24 +3670,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does x ( mark 2 3 ) )",
-            "outs": [
-                401,
-                245,
-                262,
-                267,
-                422,
-                519,
-                476,
-                235,
-                275,
-                385,
-                496,
-                327,
-                389,
-                177,
-                280
-            ]
+            "gdl": "( does x ( mark 2 3 ) )"
         },
         {
             "id": 417,
@@ -5274,19 +3680,13 @@
                 316,
                 93,
                 173
-            ],
-            "outs": [
-                202
             ]
         },
         {
             "id": 418,
             "type": 5,
             "type_name": "NOT",
-            "in": 157,
-            "outs": [
-                149
-            ]
+            "in": 157
         },
         {
             "id": 419,
@@ -5296,9 +3696,6 @@
                 192,
                 236,
                 279
-            ],
-            "outs": [
-                437
             ]
         },
         {
@@ -5309,9 +3706,6 @@
                 62,
                 1,
                 238
-            ],
-            "outs": [
-                83
             ]
         },
         {
@@ -5322,9 +3716,6 @@
                 500,
                 7,
                 426
-            ],
-            "outs": [
-                347
             ]
         },
         {
@@ -5338,9 +3729,6 @@
                 416,
                 137,
                 123
-            ],
-            "outs": [
-                229
             ]
         },
         {
@@ -5349,8 +3737,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal x ( mark 1 1 ) )",
-            "in": 494,
-            "outs": []
+            "in": 494
         },
         {
             "id": 424,
@@ -5358,10 +3745,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( sees_tmp5 x )",
-            "in": 333,
-            "outs": [
-                366
-            ]
+            "in": 333
         },
         {
             "id": 425,
@@ -5369,15 +3753,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next_tmp3 1 )",
-            "in": 364,
-            "outs": [
-                401,
-                226,
-                415,
-                44,
-                198,
-                69
-            ]
+            "in": 364
         },
         {
             "id": 426,
@@ -5385,15 +3761,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next_tmp7 2 )",
-            "in": 399,
-            "outs": [
-                167,
-                5,
-                63,
-                55,
-                421,
-                559
-            ]
+            "in": 399
         },
         {
             "id": 427,
@@ -5401,12 +3769,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 2 o ) )",
-            "in": 606,
-            "outs": [
-                414,
-                458,
-                338
-            ]
+            "in": 606
         },
         {
             "id": 428,
@@ -5414,19 +3777,13 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 1 2 )",
-            "in": 33,
-            "outs": [
-                403
-            ]
+            "in": 33
         },
         {
             "id": 429,
             "type": 5,
             "type_name": "NOT",
-            "in": 213,
-            "outs": [
-                438
-            ]
+            "in": 213
         },
         {
             "id": 430,
@@ -5436,9 +3793,6 @@
                 82,
                 260,
                 0
-            ],
-            "outs": [
-                193
             ]
         },
         {
@@ -5448,19 +3802,13 @@
             "ins": [
                 153,
                 57
-            ],
-            "outs": [
-                266
             ]
         },
         {
             "id": 432,
             "type": 5,
             "type_name": "NOT",
-            "in": 377,
-            "outs": [
-                224
-            ]
+            "in": 377
         },
         {
             "id": 433,
@@ -5468,13 +3816,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 1 1 o ) )",
-            "in": 618,
-            "outs": [
-                562,
-                536,
-                458,
-                461
-            ]
+            "in": 618
         },
         {
             "id": 434,
@@ -5484,9 +3826,6 @@
                 233,
                 316,
                 531
-            ],
-            "outs": [
-                351
             ]
         },
         {
@@ -5496,9 +3835,6 @@
             "ins": [
                 324,
                 62
-            ],
-            "outs": [
-                485
             ]
         },
         {
@@ -5512,9 +3848,6 @@
                 355,
                 97,
                 361
-            ],
-            "outs": [
-                141
             ]
         },
         {
@@ -5528,9 +3861,6 @@
                 419,
                 544,
                 179
-            ],
-            "outs": [
-                48
             ]
         },
         {
@@ -5539,8 +3869,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal o ( mark 3 1 ) )",
-            "in": 429,
-            "outs": []
+            "in": 429
         },
         {
             "id": 439,
@@ -5549,9 +3878,6 @@
             "ins": [
                 261,
                 455
-            ],
-            "outs": [
-                150
             ]
         },
         {
@@ -5561,9 +3887,6 @@
             "ins": [
                 502,
                 459
-            ],
-            "outs": [
-                306
             ]
         },
         {
@@ -5573,9 +3896,6 @@
             "ins": [
                 316,
                 173
-            ],
-            "outs": [
-                333
             ]
         },
         {
@@ -5592,19 +3912,13 @@
                 240,
                 4,
                 532
-            ],
-            "outs": [
-                468
             ]
         },
         {
             "id": 443,
             "type": 5,
             "type_name": "NOT",
-            "in": 92,
-            "outs": [
-                253
-            ]
+            "in": 92
         },
         {
             "id": 444,
@@ -5614,9 +3928,6 @@
                 382,
                 296,
                 362
-            ],
-            "outs": [
-                119
             ]
         },
         {
@@ -5627,9 +3938,6 @@
                 109,
                 49,
                 50
-            ],
-            "outs": [
-                521
             ]
         },
         {
@@ -5639,9 +3947,6 @@
             "ins": [
                 14,
                 471
-            ],
-            "outs": [
-                108
             ]
         },
         {
@@ -5651,9 +3956,6 @@
             "ins": [
                 236,
                 192
-            ],
-            "outs": [
-                237
             ]
         },
         {
@@ -5664,17 +3966,13 @@
                 404,
                 57,
                 301
-            ],
-            "outs": [
-                562
             ]
         },
         {
             "id": 449,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 345,
-            "out": 608
+            "in": 345
         },
         {
             "id": 450,
@@ -5684,9 +3982,6 @@
                 62,
                 238,
                 279
-            ],
-            "outs": [
-                83
             ]
         },
         {
@@ -5695,13 +3990,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( sees_tmp9 2 )",
-            "in": 101,
-            "outs": [
-                220,
-                286,
-                257,
-                376
-            ]
+            "in": 101
         },
         {
             "id": 452,
@@ -5711,9 +4000,6 @@
                 233,
                 0,
                 268
-            ],
-            "outs": [
-                414
             ]
         },
         {
@@ -5722,10 +4008,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( column 2 o )",
-            "in": 338,
-            "outs": [
-                321
-            ]
+            "in": 338
         },
         {
             "id": 454,
@@ -5735,9 +4018,6 @@
                 236,
                 294,
                 73
-            ],
-            "outs": [
-                54
             ]
         },
         {
@@ -5746,27 +4026,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 1 b ) )",
-            "in": 584,
-            "outs": [
-                55,
-                503,
-                391,
-                227,
-                535,
-                161,
-                356,
-                439,
-                289,
-                47,
-                107,
-                231,
-                413,
-                465,
-                18,
-                68,
-                114,
-                467
-            ]
+            "in": 584
         },
         {
             "id": 456,
@@ -5776,19 +4036,13 @@
                 315,
                 236,
                 73
-            ],
-            "outs": [
-                54
             ]
         },
         {
             "id": 457,
             "type": 5,
             "type_name": "NOT",
-            "in": 124,
-            "outs": [
-                284
-            ]
+            "in": 124
         },
         {
             "id": 458,
@@ -5798,9 +4052,6 @@
                 427,
                 49,
                 433
-            ],
-            "outs": [
-                60
             ]
         },
         {
@@ -5809,15 +4060,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( line x )",
-            "in": 78,
-            "outs": [
-                24,
-                478,
-                298,
-                358,
-                440,
-                388
-            ]
+            "in": 78
         },
         {
             "id": 460,
@@ -5827,9 +4070,6 @@
                 173,
                 471,
                 73
-            ],
-            "outs": [
-                1
             ]
         },
         {
@@ -5840,9 +4080,6 @@
                 118,
                 470,
                 433
-            ],
-            "outs": [
-                21
             ]
         },
         {
@@ -5853,9 +4090,6 @@
                 118,
                 222,
                 109
-            ],
-            "outs": [
-                215
             ]
         },
         {
@@ -5865,9 +4099,6 @@
             "ins": [
                 324,
                 238
-            ],
-            "outs": [
-                352
             ]
         },
         {
@@ -5876,11 +4107,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried x 3 1 ) )",
-            "in": 609,
-            "outs": [
-                483,
-                304
-            ]
+            "in": 609
         },
         {
             "id": 465,
@@ -5890,9 +4117,6 @@
                 93,
                 123,
                 455
-            ],
-            "outs": [
-                522
             ]
         },
         {
@@ -5912,9 +4136,6 @@
                 455,
                 123,
                 518
-            ],
-            "outs": [
-                522
             ]
         },
         {
@@ -5923,17 +4144,13 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( sees_tmp5 o )",
-            "in": 442,
-            "outs": [
-                552
-            ]
+            "in": 442
         },
         {
             "id": 469,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 272,
-            "out": 609
+            "in": 272
         },
         {
             "id": 470,
@@ -5941,36 +4158,14 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( cell 2 1 o ) )",
-            "in": 607,
-            "outs": [
-                360,
-                473,
-                461
-            ]
+            "in": 607
         },
         {
             "id": 471,
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does x ( mark 3 3 ) )",
-            "outs": [
-                226,
-                203,
-                516,
-                205,
-                460,
-                271,
-                235,
-                292,
-                385,
-                210,
-                278,
-                371,
-                446,
-                499,
-                156
-            ]
+            "gdl": "( does x ( mark 3 3 ) )"
         },
         {
             "id": 472,
@@ -5978,11 +4173,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( sees_tmp3 2 o )",
-            "in": 31,
-            "outs": [
-                200,
-                133
-            ]
+            "in": 31
         },
         {
             "id": 473,
@@ -5995,9 +4186,6 @@
                 535,
                 68,
                 470
-            ],
-            "outs": [
-                527
             ]
         },
         {
@@ -6006,8 +4194,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal x ( mark 3 1 ) )",
-            "in": 483,
-            "outs": []
+            "in": 483
         },
         {
             "id": 475,
@@ -6016,9 +4203,6 @@
             "ins": [
                 7,
                 500
-            ],
-            "outs": [
-                442
             ]
         },
         {
@@ -6028,9 +4212,6 @@
             "ins": [
                 84,
                 416
-            ],
-            "outs": [
-                352
             ]
         },
         {
@@ -6040,9 +4221,6 @@
             "ins": [
                 81,
                 324
-            ],
-            "outs": [
-                86
             ]
         },
         {
@@ -6053,17 +4231,13 @@
                 23,
                 520,
                 459
-            ],
-            "outs": [
-                95
             ]
         },
         {
             "id": 479,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 48,
-            "out": 610
+            "in": 48
         },
         {
             "id": 480,
@@ -6073,9 +4247,6 @@
                 0,
                 1,
                 268
-            ],
-            "outs": [
-                414
             ]
         },
         {
@@ -6084,10 +4255,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 2 1 x ) )",
-            "in": 522,
-            "outs": [
-                335
-            ]
+            "in": 522
         },
         {
             "id": 482,
@@ -6095,24 +4263,13 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next_tmp1 1 )",
-            "in": 290,
-            "outs": [
-                225,
-                311,
-                496,
-                254,
-                516,
-                114
-            ]
+            "in": 290
         },
         {
             "id": 483,
             "type": 5,
             "type_name": "NOT",
-            "in": 464,
-            "outs": [
-                474
-            ]
+            "in": 464
         },
         {
             "id": 484,
@@ -6122,9 +4279,6 @@
                 324,
                 260,
                 238
-            ],
-            "outs": [
-                375
             ]
         },
         {
@@ -6133,10 +4287,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 2 2 )",
-            "in": 435,
-            "outs": [
-                556
-            ]
+            "in": 435
         },
         {
             "id": 486,
@@ -6145,9 +4296,6 @@
             "ins": [
                 129,
                 100
-            ],
-            "outs": [
-                102
             ]
         },
         {
@@ -6156,10 +4304,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried o 2 2 ) )",
-            "in": 27,
-            "outs": [
-                90
-            ]
+            "in": 27
         },
         {
             "id": 488,
@@ -6167,10 +4312,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( column 2 x )",
-            "in": 122,
-            "outs": [
-                78
-            ]
+            "in": 122
         },
         {
             "id": 489,
@@ -6179,24 +4321,19 @@
             "ins": [
                 229,
                 395
-            ],
-            "outs": [
-                28
             ]
         },
         {
             "id": 490,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 99,
-            "out": 611
+            "in": 99
         },
         {
             "id": 491,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 141,
-            "out": 612
+            "in": 141
         },
         {
             "id": 492,
@@ -6204,29 +4341,19 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( sees_tmp9 3 )",
-            "in": 385,
-            "outs": [
-                200,
-                523,
-                182,
-                555
-            ]
+            "in": 385
         },
         {
             "id": 493,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 61,
-            "out": 613
+            "in": 61
         },
         {
             "id": 494,
             "type": 5,
             "type_name": "NOT",
-            "in": 71,
-            "outs": [
-                423
-            ]
+            "in": 71
         },
         {
             "id": 495,
@@ -6236,9 +4363,6 @@
                 404,
                 14,
                 207
-            ],
-            "outs": [
-                357
             ]
         },
         {
@@ -6249,9 +4373,6 @@
                 482,
                 84,
                 416
-            ],
-            "outs": [
-                211
             ]
         },
         {
@@ -6260,11 +4381,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried o 1 2 ) )",
-            "in": 583,
-            "outs": [
-                513,
-                390
-            ]
+            "in": 583
         },
         {
             "id": 498,
@@ -6273,9 +4390,6 @@
             "ins": [
                 406,
                 572
-            ],
-            "outs": [
-                102
             ]
         },
         {
@@ -6286,9 +4400,6 @@
                 315,
                 14,
                 471
-            ],
-            "outs": [
-                80
             ]
         },
         {
@@ -6296,45 +4407,19 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does o ( mark 1 3 ) )",
-            "outs": [
-                282,
-                421,
-                204,
-                126,
-                517,
-                206,
-                475,
-                290,
-                305,
-                385,
-                197,
-                135,
-                19,
-                175,
-                218
-            ]
+            "gdl": "( does o ( mark 1 3 ) )"
         },
         {
             "id": 501,
             "type": 5,
             "type_name": "NOT",
-            "in": 22,
-            "outs": [
-                191
-            ]
+            "in": 22
         },
         {
             "id": 502,
             "type": 5,
             "type_name": "NOT",
-            "in": 23,
-            "outs": [
-                24,
-                353,
-                134,
-                440
-            ]
+            "in": 23
         },
         {
             "id": 503,
@@ -6343,9 +4428,6 @@
             "ins": [
                 455,
                 123
-            ],
-            "outs": [
-                352
             ]
         },
         {
@@ -6355,9 +4437,6 @@
             "ins": [
                 528,
                 124
-            ],
-            "outs": [
-                277
             ]
         },
         {
@@ -6367,17 +4446,13 @@
             "ins": [
                 7,
                 528
-            ],
-            "outs": [
-                259
             ]
         },
         {
             "id": 506,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 188,
-            "out": 614
+            "in": 188
         },
         {
             "id": 507,
@@ -6386,19 +4461,13 @@
             "ins": [
                 41,
                 22
-            ],
-            "outs": [
-                379
             ]
         },
         {
             "id": 508,
             "type": 5,
             "type_name": "NOT",
-            "in": 554,
-            "outs": [
-                159
-            ]
+            "in": 554
         },
         {
             "id": 509,
@@ -6406,11 +4475,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried x 2 1 ) )",
-            "in": 614,
-            "outs": [
-                533,
-                365
-            ]
+            "in": 614
         },
         {
             "id": 510,
@@ -6419,9 +4484,6 @@
             "ins": [
                 143,
                 207
-            ],
-            "outs": [
-                308
             ]
         },
         {
@@ -6430,10 +4492,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried x 3 2 ) )",
-            "in": 269,
-            "outs": [
-                243
-            ]
+            "in": 269
         },
         {
             "id": 512,
@@ -6442,9 +4501,6 @@
             "ins": [
                 192,
                 73
-            ],
-            "outs": [
-                530
             ]
         },
         {
@@ -6454,17 +4510,13 @@
             "ins": [
                 497,
                 268
-            ],
-            "outs": [
-                381
             ]
         },
         {
             "id": 514,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 341,
-            "out": 615
+            "in": 341
         },
         {
             "id": 515,
@@ -6472,10 +4524,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 3 1 b ) )",
-            "in": 249,
-            "outs": [
-                74
-            ]
+            "in": 249
         },
         {
             "id": 516,
@@ -6485,9 +4534,6 @@
                 482,
                 14,
                 471
-            ],
-            "outs": [
-                80
             ]
         },
         {
@@ -6497,9 +4543,6 @@
             "ins": [
                 500,
                 250
-            ],
-            "outs": [
-                291
             ]
         },
         {
@@ -6507,19 +4550,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does random ( tiebreak x ) )",
-            "outs": [
-                251,
-                273,
-                275,
-                366,
-                278,
-                197,
-                174,
-                113,
-                361,
-                467
-            ]
+            "gdl": "( does random ( tiebreak x ) )"
         },
         {
             "id": 519,
@@ -6528,21 +4559,13 @@
             "ins": [
                 416,
                 92
-            ],
-            "outs": [
-                332
             ]
         },
         {
             "id": 520,
             "type": 5,
             "type_name": "NOT",
-            "in": 570,
-            "outs": [
-                478,
-                353,
-                134
-            ]
+            "in": 570
         },
         {
             "id": 521,
@@ -6550,10 +4573,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( column 3 o )",
-            "in": 445,
-            "outs": [
-                321
-            ]
+            "in": 445
         },
         {
             "id": 522,
@@ -6566,9 +4586,6 @@
                 114,
                 467,
                 231
-            ],
-            "outs": [
-                481
             ]
         },
         {
@@ -6578,9 +4595,6 @@
             "ins": [
                 492,
                 3
-            ],
-            "outs": [
-                28
             ]
         },
         {
@@ -6590,9 +4604,6 @@
             "ins": [
                 353,
                 358
-            ],
-            "outs": [
-                223
             ]
         },
         {
@@ -6600,19 +4611,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does random ( tiebreak o ) )",
-            "outs": [
-                262,
-                52,
-                552,
-                68,
-                371,
-                258,
-                46,
-                175,
-                544,
-                139
-            ]
+            "gdl": "( does random ( tiebreak o ) )"
         },
         {
             "id": 526,
@@ -6621,9 +4620,6 @@
             "ins": [
                 0,
                 268
-            ],
-            "outs": [
-                31
             ]
         },
         {
@@ -6632,41 +4628,20 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 2 1 o ) )",
-            "in": 473,
-            "outs": [
-                386
-            ]
+            "in": 473
         },
         {
             "id": 528,
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does x ( mark 1 3 ) )",
-            "outs": [
-                504,
-                505,
-                168,
-                8,
-                235,
-                274,
-                415,
-                385,
-                197,
-                135,
-                312,
-                19,
-                136,
-                175,
-                313
-            ]
+            "gdl": "( does x ( mark 1 3 ) )"
         },
         {
             "id": 529,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 411,
-            "out": 616
+            "in": 411
         },
         {
             "id": 530,
@@ -6674,34 +4649,14 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( marked 3 1 )",
-            "in": 512,
-            "outs": [
-                15
-            ]
+            "in": 512
         },
         {
             "id": 531,
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does o ( mark 3 2 ) )",
-            "outs": [
-                140,
-                434,
-                392,
-                393,
-                248,
-                101,
-                46,
-                165,
-                271,
-                307,
-                132,
-                542,
-                174,
-                176,
-                532
-            ]
+            "gdl": "( does o ( mark 3 2 ) )"
         },
         {
             "id": 532,
@@ -6710,19 +4665,13 @@
             "ins": [
                 316,
                 531
-            ],
-            "outs": [
-                442
             ]
         },
         {
             "id": 533,
             "type": 5,
             "type_name": "NOT",
-            "in": 509,
-            "outs": [
-                201
-            ]
+            "in": 509
         },
         {
             "id": 534,
@@ -6731,9 +4680,6 @@
             "ins": [
                 238,
                 556
-            ],
-            "outs": [
-                181
             ]
         },
         {
@@ -6744,9 +4690,6 @@
                 41,
                 1,
                 455
-            ],
-            "outs": [
-                473
             ]
         },
         {
@@ -6757,17 +4700,13 @@
                 109,
                 433,
                 166
-            ],
-            "outs": [
-                569
             ]
         },
         {
             "id": 537,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 332,
-            "out": 617
+            "in": 332
         },
         {
             "id": 538,
@@ -6777,9 +4716,6 @@
                 158,
                 64,
                 296
-            ],
-            "outs": [
-                325
             ]
         },
         {
@@ -6788,10 +4724,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried o 2 3 ) )",
-            "in": 331,
-            "outs": [
-                151
-            ]
+            "in": 331
         },
         {
             "id": 540,
@@ -6801,9 +4734,6 @@
                 233,
                 14,
                 207
-            ],
-            "outs": [
-                357
             ]
         },
         {
@@ -6812,8 +4742,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal o ( mark 1 3 ) )",
-            "in": 374,
-            "outs": []
+            "in": 374
         },
         {
             "id": 542,
@@ -6822,9 +4751,6 @@
             "ins": [
                 173,
                 531
-            ],
-            "outs": [
-                2
             ]
         },
         {
@@ -6834,9 +4760,6 @@
             "ins": [
                 14,
                 207
-            ],
-            "outs": [
-                237
             ]
         },
         {
@@ -6848,9 +4771,6 @@
                 236,
                 192,
                 73
-            ],
-            "outs": [
-                437
             ]
         },
         {
@@ -6859,11 +4779,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried o 3 2 ) )",
-            "in": 578,
-            "outs": [
-                392,
-                247
-            ]
+            "in": 578
         },
         {
             "id": 546,
@@ -6871,10 +4787,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( row 2 x )",
-            "in": 255,
-            "outs": [
-                78
-            ]
+            "in": 255
         },
         {
             "id": 547,
@@ -6882,10 +4795,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( tried o 3 2 ) )",
-            "in": 392,
-            "outs": [
-                56
-            ]
+            "in": 392
         },
         {
             "id": 548,
@@ -6893,10 +4803,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 3 2 b ) )",
-            "in": 232,
-            "outs": [
-                378
-            ]
+            "in": 232
         },
         {
             "id": 549,
@@ -6906,9 +4813,6 @@
                 158,
                 34,
                 362
-            ],
-            "outs": [
-                35
             ]
         },
         {
@@ -6917,8 +4821,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal o ( mark 3 3 ) )",
-            "in": 214,
-            "outs": []
+            "in": 214
         },
         {
             "id": 551,
@@ -6927,9 +4830,6 @@
             "ins": [
                 236,
                 192
-            ],
-            "outs": [
-                11
             ]
         },
         {
@@ -6939,9 +4839,6 @@
             "ins": [
                 468,
                 525
-            ],
-            "outs": [
-                28
             ]
         },
         {
@@ -6951,9 +4848,6 @@
             "ins": [
                 129,
                 178
-            ],
-            "outs": [
-                28
             ]
         },
         {
@@ -6962,11 +4856,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( tried x 3 2 ) )",
-            "in": 595,
-            "outs": [
-                508,
-                269
-            ]
+            "in": 595
         },
         {
             "id": 555,
@@ -6975,19 +4865,13 @@
             "ins": [
                 492,
                 195
-            ],
-            "outs": [
-                102
             ]
         },
         {
             "id": 556,
             "type": 5,
             "type_name": "NOT",
-            "in": 485,
-            "outs": [
-                534
-            ]
+            "in": 485
         },
         {
             "id": 557,
@@ -6995,10 +4879,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 1 2 b ) )",
-            "in": 96,
-            "outs": [
-                117
-            ]
+            "in": 96
         },
         {
             "id": 558,
@@ -7006,10 +4887,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( diagonal o )",
-            "in": 569,
-            "outs": [
-                321
-            ]
+            "in": 569
         },
         {
             "id": 559,
@@ -7019,9 +4897,6 @@
                 426,
                 57,
                 301
-            ],
-            "outs": [
-                562
             ]
         },
         {
@@ -7030,10 +4905,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next ( cell 3 1 x ) )",
-            "in": 54,
-            "outs": [
-                20
-            ]
+            "in": 54
         },
         {
             "id": 561,
@@ -7042,9 +4914,6 @@
             "ins": [
                 324,
                 238
-            ],
-            "outs": [
-                297
             ]
         },
         {
@@ -7058,9 +4927,6 @@
                 433,
                 139,
                 559
-            ],
-            "outs": [
-                407
             ]
         },
         {
@@ -7069,8 +4935,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal o ( mark 3 2 ) )",
-            "in": 247,
-            "outs": []
+            "in": 247
         },
         {
             "id": 564,
@@ -7079,9 +4944,6 @@
             "ins": [
                 571,
                 572
-            ],
-            "outs": [
-                28
             ]
         },
         {
@@ -7092,17 +4954,13 @@
                 236,
                 93,
                 73
-            ],
-            "outs": [
-                54
             ]
         },
         {
             "id": 566,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 407,
-            "out": 618
+            "in": 407
         },
         {
             "id": 567,
@@ -7112,9 +4970,6 @@
                 0,
                 268,
                 279
-            ],
-            "outs": [
-                414
             ]
         },
         {
@@ -7124,9 +4979,6 @@
             "ins": [
                 324,
                 238
-            ],
-            "outs": [
-                333
             ]
         },
         {
@@ -7136,9 +4988,6 @@
             "ins": [
                 536,
                 410
-            ],
-            "outs": [
-                558
             ]
         },
         {
@@ -7147,10 +4996,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "open",
-            "in": 413,
-            "outs": [
-                520
-            ]
+            "in": 413
         },
         {
             "id": 571,
@@ -7158,11 +5004,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( sees_tmp1 2 o )",
-            "in": 162,
-            "outs": [
-                564,
-                242
-            ]
+            "in": 162
         },
         {
             "id": 572,
@@ -7170,13 +5012,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( sees_tmp7 3 )",
-            "in": 271,
-            "outs": [
-                142,
-                564,
-                369,
-                498
-            ]
+            "in": 271
         },
         {
             "id": 573,
@@ -7184,323 +5020,277 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal o ( mark 1 1 ) )",
-            "in": 103,
-            "outs": []
+            "in": 103
         },
         {
             "id": 574,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 20,
-            "out": 372
+            "in": 20
         },
         {
             "id": 575,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 30,
-            "out": 14
+            "in": 30
         },
         {
             "id": 576,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 36,
-            "out": 7
+            "in": 36
         },
         {
             "id": 577,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 39,
-            "out": 84
+            "in": 39
         },
         {
             "id": 578,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 56,
-            "out": 545
+            "in": 56
         },
         {
             "id": 579,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 79,
-            "out": 250
+            "in": 79
         },
         {
             "id": 580,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 89,
-            "out": 22
+            "in": 89
         },
         {
             "id": 581,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 90,
-            "out": 228
+            "in": 90
         },
         {
             "id": 582,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 110,
-            "out": 71
+            "in": 110
         },
         {
             "id": 583,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 116,
-            "out": 497
+            "in": 116
         },
         {
             "id": 584,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 146,
-            "out": 455
+            "in": 146
         },
         {
             "id": 585,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 148,
-            "out": 362
+            "in": 148
         },
         {
             "id": 586,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 151,
-            "out": 199
+            "in": 151
         },
         {
             "id": 587,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 152,
-            "out": 236
+            "in": 152
         },
         {
             "id": 588,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 155,
-            "out": 382
+            "in": 155
         },
         {
             "id": 589,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 163,
-            "out": 64
+            "in": 163
         },
         {
             "id": 590,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 187,
-            "out": 16
+            "in": 187
         },
         {
             "id": 591,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 217,
-            "out": 91
+            "in": 217
         },
         {
             "id": 592,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 221,
-            "out": 222
+            "in": 221
         },
         {
             "id": 593,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 239,
-            "out": 81
+            "in": 239
         },
         {
             "id": 594,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 241,
-            "out": 0
+            "in": 241
         },
         {
             "id": 595,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 243,
-            "out": 554
+            "in": 243
         },
         {
             "id": 596,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 276,
-            "out": 124
+            "in": 276
         },
         {
             "id": 597,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 281,
-            "out": 157
+            "in": 281
         },
         {
             "id": 598,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 285,
-            "out": 143
+            "in": 285
         },
         {
             "id": 599,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 295,
-            "out": 34
+            "in": 295
         },
         {
             "id": 600,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 299,
-            "out": 340
+            "in": 299
         },
         {
             "id": 601,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 300,
-            "out": 166
+            "in": 300
         },
         {
             "id": 602,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 303,
-            "out": 213
+            "in": 303
         },
         {
             "id": 603,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 322,
-            "out": 316
+            "in": 322
         },
         {
             "id": 604,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 334,
-            "out": 238
+            "in": 334
         },
         {
             "id": 605,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 335,
-            "out": 283
+            "in": 335
         },
         {
             "id": 606,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 359,
-            "out": 427
+            "in": 359
         },
         {
             "id": 607,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 386,
-            "out": 470
+            "in": 386
         },
         {
             "id": 608,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 449,
-            "out": 49
+            "in": 449
         },
         {
             "id": 609,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 469,
-            "out": 464
+            "in": 469
         },
         {
             "id": 610,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 479,
-            "out": 118
+            "in": 479
         },
         {
             "id": 611,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 490,
-            "out": 50
+            "in": 490
         },
         {
             "id": 612,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 491,
-            "out": 158
+            "in": 491
         },
         {
             "id": 613,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 493,
-            "out": 296
+            "in": 493
         },
         {
             "id": 614,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 506,
-            "out": 509
+            "in": 506
         },
         {
             "id": 615,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 514,
-            "out": 109
+            "in": 514
         },
         {
             "id": 616,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 529,
-            "out": 301
+            "in": 529
         },
         {
             "id": 617,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 537,
-            "out": 92
+            "in": 537
         },
         {
             "id": 618,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 566,
-            "out": 433
+            "in": 566
         }
     ]
 }

@@ -12,17 +12,13 @@
                 98,
                 35,
                 11
-            ],
-            "outs": [
-                68
             ]
         },
         {
             "id": 1,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 122,
-            "out": 127
+            "in": 122
         },
         {
             "id": 2,
@@ -30,10 +26,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "in": 55,
-            "outs": [
-                47
-            ]
+            "in": 55
         },
         {
             "id": 3,
@@ -41,8 +34,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal candidate switch )",
-            "in": 77,
-            "outs": []
+            "in": 77
         },
         {
             "id": 4,
@@ -50,23 +42,20 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal random noop )",
-            "in": 77,
-            "outs": []
+            "in": 77
         },
         {
             "id": 5,
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does random noop )",
-            "outs": []
+            "gdl": "( does random noop )"
         },
         {
             "id": 6,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 25,
-            "out": 128
+            "in": 25
         },
         {
             "id": 7,
@@ -75,9 +64,6 @@
             "ins": [
                 75,
                 36
-            ],
-            "outs": [
-                124
             ]
         },
         {
@@ -94,10 +80,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "in": 105,
-            "outs": [
-                66
-            ]
+            "in": 105
         },
         {
             "id": 10,
@@ -105,20 +88,13 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( step 4 ) )",
-            "in": 128,
-            "outs": [
-                73
-            ]
+            "in": 128
         },
         {
             "id": 11,
             "type": 5,
             "type_name": "NOT",
-            "in": 104,
-            "outs": [
-                0,
-                31
-            ]
+            "in": 104
         },
         {
             "id": 12,
@@ -126,35 +102,21 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( step 2 ) )",
-            "in": 132,
-            "outs": [
-                30,
-                31,
-                81,
-                50,
-                116
-            ]
+            "in": 132
         },
         {
             "id": 13,
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does random ( open_door 1 ) )",
-            "outs": [
-                75,
-                86
-            ]
+            "gdl": "( does random ( open_door 1 ) )"
         },
         {
             "id": 14,
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does candidate ( choose 1 ) )",
-            "outs": [
-                95
-            ]
+            "gdl": "( does candidate ( choose 1 ) )"
         },
         {
             "id": 15,
@@ -164,9 +126,6 @@
                 123,
                 58,
                 96
-            ],
-            "outs": [
-                46
             ]
         },
         {
@@ -174,20 +133,14 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does candidate ( choose 2 ) )",
-            "outs": [
-                70
-            ]
+            "gdl": "( does candidate ( choose 2 ) )"
         },
         {
             "id": 17,
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does random ( hide_car 2 ) )",
-            "outs": [
-                119
-            ]
+            "gdl": "( does random ( hide_car 2 ) )"
         },
         {
             "id": 18,
@@ -195,10 +148,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "in": 72,
-            "outs": [
-                71
-            ]
+            "in": 72
         },
         {
             "id": 19,
@@ -207,9 +157,6 @@
             "ins": [
                 37,
                 89
-            ],
-            "outs": [
-                63
             ]
         },
         {
@@ -233,13 +180,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "init",
-            "gdl": "init",
-            "outs": [
-                120,
-                65,
-                122,
-                110
-            ]
+            "gdl": "init"
         },
         {
             "id": 23,
@@ -247,8 +188,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal random ( open_door 3 ) )",
-            "in": 31,
-            "outs": []
+            "in": 31
         },
         {
             "id": 24,
@@ -257,9 +197,6 @@
             "ins": [
                 35,
                 55
-            ],
-            "outs": [
-                121
             ]
         },
         {
@@ -268,30 +205,20 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "in": 77,
-            "outs": [
-                6
-            ]
+            "in": 77
         },
         {
             "id": 26,
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does candidate ( choose 3 ) )",
-            "outs": [
-                68
-            ]
+            "gdl": "( does candidate ( choose 3 ) )"
         },
         {
             "id": 27,
             "type": 5,
             "type_name": "NOT",
-            "in": 78,
-            "outs": [
-                101,
-                81
-            ]
+            "in": 78
         },
         {
             "id": 28,
@@ -301,9 +228,6 @@
                 77,
                 105,
                 88
-            ],
-            "outs": [
-                32
             ]
         },
         {
@@ -312,8 +236,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal candidate noop )",
-            "in": 116,
-            "outs": []
+            "in": 116
         },
         {
             "id": 30,
@@ -324,9 +247,6 @@
                 87,
                 36,
                 102
-            ],
-            "outs": [
-                44
             ]
         },
         {
@@ -338,9 +258,6 @@
                 35,
                 39,
                 11
-            ],
-            "outs": [
-                23
             ]
         },
         {
@@ -355,15 +272,13 @@
             "id": 33,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 109,
-            "out": 129
+            "in": 109
         },
         {
             "id": 34,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 65,
-            "out": 130
+            "in": 65
         },
         {
             "id": 35,
@@ -371,14 +286,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( closed 3 ) )",
-            "in": 130,
-            "outs": [
-                0,
-                103,
-                31,
-                24,
-                60
-            ]
+            "in": 130
         },
         {
             "id": 36,
@@ -386,14 +294,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( closed 1 ) )",
-            "in": 127,
-            "outs": [
-                45,
-                62,
-                30,
-                7,
-                117
-            ]
+            "in": 127
         },
         {
             "id": 37,
@@ -401,35 +302,20 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( closed 2 ) )",
-            "in": 138,
-            "outs": [
-                101,
-                19,
-                81,
-                43,
-                118
-            ]
+            "in": 138
         },
         {
             "id": 38,
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does random ( open_door 3 ) )",
-            "outs": [
-                21,
-                80
-            ]
+            "gdl": "( does random ( open_door 3 ) )"
         },
         {
             "id": 39,
             "type": 5,
             "type_name": "NOT",
-            "in": 88,
-            "outs": [
-                90,
-                31
-            ]
+            "in": 88
         },
         {
             "id": 40,
@@ -443,8 +329,7 @@
             "id": 41,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 50,
-            "out": 131
+            "in": 50
         },
         {
             "id": 42,
@@ -452,8 +337,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal random ( hide_car 1 ) )",
-            "in": 62,
-            "outs": []
+            "in": 62
         },
         {
             "id": 43,
@@ -462,9 +346,6 @@
             "ins": [
                 55,
                 37
-            ],
-            "outs": [
-                126
             ]
         },
         {
@@ -473,8 +354,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal random ( open_door 1 ) )",
-            "in": 30,
-            "outs": []
+            "in": 30
         },
         {
             "id": 45,
@@ -484,9 +364,6 @@
                 98,
                 36,
                 102
-            ],
-            "outs": [
-                95
             ]
         },
         {
@@ -501,8 +378,7 @@
             "id": 47,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 2,
-            "out": 132
+            "in": 2
         },
         {
             "id": 48,
@@ -510,8 +386,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal random ( open_door 2 ) )",
-            "in": 81,
-            "outs": []
+            "in": 81
         },
         {
             "id": 49,
@@ -520,9 +395,6 @@
             "ins": [
                 107,
                 115
-            ],
-            "outs": [
-                94
             ]
         },
         {
@@ -531,10 +403,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "in": 12,
-            "outs": [
-                41
-            ]
+            "in": 12
         },
         {
             "id": 51,
@@ -544,9 +413,6 @@
                 107,
                 76,
                 77
-            ],
-            "outs": [
-                40
             ]
         },
         {
@@ -556,9 +422,6 @@
             "ins": [
                 97,
                 87
-            ],
-            "outs": [
-                113
             ]
         },
         {
@@ -566,18 +429,13 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does random ( open_door 2 ) )",
-            "outs": [
-                114,
-                89
-            ]
+            "gdl": "( does random ( open_door 2 ) )"
         },
         {
             "id": 54,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 91,
-            "out": 133
+            "in": 91
         },
         {
             "id": 55,
@@ -585,16 +443,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( step 1 ) )",
-            "in": 139,
-            "outs": [
-                103,
-                62,
-                2,
-                117,
-                24,
-                43,
-                118
-            ]
+            "in": 139
         },
         {
             "id": 56,
@@ -611,9 +460,6 @@
             "ins": [
                 78,
                 83
-            ],
-            "outs": [
-                113
             ]
         },
         {
@@ -623,9 +469,6 @@
             "ins": [
                 78,
                 69
-            ],
-            "outs": [
-                15
             ]
         },
         {
@@ -634,8 +477,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal candidate ( choose 3 ) )",
-            "in": 103,
-            "outs": []
+            "in": 103
         },
         {
             "id": 60,
@@ -644,17 +486,13 @@
             "ins": [
                 35,
                 80
-            ],
-            "outs": [
-                125
             ]
         },
         {
             "id": 61,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 74,
-            "out": 134
+            "in": 74
         },
         {
             "id": 62,
@@ -663,9 +501,6 @@
             "ins": [
                 55,
                 36
-            ],
-            "outs": [
-                42
             ]
         },
         {
@@ -674,17 +509,13 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "in": 19,
-            "outs": [
-                120
-            ]
+            "in": 19
         },
         {
             "id": 64,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 94,
-            "out": 135
+            "in": 94
         },
         {
             "id": 65,
@@ -693,17 +524,13 @@
             "ins": [
                 22,
                 125
-            ],
-            "outs": [
-                34
             ]
         },
         {
             "id": 66,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 9,
-            "out": 136
+            "in": 9
         },
         {
             "id": 67,
@@ -712,9 +539,6 @@
             "ins": [
                 104,
                 100
-            ],
-            "outs": [
-                68
             ]
         },
         {
@@ -725,9 +549,6 @@
                 0,
                 26,
                 67
-            ],
-            "outs": [
-                105
             ]
         },
         {
@@ -736,13 +557,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( car 2 ) )",
-            "in": 133,
-            "outs": [
-                119,
-                58,
-                83,
-                84
-            ]
+            "in": 133
         },
         {
             "id": 70,
@@ -752,17 +567,13 @@
                 16,
                 101,
                 85
-            ],
-            "outs": [
-                108
             ]
         },
         {
             "id": 71,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 18,
-            "out": 137
+            "in": 18
         },
         {
             "id": 72,
@@ -771,9 +582,6 @@
             "ins": [
                 106,
                 88
-            ],
-            "outs": [
-                18
             ]
         },
         {
@@ -782,8 +590,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "terminal",
             "gdl": "terminal",
-            "in": 10,
-            "outs": []
+            "in": 10
         },
         {
             "id": 74,
@@ -791,19 +598,13 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "in": 108,
-            "outs": [
-                61
-            ]
+            "in": 108
         },
         {
             "id": 75,
             "type": 5,
             "type_name": "NOT",
-            "in": 13,
-            "outs": [
-                7
-            ]
+            "in": 13
         },
         {
             "id": 76,
@@ -811,11 +612,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next_chosen 1 )",
-            "in": 95,
-            "outs": [
-                109,
-                51
-            ]
+            "in": 95
         },
         {
             "id": 77,
@@ -823,16 +620,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( step 3 ) )",
-            "in": 131,
-            "outs": [
-                3,
-                28,
-                4,
-                51,
-                116,
-                25,
-                84
-            ]
+            "in": 131
         },
         {
             "id": 78,
@@ -840,29 +628,19 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( chosen 2 ) )",
-            "in": 134,
-            "outs": [
-                27,
-                57,
-                58,
-                85
-            ]
+            "in": 134
         },
         {
             "id": 79,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 120,
-            "out": 138
+            "in": 120
         },
         {
             "id": 80,
             "type": 5,
             "type_name": "NOT",
-            "in": 38,
-            "outs": [
-                60
-            ]
+            "in": 38
         },
         {
             "id": 81,
@@ -873,9 +651,6 @@
                 27,
                 37,
                 83
-            ],
-            "outs": [
-                48
             ]
         },
         {
@@ -884,18 +659,13 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal candidate ( choose 1 ) )",
-            "in": 117,
-            "outs": []
+            "in": 117
         },
         {
             "id": 83,
             "type": 5,
             "type_name": "NOT",
-            "in": 69,
-            "outs": [
-                57,
-                81
-            ]
+            "in": 69
         },
         {
             "id": 84,
@@ -905,9 +675,6 @@
                 108,
                 77,
                 69
-            ],
-            "outs": [
-                8
             ]
         },
         {
@@ -917,9 +684,6 @@
             "ins": [
                 78,
                 100
-            ],
-            "outs": [
-                70
             ]
         },
         {
@@ -934,11 +698,7 @@
             "id": 87,
             "type": 5,
             "type_name": "NOT",
-            "in": 107,
-            "outs": [
-                30,
-                52
-            ]
+            "in": 107
         },
         {
             "id": 88,
@@ -946,22 +706,13 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( car 3 ) )",
-            "in": 137,
-            "outs": [
-                28,
-                39,
-                123,
-                72
-            ]
+            "in": 137
         },
         {
             "id": 89,
             "type": 5,
             "type_name": "NOT",
-            "in": 53,
-            "outs": [
-                19
-            ]
+            "in": 53
         },
         {
             "id": 90,
@@ -970,9 +721,6 @@
             "ins": [
                 104,
                 39
-            ],
-            "outs": [
-                113
             ]
         },
         {
@@ -981,10 +729,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "in": 119,
-            "outs": [
-                54
-            ]
+            "in": 119
         },
         {
             "id": 92,
@@ -996,8 +741,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does candidate noop )",
-            "outs": []
+            "gdl": "( does candidate noop )"
         },
         {
             "id": 94,
@@ -1005,10 +749,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "in": 49,
-            "outs": [
-                64
-            ]
+            "in": 49
         },
         {
             "id": 95,
@@ -1018,9 +759,6 @@
                 45,
                 14,
                 99
-            ],
-            "outs": [
-                76
             ]
         },
         {
@@ -1030,9 +768,6 @@
             "ins": [
                 97,
                 107
-            ],
-            "outs": [
-                15
             ]
         },
         {
@@ -1041,26 +776,14 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( chosen 1 ) )",
-            "in": 129,
-            "outs": [
-                99,
-                102,
-                96,
-                52
-            ]
+            "in": 129
         },
         {
             "id": 98,
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does candidate switch )",
-            "outs": [
-                0,
-                45,
-                100,
-                101
-            ]
+            "gdl": "( does candidate switch )"
         },
         {
             "id": 99,
@@ -1069,21 +792,13 @@
             "ins": [
                 97,
                 100
-            ],
-            "outs": [
-                95
             ]
         },
         {
             "id": 100,
             "type": 5,
             "type_name": "NOT",
-            "in": 98,
-            "outs": [
-                67,
-                99,
-                85
-            ]
+            "in": 98
         },
         {
             "id": 101,
@@ -1093,20 +808,13 @@
                 98,
                 27,
                 37
-            ],
-            "outs": [
-                70
             ]
         },
         {
             "id": 102,
             "type": 5,
             "type_name": "NOT",
-            "in": 97,
-            "outs": [
-                45,
-                30
-            ]
+            "in": 97
         },
         {
             "id": 103,
@@ -1115,9 +823,6 @@
             "ins": [
                 35,
                 55
-            ],
-            "outs": [
-                59
             ]
         },
         {
@@ -1126,13 +831,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( chosen 3 ) )",
-            "in": 136,
-            "outs": [
-                90,
-                67,
-                123,
-                11
-            ]
+            "in": 136
         },
         {
             "id": 105,
@@ -1140,21 +839,14 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next_chosen 3 )",
-            "in": 68,
-            "outs": [
-                28,
-                9
-            ]
+            "in": 68
         },
         {
             "id": 106,
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does random ( hide_car 3 ) )",
-            "outs": [
-                72
-            ]
+            "gdl": "( does random ( hide_car 3 ) )"
         },
         {
             "id": 107,
@@ -1162,13 +854,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( car 1 ) )",
-            "in": 135,
-            "outs": [
-                87,
-                49,
-                51,
-                96
-            ]
+            "in": 135
         },
         {
             "id": 108,
@@ -1176,11 +862,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next_chosen 2 )",
-            "in": 70,
-            "outs": [
-                74,
-                84
-            ]
+            "in": 70
         },
         {
             "id": 109,
@@ -1188,17 +870,13 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "in": 76,
-            "outs": [
-                33
-            ]
+            "in": 76
         },
         {
             "id": 110,
             "type": 8,
             "type_name": "PRE TRANSITION",
-            "in": 22,
-            "out": 139
+            "in": 22
         },
         {
             "id": 111,
@@ -1206,16 +884,14 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal candidate ( choose 2 ) )",
-            "in": 118,
-            "outs": []
+            "in": 118
         },
         {
             "id": 112,
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does random switch )",
-            "outs": []
+            "gdl": "( does random switch )"
         },
         {
             "id": 113,
@@ -1225,9 +901,6 @@
                 90,
                 57,
                 52
-            ],
-            "outs": [
-                20
             ]
         },
         {
@@ -1243,10 +916,7 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does random ( hide_car 1 ) )",
-            "outs": [
-                49
-            ]
+            "gdl": "( does random ( hide_car 1 ) )"
         },
         {
             "id": 116,
@@ -1255,9 +925,6 @@
             "ins": [
                 12,
                 77
-            ],
-            "outs": [
-                29
             ]
         },
         {
@@ -1267,9 +934,6 @@
             "ins": [
                 55,
                 36
-            ],
-            "outs": [
-                82
             ]
         },
         {
@@ -1279,9 +943,6 @@
             "ins": [
                 55,
                 37
-            ],
-            "outs": [
-                111
             ]
         },
         {
@@ -1291,9 +952,6 @@
             "ins": [
                 17,
                 69
-            ],
-            "outs": [
-                91
             ]
         },
         {
@@ -1303,9 +961,6 @@
             "ins": [
                 63,
                 22
-            ],
-            "outs": [
-                79
             ]
         },
         {
@@ -1314,8 +969,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal random ( hide_car 3 ) )",
-            "in": 24,
-            "outs": []
+            "in": 24
         },
         {
             "id": 122,
@@ -1324,9 +978,6 @@
             "ins": [
                 22,
                 124
-            ],
-            "outs": [
-                1
             ]
         },
         {
@@ -1336,9 +987,6 @@
             "ins": [
                 104,
                 88
-            ],
-            "outs": [
-                15
             ]
         },
         {
@@ -1347,10 +995,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "in": 7,
-            "outs": [
-                122
-            ]
+            "in": 7
         },
         {
             "id": 125,
@@ -1358,10 +1003,7 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "in": 60,
-            "outs": [
-                65
-            ]
+            "in": 60
         },
         {
             "id": 126,
@@ -1369,99 +1011,85 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal random ( hide_car 2 ) )",
-            "in": 43,
-            "outs": []
+            "in": 43
         },
         {
             "id": 127,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 1,
-            "out": 36
+            "in": 1
         },
         {
             "id": 128,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 6,
-            "out": 10
+            "in": 6
         },
         {
             "id": 129,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 33,
-            "out": 97
+            "in": 33
         },
         {
             "id": 130,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 34,
-            "out": 35
+            "in": 34
         },
         {
             "id": 131,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 41,
-            "out": 77
+            "in": 41
         },
         {
             "id": 132,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 47,
-            "out": 12
+            "in": 47
         },
         {
             "id": 133,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 54,
-            "out": 69
+            "in": 54
         },
         {
             "id": 134,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 61,
-            "out": 78
+            "in": 61
         },
         {
             "id": 135,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 64,
-            "out": 107
+            "in": 64
         },
         {
             "id": 136,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 66,
-            "out": 104
+            "in": 66
         },
         {
             "id": 137,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 71,
-            "out": 88
+            "in": 71
         },
         {
             "id": 138,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 79,
-            "out": 37
+            "in": 79
         },
         {
             "id": 139,
             "type": 9,
             "type_name": "POST TRANSITION",
-            "in": 110,
-            "out": 55
+            "in": 110
         }
     ]
 }
