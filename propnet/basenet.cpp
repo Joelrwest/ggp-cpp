@@ -61,7 +61,8 @@ namespace propnet
             {
                 roles.emplace_back(
                     role_entry.at(ROLE_KEY).get<std::string>(),
-                    role_entry.at(SEES_KEY).get<std::vector<std::uint32_t>>()
+                    role_entry.at(SEES_KEY).get<std::vector<std::uint32_t>>(),
+                    role_entry.at(LEGALS_KEY).get<std::vector<std::uint32_t>>()
                 );
             }
 

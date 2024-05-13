@@ -21,4 +21,9 @@ namespace propnet
     {
         return is_initial_state;
     }
+
+    void State::set_not_initial_state()
+    {
+        is_initial_state = false;
+    }
 };

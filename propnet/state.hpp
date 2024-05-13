@@ -12,6 +12,7 @@ namespace propnet
 
             bool eval_prop(std::uint32_t id) const;
             bool get_is_initial_state() const;
+            void set_not_initial_state();
         private:
             bool is_initial_state;
             StateData data;

@@ -2,11 +2,14 @@ import os
 import importlib
 import json
 import logging
+import re
 
 from constants import *
 
 PYTHON_FOLDER = 'python'
 JSON_FOLDER = 'json'
+LEGAL_RE = re.compile(r'\( *legal *(\w+) *(.+) *\)')
+SEES_RE = re.compile(r'\( *sees *(\w+) *(.+) *\)')
 
 def main() -> None:
     games = (
@@ -37,7 +40,16 @@ def process_game(game: str) -> None:
                 if (
                     entry['type'] == PROPOSITION and
                     entry['proposition_type'] == sees and
-                    role in entry['gdl']
+                    role == SEES_RE.search(entry['gdl']).groups()[0]
+                )
+            ],
+            'legals': [
+                entry['id']
+                for entry in mapped_entries
+                if (
+                    entry['type'] == PROPOSITION and
+                    entry['proposition_type'] == legal and
+                    role == LEGAL_RE.search(entry['gdl']).groups()[0]
                 )
             ],
         } for role in module.roles

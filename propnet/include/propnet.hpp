@@ -11,6 +11,7 @@ namespace propnet
             Propnet(const BaseNet& basenet);
             Propnet(const Propnet& other) = delete;
 
+            void take_actions(const std::unordered_set<std::uint32_t> actions);
             bool eval_props(std::vector<std::uint32_t> ids);
 
             // def get_actions_for(self, role: str) -> list[Proposition]:
