@@ -60,7 +60,7 @@ namespace propnet
             template<std::derived_from<Node> T>
             void add_node(T node)
             {
-                nodes.emplace_back(std::make_unique<const T>(node));
+                nodes.emplace_back(std::make_shared<const T>(node));
             }
 
             void add_entry(const nlohmann::json& entry);
@@ -71,5 +71,6 @@ namespace propnet
             std::vector<std::shared_ptr<const Node>> nodes {};
             std::optional<std::uint32_t> terminal {};
             std::vector<std::uint32_t> topologically_sorted_nodes {};
+            std::unordered_set<std::uint32_t> post_transition_nodes {};
     };
 };

@@ -23,7 +23,7 @@ namespace propnet
     class AndNode : public Node
     {
         public:
-            AndNode(std::uint32_t id, std::vector<std::uint32_t> ins);
+            AndNode(std::uint32_t id, const std::vector<std::uint32_t>& ins);
 
             bool eval(const State& state, const std::unordered_set<std::uint32_t>& inputs) const override;
         private:
@@ -33,7 +33,7 @@ namespace propnet
     class OrNode : public Node
     {
         public:
-            OrNode(std::uint32_t id, std::vector<std::uint32_t> ins);
+            OrNode(std::uint32_t id, const std::vector<std::uint32_t>& ins);
 
             bool eval(const State& state, const std::unordered_set<std::uint32_t>& inputs) const override;
         private:

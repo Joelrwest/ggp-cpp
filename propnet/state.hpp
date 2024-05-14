@@ -10,7 +10,8 @@ namespace propnet
             State(std::uint32_t size);
             State(const State& other);
 
-            bool eval_prop(std::uint32_t id) const;
+            bool get_prop(std::uint32_t id) const;
+            void set_prop(std::uint32_t id, bool new_value);
             bool get_is_initial_state() const;
             void set_not_initial_state();
         private:

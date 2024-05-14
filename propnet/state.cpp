@@ -12,9 +12,14 @@ namespace propnet
         is_initial_state {other.is_initial_state}
     {}
 
-    bool State::eval_prop(std::uint32_t id) const
+    bool State::get_prop(std::uint32_t id) const
     {
         return data.get(id);
+    }
+
+    void State::set_prop(std::uint32_t id, bool new_value)
+    {
+        data.update(id, new_value);
     }
 
     bool State::get_is_initial_state() const

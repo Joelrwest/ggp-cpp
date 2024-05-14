@@ -107,7 +107,8 @@ namespace propnet
             std::move(roles),
             std::move(nodes),
             terminal.value(),
-            std::move(topologically_sorted_nodes)
+            std::move(topologically_sorted_nodes),
+            std::move(post_transition_nodes)
         };
     }
 
@@ -149,6 +150,7 @@ namespace propnet
                     entry.at(IN_PROPS_KEY)
                 });
                 topologically_sorted_nodes.push_back(id);
+                post_transition_nodes.insert(id);
                 break;
             case EntryType::Not:
                 add_node(NotNode {
@@ -186,7 +188,7 @@ namespace propnet
         }
         else if (type == INPUT_PROP_TYPE)
         {
-            add_node(InitialPropositionNode {
+            add_node(InputPropositionNode {
                 id,
                 gdl,
             });

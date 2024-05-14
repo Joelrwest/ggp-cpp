@@ -17,7 +17,7 @@ namespace propnet
             We assume that all moves are actually legal,
             and that all players make exactly 1 move.
             */
-            void take_step(const std::unordered_set<std::uint32_t>& inputs);
+            void take_inputs(const std::unordered_set<std::uint32_t>& inputs);
             // bool eval_props(std::vector<std::uint32_t> ids);
             bool eval_prop(std::uint32_t id, const std::unordered_set<std::uint32_t>& inputs) const;
 

@@ -1,21 +1,25 @@
 #pragma once
 
 #include "../../propnet/include/propnet.hpp"
+#include "../../propnet/include/role.hpp"
 
 #include <vector>
 #include <cstdint>
+#include <span>
 
 namespace agents {
     class Agent
     {
         public:
-            Agent(const std::vector<std::uint32_t>& sees, const propnet::Propnet& propnet);
+            Agent(const propnet::Role& role, const propnet::Propnet& propnet);
 
-            bool get_action(); // TODO: Correct the return type
+            std::uint32_t get_input();
         protected:
-            virtual bool get_action_impl(const std::vector<std::uint32_t>& sees, const std::vector<std::uint32_t>& legals) = 0; // TODO: Presumably this needs to be a strategy?
+            virtual std::uint32_t get_legal(const std::vector<bool>& sees, std::span<const std::uint32_t> legals) = 0; // TODO: Presumably this needs to be a strategy?
         private:
-            const std::vector<std::uint32_t> sees;
+            propnet::Role role;
             const propnet::Propnet& propnet;
+            std::vector<bool> sees_cache;
+            std::vector<std::uint32_t> legals_cache;
     };
 };

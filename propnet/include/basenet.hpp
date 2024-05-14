@@ -7,6 +7,7 @@
 #include <vector>
 #include <memory>
 #include <unordered_map>
+#include <span>
 
 namespace propnet
 {
@@ -28,16 +29,20 @@ namespace propnet
                 std::vector<Role>&& roles,
                 std::vector<std::shared_ptr<const Node>>&& nodes,
                 std::uint32_t terminal,
-                std::vector<std::uint32_t>&& topologically_sorted_nodes
+                std::vector<std::uint32_t>&& topologically_sorted_nodes,
+                std::unordered_set<std::uint32_t> post_transition_nodes
             );
 
             std::uint32_t num_nodes() const;
-            const std::vector<Role>& get_roles() const;
+            std::span<const Role> get_roles() const;
             bool eval_prop(std::uint32_t id, const State& state, const std::unordered_set<std::uint32_t>& inputs) const;
+            bool is_post_transition_node(std::uint32_t id) const;
+            std::span<const std::uint32_t> get_topologically_sorted_nodes() const;
         private:
             std::vector<Role> roles;
-            std::vector<std::shared_ptr<const Node>> nodes;
+            std::vector<std::shared_ptr<const Node>> nodes; // TODO: Make this unique
             std::uint32_t terminal;
             std::vector<std::uint32_t> topologically_sorted_nodes;
+            std::unordered_set<std::uint32_t> post_transition_nodes;
     };
 };
