@@ -5,6 +5,7 @@
 
 #include <vector>
 #include <memory>
+#include <unordered_map>
 
 namespace propnet
 {
@@ -25,17 +26,18 @@ namespace propnet
             BaseNet(
                 std::vector<Role>&& roles,
                 std::vector<std::shared_ptr<const Node>>&& nodes,
-                std::shared_ptr<const Node>&& terminal,
-                std::vector<std::uint32_t>&& topologically_sorted_nodes
+                std::uint32_t terminal,
+                std::vector<std::uint32_t>&& topologically_sorted_nodes,
+                std::unordered_map<std::uint32_t, std::uint32_t>&& legal_to_input
             );
 
             std::uint32_t num_nodes() const;
             const std::vector<Role>& get_roles() const;
         private:
-            std::vector<Role> roles {};
-            std::vector<std::shared_ptr<const Node>> nodes {};
-            std::shared_ptr<const Node> terminal {nullptr};
-            std::vector<std::uint32_t> topologically_sorted_nodes {};
-            // std::vector<std::unordered_map<std::uint32_t, std::uint32_t>> legal_to_input {};
+            std::vector<Role> roles;
+            std::vector<std::shared_ptr<const Node>> nodes;
+            std::uint32_t terminal;
+            std::vector<std::uint32_t> topologically_sorted_nodes;
+            std::unordered_map<std::uint32_t, std::uint32_t> legal_to_input;
     };
 };

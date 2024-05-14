@@ -6,6 +6,7 @@
 #include <concepts>
 #include <stdexcept>
 #include <string_view>
+#include <optional>
 
 namespace propnet
 {
@@ -20,6 +21,12 @@ namespace propnet
         public:
             BaseNetParser(std::string_view game);
 
+            /*
+            Intended to only be called once,
+            and will result in a logic error otherwise.
+            Essentially the entire parser is invalidated once
+            this is called.
+            */
             BaseNet create_basenet();
         private:
             static constexpr auto GAMES_PATH {"games/json/"};
@@ -39,6 +46,8 @@ namespace propnet
             static constexpr auto VALUE_KEY {"value"};
             static constexpr auto TOPOLOGICALLY_SORTED_KEY {"topologically_sorted"};
             static constexpr auto LEGAL_TO_INPUT_KEY {"legal_to_input"};
+            static constexpr auto LEGAL_KEY {"legal"};
+            static constexpr auto INPUT_KEY {"input"};
 
             static constexpr auto INITIAL_PROP_TYPE {"init"};
             static constexpr auto BASE_PROP_TYPE {"base"};
@@ -61,8 +70,8 @@ namespace propnet
             bool is_data_parsed {true};
             std::vector<Role> roles {};
             std::vector<std::shared_ptr<const Node>> nodes {};
-            std::shared_ptr<const Node> terminal {nullptr};
+            std::optional<std::uint32_t> terminal {};
             std::vector<std::uint32_t> topologically_sorted_nodes {};
-            std::vector<std::unordered_map<std::uint32_t, std::uint32_t>> legal_to_input {};
+            std::unordered_map<std::uint32_t, std::uint32_t> legal_to_input {};
     };
 };

@@ -73,16 +73,20 @@ namespace propnet
 
             topologically_sorted_nodes = game_json.at(TOPOLOGICALLY_SORTED_KEY).get<std::vector<std::uint32_t>>();
 
-            std::cout << game_json.at(LEGAL_TO_INPUT_KEY) << '\n';
-            // legal_to_input = game_json.at(LEGAL_TO_INPUT_KEY).get<std::vector<std::unordered_map<std::uint32_t, std::uint32_t>>>();
+            const auto& legal_to_input_entries {game_json.at(LEGAL_TO_INPUT_KEY)};
+            for (const auto legal_to_input_entry : legal_to_input_entries)
+            {
+                const auto legal {legal_to_input_entry.at(LEGAL_KEY).get<std::uint32_t>()};
+                const auto input {legal_to_input_entry.at(INPUT_KEY).get<std::uint32_t>()};
+                legal_to_input[legal] = input;
+            }
         }
         catch (const nlohmann::json::exception& error)
         {
             throw ParsingError {error.what()};
         }
 
-
-        if (terminal == nullptr)
+        if (!terminal.has_value())
         {
             throw ParsingError {"No terminal state found in definition"};
         }
@@ -99,8 +103,9 @@ namespace propnet
         return BaseNet {
             std::move(roles),
             std::move(nodes),
-            std::move(terminal),
-            std::move(topologically_sorted_nodes)
+            terminal.value(),
+            std::move(topologically_sorted_nodes),
+            std::move(legal_to_input)
         };
     }
 
@@ -210,23 +215,24 @@ namespace propnet
         }
         else if (type == TERMINAL_PROP_TYPE)
         {
-            if (terminal != nullptr)
+            if (terminal.has_value())
             {
                 throw ParsingError {"More than one terminal state found whilst parsing"};
             }
 
-            terminal = std::make_unique<BasicPropositionNode>(
+            add_node(BasicPropositionNode {
                 id,
-                entry.at(GDL_KEY).get<std::string>(),
+                gdl,
                 entry.at(IN_PROPS_KEY)
-            );
-            nodes.push_back(terminal);
+            });
+
+            terminal.emplace(id);
         }
         else if (type == OTHER_PROP_TYPE)
         {
             add_node(BasicPropositionNode {
                 id,
-                entry.at(GDL_KEY).get<std::string>(),
+                gdl,
                 entry.at(IN_PROPS_KEY)
             });
         }

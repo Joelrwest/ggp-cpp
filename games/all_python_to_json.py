@@ -88,10 +88,12 @@ def process_game(game: str) -> None:
         'roles': roles,
         'entries': mapped_entries,
         'topologically_sorted': topologically_sorted,
-        'legal_to_input': {
-            legal_entry['id']: find_matching_input(legal_entry['gdl'], input_entries)
-            for legal_entry in legal_entries
-        },
+        'legal_to_input': [
+            {
+                'legal': legal_entry['id'],
+                'input': find_matching_input(legal_entry['gdl'], input_entries),
+            } for legal_entry in legal_entries
+        ],
     }
 
     # Check that every id is taken
