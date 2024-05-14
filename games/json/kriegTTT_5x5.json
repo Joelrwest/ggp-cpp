@@ -54,32 +54,107 @@
                 1623,
                 1633
             ],
-            "legals": [
-                55,
-                64,
-                86,
-                93,
-                243,
-                292,
-                299,
-                351,
-                363,
-                367,
-                418,
-                570,
-                608,
-                694,
-                724,
-                831,
-                862,
-                902,
-                1008,
-                1020,
-                1089,
-                1118,
-                1133,
-                1176,
-                1254
+            "legal_to_input": [
+                {
+                    "legal": 55,
+                    "input": 1330
+                },
+                {
+                    "legal": 64,
+                    "input": 1370
+                },
+                {
+                    "legal": 86,
+                    "input": 1209
+                },
+                {
+                    "legal": 93,
+                    "input": 239
+                },
+                {
+                    "legal": 243,
+                    "input": 1301
+                },
+                {
+                    "legal": 292,
+                    "input": 917
+                },
+                {
+                    "legal": 299,
+                    "input": 558
+                },
+                {
+                    "legal": 351,
+                    "input": 78
+                },
+                {
+                    "legal": 363,
+                    "input": 184
+                },
+                {
+                    "legal": 367,
+                    "input": 723
+                },
+                {
+                    "legal": 418,
+                    "input": 370
+                },
+                {
+                    "legal": 570,
+                    "input": 287
+                },
+                {
+                    "legal": 608,
+                    "input": 1485
+                },
+                {
+                    "legal": 694,
+                    "input": 1426
+                },
+                {
+                    "legal": 724,
+                    "input": 215
+                },
+                {
+                    "legal": 831,
+                    "input": 1535
+                },
+                {
+                    "legal": 862,
+                    "input": 1010
+                },
+                {
+                    "legal": 902,
+                    "input": 698
+                },
+                {
+                    "legal": 1008,
+                    "input": 204
+                },
+                {
+                    "legal": 1020,
+                    "input": 182
+                },
+                {
+                    "legal": 1089,
+                    "input": 1444
+                },
+                {
+                    "legal": 1118,
+                    "input": 828
+                },
+                {
+                    "legal": 1133,
+                    "input": 995
+                },
+                {
+                    "legal": 1176,
+                    "input": 1228
+                },
+                {
+                    "legal": 1254,
+                    "input": 393
+                }
             ]
         },
         {
@@ -136,32 +211,107 @@
                 1487,
                 1573
             ],
-            "legals": [
-                7,
-                11,
-                15,
-                194,
-                207,
-                264,
-                305,
-                353,
-                391,
-                415,
-                419,
-                466,
-                761,
-                860,
-                886,
-                957,
-                999,
-                1045,
-                1052,
-                1224,
-                1313,
-                1424,
-                1486,
-                1614,
-                1628
+            "legal_to_input": [
+                {
+                    "legal": 7,
+                    "input": 1495
+                },
+                {
+                    "legal": 11,
+                    "input": 191
+                },
+                {
+                    "legal": 15,
+                    "input": 737
+                },
+                {
+                    "legal": 194,
+                    "input": 1410
+                },
+                {
+                    "legal": 207,
+                    "input": 189
+                },
+                {
+                    "legal": 264,
+                    "input": 983
+                },
+                {
+                    "legal": 305,
+                    "input": 749
+                },
+                {
+                    "legal": 353,
+                    "input": 613
+                },
+                {
+                    "legal": 391,
+                    "input": 1446
+                },
+                {
+                    "legal": 415,
+                    "input": 320
+                },
+                {
+                    "legal": 419,
+                    "input": 400
+                },
+                {
+                    "legal": 466,
+                    "input": 1545
+                },
+                {
+                    "legal": 761,
+                    "input": 1105
+                },
+                {
+                    "legal": 860,
+                    "input": 41
+                },
+                {
+                    "legal": 886,
+                    "input": 1530
+                },
+                {
+                    "legal": 957,
+                    "input": 1476
+                },
+                {
+                    "legal": 999,
+                    "input": 908
+                },
+                {
+                    "legal": 1045,
+                    "input": 1143
+                },
+                {
+                    "legal": 1052,
+                    "input": 979
+                },
+                {
+                    "legal": 1224,
+                    "input": 1593
+                },
+                {
+                    "legal": 1313,
+                    "input": 246
+                },
+                {
+                    "legal": 1424,
+                    "input": 520
+                },
+                {
+                    "legal": 1486,
+                    "input": 332
+                },
+                {
+                    "legal": 1614,
+                    "input": 121
+                },
+                {
+                    "legal": 1628,
+                    "input": 1265
+                }
             ]
         }
     ],
@@ -16364,207 +16514,5 @@
         7,
         6,
         3
-    ],
-    "legal_to_input": [
-        {
-            "legal": 7,
-            "input": 1495
-        },
-        {
-            "legal": 11,
-            "input": 191
-        },
-        {
-            "legal": 15,
-            "input": 737
-        },
-        {
-            "legal": 55,
-            "input": 1330
-        },
-        {
-            "legal": 64,
-            "input": 1370
-        },
-        {
-            "legal": 86,
-            "input": 1209
-        },
-        {
-            "legal": 93,
-            "input": 239
-        },
-        {
-            "legal": 194,
-            "input": 1410
-        },
-        {
-            "legal": 207,
-            "input": 189
-        },
-        {
-            "legal": 243,
-            "input": 1301
-        },
-        {
-            "legal": 264,
-            "input": 983
-        },
-        {
-            "legal": 292,
-            "input": 917
-        },
-        {
-            "legal": 299,
-            "input": 558
-        },
-        {
-            "legal": 305,
-            "input": 749
-        },
-        {
-            "legal": 351,
-            "input": 78
-        },
-        {
-            "legal": 353,
-            "input": 613
-        },
-        {
-            "legal": 363,
-            "input": 184
-        },
-        {
-            "legal": 367,
-            "input": 723
-        },
-        {
-            "legal": 391,
-            "input": 1446
-        },
-        {
-            "legal": 415,
-            "input": 320
-        },
-        {
-            "legal": 418,
-            "input": 370
-        },
-        {
-            "legal": 419,
-            "input": 400
-        },
-        {
-            "legal": 466,
-            "input": 1545
-        },
-        {
-            "legal": 570,
-            "input": 287
-        },
-        {
-            "legal": 608,
-            "input": 1485
-        },
-        {
-            "legal": 694,
-            "input": 1426
-        },
-        {
-            "legal": 724,
-            "input": 215
-        },
-        {
-            "legal": 761,
-            "input": 1105
-        },
-        {
-            "legal": 831,
-            "input": 1535
-        },
-        {
-            "legal": 860,
-            "input": 41
-        },
-        {
-            "legal": 862,
-            "input": 1010
-        },
-        {
-            "legal": 886,
-            "input": 1530
-        },
-        {
-            "legal": 902,
-            "input": 698
-        },
-        {
-            "legal": 957,
-            "input": 1476
-        },
-        {
-            "legal": 999,
-            "input": 908
-        },
-        {
-            "legal": 1008,
-            "input": 204
-        },
-        {
-            "legal": 1020,
-            "input": 182
-        },
-        {
-            "legal": 1045,
-            "input": 1143
-        },
-        {
-            "legal": 1052,
-            "input": 979
-        },
-        {
-            "legal": 1089,
-            "input": 1444
-        },
-        {
-            "legal": 1118,
-            "input": 828
-        },
-        {
-            "legal": 1133,
-            "input": 995
-        },
-        {
-            "legal": 1176,
-            "input": 1228
-        },
-        {
-            "legal": 1224,
-            "input": 1593
-        },
-        {
-            "legal": 1254,
-            "input": 393
-        },
-        {
-            "legal": 1313,
-            "input": 246
-        },
-        {
-            "legal": 1424,
-            "input": 520
-        },
-        {
-            "legal": 1486,
-            "input": 332
-        },
-        {
-            "legal": 1614,
-            "input": 121
-        },
-        {
-            "legal": 1628,
-            "input": 1265
-        }
     ]
 }

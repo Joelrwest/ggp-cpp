@@ -15,7 +15,7 @@ namespace propnet
             Node(std::uint32_t id);
 
             std::uint32_t get_id() const;
-            virtual bool evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const = 0;
+            virtual bool eval(const State& state, const std::unordered_set<std::uint32_t>& inputs) const = 0;
         private:
             std::uint32_t id;
     };
@@ -25,7 +25,7 @@ namespace propnet
         public:
             AndNode(std::uint32_t id, std::vector<std::uint32_t> ins);
 
-            bool evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const override;
+            bool eval(const State& state, const std::unordered_set<std::uint32_t>& inputs) const override;
         private:
             std::vector<std::uint32_t> ins;
     };
@@ -35,7 +35,7 @@ namespace propnet
         public:
             OrNode(std::uint32_t id, std::vector<std::uint32_t> ins);
 
-            bool evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const override;
+            bool eval(const State& state, const std::unordered_set<std::uint32_t>& inputs) const override;
         private:
             std::vector<std::uint32_t> ins;
     };
@@ -55,7 +55,7 @@ namespace propnet
         public:
             BasicPropositionNode(std::uint32_t id, std::string_view gdl, std::uint32_t in);
 
-            bool evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const override;
+            bool eval(const State& state, const std::unordered_set<std::uint32_t>& inputs) const override;
         private:
             std::uint32_t in;
     };
@@ -64,14 +64,14 @@ namespace propnet
     {
         public:
             InputPropositionNode(std::uint32_t id, std::string_view gdl);
-            bool evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const override;
+            bool eval(const State& state, const std::unordered_set<std::uint32_t>& inputs) const override;
     };
 
     class InitialPropositionNode : public PropositionNode
     {
         public:
             InitialPropositionNode(std::uint32_t id, std::string_view gdl);
-            bool evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const override;
+            bool eval(const State& state, const std::unordered_set<std::uint32_t>& inputs) const override;
     };
 
     class PreTransitionNode : public Node
@@ -79,7 +79,7 @@ namespace propnet
         public:
             PreTransitionNode(std::uint32_t id, std::uint32_t in);
 
-            bool evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const override;
+            bool eval(const State& state, const std::unordered_set<std::uint32_t>& inputs) const override;
         private:
             std::uint32_t in;
     };
@@ -89,7 +89,7 @@ namespace propnet
         public:
             PostTransitionNode(std::uint32_t id, std::uint32_t pre_id);
 
-            bool evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const override;
+            bool eval(const State& state, const std::unordered_set<std::uint32_t>& inputs) const override;
         private:
             std::uint32_t pre_id;
     };
@@ -99,7 +99,7 @@ namespace propnet
         public:
             NotNode(std::uint32_t id, std::uint32_t in);
 
-            bool evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const override;
+            bool eval(const State& state, const std::unordered_set<std::uint32_t>& inputs) const override;
         private:
             std::uint32_t in;
     };
@@ -109,6 +109,6 @@ namespace propnet
         public:
             TrueNode(std::uint32_t id);
 
-            bool evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const override;
+            bool eval(const State& state, const std::unordered_set<std::uint32_t>& inputs) const override;
     };
 };

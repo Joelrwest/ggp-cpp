@@ -7,10 +7,19 @@
                 20,
                 49
             ],
-            "legals": [
-                24,
-                58,
-                62
+            "legal_to_input": [
+                {
+                    "legal": 24,
+                    "input": 48
+                },
+                {
+                    "legal": 58,
+                    "input": 11
+                },
+                {
+                    "legal": 62,
+                    "input": 1
+                }
             ]
         },
         {
@@ -20,10 +29,19 @@
                 38,
                 64
             ],
-            "legals": [
-                29,
-                70,
-                75
+            "legal_to_input": [
+                {
+                    "legal": 29,
+                    "input": 69
+                },
+                {
+                    "legal": 70,
+                    "input": 57
+                },
+                {
+                    "legal": 75,
+                    "input": 44
+                }
             ]
         }
     ],
@@ -842,31 +860,5 @@
         4,
         2,
         0
-    ],
-    "legal_to_input": [
-        {
-            "legal": 24,
-            "input": 48
-        },
-        {
-            "legal": 29,
-            "input": 69
-        },
-        {
-            "legal": 58,
-            "input": 11
-        },
-        {
-            "legal": 62,
-            "input": 1
-        },
-        {
-            "legal": 70,
-            "input": 57
-        },
-        {
-            "legal": 75,
-            "input": 44
-        }
     ]
 }

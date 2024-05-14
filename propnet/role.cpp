@@ -2,7 +2,7 @@
 
 namespace propnet
 {
-    Role::Role(std::string_view name, const std::vector<std::uint32_t>& sees, const std::vector<std::uint32_t>& legals) :
+    Role::Role(std::string_view name, const std::vector<std::uint32_t>& sees, const std::unordered_map<std::uint32_t, std::uint32_t>& legals) :
         name {name},
         sees {sees},
         legals {legals}
@@ -18,7 +18,7 @@ namespace propnet
         return sees;
     }
 
-    const std::vector<std::uint32_t>& Role::get_legals() const
+    const std::unordered_map<std::uint32_t, std::uint32_t>& Role::get_legals() const
     {
         return legals;
     }

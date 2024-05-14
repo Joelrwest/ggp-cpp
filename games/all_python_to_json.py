@@ -74,9 +74,11 @@ def process_game(game: str) -> None:
                     role == SEES_RE.search(entry['gdl']).groups()[0]
                 )
             ],
-            'legals': [
-                legal_entry['id']
-                for legal_entry in legal_entries
+            'legal_to_input': [
+                {
+                    'legal': legal_entry['id'],
+                    'input': find_matching_input(legal_entry['gdl'], input_entries),
+                } for legal_entry in legal_entries
                 if role == LEGAL_RE.search(legal_entry['gdl']).groups()[0]
             ],
         } for role in module.roles
@@ -88,12 +90,6 @@ def process_game(game: str) -> None:
         'roles': roles,
         'entries': mapped_entries,
         'topologically_sorted': topologically_sorted,
-        'legal_to_input': [
-            {
-                'legal': legal_entry['id'],
-                'input': find_matching_input(legal_entry['gdl'], input_entries),
-            } for legal_entry in legal_entries
-        ],
     }
 
     # Check that every id is taken

@@ -58,10 +58,20 @@ namespace propnet
             const auto& role_entries {game_json.at(ROLES_KEY)};
             for (const auto& role_entry : role_entries)
             {
+                std::unordered_map<uint32_t, uint32_t> legal_to_input {};
+
+                const auto& legal_to_input_entries {role_entry.at(LEGAL_TO_INPUT_KEY)};
+                for (const auto legal_to_input_entry : legal_to_input_entries)
+                {
+                    const auto legal {legal_to_input_entry.at(LEGAL_KEY).get<std::uint32_t>()};
+                    const auto input {legal_to_input_entry.at(INPUT_KEY).get<std::uint32_t>()};
+                    legal_to_input[legal] = input;
+                }
+
                 roles.emplace_back(
                     role_entry.at(ROLE_KEY).get<std::string>(),
                     role_entry.at(SEES_KEY).get<std::vector<std::uint32_t>>(),
-                    role_entry.at(LEGALS_KEY).get<std::vector<std::uint32_t>>()
+                    legal_to_input
                 );
             }
 
@@ -73,13 +83,6 @@ namespace propnet
 
             topologically_sorted_nodes = game_json.at(TOPOLOGICALLY_SORTED_KEY).get<std::vector<std::uint32_t>>();
 
-            const auto& legal_to_input_entries {game_json.at(LEGAL_TO_INPUT_KEY)};
-            for (const auto legal_to_input_entry : legal_to_input_entries)
-            {
-                const auto legal {legal_to_input_entry.at(LEGAL_KEY).get<std::uint32_t>()};
-                const auto input {legal_to_input_entry.at(INPUT_KEY).get<std::uint32_t>()};
-                legal_to_input[legal] = input;
-            }
         }
         catch (const nlohmann::json::exception& error)
         {
@@ -94,18 +97,17 @@ namespace propnet
 
     BaseNet BaseNetParser::create_basenet()
     {
-        if (!is_data_parsed)
+        if (!is_data_valid)
         {
             throw std::logic_error {"Tried to create more than one basenet from same parser"};
         }
 
-        is_data_parsed = false;
+        is_data_valid = false;
         return BaseNet {
             std::move(roles),
             std::move(nodes),
             terminal.value(),
-            std::move(topologically_sorted_nodes),
-            std::move(legal_to_input)
+            std::move(topologically_sorted_nodes)
         };
     }
 
@@ -138,7 +140,7 @@ namespace propnet
             case EntryType::PreTransition:
                 add_node(PreTransitionNode {
                     id,
-                    entry.at(IN_PROPS_KEY)
+                    entry.at(IN_PROPS_KEY),
                 });
                 break;
             case EntryType::PostTransition:
@@ -171,7 +173,7 @@ namespace propnet
         {
             add_node(InitialPropositionNode {
                 id,
-                gdl
+                gdl,
             });
         }
         else if (type == BASE_PROP_TYPE)
@@ -179,7 +181,7 @@ namespace propnet
             add_node(BasicPropositionNode {
                 id,
                 gdl,
-                entry.at(IN_PROPS_KEY)
+                entry.at(IN_PROPS_KEY),
             });
         }
         else if (type == INPUT_PROP_TYPE)
@@ -194,7 +196,7 @@ namespace propnet
             add_node(BasicPropositionNode {
                 id,
                 gdl,
-                entry.at(IN_PROPS_KEY)
+                entry.at(IN_PROPS_KEY),
             });
         }
         else if (type == GOAL_PROP_TYPE)
@@ -202,7 +204,7 @@ namespace propnet
             add_node(BasicPropositionNode {
                 id,
                 gdl,
-                entry.at(IN_PROPS_KEY)
+                entry.at(IN_PROPS_KEY),
             });
         }
         else if (type == SEES_PROP_TYPE)
@@ -210,7 +212,7 @@ namespace propnet
             add_node(BasicPropositionNode {
                 id,
                 gdl,
-                entry.at(IN_PROPS_KEY)
+                entry.at(IN_PROPS_KEY),
             });
         }
         else if (type == TERMINAL_PROP_TYPE)
@@ -223,7 +225,7 @@ namespace propnet
             add_node(BasicPropositionNode {
                 id,
                 gdl,
-                entry.at(IN_PROPS_KEY)
+                entry.at(IN_PROPS_KEY),
             });
 
             terminal.emplace(id);
@@ -233,7 +235,7 @@ namespace propnet
             add_node(BasicPropositionNode {
                 id,
                 gdl,
-                entry.at(IN_PROPS_KEY)
+                entry.at(IN_PROPS_KEY),
             });
         }
         else

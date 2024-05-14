@@ -7,14 +7,12 @@ namespace propnet
         std::vector<Role>&& roles,
         std::vector<std::shared_ptr<const Node>>&& nodes,
         std::uint32_t terminal,
-        std::vector<std::uint32_t>&& topologically_sorted_nodes,
-        std::unordered_map<std::uint32_t, std::uint32_t>&& legal_to_input
+        std::vector<std::uint32_t>&& topologically_sorted_nodes
     ) :
         roles {roles},
         nodes {nodes},
         terminal {terminal},
-        topologically_sorted_nodes {topologically_sorted_nodes},
-        legal_to_input {legal_to_input}
+        topologically_sorted_nodes {topologically_sorted_nodes}
     {}
 
     std::uint32_t BaseNet::num_nodes() const
@@ -25,5 +23,10 @@ namespace propnet
     const std::vector<Role>& BaseNet::get_roles() const
     {
         return roles;
+    }
+
+    bool BaseNet::eval_prop(std::uint32_t id, const State& state, const std::unordered_set<std::uint32_t>& inputs) const
+    {
+        return nodes.at(id)->eval(state, inputs);
     }
 };

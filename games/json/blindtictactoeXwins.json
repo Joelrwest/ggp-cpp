@@ -5,16 +5,43 @@
             "sees": [
                 202
             ],
-            "legals": [
-                151,
-                178,
-                214,
-                231,
-                359,
-                365,
-                401,
-                469,
-                480
+            "legal_to_input": [
+                {
+                    "legal": 151,
+                    "input": 150
+                },
+                {
+                    "legal": 178,
+                    "input": 74
+                },
+                {
+                    "legal": 214,
+                    "input": 542
+                },
+                {
+                    "legal": 231,
+                    "input": 211
+                },
+                {
+                    "legal": 359,
+                    "input": 80
+                },
+                {
+                    "legal": 365,
+                    "input": 69
+                },
+                {
+                    "legal": 401,
+                    "input": 210
+                },
+                {
+                    "legal": 469,
+                    "input": 195
+                },
+                {
+                    "legal": 480,
+                    "input": 522
+                }
             ]
         },
         {
@@ -22,16 +49,43 @@
             "sees": [
                 486
             ],
-            "legals": [
-                117,
-                198,
-                246,
-                343,
-                387,
-                419,
-                488,
-                502,
-                520
+            "legal_to_input": [
+                {
+                    "legal": 117,
+                    "input": 265
+                },
+                {
+                    "legal": 198,
+                    "input": 44
+                },
+                {
+                    "legal": 246,
+                    "input": 378
+                },
+                {
+                    "legal": 343,
+                    "input": 86
+                },
+                {
+                    "legal": 387,
+                    "input": 92
+                },
+                {
+                    "legal": 419,
+                    "input": 416
+                },
+                {
+                    "legal": 488,
+                    "input": 148
+                },
+                {
+                    "legal": 502,
+                    "input": 13
+                },
+                {
+                    "legal": 520,
+                    "input": 259
+                }
             ]
         }
     ],
@@ -5620,79 +5674,5 @@
         16,
         11,
         7
-    ],
-    "legal_to_input": [
-        {
-            "legal": 117,
-            "input": 265
-        },
-        {
-            "legal": 151,
-            "input": 150
-        },
-        {
-            "legal": 178,
-            "input": 74
-        },
-        {
-            "legal": 198,
-            "input": 44
-        },
-        {
-            "legal": 214,
-            "input": 542
-        },
-        {
-            "legal": 231,
-            "input": 211
-        },
-        {
-            "legal": 246,
-            "input": 378
-        },
-        {
-            "legal": 343,
-            "input": 86
-        },
-        {
-            "legal": 359,
-            "input": 80
-        },
-        {
-            "legal": 365,
-            "input": 69
-        },
-        {
-            "legal": 387,
-            "input": 92
-        },
-        {
-            "legal": 401,
-            "input": 210
-        },
-        {
-            "legal": 419,
-            "input": 416
-        },
-        {
-            "legal": 469,
-            "input": 195
-        },
-        {
-            "legal": 480,
-            "input": 522
-        },
-        {
-            "legal": 488,
-            "input": 148
-        },
-        {
-            "legal": 502,
-            "input": 13
-        },
-        {
-            "legal": 520,
-            "input": 259
-        }
     ]
 }

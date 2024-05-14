@@ -16,7 +16,7 @@ namespace propnet
         ins {ins}
     {}
 
-    bool AndNode::evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const
+    bool AndNode::eval(const State& state, const std::unordered_set<std::uint32_t>& inputs) const
     {
         for (const auto in : ins)
         {
@@ -33,7 +33,7 @@ namespace propnet
         ins {ins}
     {}
 
-    bool OrNode::evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const
+    bool OrNode::eval(const State& state, const std::unordered_set<std::uint32_t>& inputs) const
     {
         for (const auto in : ins)
         {
@@ -60,7 +60,7 @@ namespace propnet
         in {in}
     {}
 
-    bool BasicPropositionNode::evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const
+    bool BasicPropositionNode::eval(const State& state, const std::unordered_set<std::uint32_t>& inputs) const
     {
         return state.eval_prop(in);
     }
@@ -69,17 +69,17 @@ namespace propnet
         PropositionNode {id, gdl}
     {}
 
-    bool InputPropositionNode::evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const
+    bool InputPropositionNode::eval(const State& state, const std::unordered_set<std::uint32_t>& inputs) const
     {
         const auto id {get_id()};
-        return actions.contains(id);
+        return inputs.contains(id);
     }
 
     InitialPropositionNode::InitialPropositionNode(std::uint32_t id, std::string_view gdl) :
         PropositionNode {id, gdl}
     {}
 
-    bool InitialPropositionNode::evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const
+    bool InitialPropositionNode::eval(const State& state, const std::unordered_set<std::uint32_t>& inputs) const
     {
         return state.get_is_initial_state();
     }
@@ -89,7 +89,7 @@ namespace propnet
         in {in}
     {}
 
-    bool PreTransitionNode::evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const
+    bool PreTransitionNode::eval(const State& state, const std::unordered_set<std::uint32_t>& inputs) const
     {
         return state.eval_prop(in);
     }
@@ -99,7 +99,7 @@ namespace propnet
         pre_id {pre_id}
     {}
 
-    bool PostTransitionNode::evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const
+    bool PostTransitionNode::eval(const State& state, const std::unordered_set<std::uint32_t>& inputs) const
     {
         return state.eval_prop(pre_id);
     }
@@ -109,7 +109,7 @@ namespace propnet
         in {in}
     {}
 
-    bool NotNode::evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const
+    bool NotNode::eval(const State& state, const std::unordered_set<std::uint32_t>& inputs) const
     {
         return !state.eval_prop(in);
     }
@@ -118,7 +118,7 @@ namespace propnet
         Node {id}
     {}
 
-    bool TrueNode::evaluate(const State& state, const std::unordered_set<std::uint32_t>& actions) const
+    bool TrueNode::eval(const State& state, const std::unordered_set<std::uint32_t>& inputs) const
     {
         return true;
     }

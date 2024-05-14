@@ -5,16 +5,43 @@
             "sees": [
                 539
             ],
-            "legals": [
-                16,
-                35,
-                347,
-                392,
-                461,
-                468,
-                471,
-                559,
-                572
+            "legal_to_input": [
+                {
+                    "legal": 16,
+                    "input": 115
+                },
+                {
+                    "legal": 35,
+                    "input": 445
+                },
+                {
+                    "legal": 347,
+                    "input": 516
+                },
+                {
+                    "legal": 392,
+                    "input": 281
+                },
+                {
+                    "legal": 461,
+                    "input": 506
+                },
+                {
+                    "legal": 468,
+                    "input": 134
+                },
+                {
+                    "legal": 471,
+                    "input": 304
+                },
+                {
+                    "legal": 559,
+                    "input": 52
+                },
+                {
+                    "legal": 572,
+                    "input": 114
+                }
             ]
         },
         {
@@ -22,25 +49,61 @@
             "sees": [
                 39
             ],
-            "legals": [
-                73,
-                131,
-                157,
-                173,
-                224,
-                364,
-                429,
-                503,
-                588
+            "legal_to_input": [
+                {
+                    "legal": 73,
+                    "input": 171
+                },
+                {
+                    "legal": 131,
+                    "input": 87
+                },
+                {
+                    "legal": 157,
+                    "input": 373
+                },
+                {
+                    "legal": 173,
+                    "input": 596
+                },
+                {
+                    "legal": 224,
+                    "input": 215
+                },
+                {
+                    "legal": 364,
+                    "input": 579
+                },
+                {
+                    "legal": 429,
+                    "input": 472
+                },
+                {
+                    "legal": 503,
+                    "input": 166
+                },
+                {
+                    "legal": 588,
+                    "input": 433
+                }
             ]
         },
         {
             "role": "random",
             "sees": [],
-            "legals": [
-                101,
-                354,
-                507
+            "legal_to_input": [
+                {
+                    "legal": 101,
+                    "input": 196
+                },
+                {
+                    "legal": 354,
+                    "input": 557
+                },
+                {
+                    "legal": 507,
+                    "input": 435
+                }
             ]
         }
     ],
@@ -6403,91 +6466,5 @@
         16,
         13,
         0
-    ],
-    "legal_to_input": [
-        {
-            "legal": 16,
-            "input": 115
-        },
-        {
-            "legal": 35,
-            "input": 445
-        },
-        {
-            "legal": 73,
-            "input": 171
-        },
-        {
-            "legal": 101,
-            "input": 196
-        },
-        {
-            "legal": 131,
-            "input": 87
-        },
-        {
-            "legal": 157,
-            "input": 373
-        },
-        {
-            "legal": 173,
-            "input": 596
-        },
-        {
-            "legal": 224,
-            "input": 215
-        },
-        {
-            "legal": 347,
-            "input": 516
-        },
-        {
-            "legal": 354,
-            "input": 557
-        },
-        {
-            "legal": 364,
-            "input": 579
-        },
-        {
-            "legal": 392,
-            "input": 281
-        },
-        {
-            "legal": 429,
-            "input": 472
-        },
-        {
-            "legal": 461,
-            "input": 506
-        },
-        {
-            "legal": 468,
-            "input": 134
-        },
-        {
-            "legal": 471,
-            "input": 304
-        },
-        {
-            "legal": 503,
-            "input": 166
-        },
-        {
-            "legal": 507,
-            "input": 435
-        },
-        {
-            "legal": 559,
-            "input": 52
-        },
-        {
-            "legal": 572,
-            "input": 114
-        },
-        {
-            "legal": 588,
-            "input": 433
-        }
     ]
 }

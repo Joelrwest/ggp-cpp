@@ -2,6 +2,7 @@
 
 #include "../nodes.hpp"
 #include "role.hpp"
+#include "../state.hpp"
 
 #include <vector>
 #include <memory>
@@ -27,17 +28,16 @@ namespace propnet
                 std::vector<Role>&& roles,
                 std::vector<std::shared_ptr<const Node>>&& nodes,
                 std::uint32_t terminal,
-                std::vector<std::uint32_t>&& topologically_sorted_nodes,
-                std::unordered_map<std::uint32_t, std::uint32_t>&& legal_to_input
+                std::vector<std::uint32_t>&& topologically_sorted_nodes
             );
 
             std::uint32_t num_nodes() const;
             const std::vector<Role>& get_roles() const;
+            bool eval_prop(std::uint32_t id, const State& state, const std::unordered_set<std::uint32_t>& inputs) const;
         private:
             std::vector<Role> roles;
             std::vector<std::shared_ptr<const Node>> nodes;
             std::uint32_t terminal;
             std::vector<std::uint32_t> topologically_sorted_nodes;
-            std::unordered_map<std::uint32_t, std::uint32_t> legal_to_input;
     };
 };
