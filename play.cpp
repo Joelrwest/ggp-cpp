@@ -5,11 +5,11 @@
 #include <iostream>
 #include <algorithm>
 
-void print_state(const propnet::BaseNet& basenet, const propnet::Propnet& propnet);
+void print_state(const propnet::Basenet& basenet, const propnet::Propnet& propnet);
 
 int main(void)
 {
-    const propnet::BaseNet basenet {setup::load_basenet()};
+    const propnet::Basenet basenet {setup::load_basenet()};
     propnet::Propnet propnet {basenet};
 
     // print_state(basenet, propnet);
@@ -34,7 +34,7 @@ int main(void)
     return 0;
 }
 
-void print_state(const propnet::BaseNet& basenet, const propnet::Propnet& propnet)
+void print_state(const propnet::Basenet& basenet, const propnet::Propnet& propnet)
 {
     for (auto id {0}; id < basenet.num_nodes(); ++id)
     {

@@ -38,7 +38,7 @@ namespace propnet
     the job done and I don't wanna spend any more
     time than needed parsing stuff in C++.
     */
-    BaseNetParser::BaseNetParser(std::string_view game)
+    BasenetParser::BasenetParser(std::string_view game)
     {
         std::filesystem::path game_path {GAMES_PATH};
         game_path.append(game);
@@ -95,7 +95,7 @@ namespace propnet
         }
     }
 
-    BaseNet BaseNetParser::create_basenet()
+    Basenet BasenetParser::create_basenet()
     {
         if (!is_data_valid)
         {
@@ -103,16 +103,17 @@ namespace propnet
         }
 
         is_data_valid = false;
-        return BaseNet {
+        return Basenet {
             std::move(roles),
             std::move(nodes),
+            std::move(propositions),
             terminal.value(),
             std::move(topologically_sorted_nodes),
             std::move(post_transition_nodes)
         };
     }
 
-    void BaseNetParser::add_entry(const nlohmann::json& entry)
+    void BasenetParser::add_entry(const nlohmann::json& entry)
     {
         const std::uint32_t id {entry.at(ID_KEY)};
         const EntryType entry_type {entry.at(TYPE_KEY)};
@@ -168,19 +169,19 @@ namespace propnet
         }
     }
 
-    void BaseNetParser::add_proposition(std::uint32_t id, std::string_view type, std::string&& gdl, const nlohmann::json& entry)
+    void BasenetParser::add_proposition(std::uint32_t id, std::string_view type, std::string&& gdl, const nlohmann::json& entry)
     {
         // TODO: Repetitive, but it works for now at least
         if (type == INITIAL_PROP_TYPE)
         {
-            add_node(InitialPropositionNode {
+            add_proposition_node(InitialPropositionNode {
                 id,
                 gdl,
             });
         }
         else if (type == BASE_PROP_TYPE)
         {
-            add_node(BasicPropositionNode {
+            add_proposition_node(BasicPropositionNode {
                 id,
                 gdl,
                 entry.at(IN_PROPS_KEY),
@@ -188,14 +189,14 @@ namespace propnet
         }
         else if (type == INPUT_PROP_TYPE)
         {
-            add_node(InputPropositionNode {
+            add_proposition_node(InputPropositionNode {
                 id,
                 gdl,
             });
         }
         else if (type == LEGAL_PROP_TYPE)
         {
-            add_node(BasicPropositionNode {
+            add_proposition_node(BasicPropositionNode {
                 id,
                 gdl,
                 entry.at(IN_PROPS_KEY),
@@ -203,7 +204,7 @@ namespace propnet
         }
         else if (type == GOAL_PROP_TYPE)
         {
-            add_node(BasicPropositionNode {
+            add_proposition_node(BasicPropositionNode {
                 id,
                 gdl,
                 entry.at(IN_PROPS_KEY),
@@ -211,7 +212,7 @@ namespace propnet
         }
         else if (type == SEES_PROP_TYPE)
         {
-            add_node(BasicPropositionNode {
+            add_proposition_node(BasicPropositionNode {
                 id,
                 gdl,
                 entry.at(IN_PROPS_KEY),
@@ -224,7 +225,7 @@ namespace propnet
                 throw ParsingError {"More than one terminal state found whilst parsing"};
             }
 
-            add_node(BasicPropositionNode {
+            add_proposition_node(BasicPropositionNode {
                 id,
                 gdl,
                 entry.at(IN_PROPS_KEY),
@@ -234,7 +235,7 @@ namespace propnet
         }
         else if (type == OTHER_PROP_TYPE)
         {
-            add_node(BasicPropositionNode {
+            add_proposition_node(BasicPropositionNode {
                 id,
                 gdl,
                 entry.at(IN_PROPS_KEY),

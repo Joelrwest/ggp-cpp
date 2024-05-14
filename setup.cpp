@@ -7,7 +7,7 @@
 
 namespace setup
 {
-    propnet::BaseNet load_basenet()
+    propnet::Basenet load_basenet()
     {
         while (true)
         {
@@ -18,7 +18,7 @@ namespace setup
                 std::cin >> game;
 
                 std::cout << "Loading basenet\n";
-                propnet::BaseNetParser parser {game};
+                propnet::BasenetParser parser {game};
                 const auto basenet {parser.create_basenet()};
                 std::cout << "Basenet loaded\n";
 
@@ -52,7 +52,7 @@ namespace setup
         }
     }
 
-    std::vector<std::unique_ptr<agents::Agent>> create_agents(const propnet::BaseNet& basenet, const propnet::Propnet& propnet)
+    std::vector<std::unique_ptr<agents::Agent>> create_agents(const propnet::Basenet& basenet, const propnet::Propnet& propnet)
     {
         static constexpr auto RANDOM_AGENT_NAME {"random"};
 

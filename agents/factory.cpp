@@ -1,5 +1,6 @@
 #include "include/factory.hpp"
 #include "simple.hpp"
+#include "../human.hpp"
 
 #include <stdexcept>
 
@@ -17,6 +18,10 @@ namespace agents {
         else if (name == LastAgent::NAME)
         {
             return std::make_unique<LastAgent>(role, propnet);
+        }
+        else if (name == HumanAgent::NAME)
+        {
+            return std::make_unique<HumanAgent>(role, propnet);
         }
         else
         {

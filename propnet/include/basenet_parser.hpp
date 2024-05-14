@@ -16,10 +16,10 @@ namespace propnet
             ParsingError(const char* message);
     };
 
-    class BaseNetParser
+    class BasenetParser
     {
         public:
-            BaseNetParser(std::string_view game);
+            BasenetParser(std::string_view game);
 
             /*
             Intended to only be called once,
@@ -27,7 +27,7 @@ namespace propnet
             Essentially the entire parser is invalidated once
             this is called.
             */
-            BaseNet create_basenet();
+            Basenet create_basenet();
         private:
             static constexpr auto GAMES_PATH {"games/json/"};
             static constexpr auto JSON_EXTENSION {"json"};
@@ -63,12 +63,22 @@ namespace propnet
                 nodes.emplace_back(std::make_shared<const T>(node));
             }
 
+            template<std::derived_from<PropositionNode> T>
+            void add_proposition_node(T proposition_node)
+            {
+                const auto id {proposition_node.get_id()};
+                const auto ptr {std::make_shared<const T>(proposition_node)};
+                nodes.emplace_back(ptr);
+                propositions[id] = ptr;
+            }
+
             void add_entry(const nlohmann::json& entry);
             void add_proposition(std::uint32_t id, std::string_view type, std::string&& gdl, const nlohmann::json& entry);
 
             bool is_data_valid {true};
             std::vector<Role> roles {};
             std::vector<std::shared_ptr<const Node>> nodes {};
+            std::unordered_map<std::uint32_t, std::shared_ptr<const PropositionNode>> propositions {};
             std::optional<std::uint32_t> terminal {};
             std::vector<std::uint32_t> topologically_sorted_nodes {};
             std::unordered_set<std::uint32_t> post_transition_nodes {};

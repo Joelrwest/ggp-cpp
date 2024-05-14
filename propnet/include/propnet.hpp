@@ -8,7 +8,7 @@ namespace propnet
     class Propnet
     {
         public:
-            Propnet(const BaseNet& basenet);
+            Propnet(const Basenet& basenet);
             Propnet(const Propnet& other) = delete;
 
             /*
@@ -19,9 +19,10 @@ namespace propnet
             */
             void take_inputs(const std::unordered_set<std::uint32_t>& inputs);
             bool eval_prop(std::uint32_t id, const std::unordered_set<std::uint32_t>& inputs) const;
+            std::string_view get_gdl(std::uint32_t proposition) const;
             bool is_game_over() const;
         private:
-            const BaseNet& basenet;
+            const Basenet& basenet;
             State state;
     };
 };
