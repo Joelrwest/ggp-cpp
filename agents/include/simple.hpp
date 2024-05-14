@@ -1,6 +1,6 @@
 #pragma once
 
-#include "include/agent.hpp"
+#include "agent.hpp"
 
 #include <random>
 
@@ -9,17 +9,19 @@ namespace agents {
     {
         public:
             RandomAgent(const propnet::Role& role, const propnet::Propnet& propnet);
-        protected:
-            std::uint32_t get_legal(const std::vector<bool>& sees, std::span<const std::uint32_t> legals) override;
+
+            static constexpr auto NAME {"random"};
         private:
-            static std::mt19937 random_engine (std::random_device());
+            std::uint32_t get_legal(const std::vector<bool>& sees, std::span<const std::uint32_t> legals) override;
     };
 
     class FirstAgent : public Agent
     {
         public:
             FirstAgent(const propnet::Role& role, const propnet::Propnet& propnet);
-        protected:
+
+            static constexpr auto NAME {"first"};
+        private:
             std::uint32_t get_legal(const std::vector<bool>& sees, std::span<const std::uint32_t> legals) override;
     };
 
@@ -27,7 +29,9 @@ namespace agents {
     {
         public:
             LastAgent(const propnet::Role& role, const propnet::Propnet& propnet);
-        protected:
+
+            static constexpr auto NAME {"last"};
+        private:
             std::uint32_t get_legal(const std::vector<bool>& sees, std::span<const std::uint32_t> legals) override;
     };
 };

@@ -81,7 +81,6 @@ namespace propnet
 
     bool InitialPropositionNode::eval(const State& state, const std::unordered_set<std::uint32_t>& inputs) const
     {
-        std::cout << "Initial " << state.get_is_initial_state() << '\n';
         return state.get_is_initial_state();
     }
 

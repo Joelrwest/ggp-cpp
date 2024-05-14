@@ -5,6 +5,7 @@ namespace agents {
         Agent {role, propnet}
     {}
 
+    static std::mt19937 random_engine {std::random_device {}()};
     std::uint32_t RandomAgent::get_legal(const std::vector<bool>& sees, std::span<const std::uint32_t> legals)
     { // TODO: Go through and convert more stuff to span to be general
         std::uniform_int_distribution<> distribution (0, legals.size() - 1);

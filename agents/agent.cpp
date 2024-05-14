@@ -14,18 +14,13 @@ namespace agents {
     {
         const std::unordered_set<std::uint32_t> empty_inputs {};
 
-        auto sees_cache_it {sees_cache.begin()};
-        auto sees_it {role.get_sees().begin()};
-        while (sees_cache_it != sees_cache.end())
-        {
-            *sees_cache_it = propnet.eval_prop(
-                *sees_it,
-                empty_inputs
-            );
-
-            ++sees_it;
-            ++sees_cache_it;
-        }
+        auto sees {role.get_sees()};
+        std::transform(
+            sees.begin(),
+            sees.end(),
+            sees_cache.begin(),
+            [this, &empty_inputs](const auto see) { return propnet.eval_prop(see, empty_inputs); }
+        );
 
         const auto legals {role.get_legals()};
         const auto legals_end {std::copy_if(
