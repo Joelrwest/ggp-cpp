@@ -1,5 +1,6 @@
 #include "propnet/include/basenet.hpp"
 #include "propnet/include/propnet.hpp"
+#include "propnet/include/basenet_parser.hpp"
 
 #include <iostream>
 
@@ -36,7 +37,8 @@ propnet::BaseNet load_basenet()
             std::cin >> game;
 
             std::cout << "Loading basenet\n";
-            return propnet::BaseNet {game};
+            propnet::BaseNetParser parser {game};
+            return parser.create_basenet();
         }
         catch (const propnet::ParsingError error)
         {
