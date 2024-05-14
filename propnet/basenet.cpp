@@ -41,4 +41,9 @@ namespace propnet
     {
         return topologically_sorted_nodes;
     }
+
+    std::uint32_t BaseNet::get_terminal() const
+    {
+        return terminal;
+    }
 };

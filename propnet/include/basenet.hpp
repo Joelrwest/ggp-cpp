@@ -38,6 +38,7 @@ namespace propnet
             bool eval_prop(std::uint32_t id, const State& state, const std::unordered_set<std::uint32_t>& inputs) const;
             bool is_post_transition_node(std::uint32_t id) const;
             std::span<const std::uint32_t> get_topologically_sorted_nodes() const;
+            std::uint32_t get_terminal() const;
         private:
             std::vector<Role> roles;
             std::vector<std::shared_ptr<const Node>> nodes; // TODO: Make this unique

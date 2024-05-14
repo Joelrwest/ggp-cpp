@@ -1,0 +1,101 @@
+;; GDL-II
+
+(role player1)
+(role player2)
+
+(init (step 1))
+
+(<= (legal player1 scissors)
+   (true (step 1)))
+(<= (legal player1 paper)
+   (true (step 1)))
+(<= (legal player1 rock)
+   (true (step 1)))
+
+(<= (legal player2 scissors)
+   (true (step 1)))
+(<= (legal player2 paper)
+   (true (step 1)))
+(<= (legal player2 rock)
+   (true (step 1)))
+
+(<= (next (step 2))
+   (true (step 1)))
+
+(<= (next (chosen ?p ?a))
+   (next_chosen ?p ?a))
+
+(<= (next_chosen ?p ?a)
+   (does ?p ?a))
+
+(<= terminal
+   (true (step 2)))
+
+(<= (sees ?p (chose ?a))
+   (does ?p ?a))
+
+(<= (goal player1 100)
+   (true (chosen player1 rock))
+   (true (chosen player2 scissors)))
+(<= (goal player2 100)
+   (true (chosen player2 rock))
+   (true (chosen player1 scissors)))
+
+(<= (goal player1 25)
+   (true (chosen player1 rock))
+   (true (chosen player2 paper)))
+(<= (goal player2 25)
+   (true (chosen player2 rock))
+   (true (chosen player1 paper)))
+
+(<= (goal player1 50)
+   (true (chosen player1 rock))
+   (true (chosen player2 rock)))
+(<= (goal player2 50)
+   (true (chosen player2 rock))
+   (true (chosen player1 rock)))
+
+
+
+(<= (goal player1 0)
+   (true (chosen player1 paper))
+   (true (chosen player2 scissors)))
+(<= (goal player2 0)
+   (true (chosen player2 paper))
+   (true (chosen player1 scissors)))
+
+(<= (goal player1 75)
+   (true (chosen player1 paper))
+   (true (chosen player2 rock)))
+(<= (goal player2 75)
+   (true (chosen player2 paper))
+   (true (chosen player1 rock)))
+
+(<= (goal player1 50)
+   (true (chosen player1 paper))
+   (true (chosen player2 paper)))
+(<= (goal player2 50)
+   (true (chosen player2 paper))
+   (true (chosen player1 paper)))
+
+
+(<= (goal player1 0)
+   (true (chosen player1 scissors))
+   (true (chosen player2 rock)))
+(<= (goal player2 0)
+   (true (chosen player2 scissors))
+   (true (chosen player1 rock)))
+
+(<= (goal player1 100)
+   (true (chosen player1 scissors))
+   (true (chosen player2 paper)))
+(<= (goal player2 100)
+   (true (chosen player2 scissors))
+   (true (chosen player1 paper)))
+
+(<= (goal player1 50)
+   (true (chosen player1 scissors))
+   (true (chosen player2 scissors)))
+(<= (goal player2 50)
+   (true (chosen player2 scissors))
+   (true (chosen player1 scissors)))

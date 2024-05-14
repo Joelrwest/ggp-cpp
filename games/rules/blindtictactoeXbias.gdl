@@ -1,0 +1,225 @@
+
+  (role x)
+  (role o)
+  (role random)
+
+  (index 1)
+  (index 2)
+  (index 3)
+
+  (<= (base(cell ?m ?n x))
+    (index ?m)
+    (index ?n))
+  (<= (base(cell ?m ?n o))
+    (index ?m)
+    (index ?n))
+  (<= (base(cell ?m ?n b))
+    (index ?m)
+    (index ?n))
+
+  (<= (base(tried x ?m ?n))
+    (index ?m)
+    (index ?n))
+  (<= (base(tried o ?m ?n))
+    (index ?m)
+    (index ?n))
+
+  (init(cell 1 1 b))
+  (init(cell 1 2 b))
+  (init(cell 1 3 b))
+  (init(cell 2 1 b))
+  (init(cell 2 2 b))
+  (init(cell 2 3 b))
+  (init(cell 3 1 b))
+  (init(cell 3 2 b))
+  (init(cell 3 3 b))
+
+  (<= (input x (mark ?m ?n))
+    (index ?m)
+    (index ?n))
+  (<= (input o (mark ?m ?n))
+    (index ?m)
+    (index ?n))
+
+  (input random (tiebreak x))
+  (input random (tiebreak xSecondChance))
+  (input random (tiebreak o))
+
+  (<= (legal x (mark ?x ?y))
+    (index ?x)
+    (index ?y)
+    (not (true(tried x ?x ?y))))
+
+  (<= (legal o (mark ?x ?y))
+    (index ?x)
+    (index ?y)
+    (not (true(tried o ?x ?y))))
+
+  (legal random (tiebreak x))
+  (legal random (tiebreak xSecondChance))
+  (legal random (tiebreak o))
+
+
+; any new attempt to mark a cell is recorded
+  (<= (next(tried ?w ?m ?n))
+    (does ?w (mark ?m ?n)))
+
+; all recorded attempts are remembered
+  (<= (next(tried ?w ?m ?n))
+    (true(tried ?w ?m ?n)))
+
+; x is successful in marking a blank cell
+; when o moves in a different column
+  (<= (next(cell ?m ?n x))
+    (does x (mark ?m ?n))
+    (true(cell ?m ?n b))
+    (does o (mark ?j ?k))
+    (distinct ?m ?j))
+
+; x is successful in marking a blank cell
+; when o moves in a different row
+  (<= (next(cell ?m ?n x))
+    (does x (mark ?m ?n))
+    (true(cell ?m ?n b))
+    (does o (mark ?j ?k))
+    (distinct ?n ?k))
+
+; o is successful in marking a blank cell
+; when x moves in a different column
+  (<= (next(cell ?m ?n o))
+    (does o (mark ?m ?n))
+    (true(cell ?m ?n b))
+    (does x (mark ?j ?k))
+    (distinct ?m ?j))
+
+; o is successful in marking a blank cell
+; when x moves in a different row
+  (<= (next(cell ?m ?n o))
+    (does o (mark ?m ?n))
+    (true(cell ?m ?n b))
+    (does x (mark ?j ?k))
+    (distinct ?n ?k))
+
+; if both players aim at the same cell (then that cell
+; gets marked by the result of the random tiebreak move
+  (<= (next(cell ?m ?n ?w))
+    (true(cell ?m ?n b))
+    (does x (mark ?m ?n))
+    (does o (mark ?m ?n))
+    (does random (tiebreak ?w)))
+  (<= (next(cell ?m ?n x))
+    (true(cell ?m ?n b))
+    (does x (mark ?m ?n))
+    (does o (mark ?m ?n))
+    (does random (tiebreak xSecondChance)))
+
+; markings are forever
+  (<= (next(cell ?m ?n x))
+    (true(cell ?m ?n x)))
+
+  (<= (next(cell ?m ?n o))
+    (true(cell ?m ?n o)))
+
+; a cell remains blank if no player attempts to mark it
+  (<= (next(cell ?m ?n b))
+    (true(cell ?m ?n b))
+    (not (marked ?m ?n)))
+
+  (<= (marked ?m ?n)
+    (does ?w (mark ?m ?n)))
+
+  (percept x ok)
+  (percept o ok)
+
+
+; players get ok when they mark a blank cell
+; in a different column from where their opponent moves
+  (<= (sees ?r ok)
+    (does ?r (mark ?m ?n))
+    (true(cell ?m ?n b))
+    (does ?s (mark ?j ?k))
+    (distinct ?m ?j))
+
+; players get ok when they mark a blank cell
+; in a different row from where their opponent moves
+  (<= (sees ?r ok)
+    (does ?r (mark ?m ?n))
+    (true(cell ?m ?n b))
+    (does ?s (mark ?j ?k))
+    (distinct ?n ?k))
+
+; players gets ok when he marks a blank cell
+; and the random tiebreak went to his side
+  (<= (sees ?r ok)
+    (does ?r (mark ?m ?n))
+    (true(cell ?m ?n b))
+    (does random (tiebreak ?r)))
+  (<= (sees x ok)
+    (does x (mark ?m ?n))
+    (true(cell ?m ?n b))
+    (does random (tiebreak xSecondChance)))
+
+  (<= terminal
+    (line x))
+  (<= terminal
+    (line o))
+  (<= terminal
+    (not open))
+
+  (<= (goal random 0))
+
+  (<= (goal x 100)
+    (line x)
+    (not (line o)))
+  (<= (goal x 50)
+    (line x)
+    (line o))
+  (<= (goal x 50)
+    (not open)
+    (not (line x))
+    (not (line o)))
+  (<= (goal x 0)
+    (not (line x))
+    (line o))
+
+  (<= (goal o 100)
+    (not (line x))
+    (line o))
+  (<= (goal o 50)
+    (line x)
+    (line o))
+  (<= (goal o 50)
+    (not open)
+    (not (line x))
+    (not (line o)))
+  (<= (goal o 0)
+    (line x)
+    (not (line o)))
+
+
+  (<= (line ?z)
+    (row ?m ?z))
+  (<= (line ?z)
+    (column ?m ?z))
+  (<= (line ?z)
+    (diagonal ?z))
+  (<= (row ?m ?z)
+    (true(cell ?m 1 ?z))
+    (true(cell ?m 2 ?z))
+    (true(cell ?m 3 ?z)))
+  (<= (column ?n ?z)
+    (true(cell 1 ?n ?z))
+    (true(cell 2 ?n ?z))
+    (true(cell 3 ?n ?z)))
+  (<= (diagonal ?z)
+    (true(cell 1 1 ?z))
+    (true(cell 2 2 ?z))
+    (true(cell 3 3 ?z)))
+  (<= (diagonal ?z)
+    (true(cell 1 3 ?z))
+    (true(cell 2 2 ?z))
+    (true(cell 3 1 ?z)))
+
+  (<= open
+    (true(cell ?m ?n b))
+)

@@ -12,9 +12,24 @@ int main(void)
     const propnet::BaseNet basenet {setup::load_basenet()};
     propnet::Propnet propnet {basenet};
 
-    const auto agents {setup::create_agents(basenet, propnet)};
+    // print_state(basenet, propnet);
 
-    print_state(basenet, propnet);
+    const auto agents {setup::create_agents(basenet, propnet)};
+    while (!propnet.is_game_over())
+    {
+        std::unordered_set<std::uint32_t> inputs {};
+        for (const auto& agent : agents)
+        {
+            const auto input {agent->get_input()};
+            // std::cout << "An agent took input " << input << '\n';
+            inputs.insert(input);
+        }
+
+        propnet.take_inputs(inputs);
+        // print_state(basenet, propnet);
+    }
+
+    std::cout << "WOOOO DONE!\n";
 
     return 0;
 }
@@ -25,4 +40,5 @@ void print_state(const propnet::BaseNet& basenet, const propnet::Propnet& propne
     {
         std::cout << id << ' ' << propnet.eval_prop(id, std::unordered_set<std::uint32_t> {}) << '\n';
     }
+    std::cout << "\n\n";
 }

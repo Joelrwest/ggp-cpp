@@ -33,16 +33,9 @@ namespace propnet
         return basenet.eval_prop(id, state, inputs);
     }
 
-    // std::vector<bool> Propnet::eval_props(std::vector<std::uint32_t> ids)
-    // {
-    //     std::vector<bool> evald {};
-    //     evald.reserve(ids.size());
-    //     for (const auto id : ids)
-    //     {
-    //         const auto eval {state.eval_prop(id)};
-    //         evald.push_back(eval);
-    //     }
-
-    //     return evald;
-    // }
+    bool Propnet::is_game_over() const
+    {
+        const auto terminal {basenet.get_terminal()};
+        return state.get_prop(terminal);
+    }
 };
