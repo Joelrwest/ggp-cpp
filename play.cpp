@@ -17,19 +17,22 @@ int main(void)
     const auto agents {setup::create_agents(basenet, propnet)};
     while (!propnet.is_game_over())
     {
+        std::cout << "\nNew round\n";
         std::unordered_set<std::uint32_t> inputs {};
         for (const auto& agent : agents)
         {
             const auto input {agent->get_input()};
-            // std::cout << "An agent took input " << input << '\n';
+            std::cout << "An agent took input " << input << '\n';
             inputs.insert(input);
         }
 
-        propnet.take_inputs(inputs);
-        // print_state(basenet, propnet);
+        propnet.take_sees_inputs(inputs);
+        for (const auto& agent : agents)
+        {
+            agent->cache_sees();
+        }
+        propnet.take_non_sees_inputs(inputs);
     }
-
-    std::cout << "WOOOO DONE!\n";
 
     return 0;
 }

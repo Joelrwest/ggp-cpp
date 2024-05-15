@@ -13,9 +13,12 @@ namespace agents {
         public:
             Agent(const propnet::Role& role, const propnet::Propnet& propnet);
 
+            void cache_sees();
             std::uint32_t get_input();
         private:
             virtual std::uint32_t get_legal(const std::vector<bool>& sees, std::span<const std::uint32_t> legals) = 0;
+
+            const std::unordered_set<std::uint32_t> empty_inputs {};
 
             propnet::Role role;
             const propnet::Propnet& propnet;

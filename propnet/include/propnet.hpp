@@ -17,7 +17,8 @@ namespace propnet
             We assume that all moves are actually legal,
             and that all players make exactly 1 move.
             */
-            void take_inputs(const std::unordered_set<std::uint32_t>& inputs);
+            void take_sees_inputs(const std::unordered_set<std::uint32_t>& inputs);
+            void take_non_sees_inputs(const std::unordered_set<std::uint32_t>& inputs);
             bool eval_prop(std::uint32_t id, const std::unordered_set<std::uint32_t>& inputs) const;
             std::string_view get_gdl(std::uint32_t proposition) const;
             bool is_game_over() const;

@@ -6,11 +6,12 @@ namespace propnet
         basenet {basenet},
         state {basenet.num_nodes()}
     {
-        take_inputs(std::unordered_set<std::uint32_t> {});
+        take_sees_inputs(std::unordered_set<std::uint32_t> {});
+        take_non_sees_inputs(std::unordered_set<std::uint32_t> {});
         state.set_not_initial_state();
     }
 
-    void Propnet::take_inputs(const std::unordered_set<std::uint32_t>& inputs)
+    void Propnet::take_sees_inputs(const std::unordered_set<std::uint32_t>& inputs)
     {
         for (const auto id : basenet.get_topologically_sorted_nodes())
         {
@@ -20,7 +21,10 @@ namespace propnet
                 state.set_prop(id, eval);
             }
         }
+    }
 
+    void Propnet::take_non_sees_inputs(const std::unordered_set<std::uint32_t>& inputs)
+    {
         for (const auto id : basenet.get_topologically_sorted_nodes())
         {
             const auto eval {basenet.eval_prop(id, state, inputs)};

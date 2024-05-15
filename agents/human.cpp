@@ -6,6 +6,7 @@
 namespace agents {
     HumanAgent::HumanAgent(const propnet::Role& role, const propnet::Propnet& propnet) :
         Agent {role, propnet},
+        role {role},
         propnet {propnet}
     {}
 
@@ -13,6 +14,19 @@ namespace agents {
     {
         while (true)
         {
+            std::cout << "Agent can see:\n";
+            auto see_id_it {role.get_sees().begin()};
+            auto see_it {sees.begin()};
+            while (see_it != sees.end()) // Only checking one of them
+            {
+                const auto gdl {propnet.get_gdl(*see_id_it)};
+                std::cout << '\t' << (*see_it ? "\033[1;32m" : "\033[1;31m") << gdl << "\033[0m\n";
+
+                ++see_id_it;
+                ++see_it;
+            }
+
+            std::cout << "Legal moves are:\n";
             for (auto legal_it {legals.begin()}; legal_it != legals.end(); ++legal_it)
             {
                 std::cout << "\t[" << std::distance(legals.begin(), legal_it) << "] ";
