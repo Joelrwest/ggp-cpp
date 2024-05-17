@@ -11,25 +11,25 @@ namespace agents {
         legals_cache (role.get_legals().size())
     {}
 
-    void Agent::cache_sees()
+    void Agent::take_observations(const propnet::State state)
     {
         auto sees {role.get_sees()};
         std::transform(
             sees.begin(),
             sees.end(),
             sees_cache.begin(),
-            [this](const auto see) { return propnet.eval_prop(see, empty_inputs); }
+            [this, &state](const auto see) { return propnet.eval_prop(see, state, empty_inputs); }
         );
     }
 
-    std::uint32_t Agent::get_input()
+    std::uint32_t Agent::get_input(const propnet::State state)
     {
         const auto legals {role.get_legals()};
         const auto legals_end {std::copy_if(
             legals.begin(),
             legals.end(),
             legals_cache.begin(),
-            [this](const auto legal) { return propnet.eval_prop(legal, empty_inputs); }
+            [this, &state](const auto legal) { return propnet.eval_prop(legal, state, empty_inputs); }
         )};
 
         const std::span legals_cache_span {legals_cache.begin(), legals_end};

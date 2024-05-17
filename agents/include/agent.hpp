@@ -13,8 +13,9 @@ namespace agents {
         public:
             Agent(const propnet::Role& role, const propnet::Propnet& propnet);
 
-            void cache_sees();
-            std::uint32_t get_input();
+            void new_game();
+            void take_observations(const propnet::State state);
+            std::uint32_t get_input(const propnet::State state);
         private:
             virtual std::uint32_t get_legal(const std::vector<bool>& sees, std::span<const std::uint32_t> legals) = 0;
 

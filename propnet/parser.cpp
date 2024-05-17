@@ -1,4 +1,4 @@
-#include "include/basenet_parser.hpp"
+#include "include/parser.hpp"
 
 #include <filesystem>
 #include <fstream>
@@ -38,7 +38,7 @@ namespace propnet
     the job done and I don't wanna spend any more
     time than needed parsing stuff in C++.
     */
-    BasenetParser::BasenetParser(std::string_view game)
+    Parser::Parser(std::string_view game)
     {
         std::filesystem::path game_path {GAMES_PATH};
         game_path.append(game);
@@ -95,15 +95,15 @@ namespace propnet
         }
     }
 
-    Basenet BasenetParser::create_basenet()
+    Propnet Parser::create_propnet()
     {
         if (!is_data_valid)
         {
-            throw std::logic_error {"Tried to create more than one basenet from same parser"};
+            throw std::logic_error {"Tried to create more than one propnet from same parser"};
         }
 
         is_data_valid = false;
-        return Basenet {
+        return Propnet {
             std::move(roles),
             std::move(nodes),
             std::move(propositions),
@@ -113,7 +113,7 @@ namespace propnet
         };
     }
 
-    void BasenetParser::add_entry(const nlohmann::json& entry)
+    void Parser::add_entry(const nlohmann::json& entry)
     {
         const std::uint32_t id {entry.at(ID_KEY)};
         const EntryType entry_type {entry.at(TYPE_KEY)};
@@ -169,7 +169,7 @@ namespace propnet
         }
     }
 
-    void BasenetParser::add_proposition(std::uint32_t id, std::string_view type, std::string&& gdl, const nlohmann::json& entry)
+    void Parser::add_proposition(std::uint32_t id, std::string_view type, std::string&& gdl, const nlohmann::json& entry)
     {
         // TODO: Repetitive, but it works for now at least
         if (type == INITIAL_PROP_TYPE)

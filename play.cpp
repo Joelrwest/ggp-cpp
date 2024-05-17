@@ -1,47 +1,49 @@
-#include "propnet/include/basenet.hpp"
 #include "propnet/include/propnet.hpp"
+#include "propnet/include/vector_state.hpp"
 #include "setup.hpp"
 
 #include <iostream>
 #include <algorithm>
 
-void print_state(const propnet::Basenet& basenet, const propnet::Propnet& propnet);
+static constexpr auto NUM_GAMES {1};
+
+void print_state(const propnet::Propnet& propnet, const propnet::State& state);
 
 int main(void)
 {
-    const propnet::Basenet basenet {setup::load_basenet()};
-    propnet::Propnet propnet {basenet};
-
-    // print_state(basenet, propnet);
-
-    const auto agents {setup::create_agents(basenet, propnet)};
-    while (!propnet.is_game_over())
+    const propnet::Propnet propnet {setup::load_propnet()};
+    const auto agents {setup::create_agents(propnet)};
+    for (auto game_num {0}; game_num < NUM_GAMES; ++game_num)
     {
-        std::cout << "\nNew round\n";
-        std::unordered_set<std::uint32_t> inputs {};
-        for (const auto& agent : agents)
+        auto state {propnet.create_initial_state()};
+        while (!propnet.is_game_over(state))
         {
-            const auto input {agent->get_input()};
-            std::cout << "An agent took input " << input << '\n';
-            inputs.insert(input);
-        }
+            std::cout << "\nNew round\n";
+            std::unordered_set<std::uint32_t> inputs {};
+            for (const auto& agent : agents)
+            {
+                const auto input {agent->get_input(state)};
+                std::cout << "An agent took input " << input << '\n';
+                inputs.insert(input);
+            }
 
-        propnet.take_sees_inputs(inputs);
-        for (const auto& agent : agents)
-        {
-            agent->cache_sees();
+            propnet.take_sees_inputs(state, inputs);
+            for (const auto& agent : agents)
+            {
+                agent->take_observations(state);
+            }
+            propnet.take_non_sees_inputs(state, inputs);
         }
-        propnet.take_non_sees_inputs(inputs);
     }
 
     return 0;
 }
 
-void print_state(const propnet::Basenet& basenet, const propnet::Propnet& propnet)
+void print_state(const propnet::Propnet& propnet, const propnet::State& state)
 {
-    for (auto id {0}; id < basenet.num_nodes(); ++id)
+    for (auto id {0}; id < propnet.num_nodes(); ++id)
     {
-        std::cout << id << ' ' << propnet.eval_prop(id, std::unordered_set<std::uint32_t> {}) << '\n';
+        std::cout << id << ' ' << propnet.eval_prop(id, state, std::unordered_set<std::uint32_t> {}) << '\n';
     }
     std::cout << "\n\n";
 }

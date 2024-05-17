@@ -1,5 +1,5 @@
 #include "setup.hpp"
-#include "propnet/include/basenet_parser.hpp"
+#include "propnet/include/parser.hpp"
 #include "agents/include/factory.hpp"
 #include "agents/include/simple.hpp"
 
@@ -7,7 +7,7 @@
 
 namespace setup
 {
-    propnet::Basenet load_basenet()
+    propnet::Propnet load_propnet()
     {
         while (true)
         {
@@ -17,12 +17,12 @@ namespace setup
                 std::cout << "Enter game name (spelt same as json): ";
                 std::cin >> game;
 
-                std::cout << "Loading basenet\n";
-                propnet::BasenetParser parser {game};
-                const auto basenet {parser.create_basenet()};
-                std::cout << "Basenet loaded\n";
+                std::cout << "Loading propnet\n";
+                propnet::Parser parser {game};
+                const auto propnet {parser.create_propnet()};
+                std::cout << "Propnet loaded\n";
 
-                return basenet;
+                return propnet;
             }
             catch (const propnet::ParsingError error)
             {
@@ -52,12 +52,12 @@ namespace setup
         }
     }
 
-    std::vector<std::unique_ptr<agents::Agent>> create_agents(const propnet::Basenet& basenet, const propnet::Propnet& propnet)
+    std::vector<std::unique_ptr<agents::Agent>> create_agents(const propnet::Propnet& propnet)
     {
         static constexpr auto RANDOM_PLAYER_NAME {"random"};
 
         std::vector<std::unique_ptr<agents::Agent>> agents {};
-        for (const auto& role : basenet.get_roles())
+        for (const auto& role : propnet.get_roles())
         {
             if (role.get_name() == RANDOM_PLAYER_NAME)
             {

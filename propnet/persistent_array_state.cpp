@@ -1,8 +1,8 @@
-#include "state_data.hpp"
+#include "persistent_array_state.hpp"
 
 namespace propnet
 {
-    StateDataNode::StateDataNode(std::uint32_t id_lo, std::uint32_t id_hi) :
+    StateNode::StateNode(std::uint32_t id_lo, std::uint32_t id_hi) :
         id {(id_lo + id_hi) / 2},
         generation {0},
         left {construct_starting_node(id_lo, id)},
@@ -10,7 +10,7 @@ namespace propnet
         value {DEFAULT_VALUE}
     {}
 
-    StateDataNode::StateDataNode(const StateDataNode& other, std::uint32_t generation, bool value) :
+    StateNode::StateNode(const StateNode& other, std::uint32_t generation, bool value) :
         id {other.id},
         generation {generation},
         left {other.left},
@@ -18,7 +18,7 @@ namespace propnet
         value {value}
     {}
 
-    StateDataNode::StateDataNode(const StateDataNode& other, std::uint32_t generation, std::shared_ptr<StateDataNode> left, std::shared_ptr<StateDataNode> right) :
+    StateNode::StateNode(const StateNode& other, std::uint32_t generation, std::shared_ptr<StateNode> left, std::shared_ptr<StateNode> right) :
         id {other.id},
         generation {generation},
         left {left},
@@ -26,7 +26,7 @@ namespace propnet
         value {other.value}
     {}
 
-    bool StateDataNode::get(std::uint32_t getting_id) const
+    bool StateNode::get(std::uint32_t getting_id) const
     {
         if (getting_id == id)
         {
@@ -47,7 +47,7 @@ namespace propnet
         }
     }
 
-    std::shared_ptr<StateDataNode> StateDataNode::update(std::uint32_t updating_id, std::uint32_t new_generation, bool new_value)
+    std::shared_ptr<StateNode> StateNode::update(std::uint32_t updating_id, std::uint32_t new_generation, bool new_value)
     {
         /*
         TODO: This could probs be more efficient with less copies
@@ -58,37 +58,54 @@ namespace propnet
         */
         if (updating_id == id)
         {
-            return std::make_shared<StateDataNode>(*this, new_generation, new_value);
+            return std::make_shared<StateNode>(*this, new_generation, new_value);
         }
-        else if (updating_id < id) {
+        else if (updating_id < id)
+        {
             const auto new_left {left->update(updating_id, new_generation, new_value)};
-            return std::make_shared<StateDataNode>(*this, new_generation, new_left, right);
+            return std::make_shared<StateNode>(*this, new_generation, new_left, right);
         }
         else
         {
             const auto new_right {right->update(updating_id, new_generation, new_value)};
-            return std::make_shared<StateDataNode>(*this, new_generation, left, new_right);
+            return std::make_shared<StateNode>(*this, new_generation, left, new_right);
         }
     }
 
-    std::shared_ptr<StateDataNode> StateDataNode::construct_starting_node(std::uint32_t id_lo, std::uint32_t id_hi)
+    void StateNode::into_vector(std::vector<bool>& vector)
     {
-        return id_lo >= id_hi ? nullptr : std::make_unique<StateDataNode>(id_lo, id_hi);
+        vector.at(id) = value;
+
+        if (left != nullptr)
+        {
+            left->into_vector(vector);
+        }
+        if (right != nullptr)
+        {
+            right->into_vector(vector);
+        }
     }
 
-    StateData::StateData(std::uint32_t size) :
+    std::shared_ptr<StateNode> StateNode::construct_starting_node(std::uint32_t id_lo, std::uint32_t id_hi)
+    {
+        return id_lo >= id_hi ? nullptr : std::make_unique<StateNode>(id_lo, id_hi);
+    }
+
+    State::State(std::uint32_t size) :
         size {size},
         generation {0},
-        root {size == 0 ? nullptr : std::make_unique<StateDataNode>(0, size)}
+        root {size == 0 ? nullptr : std::make_unique<StateNode>(0, size)},
+        is_initial {true}
     {}
 
-    StateData::StateData(const StateData& other) :
+    State::State(const State& other) :
         size {other.size},
         generation {other.generation + 1},
-        root {other.root}
+        root {other.root},
+        is_initial {other.is_initial}
     {}
 
-    bool StateData::get(std::uint32_t getting_id) const
+    bool State::get(std::uint32_t getting_id) const
     {
         if (root == nullptr)
         {
@@ -98,7 +115,7 @@ namespace propnet
         return root->get(getting_id);
     }
 
-    void StateData::update(std::uint32_t updating_id, bool new_value)
+    void State::update(std::uint32_t updating_id, bool new_value)
     {
         if (updating_id >= size)
         {
@@ -111,5 +128,23 @@ namespace propnet
         }
 
         root = root->update(updating_id, generation, new_value);
+    }
+
+    std::vector<bool> State::to_vector() const
+    {
+        std::vector<bool> vector (size);
+        root->into_vector(vector);
+
+        return vector;
+    }
+
+    bool State::get_is_initial() const
+    {
+        return is_initial;
+    }
+
+    void State::set_not_is_initial()
+    {
+        is_initial = false;
     }
 };

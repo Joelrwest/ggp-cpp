@@ -7,7 +7,8 @@
 #include <unordered_map>
 #include <span>
 
-namespace propnet {
+namespace propnet
+{
     class Role
     {
         public:

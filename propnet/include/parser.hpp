@@ -1,6 +1,6 @@
 #pragma once
 
-#include "basenet.hpp"
+#include "propnet.hpp"
 
 #include <nlohmann/json.hpp>
 #include <concepts>
@@ -16,10 +16,10 @@ namespace propnet
             ParsingError(const char* message);
     };
 
-    class BasenetParser
+    class Parser
     {
         public:
-            BasenetParser(std::string_view game);
+            Parser(std::string_view game);
 
             /*
             Intended to only be called once,
@@ -27,7 +27,7 @@ namespace propnet
             Essentially the entire parser is invalidated once
             this is called.
             */
-            Basenet create_basenet();
+            Propnet create_propnet();
         private:
             static constexpr auto GAMES_PATH {"games/json/"};
             static constexpr auto JSON_EXTENSION {"json"};
