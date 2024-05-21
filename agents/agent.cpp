@@ -11,6 +11,8 @@ namespace agents {
         legals_cache (role.get_legals().size())
     {}
 
+    void Agent::prepare_new_game() { /* Most agents do nothing */ }
+
     void Agent::take_observations(const propnet::State state)
     {
         auto sees {role.get_sees()};

@@ -4,7 +4,8 @@
 
 #include <random>
 
-namespace agents {
+namespace agents
+{
     class RandomAgent : public Agent
     {
         public:

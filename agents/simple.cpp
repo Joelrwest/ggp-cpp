@@ -1,6 +1,7 @@
 #include "simple.hpp"
 
-namespace agents {
+namespace agents
+{
     RandomAgent::RandomAgent(const propnet::Role& role, const propnet::Propnet& propnet) :
         Agent {role, propnet}
     {}

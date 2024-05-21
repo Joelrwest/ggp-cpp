@@ -13,7 +13,7 @@ namespace agents {
         public:
             Agent(const propnet::Role& role, const propnet::Propnet& propnet);
 
-            void new_game();
+            virtual void prepare_new_game();
             void take_observations(const propnet::State state);
             std::uint32_t get_input(const propnet::State state);
         private:

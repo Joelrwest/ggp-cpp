@@ -11,9 +11,11 @@ FetchContent_MakeAvailable(lru_cache)
 
 add_subdirectory(propnet)
 add_subdirectory(agents)
+add_subdirectory(rebel)
 
 add_executable(play play.cpp setup.cpp)
 target_link_libraries(play PUBLIC propnet)
 target_link_libraries(play PUBLIC agents)
+target_link_libraries(play PUBLIC rebel)
 
 add_executable(train train.cpp)
