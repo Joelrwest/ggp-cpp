@@ -24,7 +24,7 @@ namespace setup
 
                 return propnet;
             }
-            catch (const propnet::ParsingError error)
+            catch (const propnet::ParsingError& error)
             {
                 std::cout << "Error occurred whilst trying to parse " << game << ": " << error.what() << '\n';
                 std::cout << "Please try again.\n";
@@ -71,4 +71,4 @@ namespace setup
 
         return agents;
     }
-};
+}

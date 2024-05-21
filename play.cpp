@@ -44,7 +44,7 @@ int main(void)
 
 void print_state(const propnet::Propnet& propnet, const propnet::State& state)
 {
-    for (auto id {0}; id < propnet.num_nodes(); ++id)
+    for (auto id {0u}; id < propnet.num_nodes(); ++id)
     {
         std::cout << id << ' ' << propnet.eval_prop(id, state, std::unordered_set<std::uint32_t> {}) << '\n';
     }

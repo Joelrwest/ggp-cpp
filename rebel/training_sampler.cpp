@@ -2,13 +2,17 @@
 
 namespace rebel
 {
-    TrainingSampler::TrainingSampler(const propnet::Propnet& propnet) :
-        Sampler<TrainingSampler> {propnet}
+    TrainingSampler::TrainingSampler(const propnet::Role& role, const propnet::Propnet& propnet) :
+        propnet {propnet},
+        role {role}
     {}
 
-    const std::vector<propnet::State>& TrainingSampler::sample()
-    {}
+    std::vector<propnet::State> TrainingSampler::sample()
+    {
+        // TODO
+        return std::vector<propnet::State> {};
+    }
 
-    void TrainingSampler::clear()
+    void TrainingSampler::prepare_new_game()
     {}
 };

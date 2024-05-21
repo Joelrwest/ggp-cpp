@@ -111,4 +111,4 @@ namespace propnet
 
             bool eval(const State& state, const std::unordered_set<std::uint32_t>& inputs) const override;
     };
-};
+}

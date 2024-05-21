@@ -26,4 +26,4 @@ namespace agents {
             std::vector<bool> sees_cache;
             std::vector<std::uint32_t> legals_cache;
     };
-};
+}

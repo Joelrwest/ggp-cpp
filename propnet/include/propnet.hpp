@@ -59,4 +59,4 @@ namespace propnet
             std::unordered_set<std::uint32_t> post_transition_nodes;
             std::optional<State> initial_state {};
     };
-};
+}

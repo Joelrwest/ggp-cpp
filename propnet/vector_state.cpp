@@ -2,6 +2,10 @@
 
 namespace propnet
 {
+    State::State() :
+        State {0}
+    {}
+
     State::State(std::size_t size) :
         state (size),
         is_initial {true}

@@ -10,6 +10,7 @@ namespace propnet
     class State
     {
         public:
+            State();
             State(std::size_t size);
             State(const State& other);
 
@@ -22,4 +23,4 @@ namespace propnet
             std::vector<bool> state;
             bool is_initial;
     };
-};
+}

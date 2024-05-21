@@ -7,9 +7,12 @@ namespace rebel
     class TrainingSampler : public Sampler<TrainingSampler>
     {
         public:
-            TrainingSampler(const propnet::Propnet& propnet);
+            TrainingSampler(const propnet::Role& role, const propnet::Propnet& propnet);
 
-            const std::vector<propnet::State>& sample();
-            void clear();
+            std::vector<propnet::State> sample();
+            void prepare_new_game();
+        private:
+            const propnet::Propnet& propnet;
+            const propnet::Role& role;
     };
 };

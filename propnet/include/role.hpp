@@ -24,4 +24,4 @@ namespace propnet
             std::vector<std::uint32_t> legals;
             std::unordered_map<std::uint32_t, std::uint32_t> legal_to_input;
     };
-};
+}

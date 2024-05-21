@@ -23,14 +23,16 @@ namespace rebel
 
             std::uint32_t get_legal(const std::vector<bool>& sees, std::span<const std::uint32_t> legals)
             {
+                (void) legals;
                 sampler.add_sees(sees);
                 const auto sampled_states {sampler.sample()};
                 for (const auto& sampled_state : sampled_states)
                 {
+                    (void) sampled_state;
                     // TODO
                 }
 
                 return 0;
             }
     };
-};
+}

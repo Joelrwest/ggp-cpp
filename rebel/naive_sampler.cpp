@@ -21,6 +21,8 @@ namespace rebel
                 ++sample_it;
             }
         }
+
+        return sample;
     }
 
     /*

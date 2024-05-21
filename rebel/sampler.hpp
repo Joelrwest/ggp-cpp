@@ -40,4 +40,4 @@ namespace rebel
                 to_derived().new_game();
             }
     };
-};
+}
