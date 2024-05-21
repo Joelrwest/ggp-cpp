@@ -34,6 +34,8 @@ namespace propnet
 
             static constexpr auto ROLES_KEY {"roles"};
             static constexpr auto ROLE_KEY {"role"};
+            static constexpr auto GOAL_KEY {"goal"};
+            static constexpr auto GOALS_KEY {"goals"};
             static constexpr auto SEES_KEY {"sees"};
             static constexpr auto LEGAL_TO_INPUT_KEY {"legal_to_input"};
             static constexpr auto LEGAL_KEY {"legal"};

@@ -2,6 +2,16 @@
     "roles": [
         {
             "role": "candidate",
+            "goals": [
+                {
+                    "goal": 20,
+                    "value": 0
+                },
+                {
+                    "goal": 46,
+                    "value": 100
+                }
+            ],
             "sees": [
                 8,
                 21,
@@ -35,6 +45,12 @@
         },
         {
             "role": "random",
+            "goals": [
+                {
+                    "goal": 56,
+                    "value": 100
+                }
+            ],
             "sees": [],
             "legal_to_input": [
                 {

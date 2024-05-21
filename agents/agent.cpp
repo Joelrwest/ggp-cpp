@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <iostream>
+#include <numeric>
 
 namespace agents {
     Agent::Agent(const propnet::Role& role, const propnet::Propnet& propnet) :
@@ -11,9 +12,27 @@ namespace agents {
         legals_cache (role.get_legals().size())
     {}
 
+    std::uint32_t Agent::get_reward(const propnet::State& state) const
+    {
+        const auto& goals {role.get_goals()};
+        std::unordered_set<std::uint32_t> empty_inputs {};
+        return std::accumulate(
+            goals.begin(),
+            goals.end(),
+            0,
+            [this, &state, &empty_inputs](const auto accumulation, const auto goal)
+            {
+                const auto eval {propnet.eval_prop(goal, state, empty_inputs)};
+                const auto value {eval ? role.get_goal_value(goal) : 0};
+
+                return accumulation + value;
+            }
+        );
+    }
+
     void Agent::prepare_new_game() { /* Most agents do nothing */ }
 
-    void Agent::take_observations(const propnet::State state)
+    void Agent::take_observations(const propnet::State& state)
     {
         auto sees {role.get_sees()};
         std::transform(
@@ -24,7 +43,7 @@ namespace agents {
         );
     }
 
-    std::uint32_t Agent::get_input(const propnet::State state)
+    std::uint32_t Agent::get_input(const propnet::State& state)
     {
         const auto legals {role.get_legals()};
         const auto legals_end {std::copy_if(

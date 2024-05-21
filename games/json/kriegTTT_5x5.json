@@ -2,6 +2,20 @@
     "roles": [
         {
             "role": "xplayer",
+            "goals": [
+                {
+                    "goal": 308,
+                    "value": 0
+                },
+                {
+                    "goal": 483,
+                    "value": 50
+                },
+                {
+                    "goal": 1382,
+                    "value": 100
+                }
+            ],
             "sees": [
                 23,
                 52,
@@ -159,6 +173,20 @@
         },
         {
             "role": "oplayer",
+            "goals": [
+                {
+                    "goal": 329,
+                    "value": 0
+                },
+                {
+                    "goal": 666,
+                    "value": 50
+                },
+                {
+                    "goal": 1122,
+                    "value": 100
+                }
+            ],
             "sees": [
                 80,
                 84,

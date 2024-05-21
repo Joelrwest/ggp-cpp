@@ -29,7 +29,8 @@ namespace agents {
             std::cout << "Legal moves are:\n";
             for (auto legal_it {legals.begin()}; legal_it != legals.end(); ++legal_it)
             {
-                std::cout << "\t[" << std::distance(legals.begin(), legal_it) << "] ";
+                const auto option_number {std::distance(legals.begin(), legal_it)};
+                std::cout << "\t[" << option_number << "] ";
                 std::cout << propnet.get_gdl(*legal_it) << '\n';
             }
 

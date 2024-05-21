@@ -59,7 +59,6 @@ namespace propnet
             for (const auto& role_entry : role_entries)
             {
                 std::unordered_map<uint32_t, uint32_t> legal_to_input {};
-
                 const auto& legal_to_input_entries {role_entry.at(LEGAL_TO_INPUT_KEY)};
                 for (const auto legal_to_input_entry : legal_to_input_entries)
                 {
@@ -68,10 +67,20 @@ namespace propnet
                     legal_to_input[legal] = input;
                 }
 
+                std::unordered_map<uint32_t, uint32_t> goals_to_value {};
+                const auto& goals_entries {role_entry.at(GOALS_KEY)};
+                for (const auto goals_entry : goals_entries)
+                {
+                    const auto goal {goals_entry.at(GOAL_KEY).get<std::uint32_t>()};
+                    const auto value {goals_entry.at(VALUE_KEY).get<std::uint32_t>()};
+                    goals_to_value[goal] = value;
+                }
+
                 roles.emplace_back(
                     role_entry.at(ROLE_KEY).get<std::string>(),
                     role_entry.at(SEES_KEY).get<std::vector<std::uint32_t>>(),
-                    legal_to_input
+                    legal_to_input,
+                    goals_to_value
                 );
             }
 

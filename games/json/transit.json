@@ -2,6 +2,16 @@
     "roles": [
         {
             "role": "transit",
+            "goals": [
+                {
+                    "goal": 427,
+                    "value": 100
+                },
+                {
+                    "goal": 2013,
+                    "value": 0
+                }
+            ],
             "sees": [
                 0,
                 26,
@@ -93,6 +103,16 @@
         },
         {
             "role": "patrol",
+            "goals": [
+                {
+                    "goal": 1129,
+                    "value": 100
+                },
+                {
+                    "goal": 2253,
+                    "value": 0
+                }
+            ],
             "sees": [
                 1,
                 10,

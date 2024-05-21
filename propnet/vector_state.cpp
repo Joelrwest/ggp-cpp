@@ -40,4 +40,14 @@ namespace propnet
     {
         is_initial = false;
     }
+
+    std::ostream& operator<<(std::ostream& os, const State& state)
+    {
+        os << (state.is_initial ? "Initial state\n" : "Not initial state\n");
+        for (auto id {0u}; id < state.state.size(); ++id)
+        {
+            os << id << ": " << state.state.at(id) << '\n';
+        }
+        return os << '\n';
+    }
 };

@@ -2,6 +2,152 @@
     "roles": [
         {
             "role": "pacman",
+            "goals": [
+                {
+                    "goal": 136,
+                    "value": 53
+                },
+                {
+                    "goal": 329,
+                    "value": 44
+                },
+                {
+                    "goal": 428,
+                    "value": 100
+                },
+                {
+                    "goal": 1054,
+                    "value": 95
+                },
+                {
+                    "goal": 1472,
+                    "value": 23
+                },
+                {
+                    "goal": 1584,
+                    "value": 18
+                },
+                {
+                    "goal": 1605,
+                    "value": 16
+                },
+                {
+                    "goal": 1741,
+                    "value": 29
+                },
+                {
+                    "goal": 2397,
+                    "value": 50
+                },
+                {
+                    "goal": 2521,
+                    "value": 56
+                },
+                {
+                    "goal": 2523,
+                    "value": 86
+                },
+                {
+                    "goal": 2540,
+                    "value": 77
+                },
+                {
+                    "goal": 2608,
+                    "value": 83
+                },
+                {
+                    "goal": 2615,
+                    "value": 14
+                },
+                {
+                    "goal": 2974,
+                    "value": 0
+                },
+                {
+                    "goal": 3262,
+                    "value": 35
+                },
+                {
+                    "goal": 3424,
+                    "value": 62
+                },
+                {
+                    "goal": 3522,
+                    "value": 89
+                },
+                {
+                    "goal": 3562,
+                    "value": 74
+                },
+                {
+                    "goal": 4101,
+                    "value": 32
+                },
+                {
+                    "goal": 4187,
+                    "value": 41
+                },
+                {
+                    "goal": 4984,
+                    "value": 2
+                },
+                {
+                    "goal": 5091,
+                    "value": 4
+                },
+                {
+                    "goal": 5410,
+                    "value": 10
+                },
+                {
+                    "goal": 5413,
+                    "value": 38
+                },
+                {
+                    "goal": 5464,
+                    "value": 80
+                },
+                {
+                    "goal": 6426,
+                    "value": 47
+                },
+                {
+                    "goal": 6447,
+                    "value": 65
+                },
+                {
+                    "goal": 6531,
+                    "value": 6
+                },
+                {
+                    "goal": 6577,
+                    "value": 26
+                },
+                {
+                    "goal": 7432,
+                    "value": 20
+                },
+                {
+                    "goal": 8328,
+                    "value": 12
+                },
+                {
+                    "goal": 9066,
+                    "value": 8
+                },
+                {
+                    "goal": 9149,
+                    "value": 59
+                },
+                {
+                    "goal": 9157,
+                    "value": 68
+                },
+                {
+                    "goal": 9259,
+                    "value": 71
+                }
+            ],
             "sees": [
                 77,
                 78,
@@ -322,6 +468,16 @@
         },
         {
             "role": "blinky",
+            "goals": [
+                {
+                    "goal": 746,
+                    "value": 0
+                },
+                {
+                    "goal": 7585,
+                    "value": 100
+                }
+            ],
             "sees": [
                 1,
                 9,
@@ -642,6 +798,16 @@
         },
         {
             "role": "inky",
+            "goals": [
+                {
+                    "goal": 4716,
+                    "value": 0
+                },
+                {
+                    "goal": 5920,
+                    "value": 100
+                }
+            ],
             "sees": [
                 13,
                 25,

@@ -4,6 +4,7 @@
 #include <memory>
 #include <limits>
 #include <vector>
+#include <iostream>
 
 namespace propnet
 {
@@ -19,6 +20,8 @@ namespace propnet
             const std::vector<bool>& to_vector() const;
             bool get_is_initial() const;
             void set_not_is_initial();
+
+            friend std::ostream& operator<<(std::ostream& os, const State& state);
         private:
             std::vector<bool> state;
             bool is_initial;

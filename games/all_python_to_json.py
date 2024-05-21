@@ -22,6 +22,7 @@ PYTHON_FOLDER = 'python'
 JSON_FOLDER = 'json'
 LEGAL_RE = re.compile(r'\( *legal *(\w+) *(.+) *\)')
 SEES_RE = re.compile(r'\( *sees *(\w+) *(.+) *\)')
+GOAL_RE = re.compile(r'\( *goal *(\w+) *(.+) *\)')
 INPUT_RE = re.compile(r'\( *does *(\w+) *(.+) *\)')
 
 def main() -> None:
@@ -65,6 +66,18 @@ def process_game(game: str) -> None:
     roles = [
         {
             'role': role,
+            'goals': [
+                {
+                    'goal': entry['id'],
+                    'value': int(GOAL_RE.search(entry['gdl']).groups()[1])
+                }
+                for entry in mapped_entries
+                if (
+                    entry['type'] == PROPOSITION and
+                    entry['proposition_type'] == goal and
+                    role == GOAL_RE.search(entry['gdl']).groups()[0]
+                )
+            ],
             'sees': [
                 entry['id']
                 for entry in mapped_entries

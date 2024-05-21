@@ -2,6 +2,20 @@
     "roles": [
         {
             "role": "x",
+            "goals": [
+                {
+                    "goal": 106,
+                    "value": 100
+                },
+                {
+                    "goal": 270,
+                    "value": 50
+                },
+                {
+                    "goal": 400,
+                    "value": 0
+                }
+            ],
             "sees": [
                 76
             ],
@@ -46,6 +60,20 @@
         },
         {
             "role": "o",
+            "goals": [
+                {
+                    "goal": 138,
+                    "value": 100
+                },
+                {
+                    "goal": 223,
+                    "value": 50
+                },
+                {
+                    "goal": 306,
+                    "value": 0
+                }
+            ],
             "sees": [
                 29
             ],
@@ -90,6 +118,12 @@
         },
         {
             "role": "random",
+            "goals": [
+                {
+                    "goal": 466,
+                    "value": 0
+                }
+            ],
             "sees": [],
             "legal_to_input": [
                 {

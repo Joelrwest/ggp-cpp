@@ -18,7 +18,7 @@ namespace rebel
 
             std::vector<std::vector<bool>> all_sees {};
         public:
-            static constexpr auto SAMPLE_SIZE {10};
+            static constexpr auto SAMPLE_SIZE {3};
 
             const std::vector<std::vector<bool>>& get_all_sees() const
             {

@@ -3,6 +3,8 @@
 #include "../../agents/include/agent.hpp"
 #include "../sampler.hpp"
 
+#include <iostream>
+
 namespace rebel
 {
     template<typename StateSamplerT>
@@ -28,11 +30,11 @@ namespace rebel
                 const auto sampled_states {sampler.sample()};
                 for (const auto& sampled_state : sampled_states)
                 {
-                    (void) sampled_state;
-                    // TODO
+                    std::cout << sampled_state << "\n\n";
+                    // TODO: Do CFR search
                 }
 
-                return 0;
+                return 24;
             }
     };
 }

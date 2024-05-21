@@ -2,6 +2,20 @@
     "roles": [
         {
             "role": "red",
+            "goals": [
+                {
+                    "goal": 259,
+                    "value": 0
+                },
+                {
+                    "goal": 534,
+                    "value": 50
+                },
+                {
+                    "goal": 634,
+                    "value": 100
+                }
+            ],
             "sees": [],
             "legal_to_input": [
                 {
@@ -44,6 +58,20 @@
         },
         {
             "role": "black",
+            "goals": [
+                {
+                    "goal": 516,
+                    "value": 0
+                },
+                {
+                    "goal": 726,
+                    "value": 100
+                },
+                {
+                    "goal": 857,
+                    "value": 50
+                }
+            ],
             "sees": [],
             "legal_to_input": [
                 {

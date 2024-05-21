@@ -2,6 +2,20 @@
     "roles": [
         {
             "role": "x",
+            "goals": [
+                {
+                    "goal": 73,
+                    "value": 100
+                },
+                {
+                    "goal": 337,
+                    "value": 0
+                },
+                {
+                    "goal": 366,
+                    "value": 50
+                }
+            ],
             "sees": [
                 202
             ],
@@ -46,6 +60,20 @@
         },
         {
             "role": "o",
+            "goals": [
+                {
+                    "goal": 26,
+                    "value": 100
+                },
+                {
+                    "goal": 39,
+                    "value": 0
+                },
+                {
+                    "goal": 292,
+                    "value": 50
+                }
+            ],
             "sees": [
                 486
             ],
