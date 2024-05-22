@@ -5,11 +5,6 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_BUILD_TYPE Debug)
 
-include(FetchContent)
-
-FetchContent_Declare(lru_cache GIT_REPOSITORY https://github.com/nitnelave/lru_cache GIT_TAG 48f9cd9f1713ee63172f2a28af6824bbf8161e5c)
-FetchContent_MakeAvailable(lru_cache)
-
 add_subdirectory(propnet)
 add_subdirectory(agents)
 add_subdirectory(rebel)

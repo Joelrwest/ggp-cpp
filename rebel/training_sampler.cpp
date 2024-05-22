@@ -8,12 +8,12 @@ namespace rebel
         agents {create_random_agents(propnet)}
     {}
 
-    std::vector<propnet::State> TrainingSampler::sample()
-    {
-        // TODO
-        return std::vector<propnet::State> {};
-    }
-
     void TrainingSampler::prepare_new_game()
     {}
+
+    propnet::State TrainingSampler::sample_state()
+    {
+        // TODO
+        return propnet::State {};
+    }
 };

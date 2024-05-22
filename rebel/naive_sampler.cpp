@@ -8,17 +8,6 @@ namespace rebel
         agents {create_random_agents(propnet)}
     {}
 
-    std::vector<propnet::State> NaiveSampler::sample()
-    {
-        std::vector<propnet::State> samples (Sampler::SAMPLE_SIZE);
-        for (auto& sample : samples)
-        {
-            sample = sample_state();
-        }
-
-        return samples;
-    }
-
     /*
     No caches or anything to clear
     */

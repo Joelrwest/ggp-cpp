@@ -19,8 +19,9 @@ namespace propnet
         post_transition_nodes {post_transition_nodes},
         initial_state {nodes.size()}
     {
-        take_sees_inputs(initial_state, std::unordered_set<std::uint32_t> {});
-        take_non_sees_inputs(initial_state, std::unordered_set<std::uint32_t> {});
+        static const std::unordered_set<std::uint32_t> EMPTY_INPUTS {};
+        take_sees_inputs(initial_state, EMPTY_INPUTS);
+        take_non_sees_inputs(initial_state, EMPTY_INPUTS);
         initial_state.set_not_is_initial();
     }
 
@@ -32,6 +33,12 @@ namespace propnet
     std::span<const Role> Propnet::get_roles() const
     {
         return roles;
+    }
+
+    bool Propnet::eval_prop(std::uint32_t id, const State& state) const
+    {
+        static const std::unordered_set<std::uint32_t> EMPTY_INPUTS {};
+        return eval_prop(id, state, EMPTY_INPUTS);
     }
 
     bool Propnet::eval_prop(std::uint32_t id, const State& state, const std::unordered_set<std::uint32_t>& inputs) const

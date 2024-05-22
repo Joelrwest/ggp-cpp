@@ -2,6 +2,8 @@
 
 #include "../sampler.hpp"
 
+// #include "lru_cache/lru_cache.h"
+
 namespace rebel
 {
     class TrainingSampler : public Sampler<TrainingSampler>
@@ -9,8 +11,8 @@ namespace rebel
         public:
             TrainingSampler(const propnet::Role& role, const propnet::Propnet& propnet);
 
-            std::vector<propnet::State> sample();
             void prepare_new_game();
+            propnet::State sample_state();
         private:
             const propnet::Propnet& propnet;
             const propnet::Role& role;

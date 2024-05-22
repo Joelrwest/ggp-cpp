@@ -5,6 +5,8 @@
 #include "../agents/include/simple.hpp"
 
 #include <concepts>
+#include <future>
+#include <thread>
 
 namespace rebel
 {
@@ -12,6 +14,10 @@ namespace rebel
     class Sampler
     {
         private:
+            static constexpr auto NUM_THREADS {6};
+            static constexpr auto PER_THREAD_SAMPLE_SIZE {3};
+            static constexpr auto SAMPLE_SIZE {NUM_THREADS * PER_THREAD_SAMPLE_SIZE};
+
             DerivedT& to_derived()
             {
                 return static_cast<DerivedT&>(*this);
@@ -19,8 +25,6 @@ namespace rebel
 
             std::vector<std::vector<bool>> all_sees {};
         public:
-            static constexpr auto SAMPLE_SIZE {3};
-
             const std::vector<std::vector<bool>>& get_all_sees() const
             {
                 return all_sees;
@@ -31,9 +35,40 @@ namespace rebel
                 all_sees.push_back(sees);
             }
 
+            /*
+            Assumes that calls to sample_state() for
+            derived classes are thread safe!!
+            Otherwise truly cursed undefined behaviour
+            may happen.
+            */
             std::vector<propnet::State> sample()
             {
-                return to_derived().sample();
+                std::vector<std::future<propnet::State>> futures (Sampler::SAMPLE_SIZE);
+                for (auto& future : futures)
+                {
+                    future = std::async(
+                        std::launch::async,
+                        [this]
+                        {
+                            return to_derived().sample_state();
+                        }
+                    );
+                }
+
+                std::vector<propnet::State> sample (Sampler::SAMPLE_SIZE);
+                std::transform(
+                    futures.begin(),
+                    futures.end(),
+                    sample.begin(),
+                    [](auto& future)
+                    {
+                        future.wait();
+
+                        return std::move(future.get());
+                    }
+                );
+
+                return sample;
             }
 
             void new_game()

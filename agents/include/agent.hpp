@@ -20,8 +20,6 @@ namespace agents {
         private:
             virtual std::uint32_t get_legal(const std::vector<bool>& sees, std::span<const std::uint32_t> legals) = 0;
 
-            const std::unordered_set<std::uint32_t> empty_inputs {};
-
             propnet::Role role;
             const propnet::Propnet& propnet;
             std::vector<bool> sees_cache;

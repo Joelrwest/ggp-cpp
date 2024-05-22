@@ -15,14 +15,13 @@ namespace agents {
     std::uint32_t Agent::get_reward(const propnet::State& state) const
     {
         const auto& goals {role.get_goals()};
-        std::unordered_set<std::uint32_t> empty_inputs {};
         return std::accumulate(
             goals.begin(),
             goals.end(),
             0,
-            [this, &state, &empty_inputs](const auto accumulation, const auto goal)
+            [this, &state](const auto accumulation, const auto goal)
             {
-                const auto eval {propnet.eval_prop(goal, state, empty_inputs)};
+                const auto eval {propnet.eval_prop(goal, state)};
                 const auto value {eval ? role.get_goal_value(goal) : 0};
 
                 return accumulation + value;
@@ -39,7 +38,7 @@ namespace agents {
             sees.begin(),
             sees.end(),
             sees_cache.begin(),
-            [this, &state](const auto see) { return propnet.eval_prop(see, state, empty_inputs); }
+            [this, &state](const auto see) { return propnet.eval_prop(see, state); }
         );
     }
 
@@ -50,7 +49,7 @@ namespace agents {
             legals.begin(),
             legals.end(),
             legals_cache.begin(),
-            [this, &state](const auto legal) { return propnet.eval_prop(legal, state, empty_inputs); }
+            [this, &state](const auto legal) { return propnet.eval_prop(legal, state); }
         )};
 
         const std::span legals_cache_span {legals_cache.begin(), legals_end};

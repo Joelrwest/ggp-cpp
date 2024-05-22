@@ -36,6 +36,7 @@ namespace propnet
 
             std::uint32_t num_nodes() const;
             std::span<const Role> get_roles() const;
+            bool eval_prop(std::uint32_t id, const State& state) const;
             bool eval_prop(std::uint32_t id, const State& state, const std::unordered_set<std::uint32_t>& inputs) const;
             std::string_view get_gdl(std::uint32_t proposition) const;
 
