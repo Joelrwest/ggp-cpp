@@ -26,3 +26,9 @@ else()
 endif()
 
 add_executable(train train.cpp)
+
+if(MSVC)
+  target_compile_options(train PRIVATE /W4 /WX)
+else()
+  target_compile_options(train PRIVATE -Wall -Wextra -Wpedantic -Werror)
+endif()

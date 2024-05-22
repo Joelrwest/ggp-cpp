@@ -2,6 +2,7 @@
 
 #include "../propnet/include/vector_state.hpp"
 #include "../propnet/include/propnet.hpp"
+#include "../agents/include/simple.hpp"
 
 #include <concepts>
 
@@ -38,6 +39,18 @@ namespace rebel
             void new_game()
             {
                 to_derived().new_game();
+            }
+
+            static std::vector<agents::RandomAgent> create_random_agents(const propnet::Propnet& propnet)
+            {
+                std::vector<agents::RandomAgent> agents {};
+                const auto& roles {propnet.get_roles()};
+                for (const auto& role : roles)
+                {
+                    agents.emplace_back(role, propnet);
+                }
+
+                return agents;
             }
     };
 }

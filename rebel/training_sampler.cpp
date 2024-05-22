@@ -4,7 +4,8 @@ namespace rebel
 {
     TrainingSampler::TrainingSampler(const propnet::Role& role, const propnet::Propnet& propnet) :
         propnet {propnet},
-        role {role}
+        role {role},
+        agents {create_random_agents(propnet)}
     {}
 
     std::vector<propnet::State> TrainingSampler::sample()

@@ -16,12 +16,12 @@ namespace propnet
         propositions {propositions},
         terminal {terminal},
         topologically_sorted_nodes {topologically_sorted_nodes},
-        post_transition_nodes {post_transition_nodes}
+        post_transition_nodes {post_transition_nodes},
+        initial_state {nodes.size()}
     {
-        initial_state.emplace(num_nodes());
-        take_sees_inputs(initial_state.value(), std::unordered_set<std::uint32_t> {});
-        take_non_sees_inputs(initial_state.value(), std::unordered_set<std::uint32_t> {});
-        initial_state.value().set_not_is_initial();
+        take_sees_inputs(initial_state, std::unordered_set<std::uint32_t> {});
+        take_non_sees_inputs(initial_state, std::unordered_set<std::uint32_t> {});
+        initial_state.set_not_is_initial();
     }
 
     std::uint32_t Propnet::num_nodes() const
@@ -72,11 +72,6 @@ namespace propnet
 
     State Propnet::create_initial_state() const
     {
-        if (!initial_state.has_value())
-        {
-            throw std::logic_error {"Initial state cache wasn't assigned at propnet creation"};
-        }
-
-        return initial_state.value();
+        return initial_state;
     }
 };

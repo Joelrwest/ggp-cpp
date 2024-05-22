@@ -8,7 +8,6 @@
 #include <memory>
 #include <unordered_map>
 #include <span>
-#include <optional>
 
 namespace propnet
 {
@@ -57,6 +56,6 @@ namespace propnet
             std::uint32_t terminal;
             std::vector<std::uint32_t> topologically_sorted_nodes;
             std::unordered_set<std::uint32_t> post_transition_nodes;
-            std::optional<State> initial_state {};
+            State initial_state;
     };
 }

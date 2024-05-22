@@ -7,7 +7,7 @@
 #include <iostream>
 #include <algorithm>
 
-static constexpr auto NUM_GAMES {1};
+static constexpr auto NUM_GAMES {5};
 
 int main(void)
 {

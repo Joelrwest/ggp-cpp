@@ -14,6 +14,10 @@ namespace propnet
             State();
             State(std::size_t size);
             State(const State& other);
+            State(State&& other);
+
+            State& operator=(const State& other);
+            State& operator=(State&& other);
 
             bool get(std::uint32_t getting_id) const;
             void update(std::uint32_t updating_id, bool new_value);

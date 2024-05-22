@@ -9,3 +9,9 @@ add_library(propnet STATIC nodes.cpp propnet.cpp vector_state.cpp persistent_arr
 target_include_directories(propnet PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 target_link_libraries(propnet PUBLIC nlohmann_json::nlohmann_json)
+
+if(MSVC)
+  target_compile_options(propnet PRIVATE /W4 /WX)
+else()
+  target_compile_options(propnet PRIVATE -Wall -Wextra -Wpedantic -Werror)
+endif()

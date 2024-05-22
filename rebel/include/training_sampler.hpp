@@ -14,5 +14,6 @@ namespace rebel
         private:
             const propnet::Propnet& propnet;
             const propnet::Role& role;
+            std::vector<agents::RandomAgent> agents;
     };
 };

@@ -16,6 +16,15 @@ namespace propnet
         is_initial {other.is_initial}
     {}
 
+    State::State(State&& other) :
+        state {std::move(other.state)},
+        is_initial {other.is_initial}
+    {}
+
+    State& State::operator=(const State& other) = default;
+
+    State& State::operator=(State&& other) = default;
+
     bool State::get(std::uint32_t getting_id) const
     {
         return state.at(getting_id);
