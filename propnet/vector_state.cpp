@@ -25,6 +25,8 @@ namespace propnet
 
     State& State::operator=(State&& other) = default;
 
+    bool State::operator==(const State& other) const = default;
+
     bool State::get(std::uint32_t getting_id) const
     {
         return state.at(getting_id);
@@ -33,11 +35,6 @@ namespace propnet
     void State::update(std::uint32_t updating_id, bool new_value)
     {
         state.at(updating_id) = new_value;
-    }
-
-    const std::vector<bool>& State::to_vector() const
-    {
-        return state;
     }
 
     bool State::get_is_initial() const
@@ -59,4 +56,12 @@ namespace propnet
         }
         return os << '\n';
     }
-};
+}
+
+namespace std
+{
+    std::size_t hash<propnet::State>::operator()(const propnet::State& state) const noexcept
+    {
+        return std::hash<std::vector<bool>> {}(state.state);
+    }
+}

@@ -47,4 +47,4 @@ namespace agents {
             std::cout << chosen << " was not found as an option, try again\n";
         }
     }
-};
+}

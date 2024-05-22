@@ -255,4 +255,4 @@ namespace propnet
             throw ParsingError {"Got unknown proposition type"};
         }
     }
-};
+}

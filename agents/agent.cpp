@@ -66,4 +66,4 @@ namespace agents {
         const auto legal {get_legal(sees_cache, legals_cache_span)};
         return role.get_input(legal);
     }
-};
+}

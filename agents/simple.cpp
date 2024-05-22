@@ -31,4 +31,4 @@ namespace agents
     {
         return legals.back();
     }
-};
+}

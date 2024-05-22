@@ -50,4 +50,4 @@ namespace propnet
             std::shared_ptr<StateNode> root;
             bool is_initial;
     };
-};
+}

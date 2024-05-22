@@ -57,4 +57,4 @@ namespace propnet
     {
         return goals_to_value.at(goal);
     }
-};
+}

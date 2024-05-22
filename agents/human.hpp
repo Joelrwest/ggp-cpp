@@ -15,4 +15,4 @@ namespace agents {
             const propnet::Role& role;
             const propnet::Propnet& propnet;
     };
-};
+}

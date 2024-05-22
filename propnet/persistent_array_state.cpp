@@ -147,4 +147,4 @@ namespace propnet
     {
         is_initial = false;
     }
-};
+}

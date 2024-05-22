@@ -81,4 +81,4 @@ namespace propnet
     {
         return initial_state;
     }
-};
+}

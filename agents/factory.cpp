@@ -28,4 +28,4 @@ namespace agents {
             throw std::invalid_argument {"Given unkown agent name"};
         }
     }
-};
+}
