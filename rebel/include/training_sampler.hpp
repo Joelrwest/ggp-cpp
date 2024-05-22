@@ -8,6 +8,7 @@
 
 namespace rebel
 {
+
     class TrainingSampler : public Sampler<TrainingSampler>
     {
         public:
@@ -16,13 +17,25 @@ namespace rebel
             void prepare_new_game();
             propnet::State sample_state();
         private:
-            using EmptyT = std::tuple<>;
-            using StateCacheT = typename caches::fixed_sized_cache<propnet::State, EmptyT, caches::LRUCachePolicy>;
-            // static constexpr auto CACHE_SIZE {2000};
+            /*
+            Hacky way to get access to the clear method,
+            since it's protected in the implementation...
+            */
+            using Empty = std::tuple<>;
+            using UnderlyingInvalidStateCache = caches::fixed_sized_cache<propnet::State, Empty, caches::LRUCachePolicy>;
+            class InvalidStateCache : public UnderlyingInvalidStateCache
+            {
+                public:
+                    InvalidStateCache();
+
+                    void clear();
+                private:
+                    static constexpr auto CACHE_SIZE {5000}; // TODO: Check if reasonable
+            };
 
             const propnet::Propnet& propnet;
             const propnet::Role& role;
             std::vector<agents::RandomAgent> agents;
-            StateCacheT state_cache;
+            InvalidStateCache invalid_state_cache;
     };
 }
