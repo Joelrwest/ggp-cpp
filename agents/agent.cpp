@@ -45,14 +45,17 @@ namespace agents {
     std::uint32_t Agent::get_input(const propnet::State& state)
     {
         const auto legals {role.get_legals()};
-        const auto legals_end {std::copy_if(
+        const auto legals_cache_end {std::copy_if(
             legals.begin(),
             legals.end(),
             legals_cache.begin(),
-            [this, &state](const auto legal) { return propnet.eval_prop(legal, state); }
+            [this, &state](const auto legal)
+            {
+                return propnet.eval_prop(legal, state);
+            }
         )};
 
-        const std::span legals_cache_span {legals_cache.begin(), legals_end};
+        const std::span legals_cache_span {legals_cache.begin(), legals_cache_end};
         if (legals_cache_span.size() == 1)
         {
             const auto legal {legals_cache_span.front()};

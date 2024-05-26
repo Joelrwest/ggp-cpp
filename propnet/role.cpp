@@ -17,14 +17,20 @@ namespace propnet
             legal_to_input.cbegin(),
             legal_to_input.cend(),
             legals.begin(),
-            [](const auto& pair) { return pair.first; }
+            [](const auto& pair)
+            {
+                return pair.first;
+            }
         );
 
         std::transform(
             goals_to_value.cbegin(),
             goals_to_value.cend(),
             goals.begin(),
-            [](const auto& pair) { return pair.first; }
+            [](const auto& pair)
+            {
+                return pair.first;
+            }
         );
     }
 

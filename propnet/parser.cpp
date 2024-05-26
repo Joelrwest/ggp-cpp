@@ -180,7 +180,6 @@ namespace propnet
 
     void Parser::add_proposition(std::uint32_t id, std::string_view type, std::string&& gdl, const nlohmann::json& entry)
     {
-        // TODO: Repetitive, but it works for now at least
         if (type == INITIAL_PROP_TYPE)
         {
             add_proposition_node(InitialPropositionNode {

@@ -5,31 +5,38 @@
 #include "../agents/include/simple.hpp"
 
 #include <concepts>
-#include <future>
 #include <thread>
+#include <optional>
+#include <mutex>
 
 namespace rebel
 {
-    template<typename DerivedT>
+    template<typename DerivedSamplerT>
+    class Sampler;
+
+    template<typename DerivedSamplerT>
+    concept DerivedSampler = requires(DerivedSamplerT derived_sampler, const std::vector<std::vector<bool>>& all_sees)
+    {
+        { derived_sampler.sample_state(all_sees) } -> std::convertible_to<std::vector<propnet::State>>;
+    } && requires(DerivedSamplerT derived_sampler)
+    {
+        { derived_sampler.new_game() } -> std::convertible_to<void>;
+    } && std::derived_from<DerivedSamplerT, Sampler<DerivedSamplerT>>;
+
+    template<typename DerivedSamplerT>
     class Sampler
     {
         private:
             static constexpr auto NUM_THREADS {6};
-            static constexpr auto PER_THREAD_SAMPLE_SIZE {3};
-            static constexpr auto SAMPLE_SIZE {NUM_THREADS * PER_THREAD_SAMPLE_SIZE};
+            static constexpr auto SAMPLE_SIZE {36};
 
-            DerivedT& to_derived()
+            DerivedSamplerT& to_derived()
             {
-                return static_cast<DerivedT&>(*this);
+                return static_cast<DerivedSamplerT&>(*this);
             }
 
             std::vector<std::vector<bool>> all_sees {};
         public:
-            const std::vector<std::vector<bool>>& get_all_sees() const
-            {
-                return all_sees;
-            }
-
             void add_sees(const std::vector<bool>& sees)
             {
                 all_sees.push_back(sees);
@@ -43,49 +50,66 @@ namespace rebel
             */
             std::vector<propnet::State> sample()
             {
-                std::vector<std::future<propnet::State>> futures (Sampler::SAMPLE_SIZE);
-                for (auto& future : futures)
+                /*
+                Start new games and play until we get
+                the same sees as we've got here
+                */
+                if (all_sees.empty())
                 {
-                    future = std::async(
-                        std::launch::async,
-                        [this]
+                    /*
+                    We expect at least the initial state here,
+                    and there's a problem if there isn't.
+
+                    Not an issue here, but could lead to other
+                    issues elsewhere if not fixed.
+                    */
+                    throw std::logic_error {"Sees from initial state not present"};
+                }
+
+                std::vector<propnet::State> sample (SAMPLE_SIZE);
+                std::vector<std::thread> threads {};
+                auto sample_it {sample.begin()};
+                std::mutex sample_lock {};
+                for (auto thread_count {0}; thread_count < NUM_THREADS; ++thread_count)
+                {
+                    threads.emplace_back(
+                        [this, &sample_it, &sample_lock, sample_end_it = sample.end()]
                         {
-                            return to_derived().sample_state();
+                            while (true)
+                            {
+                                {
+                                    const std::lock_guard<std::mutex> sample_guard {sample_lock};
+                                    if (sample_it == sample_end_it)
+                                    {
+                                        return;
+                                    }
+                                }
+
+                                const propnet::State sampled_state {to_derived().sample_state(all_sees)};
+
+                                const std::lock_guard<std::mutex> sample_guard {sample_lock};
+                                *sample_it = std::move(sampled_state);
+                                ++sample_it;
+                            }
                         }
                     );
                 }
 
-                std::vector<propnet::State> sample (Sampler::SAMPLE_SIZE);
-                std::transform(
-                    futures.begin(),
-                    futures.end(),
-                    sample.begin(),
-                    [](auto& future)
+                std::for_each(
+                    threads.begin(),
+                    threads.end(),
+                    [](auto& thread)
                     {
-                        future.wait();
-
-                        return std::move(future.get());
+                        thread.join();
                     }
                 );
 
                 return sample;
             }
 
-            void new_game()
+            void prepare_new_game()
             {
-                to_derived().new_game();
-            }
-
-            static std::vector<agents::RandomAgent> create_random_agents(const propnet::Propnet& propnet)
-            {
-                std::vector<agents::RandomAgent> agents {};
-                const auto& roles {propnet.get_roles()};
-                for (const auto& role : roles)
-                {
-                    agents.emplace_back(role, propnet);
-                }
-
-                return agents;
+                to_derived().prepare_new_game();
             }
     };
 }

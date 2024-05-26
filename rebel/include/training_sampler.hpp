@@ -15,7 +15,7 @@ namespace rebel
             TrainingSampler(const propnet::Role& role, const propnet::Propnet& propnet);
 
             void prepare_new_game();
-            propnet::State sample_state();
+            propnet::State sample_state(const std::vector<std::vector<bool>>& all_sees);
         private:
             /*
             Hacky way to get access to the clear method,
