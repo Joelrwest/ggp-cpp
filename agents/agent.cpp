@@ -38,4 +38,9 @@ namespace agents {
     {
         return observations_cache;
     }
+
+    std::string_view Agent::get_role_name() const
+    {
+        return role.get_name();
+    }
 }

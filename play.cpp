@@ -7,7 +7,7 @@
 #include <iostream>
 #include <algorithm>
 
-static constexpr auto NUM_GAMES {5};
+static constexpr auto NUM_GAMES {1};
 
 int main(void)
 {
@@ -47,7 +47,7 @@ int main(void)
 
         for (const auto& agent : agents)
         {
-            std::cout << "Reward for agent: " << agent->get_reward(state) << '\n';
+            std::cout << "Reward for '" << agent->get_role_name() << "': " << agent->get_reward(state) << '\n';
         }
     }
 

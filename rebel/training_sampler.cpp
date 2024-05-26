@@ -24,7 +24,7 @@ namespace rebel
         //     agent.prepare_new_game();
         // }
 
-        // for (auto sees_it {std::next(all_sees.begin(), 1)}; sees_it != all_sees.end(); ++sees_it)
+        // for (auto sees_it {std::next(all_observations.begin(), 1)}; sees_it != all_observations.end(); ++sees_it)
         // {
         //     std::unordered_set<std::uint32_t> inputs {};
         //     for (auto& agent : agents)

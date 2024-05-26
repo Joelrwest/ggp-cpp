@@ -88,7 +88,7 @@ namespace propnet
         auto inputs_it {inputs.begin()};
         for (const auto& legal : legals)
         {
-            if (*inputs_it == legal.legal)
+            if (*inputs_it == legal.input)
             {
                 const auto option_number {std::distance(inputs.begin(), inputs_it)};
                 std::cout << "\t[" << option_number << "] ";

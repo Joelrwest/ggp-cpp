@@ -18,6 +18,7 @@ namespace agents {
             virtual void take_observations(const propnet::State& state);
             std::uint32_t get_legal_input(const propnet::State& state);
             const std::vector<bool>& get_observations_cache() const;
+            std::string_view get_role_name() const;
         private:
             virtual std::uint32_t get_legal_input_impl(std::span<const std::uint32_t> legal_inputs) = 0;
 

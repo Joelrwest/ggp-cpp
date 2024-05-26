@@ -15,9 +15,9 @@ namespace rebel
     class Sampler;
 
     template<typename DerivedSamplerT>
-    concept DerivedSampler = requires(DerivedSamplerT derived_sampler, const std::vector<std::vector<bool>>& all_sees)
+    concept DerivedSampler = requires(DerivedSamplerT derived_sampler, const std::vector<std::vector<bool>>& all_observations)
     {
-        { derived_sampler.sample_state(all_sees) } -> std::convertible_to<std::vector<propnet::State>>;
+        { derived_sampler.sample_state(all_observations) } -> std::convertible_to<std::vector<propnet::State>>;
     } && requires(DerivedSamplerT derived_sampler)
     {
         { derived_sampler.new_game() } -> std::convertible_to<void>;
@@ -28,7 +28,7 @@ namespace rebel
     {
         private:
             static constexpr auto NUM_THREADS {6};
-            static constexpr auto SAMPLE_SIZE {36};
+            static constexpr auto SAMPLE_SIZE {10};
 
             DerivedSamplerT& to_derived()
             {
@@ -77,19 +77,29 @@ namespace rebel
                         {
                             while (true)
                             {
+                                /*
+                                Check if the sample is full, and if not
+                                allocate a slot to place the next sample.
+
+                                This is the only concurrency issue that can arise
+                                in terms of the vector, however the actual sampler is
+                                assumed to be safe to use concurrently too.
+                                */
+                                decltype(sample_it) inserting_it;
                                 {
                                     const std::lock_guard<std::mutex> sample_guard {sample_lock};
                                     if (sample_it == sample_end_it)
                                     {
+                                        // Sample is full, stop
                                         return;
                                     }
+
+                                    inserting_it = sample_it;
+                                    ++sample_it;
                                 }
 
                                 const propnet::State sampled_state {to_derived().sample_state(all_observations)};
-
-                                const std::lock_guard<std::mutex> sample_guard {sample_lock};
-                                *sample_it = std::move(sampled_state);
-                                ++sample_it;
+                                *inserting_it = std::move(sampled_state);
                             }
                         }
                     );
@@ -110,6 +120,24 @@ namespace rebel
             void prepare_new_game()
             {
                 to_derived().prepare_new_game();
+            }
+
+            template<typename AgentT, typename... AgentArgsT>
+            static std::vector<AgentT> create_agents(const propnet::Propnet& propnet, AgentArgsT... agent_args)
+            {
+                std::vector<AgentT> agents {};
+                const auto& roles {propnet.get_roles()};
+                std::transform(
+                    roles.begin(),
+                    roles.end(),
+                    std::back_inserter(agents),
+                    [&propnet, &agent_args...](const propnet::Role& role)
+                    {
+                        return AgentT {role, propnet, agent_args...};
+                    }
+                );
+
+                return agents;
             }
     };
 }
