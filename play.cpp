@@ -31,10 +31,10 @@ int main(void)
             std::unordered_set<std::uint32_t> inputs {};
             for (const auto& agent : agents)
             {
-                const auto input {agent->get_input(state)};
+                const auto input {agent->get_legal_input(state)};
                 inputs.insert(input);
             }
-            rebel_agent.get_input(state);
+            rebel_agent.get_legal_input(state);
 
             propnet.take_sees_inputs(state, inputs);
             for (const auto& agent : agents)

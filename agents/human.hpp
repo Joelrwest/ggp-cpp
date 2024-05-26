@@ -10,7 +10,7 @@ namespace agents {
 
             static constexpr auto NAME {"human"};
         private:
-            std::uint32_t get_legal(const std::vector<bool>& sees, std::span<const std::uint32_t> legals) override;
+            std::uint32_t get_legal_input_impl(std::span<const std::uint32_t> legals) override;
 
             const propnet::Role& role;
             const propnet::Propnet& propnet;

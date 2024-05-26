@@ -23,10 +23,11 @@ namespace rebel
                 sampler.prepare_new_game();
             }
 
-            std::uint32_t get_legal(const std::vector<bool>& sees, std::span<const std::uint32_t> legals)
+            std::uint32_t get_legal_input_impl(std::span<const std::uint32_t> legals)
             {
+                const auto& observations {get_observations_cache()};
                 (void) legals;
-                sampler.add_sees(sees);
+                sampler.add_observation(observations);
                 const auto sampled_states {sampler.sample()};
                 for (const auto& sampled_state : sampled_states)
                 {

@@ -14,7 +14,7 @@ namespace rebel
 
     propnet::State NaiveSampler::sample_state(const std::vector<std::vector<bool>>& all_sees)
     {
-        const auto state {sample_state_impl(all_sees, propnet.create_initial_state(), 1)};
+        const auto state {sample_state_impl(all_sees.cbegin(), all_sees.cend(), propnet.create_initial_state())};
         if (!state.has_value())
         {
             throw std::runtime_error {"Did not find any possible sample for current sees"};
@@ -23,74 +23,27 @@ namespace rebel
         return *state;
     }
 
-    std::optional<propnet::State> NaiveSampler::sample_state_impl(const std::vector<std::vector<bool>>&, propnet::State, std::uint32_t)
+    std::optional<propnet::State> NaiveSampler::sample_state_impl(std::vector<std::vector<bool>>::const_iterator, std::vector<std::vector<bool>>::const_iterator, propnet::State)
     {
         return std::optional<propnet::State> {};
-        // const auto& sees {all_sees.at(move_count)};
-        // while (true)
+        // const auto randomised_legal_inputs {sampler_heuristics::random(propnet, state)};
+
+        // auto next_state {state};
+        // propnet.take_sees_inputs(state, inputs);
+
+        // const auto observations {sampler_role.get_observations(state)};
+
+        // if (observations != *sees_it)
         // {
-        //     std::unordered_set<std::uint32_t> inputs {};
-        //     for (auto& agent : agents)
-        //     {
-        //         const auto input {agent.get_input(state)};
-        //         inputs.insert(input);
-        //     }
+        //     return std::optional<propnet::State> {};
+        // }
 
-        //     auto next_state {state};
-        //     propnet.take_sees_inputs(next_state, inputs);
+        // propnet.take_non_sees_inputs(state, inputs);
 
-        //     std::vector<bool> curr_sees (sees.size());
-        //     std::transform(
-        //         sees.begin(),
-        //         sees.end(),
-        //         curr_sees.begin(),
-        //         [this, &state, &inputs](const auto see) { return propnet.eval_prop(see, state, inputs); }
-        //     );
-
-        //     if (curr_sees != sees)
-        //     {
-        //         continue;
-        //     }
-
-        //     propnet.take_non_sees_inputs(next_state, inputs);
-
-        //     auto possible_sampled_state {sample_state_impl(all_sees, std::move(next_state), move_count + 1)};
-        //     if (possible_sampled_state.has_value())
-        //     {
-        //         return *possible_sampled_state;
-        //     }
+        // auto possible_sampled_state {sample_state_impl(all_sees, std::move(next_state), move_count + 1)};
+        // if (possible_sampled_state.has_value())
+        // {
+        //     return *possible_sampled_state;
         // }
     }
-
-    // std::optional<propnet::State> NaiveSampler::sample_state_impl(const std::vector<std::vector<bool>>& all_sees, propnet::State curr_state)
-    // {
-    //     for (auto sees_it {std::next(all_sees.begin(), 1)}; sees_it != all_sees.end(); ++sees_it)
-    //     {
-    //         std::unordered_set<std::uint32_t> inputs {};
-    //         for (auto& agent : agents)
-    //         {
-    //             const auto input {agent.get_input(state)};
-    //             inputs.insert(input);
-    //         }
-
-    //         propnet.take_sees_inputs(state, inputs);
-
-    //         std::vector<bool> curr_sees (sees_it->size());
-    //         std::transform(
-    //             sees_it->begin(),
-    //             sees_it->end(),
-    //             curr_sees.begin(),
-    //             [this, &state, &inputs](const auto see) { return propnet.eval_prop(see, state, inputs); }
-    //         );
-
-    //         if (curr_sees != *sees_it)
-    //         {
-    //             return std::optional<propnet::State> {};
-    //         }
-
-    //         propnet.take_non_sees_inputs(state, inputs);
-    //     }
-
-    //     return std::optional<propnet::State> {state};
-    // }
 }

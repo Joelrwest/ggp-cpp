@@ -1,5 +1,5 @@
 #include "include/factory.hpp"
-#include "simple.hpp"
+#include "non_seeing.hpp"
 #include "../human.hpp"
 
 #include <stdexcept>

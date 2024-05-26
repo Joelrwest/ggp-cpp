@@ -1,5 +1,4 @@
 #include "include/bogo_sampler.hpp"
-#include "sampler_heuristics.hpp"
 
 namespace rebel
 {
@@ -27,7 +26,9 @@ namespace rebel
         auto state {propnet.create_initial_state()};
         for (auto sees_it {std::next(all_sees.begin(), 1)}; sees_it != all_sees.end(); ++sees_it)
         {
-            std::unordered_set<std::uint32_t> inputs {sampler_heuristics::lazy_random(propnet, state)};
+            // TODO
+            // std::unordered_set<std::uint32_t> inputs {sampler_heuristics::lazy_random(propnet, state)};
+            std::unordered_set<std::uint32_t> inputs {};
 
             propnet.take_sees_inputs(state, inputs);
 

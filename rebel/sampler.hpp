@@ -2,7 +2,7 @@
 
 #include "../propnet/include/vector_state.hpp"
 #include "../propnet/include/propnet.hpp"
-#include "../agents/include/simple.hpp"
+#include "../agents/include/non_seeing.hpp" // TODO
 
 #include <concepts>
 #include <thread>
@@ -35,11 +35,11 @@ namespace rebel
                 return static_cast<DerivedSamplerT&>(*this);
             }
 
-            std::vector<std::vector<bool>> all_sees {};
+            std::vector<std::vector<bool>> all_observations {};
         public:
-            void add_sees(const std::vector<bool>& sees)
+            void add_observation(const std::vector<bool>& observation)
             {
-                all_sees.push_back(sees);
+                all_observations.push_back(observation);
             }
 
             /*
@@ -54,7 +54,7 @@ namespace rebel
                 Start new games and play until we get
                 the same sees as we've got here
                 */
-                if (all_sees.empty())
+                if (all_observations.empty())
                 {
                     /*
                     We expect at least the initial state here,
@@ -85,7 +85,7 @@ namespace rebel
                                     }
                                 }
 
-                                const propnet::State sampled_state {to_derived().sample_state(all_sees)};
+                                const propnet::State sampled_state {to_derived().sample_state(all_observations)};
 
                                 const std::lock_guard<std::mutex> sample_guard {sample_lock};
                                 *sample_it = std::move(sampled_state);

@@ -14,10 +14,9 @@ namespace rebel
             void prepare_new_game();
             propnet::State sample_state(const std::vector<std::vector<bool>>& all_sees);
         private:
-            std::optional<propnet::State> sample_state_impl(const std::vector<std::vector<bool>>& all_sees, propnet::State state, std::uint32_t move_count);
+            std::optional<propnet::State> sample_state_impl(std::vector<std::vector<bool>>::const_iterator all_sees_it, std::vector<std::vector<bool>>::const_iterator all_sees_end_it, propnet::State state);
 
             const propnet::Propnet& propnet;
             const propnet::Role& role;
-            std::vector<agents::RandomAgent> agents;
     };
 }

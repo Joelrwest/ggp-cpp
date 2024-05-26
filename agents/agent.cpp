@@ -18,10 +18,11 @@ namespace agents {
 
     void Agent::take_observations(const propnet::State& state)
     {
+        // By default agents will see
         observations_cache = role.get_observations(state);
     }
 
-    std::uint32_t Agent::get_input(const propnet::State& state)
+    std::uint32_t Agent::get_legal_input(const propnet::State& state)
     {
         const auto legal_inputs {role.get_legal_inputs(state)};
         if (legal_inputs.size() == 1)
@@ -29,7 +30,12 @@ namespace agents {
             return legal_inputs.front();
         }
 
-        const auto input {get_legal(observations_cache, legal_inputs)};
+        const auto input {get_legal_input_impl(legal_inputs)};
         return input;
+    }
+
+    const std::vector<bool>& Agent::get_observations_cache() const
+    {
+        return observations_cache;
     }
 }

@@ -1,7 +1,6 @@
 #include "setup.hpp"
 #include "propnet/include/parser.hpp"
 #include "agents/include/factory.hpp"
-#include "agents/include/simple.hpp"
 
 #include <iostream>
 
