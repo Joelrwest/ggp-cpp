@@ -55,35 +55,6 @@ namespace propnet
         {
             const auto game_json = nlohmann::json::parse(game_file);
 
-            const auto& role_entries {game_json.at(ROLES_KEY)};
-            for (const auto& role_entry : role_entries)
-            {
-                std::unordered_map<uint32_t, uint32_t> legal_to_input {};
-                const auto& legal_to_input_entries {role_entry.at(LEGAL_TO_INPUT_KEY)};
-                for (const auto& legal_to_input_entry : legal_to_input_entries)
-                {
-                    const auto legal {legal_to_input_entry.at(LEGAL_KEY).get<std::uint32_t>()};
-                    const auto input {legal_to_input_entry.at(INPUT_KEY).get<std::uint32_t>()};
-                    legal_to_input[legal] = input;
-                }
-
-                std::unordered_map<uint32_t, uint32_t> goals_to_value {};
-                const auto& goals_entries {role_entry.at(GOALS_KEY)};
-                for (const auto& goals_entry : goals_entries)
-                {
-                    const auto goal {goals_entry.at(GOAL_KEY).get<std::uint32_t>()};
-                    const auto value {goals_entry.at(VALUE_KEY).get<std::uint32_t>()};
-                    goals_to_value[goal] = value;
-                }
-
-                roles.emplace_back(
-                    role_entry.at(ROLE_KEY).get<std::string>(),
-                    role_entry.at(SEES_KEY).get<std::vector<std::uint32_t>>(),
-                    legal_to_input,
-                    goals_to_value
-                );
-            }
-
             const auto& entries {game_json.at(ENTRIES_KEY)};
             for (const auto& entry : entries)
             {
@@ -92,6 +63,55 @@ namespace propnet
 
             topologically_sorted_nodes = game_json.at(TOPOLOGICALLY_SORTED_KEY).get<std::vector<std::uint32_t>>();
 
+            const auto& role_entries {game_json.at(ROLES_KEY)};
+            for (const auto& role_entry : role_entries)
+            {
+                std::vector<Role::See> sees {};
+                const auto& sees_entries {role_entry.at(SEES_KEY).get<std::vector<std::uint32_t>>()};
+                for (const auto& sees_entry : sees_entries)
+                {
+                    const auto node {propositions.at(sees_entry)};
+                    sees.emplace_back(Role::See {
+                            .node = node,
+                        }
+                    );
+                }
+
+                std::vector<Role::Legal> legals {};
+                const auto& legal_to_input_entries {role_entry.at(LEGAL_TO_INPUT_KEY)};
+                for (const auto& legal_to_input_entry : legal_to_input_entries)
+                {
+                    const auto legal {legal_to_input_entry.at(LEGAL_KEY).get<std::uint32_t>()};
+                    const auto input {legal_to_input_entry.at(INPUT_KEY).get<std::uint32_t>()};
+                    const auto node {propositions.at(legal)};
+                    legals.emplace_back(Role::Legal {
+                            .node = node,
+                            .input = input,
+                        }
+                    );
+                }
+
+                std::vector<Role::Goal> goals {};
+                const auto& goals_entries {role_entry.at(GOALS_KEY)};
+                for (const auto& goals_entry : goals_entries)
+                {
+                    const auto goal {goals_entry.at(GOAL_KEY).get<std::uint32_t>()};
+                    const auto value {goals_entry.at(VALUE_KEY).get<std::uint32_t>()};
+                    const auto node {propositions.at(goal)};
+                    goals.emplace_back(Role::Goal {
+                            .node = node,
+                            .value = value,
+                        }
+                    );
+                }
+
+                roles.emplace_back(
+                    role_entry.at(ROLE_KEY).get<std::string>(),
+                    sees,
+                    legals,
+                    goals
+                );
+            }
         }
         catch (const nlohmann::json::exception& error)
         {
@@ -102,23 +122,26 @@ namespace propnet
         {
             throw ParsingError {"No terminal state found in definition"};
         }
+
+        std::copy_if(
+            topologically_sorted_nodes.begin(),
+            topologically_sorted_nodes.end(),
+            std::back_inserter(non_post_topologically_sorted_nodes),
+            [this](const auto id)
+            {
+                return !post_transition_nodes.contains(id);
+            }
+        );
     }
 
     Propnet Parser::create_propnet()
     {
-        if (!is_data_valid)
-        {
-            throw std::logic_error {"Tried to create more than one propnet from same parser"};
-        }
-
-        is_data_valid = false;
         return Propnet {
-            std::move(roles),
-            std::move(nodes),
-            std::move(propositions),
+            roles,
+            nodes,
             terminal.value(),
-            std::move(topologically_sorted_nodes),
-            std::move(post_transition_nodes)
+            topologically_sorted_nodes,
+            non_post_topologically_sorted_nodes
         };
     }
 

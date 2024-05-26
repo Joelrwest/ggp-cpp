@@ -2,65 +2,99 @@
 
 #include <span>
 #include <algorithm>
+#include <numeric>
+#include <iostream>
 
 namespace propnet
 {
-    Role::Role(std::string_view name, const std::vector<std::uint32_t>& sees, const std::unordered_map<std::uint32_t, std::uint32_t>& legal_to_input, const std::unordered_map<std::uint32_t, std::uint32_t>& goals_to_value) :
+    Role::Role(std::string_view name, const std::vector<See>& sees, const std::vector<Legal>& legals, const std::vector<Goal>& goals) :
         name {name},
         sees {sees},
-        legals (legal_to_input.size()),
-        goals (goals_to_value.size()),
-        legal_to_input {legal_to_input},
-        goals_to_value {goals_to_value}
-    {
-        std::transform(
-            legal_to_input.cbegin(),
-            legal_to_input.cend(),
-            legals.begin(),
-            [](const auto& pair)
-            {
-                return pair.first;
-            }
-        );
-
-        std::transform(
-            goals_to_value.cbegin(),
-            goals_to_value.cend(),
-            goals.begin(),
-            [](const auto& pair)
-            {
-                return pair.first;
-            }
-        );
-    }
+        legals {legals},
+        goals {goals},
+        sees_cache (sees.size()),
+        inputs_cache (legals.size())
+    {}
 
     std::string_view Role::get_name() const
     {
         return name;
     }
 
-    std::span<const std::uint32_t> Role::get_goals() const
+    std::uint32_t Role::get_reward(const State& state) const
     {
-        return goals;
+        return std::accumulate(
+            goals.begin(),
+            goals.end(),
+            0,
+            [this, &state](const auto accumulation, const auto& goal)
+            {
+                const auto eval {goal.node->eval(state, EMPTY_INPUTS)};
+                const auto value {eval ? goal.value : 0};
+
+                return accumulation + value;
+            }
+        );
     }
 
-    std::span<const std::uint32_t> Role::get_sees() const
+    void Role::take_observations(const State& state)
     {
-        return sees;
+        std::transform(
+            sees.begin(),
+            sees.end(),
+            sees_cache.begin(),
+            [this, &state](const auto& see)
+            {
+                return see.node->eval(state, EMPTY_INPUTS);
+            }
+        );
     }
 
-    std::span<const std::uint32_t> Role::get_legals() const
+    const std::vector<bool>& Role::get_observations() const
     {
-        return legals;
+        return sees_cache;
     }
 
-    std::uint32_t Role::get_input(std::uint32_t legal) const
+    void Role::take_legal_inputs(const State& state)
     {
-        return legal_to_input.at(legal);
+        auto inputs_cache_end {inputs_cache.begin()};
+        for (const auto& legal : legals)
+        {
+            if (legal.node->eval(state, EMPTY_INPUTS))
+            {
+                *inputs_cache_end = legal.input;
+                ++inputs_cache_end;
+            }
+        }
+        inputs_cache_size = std::distance(inputs_cache.begin(), inputs_cache_end);
     }
 
-    std::uint32_t Role::get_goal_value(std::uint32_t goal) const
+    std::span<const std::uint32_t> Role::get_legal_inputs()
     {
-        return goals_to_value.at(goal);
+        return std::span {inputs_cache.begin(), inputs_cache_size};
+    }
+
+    void Role::print_observations() const
+    {
+        std::cout << "Agent '" << name << "' can see:\n";
+        auto sees_it {sees.begin()};
+        for (const auto eval : sees_cache)
+        {
+            const auto gdl {sees_it->node->get_gdl()};
+            std::cout << '\t' << (eval ? "\033[1;32m" : "\033[1;31m") << gdl << "\033[0m\n";
+            ++sees_it;
+        }
+    }
+
+    void Role::print_legals() const
+    {
+        std::cout << "Legal moves for '" << name << "' are:\n";
+        auto inputs_cache_it {inputs_cache.begin()};
+        for (const auto& legal : legals)
+        {
+            const auto option_number {std::distance(inputs_cache.begin(), inputs_cache_it)};
+            std::cout << "\t[" << option_number << "] ";
+            std::cout << legal.node->get_gdl() << '\n';
+        }
     }
 }

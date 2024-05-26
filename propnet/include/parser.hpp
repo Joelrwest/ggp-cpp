@@ -21,12 +21,6 @@ namespace propnet
         public:
             Parser(std::string_view game);
 
-            /*
-            Intended to only be called once,
-            and will result in a logic error otherwise.
-            Essentially the entire parser is invalidated once
-            this is called.
-            */
             Propnet create_propnet();
         private:
             static constexpr auto GAMES_PATH {"games/json/"};
@@ -77,12 +71,12 @@ namespace propnet
             void add_entry(const nlohmann::json& entry);
             void add_proposition(std::uint32_t id, std::string_view type, std::string&& gdl, const nlohmann::json& entry);
 
-            bool is_data_valid {true};
             std::vector<Role> roles {};
             std::vector<std::shared_ptr<const Node>> nodes {};
             std::unordered_map<std::uint32_t, std::shared_ptr<const PropositionNode>> propositions {};
             std::optional<std::uint32_t> terminal {};
             std::vector<std::uint32_t> topologically_sorted_nodes {};
+            std::vector<std::uint32_t> non_post_topologically_sorted_nodes {};
             std::unordered_set<std::uint32_t> post_transition_nodes {};
     };
 }

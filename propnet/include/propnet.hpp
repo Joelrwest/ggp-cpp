@@ -11,6 +11,10 @@
 
 namespace propnet
 {
+    struct RoleInfo {
+        //
+    };
+
     /*
     Class that parses and stores the nodes to
     the propositional network.
@@ -26,22 +30,16 @@ namespace propnet
             Slightly strange interface, but works well with the parser.
             */
             Propnet(
-                std::vector<Role>&& roles,
-                std::vector<std::shared_ptr<const Node>>&& nodes,
-                std::unordered_map<std::uint32_t, std::shared_ptr<const PropositionNode>>&& propositions,
+                const std::vector<Role>& roles,
+                const std::vector<std::shared_ptr<const Node>>& nodes,
                 std::uint32_t terminal,
-                std::vector<std::uint32_t>&& topologically_sorted_nodes,
-                std::unordered_set<std::uint32_t> post_transition_nodes
+                const std::vector<std::uint32_t>& topologically_sorted_nodes,
+                const std::vector<std::uint32_t>& non_post_topologically_sorted_nodes
             );
 
-            std::uint32_t num_nodes() const;
             std::span<const Role> get_roles() const;
-            bool eval_prop(std::uint32_t id, const State& state) const;
-            bool eval_prop(std::uint32_t id, const State& state, const std::unordered_set<std::uint32_t>& inputs) const;
-            std::string_view get_gdl(std::uint32_t proposition) const;
-
             /*
-            Take given legals.
+            Take given inputs.
 
             We assume that all moves are actually legal,
             and that all players make exactly 1 move.
@@ -51,12 +49,15 @@ namespace propnet
             bool is_game_over(const State& state) const;
             State create_initial_state() const;
         private:
+            const std::unordered_set<std::uint32_t> EMPTY_INPUTS {};
+
+            void take_inputs(State& state, const std::unordered_set<std::uint32_t>& inputs, const std::vector<std::uint32_t>& ids) const;
+
             std::vector<Role> roles;
-            std::vector<std::shared_ptr<const Node>> nodes; // TODO: Make this unique
-            std::unordered_map<std::uint32_t, std::shared_ptr<const PropositionNode>> propositions;
+            std::vector<std::shared_ptr<const Node>> nodes;
             std::uint32_t terminal;
             std::vector<std::uint32_t> topologically_sorted_nodes;
-            std::unordered_set<std::uint32_t> post_transition_nodes;
+            std::vector<std::uint32_t> non_post_topologically_sorted_nodes;
             State initial_state;
     };
 }

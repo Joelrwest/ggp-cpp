@@ -2,7 +2,6 @@
 
 #include <algorithm>
 #include <iostream>
-#include <numeric>
 
 namespace agents {
     Agent::Agent(const propnet::Role& role, const propnet::Propnet& propnet) :
@@ -14,19 +13,7 @@ namespace agents {
 
     std::uint32_t Agent::get_reward(const propnet::State& state) const
     {
-        const auto& goals {role.get_goals()};
-        return std::accumulate(
-            goals.begin(),
-            goals.end(),
-            0,
-            [this, &state](const auto accumulation, const auto goal)
-            {
-                const auto eval {propnet.eval_prop(goal, state)};
-                const auto value {eval ? role.get_goal_value(goal) : 0};
-
-                return accumulation + value;
-            }
-        );
+        return role.get_reward(state);
     }
 
     void Agent::prepare_new_game() { /* Most agents do nothing */ }
