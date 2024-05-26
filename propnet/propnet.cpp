@@ -23,7 +23,7 @@ namespace propnet
         initial_state.set_not_is_initial();
     }
 
-    std::span<const Role> Propnet::get_roles() const
+    const std::vector<Role>& Propnet::get_roles() const
     {
         return roles;
     }

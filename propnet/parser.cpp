@@ -66,15 +66,12 @@ namespace propnet
             const auto& role_entries {game_json.at(ROLES_KEY)};
             for (const auto& role_entry : role_entries)
             {
-                std::vector<Role::See> sees {};
+                std::vector<std::shared_ptr<const propnet::PropositionNode>> sees {};
                 const auto& sees_entries {role_entry.at(SEES_KEY).get<std::vector<std::uint32_t>>()};
                 for (const auto& sees_entry : sees_entries)
                 {
                     const auto node {propositions.at(sees_entry)};
-                    sees.emplace_back(Role::See {
-                            .node = node,
-                        }
-                    );
+                    sees.emplace_back(node);
                 }
 
                 std::vector<Role::Legal> legals {};
@@ -86,6 +83,7 @@ namespace propnet
                     const auto node {propositions.at(legal)};
                     legals.emplace_back(Role::Legal {
                             .node = node,
+                            .legal = legal,
                             .input = input,
                         }
                     );

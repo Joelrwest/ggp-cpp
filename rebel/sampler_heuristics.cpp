@@ -18,30 +18,14 @@ namespace rebel::sampler_heuristics
     std::unordered_set<std::uint32_t> lazy_random(const propnet::Propnet& propnet, const propnet::State& state)
     {
         std::unordered_set<std::uint32_t> inputs {};
-        std::vector<std::uint32_t> legals_cache {};
         for (const auto& role : propnet.get_roles())
         {
-            const auto possible_legals {role.get_legals()};
-            legals_cache.resize(0);
-            std::copy_if(
-                possible_legals.begin(),
-                possible_legals.end(),
-                std::back_inserter(legals_cache),
-                [&propnet, &state](const auto legal)
-                {
-                    return propnet.eval_prop(legal, state);
-                }
-            );
+            const auto legal_inputs {role.get_legal_inputs(state)};
 
-            if (legals_cache.empty())
-            {
-                throw std::runtime_error {"No moves to sample"};
-            }
-
-            std::uniform_int_distribution<> distribution (0, legals_cache.size() - 1);
+            std::uniform_int_distribution<> distribution (0, legal_inputs.size() - 1);
             const auto idx {distribution(random_engine)};
 
-            const auto chosen_input {legals_cache.at(idx)};
+            const auto chosen_input {legal_inputs.at(idx)};
             inputs.insert(chosen_input);
         }
 
@@ -53,23 +37,10 @@ namespace rebel::sampler_heuristics
         std::vector<std::vector<std::uint32_t>> all_inputs {};
         for (const auto& role : propnet.get_roles())
         {
-            std::vector<std::uint32_t> inputs {};
-            for (const auto legal : role.get_legals())
-            {
-                if (propnet.eval_prop(legal, state))
-                {
-                    const auto input {role.get_input(legal)};
-                    inputs.push_back(input);
-                }
-            }
+            const auto legal_inputs {role.get_legal_inputs(state)};
 
-            if (inputs.empty())
-            {
-                throw std::runtime_error {"No moves to sample"};
-            }
-
-            std::random_shuffle(inputs.begin(), inputs.end());
-            all_inputs.emplace_back(std::move(inputs));
+            // std::random_shuffle(legal_inputs.begin(), legal_inputs.end());
+            all_inputs.emplace_back(std::move(legal_inputs));
         }
 
         return all_inputs;

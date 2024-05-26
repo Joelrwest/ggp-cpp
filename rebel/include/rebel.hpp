@@ -15,7 +15,7 @@ namespace rebel
         public:
             RebelAgent(const propnet::Role& role, const propnet::Propnet& propnet) :
                 Agent {role, propnet},
-                sampler {propnet}
+                sampler {role, propnet}
             {}
 
             void prepare_new_game() override

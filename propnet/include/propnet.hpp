@@ -11,10 +11,6 @@
 
 namespace propnet
 {
-    struct RoleInfo {
-        //
-    };
-
     /*
     Class that parses and stores the nodes to
     the propositional network.
@@ -37,7 +33,7 @@ namespace propnet
                 const std::vector<std::uint32_t>& non_post_topologically_sorted_nodes
             );
 
-            std::span<const Role> get_roles() const;
+            const std::vector<Role>& get_roles() const;
             /*
             Take given inputs.
 

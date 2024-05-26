@@ -23,42 +23,43 @@ namespace rebel
         return *state;
     }
 
-    std::optional<propnet::State> NaiveSampler::sample_state_impl(const std::vector<std::vector<bool>>& all_sees, propnet::State state, std::uint32_t move_count)
+    std::optional<propnet::State> NaiveSampler::sample_state_impl(const std::vector<std::vector<bool>>&, propnet::State, std::uint32_t)
     {
-        const auto& sees {all_sees.at(move_count)};
-        while (true)
-        {
-            std::unordered_set<std::uint32_t> inputs {};
-            for (auto& agent : agents)
-            {
-                const auto input {agent.get_input(state)};
-                inputs.insert(input);
-            }
+        return std::optional<propnet::State> {};
+        // const auto& sees {all_sees.at(move_count)};
+        // while (true)
+        // {
+        //     std::unordered_set<std::uint32_t> inputs {};
+        //     for (auto& agent : agents)
+        //     {
+        //         const auto input {agent.get_input(state)};
+        //         inputs.insert(input);
+        //     }
 
-            auto next_state {state};
-            propnet.take_sees_inputs(next_state, inputs);
+        //     auto next_state {state};
+        //     propnet.take_sees_inputs(next_state, inputs);
 
-            std::vector<bool> curr_sees (sees.size());
-            std::transform(
-                sees.begin(),
-                sees.end(),
-                curr_sees.begin(),
-                [this, &state, &inputs](const auto see) { return propnet.eval_prop(see, state, inputs); }
-            );
+        //     std::vector<bool> curr_sees (sees.size());
+        //     std::transform(
+        //         sees.begin(),
+        //         sees.end(),
+        //         curr_sees.begin(),
+        //         [this, &state, &inputs](const auto see) { return propnet.eval_prop(see, state, inputs); }
+        //     );
 
-            if (curr_sees != sees)
-            {
-                continue;
-            }
+        //     if (curr_sees != sees)
+        //     {
+        //         continue;
+        //     }
 
-            propnet.take_non_sees_inputs(next_state, inputs);
+        //     propnet.take_non_sees_inputs(next_state, inputs);
 
-            auto possible_sampled_state {sample_state_impl(all_sees, std::move(next_state), move_count + 1)};
-            if (possible_sampled_state.has_value())
-            {
-                return *possible_sampled_state;
-            }
-        }
+        //     auto possible_sampled_state {sample_state_impl(all_sees, std::move(next_state), move_count + 1)};
+        //     if (possible_sampled_state.has_value())
+        //     {
+        //         return *possible_sampled_state;
+        //     }
+        // }
     }
 
     // std::optional<propnet::State> NaiveSampler::sample_state_impl(const std::vector<std::vector<bool>>& all_sees, propnet::State curr_state)

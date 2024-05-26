@@ -3,8 +3,9 @@
 
 namespace rebel
 {
-    BogoSampler::BogoSampler(const propnet::Propnet& propnet) :
-        propnet {propnet}
+    BogoSampler::BogoSampler(const propnet::Role& sampler_role, const propnet::Propnet& propnet) :
+        propnet {propnet},
+        sampler_role {sampler_role}
     {}
 
     void BogoSampler::prepare_new_game() {}
@@ -30,15 +31,9 @@ namespace rebel
 
             propnet.take_sees_inputs(state, inputs);
 
-            std::vector<bool> curr_sees (sees_it->size());
-            std::transform(
-                sees_it->begin(),
-                sees_it->end(),
-                curr_sees.begin(),
-                [this, &state, &inputs](const auto see) { return propnet.eval_prop(see, state, inputs); }
-            );
+            const auto observations {sampler_role.get_observations(state)};
 
-            if (curr_sees != *sees_it)
+            if (observations != *sees_it)
             {
                 return std::optional<propnet::State> {};
             }
