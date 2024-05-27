@@ -2,8 +2,8 @@
 
 namespace agents
 {
-    SimpleAgent::SimpleAgent(const propnet::Role& role, const propnet::Propnet& propnet) :
-        Agent {role, propnet},
+    SimpleAgent::SimpleAgent(const propnet::Role& role) :
+        Agent {role},
         role {role}
     {}
 

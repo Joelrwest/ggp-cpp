@@ -11,7 +11,7 @@ namespace agents {
     class Agent
     {
         public:
-            Agent(const propnet::Role& role, const propnet::Propnet& propnet);
+            Agent(const propnet::Role& role);
 
             std::uint32_t get_reward(const propnet::State& state) const;
             virtual void prepare_new_game();
@@ -23,7 +23,6 @@ namespace agents {
             virtual std::uint32_t get_legal_input_impl(std::span<const std::uint32_t> legal_inputs) = 0;
 
             const propnet::Role& role;
-            const propnet::Propnet& propnet;
             std::vector<bool> observations_cache {};
     };
 }

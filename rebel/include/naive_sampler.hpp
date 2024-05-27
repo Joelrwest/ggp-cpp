@@ -10,14 +10,23 @@ namespace rebel
     {
         public:
             NaiveSampler(const propnet::Role& sampler_role, const propnet::Propnet& propnet);
-
+        protected:
             void prepare_new_game();
-            propnet::State sample_state(const std::vector<std::vector<bool>>& all_observations);
+            void add_history(const std::vector<bool>& observation, std::uint32_t input);
+            propnet::State sample_state(const std::vector<bool>& observation) const;
         private:
-            std::optional<propnet::State> sample_state_impl(std::vector<std::vector<bool>>::const_iterator all_observations_it, std::vector<std::vector<bool>>::const_iterator all_observations_end_it, propnet::State state);
+            struct History
+            {
+                const std::vector<bool>& observation;
+                std::uint32_t input;
+            };
 
+            std::optional<propnet::State> sample_state_impl(const std::vector<bool>& observation, std::vector<History>::const_iterator all_histories_it, std::vector<History>::const_iterator all_histories_end_it, propnet::State state);
+
+            std::vector<History> all_histories {};
             const propnet::Propnet& propnet;
             const propnet::Role& sampler_role;
-            std::vector<agents::RandomAgent> agents;
+            std::vector<agents::RandomAgent> player_agents;
+            std::optional<agents::RandomAgent> random_agent;
     };
 }

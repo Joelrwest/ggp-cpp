@@ -2,6 +2,7 @@
 
 #include "../propnet/include/vector_state.hpp"
 #include "../propnet/include/propnet.hpp"
+#include "../propnet/include/parser.hpp"
 #include "../agents/include/non_seeing.hpp" // TODO
 
 #include <concepts>
@@ -15,12 +16,11 @@ namespace rebel
     class Sampler;
 
     template<typename DerivedSamplerT>
-    concept DerivedSampler = requires(DerivedSamplerT derived_sampler, const std::vector<std::vector<bool>>& all_observations)
+    concept DerivedSampler = requires(DerivedSamplerT derived_sampler, const std::vector<bool>& observation, std::uint32_t input)
     {
-        { derived_sampler.sample_state(all_observations) } -> std::convertible_to<std::vector<propnet::State>>;
-    } && requires(DerivedSamplerT derived_sampler)
-    {
+        { derived_sampler.sample_state(observation) } -> std::convertible_to<std::vector<propnet::State>>;
         { derived_sampler.new_game() } -> std::convertible_to<void>;
+        { derived_sampler.add_history(observation, input) } -> std::convertible_to<void>;
     } && std::derived_from<DerivedSamplerT, Sampler<DerivedSamplerT>>;
 
     template<typename DerivedSamplerT>
@@ -34,12 +34,10 @@ namespace rebel
             {
                 return static_cast<DerivedSamplerT&>(*this);
             }
-
-            std::vector<std::vector<bool>> all_observations {};
         public:
-            void add_observation(const std::vector<bool>& observation)
+            void add_history(const std::vector<bool>& observation, std::uint32_t input)
             {
-                all_observations.push_back(observation);
+                to_derived().add_history(observation, input);
             }
 
             /*
@@ -54,26 +52,14 @@ namespace rebel
                 Start new games and play until we get
                 the same sees as we've got here
                 */
-                if (all_observations.empty())
-                {
-                    /*
-                    We expect at least the initial state here,
-                    and there's a problem if there isn't.
-
-                    Not an issue here, but could lead to other
-                    issues elsewhere if not fixed.
-                    */
-                    throw std::logic_error {"Sees from initial state not present"};
-                }
-
                 std::vector<propnet::State> sample (SAMPLE_SIZE);
                 std::vector<std::thread> threads {};
                 auto sample_it {sample.begin()};
-                std::mutex sample_lock {};
+                std::mutex sample_it_lock {};
                 for (auto thread_count {0}; thread_count < NUM_THREADS; ++thread_count)
                 {
                     threads.emplace_back(
-                        [this, &sample_it, &sample_lock, sample_end_it = sample.end()]
+                        [this, &sample_it, &sample_it_lock, sample_end_it = sample.end()]
                         {
                             while (true)
                             {
@@ -87,7 +73,7 @@ namespace rebel
                                 */
                                 decltype(sample_it) inserting_it;
                                 {
-                                    const std::lock_guard<std::mutex> sample_guard {sample_lock};
+                                    const std::lock_guard<std::mutex> sample_guard {sample_it_lock};
                                     if (sample_it == sample_end_it)
                                     {
                                         // Sample is full, stop
@@ -98,7 +84,7 @@ namespace rebel
                                     ++sample_it;
                                 }
 
-                                const propnet::State sampled_state {to_derived().sample_state(all_observations)};
+                                const propnet::State sampled_state {to_derived().sample_state()};
                                 *inserting_it = std::move(sampled_state);
                             }
                         }
@@ -123,21 +109,38 @@ namespace rebel
             }
 
             template<typename AgentT, typename... AgentArgsT>
-            static std::vector<AgentT> create_agents(const propnet::Propnet& propnet, AgentArgsT... agent_args)
+            static std::vector<AgentT> create_player_agents(const propnet::Role& sampler_role, const propnet::Propnet& propnet, AgentArgsT... agent_args)
             {
                 std::vector<AgentT> agents {};
-                const auto& roles {propnet.get_roles()};
-                std::transform(
-                    roles.begin(),
-                    roles.end(),
-                    std::back_inserter(agents),
-                    [&propnet, &agent_args...](const propnet::Role& role)
+                const auto& all_roles {propnet.get_roles()};
+                for (const auto& role : all_roles)
+                {
+                    const auto is_self_or_random {
+                        role.get_name() == sampler_role.get_name() ||
+                        role.get_name() == propnet::Parser::RANDOM_PLAYER_NAME
+                    };
+
+                    if (!is_self_or_random)
                     {
-                        return AgentT {role, propnet, agent_args...};
+                        agents.emplace_back(role, agent_args...);
                     }
-                );
+                }
 
                 return agents;
+            }
+
+            static std::optional<agents::RandomAgent> try_create_random_agent(const propnet::Propnet& propnet)
+            {
+                const auto& all_roles {propnet.get_roles()};
+                for (const auto& role : all_roles)
+                {
+                    if (role.get_name() == propnet::Parser::RANDOM_PLAYER_NAME)
+                    {
+                        return std::optional<agents::RandomAgent> {role};
+                    }
+                }
+
+                return std::optional<agents::RandomAgent> {};
             }
     };
 }

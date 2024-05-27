@@ -4,9 +4,8 @@
 #include <iostream>
 
 namespace agents {
-    Agent::Agent(const propnet::Role& role, const propnet::Propnet& propnet) :
-        role {role},
-        propnet {propnet}
+    Agent::Agent(const propnet::Role& role) :
+        role {role}
     {}
 
     std::uint32_t Agent::get_reward(const propnet::State& state) const

@@ -4,16 +4,29 @@ namespace rebel
 {
     BogoSampler::BogoSampler(const propnet::Role& sampler_role, const propnet::Propnet& propnet) :
         propnet {propnet},
-        sampler_role {sampler_role}
+        sampler_role {sampler_role},
+        player_agents {create_player_agents<agents::RandomAgent>(sampler_role, propnet)},
+        random_agent {try_create_random_agent(propnet)}
     {}
 
-    void BogoSampler::prepare_new_game() {}
+    void BogoSampler::prepare_new_game()
+    {
+        all_histories.clear();
+    }
 
-    propnet::State BogoSampler::sample_state(const std::vector<std::vector<bool>>& all_observations)
+    void BogoSampler::add_history(const std::vector<bool>& observation, std::uint32_t input)
+    {
+        all_histories.push_back(History {
+            .observation = observation,
+            .input = input,
+        });
+    }
+
+    propnet::State BogoSampler::sample_state(const std::vector<bool>& observation)
     {
         while (true)
         {
-            const auto state {sample_state_impl(all_observations)};
+            const auto state {sample_state_impl(observation)};
             if (state.has_value())
             {
                 return *state;
@@ -21,20 +34,32 @@ namespace rebel
         }
     }
 
-    std::optional<propnet::State> BogoSampler::sample_state_impl(const std::vector<std::vector<bool>>& all_observations)
+    std::optional<propnet::State> BogoSampler::sample_state_impl(const std::vector<bool>& observation)
     {
         auto state {propnet.create_initial_state()};
-        for (auto sees_it {std::next(all_observations.begin(), 1)}; sees_it != all_observations.end(); ++sees_it)
+        for (const auto& history : all_histories)
         {
-            // TODO
-            // std::unordered_set<std::uint32_t> inputs {sampler_heuristics::lazy_random(propnet, state)};
-            std::unordered_set<std::uint32_t> inputs {};
+            std::unordered_set<std::uint32_t> inputs {history.input};
+            std::for_each(
+                player_agents.begin(),
+                player_agents.end(),
+                [&inputs, &state](auto& other_agent)
+                {
+                    const auto input {other_agent.get_legal_input(state)};
+                    inputs.insert(input);
+                }
+            );
+
+            if (random_agent.has_value())
+            {
+                const auto input {random_agent->get_legal_input(state)};
+                inputs.insert(input);
+            }
 
             propnet.take_sees_inputs(state, inputs);
 
-            const auto observations {sampler_role.get_observations(state)};
-
-            if (observations != *sees_it)
+            const auto observation {sampler_role.get_observations(state)};
+            if (observation != history.observation)
             {
                 return std::optional<propnet::State> {};
             }
@@ -42,6 +67,6 @@ namespace rebel
             propnet.take_non_sees_inputs(state, inputs);
         }
 
-        return std::optional<propnet::State> {state};
+        return observation == sampler_role.get_observations(state) ? std::optional<propnet::State> {state} : std::optional<propnet::State> {};
     }
 }

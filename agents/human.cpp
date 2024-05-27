@@ -4,10 +4,9 @@
 #include <cstdint>
 
 namespace agents {
-    HumanAgent::HumanAgent(const propnet::Role& role, const propnet::Propnet& propnet) :
-        Agent {role, propnet},
-        role {role},
-        propnet {propnet}
+    HumanAgent::HumanAgent(const propnet::Role& role) :
+        Agent {role},
+        role {role}
     {}
 
     std::uint32_t HumanAgent::get_legal_input_impl(std::span<const std::uint32_t> legal_inputs)

@@ -15,7 +15,7 @@ namespace rebel
         invalid_state_cache.clear();
     }
 
-    propnet::State TrainingSampler::sample_state(const std::vector<std::vector<bool>>&)
+    propnet::State TrainingSampler::sample_state()
     {
         auto state {propnet.create_initial_state()};
         return state;
@@ -58,14 +58,5 @@ namespace rebel
         // }
 
         // return std::optional<propnet::State> {state};
-    }
-
-    TrainingSampler::InvalidStateCache::InvalidStateCache() :
-        UnderlyingInvalidStateCache {CACHE_SIZE}
-    {}
-
-    void TrainingSampler::InvalidStateCache::clear()
-    {
-        Clear();
     }
 }

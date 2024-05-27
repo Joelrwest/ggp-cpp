@@ -9,7 +9,7 @@ namespace agents
     class NonSeeingAgent : public SimpleAgent
     {
         public:
-            NonSeeingAgent(const propnet::Role& role, const propnet::Propnet& propnet);
+            NonSeeingAgent(const propnet::Role& role);
 
             void take_observations(const propnet::State& state) override;
     };
@@ -17,7 +17,7 @@ namespace agents
     class RandomAgent : public NonSeeingAgent
     {
         public:
-            RandomAgent(const propnet::Role& role, const propnet::Propnet& propnet);
+            RandomAgent(const propnet::Role& role);
 
             static constexpr auto NAME {"random"};
         private:
@@ -28,7 +28,7 @@ namespace agents
     class FirstAgent : public NonSeeingAgent
     {
         public:
-            FirstAgent(const propnet::Role& role, const propnet::Propnet& propnet);
+            FirstAgent(const propnet::Role& role);
 
             static constexpr auto NAME {"first"};
         private:
@@ -39,7 +39,7 @@ namespace agents
     class LastAgent : public NonSeeingAgent
     {
         public:
-            LastAgent(const propnet::Role& role, const propnet::Propnet& propnet);
+            LastAgent(const propnet::Role& role);
 
             static constexpr auto NAME {"last"};
         private:

@@ -1,41 +1,38 @@
 #pragma once
 
 #include "../sampler.hpp"
+#include "../misc.hpp"
 
-#include <cache.hpp>
-#include <lru_cache_policy.hpp> // TODO: Profile to see if this or LFU should be used
 #include <tuple>
+#include <mutex>
 
 namespace rebel
 {
+    /*
+    Assumes that we don't have any 'loops' in any given games.
 
+    E.g., in chess, if both players move a piece back to the
+    same position then the states are assumed to be different.
+    */
     class TrainingSampler : public Sampler<TrainingSampler>
     {
         public:
             TrainingSampler(const propnet::Role& role, const propnet::Propnet& propnet);
-
+        protected:
             void prepare_new_game();
-            propnet::State sample_state(const std::vector<std::vector<bool>>& all_observations);
+            void add_history(const std::vector<bool>& observation, std::uint32_t input);
+            propnet::State sample_state();
         private:
-            /*
-            Hacky way to get access to the clear method,
-            since it's protected in the implementation...
-            */
-            using Empty = std::tuple<>;
-            using UnderlyingInvalidStateCache = caches::fixed_sized_cache<propnet::State, Empty, caches::LRUCachePolicy>;
-            class InvalidStateCache : public UnderlyingInvalidStateCache
+            struct History
             {
-                public:
-                    InvalidStateCache();
-
-                    void clear();
-                private:
-                    static constexpr auto CACHE_SIZE {5000}; // TODO: Check if reasonable
+                const std::vector<bool>& observation;
+                std::uint32_t input;
+                std::unordered_map<propnet::State, std::vector<std::vector<std::uint32_t>>> move_cache;
+                std::mutex move_cache_lock;
             };
 
+            std::vector<History> all_histories {};
             const propnet::Propnet& propnet;
             const propnet::Role& role;
-            std::vector<agents::RandomAgent> agents;
-            InvalidStateCache invalid_state_cache;
     };
 }

@@ -19,6 +19,8 @@ namespace propnet
     class Parser
     {
         public:
+            static constexpr auto RANDOM_PLAYER_NAME {"random"};
+
             Parser(std::string_view game);
 
             Propnet create_propnet();

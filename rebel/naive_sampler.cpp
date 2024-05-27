@@ -6,7 +6,8 @@ namespace rebel
     NaiveSampler::NaiveSampler(const propnet::Role& sampler_role, const propnet::Propnet& propnet) :
         propnet {propnet},
         sampler_role {sampler_role},
-        agents {create_agents<agents::RandomAgent>(propnet)}
+        player_agents {create_player_agents<agents::RandomAgent>(sampler_role, propnet)},
+        random_agent {try_create_random_agent(propnet)}
     {}
 
     /*
@@ -14,16 +15,17 @@ namespace rebel
     */
     void NaiveSampler::prepare_new_game() {}
 
-    propnet::State NaiveSampler::sample_state(const std::vector<std::vector<bool>>& all_observations)
+    propnet::State NaiveSampler::sample_state(const std::vector<bool>& observation) const
     {
-        if (all_observations.size() == 1)
+        if (all_histories.empty())
         {
             return propnet.create_initial_state();
         }
 
         const auto state {sample_state_impl(
-            all_observations.cbegin() + 1,
-            all_observations.cend(),
+            observation,
+            all_histories.cbegin(),
+            all_histories.cend(),
             propnet.create_initial_state()
         )};
 
@@ -35,7 +37,7 @@ namespace rebel
         return *state;
     }
 
-    std::optional<propnet::State> NaiveSampler::sample_state_impl(std::vector<std::vector<bool>>::const_iterator all_observations_it, std::vector<std::vector<bool>>::const_iterator all_observations_end_it, propnet::State state)
+    std::optional<propnet::State> NaiveSampler::sample_state_impl(const std::vector<bool>& observation, std::vector<History>::const_iterator all_histories_it, std::vector<History>::const_iterator all_histories_end_it, propnet::State state)
     {
         std::vector<std::vector<std::uint32_t>> randomised_legal_inputs {};
         std::transform(

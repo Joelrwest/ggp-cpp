@@ -10,14 +10,23 @@ namespace rebel
     {
         public:
             BogoSampler(const propnet::Role& sampler_role, const propnet::Propnet& propnet);
-
+        protected:
             void prepare_new_game();
-            propnet::State sample_state(const std::vector<std::vector<bool>>& all_observations);
+            void add_history(const std::vector<bool>& observation, std::uint32_t input);
+            propnet::State sample_state(const std::vector<bool>& observation);
         private:
-            std::optional<propnet::State> sample_state_impl(const std::vector<std::vector<bool>>& all_observations);
+            struct History
+            {
+                const std::vector<bool>& observation;
+                std::uint32_t input;
+            };
 
+            std::optional<propnet::State> sample_state_impl(const std::vector<bool>& observation);
+
+            std::vector<History> all_histories {};
             const propnet::Propnet& propnet;
-            propnet::Role sampler_role;
-            std::vector<propnet::Role> all_roles;
+            const propnet::Role sampler_role;
+            std::vector<agents::RandomAgent> player_agents;
+            std::optional<agents::RandomAgent> random_agent;
     };
 }

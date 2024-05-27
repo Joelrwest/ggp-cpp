@@ -9,7 +9,7 @@ namespace agents
     class SimpleAgent : public Agent
     {
         public:
-            SimpleAgent(const propnet::Role& role, const propnet::Propnet& propnet);
+            SimpleAgent(const propnet::Role& role);
 
             std::vector<std::uint32_t> get_legal_inputs(const propnet::State& state) const;
         private:
