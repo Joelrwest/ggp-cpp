@@ -3,6 +3,7 @@
 #include "../sampler.hpp"
 
 #include <optional>
+#include <list>
 
 namespace rebel
 {
@@ -17,16 +18,18 @@ namespace rebel
         private:
             struct History
             {
-                const std::vector<bool>& observation;
+                std::vector<bool> observation;
                 std::uint32_t prev_input;
             };
 
-            std::optional<propnet::State> sample_state_impl(std::vector<History>::const_iterator all_histories_it, std::vector<History>::const_iterator all_histories_end_it, propnet::State state);
-
-            std::vector<History> all_histories {};
+            std::list<History> all_histories {};
             const propnet::Propnet& propnet;
             const propnet::Role& sampler_role;
             std::vector<agents::RandomAgent> player_agents;
             std::optional<agents::RandomAgent> random_agent;
+
+            using AllHistories = decltype(all_histories);
+
+            std::optional<propnet::State> sample_state_impl(AllHistories::const_iterator all_histories_it, AllHistories::const_iterator all_histories_end_it, propnet::State state);
     };
 }

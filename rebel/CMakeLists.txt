@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.11 FATAL_ERROR)
 
-add_library(rebel STATIC bogo_sampler.cpp misc.cpp naive_sampler.cpp)
+add_library(rebel STATIC bogo_sampler.cpp misc.cpp naive_sampler.cpp training_sampler.cpp)
 target_include_directories(rebel PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 include(FetchContent)

@@ -4,35 +4,40 @@
 #include "../misc.hpp"
 
 #include <tuple>
-#include <mutex>
+#include <shared_mutex>
+#include <list>
 
 namespace rebel
 {
-    /*
-    Assumes that we don't have any 'loops' in any given games.
-
-    E.g., in chess, if both players move a piece back to the
-    same position then the states are assumed to be different.
-    */
     class TrainingSampler : public Sampler<TrainingSampler>
     {
         public:
-            TrainingSampler(const propnet::Role& role, const propnet::Propnet& propnet);
+            TrainingSampler(const propnet::Role& sampler_role, const propnet::Propnet& propnet);
 
             void prepare_new_game();
-            void add_history(const std::vector<bool>& observation, std::uint32_t input);
+            void add_history(const std::vector<bool>& observation, std::uint32_t prev_input);
             propnet::State sample_state();
         private:
             struct History
             {
-                const std::vector<bool>& observation;
-                std::uint32_t input;
-                std::unordered_map<propnet::State, std::vector<std::vector<std::uint32_t>>> move_cache;
-                std::mutex move_cache_lock;
+                History(const std::vector<bool>& observation, std::uint32_t prev_input);
+                History(const History& other) = delete;
+                History& operator=(const History&) = delete;
+
+                std::vector<bool> observation;
+                std::uint32_t prev_input;
+                std::unordered_set<propnet::State> invalid_state_cache;
+                std::shared_mutex invalid_state_cache_lock;
             };
 
-            std::vector<History> all_histories {};
+            std::list<History> all_histories {};
             const propnet::Propnet& propnet;
-            const propnet::Role& role;
+            const propnet::Role& sampler_role;
+            std::vector<agents::RandomAgent> player_agents;
+            std::optional<agents::RandomAgent> random_agent;
+
+            using AllHistories = decltype(all_histories);
+
+            std::optional<propnet::State> sample_state_impl(AllHistories::iterator all_histories_it, AllHistories::iterator all_histories_end_it, propnet::State state);
     };
 }
