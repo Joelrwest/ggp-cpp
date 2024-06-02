@@ -31,7 +31,7 @@ namespace setup
         }
     }
 
-    std::unique_ptr<agents::Agent> create_agent(const propnet::Role& role, const propnet::Propnet& propnet)
+    std::unique_ptr<agents::Agent> create_agent(const propnet::Role& role)
     {
         while (true)
         {
@@ -41,7 +41,7 @@ namespace setup
                 std::cout << "Enter agent name: ";
                 std::cin >> name;
 
-                return agents::agent_factory(name, role, propnet);
+                return agents::agent_factory(name, role);
             }
             catch(const std::invalid_argument& error)
             {
@@ -58,11 +58,11 @@ namespace setup
         {
             if (role.get_name() == propnet::Parser::RANDOM_PLAYER_NAME)
             {
-                agents.push_back(std::make_unique<agents::RandomAgent>(role, propnet));
+                agents.push_back(std::make_unique<agents::RandomAgent>(role));
             }
             else
             {
-                agents.push_back(std::move(create_agent(role, propnet)));
+                agents.push_back(std::move(create_agent(role)));
             }
         }
 

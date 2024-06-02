@@ -18,7 +18,7 @@ namespace rebel
     {
         public:
             TrainingSampler(const propnet::Role& role, const propnet::Propnet& propnet);
-        protected:
+
             void prepare_new_game();
             void add_history(const std::vector<bool>& observation, std::uint32_t input);
             propnet::State sample_state();

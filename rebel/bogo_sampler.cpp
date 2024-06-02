@@ -14,19 +14,19 @@ namespace rebel
         all_histories.clear();
     }
 
-    void BogoSampler::add_history(const std::vector<bool>& observation, std::uint32_t input)
+    void BogoSampler::add_history(const std::vector<bool>& observation, std::uint32_t prev_input)
     {
         all_histories.push_back(History {
             .observation = observation,
-            .input = input,
+            .prev_input = prev_input,
         });
     }
 
-    propnet::State BogoSampler::sample_state(const std::vector<bool>& observation)
+    propnet::State BogoSampler::sample_state()
     {
         while (true)
         {
-            const auto state {sample_state_impl(observation)};
+            const auto state {sample_state_impl()};
             if (state.has_value())
             {
                 return *state;
@@ -34,12 +34,12 @@ namespace rebel
         }
     }
 
-    std::optional<propnet::State> BogoSampler::sample_state_impl(const std::vector<bool>& observation)
+    std::optional<propnet::State> BogoSampler::sample_state_impl()
     {
         auto state {propnet.create_initial_state()};
         for (const auto& history : all_histories)
         {
-            std::unordered_set<std::uint32_t> inputs {history.input};
+            std::unordered_set<std::uint32_t> inputs {history.prev_input};
             std::for_each(
                 player_agents.begin(),
                 player_agents.end(),
@@ -67,6 +67,6 @@ namespace rebel
             propnet.take_non_sees_inputs(state, inputs);
         }
 
-        return observation == sampler_role.get_observations(state) ? std::optional<propnet::State> {state} : std::optional<propnet::State> {};
+        return std::optional<propnet::State> {state};
     }
 }

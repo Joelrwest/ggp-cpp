@@ -16,11 +16,11 @@ namespace rebel
     class Sampler;
 
     template<typename DerivedSamplerT>
-    concept DerivedSampler = requires(DerivedSamplerT derived_sampler, const std::vector<bool>& observation, std::uint32_t input)
+    concept DerivedSampler = requires(DerivedSamplerT derived_sampler, const std::vector<bool>& observation, std::uint32_t prev_input)
     {
-        { derived_sampler.sample_state(observation) } -> std::convertible_to<std::vector<propnet::State>>;
-        { derived_sampler.new_game() } -> std::convertible_to<void>;
-        { derived_sampler.add_history(observation, input) } -> std::convertible_to<void>;
+        { derived_sampler.sample_state() } -> std::convertible_to<propnet::State>;
+        { derived_sampler.prepare_new_game() } -> std::convertible_to<void>;
+        { derived_sampler.add_history(observation, prev_input) } -> std::convertible_to<void>;
     } && std::derived_from<DerivedSamplerT, Sampler<DerivedSamplerT>>;
 
     template<typename DerivedSamplerT>
@@ -35,11 +35,6 @@ namespace rebel
                 return static_cast<DerivedSamplerT&>(*this);
             }
         public:
-            void add_history(const std::vector<bool>& observation, std::uint32_t input)
-            {
-                to_derived().add_history(observation, input);
-            }
-
             /*
             Assumes that calls to sample_state() for
             derived classes are thread safe!!
@@ -101,11 +96,6 @@ namespace rebel
                 );
 
                 return sample;
-            }
-
-            void prepare_new_game()
-            {
-                to_derived().prepare_new_game();
             }
 
             template<typename AgentT, typename... AgentArgsT>
