@@ -1,19 +1,20 @@
 #include "misc.hpp"
+#include <iostream>
 
 namespace rebel::misc
 {
     CartesianProductGenerator::CartesianProductGenerator(const std::vector<std::vector<std::uint32_t>>& vecs) :
-        it_pairs {}
+        vec_its {}
     {
         std::transform(
             vecs.begin(),
             vecs.end(),
-            std::back_inserter(it_pairs),
+            std::back_inserter(vec_its),
             [](const auto& vec)
             {
-                return ItPair {
-                    .curr_it = vec.begin(),
-                    .end_it = vec.end(),
+                return VecIt {
+                    .it = vec.cbegin(),
+                    .vec = vec,
                 };
             }
         );
@@ -22,9 +23,19 @@ namespace rebel::misc
     std::unordered_set<std::uint32_t> CartesianProductGenerator::get()
     {
         std::unordered_set<std::uint32_t> product {};
-        for (const auto& it_pair : it_pairs)
+        for (const auto& vec_it : vec_its)
         {
-            product.insert(*it_pair.curr_it);
+            // TODO: Remove
+            if (vec_it.it == vec_it.vec.cend())
+            {
+                std::cerr << "Something is terribly wrong\n";
+                for (const auto& debug_it_pair : vec_its)
+                {
+                    std::cerr << std::distance(debug_it_pair.it, debug_it_pair.vec.cend()) << '\n';
+                }
+                throw std::logic_error {"Something is terribly wrong"};
+            }
+            product.insert(*vec_it.it);
         }
 
         return product;
@@ -32,23 +43,29 @@ namespace rebel::misc
 
     bool CartesianProductGenerator::is_next() const
     {
-        if (it_pairs.empty())
+        if (vec_its.empty())
         {
             return false;
         }
 
-        const auto& first_it_pair {it_pairs.front()};
-        return first_it_pair.curr_it != first_it_pair.end_it;
+        const auto& first_it_pair {vec_its.front()};
+        return first_it_pair.it != first_it_pair.vec.cend();
     }
 
     void CartesianProductGenerator::operator++()
     {
-        auto prev_looped {true};
-        for (auto it_pair {it_pairs.rbegin()}; it_pair != it_pairs.rend(); ++it_pair)
+        for (auto vec_it {vec_its.rbegin()}; vec_it != vec_its.rend(); ++vec_it)
         {
-            const auto next_it {prev_looped ? it_pair->curr_it + 1 : it_pair->curr_it};
-            prev_looped = (it_pair->curr_it == it_pair->end_it);
-            it_pair->curr_it = next_it;
+            ++vec_it->it;
+            const auto is_end {vec_it->it == vec_it->vec.cend()};
+            if (is_end)
+            {
+                vec_it->it = vec_it->vec.cbegin();
+            }
+            else
+            {
+                break;
+            }
         }
     }
 }

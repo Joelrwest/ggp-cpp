@@ -17,13 +17,13 @@ namespace rebel::misc
             bool is_next() const;
             void operator++();
         private:
-            struct ItPair
+            struct VecIt
             {
-                std::vector<std::uint32_t>::const_iterator curr_it;
-                std::vector<std::uint32_t>::const_iterator end_it;
+                std::vector<std::uint32_t>::const_iterator it;
+                const std::vector<std::uint32_t>& vec;
             };
 
-            std::vector<ItPair> it_pairs;
+            std::vector<VecIt> vec_its;
     };
 
     /*

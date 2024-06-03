@@ -4,6 +4,7 @@ add_library(agents STATIC agent.cpp factory.cpp non_seeing.cpp simple.cpp human.
 target_include_directories(agents PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 target_link_libraries(agents PUBLIC propnet)
+target_link_libraries(agents PUBLIC caches)
 
 if(MSVC)
   target_compile_options(agents PRIVATE /W4 /WX)

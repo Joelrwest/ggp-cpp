@@ -31,17 +31,17 @@ namespace setup
         }
     }
 
-    std::unique_ptr<agents::Agent> create_agent(const propnet::Role& role)
+    std::unique_ptr<agents::Agent> create_agent(const propnet::Role& role, const propnet::Propnet& propnet)
     {
         while (true)
         {
             std::string name {};
             try
             {
-                std::cout << "Enter agent name: ";
+                std::cout << "Enter agent name for role '" << role.get_name() << "': ";
                 std::cin >> name;
 
-                return agents::agent_factory(name, role);
+                return agents::agent_factory(name, role, propnet);
             }
             catch(const std::invalid_argument& error)
             {
@@ -62,7 +62,7 @@ namespace setup
             }
             else
             {
-                agents.push_back(std::move(create_agent(role)));
+                agents.push_back(std::move(create_agent(role, propnet)));
             }
         }
 

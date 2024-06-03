@@ -1,11 +1,13 @@
 #include "include/factory.hpp"
 #include "non_seeing.hpp"
-#include "../human.hpp"
+#include "human.hpp"
+#include "../rebel/include/rebel.hpp"
 
 #include <stdexcept>
 
-namespace agents {
-    std::unique_ptr<Agent> agent_factory(std::string_view name, const propnet::Role& role)
+namespace agents
+{
+    std::unique_ptr<Agent> agent_factory(std::string_view name, const propnet::Role& role, const propnet::Propnet& propnet)
     {
         if (name == RandomAgent::NAME)
         {
@@ -22,6 +24,10 @@ namespace agents {
         else if (name == HumanAgent::NAME)
         {
             return std::make_unique<HumanAgent>(role);
+        }
+        else if (name == rebel::RebelAgent<>::NAME)
+        {
+            return std::make_unique<rebel::RebelAgent<>>(role, propnet);
         }
         else
         {

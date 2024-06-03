@@ -7,6 +7,6 @@
 namespace setup
 {
     propnet::Propnet load_propnet();
-    std::unique_ptr<agents::Agent> create_agent(const propnet::Role& role);
+    std::unique_ptr<agents::Agent> create_agent(const propnet::Role& role, const propnet::Propnet& propnet);
     std::vector<std::unique_ptr<agents::Agent>> create_agents(const propnet::Propnet& propnet);
 }
