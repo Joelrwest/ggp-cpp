@@ -1,4 +1,4 @@
-#include "include/non_seeing.hpp"
+#include "../include/non_seeing.hpp"
 
 namespace agents
 {

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "include/agent.hpp"
+#include "../include/agent.hpp"
 
 #include <random>
 

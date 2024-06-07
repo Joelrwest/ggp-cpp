@@ -1,4 +1,4 @@
-#include "include/bogo_sampler.hpp"
+#include "../include/bogo_sampler.hpp"
 
 namespace rebel
 {

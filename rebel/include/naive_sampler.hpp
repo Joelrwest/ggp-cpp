@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../sampler.hpp"
+#include "../src/sampler.hpp"
 
 #include <optional>
 #include <list>

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../simple.hpp"
+#include "../src/simple.hpp"
 
 #include <random>
 

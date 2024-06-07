@@ -1,7 +1,7 @@
-#include "include/factory.hpp"
+#include "../include/factory.hpp"
 #include "non_seeing.hpp"
 #include "human.hpp"
-#include "../rebel/include/rebel.hpp"
+#include "../../rebel/include/rebel.hpp"
 
 #include <stdexcept>
 

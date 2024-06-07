@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../nodes.hpp"
+#include "../src/nodes.hpp"
 #include "role.hpp"
 #include "vector_state.hpp"
 

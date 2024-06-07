@@ -1,9 +1,9 @@
 #pragma once
 
-#include "../propnet/include/vector_state.hpp"
-#include "../propnet/include/propnet.hpp"
-#include "../propnet/include/parser.hpp"
-#include "../agents/include/non_seeing.hpp" // TODO
+#include "../../propnet/include/vector_state.hpp"
+#include "../../propnet/include/propnet.hpp"
+#include "../../propnet/include/parser.hpp"
+#include "../../agents/include/non_seeing.hpp" // TODO
 
 #include <concepts>
 #include <thread>
@@ -27,8 +27,8 @@ namespace rebel
     class Sampler
     {
         private:
-            static constexpr auto NUM_THREADS {6};
-            static constexpr auto SAMPLE_SIZE {10};
+            static constexpr auto NUM_THREADS {1};
+            static constexpr auto SAMPLE_SIZE {5};
 
             DerivedSamplerT& to_derived()
             {
@@ -79,7 +79,9 @@ namespace rebel
                                     ++sample_it;
                                 }
 
+                                std::cerr << "About to sample!\n";
                                 const propnet::State sampled_state {to_derived().sample_state()};
+                                std::cerr << "Sampled!\n";
                                 *inserting_it = std::move(sampled_state);
                             }
                         }

@@ -1,14 +1,14 @@
 #pragma once
 
 #include "../../agents/include/agent.hpp"
-#include "../sampler.hpp"
-#include "training_sampler.hpp"
+#include "../src/sampler.hpp"
+#include "naive_sampler.hpp"
 
 #include <iostream>
 
 namespace rebel
 {
-    template<DerivedSampler StateSamplerT = TrainingSampler>
+    template<DerivedSampler StateSamplerT = NaiveSampler>
     class RebelAgent : public agents::Agent
     {
         private:
@@ -67,11 +67,12 @@ namespace rebel
                 for (const auto& sampled_state : sampled_states)
                 {
                     // TODO: Do CFR search
-                    (void)sampled_state;
+                    std::cout << sampled_state;
                 }
 
-                *prev_input = temp_input_getter(legal_inputs); // TODO: Placeholder until rebel decides its own moves
-                return *prev_input;
+                const auto input {temp_input_getter(legal_inputs)}; // TODO: Placeholder until rebel decides its own moves
+                prev_input.emplace(input);
+                return input;
             }
     };
 }

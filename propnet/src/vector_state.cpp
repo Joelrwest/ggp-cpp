@@ -52,7 +52,7 @@ namespace propnet
         os << (state.is_initial ? "Initial state\n" : "Not initial state\n");
         for (auto id {0u}; id < state.state.size(); ++id)
         {
-            os << id << ": " << state.state.at(id) << '\n';
+            os << id << ": " << state.state.at(id) << ' ';
         }
         return os << '\n';
     }

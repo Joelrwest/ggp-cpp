@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../sampler.hpp"
-#include "../misc.hpp"
+#include "../src/sampler.hpp"
+#include "../src/misc.hpp"
 
 #include <tuple>
 #include <shared_mutex>

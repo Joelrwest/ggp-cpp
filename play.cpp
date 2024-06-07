@@ -1,6 +1,6 @@
 #include "propnet/include/propnet.hpp"
 #include "propnet/include/vector_state.hpp"
-#include "rebel/include/bogo_sampler.hpp"
+#include "rebel/include/naive_sampler.hpp"
 #include "rebel/include/rebel.hpp"
 #include "setup.hpp"
 
@@ -13,7 +13,6 @@ int main(void)
 {
     const propnet::Propnet propnet {setup::load_propnet()};
     const auto agents {setup::create_agents(propnet)};
-    rebel::RebelAgent<rebel::BogoSampler> rebel_agent {propnet.get_roles().front(), propnet};
     for (auto game_count {0}; game_count < NUM_GAMES; ++game_count)
     {
         auto state {propnet.create_initial_state()};
