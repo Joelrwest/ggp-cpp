@@ -2,13 +2,13 @@
 
 #include "../../agents/include/agent.hpp"
 #include "../src/sampler.hpp"
-#include "naive_sampler.hpp"
+#include "training_sampler.hpp"
 
 #include <iostream>
 
 namespace rebel
 {
-    template<DerivedSampler StateSamplerT = NaiveSampler>
+    template<DerivedSampler StateSamplerT = TrainingSampler>
     class RebelAgent : public agents::Agent
     {
         private:
@@ -67,7 +67,7 @@ namespace rebel
                 for (const auto& sampled_state : sampled_states)
                 {
                     // TODO: Do CFR search
-                    std::cout << sampled_state;
+                    (void)sampled_state;
                 }
 
                 const auto input {temp_input_getter(legal_inputs)}; // TODO: Placeholder until rebel decides its own moves

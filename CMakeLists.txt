@@ -3,13 +3,13 @@ project(ReBeLGGP)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_BUILD_TYPE Debug)
+set(CMAKE_BUILD_TYPE Release)
 
 add_subdirectory(propnet)
 add_subdirectory(agents)
 add_subdirectory(rebel)
 
-add_executable(play play.cpp setup.cpp)
+add_executable(play src/play.cpp src/setup.cpp)
 target_link_libraries(play PUBLIC propnet)
 target_link_libraries(play PUBLIC agents)
 target_link_libraries(play PUBLIC rebel)
@@ -28,7 +28,7 @@ endif()
 #   endif()
 # endif()
 
-add_executable(train train.cpp)
+add_executable(train src/train.cpp)
 
 if(MSVC)
   target_compile_options(train PRIVATE /W4 /WX)

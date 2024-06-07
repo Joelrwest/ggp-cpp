@@ -4,7 +4,8 @@
 namespace rebel::misc
 {
     CartesianProductGenerator::CartesianProductGenerator(const std::vector<std::vector<std::uint32_t>>& vecs) :
-        vec_its {}
+        vec_its {},
+        is_next {!vecs.empty()}
     {
         std::transform(
             vecs.begin(),
@@ -22,45 +23,42 @@ namespace rebel::misc
 
     std::unordered_set<std::uint32_t> CartesianProductGenerator::get()
     {
+        if (!get_is_next())
+        {
+            throw std::logic_error {"Tried to get next cartesian product but they've all been generated"};
+        }
+
         std::unordered_set<std::uint32_t> product {};
         for (const auto& vec_it : vec_its)
         {
-            // TODO: Remove
-            if (vec_it.it == vec_it.vec.cend())
-            {
-                std::cerr << "Something is terribly wrong\n";
-                for (const auto& debug_it_pair : vec_its)
-                {
-                    std::cerr << std::distance(debug_it_pair.it, debug_it_pair.vec.cend()) << '\n';
-                }
-                throw std::logic_error {"Something is terribly wrong"};
-            }
             product.insert(*vec_it.it);
         }
 
         return product;
     }
 
-    bool CartesianProductGenerator::is_next() const
+    bool CartesianProductGenerator::get_is_next() const
     {
-        if (vec_its.empty())
-        {
-            return false;
-        }
-
-        const auto& first_it_pair {vec_its.front()};
-        return first_it_pair.it != first_it_pair.vec.cend();
+        return is_next;
     }
 
     void CartesianProductGenerator::operator++()
     {
+        if (!get_is_next())
+        {
+            throw std::logic_error {"Tried to increment to next cartesian product but they've all been generated"};
+        }
+
+        const auto front_begin_it {vec_its.front().vec.cbegin()};
         for (auto vec_it {vec_its.rbegin()}; vec_it != vec_its.rend(); ++vec_it)
         {
             ++vec_it->it;
             const auto is_end {vec_it->it == vec_it->vec.cend()};
             if (is_end)
             {
-                vec_it->it = vec_it->vec.cbegin();
+                const auto begin_it {vec_it->vec.cbegin()};
+                vec_it->it = begin_it;
+                is_next = begin_it != front_begin_it;
             }
             else
             {

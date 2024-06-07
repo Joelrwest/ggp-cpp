@@ -1,13 +1,13 @@
-#include "propnet/include/propnet.hpp"
-#include "propnet/include/vector_state.hpp"
-#include "rebel/include/naive_sampler.hpp"
-#include "rebel/include/rebel.hpp"
+#include "../propnet/include/propnet.hpp"
+#include "../propnet/include/vector_state.hpp"
+#include "../rebel/include/naive_sampler.hpp"
+#include "../rebel/include/rebel.hpp"
 #include "setup.hpp"
 
 #include <iostream>
 #include <algorithm>
 
-static constexpr auto NUM_GAMES {1};
+static constexpr auto NUM_GAMES {10};
 
 int main(void)
 {

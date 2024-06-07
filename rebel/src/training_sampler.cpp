@@ -80,7 +80,7 @@ namespace rebel
         }
 
         const auto next_all_histories_it {std::next(all_histories_it, 1)};
-        for (misc::CartesianProductGenerator cartesian_product_generator {randomised_legal_inputs}; cartesian_product_generator.is_next(); ++cartesian_product_generator)
+        for (misc::CartesianProductGenerator cartesian_product_generator {randomised_legal_inputs}; cartesian_product_generator.get_is_next(); ++cartesian_product_generator)
         {
             auto next_state {state};
             auto inputs {cartesian_product_generator.get()};

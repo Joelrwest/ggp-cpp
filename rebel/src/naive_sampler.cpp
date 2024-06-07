@@ -46,7 +46,6 @@ namespace rebel
 
     std::optional<propnet::State> NaiveSampler::sample_state_impl(AllHistories::const_iterator all_histories_it, AllHistories::const_iterator all_histories_end_it, propnet::State state)
     {
-        std::cerr << std::distance(all_histories_it, all_histories_end_it) << '\n';
         std::vector<std::vector<std::uint32_t>> randomised_legal_inputs {};
         std::transform(
             player_agents.begin(),
@@ -64,7 +63,7 @@ namespace rebel
         }
 
         const auto next_all_histories_it {std::next(all_histories_it, 1)};
-        for (misc::CartesianProductGenerator cartesian_product_generator {randomised_legal_inputs}; cartesian_product_generator.is_next(); ++cartesian_product_generator)
+        for (misc::CartesianProductGenerator cartesian_product_generator {randomised_legal_inputs}; cartesian_product_generator.get_is_next(); ++cartesian_product_generator)
         {
             auto next_state {state};
             auto inputs {cartesian_product_generator.get()};

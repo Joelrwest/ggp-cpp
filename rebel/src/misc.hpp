@@ -14,7 +14,7 @@ namespace rebel::misc
             CartesianProductGenerator(const std::vector<std::vector<std::uint32_t>>& vecs);
 
             std::unordered_set<std::uint32_t> get();
-            bool is_next() const;
+            bool get_is_next() const;
             void operator++();
         private:
             struct VecIt
@@ -24,6 +24,7 @@ namespace rebel::misc
             };
 
             std::vector<VecIt> vec_its;
+            bool is_next;
     };
 
     /*

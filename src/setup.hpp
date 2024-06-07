@@ -1,8 +1,8 @@
 #pragma once
 
-#include "propnet/include/role.hpp"
-#include "propnet/include/propnet.hpp"
-#include "agents/include/non_seeing.hpp"
+#include "../propnet/include/role.hpp"
+#include "../propnet/include/propnet.hpp"
+#include "../agents/include/non_seeing.hpp"
 
 namespace setup
 {

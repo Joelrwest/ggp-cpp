@@ -27,8 +27,8 @@ namespace rebel
     class Sampler
     {
         private:
-            static constexpr auto NUM_THREADS {1};
-            static constexpr auto SAMPLE_SIZE {5};
+            static constexpr auto NUM_THREADS {6};
+            static constexpr auto SAMPLE_SIZE {20};
 
             DerivedSamplerT& to_derived()
             {
@@ -56,33 +56,38 @@ namespace rebel
                     threads.emplace_back(
                         [this, &sample_it, &sample_it_lock, sample_end_it = sample.end()]
                         {
-                            while (true)
-                            {
-                                /*
-                                Check if the sample is full, and if not
-                                allocate a slot to place the next sample.
-
-                                This is the only concurrency issue that can arise
-                                in terms of the vector, however the actual sampler is
-                                assumed to be safe to use concurrently too.
-                                */
-                                decltype(sample_it) inserting_it;
+                            try {
+                                while (true)
                                 {
-                                    const std::lock_guard<std::mutex> sample_guard {sample_it_lock};
-                                    if (sample_it == sample_end_it)
+                                    /*
+                                    Check if the sample is full, and if not
+                                    allocate a slot to place the next sample.
+
+                                    This is the only concurrency issue that can arise
+                                    in terms of the vector, however the actual sampler is
+                                    assumed to be safe to use concurrently too.
+                                    */
+                                    decltype(sample_it) inserting_it;
                                     {
-                                        // Sample is full, stop
-                                        return;
+                                        const std::lock_guard<std::mutex> sample_guard {sample_it_lock};
+                                        if (sample_it == sample_end_it)
+                                        {
+                                            // Sample is full, stop
+                                            return;
+                                        }
+
+                                        inserting_it = sample_it;
+                                        ++sample_it;
                                     }
 
-                                    inserting_it = sample_it;
-                                    ++sample_it;
+                                    const propnet::State sampled_state {to_derived().sample_state()};
+                                    *inserting_it = std::move(sampled_state);
                                 }
-
-                                std::cerr << "About to sample!\n";
-                                const propnet::State sampled_state {to_derived().sample_state()};
-                                std::cerr << "Sampled!\n";
-                                *inserting_it = std::move(sampled_state);
+                            }
+                            catch (const std::runtime_error& error)
+                            {
+                                std::cout << error.what() << '\n';
+                                throw error;
                             }
                         }
                     );
