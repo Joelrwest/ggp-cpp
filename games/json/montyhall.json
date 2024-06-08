@@ -107,7 +107,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "in": 55
+            "in": 55,
+            "display": "anon"
         },
         {
             "id": 3,
@@ -115,7 +116,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal candidate switch )",
-            "in": 77
+            "in": 77,
+            "display": "switch "
         },
         {
             "id": 4,
@@ -123,14 +125,16 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal random noop )",
-            "in": 77
+            "in": 77,
+            "display": "noop "
         },
         {
             "id": 5,
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does random noop )"
+            "gdl": "( does random noop )",
+            "display": "( does random noop )"
         },
         {
             "id": 6,
@@ -153,7 +157,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees candidate ( car 2 ) )",
-            "in": 84
+            "in": 84,
+            "display": "( car 2 ) "
         },
         {
             "id": 9,
@@ -161,7 +166,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "in": 105
+            "in": 105,
+            "display": "anon"
         },
         {
             "id": 10,
@@ -169,7 +175,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( step 4 ) )",
-            "in": 128
+            "in": 128,
+            "display": "( true ( step 4 ) )"
         },
         {
             "id": 11,
@@ -183,21 +190,24 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( step 2 ) )",
-            "in": 132
+            "in": 132,
+            "display": "( true ( step 2 ) )"
         },
         {
             "id": 13,
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does random ( open_door 1 ) )"
+            "gdl": "( does random ( open_door 1 ) )",
+            "display": "( does random ( open_door 1 ) )"
         },
         {
             "id": 14,
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does candidate ( choose 1 ) )"
+            "gdl": "( does candidate ( choose 1 ) )",
+            "display": "( does candidate ( choose 1 ) )"
         },
         {
             "id": 15,
@@ -214,14 +224,16 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does candidate ( choose 2 ) )"
+            "gdl": "( does candidate ( choose 2 ) )",
+            "display": "( does candidate ( choose 2 ) )"
         },
         {
             "id": 17,
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does random ( hide_car 2 ) )"
+            "gdl": "( does random ( hide_car 2 ) )",
+            "display": "( does random ( hide_car 2 ) )"
         },
         {
             "id": 18,
@@ -229,7 +241,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "in": 72
+            "in": 72,
+            "display": "anon"
         },
         {
             "id": 19,
@@ -246,7 +259,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "goal",
             "gdl": "( goal candidate 0 )",
-            "in": 113
+            "in": 113,
+            "display": "( goal candidate 0 )"
         },
         {
             "id": 21,
@@ -254,14 +268,16 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees candidate ( open_door 3 ) )",
-            "in": 38
+            "in": 38,
+            "display": "( open_door 3 ) "
         },
         {
             "id": 22,
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "init",
-            "gdl": "init"
+            "gdl": "init",
+            "display": "init"
         },
         {
             "id": 23,
@@ -269,7 +285,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal random ( open_door 3 ) )",
-            "in": 31
+            "in": 31,
+            "display": "( open_door 3 ) "
         },
         {
             "id": 24,
@@ -286,14 +303,16 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "in": 77
+            "in": 77,
+            "display": "anon"
         },
         {
             "id": 26,
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does candidate ( choose 3 ) )"
+            "gdl": "( does candidate ( choose 3 ) )",
+            "display": "( does candidate ( choose 3 ) )"
         },
         {
             "id": 27,
@@ -317,7 +336,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal candidate noop )",
-            "in": 116
+            "in": 116,
+            "display": "noop "
         },
         {
             "id": 30,
@@ -347,7 +367,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees candidate ( car 3 ) )",
-            "in": 28
+            "in": 28,
+            "display": "( car 3 ) "
         },
         {
             "id": 33,
@@ -367,7 +388,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( closed 3 ) )",
-            "in": 130
+            "in": 130,
+            "display": "( true ( closed 3 ) )"
         },
         {
             "id": 36,
@@ -375,7 +397,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( closed 1 ) )",
-            "in": 127
+            "in": 127,
+            "display": "( true ( closed 1 ) )"
         },
         {
             "id": 37,
@@ -383,14 +406,16 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( closed 2 ) )",
-            "in": 138
+            "in": 138,
+            "display": "( true ( closed 2 ) )"
         },
         {
             "id": 38,
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does random ( open_door 3 ) )"
+            "gdl": "( does random ( open_door 3 ) )",
+            "display": "( does random ( open_door 3 ) )"
         },
         {
             "id": 39,
@@ -404,7 +429,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees candidate ( car 1 ) )",
-            "in": 51
+            "in": 51,
+            "display": "( car 1 ) "
         },
         {
             "id": 41,
@@ -418,7 +444,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal random ( hide_car 1 ) )",
-            "in": 62
+            "in": 62,
+            "display": "( hide_car 1 ) "
         },
         {
             "id": 43,
@@ -435,7 +462,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal random ( open_door 1 ) )",
-            "in": 30
+            "in": 30,
+            "display": "( open_door 1 ) "
         },
         {
             "id": 45,
@@ -453,7 +481,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "goal",
             "gdl": "( goal candidate 100 )",
-            "in": 15
+            "in": 15,
+            "display": "( goal candidate 100 )"
         },
         {
             "id": 47,
@@ -467,7 +496,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal random ( open_door 2 ) )",
-            "in": 81
+            "in": 81,
+            "display": "( open_door 2 ) "
         },
         {
             "id": 49,
@@ -484,7 +514,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "in": 12
+            "in": 12,
+            "display": "anon"
         },
         {
             "id": 51,
@@ -510,7 +541,8 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does random ( open_door 2 ) )"
+            "gdl": "( does random ( open_door 2 ) )",
+            "display": "( does random ( open_door 2 ) )"
         },
         {
             "id": 54,
@@ -524,7 +556,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( step 1 ) )",
-            "in": 139
+            "in": 139,
+            "display": "( true ( step 1 ) )"
         },
         {
             "id": 56,
@@ -532,7 +565,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "goal",
             "gdl": "( goal random 100 )",
-            "in": 92
+            "in": 92,
+            "display": "( goal random 100 )"
         },
         {
             "id": 57,
@@ -558,7 +592,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal candidate ( choose 3 ) )",
-            "in": 103
+            "in": 103,
+            "display": "( choose 3 ) "
         },
         {
             "id": 60,
@@ -590,7 +625,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "in": 19
+            "in": 19,
+            "display": "anon"
         },
         {
             "id": 64,
@@ -638,7 +674,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( car 2 ) )",
-            "in": 133
+            "in": 133,
+            "display": "( true ( car 2 ) )"
         },
         {
             "id": 70,
@@ -671,7 +708,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "terminal",
             "gdl": "terminal",
-            "in": 10
+            "in": 10,
+            "display": "terminal"
         },
         {
             "id": 74,
@@ -679,7 +717,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "in": 108
+            "in": 108,
+            "display": "anon"
         },
         {
             "id": 75,
@@ -693,7 +732,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next_chosen 1 )",
-            "in": 95
+            "in": 95,
+            "display": "( next_chosen 1 )"
         },
         {
             "id": 77,
@@ -701,7 +741,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( step 3 ) )",
-            "in": 131
+            "in": 131,
+            "display": "( true ( step 3 ) )"
         },
         {
             "id": 78,
@@ -709,7 +750,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( chosen 2 ) )",
-            "in": 134
+            "in": 134,
+            "display": "( true ( chosen 2 ) )"
         },
         {
             "id": 79,
@@ -740,7 +782,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal candidate ( choose 1 ) )",
-            "in": 117
+            "in": 117,
+            "display": "( choose 1 ) "
         },
         {
             "id": 83,
@@ -773,7 +816,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees candidate ( open_door 1 ) )",
-            "in": 13
+            "in": 13,
+            "display": "( open_door 1 ) "
         },
         {
             "id": 87,
@@ -787,7 +831,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( car 3 ) )",
-            "in": 137
+            "in": 137,
+            "display": "( true ( car 3 ) )"
         },
         {
             "id": 89,
@@ -810,7 +855,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "in": 119
+            "in": 119,
+            "display": "anon"
         },
         {
             "id": 92,
@@ -822,7 +868,8 @@
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does candidate noop )"
+            "gdl": "( does candidate noop )",
+            "display": "( does candidate noop )"
         },
         {
             "id": 94,
@@ -830,7 +877,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "in": 49
+            "in": 49,
+            "display": "anon"
         },
         {
             "id": 95,
@@ -857,14 +905,16 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( chosen 1 ) )",
-            "in": 129
+            "in": 129,
+            "display": "( true ( chosen 1 ) )"
         },
         {
             "id": 98,
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does candidate switch )"
+            "gdl": "( does candidate switch )",
+            "display": "( does candidate switch )"
         },
         {
             "id": 99,
@@ -912,7 +962,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( chosen 3 ) )",
-            "in": 136
+            "in": 136,
+            "display": "( true ( chosen 3 ) )"
         },
         {
             "id": 105,
@@ -920,14 +971,16 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next_chosen 3 )",
-            "in": 68
+            "in": 68,
+            "display": "( next_chosen 3 )"
         },
         {
             "id": 106,
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does random ( hide_car 3 ) )"
+            "gdl": "( does random ( hide_car 3 ) )",
+            "display": "( does random ( hide_car 3 ) )"
         },
         {
             "id": 107,
@@ -935,7 +988,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "base",
             "gdl": "( true ( car 1 ) )",
-            "in": 135
+            "in": 135,
+            "display": "( true ( car 1 ) )"
         },
         {
             "id": 108,
@@ -943,7 +997,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "( next_chosen 2 )",
-            "in": 70
+            "in": 70,
+            "display": "( next_chosen 2 )"
         },
         {
             "id": 109,
@@ -951,7 +1006,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "in": 76
+            "in": 76,
+            "display": "anon"
         },
         {
             "id": 110,
@@ -965,14 +1021,16 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal candidate ( choose 2 ) )",
-            "in": 118
+            "in": 118,
+            "display": "( choose 2 ) "
         },
         {
             "id": 112,
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does random switch )"
+            "gdl": "( does random switch )",
+            "display": "( does random switch )"
         },
         {
             "id": 113,
@@ -990,14 +1048,16 @@
             "type_name": "PROPOSITION",
             "proposition_type": "sees",
             "gdl": "( sees candidate ( open_door 2 ) )",
-            "in": 53
+            "in": 53,
+            "display": "( open_door 2 ) "
         },
         {
             "id": 115,
             "type": 3,
             "type_name": "PROPOSITION",
             "proposition_type": "input",
-            "gdl": "( does random ( hide_car 1 ) )"
+            "gdl": "( does random ( hide_car 1 ) )",
+            "display": "( does random ( hide_car 1 ) )"
         },
         {
             "id": 116,
@@ -1050,7 +1110,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal random ( hide_car 3 ) )",
-            "in": 24
+            "in": 24,
+            "display": "( hide_car 3 ) "
         },
         {
             "id": 122,
@@ -1076,7 +1137,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "in": 7
+            "in": 7,
+            "display": "anon"
         },
         {
             "id": 125,
@@ -1084,7 +1146,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "other",
             "gdl": "anon",
-            "in": 60
+            "in": 60,
+            "display": "anon"
         },
         {
             "id": 126,
@@ -1092,7 +1155,8 @@
             "type_name": "PROPOSITION",
             "proposition_type": "legal",
             "gdl": "( legal random ( hide_car 2 ) )",
-            "in": 43
+            "in": 43,
+            "display": "( hide_car 2 ) "
         },
         {
             "id": 127,

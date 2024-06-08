@@ -13,7 +13,10 @@ namespace agents {
         return role.get_reward(state);
     }
 
-    void Agent::prepare_new_game() { /* Most agents do nothing */ }
+    void Agent::prepare_new_game()
+    {
+        prev_input.reset();
+    }
 
     void Agent::take_observations(const propnet::State& state)
     {
@@ -21,15 +24,23 @@ namespace agents {
         observations_cache = role.get_observations(state);
     }
 
+    void Agent::add_history(std::uint32_t) { /* Let the children define if needed */ }
+
     std::uint32_t Agent::get_legal_input(const propnet::State& state)
     {
-        const auto legal_inputs {role.get_legal_inputs(state)};
-        if (legal_inputs.size() == 1)
+        if (prev_input.has_value())
         {
-            return legal_inputs.front();
+            add_history(*prev_input);
         }
 
-        const auto input {get_legal_input_impl(legal_inputs)};
+        const auto legal_inputs {role.get_legal_inputs(state)};
+        const auto input {
+            legal_inputs.size() == 1 ?
+            legal_inputs.front() :
+            get_legal_input_impl(legal_inputs)
+        };
+        prev_input.emplace(input);
+
         return input;
     }
 

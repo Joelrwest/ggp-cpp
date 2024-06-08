@@ -56,7 +56,8 @@ namespace rebel
                     threads.emplace_back(
                         [this, &sample_it, &sample_it_lock, sample_end_it = sample.end()]
                         {
-                            try {
+                            try
+                            {
                                 while (true)
                                 {
                                     /*

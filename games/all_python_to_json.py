@@ -169,6 +169,13 @@ def map_entry(entry) -> dict[str, list]:
         elif ins:
             logging.error(f"Missed ins: {entry}")
             exit(1)
+
+        if extra_fields['proposition_type'] == sees:
+            extra_fields['display'] = SEES_RE.search(extra_fields['gdl']).groups()[1]
+        elif extra_fields['proposition_type'] == legal:
+            extra_fields['display'] = LEGAL_RE.search(extra_fields['gdl']).groups()[1]
+        else:
+            extra_fields['display'] = extra_fields['gdl']
     elif type == CONSTANT:
         if entry[1] == 0:
             logging.error(f"Found non true constant: {entry}")
@@ -265,7 +272,7 @@ def find_matching_input(legal_gdl: str, input_entries: list[dict]) -> int:
 
     num_matching_inputs = len(matching_inputs)
     if num_matching_inputs != 1:
-        logging.error(f"Expected 1 to 1 relationship between legals and inputs but had 1 to {num_matching_inputs}")
+        logging.error(f"Expected 1 to 1 relationship between legals and inputs but had 1 to {num_matching_inputs} for gdl {legal_gdl}")
         exit(1)
 
     return matching_inputs[0]['id']

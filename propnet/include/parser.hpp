@@ -42,7 +42,7 @@ namespace propnet
             static constexpr auto IN_PROPS_KEY {"in"};
             static constexpr auto INS_PROPS_KEY {"ins"};
             static constexpr auto PROP_TYPE_KEY {"proposition_type"};
-            static constexpr auto GDL_KEY {"gdl"};
+            static constexpr auto DISPLAY_KEY {"display"};
             static constexpr auto VALUE_KEY {"value"};
             static constexpr auto TOPOLOGICALLY_SORTED_KEY {"topologically_sorted"};
 
@@ -71,7 +71,7 @@ namespace propnet
             }
 
             void add_entry(const nlohmann::json& entry);
-            void add_proposition(std::uint32_t id, std::string_view type, std::string&& gdl, const nlohmann::json& entry);
+            void add_proposition(std::uint32_t id, std::string_view type, std::string&& display, const nlohmann::json& entry);
 
             std::vector<Role> roles {};
             std::vector<std::shared_ptr<const Node>> nodes {};

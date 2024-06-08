@@ -43,17 +43,17 @@ namespace propnet
     class PropositionNode : public Node
     {
         public:
-            PropositionNode(std::uint32_t id, std::string_view gdl);
+            PropositionNode(std::uint32_t id, std::string_view display);
 
-            std::string_view get_gdl() const;
+            std::string_view get_display() const;
         private:
-            std::string gdl;
+            std::string display;
     };
 
     class BasicPropositionNode : public PropositionNode
     {
         public:
-            BasicPropositionNode(std::uint32_t id, std::string_view gdl, std::uint32_t in);
+            BasicPropositionNode(std::uint32_t id, std::string_view display, std::uint32_t in);
 
             bool eval(const State& state, const std::unordered_set<std::uint32_t>& inputs) const override;
         private:
@@ -63,14 +63,14 @@ namespace propnet
     class InputPropositionNode : public PropositionNode
     {
         public:
-            InputPropositionNode(std::uint32_t id, std::string_view gdl);
+            InputPropositionNode(std::uint32_t id, std::string_view display);
             bool eval(const State& state, const std::unordered_set<std::uint32_t>& inputs) const override;
     };
 
     class InitialPropositionNode : public PropositionNode
     {
         public:
-            InitialPropositionNode(std::uint32_t id, std::string_view gdl);
+            InitialPropositionNode(std::uint32_t id, std::string_view display);
             bool eval(const State& state, const std::unordered_set<std::uint32_t>& inputs) const override;
     };
 

@@ -12,7 +12,6 @@ namespace rebel
     class RebelAgent : public agents::Agent
     {
         private:
-            std::optional<std::uint32_t> prev_input;
             StateSamplerT sampler;
             const propnet::Role& role;
 
@@ -41,7 +40,6 @@ namespace rebel
         public:
             RebelAgent(const propnet::Role& role, const propnet::Propnet& propnet) :
                 Agent {role},
-                prev_input {},
                 sampler {role, propnet},
                 role {role}
             {}
@@ -50,18 +48,18 @@ namespace rebel
 
             void prepare_new_game() override
             {
+                Agent::prepare_new_game();
                 sampler.prepare_new_game();
-                prev_input.reset();
+            }
+
+            void add_history(std::uint32_t prev_input) override
+            {
+                const auto observations {get_observations_cache()};
+                sampler.add_history(observations, prev_input);
             }
 
             std::uint32_t get_legal_input_impl(std::span<const std::uint32_t> legal_inputs)
             {
-                if (prev_input.has_value())
-                {
-                    const auto& observation {get_observations_cache()};
-                    sampler.add_history(observation, *prev_input);
-                }
-
                 (void)legal_inputs;
                 const auto sampled_states {sampler.sample()};
                 for (const auto& sampled_state : sampled_states)
@@ -71,7 +69,6 @@ namespace rebel
                 }
 
                 const auto input {temp_input_getter(legal_inputs)}; // TODO: Placeholder until rebel decides its own moves
-                prev_input.emplace(input);
                 return input;
             }
     };

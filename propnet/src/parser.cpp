@@ -165,7 +165,7 @@ namespace propnet
                 add_proposition(
                     id,
                     entry.at(PROP_TYPE_KEY).get<std::string>(),
-                    entry.at(GDL_KEY).get<std::string>(),
+                    entry.at(DISPLAY_KEY).get<std::string>(),
                     entry
                 );
                 break;
@@ -199,20 +199,20 @@ namespace propnet
         }
     }
 
-    void Parser::add_proposition(std::uint32_t id, std::string_view type, std::string&& gdl, const nlohmann::json& entry)
+    void Parser::add_proposition(std::uint32_t id, std::string_view type, std::string&& display, const nlohmann::json& entry)
     {
         if (type == INITIAL_PROP_TYPE)
         {
             add_proposition_node(InitialPropositionNode {
                 id,
-                gdl,
+                display,
             });
         }
         else if (type == BASE_PROP_TYPE)
         {
             add_proposition_node(BasicPropositionNode {
                 id,
-                gdl,
+                display,
                 entry.at(IN_PROPS_KEY),
             });
         }
@@ -220,14 +220,14 @@ namespace propnet
         {
             add_proposition_node(InputPropositionNode {
                 id,
-                gdl,
+                display,
             });
         }
         else if (type == LEGAL_PROP_TYPE)
         {
             add_proposition_node(BasicPropositionNode {
                 id,
-                gdl,
+                display,
                 entry.at(IN_PROPS_KEY),
             });
         }
@@ -235,7 +235,7 @@ namespace propnet
         {
             add_proposition_node(BasicPropositionNode {
                 id,
-                gdl,
+                display,
                 entry.at(IN_PROPS_KEY),
             });
         }
@@ -243,7 +243,7 @@ namespace propnet
         {
             add_proposition_node(BasicPropositionNode {
                 id,
-                gdl,
+                display,
                 entry.at(IN_PROPS_KEY),
             });
         }
@@ -256,7 +256,7 @@ namespace propnet
 
             add_proposition_node(BasicPropositionNode {
                 id,
-                gdl,
+                display,
                 entry.at(IN_PROPS_KEY),
             });
 
@@ -266,7 +266,7 @@ namespace propnet
         {
             add_proposition_node(BasicPropositionNode {
                 id,
-                gdl,
+                display,
                 entry.at(IN_PROPS_KEY),
             });
         }

@@ -57,9 +57,12 @@ namespace propnet
         auto sees_it {sees.cbegin()};
         for (const auto observation : observations)
         {
-            const auto gdl {(*sees_it)->get_gdl()};
-            std::cout << '\t' << (observation ? "\033[1;32m" : "\033[1;31m") << gdl << "\033[0m\n";
-            ++sees_it;
+            if (observation || observations.size() < MAX_DISPLAYED_OBSERVATIONS)
+            {
+                const auto display {(*sees_it)->get_display()};
+                std::cout << '\t' << (observation ? "\033[1;32m" : "\033[1;31m") << display << "\033[0m\n";
+                ++sees_it;
+            }
         }
     }
 
@@ -92,7 +95,7 @@ namespace propnet
             {
                 const auto option_number {std::distance(inputs.begin(), inputs_it)};
                 std::cout << "\t[" << option_number << "] ";
-                std::cout << legal.node->get_gdl() << '\n';
+                std::cout << legal.node->get_display() << '\n';
 
                 ++inputs_it;
             }

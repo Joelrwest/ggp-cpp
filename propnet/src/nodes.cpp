@@ -45,18 +45,18 @@ namespace propnet
         return false;
     }
 
-    PropositionNode::PropositionNode(std::uint32_t id, std::string_view gdl) :
+    PropositionNode::PropositionNode(std::uint32_t id, std::string_view display) :
         Node {id},
-        gdl {gdl}
+        display {display}
     {}
 
-    std::string_view PropositionNode::get_gdl() const
+    std::string_view PropositionNode::get_display() const
     {
-        return gdl;
+        return display;
     }
 
-    BasicPropositionNode::BasicPropositionNode(std::uint32_t id, std::string_view gdl, std::uint32_t in) :
-        PropositionNode {id, gdl},
+    BasicPropositionNode::BasicPropositionNode(std::uint32_t id, std::string_view display, std::uint32_t in) :
+        PropositionNode {id, display},
         in {in}
     {}
 
@@ -65,8 +65,8 @@ namespace propnet
         return state.get(in);
     }
 
-    InputPropositionNode::InputPropositionNode(std::uint32_t id, std::string_view gdl) :
-        PropositionNode {id, gdl}
+    InputPropositionNode::InputPropositionNode(std::uint32_t id, std::string_view display) :
+        PropositionNode {id, display}
     {}
 
     bool InputPropositionNode::eval(const State&, const std::unordered_set<std::uint32_t>& inputs) const
@@ -75,8 +75,8 @@ namespace propnet
         return inputs.contains(id);
     }
 
-    InitialPropositionNode::InitialPropositionNode(std::uint32_t id, std::string_view gdl) :
-        PropositionNode {id, gdl}
+    InitialPropositionNode::InitialPropositionNode(std::uint32_t id, std::string_view display) :
+        PropositionNode {id, display}
     {}
 
     bool InitialPropositionNode::eval(const State& state, const std::unordered_set<std::uint32_t>&) const
