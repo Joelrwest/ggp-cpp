@@ -7,7 +7,7 @@
 
 namespace rebel
 {
-    class NaiveSampler : public Sampler<NaiveSampler>
+    class NaiveSampler : public Sampler
     {
         public:
             NaiveSampler(const propnet::Role& sampler_role, const propnet::Propnet& propnet);

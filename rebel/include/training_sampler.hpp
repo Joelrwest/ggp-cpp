@@ -9,7 +9,7 @@
 
 namespace rebel
 {
-    class TrainingSampler : public Sampler<TrainingSampler>
+    class TrainingSampler : public Sampler
     {
         public:
             TrainingSampler(const propnet::Role& sampler_role, const propnet::Propnet& propnet);

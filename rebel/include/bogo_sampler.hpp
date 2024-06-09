@@ -7,7 +7,7 @@
 
 namespace rebel
 {
-    class BogoSampler : public Sampler<BogoSampler>
+    class BogoSampler : public Sampler
     {
         public:
             BogoSampler(const propnet::Role& sampler_role, const propnet::Propnet& propnet);
