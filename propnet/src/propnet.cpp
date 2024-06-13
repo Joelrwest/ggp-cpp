@@ -28,12 +28,12 @@ namespace propnet
         return roles;
     }
 
-    void Propnet::take_sees_inputs(State& state, const std::unordered_set<std::uint32_t>& inputs) const
+    void Propnet::take_sees_inputs(State& state, const InputSet& inputs) const
     {
         take_inputs(state, inputs, non_post_topologically_sorted_nodes);
     }
 
-    void Propnet::take_non_sees_inputs(State& state, const std::unordered_set<std::uint32_t>& inputs) const
+    void Propnet::take_non_sees_inputs(State& state, const InputSet& inputs) const
     {
         take_inputs(state, inputs, topologically_sorted_nodes);
     }
@@ -48,7 +48,7 @@ namespace propnet
         return initial_state;
     }
 
-    void Propnet::take_inputs(State& state, const std::unordered_set<std::uint32_t>& inputs, const std::vector<std::uint32_t>& ids) const
+    void Propnet::take_inputs(State& state, const InputSet& inputs, const std::vector<std::uint32_t>& ids) const
     {
         for (const auto id : ids)
         {

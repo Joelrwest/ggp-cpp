@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../src/sampler.hpp"
-#include "../src/misc.hpp"
+#include "../../propnet/include/propnet.hpp"
+#include "../../agents/include/non_seeing.hpp" // TODO
 
 #include <tuple>
 #include <shared_mutex>
@@ -9,15 +9,16 @@
 
 namespace rebel
 {
-    class TrainingSampler : public Sampler
+    class LazyTrainingSampler
     {
         public:
-            TrainingSampler(const propnet::Role& sampler_role, const propnet::Propnet& propnet);
+            LazyTrainingSampler(const propnet::Role& sampler_role, const propnet::Propnet& propnet);
 
             void prepare_new_game();
             void add_history(const std::vector<bool>& observation, std::uint32_t prev_input);
             propnet::State sample_state();
         private:
+
             struct History
             {
                 History(const std::vector<bool>& observation, std::uint32_t prev_input);
@@ -28,6 +29,8 @@ namespace rebel
                 std::uint32_t prev_input;
                 std::unordered_set<propnet::State> invalid_state_cache;
                 std::shared_mutex invalid_state_cache_lock;
+                std::unordered_set<propnet::InputSet> invalid_inputs_cache;
+                std::shared_mutex invalid_inputs_cache_lock;
             };
 
             std::list<History> all_histories {};
@@ -39,5 +42,9 @@ namespace rebel
             using AllHistories = decltype(all_histories);
 
             std::optional<propnet::State> sample_state_impl(AllHistories::iterator all_histories_it, AllHistories::iterator all_histories_end_it, propnet::State state);
+            inline static bool is_invalid_state(AllHistories::iterator all_histories_it, const propnet::State& state);
+            inline static void add_invalid_state(AllHistories::iterator all_histories_it, const propnet::State& state);
+            inline static bool is_invalid_inputs(AllHistories::iterator all_histories_it, const propnet::InputSet& inputs);
+            inline static void add_invalid_inputs(AllHistories::iterator all_histories_it, const propnet::InputSet& inputs);
     };
 }

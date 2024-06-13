@@ -1,8 +1,7 @@
 #pragma once
 
 #include "../../agents/include/agent.hpp"
-#include "../src/sampler.hpp"
-#include "training_sampler.hpp"
+#include "lazy_training_sampler.hpp"
 #include "../src/cfr.hpp"
 
 #include <iostream>
@@ -21,14 +20,14 @@ namespace rebel
         { sampler.sample_state() } -> std::convertible_to<propnet::State>;
         { sampler.prepare_new_game() } -> std::convertible_to<void>;
         { sampler.add_history(observation, prev_input) } -> std::convertible_to<void>;
-    } && std::derived_from<DerivedSamplerT, Sampler>;
+    };
 
-    template<DerivedSampler SamplerT = TrainingSampler>
+    template<DerivedSampler SamplerT = LazyTrainingSampler>
     class RebelAgent : public agents::Agent
     {
         private:
             static constexpr std::uint32_t NUM_THREADS {6};
-            static constexpr std::uint32_t SAMPLE_SIZE {20};
+            static constexpr std::uint32_t SAMPLE_SIZE {100};
 
             SamplerT sampler;
             const propnet::Role& role;
@@ -61,7 +60,7 @@ namespace rebel
                 Agent {role},
                 sampler {role, propnet},
                 role {role},
-                cfr {propnet}
+                cfr {role, propnet}
             {}
 
             static constexpr auto NAME {"rebel"};
@@ -147,11 +146,11 @@ namespace rebel
                     }
                 }
 
-                // const auto input {temp_input_getter(legal_inputs)}; // TODO: Placeholder until rebel decides its own moves
-                // return input;
+                const auto input {temp_input_getter(legal_inputs)}; // TODO: Placeholder until rebel decides its own moves
+                return input;
 
                 // TODO: This will be thrown later
-                throw std::logic_error {"Cumulative policy exceeded the referees chosen number"};
+                // throw std::logic_error {"Cumulative policy exceeded the referees chosen number"};
             }
     };
 }

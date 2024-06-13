@@ -38,7 +38,7 @@ namespace propnet
             void print_legal_inputs(std::span<const std::uint32_t> inputs) const;
         private:
             static constexpr auto MAX_DISPLAYED_OBSERVATIONS {20};
-            const std::unordered_set<std::uint32_t> EMPTY_INPUTS {};
+            const InputSet EMPTY_INPUTS {};
 
             std::string name;
             std::vector<std::shared_ptr<const PropositionNode>> sees;

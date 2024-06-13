@@ -1,13 +1,14 @@
 #include "../include/naive_sampler.hpp"
 #include "misc.hpp"
+#include "opponent_factory.hpp"
 
 namespace rebel
 {
     NaiveSampler::NaiveSampler(const propnet::Role& sampler_role, const propnet::Propnet& propnet) :
         propnet {propnet},
         sampler_role {sampler_role},
-        player_agents {create_player_agents<agents::RandomAgent>(sampler_role, propnet)},
-        random_agent {try_create_random_agent(propnet)}
+        player_agents {opponent_factory::create_player_agents<agents::RandomAgent>(sampler_role, propnet)},
+        random_agent {opponent_factory::try_create_random_agent(propnet)}
     {}
 
     void NaiveSampler::prepare_new_game()
@@ -63,7 +64,7 @@ namespace rebel
         }
 
         const auto next_all_histories_it {std::next(all_histories_it, 1)};
-        for (misc::CartesianProductGenerator cartesian_product_generator {randomised_legal_inputs}; cartesian_product_generator.get_is_next(); ++cartesian_product_generator)
+        for (misc::LazyCartesianProductGenerator cartesian_product_generator {randomised_legal_inputs}; cartesian_product_generator.get_is_next(); ++cartesian_product_generator)
         {
             auto next_state {state};
             auto inputs {cartesian_product_generator.get()};

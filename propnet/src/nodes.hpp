@@ -1,6 +1,7 @@
 #pragma once
 
 #include "vector_state.hpp"
+#include "input_set.hpp"
 
 #include <cstdint>
 #include <memory>
@@ -15,7 +16,7 @@ namespace propnet
             Node(std::uint32_t id);
 
             std::uint32_t get_id() const;
-            virtual bool eval(const State& state, const std::unordered_set<std::uint32_t>& inputs) const = 0;
+            virtual bool eval(const State& state, const InputSet& inputs) const = 0;
         private:
             std::uint32_t id;
     };
@@ -25,7 +26,7 @@ namespace propnet
         public:
             AndNode(std::uint32_t id, const std::vector<std::uint32_t>& ins);
 
-            bool eval(const State& state, const std::unordered_set<std::uint32_t>& inputs) const override;
+            bool eval(const State& state, const InputSet& inputs) const override;
         private:
             std::vector<std::uint32_t> ins;
     };
@@ -35,7 +36,7 @@ namespace propnet
         public:
             OrNode(std::uint32_t id, const std::vector<std::uint32_t>& ins);
 
-            bool eval(const State& state, const std::unordered_set<std::uint32_t>& inputs) const override;
+            bool eval(const State& state, const InputSet& inputs) const override;
         private:
             std::vector<std::uint32_t> ins;
     };
@@ -55,7 +56,7 @@ namespace propnet
         public:
             BasicPropositionNode(std::uint32_t id, std::string_view display, std::uint32_t in);
 
-            bool eval(const State& state, const std::unordered_set<std::uint32_t>& inputs) const override;
+            bool eval(const State& state, const InputSet& inputs) const override;
         private:
             std::uint32_t in;
     };
@@ -64,14 +65,14 @@ namespace propnet
     {
         public:
             InputPropositionNode(std::uint32_t id, std::string_view display);
-            bool eval(const State& state, const std::unordered_set<std::uint32_t>& inputs) const override;
+            bool eval(const State& state, const InputSet& inputs) const override;
     };
 
     class InitialPropositionNode : public PropositionNode
     {
         public:
             InitialPropositionNode(std::uint32_t id, std::string_view display);
-            bool eval(const State& state, const std::unordered_set<std::uint32_t>& inputs) const override;
+            bool eval(const State& state, const InputSet& inputs) const override;
     };
 
     class PreTransitionNode : public Node
@@ -79,7 +80,7 @@ namespace propnet
         public:
             PreTransitionNode(std::uint32_t id, std::uint32_t in);
 
-            bool eval(const State& state, const std::unordered_set<std::uint32_t>& inputs) const override;
+            bool eval(const State& state, const InputSet& inputs) const override;
         private:
             std::uint32_t in;
     };
@@ -89,7 +90,7 @@ namespace propnet
         public:
             PostTransitionNode(std::uint32_t id, std::uint32_t pre_id);
 
-            bool eval(const State& state, const std::unordered_set<std::uint32_t>& inputs) const override;
+            bool eval(const State& state, const InputSet& inputs) const override;
         private:
             std::uint32_t pre_id;
     };
@@ -99,7 +100,7 @@ namespace propnet
         public:
             NotNode(std::uint32_t id, std::uint32_t in);
 
-            bool eval(const State& state, const std::unordered_set<std::uint32_t>& inputs) const override;
+            bool eval(const State& state, const InputSet& inputs) const override;
         private:
             std::uint32_t in;
     };
@@ -109,6 +110,6 @@ namespace propnet
         public:
             TrueNode(std::uint32_t id);
 
-            bool eval(const State& state, const std::unordered_set<std::uint32_t>& inputs) const override;
+            bool eval(const State& state, const InputSet& inputs) const override;
     };
 }

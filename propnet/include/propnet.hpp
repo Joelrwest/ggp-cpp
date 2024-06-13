@@ -40,14 +40,14 @@ namespace propnet
             We assume that all moves are actually legal,
             and that all players make exactly 1 move.
             */
-            void take_sees_inputs(State& state, const std::unordered_set<std::uint32_t>& inputs) const;
-            void take_non_sees_inputs(State& state, const std::unordered_set<std::uint32_t>& inputs) const;
+            void take_sees_inputs(State& state, const InputSet& inputs) const;
+            void take_non_sees_inputs(State& state, const InputSet& inputs) const;
             bool is_game_over(const State& state) const;
             State create_initial_state() const;
         private:
-            const std::unordered_set<std::uint32_t> EMPTY_INPUTS {};
+            const InputSet EMPTY_INPUTS {};
 
-            void take_inputs(State& state, const std::unordered_set<std::uint32_t>& inputs, const std::vector<std::uint32_t>& ids) const;
+            void take_inputs(State& state, const InputSet& inputs, const std::vector<std::uint32_t>& ids) const;
 
             std::vector<Role> roles;
             std::vector<std::shared_ptr<const Node>> nodes;

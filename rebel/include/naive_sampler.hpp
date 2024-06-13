@@ -1,13 +1,14 @@
 #pragma once
 
-#include "../src/sampler.hpp"
+#include "../../propnet/include/propnet.hpp"
+#include "../../agents/include/non_seeing.hpp" // TODO
 
 #include <optional>
 #include <list>
 
 namespace rebel
 {
-    class NaiveSampler : public Sampler
+    class NaiveSampler
     {
         public:
             NaiveSampler(const propnet::Role& sampler_role, const propnet::Propnet& propnet);

@@ -1,7 +1,9 @@
 #include "setup.hpp"
 #include "../propnet/include/parser.hpp"
-#include "../agents/include/factory.hpp"
+#include "../agents/include/human.hpp"
+#include "../../rebel/include/rebel.hpp"
 
+#include <stdexcept>
 #include <iostream>
 
 namespace setup
@@ -41,7 +43,7 @@ namespace setup
                 std::cout << "Enter agent name for role '" << role.get_name() << "': ";
                 std::cin >> name;
 
-                return agents::agent_factory(name, role, propnet);
+                return agent_factory(name, role, propnet);
             }
             catch(const std::invalid_argument& error)
             {
@@ -67,5 +69,33 @@ namespace setup
         }
 
         return agents;
+    }
+
+    std::unique_ptr<agents::Agent> agent_factory(std::string_view name, const propnet::Role& role, const propnet::Propnet& propnet)
+    {
+        if (name == agents::RandomAgent::NAME)
+        {
+            return std::make_unique<agents::RandomAgent>(role);
+        }
+        else if (name == agents::FirstAgent::NAME)
+        {
+            return std::make_unique<agents::FirstAgent>(role);
+        }
+        else if (name == agents::LastAgent::NAME)
+        {
+            return std::make_unique<agents::LastAgent>(role);
+        }
+        else if (name == agents::HumanAgent::NAME)
+        {
+            return std::make_unique<agents::HumanAgent>(role);
+        }
+        else if (name == rebel::RebelAgent<>::NAME)
+        {
+            return std::make_unique<rebel::RebelAgent<>>(role, propnet);
+        }
+        else
+        {
+            throw std::invalid_argument {"Given unkown agent name"};
+        }
     }
 }

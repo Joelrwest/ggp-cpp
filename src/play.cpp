@@ -24,11 +24,11 @@ int main(void)
 
         while (!propnet.is_game_over(state))
         {
-            std::unordered_set<std::uint32_t> inputs {};
+            propnet::InputSet inputs {};
             for (const auto& agent : agents)
             {
                 const auto input {agent->get_legal_input(state)};
-                inputs.insert(input);
+                inputs.add(input);
             }
 
             propnet.take_sees_inputs(state, inputs);
