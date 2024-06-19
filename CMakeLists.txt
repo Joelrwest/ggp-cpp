@@ -41,7 +41,9 @@ endif()
 #   endif()
 # endif()
 
-add_executable(train src/train.cpp)
+add_executable(train src/train.cpp src/setup.cpp)
+target_link_libraries(train PUBLIC propnet)
+target_link_libraries(train PUBLIC rebel)
 target_link_libraries(train PUBLIC Boost::program_options)
 
 if(MSVC)

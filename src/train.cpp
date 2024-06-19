@@ -1,4 +1,4 @@
-// #include "setup.hpp"
+#include "setup.hpp"
 
 #include <boost/program_options.hpp>
 
@@ -19,24 +19,25 @@ static constexpr auto READABLE_TIME_FORMAT {"%X %e %b %Y %Z"};
 static constexpr auto BATCH_SIZE {20};
 
 std::string to_readable_time(const std::chrono::time_point<std::chrono::system_clock>& time_point);
+void train(unsigned int num_threads, bool is_time_limit, unsigned int time_limit, std::string_view game);
 
 int main(int argc, char** argv)
 {
-    const auto max_threads {std::thread::hardware_concurrency()};
+    const auto hardware_threads {std::thread::hardware_concurrency()};
 
     unsigned int num_threads;
     unsigned int time_limit;
     std::string game {};
-    po::options_description description {"Allowed options"};
-    description.add_options()
+    po::options_description options_description {"Allowed options"};
+    options_description.add_options()
         (HELP_COMMAND, "produce help message")
-        (NUM_THREADS_COMMAND, po::value<unsigned int>(&num_threads)->default_value(max_threads), "set number of threads for training")
+        (NUM_THREADS_COMMAND, po::value<unsigned int>(&num_threads)->default_value(hardware_threads), "set number of threads for training")
         (TIME_LIMIT_COMMAND, po::value<unsigned int>(&time_limit), "maximum time allowed to train (in minutes)")
         (GAME_COMMAND, po::value<std::string>(&game)->required(), "game to train on")
     ;
 
     po::variables_map variables_map;
-    po::store(po::parse_command_line(argc, argv, description), variables_map);
+    po::store(po::parse_command_line(argc, argv, options_description), variables_map);
     try
     {
         po::notify(variables_map);
@@ -49,23 +50,52 @@ int main(int argc, char** argv)
 
     if (variables_map.contains(HELP_COMMAND))
     {
-        std::cout << description << '\n';
+        std::cout << options_description << '\n';
         return 2;
     }
 
-    num_threads = std::min(num_threads, max_threads);
+    if (num_threads < 2)
+    {
+        std::cout << "Code written under the assumption that there's at least 2 threads\n";
+        return 3;
+    }
+
     std::cout << "Training using " << num_threads << " threads\n";
 
     const auto is_time_limit {variables_map.contains(TIME_LIMIT_COMMAND)};
 
+    train(num_threads, is_time_limit, time_limit, game);
+
+    std::cout << "Training complete!\n";
+
+    return 0;
+}
+
+std::string to_readable_time(const std::chrono::time_point<std::chrono::system_clock>& time_point)
+{
+    const auto time_point_t {std::chrono::system_clock::to_time_t(time_point)};
+    std::stringstream readable_time {};
+    readable_time << std::put_time(std::localtime(&time_point_t), READABLE_TIME_FORMAT);
+
+    return readable_time.str();
+}
+
+void train(unsigned int num_threads, bool is_time_limit, unsigned int time_limit, std::string_view game)
+{
+    (void)num_threads;
+    const auto propnet {setup::load_propnet(game)};
+    const auto num_roles {propnet.get_roles().size()};
+
     const auto start_time {std::chrono::system_clock::now()};
     std::cout << "Start time is " << to_readable_time(start_time) << '\n';
 
-    const auto end_time {start_time + std::chrono::minutes(time_limit)};
+    const std::chrono::minutes time_limit_duration {time_limit};
+    const auto end_time {start_time + time_limit_duration};
     if (is_time_limit)
     {
         std::cout << "End time is " << to_readable_time(end_time) << '\n';
     }
+    std::cout << '\n';
 
     while (!is_time_limit || std::chrono::system_clock::now() < end_time)
     {
@@ -90,17 +120,4 @@ int main(int argc, char** argv)
             // Sample and train neural network on 20 mini-batches from replay buffer
         // end while
     }
-
-    std::cout << "Training complete!\n";
-
-    return 0;
-}
-
-std::string to_readable_time(const std::chrono::time_point<std::chrono::system_clock>& time_point)
-{
-    const auto time_point_t {std::chrono::system_clock::to_time_t(time_point)};
-    std::stringstream readable_time {};
-    readable_time << std::put_time(std::localtime(&time_point_t), READABLE_TIME_FORMAT);
-
-    return readable_time.str();
 }
