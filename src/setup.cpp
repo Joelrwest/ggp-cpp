@@ -18,18 +18,30 @@ namespace setup
                 std::cout << "Enter game name (spelt same as json): ";
                 std::cin >> game;
 
-                std::cout << "Loading propnet\n";
-                propnet::Parser parser {game};
-                const auto propnet {parser.create_propnet()};
-                std::cout << "Propnet loaded\n";
-
-                return propnet;
+                return load_propnet(game);
             }
             catch (const propnet::ParsingError& error)
             {
-                std::cout << "Error occurred whilst trying to parse " << game << ": " << error.what() << '\n';
                 std::cout << "Please try again.\n";
             }
+        }
+    }
+
+    propnet::Propnet load_propnet(std::string_view game)
+    {
+        std::cout << "Loading propnet\n";
+        try
+        {
+            propnet::Parser parser {game};
+            const auto propnet {parser.create_propnet()};
+            std::cout << "Propnet loaded\n";
+
+            return propnet;
+        }
+        catch (const propnet::ParsingError& error)
+        {
+            std::cout << "Error occurred whilst trying to parse " << game << ": " << error.what() << '\n';
+            throw error;
         }
     }
 

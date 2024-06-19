@@ -8,6 +8,7 @@
 #include <concepts>
 #include <mutex>
 #include <thread>
+#include <chrono>
 #include <random>
 
 namespace rebel
@@ -26,41 +27,25 @@ namespace rebel
     class RebelAgent : public agents::Agent
     {
         private:
-            static constexpr std::uint32_t NUM_THREADS {6};
-            static constexpr std::uint32_t SAMPLE_SIZE {100};
+            static constexpr std::uint32_t DEFAULT_NUM_THREADS {6};
+            static constexpr std::uint32_t MAX_SAMPLE_SIZE {200};
+            static constexpr std::uint32_t MAX_CFR_TIME_SECONDS {10};
 
             SamplerT sampler;
             const propnet::Role& role;
-            Cfr cfr;
-
-            // TODO: Only temp for testing, copied from human
-            std::uint32_t temp_input_getter(std::span<const std::uint32_t> legal_inputs)
-            {
-                while (true)
-                {
-                    const auto& observations {get_observations_cache()};
-                    role.print_observations(observations);
-                    role.print_legal_inputs(legal_inputs);
-
-                    std::uint32_t chosen;
-                    std::cout << "Select a move by entering an integer: ";
-                    std::cin >> chosen;
-                    std::cout << "You've chosen " << chosen << '\n';
-
-                    if (chosen < legal_inputs.size())
-                    {
-                        return legal_inputs[chosen];
-                    }
-
-                    std::cout << chosen << " was not found as an option, try again\n";
-                }
-            }
+            const propnet::Propnet& propnet;
+            std::uint32_t num_threads; // TODO: Should this just be templated?
         public:
-            RebelAgent(const propnet::Role& role, const propnet::Propnet& propnet) :
+            RebelAgent(const propnet::Role& role, const propnet::Propnet& propnet, std::uint32_t num_threads) :
                 Agent {role},
                 sampler {role, propnet},
                 role {role},
-                cfr {role, propnet}
+                propnet {propnet},
+                num_threads {num_threads}
+            {}
+
+            RebelAgent(const propnet::Role& role, const propnet::Propnet& propnet) :
+                RebelAgent {role, propnet, DEFAULT_NUM_THREADS}
             {}
 
             static constexpr auto NAME {"rebel"};
@@ -79,35 +64,43 @@ namespace rebel
 
             std::uint32_t get_legal_input_impl(std::span<const std::uint32_t> legal_inputs)
             {
-                (void)legal_inputs;
-
                 std::vector<std::thread> threads {};
 
-                auto remaining_samples {SAMPLE_SIZE};
-                std::mutex remaining_samples_lock {};
+                auto num_sampled {0};
+                std::mutex num_sampled_lock {};
 
                 std::vector<double> cum_policy (legal_inputs.size(), 0.0);
                 std::mutex cum_policy_lock {};
-                for (std::uint32_t thread_count {0}; thread_count < NUM_THREADS; ++thread_count)
+
+                const auto start_time {std::chrono::system_clock::now()};
+                const auto end_time {start_time + std::chrono::seconds(MAX_CFR_TIME_SECONDS)};
+                for (std::uint32_t thread_count {0}; thread_count < num_threads; ++thread_count)
                 {
                     threads.emplace_back(
-                        [this, &legal_inputs, &remaining_samples, &remaining_samples_lock, &cum_policy, &cum_policy_lock]
+                        [this, &legal_inputs, &num_sampled, &num_sampled_lock, &cum_policy, &cum_policy_lock, end_time]
                         {
                             while (true)
                             {
+                                const auto curr_time {std::chrono::system_clock::now()};
+                                if (curr_time >= end_time)
                                 {
-                                    const std::lock_guard<std::mutex> remaining_samples_guard {remaining_samples_lock};
-                                    if (remaining_samples == 0)
+                                    return;
+                                }
+
+                                {
+                                    const std::lock_guard<std::mutex> num_sampled_guard {num_sampled_lock};
+                                    if (num_sampled == MAX_SAMPLE_SIZE)
                                     {
                                         // Sample is full, stop
                                         return;
                                     }
 
-                                    --remaining_samples;
+                                    ++num_sampled;
                                 }
 
                                 const auto state {sampler.sample_state()};
-                                const auto policy {cfr.search(legal_inputs, state)};
+                                Cfr cfr {role, propnet, legal_inputs, std::move(state)};
+                                const auto policy {cfr.search()};
 
                                 {
                                     const std::lock_guard<std::mutex> cum_policy_guard {cum_policy_lock};
@@ -133,7 +126,7 @@ namespace rebel
                     }
                 );
 
-                std::uniform_real_distribution<double> policy_distribution (0.0, SAMPLE_SIZE);
+                std::uniform_real_distribution<double> policy_distribution (0.0, num_sampled);
                 const auto referee_selection {policy_distribution(random_engine)};
                 auto accumulation {0.0};
                 for (auto it {cum_policy.begin()}; it != cum_policy.end(); ++it)
@@ -146,11 +139,7 @@ namespace rebel
                     }
                 }
 
-                const auto input {temp_input_getter(legal_inputs)}; // TODO: Placeholder until rebel decides its own moves
-                return input;
-
-                // TODO: This will be thrown later
-                // throw std::logic_error {"Cumulative policy exceeded the referees chosen number"};
+                throw std::logic_error {"Cumulative policy exceeded the referees chosen number"};
             }
     };
 }
