@@ -101,4 +101,9 @@ namespace propnet
             }
         }
     }
+
+    std::size_t Role::get_max_policy_size() const
+    {
+        return legals.size();
+    }
 }

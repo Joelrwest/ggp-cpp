@@ -1,4 +1,5 @@
 #include "setup.hpp"
+#include "../rebel/include/model.hpp"
 
 #include <boost/program_options.hpp>
 
@@ -84,7 +85,6 @@ void train(unsigned int num_threads, bool is_time_limit, unsigned int time_limit
 {
     (void)num_threads;
     const auto propnet {setup::load_propnet(game)};
-    const auto num_roles {propnet.get_roles().size()};
 
     const auto start_time {std::chrono::system_clock::now()};
     std::cout << "Start time is " << to_readable_time(start_time) << '\n';
@@ -99,7 +99,7 @@ void train(unsigned int num_threads, bool is_time_limit, unsigned int time_limit
 
     while (!is_time_limit || std::chrono::system_clock::now() < end_time)
     {
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));
+        std::this_thread::sleep_for(std::chrono::seconds(1));
         std::cout << "Training!\n";
 
         std::thread actual_state_cfr_thread {[]() {

@@ -10,6 +10,11 @@ set(CMAKE_BUILD_TYPE Release)
 set(BOOST_INCLUDE_LIBRARIES program_options)
 set(BOOST_ENABLE_CMAKE ON)
 
+set(Torch_DIR "~/libtorch/share/cmake/Torch")
+find_package(Torch REQUIRED)
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS}")
+
 FetchContent_Declare(
   Boost
   URL https://github.com/boostorg/boost/releases/download/boost-1.84.0/boost-1.84.0.7z
@@ -26,6 +31,7 @@ add_executable(play src/play.cpp src/setup.cpp)
 target_link_libraries(play PUBLIC propnet)
 target_link_libraries(play PUBLIC agents)
 target_link_libraries(play PUBLIC rebel)
+target_link_libraries(play PRIVATE torch)
 
 if(MSVC)
   target_compile_options(play PRIVATE /W4 /WX)
@@ -45,6 +51,7 @@ add_executable(train src/train.cpp src/setup.cpp)
 target_link_libraries(train PUBLIC propnet)
 target_link_libraries(train PUBLIC rebel)
 target_link_libraries(train PUBLIC Boost::program_options)
+target_link_libraries(train PRIVATE torch)
 
 if(MSVC)
   target_compile_options(train PRIVATE /W4 /WX)
