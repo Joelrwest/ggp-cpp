@@ -44,6 +44,8 @@ namespace propnet
             void take_non_sees_inputs(State& state, const InputSet& inputs) const;
             bool is_game_over(const State& state) const;
             State create_initial_state() const;
+            std::size_t size() const;
+            std::size_t num_roles() const;
         private:
             const InputSet EMPTY_INPUTS {};
 

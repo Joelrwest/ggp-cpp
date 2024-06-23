@@ -1,90 +1,110 @@
 #include "model.hpp"
 
+#include <torch/script.h>
+
 #include <iostream>
 
 namespace rebel
 {
-    /*
-    def __init__(self, num_inputs, num_actions, roles, head_depth=3):
-        super().__init__()
-        self.dropout = nn.Dropout(p=0.2)
-        self.activ = nn.ELU()
-        self.sigmoid = nn.Sigmoid()
-        self.softmax = nn.Softmax(-1)
-        self.head = nn.Sequential(*[
-            nn.Sequential(nn.Linear(num_inputs, num_inputs), self.activ, self.dropout)
-        for _ in range(head_depth)])
-        self.val = nn.Linear(num_inputs, len(roles))
-        self.policy_head = nn.Sequential(nn.Linear(num_inputs, num_inputs), self.activ, self.dropout)
-        self.policy = nn.Sequential(*[nn.Linear(num_inputs, num_actions[role]) for role in roles])
-        self.max_actions = max(num_actions[role] for role in roles)
-
-    def forward(self, x):
-        x = self.head(x)
-
-        val = self.sigmoid(self.val(x))
-        x = self.policy_head(x)
-        if len(x.shape) > 1:
-            policies = torch.zeros((x.shape[0], val.shape[-1], self.max_actions))
-            for i, policy_layer in enumerate(self.policy):
-                out = self.softmax(policy_layer(x))
-                policies[:,i, :out.shape[-1]] = out
-        else:
-            policies = [self.softmax(policy_layer(x)) for policy_layer in self.policy]
-
-        return policies, val
-    */
-
     Network::Network(const propnet::Propnet& propnet) :
-        linear_layers {},
-        sigmoid {},
-        softmax {SOFTMAX_DIMENSION},
-        max_policy_sizes {}
-    {
-        const torch::nn::Dropout dropout {DROPOUT_ZERO_PROBABILITY};
-        const torch::nn::ELU activation {};
+        input_size {propnet.size()},
+        hidden_layer_size {input_size},
+        features_head {
+            torch::nn::Linear {input_size, hidden_layer_size},
+            torch::nn::ELU {},
+            torch::nn::Dropout {DROPOUT_ZERO_PROBABILITY},
 
+            torch::nn::Linear {hidden_layer_size, hidden_layer_size},
+            torch::nn::ELU {},
+            torch::nn::Dropout {DROPOUT_ZERO_PROBABILITY},
+
+            torch::nn::Linear {hidden_layer_size, hidden_layer_size},
+            torch::nn::ELU {},
+            torch::nn::Dropout {DROPOUT_ZERO_PROBABILITY}
+        },
+        values_head {
+            torch::nn::Linear {hidden_layer_size, propnet.num_roles()},
+            torch::nn::Sigmoid {}
+        },
+        common_policy_head {
+            torch::nn::Linear {hidden_layer_size, hidden_layer_size},
+            torch::nn::ELU {},
+            torch::nn::Dropout {DROPOUT_ZERO_PROBABILITY}
+        },
+        policy_heads {}
+    {
         const auto& roles {propnet.get_roles()};
-        std::transform(
-            roles.begin(),
-            roles.end(),
-            std::back_inserter(max_policy_sizes),
-            [](const auto& role)
-            {
-                return role.get_max_policy_size();
-            }
-        );
+        for (const auto& role : roles)
+        {
+            policy_heads.emplace_back(
+                torch::nn::Linear {hidden_layer_size, role.get_max_policy_size()},
+                torch::nn::Softmax {SOFTMAX_DIMENSION}
+            );
+        }
     }
 
-    torch::Tensor Network::forward(torch::Tensor inputs) const
+    std::pair<torch::Tensor, std::vector<torch::Tensor>> Network::forward(torch::Tensor x)
     {
-        // // Use one of many tensor manipulation functions.
-        // x = torch::relu(fc1->forward(x.reshape({x.size(0), 784})));
-        // x = torch::dropout(x, /*p=*/0.5, /*train=*/is_training());
-        // x = torch::relu(fc2->forward(x));
-        // x = torch::log_softmax(fc3->forward(x), /*dim=*/1);
-        return inputs;
+        /*
+        Extract common features
+        */
+        x = features_head->forward(x);
+
+        /*
+        Get values for each role
+        */
+        const auto values {values_head->forward(x)};
+
+        /*
+        Common extra layer before each role gets a policy
+        */
+        x = common_policy_head->forward(x);
+
+        /*
+        Get policies for each role
+        */
+        std::vector<torch::Tensor> policies {};
+        for (auto& policy_head : policy_heads)
+        {
+            const auto policy {policy_head->forward(x)};
+            policies.push_back(std::move(policy));
+        }
+
+        return std::make_pair(std::move(values), std::move(policies));
     }
 
-    /*
-    def load(self, path):
-        try:
-            self.network.load_state_dict(torch.load(path))
-            logging.info(f"Loaded {path}")
-        except Exception as error:
-            logging.error(error)
-            exit(1)
+    Model Model::load_most_recent(const propnet::Propnet& propnet, std::string_view game)
+    {
+        std::optional<std::filesystem::directory_entry> most_recent_file {};
+        auto path {get_models_path(game)};
+        for (const auto& file : std::filesystem::directory_iterator(path))
+        {
+            const auto is_model {file.path().extension() == MODEL_NAME_EXTENSION};
+            const auto is_newer {!most_recent_file.has_value() || most_recent_file->last_write_time() < file.last_write_time()};
+            if (is_model && is_newer)
+            {
+                most_recent_file.emplace(file);
+            }
+        }
 
-    def load_most_recent(self):
-        models_folder_path = os.path.join(pathlib.Path(__file__).parent.parent, 'models')
-        game_model_folder_path = os.path.join(models_folder_path, self.game_str)
+        if (most_recent_file.has_value())
+        {
+            return load_file_path(propnet, game, most_recent_file->path());
+        }
+        else
+        {
+            throw std::runtime_error {"Tried to load most recent model but there are no files to be loaded"};
+        }
+    }
 
-        newest_model_path = max(os.listdir(game_model_folder_path))
-        self.load(os.path.join(game_model_folder_path, newest_model_path))
-    */
+    Model Model::load_game_number(const propnet::Propnet& propnet, std::string_view game, int game_number)
+    {
+        const auto file_name {get_file_name(game_number)};
+        auto path {get_models_path(game)};
+        path.append(file_name);
 
-    // Model Model::load_most_recent(const propnet::Propnet& propnet, std::string_view game) { (void)propnet, game; }
-    // Model Model::load_game_number(const propnet::Propnet& propnet, std::string_view game, int game_number) { (void)propnet, game, game_number; }
+        return load_file_path(propnet, game, path);
+    }
 
     void Model::eval() const {}
 
@@ -93,10 +113,7 @@ namespace rebel
         torch::serialize::OutputArchive output_archive {};
         network.save(output_archive);
 
-        std::stringstream file_name_stream {};
-        file_name_stream << MODEL_NAME_PREFIX << std::setw(GAME_NUMBER_WIDTH) << game_number << MODEL_NAME_POSTFIX;
-        std::string file_name {};
-        file_name_stream >> file_name;
+        const auto file_name {get_file_name(game_number)};
 
         auto file_path {models_path};
         file_path.append(file_name);
@@ -128,6 +145,16 @@ namespace rebel
         return path;
     }
 
+    std::string Model::get_file_name(int game_number)
+    {
+        std::stringstream file_name_stream {};
+        file_name_stream << MODEL_NAME_BASE << std::setw(GAME_NUMBER_WIDTH) << game_number << MODEL_NAME_EXTENSION;
+        std::string file_name {};
+        file_name_stream >> file_name;
+
+        return file_name;
+    }
+
     std::filesystem::path Model::get_time_log_file_path(std::filesystem::path models_path)
     {
         models_path.append(TIME_LOG_FILE_NAME);
@@ -156,6 +183,16 @@ namespace rebel
         const auto now_time_ms = std::chrono::duration_cast<std::chrono::milliseconds>(now_time.time_since_epoch());
 
         return now_time_ms;
+    }
+
+    Model Model::load_file_path(const propnet::Propnet& propnet, std::string_view game, const std::filesystem::path& path)
+    {
+        Network network {propnet};
+        torch::serialize::InputArchive input_archive {};
+        input_archive.load_from(path);
+        network.load(input_archive);
+
+        return Model {propnet, game, std::move(network)};
     }
 
     void Model::log_time(int game_number)

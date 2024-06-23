@@ -48,6 +48,16 @@ namespace propnet
         return initial_state;
     }
 
+    std::size_t Propnet::size() const
+    {
+        return nodes.size();
+    }
+
+    std::size_t Propnet::num_roles() const
+    {
+        return roles.size();
+    }
+
     void Propnet::take_inputs(State& state, const InputSet& inputs, const std::vector<std::uint32_t>& ids) const
     {
         for (const auto id : ids)
