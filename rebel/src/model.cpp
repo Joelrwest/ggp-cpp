@@ -23,7 +23,7 @@ namespace rebel
             torch::nn::Dropout {DROPOUT_ZERO_PROBABILITY}
         },
         values_head {
-            torch::nn::Linear {hidden_layer_size, propnet.num_roles()},
+            torch::nn::Linear {hidden_layer_size, propnet.num_player_roles()},
             torch::nn::Sigmoid {}
         },
         common_policy_head {
@@ -33,11 +33,11 @@ namespace rebel
         },
         policy_heads {}
     {
-        const auto& roles {propnet.get_roles()};
-        for (const auto& role : roles)
+        const auto& player_roles {propnet.get_player_roles()};
+        for (const auto& player_role : player_roles)
         {
             policy_heads.emplace_back(
-                torch::nn::Linear {hidden_layer_size, role.get_max_policy_size()},
+                torch::nn::Linear {hidden_layer_size, player_role.get_max_policy_size()},
                 torch::nn::Softmax {SOFTMAX_DIMENSION}
             );
         }
@@ -72,6 +72,10 @@ namespace rebel
 
         return std::make_pair(std::move(values), std::move(policies));
     }
+
+    Model::Model(const propnet::Propnet& propnet, std::string_view game) :
+        Model {propnet, game, Network {propnet}}
+    {}
 
     Model Model::load_most_recent(const propnet::Propnet& propnet, std::string_view game)
     {
@@ -108,7 +112,7 @@ namespace rebel
 
     void Model::eval() const {}
 
-    void Model::save(int game_number)
+    void Model::save(int game_number) const
     {
         torch::serialize::OutputArchive output_archive {};
         network.save(output_archive);
@@ -119,8 +123,6 @@ namespace rebel
         file_path.append(file_name);
 
         output_archive.save_to(file_path);
-
-        log_time(game_number);
 
         std::cout << "Saved model " << file_path << '\n';
     }

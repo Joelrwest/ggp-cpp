@@ -1,14 +1,13 @@
 #include "../include/naive_sampler.hpp"
 #include "misc.hpp"
-#include "opponent_factory.hpp"
 
 namespace rebel
 {
     NaiveSampler::NaiveSampler(const propnet::Role& sampler_role, const propnet::Propnet& propnet) :
         propnet {propnet},
         sampler_role {sampler_role},
-        player_agents {opponent_factory::create_player_agents<agents::RandomAgent>(sampler_role, propnet)},
-        random_agent {opponent_factory::try_create_random_agent(propnet)}
+        player_roles {propnet.get_player_roles(sampler_role.get_role_id())},
+        random_role {propnet.get_random_role()}
     {}
 
     void NaiveSampler::prepare_new_game()
@@ -49,18 +48,22 @@ namespace rebel
     {
         std::vector<std::vector<std::uint32_t>> randomised_legal_inputs {};
         std::transform(
-            player_agents.begin(),
-            player_agents.end(),
+            player_roles.begin(),
+            player_roles.end(),
             std::back_inserter(randomised_legal_inputs),
-            [&state](const auto& agent)
+            [&state](const auto& player_role)
             {
-                return agent.get_legal_inputs(state);
+                auto player_inputs {player_role.get_legal_inputs(state)};
+                std::random_shuffle(player_inputs.begin(), player_inputs.end());
+                return player_inputs;
             }
         );
 
-        if (random_agent.has_value())
+        if (random_role.has_value())
         {
-            randomised_legal_inputs.push_back(random_agent->get_legal_inputs(state));
+            auto randoms_inputs {random_role->get_legal_inputs(state)};
+            std::random_shuffle(randoms_inputs.begin(), randoms_inputs.end());
+            randomised_legal_inputs.push_back(randoms_inputs);
         }
 
         const auto next_all_histories_it {std::next(all_histories_it, 1)};

@@ -1,14 +1,14 @@
 #include "../include/bogo_sampler.hpp"
 #include "../../propnet/include/input_set.hpp"
-#include "opponent_factory.hpp"
+#include "misc.hpp"
 
 namespace rebel
 {
     BogoSampler::BogoSampler(const propnet::Role& sampler_role, const propnet::Propnet& propnet) :
         propnet {propnet},
         sampler_role {sampler_role},
-        player_agents {opponent_factory::create_player_agents<agents::RandomAgent>(sampler_role, propnet)},
-        random_agent {opponent_factory::try_create_random_agent(propnet)}
+        player_roles {propnet.get_player_roles(sampler_role.get_role_id())},
+        random_role {propnet.get_random_role()}
     {}
 
     void BogoSampler::prepare_new_game()
@@ -43,19 +43,21 @@ namespace rebel
         {
             propnet::InputSet inputs {history.prev_input};
             std::for_each(
-                player_agents.begin(),
-                player_agents.end(),
-                [&inputs, &state](auto& other_agent)
+                player_roles.begin(),
+                player_roles.end(),
+                [&inputs, &state](auto& player_role)
                 {
-                    const auto input {other_agent.get_legal_input(state)};
-                    inputs.add(input);
+                    const auto players_inputs {player_role.get_legal_inputs(state)};
+                    const auto player_input {misc::sample_random(players_inputs)};
+                    inputs.add(player_input);
                 }
             );
 
-            if (random_agent.has_value())
+            if (random_role.has_value())
             {
-                const auto input {random_agent->get_legal_input(state)};
-                inputs.add(input);
+                const auto randoms_inputs {random_role->get_legal_inputs(state)};
+                const auto random_input {misc::sample_random(randoms_inputs)};
+                inputs.add(random_input);
             }
 
             propnet.take_sees_inputs(state, inputs);

@@ -1,29 +1,28 @@
-#include "../include/lazy_training_sampler.hpp"
-#include "opponent_factory.hpp"
+#include "../include/training_sampler.hpp"
 #include "misc.hpp"
 
 #include <algorithm>
 
 namespace rebel
 {
-    LazyTrainingSampler::LazyTrainingSampler(const propnet::Role& sampler_role, const propnet::Propnet& propnet) :
+    TrainingSampler::TrainingSampler(const propnet::Role& sampler_role, const propnet::Propnet& propnet) :
         propnet {propnet},
         sampler_role {sampler_role},
-        player_agents {opponent_factory::create_player_agents<agents::RandomAgent>(sampler_role, propnet)},
-        random_agent {opponent_factory::try_create_random_agent(propnet)}
+        player_roles {propnet.get_player_roles(sampler_role.get_role_id())},
+        random_role {propnet.get_random_role()}
     {}
 
-    void LazyTrainingSampler::prepare_new_game()
+    void TrainingSampler::prepare_new_game()
     {
         all_histories.clear();
     }
 
-    void LazyTrainingSampler::add_history(const std::vector<bool>& observation, std::uint32_t prev_input)
+    void TrainingSampler::add_history(const std::vector<bool>& observation, std::uint32_t prev_input)
     {
         all_histories.emplace_back(observation, prev_input);
     }
 
-    propnet::State LazyTrainingSampler::sample_state()
+    propnet::State TrainingSampler::sample_state()
     {
         if (all_histories.empty())
         {
@@ -44,7 +43,7 @@ namespace rebel
         return *state;
     }
 
-    LazyTrainingSampler::History::History(const std::vector<bool>& observation, std::uint32_t prev_input) :
+    TrainingSampler::History::History(const std::vector<bool>& observation, std::uint32_t prev_input) :
         observation {observation},
         prev_input {prev_input},
         invalid_state_cache {},
@@ -53,7 +52,7 @@ namespace rebel
         invalid_inputs_cache_lock {}
     {}
 
-    std::optional<propnet::State> LazyTrainingSampler::sample_state_impl(AllHistories::iterator all_histories_it, AllHistories::iterator all_histories_end_it, propnet::State state)
+    std::optional<propnet::State> TrainingSampler::sample_state_impl(AllHistories::iterator all_histories_it, AllHistories::iterator all_histories_end_it, propnet::State state)
     {
         /*
         State is assumed to be valid at the beginning.
@@ -69,18 +68,22 @@ namespace rebel
         */
         std::vector<std::vector<std::uint32_t>> randomised_legal_inputs {};
         std::transform(
-            player_agents.begin(),
-            player_agents.end(),
+            player_roles.begin(),
+            player_roles.end(),
             std::back_inserter(randomised_legal_inputs),
-            [&state](const auto& agent)
+            [&state](const auto& player_role)
             {
-                return agent.get_legal_inputs(state);
+                auto player_inputs {player_role.get_legal_inputs(state)};
+                std::random_shuffle(player_inputs.begin(), player_inputs.end());
+                return player_inputs;
             }
         );
 
-        if (random_agent.has_value())
+        if (random_role.has_value())
         {
-            randomised_legal_inputs.push_back(random_agent->get_legal_inputs(state));
+            auto randoms_inputs {random_role->get_legal_inputs(state)};
+            std::random_shuffle(randoms_inputs.begin(), randoms_inputs.end());
+            randomised_legal_inputs.push_back(randoms_inputs);
         }
 
         const auto next_all_histories_it {std::next(all_histories_it, 1)};
@@ -142,7 +145,7 @@ namespace rebel
         return std::optional<propnet::State> {};
     }
 
-    bool LazyTrainingSampler::is_invalid_state(AllHistories::iterator all_histories_it, const propnet::State& state)
+    bool TrainingSampler::is_invalid_state(AllHistories::iterator all_histories_it, const propnet::State& state)
     {
         all_histories_it->invalid_state_cache_lock.lock_shared();
         const auto is_invalid_state {all_histories_it->invalid_state_cache.contains(state)};
@@ -151,14 +154,14 @@ namespace rebel
         return is_invalid_state;
     }
 
-    void LazyTrainingSampler::add_invalid_state(AllHistories::iterator all_histories_it, const propnet::State& state)
+    void TrainingSampler::add_invalid_state(AllHistories::iterator all_histories_it, const propnet::State& state)
     {
         all_histories_it->invalid_state_cache_lock.lock();
         all_histories_it->invalid_state_cache.insert(std::move(state));
         all_histories_it->invalid_state_cache_lock.unlock();
     }
 
-    bool LazyTrainingSampler::is_invalid_inputs(AllHistories::iterator all_histories_it, const propnet::InputSet& inputs)
+    bool TrainingSampler::is_invalid_inputs(AllHistories::iterator all_histories_it, const propnet::InputSet& inputs)
     {
         all_histories_it->invalid_inputs_cache_lock.lock_shared();
         const auto is_invalid_inputs {all_histories_it->invalid_inputs_cache.contains(inputs)};
@@ -167,7 +170,7 @@ namespace rebel
         return is_invalid_inputs;
     }
 
-    void LazyTrainingSampler::add_invalid_inputs(AllHistories::iterator all_histories_it, const propnet::InputSet& inputs)
+    void TrainingSampler::add_invalid_inputs(AllHistories::iterator all_histories_it, const propnet::InputSet& inputs)
     {
         all_histories_it->invalid_inputs_cache_lock.lock();
         all_histories_it->invalid_inputs_cache.insert(std::move(inputs));

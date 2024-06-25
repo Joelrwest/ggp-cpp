@@ -103,12 +103,33 @@ namespace propnet
                     );
                 }
 
-                roles.emplace_back(
-                    role_entry.at(ROLE_KEY).get<std::string>(),
-                    sees,
-                    legals,
-                    goals
-                );
+                const auto& role_name {role_entry.at(ROLE_KEY).get<std::string>()};
+                const auto is_random_role {role_name == RANDOM_PLAYER_NAME};
+                if (is_random_role)
+                {
+                    if (random_role.has_value())
+                    {
+                        throw std::logic_error {"Cannot be more than 1 random player"};
+                    }
+                    else
+                    {
+                        random_role.emplace(
+                            role_name,
+                            sees,
+                            legals,
+                            goals
+                        );
+                    }
+                }
+                else
+                {
+                    player_roles.emplace_back(
+                        role_name,
+                        sees,
+                        legals,
+                        goals
+                    );
+                }
             }
         }
         catch (const nlohmann::json::exception& error)
@@ -135,7 +156,8 @@ namespace propnet
     Propnet Parser::create_propnet()
     {
         return Propnet {
-            roles,
+            player_roles,
+            random_role,
             nodes,
             terminal.value(),
             topologically_sorted_nodes,

@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.11 FATAL_ERROR)
 set(Torch_DIR "~/libtorch/share/cmake/Torch")
 find_package(Torch REQUIRED)
 
-add_library(rebel STATIC src/bogo_sampler.cpp src/cfr.cpp src/naive_sampler.cpp src/lazy_training_sampler.cpp src/model.cpp) # src/eager_training_sampler.cpp
+add_library(rebel STATIC src/bogo_sampler.cpp src/cfr.cpp src/naive_sampler.cpp src/training_sampler.cpp src/model.cpp) # src/eager_training_sampler.cpp
 
 target_include_directories(rebel PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 

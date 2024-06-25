@@ -11,7 +11,8 @@ namespace propnet
         name {name},
         sees {sees},
         legals {legals},
-        goals {goals}
+        goals {goals},
+        role_id {allocate_role_id()}
     {}
 
     std::string_view Role::get_name() const
@@ -105,5 +106,18 @@ namespace propnet
     std::size_t Role::get_max_policy_size() const
     {
         return legals.size();
+    }
+
+    std::uint16_t Role::get_role_id() const
+    {
+        return role_id;
+    }
+
+    std::uint16_t Role::allocate_role_id()
+    {
+        static std::uint16_t role_counter {0u};
+        ++role_counter;
+
+        return role_counter;
     }
 }

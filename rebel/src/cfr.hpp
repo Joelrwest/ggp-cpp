@@ -26,8 +26,8 @@ namespace rebel
             const propnet::Propnet& propnet;
             std::span<const std::uint32_t> legal_inputs;
             propnet::State root_state;
-            std::vector<agents::RandomAgent> player_agents;
-            std::optional<agents::RandomAgent> random_agent;
+            std::vector<propnet::Role> player_roles;
+            std::optional<propnet::Role> random_role;
             misc::Cache<propnet::State, std::vector<double>, caches::LRUCachePolicy, STATE_CACHE_SIZE> state_cache; // TODO
     };
 }

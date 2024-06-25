@@ -33,15 +33,16 @@ namespace rebel
     class Model
     {
         public:
+            Model(const propnet::Propnet& propnet, std::string_view game);
+
             static constexpr auto MODELS_FOLDER_NAME {"models"};
             static constexpr auto TIME_LOG_FILE_NAME {"time-log.txt"};
 
-            // static Model create_new(const propnet::Propnet& propnet, std::string_view game);
             static Model load_most_recent(const propnet::Propnet& propnet, std::string_view game);
             static Model load_game_number(const propnet::Propnet& propnet, std::string_view game, int game_number);
 
             void eval() const; // TODO: What *exactly* do I want to take in and give back?
-            void save(int game_number);
+            void save(int game_number) const;
         private:
             static constexpr auto MODEL_NAME_BASE {"game-num-"};
             static constexpr auto GAME_NUMBER_WIDTH {6};

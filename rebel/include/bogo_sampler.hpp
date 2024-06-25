@@ -28,7 +28,7 @@ namespace rebel
             std::list<History> all_histories {};
             const propnet::Propnet& propnet;
             const propnet::Role sampler_role;
-            std::vector<agents::RandomAgent> player_agents;
-            std::optional<agents::RandomAgent> random_agent;
+            std::vector<propnet::Role> player_roles;
+            std::optional<propnet::Role> random_role;
     };
 }

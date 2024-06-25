@@ -1,5 +1,4 @@
 #include "cfr.hpp"
-#include "../src/opponent_factory.hpp"
 
 namespace rebel
 {
@@ -8,8 +7,8 @@ namespace rebel
         propnet {propnet},
         legal_inputs {legal_inputs},
         root_state {root_state},
-        player_agents {opponent_factory::create_player_agents<agents::RandomAgent>(propnet)},
-        random_agent {opponent_factory::try_create_random_agent(propnet)},
+        player_roles {propnet.get_player_roles()},
+        random_role {propnet.get_random_role()},
         state_cache {}
     {}
 

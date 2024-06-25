@@ -5,13 +5,15 @@ namespace propnet
 {
 
     Propnet::Propnet(
-        const std::vector<Role>& roles,
+        const std::vector<Role>& player_roles,
+        const std::optional<Role>& random_role,
         const std::vector<std::shared_ptr<const Node>>& nodes,
         std::uint32_t terminal,
         const std::vector<std::uint32_t>& topologically_sorted_nodes,
         const std::vector<std::uint32_t>& non_post_topologically_sorted_nodes
     ) :
-        roles {roles},
+        player_roles {player_roles},
+        random_role {random_role},
         nodes {nodes},
         terminal {terminal},
         topologically_sorted_nodes {topologically_sorted_nodes},
@@ -23,9 +25,30 @@ namespace propnet
         initial_state.set_not_is_initial();
     }
 
-    const std::vector<Role>& Propnet::get_roles() const
+    const std::vector<Role>& Propnet::get_player_roles() const
     {
-        return roles;
+        return player_roles;
+    }
+
+    std::vector<Role> Propnet::get_player_roles(std::uint16_t excluding_id) const
+    {
+        std::vector<Role> player_roles_excluding {};
+        std::copy_if(
+            player_roles.begin(),
+            player_roles.end(),
+            std::back_inserter(player_roles_excluding),
+            [excluding_id](const auto& role)
+            {
+                return role.get_role_id() == excluding_id;
+            }
+        );
+
+        return player_roles_excluding;
+    }
+
+    const std::optional<Role>& Propnet::get_random_role() const
+    {
+        return random_role;
     }
 
     void Propnet::take_sees_inputs(State& state, const InputSet& inputs) const
@@ -53,9 +76,14 @@ namespace propnet
         return nodes.size();
     }
 
-    std::size_t Propnet::num_roles() const
+    std::size_t Propnet::num_player_roles() const
     {
-        return roles.size();
+        return player_roles.size();
+    }
+
+    bool Propnet::is_randomness() const
+    {
+        return random_role.has_value();
     }
 
     void Propnet::take_inputs(State& state, const InputSet& inputs, const std::vector<std::uint32_t>& ids) const

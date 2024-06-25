@@ -19,8 +19,6 @@ namespace propnet
     class Parser
     {
         public:
-            static constexpr auto RANDOM_PLAYER_NAME {"random"};
-
             Parser(std::string_view game);
 
             Propnet create_propnet();
@@ -28,6 +26,7 @@ namespace propnet
             static constexpr auto GAMES_PATH {"games/json/"};
             static constexpr auto JSON_EXTENSION {"json"};
 
+            static constexpr auto RANDOM_PLAYER_NAME {"random"};
             static constexpr auto ROLES_KEY {"roles"};
             static constexpr auto ROLE_KEY {"role"};
             static constexpr auto GOAL_KEY {"goal"};
@@ -73,7 +72,8 @@ namespace propnet
             void add_entry(const nlohmann::json& entry);
             void add_proposition(std::uint32_t id, std::string_view type, std::string&& display, const nlohmann::json& entry);
 
-            std::vector<Role> roles {};
+            std::vector<Role> player_roles {};
+            std::optional<Role> random_role {std::nullopt};
             std::vector<std::shared_ptr<const Node>> nodes {};
             std::unordered_map<std::uint32_t, std::shared_ptr<const PropositionNode>> propositions {};
             std::optional<std::uint32_t> terminal {};

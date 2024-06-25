@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../../agents/include/agent.hpp"
-#include "lazy_training_sampler.hpp"
+#include "training_sampler.hpp"
 #include "../src/cfr.hpp"
 
 #include <iostream>
@@ -23,7 +23,7 @@ namespace rebel
         { sampler.add_history(observation, prev_input) } -> std::convertible_to<void>;
     };
 
-    template<DerivedSampler SamplerT = LazyTrainingSampler>
+    template<DerivedSampler SamplerT = TrainingSampler>
     class RebelAgent : public agents::Agent
     {
         private:

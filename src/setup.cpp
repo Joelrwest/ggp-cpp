@@ -68,16 +68,15 @@ namespace setup
     std::vector<std::unique_ptr<agents::Agent>> create_agents(const propnet::Propnet& propnet)
     {
         std::vector<std::unique_ptr<agents::Agent>> agents {};
-        for (const auto& role : propnet.get_roles())
+        for (const auto& player_role : propnet.get_player_roles())
         {
-            if (role.get_name() == propnet::Parser::RANDOM_PLAYER_NAME)
-            {
-                agents.push_back(std::make_unique<agents::RandomAgent>(role));
-            }
-            else
-            {
-                agents.push_back(std::move(create_agent(role, propnet)));
-            }
+            agents.push_back(std::move(create_agent(player_role, propnet)));
+        }
+
+        if (propnet.is_randomness())
+        {
+            const auto& random_role {propnet.get_random_role()};
+            agents.push_back(std::make_unique<agents::RandomAgent>(*random_role));
         }
 
         return agents;
