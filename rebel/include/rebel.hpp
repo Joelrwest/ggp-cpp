@@ -99,7 +99,7 @@ namespace rebel
                                 }
 
                                 const auto state {sampler.sample_state()};
-                                Cfr cfr {role, propnet, legal_inputs, std::move(state)};
+                                VanillaCfr cfr {role, propnet, legal_inputs, std::move(state)};
                                 const auto policy {cfr.search()};
 
                                 {
