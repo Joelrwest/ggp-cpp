@@ -132,7 +132,8 @@ namespace rebel
         models_path {get_models_path(game)},
         network {network},
         time_log_file {get_time_log_file_path(models_path)},
-        start_time_ms {get_time_ms()}
+        start_time_ms {get_time_ms()},
+        cache {}
     {}
 
     std::filesystem::path Model::get_models_path(std::string_view game)

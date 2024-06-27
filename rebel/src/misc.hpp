@@ -88,8 +88,8 @@ namespace rebel::misc
     };
 
     static std::mt19937 random_engine {std::random_device {}()};
-    template <typename T>
-    const T& sample_random(const std::vector<T>& population)
+    template<typename T>
+    const T::value_type& sample_random(const T& population)
     {
         std::uniform_int_distribution<> distribution (0, population.size() - 1);
         const auto idx {distribution(random_engine)};

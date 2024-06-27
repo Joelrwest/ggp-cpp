@@ -5,12 +5,34 @@ namespace rebel
     InformationSet::InformationSet() :
         policy (),
         regrets {},
-        next_information_sets {}
+        next_information_sets {},
+        previous_input {std::nullopt}
     {}
 
-    InformationSet& InformationSet::get_next_information_sets(std::uint32_t previous_input, const std::vector<bool>& observations)
+    InformationSet& InformationSet::get_next_information_set(const std::vector<bool>& observations)
     {
-        return *next_information_sets[previous_input][observations];
+        auto& next_information_set_ptr {next_information_sets[get_chosen_input()][observations]};
+        if (next_information_set_ptr == nullptr)
+        {
+            next_information_set_ptr = std::make_unique<InformationSet>();
+        }
+
+        return *next_information_set_ptr;
+    }
+
+    void InformationSet::choose_input(std::uint32_t input)
+    {
+        previous_input.emplace(input);
+    }
+
+    std::uint32_t InformationSet::get_chosen_input() const
+    {
+        if (!previous_input.has_value())
+        {
+            throw std::logic_error {"No previous input to go off of"};
+        }
+
+        return *previous_input;
     }
 
     const std::vector<double>& InformationSet::get_policy() const
@@ -24,8 +46,7 @@ namespace rebel
         legal_inputs {legal_inputs},
         root_state {root_state},
         player_roles {propnet.get_player_roles()},
-        random_role {propnet.get_random_role()},
-        state_cache {}
+        random_role {propnet.get_random_role()}
     {}
 
     std::vector<double> VanillaCfr::search()
@@ -49,8 +70,10 @@ namespace rebel
 
     MCCfr::MCCfr(const propnet::Propnet& propnet, const propnet::State& root_state) :
         propnet {propnet},
+        player_roles {propnet.get_player_roles()},
+        random_role {propnet.get_random_role()},
         root_state {root_state},
-        base_information_sets (propnet.num_player_roles())
+        base_information_sets (propnet.num_player_roles()) // TODO
     {}
 
     std::vector<std::vector<double>> MCCfr::search()
@@ -63,53 +86,51 @@ namespace rebel
 
         TODO: Remember to add pruning
         */
-        std::vector<RoleInformationSet> role_information_sets {};
-        const auto& roles {propnet.get_player_roles()};
-        auto roles_it {roles.begin()};
-        for (auto& base_information_set : base_information_sets)
+        std::unordered_map<propnet::Role::Id, std::reference_wrapper<InformationSet>> current_information_sets {};
+        for (auto& [role_id, base_information_set] : base_information_sets)
         {
-            role_information_sets.emplace_back(*roles_it, base_information_set);
-            ++roles_it;
+            current_information_sets.emplace(role_id, base_information_set);
         }
 
         for (std::size_t iteration_count {0}; iteration_count < NUM_ITERATIONS; ++iteration_count)
         {
-            if (iteration_count > 0)
-            {
-                // Make sure the information sets are back to the bases
-                auto base_information_set_it {base_information_sets.begin()};
-                for (auto& role_information_set : role_information_sets)
-                {
-                    role_information_set.information_set = *base_information_set_it;
-                    ++base_information_set_it;
-                }
-            }
+            /*
+            The iterator to the player whose turn it currently is.
+            This being equal to player_roles.end() signifies that it's randoms turn.
+            */
+            const auto& acting_role_it {player_roles.begin()};
 
-            search_impl(role_information_sets);
+            /*
+            The role that's currently traversing.
+            */
+            for (auto& traversing_role : player_roles)
+            {
+                search_impl(current_information_sets, traversing_role, acting_role_it, root_state);
+            }
         }
 
         std::vector<std::vector<double>> policies {};
         std::transform(
-            role_information_sets.begin(),
-            role_information_sets.end(),
+            base_information_sets.begin(),
+            base_information_sets.end(),
             std::back_inserter(policies),
-            [](const auto& role_information_set)
+            [](const auto& entry)
             {
-                return std::move(role_information_set.information_set.get().get_policy());
+                // TODO: This should be average policy, not the end policy
+                return std::move(entry.second.get_policy());
             }
         );
 
         return policies;
     }
 
-    MCCfr::RoleInformationSet::RoleInformationSet(const propnet::Role& role, InformationSet& information_set) :
-        role {role},
-        information_set {information_set}
-    {}
-
-    std::uint32_t MCCfr::search_impl(std::vector<RoleInformationSet>& role_information_sets)
+    std::int32_t MCCfr::search_impl(
+        std::unordered_map<propnet::Role::Id, std::reference_wrapper<InformationSet>>& current_information_sets,
+        propnet::Role& traversing_role,
+        std::vector<propnet::Role>::iterator acting_role_it,
+        propnet::State state
+    )
     {
-        (void)role_information_sets;
         /*
         1:  Initialize: ∀I ∈ I, ∀a ∈ A(I) : rI [a] ← sI [a] ← 0
         2:  ExternalSampling(h, i):
@@ -133,6 +154,47 @@ namespace rebel
         20:       sI [a] ← sI [a] + σ(I, a)
         21:     return u
         */
+
+        // If we just changed the state, check if it's terminal
+        const auto is_state_changed {acting_role_it == player_roles.begin()};
+        if (is_state_changed && propnet.is_game_over(state))
+        {
+            // Return the traversers utility here
+            return traversing_role.get_reward(state);
+        }
+
+        if (acting_role_it == player_roles.end())
+        {
+            /*
+            All players have already given their inputs,
+            time for random to act and then to transition to the next state.
+            */
+            std::unordered_set<std::uint32_t> inputs {};
+            if (random_role.has_value())
+            {
+                const auto randoms_inputs {random_role->get_legal_inputs(state)};
+                const auto randoms_input {misc::sample_random(randoms_inputs)};
+                inputs.insert(randoms_input);
+            }
+
+            for (const auto& [_, current_information_set] : current_information_sets)
+            {
+                const auto input {current_information_set.get().get_chosen_input()};
+                inputs.insert(input);
+            }
+        }
+
+        // Do regret matching, whatever that means
+
+        if (traversing_role.get_role_id() == acting_role_it->get_role_id())
+        {
+            //
+        }
+        else
+        {
+            //
+        }
+
         return 0;
     }
 }

@@ -69,15 +69,15 @@ namespace rebel
                 auto num_sampled {0};
                 std::mutex num_sampled_lock {};
 
-                std::vector<double> cum_policy (legal_inputs.size(), 0.0);
-                std::mutex cum_policy_lock {};
+                std::vector<double> cumulative_policy (legal_inputs.size(), 0.0);
+                std::mutex cumulative_policy_lock {};
 
                 const auto start_time {std::chrono::system_clock::now()};
                 const auto end_time {start_time + std::chrono::seconds(MAX_CFR_TIME_SECONDS)};
                 for (std::uint32_t thread_count {0}; thread_count < num_threads; ++thread_count)
                 {
                     threads.emplace_back(
-                        [this, &legal_inputs, &num_sampled, &num_sampled_lock, &cum_policy, &cum_policy_lock, end_time]
+                        [this, &legal_inputs, &num_sampled, &num_sampled_lock, &cumulative_policy, &cumulative_policy_lock, end_time]
                         {
                             while (true)
                             {
@@ -103,12 +103,12 @@ namespace rebel
                                 const auto policy {cfr.search()};
 
                                 {
-                                    const std::lock_guard<std::mutex> cum_policy_guard {cum_policy_lock};
+                                    const std::lock_guard<std::mutex> cumulative_policy_guard {cumulative_policy_lock};
                                     std::transform(
-                                        cum_policy.begin(),
-                                        cum_policy.end(),
+                                        cumulative_policy.begin(),
+                                        cumulative_policy.end(),
                                         policy.begin(),
-                                        cum_policy.begin(),
+                                        cumulative_policy.begin(),
                                         std::plus<double> {}
                                     );
                                 }
@@ -129,12 +129,12 @@ namespace rebel
                 std::uniform_real_distribution<double> policy_distribution (0.0, num_sampled);
                 const auto referee_selection {policy_distribution(random_engine)};
                 auto accumulation {0.0};
-                for (auto it {cum_policy.begin()}; it != cum_policy.end(); ++it)
+                for (auto it {cumulative_policy.begin()}; it != cumulative_policy.end(); ++it)
                 {
                     accumulation += *it;
                     if (accumulation > referee_selection)
                     {
-                        const auto input_number {std::distance(cum_policy.begin(), it)};
+                        const auto input_number {std::distance(cumulative_policy.begin(), it)};
                         return legal_inputs[input_number];
                     }
                 }

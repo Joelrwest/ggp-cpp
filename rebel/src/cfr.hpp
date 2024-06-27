@@ -16,7 +16,9 @@ namespace rebel
         public:
             InformationSet();
 
-            InformationSet& get_next_information_sets(std::uint32_t previous_input, const std::vector<bool>& observations);
+            InformationSet& get_next_information_set(const std::vector<bool>& observations);
+            void choose_input(std::uint32_t input);
+            std::uint32_t get_chosen_input() const;
             const std::vector<double>& get_policy() const;
         private:
             std::vector<double> policy;
@@ -25,6 +27,7 @@ namespace rebel
                 std::uint32_t,
                 std::unordered_map<std::vector<bool>, std::unique_ptr<InformationSet>>
             > next_information_sets;
+            std::optional<std::uint32_t> previous_input;
     };
 
     class VanillaCfr
@@ -45,7 +48,6 @@ namespace rebel
             propnet::State root_state;
             std::vector<propnet::Role> player_roles;
             std::optional<propnet::Role> random_role;
-            misc::Cache<propnet::State, std::vector<double>, caches::LRUCachePolicy, STATE_CACHE_SIZE> state_cache; // TODO
     };
 
     class MCCfr
@@ -55,20 +57,19 @@ namespace rebel
 
             std::vector<std::vector<double>> search();
         private:
-            static constexpr std::size_t NUM_ITERATIONS {100};
+            static constexpr std::size_t NUM_ITERATIONS {1000};
 
-            struct RoleInformationSet
-            {
-                RoleInformationSet(const propnet::Role& role, InformationSet& information_set);
-
-                propnet::Role role;
-                std::reference_wrapper<InformationSet> information_set;
-            };
-
-            std::uint32_t search_impl(std::vector<RoleInformationSet>& role_information_sets);
+            std::int32_t search_impl(
+                std::unordered_map<propnet::Role::Id, std::reference_wrapper<InformationSet>>& current_information_sets,
+                propnet::Role& traversing_role,
+                std::vector<propnet::Role>::iterator acting_role_it,
+                propnet::State current_state
+            );
 
             const propnet::Propnet& propnet;
+            std::vector<propnet::Role> player_roles {};
+            std::optional<propnet::Role> random_role {};
             propnet::State root_state;
-            std::vector<InformationSet> base_information_sets;
+            std::unordered_map<propnet::Role::Id, InformationSet> base_information_sets;
     };
 }

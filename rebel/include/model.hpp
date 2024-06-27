@@ -1,6 +1,8 @@
 #pragma once
 
 #include "../../propnet/include/propnet.hpp"
+#include "../src/misc.hpp"
+#include <lru_cache_policy.hpp>
 
 #include <torch/torch.h>
 
@@ -15,9 +17,11 @@ namespace rebel
     class Network : public torch::nn::Module
     {
         public:
+            using EvalT = std::pair<torch::Tensor, std::vector<torch::Tensor>>;
+
             Network(const propnet::Propnet& propnet);
 
-            std::pair<torch::Tensor, std::vector<torch::Tensor>> forward(torch::Tensor x);
+            EvalT forward(torch::Tensor x);
         private:
             static constexpr auto DROPOUT_ZERO_PROBABILITY {0.2};
             static constexpr auto SOFTMAX_DIMENSION {1}; // TODO: Not 100% sure about this
@@ -46,6 +50,7 @@ namespace rebel
         private:
             static constexpr auto MODEL_NAME_BASE {"game-num-"};
             static constexpr auto GAME_NUMBER_WIDTH {6};
+            static constexpr auto MODEL_CACHE_SIZE {10000};
             static constexpr auto MODEL_NAME_EXTENSION {".ckpt"};
 
             Model(const propnet::Propnet& propnet, std::string_view game, Network&& network);
@@ -64,5 +69,6 @@ namespace rebel
             Network network;
             std::ofstream time_log_file;
             std::chrono::milliseconds start_time_ms;
+            misc::Cache<propnet::State, Network::EvalT, caches::LRUCachePolicy, MODEL_CACHE_SIZE> cache;
     };
 }

@@ -108,14 +108,14 @@ namespace propnet
         return legals.size();
     }
 
-    std::uint16_t Role::get_role_id() const
+    Role::Id Role::get_role_id() const
     {
         return role_id;
     }
 
-    std::uint16_t Role::allocate_role_id()
+    Role::Id Role::allocate_role_id()
     {
-        static std::uint16_t role_counter {0u};
+        static Id role_counter {0u};
         ++role_counter;
 
         return role_counter;
