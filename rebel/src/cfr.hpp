@@ -14,15 +14,19 @@ namespace rebel
     class InformationSet
     {
         public:
-            InformationSet();
+            InformationSet(const std::vector<std::uint32_t>& legal_inputs);
 
-            InformationSet& get_next_information_set(const std::vector<bool>& observations);
+            InformationSet& get_next_information_set(const std::vector<bool>& observations, std::vector<std::uint32_t>&& legal_inputs);
             void choose_input(std::uint32_t input);
             std::uint32_t get_chosen_input() const;
-            const std::vector<double>& get_policy() const;
+            std::unordered_map<std::uint32_t, double> regret_match() const;
+
+            std::unordered_map<std::uint32_t, double> cumulative_policy; // TODO: I know it's bad style to have this public but meh
+            std::unordered_map<std::uint32_t, double> regrets;
         private:
-            std::vector<double> policy;
-            std::vector<double> regrets;
+            static std::unordered_map<std::uint32_t, double> make_zeroed_map(const std::vector<std::uint32_t>& legal_inputs);
+
+            bool is_choice; // TODO: Just to stop ourselves from doing too much if there's no choice
             std::unordered_map<
                 std::uint32_t,
                 std::unordered_map<std::vector<bool>, std::unique_ptr<InformationSet>>
@@ -55,15 +59,26 @@ namespace rebel
         public:
             MCCfr(const propnet::Propnet& propnet, const propnet::State& root_state);
 
-            std::vector<std::vector<double>> search();
+            std::vector<std::unordered_map<std::uint32_t, double>> search();
         private:
             static constexpr std::size_t NUM_ITERATIONS {1000};
 
-            std::int32_t search_impl(
+            double make_randoms_move(
                 std::unordered_map<propnet::Role::Id, std::reference_wrapper<InformationSet>>& current_information_sets,
                 propnet::Role& traversing_role,
-                std::vector<propnet::Role>::iterator acting_role_it,
-                propnet::State current_state
+                propnet::State& state
+            );
+
+            double make_traversers_move(
+                std::unordered_map<propnet::Role::Id, std::reference_wrapper<InformationSet>>& current_information_sets,
+                propnet::Role& traversing_role,
+                propnet::State& state
+            );
+
+            double make_non_traversers_moves(
+                std::unordered_map<propnet::Role::Id, std::reference_wrapper<InformationSet>>& current_information_sets,
+                propnet::Role& traversing_role,
+                propnet::State& state
             );
 
             const propnet::Propnet& propnet;

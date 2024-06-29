@@ -39,7 +39,7 @@ namespace propnet
             std::vector<std::uint32_t> get_legal_inputs(const State& state) const;
             void print_legal_inputs(std::span<const std::uint32_t> inputs) const;
             std::size_t get_max_policy_size() const;
-            Id get_role_id() const;
+            Id get_id() const;
         private:
             static constexpr auto MAX_DISPLAYED_OBSERVATIONS {20};
 

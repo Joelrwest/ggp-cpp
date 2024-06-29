@@ -39,7 +39,7 @@ namespace propnet
             std::back_inserter(player_roles_excluding),
             [excluding_id](const auto& role)
             {
-                return role.get_role_id() == excluding_id;
+                return role.get_id() == excluding_id;
             }
         );
 

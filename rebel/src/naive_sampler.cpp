@@ -6,7 +6,7 @@ namespace rebel
     NaiveSampler::NaiveSampler(const propnet::Role& sampler_role, const propnet::Propnet& propnet) :
         propnet {propnet},
         sampler_role {sampler_role},
-        player_roles {propnet.get_player_roles(sampler_role.get_role_id())},
+        player_roles {propnet.get_player_roles(sampler_role.get_id())},
         random_role {propnet.get_random_role()}
     {}
 

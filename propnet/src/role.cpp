@@ -108,7 +108,7 @@ namespace propnet
         return legals.size();
     }
 
-    Role::Id Role::get_role_id() const
+    Role::Id Role::get_id() const
     {
         return role_id;
     }
