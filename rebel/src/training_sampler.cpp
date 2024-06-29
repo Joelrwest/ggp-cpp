@@ -22,6 +22,11 @@ namespace rebel
         all_histories.emplace_back(observation, prev_input);
     }
 
+    void TrainingSampler::pop_history()
+    {
+        all_histories.pop_back();
+    }
+
     propnet::State TrainingSampler::sample_state()
     {
         if (all_histories.empty())
@@ -41,6 +46,18 @@ namespace rebel
         }
 
         return *state;
+    }
+
+    std::vector<propnet::State> TrainingSampler::sample_states(std::size_t num_states)
+    {
+        std::vector<propnet::State> states {};
+        std::generate_n(
+            std::back_inserter(states),
+            num_states,
+            sample_state
+        );
+
+        return states;
     }
 
     TrainingSampler::History::History(const std::vector<bool>& observation, std::uint32_t prev_input) :

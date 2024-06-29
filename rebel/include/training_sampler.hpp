@@ -5,7 +5,7 @@
 
 #include <tuple>
 #include <shared_mutex>
-#include <list>
+#include <deque>
 
 namespace rebel
 {
@@ -16,9 +16,10 @@ namespace rebel
 
             void prepare_new_game();
             void add_history(const std::vector<bool>& observation, std::uint32_t prev_input);
+            void pop_history();
             propnet::State sample_state();
+            std::vector<propnet::State> sample_states(std::size_t num_states);
         private:
-
             struct History
             {
                 History(const std::vector<bool>& observation, std::uint32_t prev_input);
@@ -33,7 +34,7 @@ namespace rebel
                 std::shared_mutex invalid_inputs_cache_lock;
             };
 
-            std::list<History> all_histories {};
+            std::deque<History> all_histories {};
             const propnet::Propnet& propnet;
             const propnet::Role& sampler_role;
             std::vector<propnet::Role> player_roles;

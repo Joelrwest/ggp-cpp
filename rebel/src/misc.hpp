@@ -96,6 +96,24 @@ namespace rebel::misc
         return population[idx];
     }
 
+    template<typename T>
+    T sample_policy(const std::unordered_map<T, double>& policy)
+    {
+        static std::uniform_real_distribution<double> distribution (0.0, 1.0);
+        const auto choice {distribution(random_engine)};
+        double accumulation {0.0};
+        for (const auto& [key, probability] : policy)
+        {
+            accumulation += probability;
+            if (choice < accumulation)
+            {
+                return key;
+            }
+        }
+
+        throw std::runtime_error {"Policy did not sum to 1.0"};
+    }
+
     /*
     Hacky way to get access to the clear method,
     since it's protected in the implementation...
