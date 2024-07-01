@@ -231,3 +231,4 @@ pyrightconfig.json
 # Executables
 play
 train
+debug

@@ -2,7 +2,6 @@
 #include "../propnet/include/vector_state.hpp"
 #include "../rebel/include/naive_sampler.hpp"
 #include "../rebel/include/rebel.hpp"
-#include "../rebel/include/cfr.hpp"
 #include "setup.hpp"
 
 #include <iostream>
@@ -25,21 +24,6 @@ int main(void)
 
         while (!propnet.is_game_over(state))
         {
-            // Do MCCFR on the state
-            int count {0};
-            const auto joint_policy {rebel::MCCfr {propnet, state}.search()};
-            for (const auto& policy : joint_policy)
-            {
-                ++count;
-                std::cout << "Policy " << count << ":\n";
-                for (const auto& [input, probability] : policy)
-                {
-                    std::cout << "input = " << input << ", probability = " << probability << '\n';
-                }
-                std::cout << '\n';
-            }
-            std::cout << "\n\n";
-
             propnet::InputSet inputs {};
             for (const auto& agent : agents)
             {

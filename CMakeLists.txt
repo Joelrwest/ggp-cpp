@@ -53,6 +53,10 @@ target_link_libraries(train PUBLIC rebel)
 target_link_libraries(train PUBLIC Boost::program_options)
 target_link_libraries(train PRIVATE torch)
 
+add_executable(debug src/debug.cpp src/setup.cpp)
+target_link_libraries(debug PUBLIC propnet)
+target_link_libraries(debug PUBLIC rebel)
+
 if(MSVC)
   target_compile_options(train PRIVATE /W4 /WX)
 else()

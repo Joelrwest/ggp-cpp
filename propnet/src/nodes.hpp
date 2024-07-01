@@ -1,7 +1,7 @@
 #pragma once
 
-#include "vector_state.hpp"
-#include "input_set.hpp"
+#include "../include/vector_state.hpp"
+#include "../include/input_set.hpp"
 
 #include <cstdint>
 #include <memory>

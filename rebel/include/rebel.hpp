@@ -98,20 +98,21 @@ namespace rebel
                                     ++num_sampled;
                                 }
 
-                                const auto state {sampler.sample_state()};
-                                VanillaCfr cfr {role, propnet, legal_inputs, std::move(state)};
-                                const auto policy {cfr.search()};
+                                // TODO
+                                // const auto state {sampler.sample_state()};
+                                // VanillaCfr cfr {role, propnet, legal_inputs, std::move(state)};
+                                // const auto policy {cfr.search()};
 
-                                {
-                                    const std::lock_guard<std::mutex> cumulative_policy_guard {cumulative_policy_lock};
-                                    std::transform(
-                                        cumulative_policy.begin(),
-                                        cumulative_policy.end(),
-                                        policy.begin(),
-                                        cumulative_policy.begin(),
-                                        std::plus<double> {}
-                                    );
-                                }
+                                // {
+                                //     const std::lock_guard<std::mutex> cumulative_policy_guard {cumulative_policy_lock};
+                                //     std::transform(
+                                //         cumulative_policy.begin(),
+                                //         cumulative_policy.end(),
+                                //         policy.begin(),
+                                //         cumulative_policy.begin(),
+                                //         std::plus<double> {}
+                                //     );
+                                // }
                             }
                         }
                     );

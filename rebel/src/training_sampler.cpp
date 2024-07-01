@@ -54,7 +54,10 @@ namespace rebel
         std::generate_n(
             std::back_inserter(states),
             num_states,
-            sample_state
+            [this]()
+            {
+                return sample_state();
+            }
         );
 
         return states;

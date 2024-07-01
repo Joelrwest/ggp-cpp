@@ -15,7 +15,7 @@ namespace rebel
     class InformationSet
     {
         public:
-            InformationSet(std::vector<std::uint32_t>&& legal_inputs, std::vector<propnet::State>&& sampled_states);
+            InformationSet(const std::vector<std::uint32_t>& legal_inputs);
 
             InformationSet& get_next_information_set(const std::vector<bool>& observations, const propnet::Role& player_role, const propnet::State& state);
             void choose_input(std::uint32_t input);
@@ -28,7 +28,6 @@ namespace rebel
         private:
             static std::unordered_map<std::uint32_t, double> make_zeroed_map(const std::vector<std::uint32_t>& legal_inputs);
 
-            bool is_choice; // TODO: Just to stop ourselves from doing too much if there's no choice
             std::unordered_map<
                 std::uint32_t,
                 std::unordered_map<std::vector<bool>, std::unique_ptr<InformationSet>>
@@ -37,58 +36,38 @@ namespace rebel
             std::vector<propnet::State> sampled_states;
     };
 
-    class VanillaCfr
-    {
-        public:
-            VanillaCfr(const propnet::Role& cfr_role, const propnet::Propnet& propnet, std::span<const std::uint32_t> legal_inputs, propnet::State root_state);
-
-            std::vector<double> search();
-        private:
-            static constexpr auto MAX_DEPTH {20};
-            static constexpr auto STATE_CACHE_SIZE {2000};
-
-            std::vector<double> search(std::uint32_t depth);
-
-            const propnet::Role& cfr_role;
-            const propnet::Propnet& propnet;
-            std::span<const std::uint32_t> legal_inputs;
-            propnet::State root_state;
-            std::vector<propnet::Role> player_roles;
-            std::optional<propnet::Role> random_role;
-    };
-
     class MCCfr
     {
         public:
             MCCfr(const propnet::Propnet& propnet);
 
-            void add_history(std::uint32_t role_id, const std::vector<bool>& observation, std::uint32_t prev_input);
-            std::vector<std::unordered_map<std::uint32_t, double>> search();
+            std::vector<std::unordered_map<std::uint32_t, double>> search(const propnet::State& state);
         private:
             static constexpr std::size_t NUM_ITERATIONS {10000};
             static constexpr auto NUM_SAMPLED_STATES {20};
 
             double make_traversers_move(
                 std::unordered_map<propnet::Role::Id, std::reference_wrapper<InformationSet>>& current_information_sets,
-                propnet::Role& traversing_role
+                propnet::Role& traversing_role,
+                propnet::State& state
             );
 
             double make_non_traversers_moves(
                 std::unordered_map<propnet::Role::Id, std::reference_wrapper<InformationSet>>& current_information_sets,
-                propnet::Role& traversing_role
+                propnet::Role& traversing_role,
+                propnet::State& state
             );
 
             double make_randoms_move(
                 std::unordered_map<propnet::Role::Id, std::reference_wrapper<InformationSet>>& current_information_sets,
-                propnet::Role& traversing_role
+                propnet::Role& traversing_role,
+                propnet::State& state
             );
 
-            std::unordered_map<propnet::Role::Id, InformationSet> create_base_information_sets();
+            std::unordered_map<propnet::Role::Id, InformationSet> create_base_information_sets(const propnet::State& state);
 
             const propnet::Propnet& propnet;
             std::vector<propnet::Role> player_roles;
             std::optional<propnet::Role> random_role;
-            std::vector<TrainingSampler> samplers;
-            std::unordered_map<propnet::Role::Id, InformationSet> base_information_sets;
     };
 }

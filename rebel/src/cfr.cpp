@@ -2,13 +2,11 @@
 
 namespace rebel
 {
-    InformationSet::InformationSet(std::vector<std::uint32_t>&& legal_inputs, std::vector<propnet::State>&& sampled_states) :
+    InformationSet::InformationSet(const std::vector<std::uint32_t>& legal_inputs) :
         cumulative_policy {make_zeroed_map(legal_inputs)},
         regrets {make_zeroed_map(legal_inputs)},
-        is_choice {legal_inputs.size() > 1},
         next_information_sets {},
-        previous_input {std::nullopt},
-        sampled_states {sampled_states}
+        previous_input {std::nullopt}
     {}
 
     InformationSet& InformationSet::get_next_information_set(const std::vector<bool>& observations, const propnet::Role& player_role, const propnet::State& state)
@@ -88,46 +86,13 @@ namespace rebel
         return regrets;
     }
 
-    VanillaCfr::VanillaCfr(const propnet::Role& cfr_role, const propnet::Propnet& propnet, std::span<const std::uint32_t> legal_inputs, propnet::State root_state) :
-        cfr_role {cfr_role},
-        propnet {propnet},
-        legal_inputs {legal_inputs},
-        root_state {root_state},
-        player_roles {propnet.get_player_roles()},
-        random_role {propnet.get_random_role()}
-    {}
-
-    std::vector<double> VanillaCfr::search()
-    {
-        return search(0);
-    }
-
-    std::vector<double> VanillaCfr::search(std::uint32_t depth)
-    {
-        /*
-        Using pseudocode from:
-        https://arxiv.org/pdf/1303.4441v1
-        */
-        /*
-        r = ~0; probs = ~0; cfv = ~0;
-        */
-        (void)depth;
-
-        return std::vector<double> (legal_inputs.size(), 0.0);
-    }
-
     MCCfr::MCCfr(const propnet::Propnet& propnet) :
         propnet {propnet},
         player_roles {propnet.get_player_roles()},
         random_role {propnet.get_random_role()}
     {}
 
-    void MCCfr::add_history(std::uint32_t role_id, const std::vector<bool>& observation, std::uint32_t prev_input)
-    {
-        samplers.at(role_id).add_history(observation, prev_input);
-    }
-
-    std::vector<std::unordered_map<std::uint32_t, double>> MCCfr::search()
+    std::vector<std::unordered_map<std::uint32_t, double>> MCCfr::search(const propnet::State& state)
     {
         /*
         Psuedocode from:
@@ -137,7 +102,7 @@ namespace rebel
 
         TODO: Remember to add pruning
         */
-        auto base_information_sets {create_base_information_sets()};
+        auto base_information_sets {create_base_information_sets(state)};
         std::unordered_map<propnet::Role::Id, std::reference_wrapper<InformationSet>> current_information_sets {};
         for (auto& [role_id, base_information_set] : base_information_sets)
         {
@@ -151,7 +116,8 @@ namespace rebel
             */
             for (auto& traversing_role : player_roles)
             {
-                make_traversers_move(current_information_sets, traversing_role);
+                auto state_copy {state};
+                make_traversers_move(current_information_sets, traversing_role, state_copy);
             }
         }
 
@@ -179,6 +145,7 @@ namespace rebel
     double MCCfr::make_traversers_move(
         std::unordered_map<propnet::Role::Id, std::reference_wrapper<InformationSet>>& current_information_sets,
         propnet::Role& traversing_role,
+        propnet::State& state
     )
     {
         const auto id {traversing_role.get_id()};
@@ -207,7 +174,8 @@ namespace rebel
 
     double MCCfr::make_non_traversers_moves(
         std::unordered_map<propnet::Role::Id, std::reference_wrapper<InformationSet>>& current_information_sets,
-        propnet::Role& traversing_role
+        propnet::Role& traversing_role,
+        propnet::State& state
     )
     {
         for (const auto& player_role : player_roles)
@@ -235,7 +203,8 @@ namespace rebel
 
     double MCCfr::make_randoms_move(
         std::unordered_map<propnet::Role::Id, std::reference_wrapper<InformationSet>>& current_information_sets,
-        propnet::Role& traversing_role
+        propnet::Role& traversing_role,
+        propnet::State& state
     )
     {
         /*
@@ -294,16 +263,15 @@ namespace rebel
         return make_traversers_move(next_information_sets, traversing_role, state);
     }
 
-    std::unordered_map<propnet::Role::Id, InformationSet> MCCfr::create_base_information_sets()
+    std::unordered_map<propnet::Role::Id, InformationSet> MCCfr::create_base_information_sets(const propnet::State& state)
     {
         std::unordered_map<propnet::Role::Id, InformationSet> base_information_sets {};
         for (const auto& role : propnet.get_player_roles())
         {
             const auto id {role.get_id()};
-            auto& sampler {samplers.at(id)};
-            const auto states {sampler.sample_states(NUM_SAMPLED_STATES)}; // TODO: Do I need to include legals in the observations?
-            const auto legal_inputs {role.get_legal_inputs(states.front())};
-            base_information_sets.emplace(id, std::move(legal_inputs), std::move(states));
+
+            const auto legal_inputs {role.get_legal_inputs(state)};
+            base_information_sets.emplace(id, std::move(legal_inputs));
         }
 
         return base_information_sets;
