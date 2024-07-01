@@ -28,6 +28,7 @@ namespace rebel
         private:
             static std::unordered_map<std::uint32_t, double> make_zeroed_map(const std::vector<std::uint32_t>& legal_inputs);
 
+            bool is_choice;
             std::unordered_map<
                 std::uint32_t,
                 std::unordered_map<std::vector<bool>, std::unique_ptr<InformationSet>>
@@ -43,8 +44,7 @@ namespace rebel
 
             std::vector<std::unordered_map<std::uint32_t, double>> search(const propnet::State& state);
         private:
-            static constexpr std::size_t NUM_ITERATIONS {10000};
-            static constexpr auto NUM_SAMPLED_STATES {20};
+            static constexpr std::size_t NUM_ITERATIONS {1000};
 
             double make_traversers_move(
                 std::unordered_map<propnet::Role::Id, std::reference_wrapper<InformationSet>>& current_information_sets,

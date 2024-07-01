@@ -3,8 +3,9 @@
 namespace rebel
 {
     InformationSet::InformationSet(const std::vector<std::uint32_t>& legal_inputs) :
+        is_choice {legal_inputs.size() > 1},
         cumulative_policy {make_zeroed_map(legal_inputs)},
-        regrets {make_zeroed_map(legal_inputs)},
+        regrets {is_choice ? make_zeroed_map(legal_inputs) : std::unordered_map<uint32_t, double> {}},
         next_information_sets {},
         previous_input {std::nullopt}
     {}
@@ -116,6 +117,7 @@ namespace rebel
             */
             for (auto& traversing_role : player_roles)
             {
+                std::cout << iteration_count << '\n';
                 auto state_copy {state};
                 make_traversers_move(current_information_sets, traversing_role, state_copy);
             }
@@ -130,9 +132,24 @@ namespace rebel
             [num_players](auto& entry)
             {
                 auto& cumulative_policy {entry.second.cumulative_policy};
+                const auto cumulative_policy_sum {std::accumulate(
+                    cumulative_policy.begin(),
+                    cumulative_policy.end(),
+                    0.0,
+                    [](const auto accumulation, const auto pair)
+                    {
+                        return accumulation + pair.second;
+                    }
+                )};
+
+                if (cumulative_policy_sum == 0.0)
+                {
+                    throw std::logic_error {"Nothing recorded in cumulative policy"};
+                }
+
                 for (auto& [input, probability] : cumulative_policy)
                 {
-                    probability /= NUM_ITERATIONS * num_players * cumulative_policy.size(); // TODO: What do I actually need to divide by?
+                    probability /= cumulative_policy_sum;
                 }
 
                 return std::move(cumulative_policy);
@@ -184,6 +201,11 @@ namespace rebel
             Choose a move for each role according to the regret matching
             */
             const auto id {player_role.get_id()};
+            if (id == traversing_role.get_id())
+            {
+                continue;
+            }
+
             auto& current_information_set {current_information_sets.at(id).get()};
             const auto regret_matched_policy {current_information_set.regret_match()};
             const auto chosen_input {misc::sample_policy(regret_matched_policy)};
