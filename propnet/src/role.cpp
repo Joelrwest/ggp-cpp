@@ -116,8 +116,7 @@ namespace propnet
     Role::Id Role::allocate_role_id()
     {
         static Id role_counter {0u};
-        ++role_counter;
 
-        return role_counter;
+        return role_counter++;
     }
 }

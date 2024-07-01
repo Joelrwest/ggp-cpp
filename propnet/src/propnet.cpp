@@ -20,6 +20,11 @@ namespace propnet
         non_post_topologically_sorted_nodes {non_post_topologically_sorted_nodes},
         initial_state {nodes.size()}
     {
+        if (player_roles.empty())
+        {
+            throw std::runtime_error {"Game loaded has no players"};
+        }
+
         take_sees_inputs(initial_state, EMPTY_INPUTS);
         take_non_sees_inputs(initial_state, EMPTY_INPUTS);
         initial_state.set_not_is_initial();

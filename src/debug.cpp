@@ -1,30 +1,29 @@
-#include "../rebel/include/cfr.hpp"
+#include "../rebel/include/search.hpp"
 #include "setup.hpp"
 
 #include <iostream>
 
+static constexpr auto BENCHMARK_GAME {"montyhall"};
+
 int main(void)
 {
-    const propnet::Propnet propnet {setup::load_propnet()};
+    const propnet::Propnet propnet {setup::load_propnet(BENCHMARK_GAME)};
     std::cout << "Size of propnet = " << propnet.size() << '\n';
-    rebel::MCCfr mccfr {propnet};
+    rebel::search::MCCfr mccfr {propnet};
     const auto initial_state {propnet.create_initial_state()};
-    for (auto search_count {0}; search_count < 10; ++search_count)
+    int policy_count {0};
+    const auto joint_policy {mccfr.search(initial_state)};
+    for (const auto& policy : joint_policy)
     {
-        int polcy_count {0};
-        const auto joint_policy {mccfr.search(initial_state)};
-        for (const auto& policy : joint_policy)
+        ++policy_count;
+        std::cout << "Policy " << policy_count << ":\n";
+        for (const auto& [input, probability] : policy)
         {
-            ++polcy_count;
-            std::cout << "Policy " << polcy_count << ":\n";
-            for (const auto& [input, probability] : policy)
-            {
-                std::cout << "input = " << input << ", probability = " << probability << '\n';
-            }
-            std::cout << '\n';
+            std::cout << "input = " << input << ", probability = " << probability << '\n';
         }
-        std::cout << "\n\n";
+        std::cout << '\n';
     }
+    std::cout << "\n\n";
 
     return 0;
 }

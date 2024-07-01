@@ -1,11 +1,10 @@
-#include "cfr.hpp"
+#include "search.hpp"
 
-namespace rebel
+namespace rebel::search
 {
     InformationSet::InformationSet(const std::vector<std::uint32_t>& legal_inputs) :
-        is_choice {legal_inputs.size() > 1},
         cumulative_policy {make_zeroed_map(legal_inputs)},
-        regrets {is_choice ? make_zeroed_map(legal_inputs) : std::unordered_map<uint32_t, double> {}},
+        regrets {make_zeroed_map(legal_inputs)},
         next_information_sets {},
         previous_input {std::nullopt}
     {}
@@ -104,10 +103,10 @@ namespace rebel
         TODO: Remember to add pruning
         */
         auto base_information_sets {create_base_information_sets(state)};
-        std::unordered_map<propnet::Role::Id, std::reference_wrapper<InformationSet>> current_information_sets {};
-        for (auto& [role_id, base_information_set] : base_information_sets)
+        std::vector<std::reference_wrapper<InformationSet>> current_information_sets {};
+        for (auto& base_information_set : base_information_sets)
         {
-            current_information_sets.emplace(role_id, base_information_set);
+            current_information_sets.emplace_back(base_information_set);
         }
 
         for (std::size_t iteration_count {0}; iteration_count < NUM_ITERATIONS; ++iteration_count)
@@ -117,9 +116,13 @@ namespace rebel
             */
             for (auto& traversing_role : player_roles)
             {
-                std::cout << iteration_count << '\n';
                 auto state_copy {state};
                 make_traversers_move(current_information_sets, traversing_role, state_copy);
+            }
+
+            if (iteration_count % 5 == 0)
+            {
+                std::cout << "iteration count = " << iteration_count << '\n';
             }
         }
 
@@ -131,7 +134,7 @@ namespace rebel
             std::back_inserter(policies),
             [num_players](auto& entry)
             {
-                auto& cumulative_policy {entry.second.cumulative_policy};
+                auto& cumulative_policy {entry.cumulative_policy};
                 const auto cumulative_policy_sum {std::accumulate(
                     cumulative_policy.begin(),
                     cumulative_policy.end(),
@@ -160,7 +163,7 @@ namespace rebel
     }
 
     double MCCfr::make_traversers_move(
-        std::unordered_map<propnet::Role::Id, std::reference_wrapper<InformationSet>>& current_information_sets,
+        std::vector<std::reference_wrapper<InformationSet>>& current_information_sets,
         propnet::Role& traversing_role,
         propnet::State& state
     )
@@ -190,7 +193,7 @@ namespace rebel
     }
 
     double MCCfr::make_non_traversers_moves(
-        std::unordered_map<propnet::Role::Id, std::reference_wrapper<InformationSet>>& current_information_sets,
+        std::vector<std::reference_wrapper<InformationSet>>& current_information_sets,
         propnet::Role& traversing_role,
         propnet::State& state
     )
@@ -220,11 +223,11 @@ namespace rebel
             }
         }
 
-        return make_randoms_move(current_information_sets, traversing_role, state);
+        return next_state(current_information_sets, traversing_role, state);
     }
 
-    double MCCfr::make_randoms_move(
-        std::unordered_map<propnet::Role::Id, std::reference_wrapper<InformationSet>>& current_information_sets,
+    double MCCfr::next_state(
+        std::vector<std::reference_wrapper<InformationSet>>& current_information_sets,
         propnet::Role& traversing_role,
         propnet::State& state
     )
@@ -241,7 +244,7 @@ namespace rebel
             inputs.insert(randoms_input);
         }
 
-        for (const auto& [_, current_information_set] : current_information_sets)
+        for (const auto& current_information_set : current_information_sets)
         {
             const auto input {current_information_set.get().get_chosen_input()};
             inputs.insert(input);
@@ -270,7 +273,7 @@ namespace rebel
         }
 
         auto all_observations_it {all_observations.begin()};
-        std::unordered_map<propnet::Role::Id, std::reference_wrapper<InformationSet>> next_information_sets {};
+        std::vector<std::reference_wrapper<InformationSet>> next_information_sets {};
         for (const auto& role : player_roles)
         {
             const auto id {role.get_id()};
@@ -278,22 +281,20 @@ namespace rebel
             auto& current_information_set {current_information_sets.at(id).get()};
 
             auto& next_information_set {current_information_set.get_next_information_set(*all_observations_it, role, state)};
-            next_information_sets.emplace(id, next_information_set);
+            next_information_sets.emplace_back(next_information_set);
             ++all_observations_it;
         }
 
         return make_traversers_move(next_information_sets, traversing_role, state);
     }
 
-    std::unordered_map<propnet::Role::Id, InformationSet> MCCfr::create_base_information_sets(const propnet::State& state)
+    std::vector<InformationSet> MCCfr::create_base_information_sets(const propnet::State& state)
     {
-        std::unordered_map<propnet::Role::Id, InformationSet> base_information_sets {};
+        std::vector<InformationSet> base_information_sets {};
         for (const auto& role : propnet.get_player_roles())
         {
-            const auto id {role.get_id()};
-
             const auto legal_inputs {role.get_legal_inputs(state)};
-            base_information_sets.emplace(id, std::move(legal_inputs));
+            base_information_sets.emplace_back(std::move(legal_inputs));
         }
 
         return base_information_sets;

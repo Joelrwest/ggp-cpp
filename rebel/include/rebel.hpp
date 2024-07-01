@@ -2,7 +2,7 @@
 
 #include "../../agents/include/agent.hpp"
 #include "training_sampler.hpp"
-#include "../include/cfr.hpp"
+#include "../include/search.hpp"
 
 #include <iostream>
 #include <concepts>

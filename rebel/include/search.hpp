@@ -10,7 +10,7 @@
 #include <cstdint>
 #include <memory>
 
-namespace rebel
+namespace rebel::search
 {
     class InformationSet
     {
@@ -28,7 +28,6 @@ namespace rebel
         private:
             static std::unordered_map<std::uint32_t, double> make_zeroed_map(const std::vector<std::uint32_t>& legal_inputs);
 
-            bool is_choice;
             std::unordered_map<
                 std::uint32_t,
                 std::unordered_map<std::vector<bool>, std::unique_ptr<InformationSet>>
@@ -47,24 +46,24 @@ namespace rebel
             static constexpr std::size_t NUM_ITERATIONS {1000};
 
             double make_traversers_move(
-                std::unordered_map<propnet::Role::Id, std::reference_wrapper<InformationSet>>& current_information_sets,
+                std::vector<std::reference_wrapper<InformationSet>>& current_information_sets,
                 propnet::Role& traversing_role,
                 propnet::State& state
             );
 
             double make_non_traversers_moves(
-                std::unordered_map<propnet::Role::Id, std::reference_wrapper<InformationSet>>& current_information_sets,
+                std::vector<std::reference_wrapper<InformationSet>>& current_information_sets,
                 propnet::Role& traversing_role,
                 propnet::State& state
             );
 
-            double make_randoms_move(
-                std::unordered_map<propnet::Role::Id, std::reference_wrapper<InformationSet>>& current_information_sets,
+            double next_state(
+                std::vector<std::reference_wrapper<InformationSet>>& current_information_sets,
                 propnet::Role& traversing_role,
                 propnet::State& state
             );
 
-            std::unordered_map<propnet::Role::Id, InformationSet> create_base_information_sets(const propnet::State& state);
+            std::vector<InformationSet> create_base_information_sets(const propnet::State& state);
 
             const propnet::Propnet& propnet;
             std::vector<propnet::Role> player_roles;
