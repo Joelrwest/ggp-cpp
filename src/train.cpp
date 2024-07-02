@@ -22,7 +22,8 @@ static constexpr auto BATCH_SIZE {20};
 
 std::function<bool()> get_time_limit_function(std::optional<unsigned int> time_limit);
 std::string to_readable_time(const std::chrono::time_point<std::chrono::system_clock>& time_point);
-void train(unsigned int total_num_threads, const std::function<bool()>& time_limit_function, std::string_view game);
+void train(unsigned int num_concurrent_games, const std::function<bool()>& time_limit_function, std::string_view game);
+void train_batch(unsigned int num_concurrent_games, const propnet::Propnet& propnet, rebel::ReplayBuffer& replay_buffer);
 
 class TimeLimit
 {
@@ -83,8 +84,9 @@ int main(int argc, char** argv)
         is_time_limit ? std::optional<unsigned int> {time_limit} : std::nullopt
     )};
 
+    const auto num_concurrent_games {total_num_threads + 1}; // Cheeky + 1
     train(
-        total_num_threads,
+        num_concurrent_games,
         time_limit_function,
         game
     );
@@ -123,48 +125,60 @@ std::string to_readable_time(const std::chrono::time_point<std::chrono::system_c
     return readable_time.str();
 }
 
-void train(unsigned int total_num_threads, const std::function<bool()>& time_limit_function, std::string_view game)
+void train(unsigned int num_concurrent_games, const std::function<bool()>& time_limit_function, std::string_view game)
 {
-    (void)total_num_threads;
-    (void)time_limit_function;
     const auto propnet {setup::load_propnet(game)};
+    rebel::ReplayBuffer replay_buffer {};
+    while (time_limit_function())
+    {
+        train_batch(num_concurrent_games, propnet, replay_buffer);
+    }
+}
 
-    const auto num_threads_per_game {2}; // TODO: Profile this, see if more would be sufficient
-    const auto num_concurrent_games {total_num_threads / num_threads_per_game + 1}; // Cheeky + 1
+void train_batch(unsigned int num_concurrent_games, const propnet::Propnet& propnet, rebel::ReplayBuffer& replay_buffer)
+{
+    (void)propnet; // TODO
+    auto remaining_games {BATCH_SIZE};
+    std::mutex remaining_games_lock {};
+
     std::vector<std::thread> threads {};
-    auto model {rebel::Model {propnet, game}};
     for (auto thread_count {0u}; thread_count < num_concurrent_games; ++thread_count)
     {
-        threads.emplace_back([&propnet, &time_limit_function, &model]() {
-            // train(propnet, time_limit_function);
-        });
+        threads.emplace_back([&remaining_games, &remaining_games_lock, &replay_buffer]()
+            {
+                while (true)
+                {
+                    {
+                        std::lock_guard remaining_games_guard {remaining_games_lock};
+                        if (remaining_games == 0)
+                        {
+                            return;
+                        }
+
+                        --remaining_games;
+                    }
+
+                    // Reinitialise game state
+                    // while Game not finished do
+                        // Perform CFR on current game state
+                        // Add triple of (state, π, q) to the replay buffer
+                        // ▷ π and q represent the policies and values for all agents
+                        // for each agent do
+                            // Perform CFR on states sampled with this agent’s history
+                            // Make moves proportionally to new policy probabilities
+                        // end for
+                        // Sample and train neural network on 20 mini-batches from replay buffer
+                    // end while
+
+                    std::this_thread::sleep_for(std::chrono::seconds(1));
+                    std::cout << "Training!\n";
+                }
+            }
+        );
     }
 
-    std::for_each(
-        threads.begin(),
-        threads.end(),
-        [](auto& thread) { thread.join(); }
-    );
-    (void)propnet;
-    (void)time_limit_function;
-    std::this_thread::sleep_for(std::chrono::seconds(1));
-    std::cout << "Training!\n";
-
-    std::thread actual_state_cfr_thread {[]() {
-        return;
-    }};
-
-    actual_state_cfr_thread.join();
-
-    // Reinitialise game state
-    // while Game not finished do
-        // Perform CFR on current game state
-        // Add triple of (state, π, q) to the replay buffer
-        // ▷ π and q represent the policies and values for all agents
-        // for each agent do
-            // Perform CFR on states sampled with this agent’s history
-            // Make moves proportionally to new policy probabilities
-        // end for
-        // Sample and train neural network on 20 mini-batches from replay buffer
-    // end while
+    for (auto& thread : threads)
+    {
+        thread.join();
+    }
 }

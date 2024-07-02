@@ -6,6 +6,27 @@
 
 namespace rebel
 {
+    ReplayBuffer::ReplayBuffer() : buffer {} {}
+
+    ReplayBuffer::Item::Item(propnet::State state, std::unordered_map<std::uint32_t, double> policy) :
+        state {state},
+        policy {policy}
+    {}
+
+    std::vector<ReplayBuffer::Item> ReplayBuffer::sample(std::size_t sample_size) const
+    {
+        std::vector<ReplayBuffer::Item> sample {};
+        std::sample(
+            buffer.begin(),
+            buffer.end(),
+            std::back_inserter(sample),
+            sample_size,
+            std::mt19937 {std::random_device {}()}
+        );
+
+        return sample;
+    }
+
     Network::Network(const propnet::Propnet& propnet) :
         input_size {propnet.size()},
         hidden_layer_size {input_size},

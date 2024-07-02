@@ -14,6 +14,34 @@
 
 namespace rebel
 {
+    class ReplayBuffer
+    {
+        public:
+            ReplayBuffer();
+
+            struct Item
+            {
+                Item(propnet::State state, std::unordered_map<std::uint32_t, double> policy);
+
+                propnet::State state;
+                std::unordered_map<std::uint32_t, double> policy;
+                // std::unordered_map<std::uint32_t, double> values; // TODO: Add
+            };
+
+            template<typename... ItemArgs>
+            void add(ItemArgs... item_args);
+
+            std::vector<Item> sample(std::size_t sample_size) const;
+        private:
+            std::vector<Item> buffer;
+    };
+
+    template<typename... ItemArgs>
+    void ReplayBuffer::add(ItemArgs... item_args)
+    {
+        buffer.emplace_back(item_args...);
+    }
+
     class Network : public torch::nn::Module
     {
         public:
