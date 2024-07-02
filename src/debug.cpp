@@ -3,13 +3,13 @@
 
 #include <iostream>
 
-static constexpr auto BENCHMARK_GAME {"montyhall"};
+static constexpr auto BENCHMARK_GAME {"scissor_paper_rock"};
 
 int main(void)
 {
     const propnet::Propnet propnet {setup::load_propnet(BENCHMARK_GAME)};
     std::cout << "Size of propnet = " << propnet.size() << '\n';
-    rebel::search::MCCfr mccfr {propnet};
+    rebel::search::ExternalMCCfr mccfr {propnet};
     const auto initial_state {propnet.create_initial_state()};
     int policy_count {0};
     const auto joint_policy {mccfr.search(initial_state)};

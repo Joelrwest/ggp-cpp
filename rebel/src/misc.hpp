@@ -114,6 +114,41 @@ namespace rebel::misc
         throw std::runtime_error {"Policy did not sum to 1.0"};
     }
 
+    // Unfortunately cannot be reused from the policy code...
+    template<typename T, typename U>
+    T sample_counts(const std::unordered_map<T, U>& counts, U total_count)
+    {
+        static std::uniform_int_distribution<U> distribution (U {0}, total_count);
+        const auto choice {distribution(random_engine)};
+        U accumulation {0};
+        for (const auto& [key, count] : counts)
+        {
+            accumulation += count;
+            if (choice < accumulation)
+            {
+                return key;
+            }
+        }
+
+        throw std::logic_error {"Should never occur"};
+    }
+
+    template<typename T, typename U>
+    T sample_counts(const std::unordered_map<T, U>& counts)
+    {
+        const auto total_count {std::accumulate(
+            counts.begin(),
+            counts.end(),
+            U {0},
+            [](const auto accumulation, const auto& pair)
+            {
+                return accumulation + pair.second;
+            }
+        )};
+
+        return sample_counts(counts, total_count);
+    }
+
     /*
     Hacky way to get access to the clear method,
     since it's protected in the implementation...

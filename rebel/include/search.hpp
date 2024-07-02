@@ -21,7 +21,6 @@ namespace rebel::search
             void choose_input(std::uint32_t input);
             std::uint32_t get_chosen_input() const;
             std::unordered_map<std::uint32_t, double> regret_match() const;
-            propnet::State get_sampled_state() const;
 
             std::unordered_map<std::uint32_t, double> cumulative_policy; // TODO: I know it's bad style to have this public but meh
             std::unordered_map<std::uint32_t, double> regrets;
@@ -33,17 +32,17 @@ namespace rebel::search
                 std::unordered_map<std::vector<bool>, std::unique_ptr<InformationSet>>
             > next_information_sets;
             std::optional<std::uint32_t> previous_input;
-            std::vector<propnet::State> sampled_states;
     };
 
-    class MCCfr
+    class ExternalMCCfr
     {
         public:
-            MCCfr(const propnet::Propnet& propnet);
+            ExternalMCCfr(const propnet::Propnet& propnet);
 
             std::vector<std::unordered_map<std::uint32_t, double>> search(const propnet::State& state);
         private:
-            static constexpr std::size_t NUM_ITERATIONS {1000};
+            static constexpr std::size_t NUM_ITERATIONS {10000};
+            static constexpr std::size_t DEBUG_UPDATE_FREQUENCY {10};
 
             double make_traversers_move(
                 std::vector<std::reference_wrapper<InformationSet>>& current_information_sets,
@@ -63,10 +62,11 @@ namespace rebel::search
                 propnet::State& state
             );
 
-            std::vector<InformationSet> create_base_information_sets(const propnet::State& state);
+            static std::vector<InformationSet> create_base_information_sets(const propnet::Propnet& propnet);
 
             const propnet::Propnet& propnet;
             std::vector<propnet::Role> player_roles;
             std::optional<propnet::Role> random_role;
+            std::vector<InformationSet> base_information_sets;
     };
 }

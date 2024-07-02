@@ -70,11 +70,6 @@ namespace rebel::search
         return policy;
     }
 
-    propnet::State InformationSet::get_sampled_state() const
-    {
-        return misc::sample_random(sampled_states);
-    }
-
     std::unordered_map<std::uint32_t, double> InformationSet::make_zeroed_map(const std::vector<std::uint32_t>& legal_inputs)
     {
         std::unordered_map<std::uint32_t, double> regrets {};
@@ -86,13 +81,14 @@ namespace rebel::search
         return regrets;
     }
 
-    MCCfr::MCCfr(const propnet::Propnet& propnet) :
+    ExternalMCCfr::ExternalMCCfr(const propnet::Propnet& propnet) :
         propnet {propnet},
         player_roles {propnet.get_player_roles()},
-        random_role {propnet.get_random_role()}
+        random_role {propnet.get_random_role()},
+        base_information_sets {create_base_information_sets(propnet)}
     {}
 
-    std::vector<std::unordered_map<std::uint32_t, double>> MCCfr::search(const propnet::State& state)
+    std::vector<std::unordered_map<std::uint32_t, double>> ExternalMCCfr::search(const propnet::State& state)
     {
         /*
         Psuedocode from:
@@ -102,7 +98,6 @@ namespace rebel::search
 
         TODO: Remember to add pruning
         */
-        auto base_information_sets {create_base_information_sets(state)};
         std::vector<std::reference_wrapper<InformationSet>> current_information_sets {};
         for (auto& base_information_set : base_information_sets)
         {
@@ -120,9 +115,9 @@ namespace rebel::search
                 make_traversers_move(current_information_sets, traversing_role, state_copy);
             }
 
-            if (iteration_count % 5 == 0)
+            if (iteration_count % DEBUG_UPDATE_FREQUENCY == 0)
             {
-                std::cout << "iteration count = " << iteration_count << '\n';
+                std::cout << "External MCCFR iteration count = " << iteration_count << '\n';
             }
         }
 
@@ -139,7 +134,7 @@ namespace rebel::search
                     cumulative_policy.begin(),
                     cumulative_policy.end(),
                     0.0,
-                    [](const auto accumulation, const auto pair)
+                    [](const auto accumulation, const auto& pair)
                     {
                         return accumulation + pair.second;
                     }
@@ -162,7 +157,7 @@ namespace rebel::search
         return policies;
     }
 
-    double MCCfr::make_traversers_move(
+    double ExternalMCCfr::make_traversers_move(
         std::vector<std::reference_wrapper<InformationSet>>& current_information_sets,
         propnet::Role& traversing_role,
         propnet::State& state
@@ -192,7 +187,7 @@ namespace rebel::search
         return policy_reward;
     }
 
-    double MCCfr::make_non_traversers_moves(
+    double ExternalMCCfr::make_non_traversers_moves(
         std::vector<std::reference_wrapper<InformationSet>>& current_information_sets,
         propnet::Role& traversing_role,
         propnet::State& state
@@ -226,7 +221,7 @@ namespace rebel::search
         return next_state(current_information_sets, traversing_role, state);
     }
 
-    double MCCfr::next_state(
+    double ExternalMCCfr::next_state(
         std::vector<std::reference_wrapper<InformationSet>>& current_information_sets,
         propnet::Role& traversing_role,
         propnet::State& state
@@ -288,12 +283,13 @@ namespace rebel::search
         return make_traversers_move(next_information_sets, traversing_role, state);
     }
 
-    std::vector<InformationSet> MCCfr::create_base_information_sets(const propnet::State& state)
+    std::vector<InformationSet> ExternalMCCfr::create_base_information_sets(const propnet::Propnet& propnet)
     {
+        const auto initial_state {propnet.create_initial_state()};
         std::vector<InformationSet> base_information_sets {};
         for (const auto& role : propnet.get_player_roles())
         {
-            const auto legal_inputs {role.get_legal_inputs(state)};
+            const auto legal_inputs {role.get_legal_inputs(initial_state)};
             base_information_sets.emplace_back(std::move(legal_inputs));
         }
 
