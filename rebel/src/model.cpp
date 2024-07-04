@@ -6,11 +6,13 @@
 
 namespace rebel
 {
-    ReplayBuffer::ReplayBuffer() : buffer {} {}
+    ReplayBuffer::ReplayBuffer() :
+        buffer {}
+    {}
 
-    ReplayBuffer::Item::Item(propnet::State state, std::unordered_map<std::uint32_t, double> policy) :
-        state {state},
-        policy {policy}
+    ReplayBuffer::Item::Item(propnet::State state, std::vector<std::unordered_map<std::uint32_t, double>> policies) :
+        state {std::move(state)},
+        policies {std::move(policies)}
     {}
 
     std::vector<ReplayBuffer::Item> ReplayBuffer::sample(std::size_t sample_size) const

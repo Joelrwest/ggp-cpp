@@ -117,7 +117,7 @@ namespace rebel::search
 
             if (iteration_count % DEBUG_UPDATE_FREQUENCY == 0)
             {
-                std::cout << "External MCCFR iteration count = " << iteration_count << '\n';
+                std::cout << "External MCCFR iteration number " << iteration_count << '\n';
             }
         }
 

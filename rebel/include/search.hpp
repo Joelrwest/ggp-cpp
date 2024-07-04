@@ -2,7 +2,7 @@
 
 #include "../../propnet/include/propnet.hpp"
 #include "../../agents/include/non_seeing.hpp" // TODO
-#include "../src/misc.hpp"
+#include "misc.hpp"
 #include "training_sampler.hpp"
 
 #include <lru_cache_policy.hpp>
@@ -42,7 +42,7 @@ namespace rebel::search
             std::vector<std::unordered_map<std::uint32_t, double>> search(const propnet::State& state);
         private:
             static constexpr std::size_t NUM_ITERATIONS {10000};
-            static constexpr std::size_t DEBUG_UPDATE_FREQUENCY {10};
+            static constexpr std::size_t DEBUG_UPDATE_FREQUENCY {NUM_ITERATIONS / 10};
 
             double make_traversers_move(
                 std::vector<std::reference_wrapper<InformationSet>>& current_information_sets,

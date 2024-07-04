@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../../propnet/include/propnet.hpp"
-#include "../src/misc.hpp"
+#include "misc.hpp"
 #include <lru_cache_policy.hpp>
 
 #include <torch/torch.h>
@@ -21,10 +21,10 @@ namespace rebel
 
             struct Item
             {
-                Item(propnet::State state, std::unordered_map<std::uint32_t, double> policy);
+                Item(propnet::State state, std::vector<std::unordered_map<std::uint32_t, double>> policies);
 
                 propnet::State state;
-                std::unordered_map<std::uint32_t, double> policy;
+                std::vector<std::unordered_map<std::uint32_t, double>> policies;
                 // std::unordered_map<std::uint32_t, double> values; // TODO: Add
             };
 
@@ -33,13 +33,20 @@ namespace rebel
 
             std::vector<Item> sample(std::size_t sample_size) const;
         private:
-            std::vector<Item> buffer;
+            static constexpr auto MAX_SIZE {2500};
+
+            std::deque<Item> buffer;
     };
 
     template<typename... ItemArgs>
     void ReplayBuffer::add(ItemArgs... item_args)
     {
         buffer.emplace_back(item_args...);
+
+        if (buffer.size() > MAX_SIZE)
+        {
+            buffer.pop_front();
+        }
     }
 
     class Network : public torch::nn::Module
