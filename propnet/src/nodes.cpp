@@ -1,5 +1,5 @@
 #include "nodes.hpp"
-#include <iostream>
+
 namespace propnet
 {
     Node::Node(std::uint32_t id) :
@@ -25,6 +25,7 @@ namespace propnet
                 return false;
             }
         }
+
         return true;
     }
 
@@ -42,6 +43,7 @@ namespace propnet
                 return true;
             }
         }
+
         return false;
     }
 

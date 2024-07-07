@@ -23,6 +23,8 @@ namespace rebel::search
 
             std::unordered_map<std::uint32_t, double> cumulative_policy; // TODO: I know it's bad style to have this public but meh
             std::unordered_map<std::uint32_t, double> regrets;
+            double cumulative_reward;
+            std::size_t total_visits;
         private:
             static std::unordered_map<std::uint32_t, double> make_zeroed_map(const std::vector<std::uint32_t>& legal_inputs);
 
@@ -38,10 +40,10 @@ namespace rebel::search
         public:
             ExternalSamplingMCCFR(const propnet::Propnet& propnet);
 
-            std::vector<std::unordered_map<std::uint32_t, double>> search(const propnet::State& state);
+            std::vector<std::pair<std::unordered_map<std::uint32_t, double>, double>> search(const propnet::State& state);
         private:
-            static constexpr std::size_t NUM_ITERATIONS {10000};
-            static constexpr std::size_t PRINT_FREQUENCY {NUM_ITERATIONS / 25};
+            static constexpr std::size_t NUM_ITERATIONS {10000000};
+            static constexpr std::size_t PRINT_FREQUENCY {NUM_ITERATIONS / 5};
 
             double make_traversers_move(
                 std::vector<std::reference_wrapper<InformationSet>>& current_information_sets,

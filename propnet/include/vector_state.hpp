@@ -4,7 +4,6 @@
 #include <memory>
 #include <limits>
 #include <vector>
-#include <iostream>
 #include <functional>
 
 namespace propnet

@@ -1,7 +1,6 @@
 #include "../include/agent.hpp"
 
 #include <algorithm>
-#include <iostream>
 
 namespace agents {
     Agent::Agent(const propnet::Role& role) :

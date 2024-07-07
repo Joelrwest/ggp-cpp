@@ -4,7 +4,6 @@
 #include "random_sampler.hpp"
 #include "../include/search.hpp"
 
-#include <iostream>
 #include <concepts>
 #include <mutex>
 #include <thread>

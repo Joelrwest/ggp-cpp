@@ -1,10 +1,14 @@
 #include "search.hpp"
 
+#include <iostream>
+
 namespace rebel::search
 {
     InformationSet::InformationSet(const std::vector<std::uint32_t>& legal_inputs) :
         cumulative_policy {make_zeroed_map(legal_inputs)},
         regrets {make_zeroed_map(legal_inputs)},
+        cumulative_reward {0.0},
+        total_visits {0},
         next_information_sets {},
         previous_input {std::nullopt}
     {}
@@ -88,7 +92,7 @@ namespace rebel::search
         base_information_sets {create_base_information_sets(propnet)}
     {}
 
-    std::vector<std::unordered_map<std::uint32_t, double>> ExternalSamplingMCCFR::search(const propnet::State& state)
+    std::vector<std::pair<std::unordered_map<std::uint32_t, double>, double>> ExternalSamplingMCCFR::search(const propnet::State& state)
     {
         /*
         Psuedocode from:
@@ -120,11 +124,11 @@ namespace rebel::search
         }
 
         const auto num_players {propnet.num_player_roles()};
-        std::vector<std::unordered_map<std::uint32_t, double>> policies {};
+        std::vector<std::pair<std::unordered_map<std::uint32_t, double>, double>> policy_ev_pairs {};
         std::transform(
             base_information_sets.begin(),
             base_information_sets.end(),
-            std::back_inserter(policies),
+            std::back_inserter(policy_ev_pairs),
             [num_players](auto& entry)
             {
                 auto& cumulative_policy {entry.cumulative_policy};
@@ -148,11 +152,13 @@ namespace rebel::search
                     probability /= cumulative_policy_sum;
                 }
 
-                return std::move(cumulative_policy);
+                const auto ev {entry.cumulative_reward / entry.total_visits};
+
+                return std::make_pair(std::move(cumulative_policy), ev);
             }
         );
 
-        return policies;
+        return policy_ev_pairs;
     }
 
     double ExternalSamplingMCCFR::make_traversers_move(
@@ -163,6 +169,8 @@ namespace rebel::search
     {
         const auto id {traversing_role.get_id()};
         auto& current_information_set {current_information_sets.at(id).get()};
+
+        ++current_information_set.total_visits;
 
         std::unordered_map<std::uint32_t, std::uint32_t> rewards {};
         double policy_reward {0.0};
@@ -175,6 +183,8 @@ namespace rebel::search
             rewards.emplace(input, reward);
             policy_reward += probability * reward;
         }
+
+        current_information_set.cumulative_reward += policy_reward;
 
         for (auto& [input, regret] : current_information_set.regrets)
         {

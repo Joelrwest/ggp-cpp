@@ -26,7 +26,7 @@ static constexpr auto COMPLETE_CFR_CACHE_SIZE {10000};
 
 using CompleteCfrCache = rebel::misc::Cache<
     propnet::State,
-    std::shared_future<std::vector<std::unordered_map<std::uint32_t, double>>>,
+    std::shared_future<std::vector<std::pair<std::unordered_map<std::uint32_t, double>, double>>>,
     caches::LRUCachePolicy,
     COMPLETE_CFR_CACHE_SIZE
 >;
@@ -199,20 +199,23 @@ void play_game(const propnet::Propnet& propnet, rebel::ReplayBuffer& replay_buff
                     [&propnet, &state]()
                     {
                         rebel::search::ExternalSamplingMCCFR mccfr {propnet};
-                        return std::vector<std::unordered_map<std::uint32_t, double>> {mccfr.search(state)};
+                        // return std::vector<std::unordered_map<std::uint32_t, double>> {mccfr.search(state).first}; // TODO
+                        return std::vector<std::pair<std::unordered_map<std::uint32_t, double>, double>> {};
                     }
                 )
             );
         }
 
-        auto& future {*complete_cfr_cache.Get(state).get()};
+        const auto& future {*complete_cfr_cache.Get(state).get()};
         future.wait();
 
         const auto& cfr {future.get()};
+        (void)cfr;
+        (void)replay_buffer;
 
         {
             std::lock_guard replay_buffer_guard {replay_buffer_lock};
-            replay_buffer.add(state, cfr);
+            // TODO: replay_buffer.add(state, cfr);
         }
 
         // for each agent do
