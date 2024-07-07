@@ -81,22 +81,20 @@ namespace rebel::search
         return regrets;
     }
 
-    ExternalMCCfr::ExternalMCCfr(const propnet::Propnet& propnet) :
+    ExternalSamplingMCCFR::ExternalSamplingMCCFR(const propnet::Propnet& propnet) :
         propnet {propnet},
         player_roles {propnet.get_player_roles()},
         random_role {propnet.get_random_role()},
         base_information_sets {create_base_information_sets(propnet)}
     {}
 
-    std::vector<std::unordered_map<std::uint32_t, double>> ExternalMCCfr::search(const propnet::State& state)
+    std::vector<std::unordered_map<std::uint32_t, double>> ExternalSamplingMCCFR::search(const propnet::State& state)
     {
         /*
         Psuedocode from:
 
-        MONTE CARLO SAMPLING AND REGRET MINIMIZATION FOR EQUILIBRIUM
-        COMPUTATION AND DECISION-MAKING IN LARGE EXTENSIVE FORM GAMES
-
-        TODO: Remember to add pruning
+        Monte Carlo Sampling and Regret Minimization for Equilibrium
+        Computation and Decision-Making in Large Extensive Form Games
         */
         std::vector<std::reference_wrapper<InformationSet>> current_information_sets {};
         for (auto& base_information_set : base_information_sets)
@@ -104,7 +102,7 @@ namespace rebel::search
             current_information_sets.emplace_back(base_information_set);
         }
 
-        for (std::size_t iteration_count {0}; iteration_count < NUM_ITERATIONS; ++iteration_count)
+        for (std::size_t iteration_count {1}; iteration_count <= NUM_ITERATIONS; ++iteration_count)
         {
             /*
             The role that's currently traversing
@@ -115,7 +113,7 @@ namespace rebel::search
                 make_traversers_move(current_information_sets, traversing_role, state_copy);
             }
 
-            if (iteration_count % DEBUG_UPDATE_FREQUENCY == 0)
+            if (iteration_count % PRINT_FREQUENCY == 0)
             {
                 std::cout << "External MCCFR iteration number " << iteration_count << '\n';
             }
@@ -157,7 +155,7 @@ namespace rebel::search
         return policies;
     }
 
-    double ExternalMCCfr::make_traversers_move(
+    double ExternalSamplingMCCFR::make_traversers_move(
         std::vector<std::reference_wrapper<InformationSet>>& current_information_sets,
         propnet::Role& traversing_role,
         propnet::State& state
@@ -187,7 +185,7 @@ namespace rebel::search
         return policy_reward;
     }
 
-    double ExternalMCCfr::make_non_traversers_moves(
+    double ExternalSamplingMCCFR::make_non_traversers_moves(
         std::vector<std::reference_wrapper<InformationSet>>& current_information_sets,
         propnet::Role& traversing_role,
         propnet::State& state
@@ -221,7 +219,7 @@ namespace rebel::search
         return next_state(current_information_sets, traversing_role, state);
     }
 
-    double ExternalMCCfr::next_state(
+    double ExternalSamplingMCCFR::next_state(
         std::vector<std::reference_wrapper<InformationSet>>& current_information_sets,
         propnet::Role& traversing_role,
         propnet::State& state
@@ -283,7 +281,7 @@ namespace rebel::search
         return make_traversers_move(next_information_sets, traversing_role, state);
     }
 
-    std::vector<InformationSet> ExternalMCCfr::create_base_information_sets(const propnet::Propnet& propnet)
+    std::vector<InformationSet> ExternalSamplingMCCFR::create_base_information_sets(const propnet::Propnet& propnet)
     {
         const auto initial_state {propnet.create_initial_state()};
         std::vector<InformationSet> base_information_sets {};

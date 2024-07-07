@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../../agents/include/agent.hpp"
-#include "training_sampler.hpp"
+#include "random_sampler.hpp"
 #include "../include/search.hpp"
 
 #include <iostream>
@@ -13,8 +13,6 @@
 
 namespace rebel
 {
-    static std::mt19937 random_engine {std::random_device {}()};
-
     template<typename DerivedSamplerT>
     concept DerivedSampler = requires(DerivedSamplerT sampler, const std::vector<bool>& observation, std::uint32_t prev_input)
     {
@@ -23,7 +21,7 @@ namespace rebel
         { sampler.add_history(observation, prev_input) } -> std::convertible_to<void>;
     };
 
-    template<DerivedSampler SamplerT = TrainingSampler>
+    template<DerivedSampler SamplerT = RandomSampler>
     class RebelAgent : public agents::Agent
     {
         private:
@@ -64,6 +62,7 @@ namespace rebel
 
             std::uint32_t get_legal_input_impl(std::span<const std::uint32_t> legal_inputs)
             {
+                static std::mt19937 random_engine {std::random_device {}()};
                 std::vector<std::thread> threads {};
 
                 auto num_sampled {0};
@@ -127,7 +126,7 @@ namespace rebel
                     }
                 );
 
-                std::uniform_real_distribution<double> policy_distribution (0.0, num_sampled);
+                static std::uniform_real_distribution<double> policy_distribution (0.0, num_sampled);
                 const auto referee_selection {policy_distribution(random_engine)};
                 auto accumulation {0.0};
                 for (auto it {cumulative_policy.begin()}; it != cumulative_policy.end(); ++it)

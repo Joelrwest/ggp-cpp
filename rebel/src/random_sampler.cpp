@@ -1,33 +1,33 @@
-#include "../include/training_sampler.hpp"
+#include "../include/random_sampler.hpp"
 #include "misc.hpp"
 
 #include <algorithm>
 
 namespace rebel
 {
-    TrainingSampler::TrainingSampler(const propnet::Role& sampler_role, const propnet::Propnet& propnet) :
+    RandomSampler::RandomSampler(const propnet::Role& sampler_role, const propnet::Propnet& propnet) :
         propnet {propnet},
         sampler_role {sampler_role},
         player_roles {propnet.get_player_roles(sampler_role.get_id())},
         random_role {propnet.get_random_role()}
     {}
 
-    void TrainingSampler::prepare_new_game()
+    void RandomSampler::prepare_new_game()
     {
         all_histories.clear();
     }
 
-    void TrainingSampler::add_history(const std::vector<bool>& observation, std::uint32_t prev_input)
+    void RandomSampler::add_history(const std::vector<bool>& observation, std::uint32_t prev_input)
     {
         all_histories.emplace_back(observation, prev_input);
     }
 
-    void TrainingSampler::pop_history()
+    void RandomSampler::pop_history()
     {
         all_histories.pop_back();
     }
 
-    propnet::State TrainingSampler::sample_state()
+    propnet::State RandomSampler::sample_state()
     {
         if (all_histories.empty())
         {
@@ -48,7 +48,7 @@ namespace rebel
         return *state;
     }
 
-    std::vector<propnet::State> TrainingSampler::sample_states(std::size_t num_states)
+    std::vector<propnet::State> RandomSampler::sample_states(std::size_t num_states)
     {
         std::vector<propnet::State> states {};
         std::generate_n(
@@ -63,7 +63,7 @@ namespace rebel
         return states;
     }
 
-    TrainingSampler::History::History(const std::vector<bool>& observation, std::uint32_t prev_input) :
+    RandomSampler::History::History(const std::vector<bool>& observation, std::uint32_t prev_input) :
         observation {observation},
         prev_input {prev_input},
         invalid_state_cache {},
@@ -72,7 +72,7 @@ namespace rebel
         invalid_inputs_cache_lock {}
     {}
 
-    std::optional<propnet::State> TrainingSampler::sample_state_impl(AllHistories::iterator all_histories_it, AllHistories::iterator all_histories_end_it, propnet::State state)
+    std::optional<propnet::State> RandomSampler::sample_state_impl(AllHistories::iterator all_histories_it, AllHistories::iterator all_histories_end_it, propnet::State state)
     {
         /*
         State is assumed to be valid at the beginning.
@@ -165,7 +165,7 @@ namespace rebel
         return std::optional<propnet::State> {};
     }
 
-    bool TrainingSampler::is_invalid_state(AllHistories::iterator all_histories_it, const propnet::State& state)
+    bool RandomSampler::is_invalid_state(AllHistories::iterator all_histories_it, const propnet::State& state)
     {
         all_histories_it->invalid_state_cache_lock.lock_shared();
         const auto is_invalid_state {all_histories_it->invalid_state_cache.contains(state)};
@@ -174,14 +174,14 @@ namespace rebel
         return is_invalid_state;
     }
 
-    void TrainingSampler::add_invalid_state(AllHistories::iterator all_histories_it, const propnet::State& state)
+    void RandomSampler::add_invalid_state(AllHistories::iterator all_histories_it, const propnet::State& state)
     {
         all_histories_it->invalid_state_cache_lock.lock();
         all_histories_it->invalid_state_cache.insert(std::move(state));
         all_histories_it->invalid_state_cache_lock.unlock();
     }
 
-    bool TrainingSampler::is_invalid_inputs(AllHistories::iterator all_histories_it, const propnet::InputSet& inputs)
+    bool RandomSampler::is_invalid_inputs(AllHistories::iterator all_histories_it, const propnet::InputSet& inputs)
     {
         all_histories_it->invalid_inputs_cache_lock.lock_shared();
         const auto is_invalid_inputs {all_histories_it->invalid_inputs_cache.contains(inputs)};
@@ -190,7 +190,7 @@ namespace rebel
         return is_invalid_inputs;
     }
 
-    void TrainingSampler::add_invalid_inputs(AllHistories::iterator all_histories_it, const propnet::InputSet& inputs)
+    void RandomSampler::add_invalid_inputs(AllHistories::iterator all_histories_it, const propnet::InputSet& inputs)
     {
         all_histories_it->invalid_inputs_cache_lock.lock();
         all_histories_it->invalid_inputs_cache.insert(std::move(inputs));

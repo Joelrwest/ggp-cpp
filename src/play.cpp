@@ -1,6 +1,5 @@
 #include "../propnet/include/propnet.hpp"
 #include "../propnet/include/vector_state.hpp"
-#include "../rebel/include/naive_sampler.hpp"
 #include "../rebel/include/rebel.hpp"
 #include "setup.hpp"
 

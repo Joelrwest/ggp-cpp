@@ -1,22 +1,22 @@
-#include "../include/bogo_sampler.hpp"
+#include "../include/bogo_random_sampler.hpp"
 #include "../../propnet/include/input_set.hpp"
 #include "misc.hpp"
 
 namespace rebel
 {
-    BogoSampler::BogoSampler(const propnet::Role& sampler_role, const propnet::Propnet& propnet) :
+    BogoRandomSampler::BogoRandomSampler(const propnet::Role& sampler_role, const propnet::Propnet& propnet) :
         propnet {propnet},
         sampler_role {sampler_role},
         player_roles {propnet.get_player_roles(sampler_role.get_id())},
         random_role {propnet.get_random_role()}
     {}
 
-    void BogoSampler::prepare_new_game()
+    void BogoRandomSampler::prepare_new_game()
     {
         all_histories.clear();
     }
 
-    void BogoSampler::add_history(const std::vector<bool>& observation, std::uint32_t prev_input)
+    void BogoRandomSampler::add_history(const std::vector<bool>& observation, std::uint32_t prev_input)
     {
         all_histories.push_back(History {
             .observation = observation,
@@ -24,7 +24,7 @@ namespace rebel
         });
     }
 
-    propnet::State BogoSampler::sample_state()
+    propnet::State BogoRandomSampler::sample_state()
     {
         while (true)
         {
@@ -36,7 +36,7 @@ namespace rebel
         }
     }
 
-    std::optional<propnet::State> BogoSampler::sample_state_impl()
+    std::optional<propnet::State> BogoRandomSampler::sample_state_impl()
     {
         auto state {propnet.create_initial_state()};
         for (const auto& history : all_histories)

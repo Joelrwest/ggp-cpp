@@ -22,11 +22,20 @@ static constexpr auto TIME_LIMIT_COMMAND {"time_limit"};
 static constexpr auto GAME_COMMAND {"game"};
 static constexpr auto READABLE_TIME_FORMAT {"%X %e %b %Y %Z"};
 static constexpr auto BATCH_SIZE {20};
+static constexpr auto COMPLETE_CFR_CACHE_SIZE {10000};
+
+using CompleteCfrCache = rebel::misc::Cache<
+    propnet::State,
+    std::shared_future<std::vector<std::unordered_map<std::uint32_t, double>>>,
+    caches::LRUCachePolicy,
+    COMPLETE_CFR_CACHE_SIZE
+>;
 
 std::function<bool()> get_time_limit_function(std::optional<unsigned int> time_limit);
 std::string to_readable_time(const std::chrono::time_point<std::chrono::system_clock>& time_point);
 void train(unsigned int num_concurrent_games, const std::function<bool()>& time_limit_function, std::string_view game);
 void train_batch(unsigned int num_concurrent_games, const propnet::Propnet& propnet, rebel::ReplayBuffer& replay_buffer);
+void play_game(const propnet::Propnet& propnet, rebel::ReplayBuffer& replay_buffer, std::mutex& replay_buffer_lock, CompleteCfrCache& complete_cfr_cache);
 
 class TimeLimit
 {
@@ -145,12 +154,7 @@ void train_batch(unsigned int num_concurrent_games, const propnet::Propnet& prop
 
     std::mutex replay_buffer_lock {};
 
-    rebel::misc::Cache<
-        propnet::State,
-        std::shared_future<std::vector<std::unordered_map<std::uint32_t, double>>>, // TODO: Should this be a future or something to avoid searching the same state twice?
-        caches::LRUCachePolicy,
-        5000
-    > complete_cfr_cache {};
+    CompleteCfrCache complete_cfr_cache {};
 
     std::vector<std::thread> threads {};
     for (auto thread_count {0u}; thread_count < num_concurrent_games; ++thread_count)
@@ -169,40 +173,7 @@ void train_batch(unsigned int num_concurrent_games, const propnet::Propnet& prop
                         --remaining_games;
                     }
 
-                    auto state {propnet.create_initial_state()};
-                    while (!propnet.is_game_over(state))
-                    {
-                        if (!complete_cfr_cache.Cached(state))
-                        {
-                            complete_cfr_cache.Put(
-                                state,
-                                std::async(
-                                    std::launch::async,
-                                    [&propnet, &state]()
-                                    {
-                                        rebel::search::ExternalMCCfr mccfr {propnet};
-                                        return std::vector<std::unordered_map<std::uint32_t, double>> {mccfr.search(state)};
-                                    }
-                                )
-                            );
-                        }
-
-                        auto& future {*complete_cfr_cache.Get(state).get()};
-                        future.wait();
-
-                        const auto& cfr {future.get()};
-
-                        {
-                            std::lock_guard replay_buffer_guard {replay_buffer_lock};
-                            replay_buffer.add(state, cfr);
-                        }
-
-                        // for each agent do
-                            // Perform CFR on states sampled with this agent’s history
-                            // Make moves proportionally to new policy probabilities
-                        // end for
-                        // Sample and train neural network on 20 mini-batches from replay buffer
-                    }
+                    play_game(propnet, replay_buffer, replay_buffer_lock, complete_cfr_cache);
                 }
             }
         );
@@ -211,5 +182,43 @@ void train_batch(unsigned int num_concurrent_games, const propnet::Propnet& prop
     for (auto& thread : threads)
     {
         thread.join();
+    }
+}
+
+void play_game(const propnet::Propnet& propnet, rebel::ReplayBuffer& replay_buffer, std::mutex& replay_buffer_lock, CompleteCfrCache& complete_cfr_cache)
+{
+    auto state {propnet.create_initial_state()};
+    while (!propnet.is_game_over(state))
+    {
+        if (!complete_cfr_cache.Cached(state))
+        {
+            complete_cfr_cache.Put(
+                state,
+                std::async(
+                    std::launch::async,
+                    [&propnet, &state]()
+                    {
+                        rebel::search::ExternalSamplingMCCFR mccfr {propnet};
+                        return std::vector<std::unordered_map<std::uint32_t, double>> {mccfr.search(state)};
+                    }
+                )
+            );
+        }
+
+        auto& future {*complete_cfr_cache.Get(state).get()};
+        future.wait();
+
+        const auto& cfr {future.get()};
+
+        {
+            std::lock_guard replay_buffer_guard {replay_buffer_lock};
+            replay_buffer.add(state, cfr);
+        }
+
+        // for each agent do
+            // Perform CFR on states sampled with this agent’s history
+            // Make moves proportionally to new policy probabilities
+        // end for
+        // Sample and train neural network on 20 mini-batches from replay buffer
     }
 }

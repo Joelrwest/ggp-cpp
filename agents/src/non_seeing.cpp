@@ -12,10 +12,10 @@ namespace agents
         NonSeeingAgent {role}
     {}
 
-    static std::mt19937 random_engine {std::random_device {}()};
     std::uint32_t RandomAgent::get_legal_input_impl(std::span<const std::uint32_t> legal_inputs)
     { // TODO: Go through and convert more stuff to span to be general
-        std::uniform_int_distribution<> distribution (0, legal_inputs.size() - 1);
+        static std::mt19937 random_engine {std::random_device {}()};
+        static std::uniform_int_distribution<> distribution (0, legal_inputs.size() - 1);
         const auto idx {distribution(random_engine)};
         return legal_inputs[idx];
     }

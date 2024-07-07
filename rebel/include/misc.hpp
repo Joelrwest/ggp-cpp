@@ -87,11 +87,11 @@ namespace rebel::misc
             }
     };
 
-    static std::mt19937 random_engine {std::random_device {}()};
     template<typename T>
     const T::value_type& sample_random(const T& population)
     {
-        std::uniform_int_distribution<> distribution (0, population.size() - 1);
+        static std::mt19937 random_engine {std::random_device {}()};
+        static std::uniform_int_distribution<> distribution (0, population.size() - 1);
         const auto idx {distribution(random_engine)};
         return population[idx];
     }
@@ -99,6 +99,7 @@ namespace rebel::misc
     template<typename T>
     T sample_policy(const std::unordered_map<T, double>& policy)
     {
+        static std::mt19937 random_engine {std::random_device {}()};
         static std::uniform_real_distribution<double> distribution (0.0, 1.0);
         const auto choice {distribution(random_engine)};
         double accumulation {0.0};
@@ -118,6 +119,7 @@ namespace rebel::misc
     template<typename T, typename U>
     T sample_counts(const std::unordered_map<T, U>& counts, U total_count)
     {
+        static std::mt19937 random_engine {std::random_device {}()};
         static std::uniform_int_distribution<U> distribution (U {0}, total_count);
         const auto choice {distribution(random_engine)};
         U accumulation {0};

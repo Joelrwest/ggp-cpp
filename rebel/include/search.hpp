@@ -3,7 +3,7 @@
 #include "../../propnet/include/propnet.hpp"
 #include "../../agents/include/non_seeing.hpp" // TODO
 #include "misc.hpp"
-#include "training_sampler.hpp"
+#include "random_sampler.hpp"
 
 #include <lru_cache_policy.hpp>
 #include <vector>
@@ -34,15 +34,15 @@ namespace rebel::search
             std::optional<std::uint32_t> previous_input;
     };
 
-    class ExternalMCCfr
+    class ExternalSamplingMCCFR
     {
         public:
-            ExternalMCCfr(const propnet::Propnet& propnet);
+            ExternalSamplingMCCFR(const propnet::Propnet& propnet);
 
             std::vector<std::unordered_map<std::uint32_t, double>> search(const propnet::State& state);
         private:
             static constexpr std::size_t NUM_ITERATIONS {10000};
-            static constexpr std::size_t DEBUG_UPDATE_FREQUENCY {NUM_ITERATIONS / 10};
+            static constexpr std::size_t PRINT_FREQUENCY {NUM_ITERATIONS / 25};
 
             double make_traversers_move(
                 std::vector<std::reference_wrapper<InformationSet>>& current_information_sets,
