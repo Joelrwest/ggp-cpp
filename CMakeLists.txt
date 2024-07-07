@@ -39,14 +39,6 @@ else()
   target_compile_options(play PRIVATE -Wall -Wextra -Wpedantic -Werror)
 endif()
 
-# if(${CMAKE_BUILD_TYPE} EQUAL Release) # TODO: Figure out more compiler options
-#   if(MSVC)
-#     target_compile_options(play PRIVATE /GL /LTCG)
-#   else()
-#     target_compile_options(play PRIVATE -flto)
-#   endif()
-# endif()
-
 add_executable(train src/train.cpp src/setup.cpp)
 target_link_libraries(train PUBLIC propnet)
 target_link_libraries(train PUBLIC rebel)

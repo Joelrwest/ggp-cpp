@@ -32,7 +32,7 @@ namespace rebel
             SamplerT sampler;
             const propnet::Role& role;
             const propnet::Propnet& propnet;
-            std::uint32_t num_threads; // TODO: Should this just be templated?
+            std::uint32_t num_threads;
         public:
             RebelAgent(const propnet::Role& role, const propnet::Propnet& propnet, std::uint32_t num_threads) :
                 Agent {role},

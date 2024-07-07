@@ -1,7 +1,6 @@
 #pragma once
 
 #include "../../propnet/include/propnet.hpp"
-#include "../../agents/include/non_seeing.hpp" // TODO
 
 #include <tuple>
 #include <shared_mutex>

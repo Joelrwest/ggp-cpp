@@ -3,7 +3,7 @@ Inspired from original propnet from Zac Patridge in deep-hi-ggp.
 
 Takes in a GDL-II file and converts into a C++ propositional network.
 
-TODO
+TODO: Cannot find original function propnet_convert.Convert is...
 """
 
 import os
