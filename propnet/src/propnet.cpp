@@ -35,7 +35,7 @@ namespace propnet
         return player_roles;
     }
 
-    std::vector<Role> Propnet::get_player_roles(Role::Id excluding_id) const
+    std::vector<Role> Propnet::get_player_roles_excluding(Role::Id excluding_id) const
     {
         std::vector<Role> player_roles_excluding {};
         std::copy_if(
@@ -54,16 +54,6 @@ namespace propnet
     const std::optional<Role>& Propnet::get_random_role() const
     {
         return random_role;
-    }
-
-    void Propnet::take_sees_inputs(State& state, const InputSet& inputs) const
-    {
-        take_inputs(state, inputs, non_post_topologically_sorted_nodes);
-    }
-
-    void Propnet::take_non_sees_inputs(State& state, const InputSet& inputs) const
-    {
-        take_inputs(state, inputs, topologically_sorted_nodes);
     }
 
     bool Propnet::is_game_over(const State& state) const
@@ -91,7 +81,17 @@ namespace propnet
         return random_role.has_value();
     }
 
-    void Propnet::take_inputs(State& state, const InputSet& inputs, std::span<const PropId> ids) const
+    void Propnet::take_sees_inputs(State& state, const InputSet& inputs) const
+    {
+        take_inputs_impl(state, inputs, non_post_topologically_sorted_nodes);
+    }
+
+    void Propnet::take_non_sees_inputs(State& state, const InputSet& inputs) const
+    {
+        take_inputs_impl(state, inputs, topologically_sorted_nodes);
+    }
+
+    void Propnet::take_inputs_impl(State& state, const InputSet& inputs, std::span<const PropId> ids) const
     {
         for (const auto id : ids)
         {

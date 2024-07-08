@@ -1,5 +1,7 @@
 #pragma once
 
+#include "types.hpp"
+
 #include <cache.hpp>
 
 #include <vector>
@@ -100,12 +102,12 @@ namespace rebel::misc
     }
 
     template<typename T>
-    T sample_policy(const std::unordered_map<T, double>& policy)
+    T sample_policy(const std::unordered_map<T, Probability>& policy)
     {
         static std::mt19937 random_engine {std::random_device {}()};
-        static std::uniform_real_distribution<double> distribution (0.0, 1.0);
+        static std::uniform_real_distribution<Probability> distribution (0.0, 1.0);
         const auto choice {distribution(random_engine)};
-        double accumulation {0.0};
+        Probability accumulation {0.0};
         for (const auto& [key, probability] : policy)
         {
             accumulation += probability;
@@ -135,7 +137,7 @@ namespace rebel::misc
             }
         }
 
-        throw std::logic_error {"Should never occur"};
+        throw std::logic_error {"Error in sample_counts where the sampled number was more than the sum of the counts"};
     }
 
     template<typename T, typename U>

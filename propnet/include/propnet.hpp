@@ -36,7 +36,7 @@ namespace propnet
             );
 
             std::span<const Role> get_player_roles() const;
-            std::vector<Role> get_player_roles(Role::Id excluding_id) const;
+            std::vector<Role> get_player_roles_excluding(Role::Id excluding_id) const;
             const std::optional<Role>& get_random_role() const;
             /*
             Take given inputs.
@@ -54,7 +54,7 @@ namespace propnet
         private:
             const InputSet EMPTY_INPUTS {};
 
-            void take_inputs(State& state, const InputSet& inputs, std::span<const PropId> ids) const;
+            void take_inputs_impl(State& state, const InputSet& inputs, std::span<const PropId> ids) const;
 
             std::vector<Role> player_roles;
             std::optional<Role> random_role;

@@ -5,9 +5,9 @@
 namespace rebel::search
 {
     InformationSet::InformationSet(std::span<const propnet::PropId> legal_inputs) :
-        cumulative_policy {make_zeroed_map(legal_inputs)},
-        regrets {make_zeroed_map(legal_inputs)},
-        cumulative_reward {0.0},
+        cumulative_policy {make_zeroed_map<Policy>(legal_inputs)},
+        regrets {make_zeroed_map<Regrets>(legal_inputs)},
+        cumulative_expected_value {0.0},
         total_visits {0},
         next_information_sets {},
         previous_input {std::nullopt}
@@ -40,7 +40,7 @@ namespace rebel::search
         return *previous_input;
     }
 
-    std::unordered_map<propnet::PropId, double> InformationSet::regret_match() const
+    Regrets InformationSet::regret_match() const
     {
         const auto total_positive_regret {std::accumulate(
             regrets.begin(),
@@ -52,7 +52,7 @@ namespace rebel::search
             }
         )};
 
-        std::unordered_map<propnet::PropId, double> policy {};
+        Policy policy {};
         if (total_positive_regret > 0.0)
         {
             for (const auto& [input, regret] : regrets)
@@ -74,17 +74,6 @@ namespace rebel::search
         return policy;
     }
 
-    std::unordered_map<propnet::PropId, double> InformationSet::make_zeroed_map(std::span<const propnet::PropId> legal_inputs)
-    {
-        std::unordered_map<propnet::PropId, double> regrets {};
-        for (const auto legal_input : legal_inputs)
-        {
-            regrets.emplace(legal_input, 0.0);
-        }
-
-        return regrets;
-    }
-
     ExternalSamplingMCCFR::ExternalSamplingMCCFR(const propnet::Propnet& propnet) :
         propnet {propnet},
         player_roles {propnet.get_player_roles().begin(), propnet.get_player_roles().end()},
@@ -92,7 +81,7 @@ namespace rebel::search
         base_information_sets {create_base_information_sets(propnet)}
     {}
 
-    std::vector<std::pair<std::unordered_map<propnet::PropId, double>, double>> ExternalSamplingMCCFR::search(const propnet::State& state)
+    std::vector<std::pair<Policy, ExpectedValue>> ExternalSamplingMCCFR::search(const propnet::State& state)
     {
         /*
         Psuedocode from:
@@ -124,7 +113,7 @@ namespace rebel::search
         }
 
         const auto num_players {propnet.num_player_roles()};
-        std::vector<std::pair<std::unordered_map<propnet::PropId, double>, double>> policy_ev_pairs {};
+        std::vector<std::pair<Policy, ExpectedValue>> policy_ev_pairs {};
         std::transform(
             base_information_sets.begin(),
             base_information_sets.end(),
@@ -152,7 +141,7 @@ namespace rebel::search
                     probability /= cumulative_policy_sum;
                 }
 
-                const auto ev {entry.cumulative_reward / entry.total_visits};
+                const auto ev {entry.cumulative_expected_value / entry.total_visits};
 
                 return std::make_pair(std::move(cumulative_policy), ev);
             }
@@ -161,7 +150,7 @@ namespace rebel::search
         return policy_ev_pairs;
     }
 
-    double ExternalSamplingMCCFR::make_traversers_move(
+    ExpectedValue ExternalSamplingMCCFR::make_traversers_move(
         std::vector<std::reference_wrapper<InformationSet>>& current_information_sets,
         propnet::Role& traversing_role,
         propnet::State& state
@@ -173,7 +162,7 @@ namespace rebel::search
         ++current_information_set.total_visits;
 
         std::unordered_map<propnet::PropId, propnet::Reward> rewards {};
-        double policy_reward {0.0};
+        ExpectedValue policy_reward {0.0};
         const auto regret_matched_policy {current_information_set.regret_match()};
         for (const auto& [input, probability] : regret_matched_policy)
         {
@@ -184,7 +173,7 @@ namespace rebel::search
             policy_reward += probability * reward;
         }
 
-        current_information_set.cumulative_reward += policy_reward;
+        current_information_set.cumulative_expected_value += policy_reward;
 
         for (auto& [input, regret] : current_information_set.regrets)
         {
@@ -195,7 +184,7 @@ namespace rebel::search
         return policy_reward;
     }
 
-    double ExternalSamplingMCCFR::make_non_traversers_moves(
+    ExpectedValue ExternalSamplingMCCFR::make_non_traversers_moves(
         std::vector<std::reference_wrapper<InformationSet>>& current_information_sets,
         propnet::Role& traversing_role,
         propnet::State& state
@@ -229,7 +218,7 @@ namespace rebel::search
         return next_state(current_information_sets, traversing_role, state);
     }
 
-    double ExternalSamplingMCCFR::next_state(
+    ExpectedValue ExternalSamplingMCCFR::next_state(
         std::vector<std::reference_wrapper<InformationSet>>& current_information_sets,
         propnet::Role& traversing_role,
         propnet::State& state

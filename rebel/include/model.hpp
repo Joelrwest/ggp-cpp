@@ -2,6 +2,7 @@
 
 #include "../../propnet/include/propnet.hpp"
 #include "misc.hpp"
+#include "types.hpp"
 #include <lru_cache_policy.hpp>
 
 #include <torch/torch.h>
@@ -21,11 +22,11 @@ namespace rebel
 
             struct Item
             {
-                Item(propnet::State state, std::vector<std::unordered_map<propnet::PropId, double>> policies);
+                Item(propnet::State state, std::vector<Policy> policies);
 
                 propnet::State state;
-                std::vector<std::unordered_map<propnet::PropId, double>> policies;
-                // std::unordered_map<propnet::PropId, double> values; // TODO: Add
+                std::vector<Policy> policies;
+                // std::vector<ExpectedValue> values; // TODO: Add
             };
 
             template<typename... ItemArgs>

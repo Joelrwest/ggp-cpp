@@ -26,7 +26,7 @@ static constexpr auto COMPLETE_CFR_CACHE_SIZE {10000};
 
 using CompleteCfrCache = rebel::misc::Cache<
     propnet::State,
-    std::shared_future<std::vector<std::pair<std::unordered_map<propnet::PropId, double>, double>>>,
+    std::shared_future<std::vector<std::pair<rebel::Policy, rebel::ExpectedValue>>>,
     caches::LRUCachePolicy,
     COMPLETE_CFR_CACHE_SIZE
 >;
@@ -200,7 +200,7 @@ void play_game(const propnet::Propnet& propnet, rebel::ReplayBuffer& replay_buff
                     {
                         rebel::search::ExternalSamplingMCCFR mccfr {propnet};
                         // return std::vector<std::unordered_map<propnet::PropId, double>> {mccfr.search(state).first}; // TODO
-                        return std::vector<std::pair<std::unordered_map<propnet::PropId, double>, double>> {};
+                        return std::vector<std::pair<rebel::Policy, rebel::ExpectedValue>> {};
                     }
                 )
             );

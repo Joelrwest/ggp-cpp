@@ -8,7 +8,7 @@ namespace rebel
         buffer {}
     {}
 
-    ReplayBuffer::Item::Item(propnet::State state, std::vector<std::unordered_map<propnet::PropId, double>> policies) :
+    ReplayBuffer::Item::Item(propnet::State state, std::vector<Policy> policies) :
         state {std::move(state)},
         policies {std::move(policies)}
     {}
