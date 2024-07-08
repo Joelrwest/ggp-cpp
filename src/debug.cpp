@@ -11,7 +11,7 @@ int main(void)
     std::cout << "Size of propnet = " << propnet.size() << '\n';
     rebel::search::ExternalSamplingMCCFR mccfr {propnet};
     const auto initial_state {propnet.create_initial_state()};
-    int result_count {0};
+    std::size_t result_count {0};
     const auto joint_result {mccfr.search(initial_state)};
     for (const auto& result : joint_result)
     {

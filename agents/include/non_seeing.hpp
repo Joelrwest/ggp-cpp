@@ -21,8 +21,8 @@ namespace agents
 
             static constexpr auto NAME {"random"};
         private:
-            std::uint32_t get_legal_input_impl(std::span<const std::uint32_t> legal_inputs) override;
-            void get_legal_inputs_impl(std::span<std::uint32_t> legal_inputs) const override;
+            propnet::PropId get_legal_input_impl(std::span<const propnet::PropId> legal_inputs) override;
+            void get_legal_inputs_impl(std::span<propnet::PropId> legal_inputs) const override;
     };
 
     class FirstAgent : public NonSeeingAgent
@@ -32,8 +32,8 @@ namespace agents
 
             static constexpr auto NAME {"first"};
         private:
-            std::uint32_t get_legal_input_impl(std::span<const std::uint32_t> legal_inputs) override;
-            void get_legal_inputs_impl(std::span<std::uint32_t> legal_inputs) const override;
+            propnet::PropId get_legal_input_impl(std::span<const propnet::PropId> legal_inputs) override;
+            void get_legal_inputs_impl(std::span<propnet::PropId> legal_inputs) const override;
     };
 
     class LastAgent : public NonSeeingAgent
@@ -43,7 +43,7 @@ namespace agents
 
             static constexpr auto NAME {"last"};
         private:
-            std::uint32_t get_legal_input_impl(std::span<const std::uint32_t> legal_inputs) override;
-            void get_legal_inputs_impl(std::span<std::uint32_t> legal_inputs) const override;
+            propnet::PropId get_legal_input_impl(std::span<const propnet::PropId> legal_inputs) override;
+            void get_legal_inputs_impl(std::span<propnet::PropId> legal_inputs) const override;
     };
 }

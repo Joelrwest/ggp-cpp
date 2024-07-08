@@ -27,12 +27,12 @@ namespace propnet
 
     bool State::operator==(const State& other) const = default;
 
-    bool State::get(std::uint32_t getting_id) const
+    bool State::get(PropId getting_id) const
     {
         return state.at(getting_id);
     }
 
-    void State::update(std::uint32_t updating_id, bool new_value)
+    void State::update(PropId updating_id, bool new_value)
     {
         state.at(updating_id) = new_value;
     }

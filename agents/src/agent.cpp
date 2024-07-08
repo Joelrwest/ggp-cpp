@@ -7,7 +7,7 @@ namespace agents {
         role {role}
     {}
 
-    std::uint32_t Agent::get_reward(const propnet::State& state) const
+    propnet::Reward Agent::get_reward(const propnet::State& state) const
     {
         return role.get_reward(state);
     }
@@ -23,9 +23,9 @@ namespace agents {
         observations_cache = role.get_observations(state);
     }
 
-    void Agent::add_history(std::uint32_t) { /* Let the children define if needed */ }
+    void Agent::add_history(propnet::PropId) { /* Let the children define if needed */ }
 
-    std::uint32_t Agent::get_legal_input(const propnet::State& state)
+    propnet::PropId Agent::get_legal_input(const propnet::State& state)
     {
         if (prev_input.has_value())
         {

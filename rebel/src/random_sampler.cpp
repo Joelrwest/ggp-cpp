@@ -17,7 +17,7 @@ namespace rebel
         all_histories.clear();
     }
 
-    void RandomSampler::add_history(const std::vector<bool>& observation, std::uint32_t prev_input)
+    void RandomSampler::add_history(const std::vector<bool>& observation, propnet::PropId prev_input)
     {
         all_histories.emplace_back(observation, prev_input);
     }
@@ -63,7 +63,7 @@ namespace rebel
         return states;
     }
 
-    RandomSampler::History::History(const std::vector<bool>& observation, std::uint32_t prev_input) :
+    RandomSampler::History::History(const std::vector<bool>& observation, propnet::PropId prev_input) :
         observation {observation},
         prev_input {prev_input},
         invalid_state_cache {},
@@ -86,7 +86,7 @@ namespace rebel
         TODO:
         Once the NN is developed, use it here to inform the inputs
         */
-        std::vector<std::vector<std::uint32_t>> randomised_legal_inputs {};
+        std::vector<std::vector<propnet::PropId>> randomised_legal_inputs {};
         std::transform(
             player_roles.begin(),
             player_roles.end(),

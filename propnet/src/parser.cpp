@@ -60,13 +60,13 @@ namespace propnet
                 add_entry(entry);
             }
 
-            topologically_sorted_nodes = game_json.at(TOPOLOGICALLY_SORTED_KEY).get<std::vector<std::uint32_t>>();
+            topologically_sorted_nodes = game_json.at(TOPOLOGICALLY_SORTED_KEY).get<std::vector<PropId>>();
 
             const auto& role_entries {game_json.at(ROLES_KEY)};
             for (const auto& role_entry : role_entries)
             {
-                std::vector<std::shared_ptr<const propnet::PropositionNode>> sees {};
-                const auto& sees_entries {role_entry.at(SEES_KEY).get<std::vector<std::uint32_t>>()};
+                std::vector<std::shared_ptr<const PropositionNode>> sees {};
+                const auto& sees_entries {role_entry.at(SEES_KEY).get<std::vector<PropId>>()};
                 for (const auto& sees_entry : sees_entries)
                 {
                     const auto node {propositions.at(sees_entry)};
@@ -77,8 +77,8 @@ namespace propnet
                 const auto& legal_to_input_entries {role_entry.at(LEGAL_TO_INPUT_KEY)};
                 for (const auto& legal_to_input_entry : legal_to_input_entries)
                 {
-                    const auto legal {legal_to_input_entry.at(LEGAL_KEY).get<std::uint32_t>()};
-                    const auto input {legal_to_input_entry.at(INPUT_KEY).get<std::uint32_t>()};
+                    const auto legal {legal_to_input_entry.at(LEGAL_KEY).get<PropId>()};
+                    const auto input {legal_to_input_entry.at(INPUT_KEY).get<PropId>()};
                     const auto node {propositions.at(legal)};
                     legals.emplace_back(Role::Legal {
                             .node = node,
@@ -92,8 +92,8 @@ namespace propnet
                 const auto& goals_entries {role_entry.at(GOALS_KEY)};
                 for (const auto& goals_entry : goals_entries)
                 {
-                    const auto goal {goals_entry.at(GOAL_KEY).get<std::uint32_t>()};
-                    const auto value {goals_entry.at(VALUE_KEY).get<std::uint32_t>()};
+                    const auto goal {goals_entry.at(GOAL_KEY).get<PropId>()};
+                    const auto value {goals_entry.at(VALUE_KEY).get<Reward>()};
                     const auto node {propositions.at(goal)};
                     goals.emplace_back(Role::Goal {
                             .node = node,
@@ -166,7 +166,7 @@ namespace propnet
 
     void Parser::add_entry(const nlohmann::json& entry)
     {
-        const std::uint32_t id {entry.at(ID_KEY)};
+        const PropId id {entry.at(ID_KEY)};
         const EntryType entry_type {entry.at(TYPE_KEY)};
         switch (entry_type)
         {
@@ -220,7 +220,7 @@ namespace propnet
         }
     }
 
-    void Parser::add_proposition(std::uint32_t id, std::string_view type, std::string&& display, const nlohmann::json& entry)
+    void Parser::add_proposition(PropId id, std::string_view type, std::string&& display, const nlohmann::json& entry)
     {
         if (type == INITIAL_PROP_TYPE)
         {

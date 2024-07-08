@@ -6,24 +6,24 @@ namespace propnet
         inputs {}
     {}
 
-    InputSet::InputSet(std::uint32_t input) :
+    InputSet::InputSet(PropId input) :
         inputs {input}
     {}
 
-    InputSet::InputSet(const std::unordered_set<std::uint32_t>& inputs) :
+    InputSet::InputSet(const std::unordered_set<PropId>& inputs) :
         inputs {inputs}
     {}
 
-    InputSet::InputSet(std::unordered_set<std::uint32_t>&& inputs) :
+    InputSet::InputSet(std::unordered_set<PropId>&& inputs) :
         inputs {inputs}
     {}
 
-    bool InputSet::contains(std::uint32_t input) const
+    bool InputSet::contains(PropId input) const
     {
         return inputs.contains(input);
     }
 
-    void InputSet::add(std::uint32_t input)
+    void InputSet::add(PropId input)
     {
         inputs.insert(input);
     }
@@ -33,7 +33,7 @@ namespace std
 {
     std::size_t hash<propnet::InputSet>::operator()(const propnet::InputSet& inputs) const noexcept
     {
-        std::hash<std::uint32_t> input_hasher {};
+        std::hash<propnet::PropId> input_hasher {};
         std::size_t result {0};
         for (const auto input : inputs.inputs)
         {

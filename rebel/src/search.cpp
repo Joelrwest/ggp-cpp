@@ -4,7 +4,7 @@
 
 namespace rebel::search
 {
-    InformationSet::InformationSet(const std::vector<std::uint32_t>& legal_inputs) :
+    InformationSet::InformationSet(const std::vector<propnet::PropId>& legal_inputs) :
         cumulative_policy {make_zeroed_map(legal_inputs)},
         regrets {make_zeroed_map(legal_inputs)},
         cumulative_reward {0.0},
@@ -25,12 +25,12 @@ namespace rebel::search
         return *next_information_set_ptr;
     }
 
-    void InformationSet::choose_input(std::uint32_t input)
+    void InformationSet::choose_input(propnet::PropId input)
     {
         previous_input.emplace(input);
     }
 
-    std::uint32_t InformationSet::get_chosen_input() const
+    propnet::PropId InformationSet::get_chosen_input() const
     {
         if (!previous_input.has_value())
         {
@@ -40,7 +40,7 @@ namespace rebel::search
         return *previous_input;
     }
 
-    std::unordered_map<std::uint32_t, double> InformationSet::regret_match() const
+    std::unordered_map<propnet::PropId, double> InformationSet::regret_match() const
     {
         const auto total_positive_regret {std::accumulate(
             regrets.begin(),
@@ -52,7 +52,7 @@ namespace rebel::search
             }
         )};
 
-        std::unordered_map<std::uint32_t, double> policy {};
+        std::unordered_map<propnet::PropId, double> policy {};
         if (total_positive_regret > 0.0)
         {
             for (const auto& [input, regret] : regrets)
@@ -74,9 +74,9 @@ namespace rebel::search
         return policy;
     }
 
-    std::unordered_map<std::uint32_t, double> InformationSet::make_zeroed_map(const std::vector<std::uint32_t>& legal_inputs)
+    std::unordered_map<propnet::PropId, double> InformationSet::make_zeroed_map(const std::vector<propnet::PropId>& legal_inputs)
     {
-        std::unordered_map<std::uint32_t, double> regrets {};
+        std::unordered_map<propnet::PropId, double> regrets {};
         for (const auto legal_input : legal_inputs)
         {
             regrets.emplace(legal_input, 0.0);
@@ -92,7 +92,7 @@ namespace rebel::search
         base_information_sets {create_base_information_sets(propnet)}
     {}
 
-    std::vector<std::pair<std::unordered_map<std::uint32_t, double>, double>> ExternalSamplingMCCFR::search(const propnet::State& state)
+    std::vector<std::pair<std::unordered_map<propnet::PropId, double>, double>> ExternalSamplingMCCFR::search(const propnet::State& state)
     {
         /*
         Psuedocode from:
@@ -124,7 +124,7 @@ namespace rebel::search
         }
 
         const auto num_players {propnet.num_player_roles()};
-        std::vector<std::pair<std::unordered_map<std::uint32_t, double>, double>> policy_ev_pairs {};
+        std::vector<std::pair<std::unordered_map<propnet::PropId, double>, double>> policy_ev_pairs {};
         std::transform(
             base_information_sets.begin(),
             base_information_sets.end(),
@@ -172,7 +172,7 @@ namespace rebel::search
 
         ++current_information_set.total_visits;
 
-        std::unordered_map<std::uint32_t, std::uint32_t> rewards {};
+        std::unordered_map<propnet::PropId, propnet::Reward> rewards {};
         double policy_reward {0.0};
         const auto regret_matched_policy {current_information_set.regret_match()};
         for (const auto& [input, probability] : regret_matched_policy)
@@ -239,7 +239,7 @@ namespace rebel::search
         All players have already given their inputs,
         time for random to act and then to transition to the next state.
         */
-        std::unordered_set<std::uint32_t> inputs {};
+        std::unordered_set<propnet::PropId> inputs {};
         if (random_role.has_value())
         {
             const auto randoms_inputs {random_role->get_legal_inputs(state)};

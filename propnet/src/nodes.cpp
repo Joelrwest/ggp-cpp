@@ -2,16 +2,16 @@
 
 namespace propnet
 {
-    Node::Node(std::uint32_t id) :
+    Node::Node(PropId id) :
         id {id}
     {}
 
-    std::uint32_t Node::get_id() const
+    PropId Node::get_id() const
     {
         return id;
     }
 
-    AndNode::AndNode(std::uint32_t id, const std::vector<std::uint32_t>& ins) :
+    AndNode::AndNode(PropId id, const std::vector<PropId>& ins) :
         Node {id},
         ins {ins}
     {}
@@ -29,7 +29,7 @@ namespace propnet
         return true;
     }
 
-    OrNode::OrNode(std::uint32_t id, const std::vector<std::uint32_t>& ins) :
+    OrNode::OrNode(PropId id, const std::vector<PropId>& ins) :
         Node {id},
         ins {ins}
     {}
@@ -47,7 +47,7 @@ namespace propnet
         return false;
     }
 
-    PropositionNode::PropositionNode(std::uint32_t id, std::string_view display) :
+    PropositionNode::PropositionNode(PropId id, std::string_view display) :
         Node {id},
         display {display}
     {}
@@ -57,7 +57,7 @@ namespace propnet
         return display;
     }
 
-    BasicPropositionNode::BasicPropositionNode(std::uint32_t id, std::string_view display, std::uint32_t in) :
+    BasicPropositionNode::BasicPropositionNode(PropId id, std::string_view display, PropId in) :
         PropositionNode {id, display},
         in {in}
     {}
@@ -67,7 +67,7 @@ namespace propnet
         return state.get(in);
     }
 
-    InputPropositionNode::InputPropositionNode(std::uint32_t id, std::string_view display) :
+    InputPropositionNode::InputPropositionNode(PropId id, std::string_view display) :
         PropositionNode {id, display}
     {}
 
@@ -77,7 +77,7 @@ namespace propnet
         return inputs.contains(id);
     }
 
-    InitialPropositionNode::InitialPropositionNode(std::uint32_t id, std::string_view display) :
+    InitialPropositionNode::InitialPropositionNode(PropId id, std::string_view display) :
         PropositionNode {id, display}
     {}
 
@@ -86,7 +86,7 @@ namespace propnet
         return state.get_is_initial();
     }
 
-    PreTransitionNode::PreTransitionNode(std::uint32_t id, std::uint32_t in) :
+    PreTransitionNode::PreTransitionNode(PropId id, PropId in) :
         Node {id},
         in {in}
     {}
@@ -96,7 +96,7 @@ namespace propnet
         return state.get(in);
     }
 
-    PostTransitionNode::PostTransitionNode(std::uint32_t id, std::uint32_t pre_id) :
+    PostTransitionNode::PostTransitionNode(PropId id, PropId pre_id) :
         Node {id},
         pre_id {pre_id}
     {}
@@ -106,7 +106,7 @@ namespace propnet
         return state.get(pre_id);
     }
 
-    NotNode::NotNode(std::uint32_t id, std::uint32_t in) :
+    NotNode::NotNode(PropId id, PropId in) :
         Node {id},
         in {in}
     {}
@@ -116,7 +116,7 @@ namespace propnet
         return !state.get(in);
     }
 
-    TrueNode::TrueNode(std::uint32_t id) :
+    TrueNode::TrueNode(PropId id) :
         Node {id}
     {}
 

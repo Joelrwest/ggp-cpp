@@ -26,15 +26,15 @@ static constexpr auto COMPLETE_CFR_CACHE_SIZE {10000};
 
 using CompleteCfrCache = rebel::misc::Cache<
     propnet::State,
-    std::shared_future<std::vector<std::pair<std::unordered_map<std::uint32_t, double>, double>>>,
+    std::shared_future<std::vector<std::pair<std::unordered_map<propnet::PropId, double>, double>>>,
     caches::LRUCachePolicy,
     COMPLETE_CFR_CACHE_SIZE
 >;
 
-std::function<bool()> get_time_limit_function(std::optional<unsigned int> time_limit);
+std::function<bool()> get_time_limit_function(std::optional<std::size_t> time_limit);
 std::string to_readable_time(const std::chrono::time_point<std::chrono::system_clock>& time_point);
-void train(unsigned int num_concurrent_games, const std::function<bool()>& time_limit_function, std::string_view game);
-void train_batch(unsigned int num_concurrent_games, const propnet::Propnet& propnet, rebel::ReplayBuffer& replay_buffer);
+void train(std::size_t num_concurrent_games, const std::function<bool()>& time_limit_function, std::string_view game);
+void train_batch(std::size_t num_concurrent_games, const propnet::Propnet& propnet, rebel::ReplayBuffer& replay_buffer);
 void play_game(const propnet::Propnet& propnet, rebel::ReplayBuffer& replay_buffer, std::mutex& replay_buffer_lock, CompleteCfrCache& complete_cfr_cache);
 
 class TimeLimit
@@ -54,14 +54,14 @@ int main(int argc, char** argv)
 {
     const auto hardware_threads {std::thread::hardware_concurrency()};
 
-    unsigned int total_num_threads;
-    unsigned int time_limit;
+    std::size_t total_num_threads;
+    std::size_t time_limit;
     std::string game {};
     po::options_description options_description {"Allowed options"};
     options_description.add_options()
         (HELP_COMMAND, "produce help message")
-        (NUM_THREADS_COMMAND, po::value<unsigned int>(&total_num_threads)->default_value(hardware_threads), "set number of threads for training")
-        (TIME_LIMIT_COMMAND, po::value<unsigned int>(&time_limit), "maximum time allowed to train (in minutes)")
+        (NUM_THREADS_COMMAND, po::value<std::size_t>(&total_num_threads)->default_value(hardware_threads), "set number of threads for training")
+        (TIME_LIMIT_COMMAND, po::value<std::size_t>(&time_limit), "maximum time allowed to train (in minutes)")
         (GAME_COMMAND, po::value<std::string>(&game)->required(), "game to train on")
     ;
 
@@ -93,7 +93,7 @@ int main(int argc, char** argv)
 
     const auto is_time_limit {variables_map.contains(TIME_LIMIT_COMMAND)};
     const auto time_limit_function {get_time_limit_function(
-        is_time_limit ? std::optional<unsigned int> {time_limit} : std::nullopt
+        is_time_limit ? std::optional<std::size_t> {time_limit} : std::nullopt
     )};
 
     const auto num_concurrent_games {total_num_threads + 1}; // Cheeky + 1
@@ -108,7 +108,7 @@ int main(int argc, char** argv)
     return 0;
 }
 
-std::function<bool()> get_time_limit_function(std::optional<unsigned int> time_limit)
+std::function<bool()> get_time_limit_function(std::optional<std::size_t> time_limit)
 {
     const auto start_time {std::chrono::system_clock::now()};
     std::cout << "Start time is " << to_readable_time(start_time) << '\n';
@@ -137,7 +137,7 @@ std::string to_readable_time(const std::chrono::time_point<std::chrono::system_c
     return readable_time.str();
 }
 
-void train(unsigned int num_concurrent_games, const std::function<bool()>& time_limit_function, std::string_view game)
+void train(std::size_t num_concurrent_games, const std::function<bool()>& time_limit_function, std::string_view game)
 {
     const auto propnet {setup::load_propnet(game)};
     rebel::ReplayBuffer replay_buffer {};
@@ -147,7 +147,7 @@ void train(unsigned int num_concurrent_games, const std::function<bool()>& time_
     }
 }
 
-void train_batch(unsigned int num_concurrent_games, const propnet::Propnet& propnet, rebel::ReplayBuffer& replay_buffer)
+void train_batch(std::size_t num_concurrent_games, const propnet::Propnet& propnet, rebel::ReplayBuffer& replay_buffer)
 {
     auto remaining_games {BATCH_SIZE};
     std::mutex remaining_games_lock {};
@@ -199,8 +199,8 @@ void play_game(const propnet::Propnet& propnet, rebel::ReplayBuffer& replay_buff
                     [&propnet, &state]()
                     {
                         rebel::search::ExternalSamplingMCCFR mccfr {propnet};
-                        // return std::vector<std::unordered_map<std::uint32_t, double>> {mccfr.search(state).first}; // TODO
-                        return std::vector<std::pair<std::unordered_map<std::uint32_t, double>, double>> {};
+                        // return std::vector<std::unordered_map<propnet::PropId, double>> {mccfr.search(state).first}; // TODO
+                        return std::vector<std::pair<std::unordered_map<propnet::PropId, double>, double>> {};
                     }
                 )
             );

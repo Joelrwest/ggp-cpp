@@ -20,24 +20,24 @@ namespace propnet
             struct Legal
             {
                 std::shared_ptr<const PropositionNode> node;
-                std::uint32_t legal;
-                std::uint32_t input;
+                PropId legal;
+                PropId input;
             };
 
             struct Goal
             {
                 std::shared_ptr<const PropositionNode> node;
-                std::uint32_t value;
+                Reward value;
             };
 
             Role(std::string_view name, const std::vector<std::shared_ptr<const PropositionNode>>& sees, const std::vector<Legal>& legals, const std::vector<Goal>& goals);
 
             std::string_view get_name() const;
-            std::uint32_t get_reward(const State& state) const;
+            Reward get_reward(const State& state) const;
             std::vector<bool> get_observations(const State& state) const;
             void print_observations(const std::vector<bool>& observations) const;
-            std::vector<std::uint32_t> get_legal_inputs(const State& state) const;
-            void print_legal_inputs(std::span<const std::uint32_t> inputs) const;
+            std::vector<PropId> get_legal_inputs(const State& state) const;
+            void print_legal_inputs(std::span<const PropId> inputs) const;
             std::size_t get_max_policy_size() const;
             Id get_id() const;
         private:

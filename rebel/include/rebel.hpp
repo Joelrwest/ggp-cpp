@@ -13,7 +13,7 @@
 namespace rebel
 {
     template<typename DerivedSamplerT>
-    concept DerivedSampler = requires(DerivedSamplerT sampler, const std::vector<bool>& observation, std::uint32_t prev_input)
+    concept DerivedSampler = requires(DerivedSamplerT sampler, const std::vector<bool>& observation, propnet::PropId prev_input)
     {
         { sampler.sample_state() } -> std::convertible_to<propnet::State>;
         { sampler.prepare_new_game() } -> std::convertible_to<void>;
@@ -24,16 +24,16 @@ namespace rebel
     class RebelAgent : public agents::Agent
     {
         private:
-            static constexpr std::uint32_t DEFAULT_NUM_THREADS {6};
-            static constexpr std::uint32_t MAX_SAMPLE_SIZE {200};
-            static constexpr std::uint32_t MAX_CFR_TIME_SECONDS {10};
+            static constexpr std::size_t DEFAULT_NUM_THREADS {6};
+            static constexpr std::size_t MAX_SAMPLE_SIZE {200};
+            static constexpr std::size_t MAX_CFR_TIME_SECONDS {10};
 
             SamplerT sampler;
             const propnet::Role& role;
             const propnet::Propnet& propnet;
-            std::uint32_t num_threads;
+            std::size_t num_threads;
         public:
-            RebelAgent(const propnet::Role& role, const propnet::Propnet& propnet, std::uint32_t num_threads) :
+            RebelAgent(const propnet::Role& role, const propnet::Propnet& propnet, std::size_t num_threads) :
                 Agent {role},
                 sampler {role, propnet},
                 role {role},
@@ -53,13 +53,13 @@ namespace rebel
                 sampler.prepare_new_game();
             }
 
-            void add_history(std::uint32_t prev_input) override
+            void add_history(propnet::PropId prev_input) override
             {
                 const auto observations {get_observations_cache()};
                 sampler.add_history(observations, prev_input);
             }
 
-            std::uint32_t get_legal_input_impl(std::span<const std::uint32_t> legal_inputs)
+            propnet::PropId get_legal_input_impl(std::span<const propnet::PropId> legal_inputs)
             {
                 static std::mt19937 random_engine {std::random_device {}()};
                 std::vector<std::thread> threads {};
@@ -72,7 +72,7 @@ namespace rebel
 
                 const auto start_time {std::chrono::system_clock::now()};
                 const auto end_time {start_time + std::chrono::seconds(MAX_CFR_TIME_SECONDS)};
-                for (std::uint32_t thread_count {0}; thread_count < num_threads; ++thread_count)
+                for (std::size_t thread_count {0}; thread_count < num_threads; ++thread_count)
                 {
                     threads.emplace_back(
                         [this, &legal_inputs, &num_sampled, &num_sampled_lock, &cumulative_policy, &cumulative_policy_lock, end_time]
@@ -89,7 +89,6 @@ namespace rebel
                                     const std::lock_guard<std::mutex> num_sampled_guard {num_sampled_lock};
                                     if (num_sampled == MAX_SAMPLE_SIZE)
                                     {
-                                        // Sample is full, stop
                                         return;
                                     }
 

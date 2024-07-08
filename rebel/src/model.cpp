@@ -8,7 +8,7 @@ namespace rebel
         buffer {}
     {}
 
-    ReplayBuffer::Item::Item(propnet::State state, std::vector<std::unordered_map<std::uint32_t, double>> policies) :
+    ReplayBuffer::Item::Item(propnet::State state, std::vector<std::unordered_map<propnet::PropId, double>> policies) :
         state {std::move(state)},
         policies {std::move(policies)}
     {}
@@ -122,7 +122,7 @@ namespace rebel
         }
     }
 
-    Model Model::load_game_number(const propnet::Propnet& propnet, std::string_view game, int game_number)
+    Model Model::load_game_number(const propnet::Propnet& propnet, std::string_view game, std::size_t game_number)
     {
         const auto file_name {get_file_name(game_number)};
         auto path {get_models_path(game)};
@@ -133,7 +133,7 @@ namespace rebel
 
     void Model::eval() const {}
 
-    void Model::save(int game_number) const
+    void Model::save(std::size_t game_number) const
     {
         torch::serialize::OutputArchive output_archive {};
         network.save(output_archive);
@@ -169,7 +169,7 @@ namespace rebel
         return path;
     }
 
-    std::string Model::get_file_name(int game_number)
+    std::string Model::get_file_name(std::size_t game_number)
     {
         std::stringstream file_name_stream {};
         file_name_stream << MODEL_NAME_BASE << std::setw(GAME_NUMBER_WIDTH) << game_number << MODEL_NAME_EXTENSION;
@@ -219,7 +219,7 @@ namespace rebel
         return Model {propnet, game, std::move(network)};
     }
 
-    void Model::log_time(int game_number)
+    void Model::log_time(std::size_t game_number)
     {
         const auto now_time_ms {get_time_ms()};
         const auto duration_ms {now_time_ms - start_time_ms};

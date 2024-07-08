@@ -8,9 +8,9 @@ namespace propnet
         const std::vector<Role>& player_roles,
         const std::optional<Role>& random_role,
         const std::vector<std::shared_ptr<const Node>>& nodes,
-        std::uint32_t terminal,
-        const std::vector<std::uint32_t>& topologically_sorted_nodes,
-        const std::vector<std::uint32_t>& non_post_topologically_sorted_nodes
+        PropId terminal,
+        const std::vector<PropId>& topologically_sorted_nodes,
+        const std::vector<PropId>& non_post_topologically_sorted_nodes
     ) :
         player_roles {player_roles},
         random_role {random_role},
@@ -35,7 +35,7 @@ namespace propnet
         return player_roles;
     }
 
-    std::vector<Role> Propnet::get_player_roles(std::uint16_t excluding_id) const
+    std::vector<Role> Propnet::get_player_roles(Role::Id excluding_id) const
     {
         std::vector<Role> player_roles_excluding {};
         std::copy_if(
@@ -91,7 +91,7 @@ namespace propnet
         return random_role.has_value();
     }
 
-    void Propnet::take_inputs(State& state, const InputSet& inputs, const std::vector<std::uint32_t>& ids) const
+    void Propnet::take_inputs(State& state, const InputSet& inputs, const std::vector<PropId>& ids) const
     {
         for (const auto id : ids)
         {

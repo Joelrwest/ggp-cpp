@@ -70,15 +70,15 @@ namespace propnet
             }
 
             void add_entry(const nlohmann::json& entry);
-            void add_proposition(std::uint32_t id, std::string_view type, std::string&& display, const nlohmann::json& entry);
+            void add_proposition(PropId id, std::string_view type, std::string&& display, const nlohmann::json& entry);
 
             std::vector<Role> player_roles {};
             std::optional<Role> random_role {std::nullopt};
             std::vector<std::shared_ptr<const Node>> nodes {};
-            std::unordered_map<std::uint32_t, std::shared_ptr<const PropositionNode>> propositions {};
-            std::optional<std::uint32_t> terminal {};
-            std::vector<std::uint32_t> topologically_sorted_nodes {};
-            std::vector<std::uint32_t> non_post_topologically_sorted_nodes {};
-            std::unordered_set<std::uint32_t> post_transition_nodes {};
+            std::unordered_map<PropId, std::shared_ptr<const PropositionNode>> propositions {};
+            std::optional<PropId> terminal {};
+            std::vector<PropId> topologically_sorted_nodes {};
+            std::vector<PropId> non_post_topologically_sorted_nodes {};
+            std::unordered_set<PropId> post_transition_nodes {};
     };
 }

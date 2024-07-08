@@ -47,7 +47,7 @@ namespace rebel::misc
                     throw std::logic_error {"Tried to get next cartesian product but they've all been generated"};
                 }
 
-                std::unordered_set<std::uint32_t> product {};
+                std::unordered_set<T> product {};
                 for (const auto& vec_it : vec_its)
                 {
                     product.insert(*vec_it.it);

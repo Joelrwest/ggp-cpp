@@ -1,5 +1,7 @@
 #pragma once
 
+#include "types.hpp"
+
 #include <cstdint>
 #include <memory>
 #include <limits>
@@ -20,13 +22,13 @@ namespace propnet
             State& operator=(State&& other);
             bool operator==(const State& other) const;
 
-            bool get(std::uint32_t getting_id) const;
-            void update(std::uint32_t updating_id, bool new_value);
+            bool get(PropId getting_id) const;
+            void update(PropId updating_id, bool new_value);
             bool get_is_initial() const;
             void set_not_is_initial();
 
             friend std::ostream& operator<<(std::ostream& os, const State& state);
-            friend class std::hash<propnet::State>;
+            friend class std::hash<State>;
         private:
             std::vector<bool> state;
             bool is_initial;

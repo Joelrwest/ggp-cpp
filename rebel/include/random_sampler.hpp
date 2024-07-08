@@ -14,19 +14,19 @@ namespace rebel
             RandomSampler(const propnet::Role& sampler_role, const propnet::Propnet& propnet);
 
             void prepare_new_game();
-            void add_history(const std::vector<bool>& observation, std::uint32_t prev_input);
+            void add_history(const std::vector<bool>& observation, propnet::PropId prev_input);
             void pop_history();
             propnet::State sample_state();
             std::vector<propnet::State> sample_states(std::size_t num_states);
         private:
             struct History
             {
-                History(const std::vector<bool>& observation, std::uint32_t prev_input);
+                History(const std::vector<bool>& observation, propnet::PropId prev_input);
                 History(const History& other) = delete;
                 History& operator=(const History&) = delete;
 
                 std::vector<bool> observation;
-                std::uint32_t prev_input;
+                propnet::PropId prev_input;
                 std::unordered_set<propnet::State> invalid_state_cache;
                 std::shared_mutex invalid_state_cache_lock;
                 std::unordered_set<propnet::InputSet> invalid_inputs_cache;

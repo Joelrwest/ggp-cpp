@@ -21,11 +21,11 @@ namespace rebel
 
             struct Item
             {
-                Item(propnet::State state, std::vector<std::unordered_map<std::uint32_t, double>> policies);
+                Item(propnet::State state, std::vector<std::unordered_map<propnet::PropId, double>> policies);
 
                 propnet::State state;
-                std::vector<std::unordered_map<std::uint32_t, double>> policies;
-                // std::unordered_map<std::uint32_t, double> values; // TODO: Add
+                std::vector<std::unordered_map<propnet::PropId, double>> policies;
+                // std::unordered_map<propnet::PropId, double> values; // TODO: Add
             };
 
             template<typename... ItemArgs>
@@ -52,11 +52,11 @@ namespace rebel
     class Network : public torch::nn::Module
     {
         public:
-            using EvalT = std::pair<torch::Tensor, std::vector<torch::Tensor>>;
+            using Eval = std::pair<torch::Tensor, std::vector<torch::Tensor>>;
 
             Network(const propnet::Propnet& propnet);
 
-            EvalT forward(torch::Tensor x);
+            Eval forward(torch::Tensor x);
         private:
             static constexpr auto DROPOUT_ZERO_PROBABILITY {0.2};
             static constexpr auto SOFTMAX_DIMENSION {1}; // TODO: Not 100% sure about this
@@ -78,10 +78,10 @@ namespace rebel
             static constexpr auto TIME_LOG_FILE_NAME {"time-log.txt"};
 
             static Model load_most_recent(const propnet::Propnet& propnet, std::string_view game);
-            static Model load_game_number(const propnet::Propnet& propnet, std::string_view game, int game_number);
+            static Model load_game_number(const propnet::Propnet& propnet, std::string_view game, std::size_t game_number);
 
             void eval() const; // TODO: What *exactly* do I want to take in and give back?
-            void save(int game_number) const;
+            void save(std::size_t game_number) const;
         private:
             static constexpr auto MODEL_NAME_BASE {"game-num-"};
             static constexpr auto GAME_NUMBER_WIDTH {6};
@@ -91,19 +91,19 @@ namespace rebel
             Model(const propnet::Propnet& propnet, std::string_view game, Network&& network);
 
             static std::filesystem::path get_models_path(std::string_view game);
-            static std::string get_file_name(int game_number);
+            static std::string get_file_name(std::size_t game_number);
             static std::filesystem::path get_time_log_file_path(std::filesystem::path models_path);
             static void create_directory_if_not_exists(const std::filesystem::path& path);
             static std::chrono::milliseconds get_time_ms();
             static Model load_file_path(const propnet::Propnet& propnet, std::string_view game, const std::filesystem::path& file_name);
 
-            void log_time(int game_number);
+            void log_time(std::size_t game_number);
 
             const propnet::Propnet& propnet;
             std::filesystem::path models_path;
             Network network;
             std::ofstream time_log_file;
             std::chrono::milliseconds start_time_ms;
-            misc::Cache<propnet::State, Network::EvalT, caches::LRUCachePolicy, MODEL_CACHE_SIZE> cache;
+            misc::Cache<propnet::State, Network::Eval, caches::LRUCachePolicy, MODEL_CACHE_SIZE> cache;
     };
 }

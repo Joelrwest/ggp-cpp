@@ -13,7 +13,7 @@ namespace agents
     {}
 
     // TODO: Go through and convert more stuff to span to be general
-    std::uint32_t RandomAgent::get_legal_input_impl(std::span<const std::uint32_t> legal_inputs)
+    propnet::PropId RandomAgent::get_legal_input_impl(std::span<const propnet::PropId> legal_inputs)
     {
         static std::mt19937 random_engine {std::random_device {}()};
         static std::uniform_int_distribution<> distribution (0, legal_inputs.size() - 1);
@@ -21,7 +21,7 @@ namespace agents
         return legal_inputs[idx];
     }
 
-    void RandomAgent::get_legal_inputs_impl(std::span<std::uint32_t> legal_inputs) const
+    void RandomAgent::get_legal_inputs_impl(std::span<propnet::PropId> legal_inputs) const
     {
         std::random_shuffle(legal_inputs.begin(), legal_inputs.end());
     }
@@ -30,23 +30,23 @@ namespace agents
         NonSeeingAgent {role}
     {}
 
-    std::uint32_t FirstAgent::get_legal_input_impl(std::span<const std::uint32_t> legal_inputs)
+    propnet::PropId FirstAgent::get_legal_input_impl(std::span<const propnet::PropId> legal_inputs)
     {
         return legal_inputs.front();
     }
 
-    void FirstAgent::get_legal_inputs_impl(std::span<std::uint32_t>) const { /* Already in the order we want */ }
+    void FirstAgent::get_legal_inputs_impl(std::span<propnet::PropId>) const { /* Already in the order we want */ }
 
     LastAgent::LastAgent(const propnet::Role& role) :
         NonSeeingAgent {role}
     {}
 
-    std::uint32_t LastAgent::get_legal_input_impl(std::span<const std::uint32_t> legal_inputs)
+    propnet::PropId LastAgent::get_legal_input_impl(std::span<const propnet::PropId> legal_inputs)
     {
         return legal_inputs.back();
     }
 
-    void LastAgent::get_legal_inputs_impl(std::span<std::uint32_t> legal_inputs) const
+    void LastAgent::get_legal_inputs_impl(std::span<propnet::PropId> legal_inputs) const
     {
         std::reverse(legal_inputs.begin(), legal_inputs.end());
     }

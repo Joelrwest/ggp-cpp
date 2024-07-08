@@ -13,7 +13,7 @@
 namespace propnet
 {
     /*
-    Class that parses and stores the nodes to
+    Class that stores the nodes to
     the propositional network.
 
     Does not store any state within it.
@@ -30,13 +30,13 @@ namespace propnet
                 const std::vector<Role>& player_roles,
                 const std::optional<Role>& random_role,
                 const std::vector<std::shared_ptr<const Node>>& nodes,
-                std::uint32_t terminal,
-                const std::vector<std::uint32_t>& topologically_sorted_nodes,
-                const std::vector<std::uint32_t>& non_post_topologically_sorted_nodes
+                PropId terminal,
+                const std::vector<PropId>& topologically_sorted_nodes,
+                const std::vector<PropId>& non_post_topologically_sorted_nodes
             );
 
             const std::vector<Role>& get_player_roles() const;
-            std::vector<Role> get_player_roles(std::uint16_t excluding_id) const;
+            std::vector<Role> get_player_roles(Role::Id excluding_id) const;
             const std::optional<Role>& get_random_role() const;
             /*
             Take given inputs.
@@ -54,14 +54,14 @@ namespace propnet
         private:
             const InputSet EMPTY_INPUTS {};
 
-            void take_inputs(State& state, const InputSet& inputs, const std::vector<std::uint32_t>& ids) const;
+            void take_inputs(State& state, const InputSet& inputs, const std::vector<PropId>& ids) const;
 
             std::vector<Role> player_roles;
             std::optional<Role> random_role;
             std::vector<std::shared_ptr<const Node>> nodes;
-            std::uint32_t terminal;
-            std::vector<std::uint32_t> topologically_sorted_nodes;
-            std::vector<std::uint32_t> non_post_topologically_sorted_nodes;
+            PropId terminal;
+            std::vector<PropId> topologically_sorted_nodes;
+            std::vector<PropId> non_post_topologically_sorted_nodes;
             State initial_state;
     };
 }

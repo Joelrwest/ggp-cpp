@@ -20,7 +20,7 @@ namespace propnet
         return name;
     }
 
-    std::uint32_t Role::get_reward(const State& state) const
+    Reward Role::get_reward(const State& state) const
     {
         return std::accumulate(
             goals.begin(),
@@ -67,9 +67,9 @@ namespace propnet
         }
     }
 
-    std::vector<std::uint32_t> Role::get_legal_inputs(const State& state) const
+    std::vector<PropId> Role::get_legal_inputs(const State& state) const
     {
-        std::vector<std::uint32_t> legal_inputs {};
+        std::vector<PropId> legal_inputs {};
         for (const auto& legal : legals)
         {
             if (legal.node->eval(state, EMPTY_INPUTS))
@@ -86,7 +86,7 @@ namespace propnet
         return legal_inputs;
     }
 
-    void Role::print_legal_inputs(std::span<const std::uint32_t> inputs) const
+    void Role::print_legal_inputs(std::span<const PropId> inputs) const
     {
         std::cout << "Legal moves for '" << name << "' are:\n";
         auto inputs_it {inputs.begin()};

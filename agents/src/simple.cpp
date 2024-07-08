@@ -7,7 +7,7 @@ namespace agents
         role {role}
     {}
 
-    std::vector<std::uint32_t> SimpleAgent::get_legal_inputs(const propnet::State& state) const
+    std::vector<propnet::PropId> SimpleAgent::get_legal_inputs(const propnet::State& state) const
     {
         auto legal_inputs {role.get_legal_inputs(state)};
         if (legal_inputs.size() > 1)

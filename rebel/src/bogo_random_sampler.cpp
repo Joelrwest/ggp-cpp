@@ -16,7 +16,7 @@ namespace rebel
         all_histories.clear();
     }
 
-    void BogoRandomSampler::add_history(const std::vector<bool>& observation, std::uint32_t prev_input)
+    void BogoRandomSampler::add_history(const std::vector<bool>& observation, propnet::PropId prev_input)
     {
         all_histories.push_back(History {
             .observation = observation,
