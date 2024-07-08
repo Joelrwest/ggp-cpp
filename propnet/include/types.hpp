@@ -4,6 +4,6 @@
 
 namespace propnet
 {
-    using PropId = std::uint32_t;
-    using Reward = std::size_t;
-}
+using PropId = std::uint32_t;
+using Reward = std::size_t;
+} // namespace propnet

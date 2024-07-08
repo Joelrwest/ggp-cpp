@@ -6,44 +6,47 @@
 
 namespace agents
 {
-    class NonSeeingAgent : public SimpleAgent
-    {
-        public:
-            NonSeeingAgent(const propnet::Role& role);
+class NonSeeingAgent : public SimpleAgent
+{
+  public:
+    NonSeeingAgent(const propnet::Role &role);
 
-            void take_observations(const propnet::State& state) override;
-    };
+    void take_observations(const propnet::State &state) override;
+};
 
-    class RandomAgent : public NonSeeingAgent
-    {
-        public:
-            RandomAgent(const propnet::Role& role);
+class RandomAgent : public NonSeeingAgent
+{
+  public:
+    RandomAgent(const propnet::Role &role);
 
-            static constexpr auto NAME {"random"};
-        private:
-            propnet::PropId get_legal_input_impl(std::span<const propnet::PropId> legal_inputs) override;
-            void get_legal_inputs_impl(std::span<propnet::PropId> legal_inputs) const override;
-    };
+    static constexpr auto NAME{"random"};
 
-    class FirstAgent : public NonSeeingAgent
-    {
-        public:
-            FirstAgent(const propnet::Role& role);
+  private:
+    propnet::PropId get_legal_input_impl(std::span<const propnet::PropId> legal_inputs) override;
+    void get_legal_inputs_impl(std::span<propnet::PropId> legal_inputs) const override;
+};
 
-            static constexpr auto NAME {"first"};
-        private:
-            propnet::PropId get_legal_input_impl(std::span<const propnet::PropId> legal_inputs) override;
-            void get_legal_inputs_impl(std::span<propnet::PropId> legal_inputs) const override;
-    };
+class FirstAgent : public NonSeeingAgent
+{
+  public:
+    FirstAgent(const propnet::Role &role);
 
-    class LastAgent : public NonSeeingAgent
-    {
-        public:
-            LastAgent(const propnet::Role& role);
+    static constexpr auto NAME{"first"};
 
-            static constexpr auto NAME {"last"};
-        private:
-            propnet::PropId get_legal_input_impl(std::span<const propnet::PropId> legal_inputs) override;
-            void get_legal_inputs_impl(std::span<propnet::PropId> legal_inputs) const override;
-    };
-}
+  private:
+    propnet::PropId get_legal_input_impl(std::span<const propnet::PropId> legal_inputs) override;
+    void get_legal_inputs_impl(std::span<propnet::PropId> legal_inputs) const override;
+};
+
+class LastAgent : public NonSeeingAgent
+{
+  public:
+    LastAgent(const propnet::Role &role);
+
+    static constexpr auto NAME{"last"};
+
+  private:
+    propnet::PropId get_legal_input_impl(std::span<const propnet::PropId> legal_inputs) override;
+    void get_legal_inputs_impl(std::span<propnet::PropId> legal_inputs) const override;
+};
+} // namespace agents

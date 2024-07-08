@@ -1,117 +1,125 @@
 #pragma once
 
-#include "../include/vector_state.hpp"
 #include "../include/input_set.hpp"
 #include "../include/types.hpp"
+#include "../include/vector_state.hpp"
 
 #include <cstdint>
 #include <memory>
-#include <vector>
-#include <unordered_set>
 #include <span>
+#include <unordered_set>
+#include <vector>
 
 namespace propnet
 {
-    class Node
-    {
-        public:
-            Node(PropId id);
+class Node
+{
+  public:
+    Node(PropId id);
 
-            PropId get_id() const;
-            virtual bool eval(const State& state, const InputSet& inputs) const = 0;
-        private:
-            PropId id;
-    };
+    PropId get_id() const;
+    virtual bool eval(const State &state, const InputSet &inputs) const = 0;
 
-    class AndNode : public Node
-    {
-        public:
-            AndNode(PropId id, std::span<const PropId> ins);
+  private:
+    PropId id;
+};
 
-            bool eval(const State& state, const InputSet& inputs) const override;
-        private:
-            std::vector<PropId> ins;
-    };
+class AndNode : public Node
+{
+  public:
+    AndNode(PropId id, std::span<const PropId> ins);
 
-    class OrNode : public Node
-    {
-        public:
-            OrNode(PropId id, std::span<const PropId> ins);
+    bool eval(const State &state, const InputSet &inputs) const override;
 
-            bool eval(const State& state, const InputSet& inputs) const override;
-        private:
-            std::vector<PropId> ins;
-    };
+  private:
+    std::vector<PropId> ins;
+};
 
-    class PropositionNode : public Node
-    {
-        public:
-            PropositionNode(PropId id, std::string_view display);
+class OrNode : public Node
+{
+  public:
+    OrNode(PropId id, std::span<const PropId> ins);
 
-            std::string_view get_display() const;
-        private:
-            std::string display;
-    };
+    bool eval(const State &state, const InputSet &inputs) const override;
 
-    class BasicPropositionNode : public PropositionNode
-    {
-        public:
-            BasicPropositionNode(PropId id, std::string_view display, PropId in);
+  private:
+    std::vector<PropId> ins;
+};
 
-            bool eval(const State& state, const InputSet& inputs) const override;
-        private:
-            PropId in;
-    };
+class PropositionNode : public Node
+{
+  public:
+    PropositionNode(PropId id, std::string_view display);
 
-    class InputPropositionNode : public PropositionNode
-    {
-        public:
-            InputPropositionNode(PropId id, std::string_view display);
-            bool eval(const State& state, const InputSet& inputs) const override;
-    };
+    std::string_view get_display() const;
 
-    class InitialPropositionNode : public PropositionNode
-    {
-        public:
-            InitialPropositionNode(PropId id, std::string_view display);
-            bool eval(const State& state, const InputSet& inputs) const override;
-    };
+  private:
+    std::string display;
+};
 
-    class PreTransitionNode : public Node
-    {
-        public:
-            PreTransitionNode(PropId id, PropId in);
+class BasicPropositionNode : public PropositionNode
+{
+  public:
+    BasicPropositionNode(PropId id, std::string_view display, PropId in);
 
-            bool eval(const State& state, const InputSet& inputs) const override;
-        private:
-            PropId in;
-    };
+    bool eval(const State &state, const InputSet &inputs) const override;
 
-    class PostTransitionNode : public Node
-    {
-        public:
-            PostTransitionNode(PropId id, PropId pre_id);
+  private:
+    PropId in;
+};
 
-            bool eval(const State& state, const InputSet& inputs) const override;
-        private:
-            PropId pre_id;
-    };
+class InputPropositionNode : public PropositionNode
+{
+  public:
+    InputPropositionNode(PropId id, std::string_view display);
+    bool eval(const State &state, const InputSet &inputs) const override;
+};
 
-    class NotNode : public Node
-    {
-        public:
-            NotNode(PropId id, PropId in);
+class InitialPropositionNode : public PropositionNode
+{
+  public:
+    InitialPropositionNode(PropId id, std::string_view display);
+    bool eval(const State &state, const InputSet &inputs) const override;
+};
 
-            bool eval(const State& state, const InputSet& inputs) const override;
-        private:
-            PropId in;
-    };
+class PreTransitionNode : public Node
+{
+  public:
+    PreTransitionNode(PropId id, PropId in);
 
-    class TrueNode : public Node
-    {
-        public:
-            TrueNode(PropId id);
+    bool eval(const State &state, const InputSet &inputs) const override;
 
-            bool eval(const State& state, const InputSet& inputs) const override;
-    };
-}
+  private:
+    PropId in;
+};
+
+class PostTransitionNode : public Node
+{
+  public:
+    PostTransitionNode(PropId id, PropId pre_id);
+
+    bool eval(const State &state, const InputSet &inputs) const override;
+
+  private:
+    PropId pre_id;
+};
+
+class NotNode : public Node
+{
+  public:
+    NotNode(PropId id, PropId in);
+
+    bool eval(const State &state, const InputSet &inputs) const override;
+
+  private:
+    PropId in;
+};
+
+class TrueNode : public Node
+{
+  public:
+    TrueNode(PropId id);
+
+    bool eval(const State &state, const InputSet &inputs) const override;
+};
+} // namespace propnet

@@ -6,15 +6,16 @@
 
 namespace agents
 {
-    class SimpleAgent : public Agent
-    {
-        public:
-            SimpleAgent(const propnet::Role& role);
+class SimpleAgent : public Agent
+{
+  public:
+    SimpleAgent(const propnet::Role &role);
 
-            std::vector<propnet::PropId> get_legal_inputs(const propnet::State& state) const;
-        private:
-            virtual void get_legal_inputs_impl(std::span<propnet::PropId> legal_inputs) const = 0;
+    std::vector<propnet::PropId> get_legal_inputs(const propnet::State &state) const;
 
-            const propnet::Role& role;
-    };
-}
+  private:
+    virtual void get_legal_inputs_impl(std::span<propnet::PropId> legal_inputs) const = 0;
+
+    const propnet::Role &role;
+};
+} // namespace agents

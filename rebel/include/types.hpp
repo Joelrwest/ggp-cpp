@@ -6,11 +6,11 @@
 
 namespace rebel
 {
-    using Probability = double;
-    using Policy = std::unordered_map<propnet::PropId, Probability>;
+using Probability = double;
+using Policy = std::unordered_map<propnet::PropId, Probability>;
 
-    using Regret = double;
-    using Regrets = std::unordered_map<propnet::PropId, Regret>;
+using Regret = double;
+using Regrets = std::unordered_map<propnet::PropId, Regret>;
 
-    using ExpectedValue = double;
-}
+using ExpectedValue = double;
+} // namespace rebel
