@@ -14,4 +14,4 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Lint
-      run: find . -o \( -iname '*.hpp' -o -iname '*.cpp' \) | xargs clang-format -style=Microsoft --dry-run
+      run: find . \( -iname '*.hpp' -o -iname '*.cpp' \) | xargs clang-format -style=Microsoft --dry-run
