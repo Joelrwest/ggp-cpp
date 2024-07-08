@@ -106,7 +106,7 @@ template <typename T> T sample_policy(const std::unordered_map<T, Probability> &
         }
     }
 
-    throw std::runtime_error{"Policy did not sum to 1.0"};
+    throw std::runtime_error {"Policy did not sum to 1.0"};
 }
 
 // Unfortunately cannot be reused from the policy code...
