@@ -13,7 +13,7 @@ namespace rebel::search
     class InformationSet
     {
         public:
-            InformationSet(const std::vector<propnet::PropId>& legal_inputs);
+            InformationSet(std::span<const propnet::PropId> legal_inputs);
 
             InformationSet& get_next_information_set(const std::vector<bool>& observations, const propnet::Role& player_role, const propnet::State& state);
             void choose_input(propnet::PropId input);
@@ -25,7 +25,7 @@ namespace rebel::search
             double cumulative_reward;
             std::size_t total_visits;
         private:
-            static std::unordered_map<propnet::PropId, double> make_zeroed_map(const std::vector<propnet::PropId>& legal_inputs);
+            static std::unordered_map<propnet::PropId, double> make_zeroed_map(std::span<const propnet::PropId> legal_inputs);
 
             std::unordered_map<
                 propnet::PropId,

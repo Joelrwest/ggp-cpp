@@ -27,15 +27,15 @@ namespace propnet
             Slightly strange interface, but works well with the parser.
             */
             Propnet(
-                const std::vector<Role>& player_roles,
+                std::span<const Role> player_roles,
                 const std::optional<Role>& random_role,
-                const std::vector<std::shared_ptr<const Node>>& nodes,
+                std::span<const std::shared_ptr<const Node>> nodes,
                 PropId terminal,
-                const std::vector<PropId>& topologically_sorted_nodes,
-                const std::vector<PropId>& non_post_topologically_sorted_nodes
+                std::span<const PropId> topologically_sorted_nodes,
+                std::span<const PropId> non_post_topologically_sorted_nodes
             );
 
-            const std::vector<Role>& get_player_roles() const;
+            std::span<const Role> get_player_roles() const;
             std::vector<Role> get_player_roles(Role::Id excluding_id) const;
             const std::optional<Role>& get_random_role() const;
             /*
@@ -54,7 +54,7 @@ namespace propnet
         private:
             const InputSet EMPTY_INPUTS {};
 
-            void take_inputs(State& state, const InputSet& inputs, const std::vector<PropId>& ids) const;
+            void take_inputs(State& state, const InputSet& inputs, std::span<const PropId> ids) const;
 
             std::vector<Role> player_roles;
             std::optional<Role> random_role;

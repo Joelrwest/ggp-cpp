@@ -7,11 +7,11 @@
 
 namespace propnet
 {
-    Role::Role(std::string_view name, const std::vector<std::shared_ptr<const PropositionNode>>& sees, const std::vector<Legal>& legals, const std::vector<Goal>& goals) :
+    Role::Role(std::string_view name, std::span<const std::shared_ptr<const PropositionNode>> sees, std::span<const Legal> legals, std::span<const Goal> goals) :
         name {name},
-        sees {sees},
-        legals {legals},
-        goals {goals},
+        sees {sees.begin(), sees.end()},
+        legals {legals.begin(), legals.end()},
+        goals {goals.begin(), goals.end()},
         role_id {allocate_role_id()}
     {}
 

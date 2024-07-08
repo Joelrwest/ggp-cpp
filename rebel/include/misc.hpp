@@ -13,29 +13,32 @@ namespace rebel::misc
     class LazyCartesianProductGenerator
     {
         private:
-            struct VecIt
+            struct ItPair
             {
-                std::vector<T>::const_iterator it;
-                const std::vector<T>& vec;
+                std::span<const T> span;
+                decltype(span)::iterator it;
+
+                ItPair(std::span<const T> span) :
+                    span {span},
+                    it {span.begin()}
+                {}
             };
 
-            std::vector<VecIt> vec_its;
+            std::vector<ItPair> it_pairs;
             bool is_next;
         public:
+            // TODO: Idk why but it doesn't work as LazyCartesianProductGenerator(std::span<const std::vector<T>> vecs)
             LazyCartesianProductGenerator(const std::vector<std::vector<T>>& vecs) :
-                vec_its {},
+                it_pairs {},
                 is_next {!vecs.empty()}
             {
                 std::transform(
                     vecs.begin(),
                     vecs.end(),
-                    std::back_inserter(vec_its),
+                    std::back_inserter(it_pairs),
                     [](const auto& vec)
                     {
-                        return VecIt {
-                            .it = vec.cbegin(),
-                            .vec = vec,
-                        };
+                        return ItPair {vec};
                     }
                 );
             }
@@ -48,9 +51,9 @@ namespace rebel::misc
                 }
 
                 std::unordered_set<T> product {};
-                for (const auto& vec_it : vec_its)
+                for (const auto& it_pair : it_pairs)
                 {
-                    product.insert(*vec_it.it);
+                    product.insert(*it_pair.it);
                 }
 
                 return product;
@@ -68,15 +71,15 @@ namespace rebel::misc
                     throw std::logic_error {"Tried to increment to next cartesian product but they've all been generated"};
                 }
 
-                const auto front_begin_it {vec_its.front().vec.cbegin()};
-                for (auto vec_it {vec_its.rbegin()}; vec_it != vec_its.rend(); ++vec_it)
+                const auto front_begin_it {it_pairs.front().span.begin()};
+                for (auto it_pair {it_pairs.rbegin()}; it_pair != it_pairs.rend(); ++it_pair)
                 {
-                    ++vec_it->it;
-                    const auto is_end {vec_it->it == vec_it->vec.cend()};
+                    ++it_pair->it;
+                    const auto is_end {it_pair->it == it_pair->span.end()};
                     if (is_end)
                     {
-                        const auto begin_it {vec_it->vec.cbegin()};
-                        vec_it->it = begin_it;
+                        const auto begin_it {it_pair->span.begin()};
+                        it_pair->it = begin_it;
                         is_next = begin_it != front_begin_it;
                     }
                     else

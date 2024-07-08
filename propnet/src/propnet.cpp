@@ -5,19 +5,19 @@ namespace propnet
 {
 
     Propnet::Propnet(
-        const std::vector<Role>& player_roles,
+        std::span<const Role> player_roles,
         const std::optional<Role>& random_role,
-        const std::vector<std::shared_ptr<const Node>>& nodes,
+        std::span<const std::shared_ptr<const Node>> nodes,
         PropId terminal,
-        const std::vector<PropId>& topologically_sorted_nodes,
-        const std::vector<PropId>& non_post_topologically_sorted_nodes
+        std::span<const PropId> topologically_sorted_nodes,
+        std::span<const PropId> non_post_topologically_sorted_nodes
     ) :
-        player_roles {player_roles},
+        player_roles {player_roles.begin(), player_roles.end()},
         random_role {random_role},
-        nodes {nodes},
+        nodes {nodes.begin(), nodes.end()},
         terminal {terminal},
-        topologically_sorted_nodes {topologically_sorted_nodes},
-        non_post_topologically_sorted_nodes {non_post_topologically_sorted_nodes},
+        topologically_sorted_nodes {topologically_sorted_nodes.begin(), topologically_sorted_nodes.end()},
+        non_post_topologically_sorted_nodes {non_post_topologically_sorted_nodes.begin(), non_post_topologically_sorted_nodes.end()},
         initial_state {nodes.size()}
     {
         if (player_roles.empty())
@@ -30,7 +30,7 @@ namespace propnet
         initial_state.set_not_is_initial();
     }
 
-    const std::vector<Role>& Propnet::get_player_roles() const
+    std::span<const Role> Propnet::get_player_roles() const
     {
         return player_roles;
     }
@@ -91,7 +91,7 @@ namespace propnet
         return random_role.has_value();
     }
 
-    void Propnet::take_inputs(State& state, const InputSet& inputs, const std::vector<PropId>& ids) const
+    void Propnet::take_inputs(State& state, const InputSet& inputs, std::span<const PropId> ids) const
     {
         for (const auto id : ids)
         {

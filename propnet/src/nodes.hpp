@@ -8,6 +8,7 @@
 #include <memory>
 #include <vector>
 #include <unordered_set>
+#include <span>
 
 namespace propnet
 {
@@ -25,7 +26,7 @@ namespace propnet
     class AndNode : public Node
     {
         public:
-            AndNode(PropId id, const std::vector<PropId>& ins);
+            AndNode(PropId id, std::span<const PropId> ins);
 
             bool eval(const State& state, const InputSet& inputs) const override;
         private:
@@ -35,7 +36,7 @@ namespace propnet
     class OrNode : public Node
     {
         public:
-            OrNode(PropId id, const std::vector<PropId>& ins);
+            OrNode(PropId id, std::span<const PropId> ins);
 
             bool eval(const State& state, const InputSet& inputs) const override;
         private:

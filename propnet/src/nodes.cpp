@@ -11,9 +11,9 @@ namespace propnet
         return id;
     }
 
-    AndNode::AndNode(PropId id, const std::vector<PropId>& ins) :
+    AndNode::AndNode(PropId id, std::span<const PropId> ins) :
         Node {id},
-        ins {ins}
+        ins {ins.begin(), ins.end()}
     {}
 
     bool AndNode::eval(const State& state, const InputSet&) const
@@ -29,9 +29,9 @@ namespace propnet
         return true;
     }
 
-    OrNode::OrNode(PropId id, const std::vector<PropId>& ins) :
+    OrNode::OrNode(PropId id, std::span<const PropId> ins) :
         Node {id},
-        ins {ins}
+        ins {ins.begin(), ins.end()}
     {}
 
     bool OrNode::eval(const State& state, const InputSet&) const

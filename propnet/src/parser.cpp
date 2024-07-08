@@ -173,13 +173,13 @@ namespace propnet
             case EntryType::And:
                 add_node(AndNode {
                     id,
-                    entry.at(INS_PROPS_KEY)
+                    entry.at(INS_PROPS_KEY).get<std::vector<PropId>>()
                 });
                 break;
             case EntryType::Or:
                 add_node(OrNode {
                     id,
-                    entry.at(INS_PROPS_KEY)
+                    entry.at(INS_PROPS_KEY).get<std::vector<PropId>>()
                 });
                 break;
             case EntryType::Proposition:

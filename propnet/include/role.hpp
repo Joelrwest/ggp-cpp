@@ -30,7 +30,7 @@ namespace propnet
                 Reward value;
             };
 
-            Role(std::string_view name, const std::vector<std::shared_ptr<const PropositionNode>>& sees, const std::vector<Legal>& legals, const std::vector<Goal>& goals);
+            Role(std::string_view name, std::span<const std::shared_ptr<const PropositionNode>> sees, std::span<const Legal> legals, std::span<const Goal> goals);
 
             std::string_view get_name() const;
             Reward get_reward(const State& state) const;

@@ -4,7 +4,7 @@
 
 namespace rebel::search
 {
-    InformationSet::InformationSet(const std::vector<propnet::PropId>& legal_inputs) :
+    InformationSet::InformationSet(std::span<const propnet::PropId> legal_inputs) :
         cumulative_policy {make_zeroed_map(legal_inputs)},
         regrets {make_zeroed_map(legal_inputs)},
         cumulative_reward {0.0},
@@ -74,7 +74,7 @@ namespace rebel::search
         return policy;
     }
 
-    std::unordered_map<propnet::PropId, double> InformationSet::make_zeroed_map(const std::vector<propnet::PropId>& legal_inputs)
+    std::unordered_map<propnet::PropId, double> InformationSet::make_zeroed_map(std::span<const propnet::PropId> legal_inputs)
     {
         std::unordered_map<propnet::PropId, double> regrets {};
         for (const auto legal_input : legal_inputs)
@@ -87,7 +87,7 @@ namespace rebel::search
 
     ExternalSamplingMCCFR::ExternalSamplingMCCFR(const propnet::Propnet& propnet) :
         propnet {propnet},
-        player_roles {propnet.get_player_roles()},
+        player_roles {propnet.get_player_roles().begin(), propnet.get_player_roles().end()},
         random_role {propnet.get_random_role()},
         base_information_sets {create_base_information_sets(propnet)}
     {}

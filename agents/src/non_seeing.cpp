@@ -12,7 +12,6 @@ namespace agents
         NonSeeingAgent {role}
     {}
 
-    // TODO: Go through and convert more stuff to span to be general
     propnet::PropId RandomAgent::get_legal_input_impl(std::span<const propnet::PropId> legal_inputs)
     {
         static std::mt19937 random_engine {std::random_device {}()};
