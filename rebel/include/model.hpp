@@ -81,7 +81,7 @@ class Model
     static Model load_most_recent(const propnet::Propnet &propnet, std::string_view game);
     static Model load_game_number(const propnet::Propnet &propnet, std::string_view game, std::size_t game_number);
 
-    void eval() const; // TODO: What *exactly* do I want to take in and give back?
+    void  eval() const; // TODO: What *exactly* do I want to take in and give back?
     void save(std::size_t game_number) const;
 
   private:
