@@ -2,7 +2,7 @@
 
 #include <torch/script.h>
 
-namespace rebel
+namespace player
 {
 ReplayBuffer::ReplayBuffer() : buffer{}
 {
@@ -212,4 +212,4 @@ void Model::log_time(std::size_t game_number)
 
     time_log_file << "Game number " << game_number << " took " << num_s << " seconds to reach\n";
 }
-} // namespace rebel
+} // namespace player

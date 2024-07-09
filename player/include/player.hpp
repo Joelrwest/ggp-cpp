@@ -10,7 +10,7 @@
 #include <random>
 #include <thread>
 
-namespace rebel
+namespace player
 {
 template <typename DerivedSamplerT>
 concept DerivedSampler = requires(DerivedSamplerT sampler, const std::vector<bool> &observation,
@@ -27,7 +27,7 @@ concept DerivedSampler = requires(DerivedSamplerT sampler, const std::vector<boo
         } -> std::convertible_to<void>;
 };
 
-template <DerivedSampler SamplerT = RandomSampler> class RebelAgent : public agents::Agent
+template <DerivedSampler SamplerT = RandomSampler> class Player : public agents::Agent
 {
   private:
     static constexpr std::size_t DEFAULT_NUM_THREADS{6};
@@ -40,17 +40,16 @@ template <DerivedSampler SamplerT = RandomSampler> class RebelAgent : public age
     std::size_t num_threads;
 
   public:
-    RebelAgent(const propnet::Role &role, const propnet::Propnet &propnet, std::size_t num_threads)
+    Player(const propnet::Role &role, const propnet::Propnet &propnet, std::size_t num_threads)
         : Agent{role}, sampler{role, propnet}, role{role}, propnet{propnet}, num_threads{num_threads}
     {
     }
 
-    RebelAgent(const propnet::Role &role, const propnet::Propnet &propnet)
-        : RebelAgent{role, propnet, DEFAULT_NUM_THREADS}
+    Player(const propnet::Role &role, const propnet::Propnet &propnet) : Player{role, propnet, DEFAULT_NUM_THREADS}
     {
     }
 
-    static constexpr auto NAME{"rebel"};
+    static constexpr auto NAME{"player"};
 
     void prepare_new_game() override
     {
@@ -136,4 +135,4 @@ template <DerivedSampler SamplerT = RandomSampler> class RebelAgent : public age
         throw std::logic_error{"Cumulative policy exceeded the referees chosen number"};
     }
 };
-} // namespace rebel
+} // namespace player

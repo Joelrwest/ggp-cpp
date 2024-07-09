@@ -1,4 +1,4 @@
-#include "../rebel/include/search.hpp"
+#include "../player/include/search.hpp"
 #include "setup.hpp"
 
 #include <iostream>
@@ -9,7 +9,7 @@ int main(void)
 {
     const propnet::Propnet propnet{setup::load_propnet(BENCHMARK_GAME)};
     std::cout << "Size of propnet = " << propnet.size() << '\n';
-    rebel::search::ExternalSamplingMCCFR mccfr{propnet};
+    player::search::ExternalSamplingMCCFR mccfr{propnet};
     const auto initial_state{propnet.create_initial_state()};
     std::size_t result_count{0};
     const auto joint_result{mccfr.search(initial_state)};

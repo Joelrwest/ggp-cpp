@@ -6,7 +6,7 @@
 #include <shared_mutex>
 #include <tuple>
 
-namespace rebel
+namespace player
 {
 class RandomSampler
 {
@@ -49,4 +49,4 @@ class RandomSampler
     inline static bool is_invalid_inputs(AllHistories::iterator all_histories_it, const propnet::InputSet &inputs);
     inline static void add_invalid_inputs(AllHistories::iterator all_histories_it, const propnet::InputSet &inputs);
 };
-} // namespace rebel
+} // namespace player

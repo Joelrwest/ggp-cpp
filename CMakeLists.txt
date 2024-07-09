@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.11 FATAL_ERROR)
-project(ReBeLGGP)
+project(GGP)
 
 include(FetchContent)
 
@@ -25,12 +25,12 @@ FetchContent_MakeAvailable(Boost)
 
 add_subdirectory(propnet)
 add_subdirectory(agents)
-add_subdirectory(rebel)
+add_subdirectory(player)
 
 add_executable(play src/play.cpp src/setup.cpp)
 target_link_libraries(play PUBLIC propnet)
 target_link_libraries(play PUBLIC agents)
-target_link_libraries(play PUBLIC rebel)
+target_link_libraries(play PUBLIC player)
 target_link_libraries(play PRIVATE torch)
 
 if(MSVC)
@@ -41,13 +41,13 @@ endif()
 
 add_executable(train src/train.cpp src/setup.cpp)
 target_link_libraries(train PUBLIC propnet)
-target_link_libraries(train PUBLIC rebel)
+target_link_libraries(train PUBLIC player)
 target_link_libraries(train PUBLIC Boost::program_options)
 target_link_libraries(train PRIVATE torch)
 
 add_executable(debug src/debug.cpp src/setup.cpp)
 target_link_libraries(debug PUBLIC propnet)
-target_link_libraries(debug PUBLIC rebel)
+target_link_libraries(debug PUBLIC player)
 
 if(MSVC)
   target_compile_options(train PRIVATE /W4 /WX)

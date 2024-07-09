@@ -1,6 +1,6 @@
-#include "../rebel/include/misc.hpp"
-#include "../rebel/include/model.hpp"
-#include "../rebel/include/search.hpp"
+#include "../player/include/misc.hpp"
+#include "../player/include/model.hpp"
+#include "../player/include/search.hpp"
 #include "setup.hpp"
 
 #include <boost/program_options.hpp>
@@ -25,14 +25,16 @@ static constexpr auto BATCH_SIZE{20};
 static constexpr auto COMPLETE_CFR_CACHE_SIZE{10000};
 
 using CompleteCfrCache =
-    rebel::misc::Cache<propnet::State, std::shared_future<std::vector<std::pair<rebel::Policy, rebel::ExpectedValue>>>,
-                       caches::LRUCachePolicy, COMPLETE_CFR_CACHE_SIZE>;
+    player::misc::Cache<propnet::State,
+                        std::shared_future<std::vector<std::pair<player::Policy, player::ExpectedValue>>>,
+                        caches::LRUCachePolicy, COMPLETE_CFR_CACHE_SIZE>;
 
 std::function<bool()> get_time_limit_function(std::optional<std::size_t> time_limit);
 std::string to_readable_time(const std::chrono::time_point<std::chrono::system_clock> &time_point);
 void train(std::size_t num_concurrent_games, const std::function<bool()> &time_limit_function, std::string_view game);
-void train_batch(std::size_t num_concurrent_games, const propnet::Propnet &propnet, rebel::ReplayBuffer &replay_buffer);
-void play_game(const propnet::Propnet &propnet, rebel::ReplayBuffer &replay_buffer, std::mutex &replay_buffer_lock,
+void train_batch(std::size_t num_concurrent_games, const propnet::Propnet &propnet,
+                 player::ReplayBuffer &replay_buffer);
+void play_game(const propnet::Propnet &propnet, player::ReplayBuffer &replay_buffer, std::mutex &replay_buffer_lock,
                CompleteCfrCache &complete_cfr_cache);
 
 class TimeLimit
@@ -135,14 +137,14 @@ std::string to_readable_time(const std::chrono::time_point<std::chrono::system_c
 void train(std::size_t num_concurrent_games, const std::function<bool()> &time_limit_function, std::string_view game)
 {
     const auto propnet{setup::load_propnet(game)};
-    rebel::ReplayBuffer replay_buffer{};
+    player::ReplayBuffer replay_buffer{};
     while (time_limit_function())
     {
         train_batch(num_concurrent_games, propnet, replay_buffer);
     }
 }
 
-void train_batch(std::size_t num_concurrent_games, const propnet::Propnet &propnet, rebel::ReplayBuffer &replay_buffer)
+void train_batch(std::size_t num_concurrent_games, const propnet::Propnet &propnet, player::ReplayBuffer &replay_buffer)
 {
     auto remaining_games{BATCH_SIZE};
     std::mutex remaining_games_lock{};
@@ -179,7 +181,7 @@ void train_batch(std::size_t num_concurrent_games, const propnet::Propnet &propn
     }
 }
 
-void play_game(const propnet::Propnet &propnet, rebel::ReplayBuffer &replay_buffer, std::mutex &replay_buffer_lock,
+void play_game(const propnet::Propnet &propnet, player::ReplayBuffer &replay_buffer, std::mutex &replay_buffer_lock,
                CompleteCfrCache &complete_cfr_cache)
 {
     auto state{propnet.create_initial_state()};
@@ -188,10 +190,10 @@ void play_game(const propnet::Propnet &propnet, rebel::ReplayBuffer &replay_buff
         if (!complete_cfr_cache.Cached(state))
         {
             complete_cfr_cache.Put(state, std::async(std::launch::async, [&propnet, &state]() {
-                                       rebel::search::ExternalSamplingMCCFR mccfr{propnet};
+                                       player::search::ExternalSamplingMCCFR mccfr{propnet};
                                        // return std::vector<std::unordered_map<propnet::PropId, double>>
                                        // {mccfr.search(state).first}; // TODO
-                                       return std::vector<std::pair<rebel::Policy, rebel::ExpectedValue>>{};
+                                       return std::vector<std::pair<player::Policy, player::ExpectedValue>>{};
                                    }));
         }
 

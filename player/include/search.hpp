@@ -9,7 +9,7 @@
 #include <memory>
 #include <vector>
 
-namespace rebel::search
+namespace player::search
 {
 class InformationSet
 {
@@ -74,4 +74,4 @@ class ExternalSamplingMCCFR
     std::optional<propnet::Role> random_role;
     std::vector<InformationSet> base_information_sets;
 };
-} // namespace rebel::search
+} // namespace player::search

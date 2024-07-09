@@ -1,6 +1,6 @@
+#include "../player/include/player.hpp"
 #include "../propnet/include/propnet.hpp"
 #include "../propnet/include/vector_state.hpp"
-#include "../rebel/include/rebel.hpp"
 #include "setup.hpp"
 
 #include <algorithm>

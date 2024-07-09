@@ -3,7 +3,7 @@
 
 #include <algorithm>
 
-namespace rebel
+namespace player
 {
 RandomSampler::RandomSampler(const propnet::Role &sampler_role, const propnet::Propnet &propnet)
     : propnet{propnet}, sampler_role{sampler_role},
@@ -175,4 +175,4 @@ void RandomSampler::add_invalid_inputs(AllHistories::iterator all_histories_it, 
     all_histories_it->invalid_inputs_cache.insert(std::move(inputs));
     all_histories_it->invalid_inputs_cache_lock.unlock();
 }
-} // namespace rebel
+} // namespace player

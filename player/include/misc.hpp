@@ -10,7 +10,7 @@
 #include <unordered_set>
 #include <vector>
 
-namespace rebel::misc
+namespace player::misc
 {
 template <typename T> class LazyCartesianProductGenerator
 {
@@ -157,4 +157,4 @@ class Cache : public UnderlyingCache<KeyT, ValueT, PolicyT>
         this->Clear();
     }
 };
-} // namespace rebel::misc
+} // namespace player::misc

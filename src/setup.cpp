@@ -1,5 +1,5 @@
 #include "setup.hpp"
-#include "../../rebel/include/rebel.hpp"
+#include "../../player/include/player.hpp"
 #include "../agents/include/human.hpp"
 #include "../propnet/include/parser.hpp"
 
@@ -101,9 +101,9 @@ std::unique_ptr<agents::Agent> agent_factory(std::string_view name, const propne
     {
         return std::make_unique<agents::HumanAgent>(role);
     }
-    else if (name == rebel::RebelAgent<>::NAME)
+    else if (name == player::Player<>::NAME)
     {
-        return std::make_unique<rebel::RebelAgent<>>(role, propnet);
+        return std::make_unique<player::Player<>>(role, propnet);
     }
     else
     {

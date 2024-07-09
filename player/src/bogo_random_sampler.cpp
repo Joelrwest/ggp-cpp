@@ -2,7 +2,7 @@
 #include "../../propnet/include/input_set.hpp"
 #include "misc.hpp"
 
-namespace rebel
+namespace player
 {
 BogoRandomSampler::BogoRandomSampler(const propnet::Role &sampler_role, const propnet::Propnet &propnet)
     : propnet{propnet}, sampler_role{sampler_role},
@@ -67,4 +67,4 @@ std::optional<propnet::State> BogoRandomSampler::sample_state_impl()
 
     return std::optional<propnet::State>{state};
 }
-} // namespace rebel
+} // namespace player

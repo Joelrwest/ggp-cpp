@@ -5,7 +5,7 @@
 #include <list>
 #include <optional>
 
-namespace rebel
+namespace player
 {
 class BogoRandomSampler
 {
@@ -31,4 +31,4 @@ class BogoRandomSampler
     std::vector<propnet::Role> player_roles;
     std::optional<propnet::Role> random_role;
 };
-} // namespace rebel
+} // namespace player

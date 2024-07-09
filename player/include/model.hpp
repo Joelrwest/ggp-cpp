@@ -13,7 +13,7 @@
 #include <string_view>
 #include <utility>
 
-namespace rebel
+namespace player
 {
 class ReplayBuffer
 {
@@ -109,4 +109,4 @@ class Model
     std::chrono::milliseconds start_time_ms;
     misc::Cache<propnet::State, Network::Eval, caches::LRUCachePolicy, MODEL_CACHE_SIZE> cache;
 };
-} // namespace rebel
+} // namespace player

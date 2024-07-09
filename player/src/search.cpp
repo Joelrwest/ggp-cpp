@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-namespace rebel::search
+namespace player::search
 {
 InformationSet::InformationSet(std::span<const propnet::PropId> legal_inputs)
     : cumulative_policy{make_zeroed_map<Policy>(legal_inputs)}, regrets{make_zeroed_map<Regrets>(legal_inputs)},
@@ -267,4 +267,4 @@ std::vector<InformationSet> ExternalSamplingMCCFR::create_base_information_sets(
 
     return base_information_sets;
 }
-} // namespace rebel::search
+} // namespace player::search
