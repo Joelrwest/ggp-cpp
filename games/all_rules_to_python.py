@@ -1,16 +1,15 @@
 """
 Inspired from original propnet from Zac Patridge in deep-hi-ggp.
 
-Takes in a GDL-II file and converts into a C++ propositional network.
-
-TODO: Cannot find original function propnet_convert.Convert is...
+Takes in a GDL-II file and converts into a Python propositional network.
 """
 
 import os
-import argparse
 
+from folder_constants import RULES_FOLDER, PYTHON_FOLDER
+
+VALID_EXTENSIONS = ['gdl', 'kif']
 GGP_BASE_DIR = os.environ['GGP_BASE_DIR']
-
 SUBCOMMANDS = (
     'bin',
     'lib/JUnit/junit-4.11.jar',
@@ -32,33 +31,32 @@ GGP_BASE_SUBCOMMANDS = ':'.join((
     for subcommand in SUBCOMMANDS
 ))
 
-
-def to_propnet(game: str, file: str) -> None:
-    output = os.path.abspath(
-        os.path.join('propnet', f"{game}.hpp")
+def main() -> None:
+    files = (
+        file for file in os.listdir(RULES_FOLDER)
+        if any(
+            file.endswith(f".{extension}")
+            for extension in VALID_EXTENSIONS
+        )
     )
+
+    for file in files:
+        game = file
+        for extension in VALID_EXTENSIONS:
+            game = game.removesuffix(f".{extension}")
+
+        input_path = os.path.join(RULES_FOLDER, file)
+        output_path = os.path.join(PYTHON_FOLDER, f"{game}.py")
+        to_propnet(input_path, output_path)
+
+def to_propnet(input_path: str, output_path: str) -> None:
+    print(f"Processing {input_path} into {output_path}")
     # TODO: Doesn't run yet... Unsure of what/where propnet_convert.Convert is
-    command = f"/usr/bin/java -Dfile.encoding=UTF-8 -classpath \"{GGP_BASE_SUBCOMMANDS}\" propnet_convert.Convert {file} {output}"
+    command = f"/usr/bin/java -Dfile.encoding=UTF-8 -classpath \"{GGP_BASE_SUBCOMMANDS}\" propnet_convert.Convert {input_path} {output_path}"
     print(f"\n{command}\n")
 
     os.chdir(GGP_BASE_DIR)
     os.system(command)
 
-def get_game() -> str:
-    arg_parser = argparse.ArgumentParser()
-
-    arg_parser.add_argument(
-        '-g',
-        dest='game',
-        required=True,
-        type=str,
-        help='Convert {game}.gdl to a C++ propnet.'
-    )
-
-    args = arg_parser.parse_args()
-    return args.game
-
 if __name__ == '__main__':
-    game = get_game()
-    file = os.path.abspath(f"rules/{game}.gdl")
-    to_propnet(game, file)
+    main()

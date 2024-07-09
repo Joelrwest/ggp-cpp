@@ -1,4 +1,4 @@
-# Applying Opponent Modelling for Imperfect-Information Games in a General Game Playing Context
+# TODO: Adapting Deep Learning and Search for Imperfect-Information Games in a General Game Playing Context
 
 An [imperfect-information general game playing](https://en.wikipedia.org/wiki/General_game_playing) codebase written in C++ which utilises deep learning and CFR search.
 Codebase can be seperated into 2 distinct sections:

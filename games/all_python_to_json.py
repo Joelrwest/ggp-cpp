@@ -17,9 +17,8 @@ import logging
 import re
 
 from constants import *
+from folder_constants import PYTHON_FOLDER, JSON_FOLDER
 
-PYTHON_FOLDER = 'python'
-JSON_FOLDER = 'json'
 LEGAL_RE = re.compile(r'\( *legal *(\w+) *(.+) *\)')
 SEES_RE = re.compile(r'\( *sees *(\w+) *(.+) *\)')
 GOAL_RE = re.compile(r'\( *goal *(\w+) *(.+) *\)')
@@ -36,7 +35,8 @@ def main() -> None:
         process_game(game)
 
 def process_game(game: str) -> None:
-    print(f"Processing {game}")
+    json_file = f"{os.path.join(JSON_FOLDER, game)}.json"
+    print(f"Processing {game} into {json_file}")
     module = importlib.import_module(f"{PYTHON_FOLDER}.{game}")
     mapped_entries = list(map(map_entry, module.entries))
 
@@ -118,7 +118,6 @@ def process_game(game: str) -> None:
         logging.error(f"Random player is present and not in the final slot for {game}")
         exit(1)
 
-    json_file = f"{os.path.join(JSON_FOLDER, game)}.json"
     with open(json_file, 'w') as file:
         file.write(json.dumps(dict, indent = 4))
 
