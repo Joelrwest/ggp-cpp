@@ -1,4 +1,4 @@
-#include "search.hpp"
+#include "../include/search.hpp"
 
 #include <iostream>
 
@@ -68,10 +68,15 @@ Regrets InformationSet::regret_match() const
 }
 
 ExternalSamplingMCCFR::ExternalSamplingMCCFR(const propnet::Propnet &propnet)
-    : propnet{propnet}, player_roles{propnet.get_player_roles().begin(), propnet.get_player_roles().end()},
-      random_role{propnet.get_random_role()}, base_information_sets{create_base_information_sets(propnet)}
+    : ExternalSamplingMCCFR {propnet, std::numeric_limits<decltype(depth_limit)>::max()}
 {
 }
+
+ExternalSamplingMCCFR::ExternalSamplingMCCFR(const propnet::Propnet &propnet, Depth depth_limit)
+    : propnet{propnet}, player_roles{propnet.get_player_roles().begin(), propnet.get_player_roles().end()},
+      random_role{propnet.get_random_role()}, base_information_sets{create_base_information_sets(propnet)},
+      depth_limit{depth_limit}
+{}
 
 std::vector<std::pair<Policy, ExpectedValue>> ExternalSamplingMCCFR::search(const propnet::State &state)
 {
@@ -95,7 +100,7 @@ std::vector<std::pair<Policy, ExpectedValue>> ExternalSamplingMCCFR::search(cons
         for (auto &traversing_role : player_roles)
         {
             auto state_copy{state};
-            make_traversers_move(current_information_sets, traversing_role, state_copy);
+            make_traversers_move(current_information_sets, traversing_role, state_copy, 0);
         }
 
         if (iteration_count % PRINT_FREQUENCY == 0)
@@ -133,7 +138,7 @@ std::vector<std::pair<Policy, ExpectedValue>> ExternalSamplingMCCFR::search(cons
 
 ExpectedValue ExternalSamplingMCCFR::make_traversers_move(
     std::vector<std::reference_wrapper<InformationSet>> &current_information_sets, propnet::Role &traversing_role,
-    propnet::State &state)
+    propnet::State &state, Depth curr_depth)
 {
     const auto id{traversing_role.get_id()};
     auto &current_information_set{current_information_sets.at(id).get()};
@@ -147,7 +152,7 @@ ExpectedValue ExternalSamplingMCCFR::make_traversers_move(
     {
         current_information_set.choose_input(input);
         auto state_copy{state};
-        const auto reward{make_non_traversers_moves(current_information_sets, traversing_role, state_copy)};
+        const auto reward{make_non_traversers_moves(current_information_sets, traversing_role, state_copy, curr_depth)};
         rewards.emplace(input, reward);
         policy_reward += probability * reward;
     }
@@ -165,7 +170,7 @@ ExpectedValue ExternalSamplingMCCFR::make_traversers_move(
 
 ExpectedValue ExternalSamplingMCCFR::make_non_traversers_moves(
     std::vector<std::reference_wrapper<InformationSet>> &current_information_sets, propnet::Role &traversing_role,
-    propnet::State &state)
+    propnet::State &state, Depth curr_depth)
 {
     for (const auto &player_role : player_roles)
     {
@@ -192,12 +197,12 @@ ExpectedValue ExternalSamplingMCCFR::make_non_traversers_moves(
         }
     }
 
-    return next_state(current_information_sets, traversing_role, state);
+    return next_state(current_information_sets, traversing_role, state, curr_depth);
 }
 
 ExpectedValue ExternalSamplingMCCFR::next_state(
     std::vector<std::reference_wrapper<InformationSet>> &current_information_sets, propnet::Role &traversing_role,
-    propnet::State &state)
+    propnet::State &state, Depth curr_depth)
 {
     /*
     All players have already given their inputs,
@@ -239,6 +244,14 @@ ExpectedValue ExternalSamplingMCCFR::next_state(
         return traversing_role.get_reward(state);
     }
 
+    if (curr_depth == depth_limit)
+    {
+        /*
+        Return the models estimate of the traversers utility
+        */
+        // TODO
+    }
+
     auto all_observations_it{all_observations.begin()};
     std::vector<std::reference_wrapper<InformationSet>> next_information_sets{};
     for (const auto &role : player_roles)
@@ -252,7 +265,7 @@ ExpectedValue ExternalSamplingMCCFR::next_state(
         ++all_observations_it;
     }
 
-    return make_traversers_move(next_information_sets, traversing_role, state);
+    return make_traversers_move(next_information_sets, traversing_role, state, curr_depth + 1);
 }
 
 std::vector<InformationSet> ExternalSamplingMCCFR::create_base_information_sets(const propnet::Propnet &propnet)

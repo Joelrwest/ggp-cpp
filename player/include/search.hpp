@@ -50,6 +50,7 @@ class ExternalSamplingMCCFR
 {
   public:
     ExternalSamplingMCCFR(const propnet::Propnet &propnet);
+    ExternalSamplingMCCFR(const propnet::Propnet &propnet, Depth depth_limit);
 
     std::vector<std::pair<Policy, ExpectedValue>> search(const propnet::State &state);
 
@@ -58,14 +59,14 @@ class ExternalSamplingMCCFR
     static constexpr std::size_t PRINT_FREQUENCY{NUM_ITERATIONS / 5};
 
     ExpectedValue make_traversers_move(std::vector<std::reference_wrapper<InformationSet>> &current_information_sets,
-                                       propnet::Role &traversing_role, propnet::State &state);
+                                       propnet::Role &traversing_role, propnet::State &state, Depth curr_depth);
 
     ExpectedValue make_non_traversers_moves(
         std::vector<std::reference_wrapper<InformationSet>> &current_information_sets, propnet::Role &traversing_role,
-        propnet::State &state);
+        propnet::State &state, Depth curr_depth);
 
     ExpectedValue next_state(std::vector<std::reference_wrapper<InformationSet>> &current_information_sets,
-                             propnet::Role &traversing_role, propnet::State &state);
+                             propnet::Role &traversing_role, propnet::State &state, Depth curr_depth);
 
     static std::vector<InformationSet> create_base_information_sets(const propnet::Propnet &propnet);
 
@@ -73,5 +74,6 @@ class ExternalSamplingMCCFR
     std::vector<propnet::Role> player_roles;
     std::optional<propnet::Role> random_role;
     std::vector<InformationSet> base_information_sets;
+    Depth depth_limit;
 };
 } // namespace player::search
