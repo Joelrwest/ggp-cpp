@@ -6,7 +6,8 @@
 namespace player::search
 {
 InformationSet::InformationSet(std::span<const propnet::PropId> legal_inputs)
-    : cumulative_policy{misc::make_zeroed_map<Policy>(legal_inputs)}, regrets{misc::make_zeroed_map<Regrets>(legal_inputs)},
+    : cumulative_policy{misc::make_zeroed_map<Policy>(legal_inputs)}, regrets{misc::make_zeroed_map<Regrets>(
+                                                                          legal_inputs)},
       cumulative_expected_value{0.0}, total_visits{0}, next_information_sets{}, previous_input{std::nullopt}
 {
 }

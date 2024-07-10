@@ -30,6 +30,8 @@ class InputSet
   private:
     std::unordered_set<PropId> inputs;
 };
+
+inline static const InputSet EMPTY_INPUTS{};
 } // namespace propnet
 
 namespace std

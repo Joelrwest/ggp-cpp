@@ -49,8 +49,6 @@ class Propnet
     bool is_randomness() const;
 
   private:
-    const InputSet EMPTY_INPUTS{};
-
     void take_inputs_impl(State &state, const InputSet &inputs, std::span<const PropId> ids) const;
 
     std::vector<Role> player_roles;
