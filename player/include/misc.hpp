@@ -14,6 +14,14 @@ namespace player::misc
 {
 template <typename T> class LazyCartesianProductGenerator
 {
+  public:
+    // TODO: Idk why but it doesn't work as LazyCartesianProductGenerator(std::span<const std::vector<T>> vecs)
+    LazyCartesianProductGenerator(const std::vector<std::vector<T>> &vecs);
+
+    std::unordered_set<T> get();
+    bool get_is_next() const;
+    void operator++();
+
   private:
     struct ItPair
     {
@@ -25,26 +33,16 @@ template <typename T> class LazyCartesianProductGenerator
 
     std::vector<ItPair> it_pairs;
     bool is_next;
-
-  public:
-    // TODO: Idk why but it doesn't work as LazyCartesianProductGenerator(std::span<const std::vector<T>> vecs)
-    LazyCartesianProductGenerator(const std::vector<std::vector<T>> &vecs);
-
-    std::unordered_set<T> get();
-
-    bool get_is_next() const;
-
-    void operator++();
 };
 
 template <typename T> const T::value_type &sample_random(const T &population);
-
 template <typename T> T sample_policy(const std::unordered_map<T, Probability> &policy);
+template <typename T> T sample_policy(const std::unordered_map<T, Probability> &policy, Probability policy_sum);
 
 // Unfortunately cannot be reused from the policy code...
 template <typename T, typename U> T sample_counts(const std::unordered_map<T, U> &counts, U total_count);
-
 template <typename T, typename U> T sample_counts(const std::unordered_map<T, U> &counts);
+template <typename T> static T make_zeroed_map(std::span<const propnet::PropId> legal_inputs);
 
 /*
 Hacky way to get access to the clear method,
@@ -130,8 +128,13 @@ template <typename T> const T::value_type &sample_random(const T &population)
 
 template <typename T> T sample_policy(const std::unordered_map<T, Probability> &policy)
 {
+    return sample_policy(policy, Probability {1.0});
+}
+
+template <typename T> T sample_policy(const std::unordered_map<T, Probability> &policy, Probability policy_sum)
+{
     static std::mt19937 random_engine{std::random_device{}()};
-    static std::uniform_real_distribution<Probability> distribution(0.0, 1.0);
+    static std::uniform_real_distribution<Probability> distribution(0.0, policy_sum);
     const auto choice{distribution(random_engine)};
     Probability accumulation{0.0};
     for (const auto &[key, probability] : policy)
@@ -143,7 +146,7 @@ template <typename T> T sample_policy(const std::unordered_map<T, Probability> &
         }
     }
 
-    throw std::runtime_error{"Policy did not sum to 1.0"};
+    throw std::runtime_error{"Policy did not sum to policy_sum"};
 }
 
 template <typename T, typename U> T sample_counts(const std::unordered_map<T, U> &counts, U total_count)
@@ -171,6 +174,17 @@ template <typename T, typename U> T sample_counts(const std::unordered_map<T, U>
                         [](const auto accumulation, const auto &pair) { return accumulation + pair.second; })};
 
     return sample_counts(counts, total_count);
+}
+
+template <typename T> T make_zeroed_map(std::span<const propnet::PropId> legal_inputs)
+{
+    T map{};
+    for (const auto legal_input : legal_inputs)
+    {
+        map.emplace(legal_input, 0.0);
+    }
+
+    return map;
 }
 
 template <typename KeyT, typename ValueT, template <typename> typename PolicyT, std::size_t SIZE>

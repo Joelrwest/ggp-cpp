@@ -30,7 +30,6 @@ class ReplayBuffer
     };
 
     template <typename... ItemArgs> void add(ItemArgs... item_args);
-
     std::vector<Item> sample(std::size_t sample_size) const;
 
   private:

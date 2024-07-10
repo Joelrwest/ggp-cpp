@@ -29,8 +29,6 @@ class InformationSet
     std::size_t total_visits;
 
   private:
-    template <typename T> static T make_zeroed_map(std::span<const propnet::PropId> legal_inputs);
-
     std::unordered_map<propnet::PropId, std::unordered_map<std::vector<bool>, std::unique_ptr<InformationSet>>>
         next_information_sets;
     std::optional<propnet::PropId> previous_input;
@@ -79,15 +77,4 @@ class DepthLimitedMCCFR : public BaseMCCFR
   public:
     DepthLimitedMCCFR(const propnet::Propnet &propnet, Model &model, Depth depth_limit);
 };
-
-template <typename T> T InformationSet::make_zeroed_map(std::span<const propnet::PropId> legal_inputs)
-{
-    T map{};
-    for (const auto legal_input : legal_inputs)
-    {
-        map.emplace(legal_input, 0.0);
-    }
-
-    return map;
-}
 } // namespace player::search

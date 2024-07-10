@@ -45,7 +45,7 @@ propnet::Propnet load_propnet(std::string_view game)
     }
 }
 
-std::unique_ptr<agents::Agent> create_agent(const propnet::Role &role, const propnet::Propnet &propnet)
+std::unique_ptr<agents::Agent> create_agent(const propnet::Role &role)
 {
     while (true)
     {
@@ -55,7 +55,7 @@ std::unique_ptr<agents::Agent> create_agent(const propnet::Role &role, const pro
             std::cout << "Enter agent name for role '" << role.get_name() << "': ";
             std::cin >> name;
 
-            return agent_factory(name, role, propnet);
+            return agent_factory(name, role);
         }
         catch (const std::invalid_argument &error)
         {
@@ -70,7 +70,7 @@ std::vector<std::unique_ptr<agents::Agent>> create_agents(const propnet::Propnet
     std::vector<std::unique_ptr<agents::Agent>> agents{};
     for (const auto &player_role : propnet.get_player_roles())
     {
-        agents.push_back(std::move(create_agent(player_role, propnet)));
+        agents.push_back(create_agent(player_role));
     }
 
     if (propnet.is_randomness())
@@ -82,8 +82,7 @@ std::vector<std::unique_ptr<agents::Agent>> create_agents(const propnet::Propnet
     return agents;
 }
 
-std::unique_ptr<agents::Agent> agent_factory(std::string_view name, const propnet::Role &role,
-                                             const propnet::Propnet &propnet)
+std::unique_ptr<agents::Agent> agent_factory(std::string_view name, const propnet::Role &role)
 {
     if (name == agents::RandomAgent::NAME)
     {
@@ -100,10 +99,6 @@ std::unique_ptr<agents::Agent> agent_factory(std::string_view name, const propne
     else if (name == agents::HumanAgent::NAME)
     {
         return std::make_unique<agents::HumanAgent>(role);
-    }
-    else if (name == player::Player<>::NAME)
-    {
-        return std::make_unique<player::Player<>>(role, propnet);
     }
     else
     {

@@ -3,6 +3,7 @@
 #include "../../agents/include/agent.hpp"
 #include "../include/search.hpp"
 #include "random_sampler.hpp"
+#include "types.hpp"
 
 #include <chrono>
 #include <concepts>
@@ -29,38 +30,38 @@ concept DerivedSampler = requires(DerivedSamplerT sampler, const std::vector<boo
 
 template <DerivedSampler SamplerT = RandomSampler> class Player : public agents::Agent
 {
+  public:
+    Player(const propnet::Role &role, const propnet::Propnet &propnet, Model &model, std::size_t num_threads);
+    Player(const propnet::Role &role, const propnet::Propnet &propnet, Model &model);
+
+    void prepare_new_game() override;
+    void add_history(propnet::PropId prev_input) override;
+    propnet::PropId get_legal_input_impl(std::span<const propnet::PropId> legal_inputs);
+
   private:
     static constexpr std::size_t DEFAULT_NUM_THREADS{6};
     static constexpr std::size_t MAX_SAMPLE_SIZE{200};
     static constexpr std::size_t MAX_CFR_TIME_SECONDS{10};
 
+    static Depth search_depth_limit_heuristic(const propnet::Propnet &propnet);
+
     SamplerT sampler;
     const propnet::Role &role;
     const propnet::Propnet &propnet;
     std::size_t num_threads;
-
-  public:
-    static constexpr auto NAME{"player"};
-
-    Player(const propnet::Role &role, const propnet::Propnet &propnet, std::size_t num_threads);
-    Player(const propnet::Role &role, const propnet::Propnet &propnet);
-
-    void prepare_new_game() override;
-
-    void add_history(propnet::PropId prev_input) override;
-
-    propnet::PropId get_legal_input_impl(std::span<const propnet::PropId> legal_inputs);
+    Depth search_depth_limit;
+    Model &model;
 };
 
 template <DerivedSampler SamplerT>
-Player<SamplerT>::Player(const propnet::Role &role, const propnet::Propnet &propnet, std::size_t num_threads)
-    : Agent{role}, sampler{role, propnet}, role{role}, propnet{propnet}, num_threads{num_threads}
+Player<SamplerT>::Player(const propnet::Role &role, const propnet::Propnet &propnet, Model &model, std::size_t num_threads)
+    : Agent{role}, sampler{role, propnet}, role{role}, propnet{propnet}, num_threads{num_threads}, search_depth_limit{search_depth_limit_heuristic(propnet)}, model{model}
 {
 }
 
 template <DerivedSampler SamplerT>
-Player<SamplerT>::Player(const propnet::Role &role, const propnet::Propnet &propnet)
-    : Player{role, propnet, DEFAULT_NUM_THREADS}
+Player<SamplerT>::Player(const propnet::Role &role, const propnet::Propnet &propnet, Model &model)
+    : Player{role, propnet, model, DEFAULT_NUM_THREADS}
 {
 }
 
@@ -82,10 +83,10 @@ propnet::PropId Player<SamplerT>::get_legal_input_impl(std::span<const propnet::
     static std::mt19937 random_engine{std::random_device{}()};
     std::vector<std::thread> threads{};
 
-    auto num_sampled{0};
+    std::uint16_t num_sampled{0};
     std::mutex num_sampled_lock{};
 
-    std::vector<double> cumulative_policy(legal_inputs.size(), 0.0);
+    auto cumulative_policy{misc::make_zeroed_map<Policy>(legal_inputs)};
     std::mutex cumulative_policy_lock{};
 
     const auto start_time{std::chrono::system_clock::now()};
@@ -112,40 +113,41 @@ propnet::PropId Player<SamplerT>::get_legal_input_impl(std::span<const propnet::
                     ++num_sampled;
                 }
 
-                // TODO
-                // const auto state {sampler.sample_state()};
-                // VanillaCfr cfr {role, propnet, legal_inputs, std::move(state)};
-                // const auto policy {cfr.search()};
+                search::DepthLimitedMCCFR mccfr{propnet, model, search_depth_limit};
+                const auto search_results{mccfr.search(sampler.sample_state())};
 
-                // {
-                //     const std::lock_guard<std::mutex> cumulative_policy_guard {cumulative_policy_lock};
-                //     std::transform(
-                //         cumulative_policy.begin(),
-                //         cumulative_policy.end(),
-                //         policy.begin(),
-                //         cumulative_policy.begin(),
-                //         std::plus<double> {}
-                //     );
-                // }
+                const auto id{role.get_id()};
+                const auto &role_search_results{search_results.at(id)};
+                const auto &policy{role_search_results.first};
+
+                {
+                    const std::lock_guard<std::mutex> cumulative_policy_guard {cumulative_policy_lock};
+                    for (auto &[input, probability] : cumulative_policy)
+                    {
+                        probability += policy.at(input);
+                    }
+                }
             }
         });
     }
 
     std::for_each(threads.begin(), threads.end(), [](auto &thread) { thread.join(); });
 
-    static std::uniform_real_distribution<double> policy_distribution(0.0, num_sampled);
-    const auto referee_selection{policy_distribution(random_engine)};
-    auto accumulation{0.0};
-    for (auto it{cumulative_policy.begin()}; it != cumulative_policy.end(); ++it)
-    {
-        accumulation += *it;
-        if (accumulation > referee_selection)
-        {
-            const auto input_number{std::distance(cumulative_policy.begin(), it)};
-            return legal_inputs[input_number];
-        }
-    }
+    return misc::sample_policy(cumulative_policy, static_cast<Probability>(num_sampled));
+}
 
-    throw std::logic_error{"Cumulative policy exceeded the referees chosen number"};
+template <DerivedSampler SamplerT> Depth Player<SamplerT>::search_depth_limit_heuristic(const propnet::Propnet &propnet)
+{
+    const auto &roles{propnet.get_player_roles()};
+    const auto max_action_space{std::accumulate(
+        roles.begin(),
+        roles.end(),
+        propnet.is_randomness() ? propnet.get_random_role()->get_max_policy_size() : 1,
+        std::multiplies<std::size_t>(),
+        [](const auto &role) { return role.get_max_policy_size(); }
+    )};
+    (void)max_action_space;
+
+    return 0; // TODO
 }
 } // namespace player

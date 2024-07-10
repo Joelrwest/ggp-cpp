@@ -6,7 +6,7 @@
 namespace player::search
 {
 InformationSet::InformationSet(std::span<const propnet::PropId> legal_inputs)
-    : cumulative_policy{make_zeroed_map<Policy>(legal_inputs)}, regrets{make_zeroed_map<Regrets>(legal_inputs)},
+    : cumulative_policy{misc::make_zeroed_map<Policy>(legal_inputs)}, regrets{misc::make_zeroed_map<Regrets>(legal_inputs)},
       cumulative_expected_value{0.0}, total_visits{0}, next_information_sets{}, previous_input{std::nullopt}
 {
 }
@@ -132,6 +132,10 @@ BaseMCCFR::BaseMCCFR(const propnet::Propnet &propnet, std::optional<std::referen
       random_role{propnet.get_random_role()},
       base_information_sets{create_base_information_sets(propnet)}, model{model}, depth_limit{depth_limit}
 {
+    if (depth_limit == 0)
+    {
+        throw std::logic_error{"Cannot have depth limit of 0"};
+    }
 }
 
 ExpectedValue BaseMCCFR::make_traversers_move(
