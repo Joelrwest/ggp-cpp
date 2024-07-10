@@ -56,9 +56,7 @@ class Parser
     static constexpr auto OTHER_PROP_TYPE{"other"};
 
     template <std::derived_from<Node> T> void add_node(T node);
-
     template <std::derived_from<PropositionNode> T> void add_proposition_node(T proposition_node);
-
     void add_entry(const nlohmann::json &entry);
     void add_proposition(PropId id, std::string_view type, std::string &&display, const nlohmann::json &entry);
 
