@@ -55,18 +55,9 @@ class Parser
     static constexpr auto TERMINAL_PROP_TYPE{"terminal"};
     static constexpr auto OTHER_PROP_TYPE{"other"};
 
-    template <std::derived_from<Node> T> void add_node(T node)
-    {
-        nodes.emplace_back(std::make_shared<const T>(node));
-    }
+    template <std::derived_from<Node> T> void add_node(T node);
 
-    template <std::derived_from<PropositionNode> T> void add_proposition_node(T proposition_node)
-    {
-        const auto id{proposition_node.get_id()};
-        const auto ptr{std::make_shared<const T>(proposition_node)};
-        nodes.emplace_back(ptr);
-        propositions[id] = ptr;
-    }
+    template <std::derived_from<PropositionNode> T> void add_proposition_node(T proposition_node);
 
     void add_entry(const nlohmann::json &entry);
     void add_proposition(PropId id, std::string_view type, std::string &&display, const nlohmann::json &entry);
@@ -80,4 +71,17 @@ class Parser
     std::vector<PropId> non_post_topologically_sorted_nodes{};
     std::unordered_set<PropId> post_transition_nodes{};
 };
+
+template <std::derived_from<Node> T> void Parser::add_node(T node)
+{
+    nodes.emplace_back(std::make_shared<const T>(node));
+}
+
+template <std::derived_from<PropositionNode> T> void Parser::add_proposition_node(T proposition_node)
+{
+    const auto id{proposition_node.get_id()};
+    const auto ptr{std::make_shared<const T>(proposition_node)};
+    nodes.emplace_back(ptr);
+    propositions[id] = ptr;
+}
 } // namespace propnet

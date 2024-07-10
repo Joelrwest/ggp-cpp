@@ -1,6 +1,6 @@
 #include "../include/bogo_random_sampler.hpp"
 #include "../../propnet/include/input_set.hpp"
-#include "misc.hpp"
+#include "../include/misc.hpp"
 
 namespace player
 {

@@ -2,6 +2,7 @@
 
 #include "../../propnet/include/propnet.hpp"
 #include "misc.hpp"
+#include "model.hpp"
 #include "random_sampler.hpp"
 #include "types.hpp"
 
@@ -35,27 +36,16 @@ class InformationSet
     std::optional<propnet::PropId> previous_input;
 };
 
-template <typename T> T InformationSet::make_zeroed_map(std::span<const propnet::PropId> legal_inputs)
-{
-    T map{};
-    for (const auto legal_input : legal_inputs)
-    {
-        map.emplace(legal_input, 0.0);
-    }
-
-    return map;
-}
-
-class ExternalSamplingMCCFR
+class BaseMCCFR
 {
   public:
-    ExternalSamplingMCCFR(const propnet::Propnet &propnet);
-    ExternalSamplingMCCFR(const propnet::Propnet &propnet, Depth depth_limit);
-
     std::vector<std::pair<Policy, ExpectedValue>> search(const propnet::State &state);
 
+  protected:
+    BaseMCCFR(const propnet::Propnet &propnet, std::optional<std::reference_wrapper<Model>> model, Depth depth_limit);
+
   private:
-    static constexpr std::size_t NUM_ITERATIONS{10000000};
+    static constexpr std::size_t NUM_ITERATIONS{10000};
     static constexpr std::size_t PRINT_FREQUENCY{NUM_ITERATIONS / 5};
 
     ExpectedValue make_traversers_move(std::vector<std::reference_wrapper<InformationSet>> &current_information_sets,
@@ -74,6 +64,30 @@ class ExternalSamplingMCCFR
     std::vector<propnet::Role> player_roles;
     std::optional<propnet::Role> random_role;
     std::vector<InformationSet> base_information_sets;
+    std::optional<std::reference_wrapper<Model>> model;
     Depth depth_limit;
 };
+
+class FullMCCFR : public BaseMCCFR
+{
+  public:
+    FullMCCFR(const propnet::Propnet &propnet);
+};
+
+class DepthLimitedMCCFR : public BaseMCCFR
+{
+  public:
+    DepthLimitedMCCFR(const propnet::Propnet &propnet, Model &model, Depth depth_limit);
+};
+
+template <typename T> T InformationSet::make_zeroed_map(std::span<const propnet::PropId> legal_inputs)
+{
+    T map{};
+    for (const auto legal_input : legal_inputs)
+    {
+        map.emplace(legal_input, 0.0);
+    }
+
+    return map;
+}
 } // namespace player::search
