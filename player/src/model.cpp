@@ -8,8 +8,8 @@ ReplayBuffer::ReplayBuffer() : buffer{}
 {
 }
 
-ReplayBuffer::Item::Item(propnet::State state, std::vector<Policy> policies)
-    : state{std::move(state)}, policies{std::move(policies)}
+ReplayBuffer::Item::Item(propnet::State state, std::vector<Policy> policies, std::vector<ExpectedValue> values)
+    : state{std::move(state)}, policies{std::move(policies)}, values{std::move(values)}
 {
 }
 
@@ -149,21 +149,6 @@ void Model::save(std::size_t game_number) const
     std::cout << "Saved model " << file_path << '\n';
 }
 
-Network::Eval Model::eval(const propnet::State &state)
-{
-    auto bytes{state.to_bytes()};
-    const at::IntArrayRef sizes{static_cast<std::int64_t>(propnet.size())};
-    const auto tensor{torch::from_blob(bytes.data(), sizes, torch::kUInt8)};
-
-    return network.forward(tensor);
-}
-
-Model::Model(const propnet::Propnet &propnet, std::string_view game, Network &&network)
-    : propnet{propnet}, models_path{get_models_path(game)}, network{network},
-      time_log_file{get_time_log_file_path(models_path)}, start_time_ms{get_time_ms()}, cache{}
-{
-}
-
 std::filesystem::path Model::get_models_path(std::string_view game)
 {
     auto path{std::filesystem::current_path()};
@@ -176,6 +161,20 @@ std::filesystem::path Model::get_models_path(std::string_view game)
     return path;
 }
 
+Model::Model(const propnet::Propnet &propnet, std::string_view game, Network &&network)
+    : propnet{propnet}, models_path{get_models_path(game)}, network{network}, cache{std::make_shared<Cache>()}
+{
+}
+
+Network::Eval Model::eval(const propnet::State &state)
+{
+    auto bytes{state.to_bytes()};
+    const at::IntArrayRef sizes{static_cast<std::int64_t>(propnet.size())};
+    const auto tensor{torch::from_blob(bytes.data(), sizes, torch::kUInt8)};
+
+    return network.forward(tensor);
+}
+
 std::string Model::get_file_name(std::size_t game_number)
 {
     std::stringstream file_name_stream{};
@@ -184,13 +183,6 @@ std::string Model::get_file_name(std::size_t game_number)
     file_name_stream >> file_name;
 
     return file_name;
-}
-
-std::filesystem::path Model::get_time_log_file_path(std::filesystem::path models_path)
-{
-    models_path.append(TIME_LOG_FILE_NAME);
-
-    return models_path;
 }
 
 void Model::create_directory_if_not_exists(const std::filesystem::path &path)
@@ -208,14 +200,6 @@ void Model::create_directory_if_not_exists(const std::filesystem::path &path)
     }
 }
 
-std::chrono::milliseconds Model::get_time_ms()
-{
-    const auto now_time{std::chrono::system_clock::now()};
-    const auto now_time_ms = std::chrono::duration_cast<std::chrono::milliseconds>(now_time.time_since_epoch());
-
-    return now_time_ms;
-}
-
 Model Model::load_file_path(const propnet::Propnet &propnet, std::string_view game, const std::filesystem::path &path)
 {
     Network network{propnet};
@@ -224,15 +208,5 @@ Model Model::load_file_path(const propnet::Propnet &propnet, std::string_view ga
     network.load(input_archive);
 
     return Model{propnet, game, std::move(network)};
-}
-
-void Model::log_time(std::size_t game_number)
-{
-    const auto now_time_ms{get_time_ms()};
-    const auto duration_ms{now_time_ms - start_time_ms};
-    const auto num_ms{duration_ms.count()};
-    const auto num_s{num_ms / 10e3};
-
-    time_log_file << "Game number " << game_number << " took " << num_s << " seconds to reach\n";
 }
 } // namespace player

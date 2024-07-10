@@ -6,6 +6,7 @@
 #include "types.hpp"
 
 #include <chrono>
+#include <cmath>
 #include <concepts>
 #include <mutex>
 #include <random>
@@ -35,10 +36,13 @@ template <DerivedSampler SamplerT = RandomSampler> class Player : public agents:
     Player(const propnet::Role &role, const propnet::Propnet &propnet, Model &model);
 
     void prepare_new_game() override;
-    void add_history(propnet::PropId prev_input) override;
     propnet::PropId get_legal_input_impl(std::span<const propnet::PropId> legal_inputs);
 
+  protected:
+    void add_history(propnet::PropId prev_input) override;
+
   private:
+    static constexpr auto LOG_MAX_STATES_SEARCHED{std::log(2 * 10e8)};
     static constexpr std::size_t DEFAULT_NUM_THREADS{6};
     static constexpr std::size_t MAX_SAMPLE_SIZE{200};
     static constexpr std::size_t MAX_CFR_TIME_SECONDS{10};
@@ -54,8 +58,10 @@ template <DerivedSampler SamplerT = RandomSampler> class Player : public agents:
 };
 
 template <DerivedSampler SamplerT>
-Player<SamplerT>::Player(const propnet::Role &role, const propnet::Propnet &propnet, Model &model, std::size_t num_threads)
-    : Agent{role}, sampler{role, propnet}, role{role}, propnet{propnet}, num_threads{num_threads}, search_depth_limit{search_depth_limit_heuristic(propnet)}, model{model}
+Player<SamplerT>::Player(const propnet::Role &role, const propnet::Propnet &propnet, Model &model,
+                         std::size_t num_threads)
+    : Agent{role}, sampler{role, propnet}, role{role}, propnet{propnet}, num_threads{num_threads},
+      search_depth_limit{search_depth_limit_heuristic(propnet)}, model{model}
 {
 }
 
@@ -69,12 +75,6 @@ template <DerivedSampler SamplerT> void Player<SamplerT>::prepare_new_game()
 {
     Agent::prepare_new_game();
     sampler.prepare_new_game();
-}
-
-template <DerivedSampler SamplerT> void Player<SamplerT>::add_history(propnet::PropId prev_input)
-{
-    const auto observations{get_observations_cache()};
-    sampler.add_history(observations, prev_input);
 }
 
 template <DerivedSampler SamplerT>
@@ -121,7 +121,7 @@ propnet::PropId Player<SamplerT>::get_legal_input_impl(std::span<const propnet::
                 const auto &policy{role_search_results.first};
 
                 {
-                    const std::lock_guard<std::mutex> cumulative_policy_guard {cumulative_policy_lock};
+                    const std::lock_guard<std::mutex> cumulative_policy_guard{cumulative_policy_lock};
                     for (auto &[input, probability] : cumulative_policy)
                     {
                         probability += policy.at(input);
@@ -139,15 +139,16 @@ propnet::PropId Player<SamplerT>::get_legal_input_impl(std::span<const propnet::
 template <DerivedSampler SamplerT> Depth Player<SamplerT>::search_depth_limit_heuristic(const propnet::Propnet &propnet)
 {
     const auto &roles{propnet.get_player_roles()};
-    const auto max_action_space{std::accumulate(
-        roles.begin(),
-        roles.end(),
-        propnet.is_randomness() ? propnet.get_random_role()->get_max_policy_size() : 1,
-        std::multiplies<std::size_t>(),
-        [](const auto &role) { return role.get_max_policy_size(); }
-    )};
-    (void)max_action_space;
+    const auto max_branching_factor{std::accumulate(
+        roles.begin(), roles.end(), propnet.is_randomness() ? propnet.get_random_role()->get_max_policy_size() : 1,
+        [](const auto &accumulation, const auto &role) { return accumulation * role.get_max_policy_size(); })};
 
-    return 0; // TODO
+    return LOG_MAX_STATES_SEARCHED / std::log(max_branching_factor);
+}
+
+template <DerivedSampler SamplerT> void Player<SamplerT>::add_history(propnet::PropId prev_input)
+{
+    const auto observations{get_observations_cache()};
+    sampler.add_history(observations, prev_input);
 }
 } // namespace player

@@ -128,7 +128,7 @@ template <typename T> const T::value_type &sample_random(const T &population)
 
 template <typename T> T sample_policy(const std::unordered_map<T, Probability> &policy)
 {
-    return sample_policy(policy, Probability {1.0});
+    return sample_policy(policy, Probability{1.0});
 }
 
 template <typename T> T sample_policy(const std::unordered_map<T, Probability> &policy, Probability policy_sum)

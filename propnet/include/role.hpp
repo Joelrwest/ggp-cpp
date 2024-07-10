@@ -47,8 +47,6 @@ class Role
 
     static Id allocate_role_id();
 
-    const InputSet EMPTY_INPUTS{};
-
     std::string name;
     std::vector<std::shared_ptr<const PropositionNode>> sees;
     std::vector<Legal> legals;

@@ -43,7 +43,7 @@ class BaseMCCFR
     BaseMCCFR(const propnet::Propnet &propnet, std::optional<std::reference_wrapper<Model>> model, Depth depth_limit);
 
   private:
-    static constexpr std::size_t NUM_ITERATIONS{10000};
+    static constexpr auto NUM_ITERATIONS{static_cast<std::size_t>(10e4)};
     static constexpr std::size_t PRINT_FREQUENCY{NUM_ITERATIONS / 5};
 
     ExpectedValue make_traversers_move(std::vector<std::reference_wrapper<InformationSet>> &current_information_sets,

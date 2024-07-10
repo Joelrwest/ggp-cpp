@@ -1,11 +1,13 @@
 #include "../player/include/misc.hpp"
 #include "../player/include/model.hpp"
+#include "../player/include/player.hpp"
 #include "../player/include/search.hpp"
 #include "setup.hpp"
 
 #include <boost/program_options.hpp>
 
 #include <chrono>
+#include <fstream>
 #include <future>
 #include <iomanip>
 #include <iostream>
@@ -22,7 +24,8 @@ static constexpr auto TIME_LIMIT_COMMAND{"time_limit"};
 static constexpr auto GAME_COMMAND{"game"};
 static constexpr auto READABLE_TIME_FORMAT{"%X %e %b %Y %Z"};
 static constexpr auto BATCH_SIZE{20};
-static constexpr auto COMPLETE_CFR_CACHE_SIZE{10000};
+static constexpr auto COMPLETE_CFR_CACHE_SIZE{static_cast<std::size_t>(10e4)};
+static constexpr auto TIME_LOG_FILE_NAME{"time-log.txt"};
 
 using CompleteCfrCache =
     player::misc::Cache<propnet::State,
@@ -32,10 +35,19 @@ using CompleteCfrCache =
 std::function<bool()> get_time_limit_function(std::optional<std::size_t> time_limit);
 std::string to_readable_time(const std::chrono::time_point<std::chrono::system_clock> &time_point);
 void train(std::size_t num_concurrent_games, const std::function<bool()> &time_limit_function, std::string_view game);
-void train_batch(std::size_t num_concurrent_games, const propnet::Propnet &propnet, player::ReplayBuffer &replay_buffer,
-                 player::Model &model);
+void train_batch(const propnet::Propnet &propnet, player::ReplayBuffer &replay_buffer,
+                 std::vector<std::vector<player::Player<>>> &all_players);
 void play_game(const propnet::Propnet &propnet, player::ReplayBuffer &replay_buffer, std::mutex &replay_buffer_lock,
-               CompleteCfrCache &complete_cfr_cache, player::Model &model);
+               CompleteCfrCache &complete_cfr_cache, std::vector<player::Player<>> &players);
+std::filesystem::path get_time_log_file_path(std::string_view game);
+std::chrono::milliseconds get_time_ms();
+
+// const auto now_time_ms{get_time_ms()};
+// const auto duration_ms{now_time_ms - start_time_ms};
+// const auto num_ms{duration_ms.count()};
+// const auto num_s{num_ms / 10e3};
+
+// time_log_file << "Game number " << game_number << " took " << num_s << " seconds to reach\n";
 
 class TimeLimit
 {
@@ -138,15 +150,33 @@ void train(std::size_t num_concurrent_games, const std::function<bool()> &time_l
 {
     const auto propnet{setup::load_propnet(game)};
     player::ReplayBuffer replay_buffer{};
-    player::Model model{propnet, game};
+    auto model{setup::load_model(propnet, game)};
+
+    std::vector<std::vector<player::Player<>>> all_players{};
+    for (std::size_t game_count{0}; game_count < num_concurrent_games; ++game_count)
+    {
+        std::vector<player::Player<>> players{};
+        for (const auto &role : propnet.get_player_roles())
+        {
+            players.emplace_back(role, propnet, model, 3); // TODO: Idk why 3
+        }
+        all_players.push_back(std::move(players));
+    }
+
+    // TODO: Setup
+    if (num_concurrent_games != 1)
+    {
+        throw std::logic_error{"Not set up to work for more than 1 game currently"};
+    }
+
     while (time_limit_function())
     {
-        train_batch(num_concurrent_games, propnet, replay_buffer, model);
+        train_batch(propnet, replay_buffer, all_players);
     }
 }
 
-void train_batch(std::size_t num_concurrent_games, const propnet::Propnet &propnet, player::ReplayBuffer &replay_buffer,
-                 player::Model &model)
+void train_batch(const propnet::Propnet &propnet, player::ReplayBuffer &replay_buffer,
+                 std::vector<std::vector<player::Player<>>> &all_players)
 {
     auto remaining_games{BATCH_SIZE};
     std::mutex remaining_games_lock{};
@@ -156,10 +186,11 @@ void train_batch(std::size_t num_concurrent_games, const propnet::Propnet &propn
     CompleteCfrCache complete_cfr_cache{};
 
     std::vector<std::thread> threads{};
-    for (auto thread_count{0u}; thread_count < num_concurrent_games; ++thread_count)
+
+    for (auto &players : all_players)
     {
         threads.emplace_back([&propnet, &remaining_games, &remaining_games_lock, &replay_buffer, &replay_buffer_lock,
-                              &complete_cfr_cache, &model]() {
+                              &complete_cfr_cache, &players]() { // TODO
             while (true)
             {
                 {
@@ -172,7 +203,7 @@ void train_batch(std::size_t num_concurrent_games, const propnet::Propnet &propn
                     --remaining_games;
                 }
 
-                play_game(propnet, replay_buffer, replay_buffer_lock, complete_cfr_cache, model);
+                play_game(propnet, replay_buffer, replay_buffer_lock, complete_cfr_cache, players);
             }
         });
     }
@@ -184,38 +215,82 @@ void train_batch(std::size_t num_concurrent_games, const propnet::Propnet &propn
 }
 
 void play_game(const propnet::Propnet &propnet, player::ReplayBuffer &replay_buffer, std::mutex &replay_buffer_lock,
-               CompleteCfrCache &complete_cfr_cache, player::Model &model)
+               CompleteCfrCache &complete_cfr_cache, std::vector<player::Player<>> &players)
 {
-    (void)model;
     auto state{propnet.create_initial_state()};
+    for (auto &player : players)
+    {
+        player.prepare_new_game();
+        player.take_observations(state);
+    }
+
     while (!propnet.is_game_over(state))
     {
         if (!complete_cfr_cache.Cached(state))
         {
-            complete_cfr_cache.Put(state, std::async(std::launch::async, [&propnet, &state]() {
+            complete_cfr_cache.Put(state, std::async(std::launch::async, [&propnet, state]() {
                                        player::search::FullMCCFR mccfr{propnet};
-                                       // return std::vector<std::unordered_map<propnet::PropId, double>>
-                                       // {mccfr.search(state).first}; // TODO
-                                       return std::vector<std::pair<player::Policy, player::ExpectedValue>>{};
+                                       return mccfr.search(state);
                                    }));
         }
 
-        const auto &future{*complete_cfr_cache.Get(state).get()};
-        future.wait();
+        const auto &cfr_future{*complete_cfr_cache.Get(state).get()};
 
-        const auto &cfr{future.get()};
-        (void)cfr;
-        (void)replay_buffer;
+        propnet::InputSet inputs{};
+        for (auto &player : players)
+        {
+            const auto input{player.get_legal_input(state)};
+            inputs.add(input);
+            // Perform CFR on states sampled with this agent’s history
+            // Make moves proportionally to new policy probabilities
+        }
+
+        propnet.take_sees_inputs(state, inputs);
+        for (auto &player : players)
+        {
+            player.take_observations(state);
+        }
+        propnet.take_non_sees_inputs(state, inputs);
+
+        cfr_future.wait();
+        const auto &cfr_results{cfr_future.get()};
+
+        std::vector<player::Policy> policies{};
+        std::vector<player::ExpectedValue> values{};
+        for (const auto &cfr_result : cfr_results)
+        {
+            policies.push_back(cfr_result.first);
+            values.push_back(cfr_result.second);
+        }
 
         {
             std::lock_guard replay_buffer_guard{replay_buffer_lock};
-            // TODO: replay_buffer.add(state, cfr);
+            replay_buffer.add(state, std::move(policies), std::move(values));
         }
 
-        // for each agent do
-        // Perform CFR on states sampled with this agent’s history
-        // Make moves proportionally to new policy probabilities
-        // end for
+        // TODO: This last works whilst it's single threaded, but not when it's multi
+        std::vector<player::ReplayBuffer::Item> replay_buffer_sample{};
+        {
+            std::lock_guard replay_buffer_guard{replay_buffer_lock};
+            replay_buffer_sample = replay_buffer.sample(BATCH_SIZE);
+        }
+
         // Sample and train neural network on 20 mini-batches from replay buffer
     }
+}
+
+std::filesystem::path get_time_log_file_path(std::string_view game)
+{
+    auto path{player::Model::get_models_path(game)};
+    path.append(TIME_LOG_FILE_NAME);
+
+    return path;
+}
+
+std::chrono::milliseconds get_time_ms()
+{
+    const auto now_time{std::chrono::system_clock::now()};
+    const auto now_time_ms = std::chrono::duration_cast<std::chrono::milliseconds>(now_time.time_since_epoch());
+
+    return now_time_ms;
 }
