@@ -1,4 +1,4 @@
-#include "model.hpp"
+#include "../include/model.hpp"
 
 #include <torch/script.h>
 
@@ -48,7 +48,7 @@ Network::Network(const propnet::Propnet &propnet)
     }
 }
 
-std::pair<torch::Tensor, std::vector<torch::Tensor>> Network::forward(torch::Tensor x)
+Network::Eval Network::forward(torch::Tensor x)
 {
     /*
     Extract common features
@@ -71,8 +71,7 @@ std::pair<torch::Tensor, std::vector<torch::Tensor>> Network::forward(torch::Ten
     std::vector<torch::Tensor> policies{};
     for (auto &policy_head : policy_heads)
     {
-        const auto policy{policy_head->forward(x)};
-        policies.push_back(std::move(policy));
+        policies.push_back(policy_head->forward(x));
     }
 
     return std::make_pair(std::move(values), std::move(policies));
@@ -116,9 +115,24 @@ Model Model::load_game_number(const propnet::Propnet &propnet, std::string_view 
     return load_file_path(propnet, game, path);
 }
 
-void Model::eval() const
+ExpectedValue Model::eval_ev(const propnet::State &state, propnet::Role::Id id)
 {
+    auto evs{eval(state).first};
+
+    return evs[id].item<ExpectedValue>();
 }
+
+std::vector<ExpectedValue> Model::eval_evs(const propnet::State &state)
+{
+    auto evs{eval(state).first};
+    const auto start_ptr{evs.data_ptr<ExpectedValue>()};
+    const auto end_ptr{start_ptr + evs.numel()};
+
+    return std::vector<ExpectedValue>(start_ptr, end_ptr);
+}
+
+// std::vector<std::vector<double>> Model::eval_policies(const propnet::State &state)
+// {} TODO
 
 void Model::save(std::size_t game_number) const
 {
@@ -133,6 +147,15 @@ void Model::save(std::size_t game_number) const
     output_archive.save_to(file_path);
 
     std::cout << "Saved model " << file_path << '\n';
+}
+
+Network::Eval Model::eval(const propnet::State &state)
+{
+    auto bytes{state.to_bytes()};
+    const at::IntArrayRef sizes{static_cast<std::int64_t>(propnet.size())};
+    const auto tensor{torch::from_blob(bytes.data(), sizes, torch::kUInt8)};
+
+    return network.forward(tensor);
 }
 
 Model::Model(const propnet::Propnet &propnet, std::string_view game, Network &&network)

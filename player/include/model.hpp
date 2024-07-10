@@ -55,6 +55,11 @@ class Network : public torch::nn::Module
     using Eval = std::pair<torch::Tensor, std::vector<torch::Tensor>>;
 
     Network(const propnet::Propnet &propnet);
+    Network(const Network &) = default;
+    Network(Network &&) = default;
+
+    Network &operator=(const Network &) = default;
+    Network &operator=(Network &&) = default;
 
     Eval forward(torch::Tensor x);
 
@@ -74,6 +79,11 @@ class Model
 {
   public:
     Model(const propnet::Propnet &propnet, std::string_view game);
+    Model(const Model &) = default;
+    Model(Model &&) = default;
+
+    Model &operator=(const Model &) = default;
+    Model &operator=(Model &&) = default;
 
     static constexpr auto MODELS_FOLDER_NAME{"models"};
     static constexpr auto TIME_LOG_FILE_NAME{"time-log.txt"};
@@ -81,10 +91,15 @@ class Model
     static Model load_most_recent(const propnet::Propnet &propnet, std::string_view game);
     static Model load_game_number(const propnet::Propnet &propnet, std::string_view game, std::size_t game_number);
 
-    void eval() const; // TODO: What *exactly* do I want to take in and give back?
+    ExpectedValue eval_ev(const propnet::State &state, propnet::Role::Id id);
+    std::vector<ExpectedValue> eval_evs(const propnet::State &state);
+    // std::vector<std::vector<double>> eval_policies(const propnet::State &state);
+
     void save(std::size_t game_number) const;
 
   private:
+    Network::Eval eval(const propnet::State &state);
+
     static constexpr auto MODEL_NAME_BASE{"game-num-"};
     static constexpr auto GAME_NUMBER_WIDTH{6};
     static constexpr auto MODEL_CACHE_SIZE{10000};

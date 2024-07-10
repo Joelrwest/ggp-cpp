@@ -1,4 +1,5 @@
 #include "../include/search.hpp"
+#include "../include/model.hpp"
 
 #include <iostream>
 
@@ -67,18 +68,7 @@ Regrets InformationSet::regret_match() const
     return policy;
 }
 
-ExternalSamplingMCCFR::ExternalSamplingMCCFR(const propnet::Propnet &propnet)
-    : ExternalSamplingMCCFR {propnet, std::numeric_limits<decltype(depth_limit)>::max()}
-{
-}
-
-ExternalSamplingMCCFR::ExternalSamplingMCCFR(const propnet::Propnet &propnet, Depth depth_limit)
-    : propnet{propnet}, player_roles{propnet.get_player_roles().begin(), propnet.get_player_roles().end()},
-      random_role{propnet.get_random_role()}, base_information_sets{create_base_information_sets(propnet)},
-      depth_limit{depth_limit}
-{}
-
-std::vector<std::pair<Policy, ExpectedValue>> ExternalSamplingMCCFR::search(const propnet::State &state)
+std::vector<std::pair<Policy, ExpectedValue>> BaseMCCFR::search(const propnet::State &state)
 {
     /*
     Psuedocode from:
@@ -136,7 +126,15 @@ std::vector<std::pair<Policy, ExpectedValue>> ExternalSamplingMCCFR::search(cons
     return policy_ev_pairs;
 }
 
-ExpectedValue ExternalSamplingMCCFR::make_traversers_move(
+BaseMCCFR::BaseMCCFR(const propnet::Propnet &propnet, std::optional<std::reference_wrapper<Model>> model,
+                     Depth depth_limit)
+    : propnet{propnet}, player_roles{propnet.get_player_roles().begin(), propnet.get_player_roles().end()},
+      random_role{propnet.get_random_role()},
+      base_information_sets{create_base_information_sets(propnet)}, model{model}, depth_limit{depth_limit}
+{
+}
+
+ExpectedValue BaseMCCFR::make_traversers_move(
     std::vector<std::reference_wrapper<InformationSet>> &current_information_sets, propnet::Role &traversing_role,
     propnet::State &state, Depth curr_depth)
 {
@@ -168,7 +166,7 @@ ExpectedValue ExternalSamplingMCCFR::make_traversers_move(
     return policy_reward;
 }
 
-ExpectedValue ExternalSamplingMCCFR::make_non_traversers_moves(
+ExpectedValue BaseMCCFR::make_non_traversers_moves(
     std::vector<std::reference_wrapper<InformationSet>> &current_information_sets, propnet::Role &traversing_role,
     propnet::State &state, Depth curr_depth)
 {
@@ -200,9 +198,8 @@ ExpectedValue ExternalSamplingMCCFR::make_non_traversers_moves(
     return next_state(current_information_sets, traversing_role, state, curr_depth);
 }
 
-ExpectedValue ExternalSamplingMCCFR::next_state(
-    std::vector<std::reference_wrapper<InformationSet>> &current_information_sets, propnet::Role &traversing_role,
-    propnet::State &state, Depth curr_depth)
+ExpectedValue BaseMCCFR::next_state(std::vector<std::reference_wrapper<InformationSet>> &current_information_sets,
+                                    propnet::Role &traversing_role, propnet::State &state, Depth curr_depth)
 {
     /*
     All players have already given their inputs,
@@ -244,12 +241,13 @@ ExpectedValue ExternalSamplingMCCFR::next_state(
         return traversing_role.get_reward(state);
     }
 
-    if (curr_depth == depth_limit)
+    if (curr_depth == depth_limit && model.has_value())
     {
         /*
         Return the models estimate of the traversers utility
         */
-        // TODO
+        const auto id{traversing_role.get_id()};
+        return model->get().eval_ev(state, id);
     }
 
     auto all_observations_it{all_observations.begin()};
@@ -268,7 +266,7 @@ ExpectedValue ExternalSamplingMCCFR::next_state(
     return make_traversers_move(next_information_sets, traversing_role, state, curr_depth + 1);
 }
 
-std::vector<InformationSet> ExternalSamplingMCCFR::create_base_information_sets(const propnet::Propnet &propnet)
+std::vector<InformationSet> BaseMCCFR::create_base_information_sets(const propnet::Propnet &propnet)
 {
     const auto initial_state{propnet.create_initial_state()};
     std::vector<InformationSet> base_information_sets{};
@@ -279,5 +277,15 @@ std::vector<InformationSet> ExternalSamplingMCCFR::create_base_information_sets(
     }
 
     return base_information_sets;
+}
+
+FullMCCFR::FullMCCFR(const propnet::Propnet &propnet)
+    : BaseMCCFR{propnet, std::nullopt, std::numeric_limits<Depth>::max()}
+{
+}
+
+DepthLimitedMCCFR::DepthLimitedMCCFR(const propnet::Propnet &propnet, Model &model, Depth depth_limit)
+    : BaseMCCFR{propnet, std::optional<std::reference_wrapper<Model>>{model}, depth_limit}
+{
 }
 } // namespace player::search

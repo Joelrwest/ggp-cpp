@@ -45,12 +45,19 @@ target_link_libraries(train PUBLIC player)
 target_link_libraries(train PUBLIC Boost::program_options)
 target_link_libraries(train PRIVATE torch)
 
-add_executable(debug src/debug.cpp src/setup.cpp)
-target_link_libraries(debug PUBLIC propnet)
-target_link_libraries(debug PUBLIC player)
-
 if(MSVC)
   target_compile_options(train PRIVATE /W4 /WX)
 else()
   target_compile_options(train PRIVATE -Wall -Wextra -Wpedantic -Werror)
+endif()
+
+add_executable(debug src/debug.cpp src/setup.cpp)
+target_link_libraries(debug PUBLIC propnet)
+target_link_libraries(debug PUBLIC player)
+target_link_libraries(debug PRIVATE torch)
+
+if(MSVC)
+  target_compile_options(debug PRIVATE /W4 /WX)
+else()
+  target_compile_options(debug PRIVATE -Wall -Wextra -Wpedantic -Werror)
 endif()
