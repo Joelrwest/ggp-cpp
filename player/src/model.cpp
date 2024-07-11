@@ -107,7 +107,7 @@ Model Model::load_most_recent(const propnet::Propnet &propnet, std::string_view 
     }
     else
     {
-        throw std::runtime_error{"Tried to load most recent model but there are no files to be loaded"};
+        throw std::runtime_error{"No recent model to be loaded"};
     }
 }
 
@@ -193,7 +193,7 @@ void Model::save(std::size_t game_number)
 
     log_time(game_number);
 
-    std::cout << "Saved model " << file_path << '\n';
+    std::cout << "Saved model to " << file_path << '\n';
 }
 
 std::filesystem::path Model::get_models_path(std::string_view game)
@@ -210,7 +210,7 @@ std::filesystem::path Model::get_models_path(std::string_view game)
 
 Model::Model(const propnet::Propnet &propnet, std::string_view game, Network &&network)
     : propnet{propnet}, models_path{get_models_path(game)}, network{network},
-      time_log_file{}, cache{std::make_shared<Cache>()}
+      time_log_file{get_time_log_file_path(models_path)}, start_time_ms{get_time_ms()}, cache{std::make_shared<Cache>()}
 {
 }
 
@@ -228,19 +228,20 @@ void Model::log_time(std::size_t game_number)
     const auto now_time_ms{get_time_ms()};
     const auto duration_ms{now_time_ms - start_time_ms};
     const auto num_ms{duration_ms.count()};
-    const auto num_s{num_ms / 10e3};
+    const auto num_s{num_ms / 1e3};
 
-    time_log_file << "Game number " << game_number << " took " << num_s << " seconds to reach\n";
+    time_log_file << "Game number " << std::setfill('0') << std::setw(GAME_NUMBER_WIDTH) << game_number;
+    time_log_file << " took " << num_s << " seconds to reach\n";
+    time_log_file.flush();
 }
 
 std::string Model::get_file_name(std::size_t game_number)
 {
     std::stringstream file_name_stream{};
-    file_name_stream << MODEL_NAME_BASE << std::setw(GAME_NUMBER_WIDTH) << game_number << MODEL_NAME_EXTENSION;
-    std::string file_name{};
-    file_name_stream >> file_name;
+    file_name_stream << MODEL_NAME_BASE << std::setfill('0') << std::setw(GAME_NUMBER_WIDTH) << game_number
+                     << MODEL_NAME_EXTENSION;
 
-    return file_name;
+    return file_name_stream.str();
 }
 
 std::filesystem::path Model::get_time_log_file_path(std::filesystem::path models_path)

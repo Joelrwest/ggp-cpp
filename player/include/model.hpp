@@ -103,7 +103,7 @@ class Model
   private:
     static constexpr auto MODEL_NAME_BASE{"game-num-"};
     static constexpr auto GAME_NUMBER_WIDTH{6};
-    static constexpr auto MODEL_CACHE_SIZE{static_cast<std::size_t>(10e4)};
+    static constexpr auto MODEL_CACHE_SIZE{static_cast<std::size_t>(1e4)};
     static constexpr auto MODEL_NAME_EXTENSION{".ckpt"};
     static constexpr std::size_t BATCH_SIZE{128};
     static constexpr std::size_t EPOCH_SIZE{5};
