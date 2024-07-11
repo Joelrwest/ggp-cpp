@@ -232,3 +232,6 @@ pyrightconfig.json
 play
 train
 debug
+
+# Models folder
+models/

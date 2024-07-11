@@ -47,10 +47,10 @@ template <DerivedSampler SamplerT = RandomSampler> class Player : public agents:
     void add_history(propnet::PropId prev_input) override;
 
   private:
-    static constexpr auto LOG_MAX_STATES_SEARCHED{std::log(2 * 10e8)};
-    static constexpr std::size_t DEFAULT_NUM_THREADS{6};
-    static constexpr std::size_t MAX_SAMPLE_SIZE{200};
-    static constexpr std::size_t MAX_CFR_TIME_SECONDS{10};
+    static constexpr auto LOG_MAX_STATES_SEARCHED{std::log(2 * 1e8)};
+    static constexpr std::size_t DEFAULT_NUM_THREADS{1};
+    static constexpr std::size_t MAX_SAMPLE_SIZE{50};
+    static constexpr std::size_t MAX_CFR_TIME_SECONDS{1};
 
     static Depth search_depth_limit_heuristic(const propnet::Propnet &propnet);
 
