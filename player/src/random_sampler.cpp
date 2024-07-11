@@ -57,6 +57,77 @@ RandomSampler::History::History(const std::vector<bool> &observation, propnet::P
 {
 }
 
+RandomSampler::History::History(const RandomSampler::History &other)
+    : observation{other.observation}, prev_input{other.prev_input}, invalid_state_cache{}, invalid_state_cache_lock{},
+      invalid_inputs_cache{}, invalid_inputs_cache_lock{}
+{
+    /*
+    Awful awful awful and wish this was avoidable...
+    just to get around the non-const qualified locks.
+
+    Limited to just this constructor with the locks.
+    */
+    auto &non_const_other{const_cast<RandomSampler::History &>(other)};
+
+    non_const_other.invalid_state_cache_lock.lock_shared();
+    invalid_state_cache_lock.lock();
+    invalid_state_cache = other.invalid_state_cache;
+    invalid_state_cache_lock.unlock();
+    non_const_other.invalid_state_cache_lock.unlock_shared();
+
+    non_const_other.invalid_inputs_cache_lock.lock_shared();
+    invalid_inputs_cache_lock.lock();
+    invalid_inputs_cache = other.invalid_inputs_cache;
+    invalid_inputs_cache_lock.unlock();
+    non_const_other.invalid_inputs_cache_lock.unlock_shared();
+}
+
+RandomSampler::History::History(RandomSampler::History &&other)
+    : observation{std::move(other.observation)}, prev_input{std::move(other.prev_input)}, invalid_state_cache{},
+      invalid_state_cache_lock{}, invalid_inputs_cache{}, invalid_inputs_cache_lock{}
+{
+    other.invalid_state_cache_lock.lock();
+    invalid_state_cache_lock.lock();
+    invalid_state_cache = std::move(other.invalid_state_cache);
+    invalid_state_cache_lock.unlock();
+
+    other.invalid_inputs_cache_lock.lock();
+    invalid_inputs_cache_lock.lock();
+    invalid_inputs_cache = std::move(other.invalid_inputs_cache);
+    invalid_inputs_cache_lock.unlock();
+}
+
+RandomSampler::History &RandomSampler::History::operator=(const RandomSampler::History &other)
+{
+    if (this != &other)
+    {
+        *this = RandomSampler::History{other};
+    }
+
+    return *this;
+}
+
+RandomSampler::History &RandomSampler::History::operator=(RandomSampler::History &&other)
+{
+    if (this != &other)
+    {
+        observation = std::move(other.observation);
+        prev_input = std::move(other.prev_input);
+
+        other.invalid_state_cache_lock.lock();
+        invalid_state_cache_lock.lock();
+        invalid_state_cache = std::move(other.invalid_state_cache);
+        invalid_state_cache_lock.unlock();
+
+        other.invalid_inputs_cache_lock.lock();
+        invalid_inputs_cache_lock.lock();
+        invalid_inputs_cache = std::move(other.invalid_inputs_cache);
+        invalid_inputs_cache_lock.unlock();
+    }
+
+    return *this;
+}
+
 std::optional<propnet::State> RandomSampler::sample_state_impl(AllHistories::iterator all_histories_it,
                                                                AllHistories::iterator all_histories_end_it,
                                                                propnet::State state)
