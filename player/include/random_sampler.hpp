@@ -12,6 +12,11 @@ class RandomSampler
 {
   public:
     RandomSampler(const propnet::Role &sampler_role, const propnet::Propnet &propnet);
+    RandomSampler(const RandomSampler &other) = default;
+    RandomSampler(RandomSampler &&other) = default;
+
+    RandomSampler &operator=(const RandomSampler &other) = default;
+    RandomSampler &operator=(RandomSampler &&other) = default;
 
     void prepare_new_game();
     void add_history(const std::vector<bool> &observation, propnet::PropId prev_input);
@@ -23,8 +28,11 @@ class RandomSampler
     struct History
     {
         History(const std::vector<bool> &observation, propnet::PropId prev_input);
-        History(const History &other) = delete;
-        History &operator=(const History &) = delete;
+        History(const History &other);
+        History(History &&other);
+
+        History &operator=(const History &other);
+        History &operator=(History &&other);
 
         std::vector<bool> observation;
         propnet::PropId prev_input;
@@ -36,7 +44,7 @@ class RandomSampler
 
     std::deque<History> all_histories{};
     const propnet::Propnet &propnet;
-    const propnet::Role &sampler_role;
+    propnet::Role sampler_role;
     std::vector<propnet::Role> player_roles;
     std::optional<propnet::Role> random_role;
 

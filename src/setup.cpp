@@ -115,7 +115,7 @@ player::Model load_model(const propnet::Propnet &propnet, std::string_view game)
     catch (std::runtime_error &error)
     {
         std::cout << error.what() << '\n';
-        std::cout << "Creating new model\n";
+        std::cout << "Creating new model instead\n";
 
         return player::Model{propnet, game};
     }

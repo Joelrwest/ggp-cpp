@@ -8,6 +8,7 @@
 #include <torch/torch.h>
 
 #include <filesystem>
+#include <fstream>
 #include <memory>
 #include <string_view>
 #include <utility>
@@ -30,9 +31,10 @@ class ReplayBuffer
 
     template <typename... ItemArgs> void add(ItemArgs... item_args);
     std::vector<Item> sample(std::size_t sample_size) const;
+    std::size_t size() const;
 
   private:
-    static constexpr auto MAX_SIZE{2500};
+    static constexpr auto MAX_SIZE{1500};
 
     std::deque<Item> buffer;
 };
@@ -84,6 +86,7 @@ class Model
     Model &operator=(Model &&) = default;
 
     static constexpr auto MODELS_FOLDER_NAME{"models"};
+    static constexpr auto TIME_LOG_FILE_NAME{"time-log.txt"};
 
     static Model load_most_recent(const propnet::Propnet &propnet, std::string_view game);
     static Model load_game_number(const propnet::Propnet &propnet, std::string_view game, std::size_t game_number);
@@ -92,7 +95,8 @@ class Model
     std::vector<ExpectedValue> eval_evs(const propnet::State &state);
     // TODO: std::vector<std::vector<double>> eval_policies(const propnet::State &state);
 
-    void save(std::size_t game_number) const;
+    void train(const ReplayBuffer &replay_buffer);
+    void save(std::size_t game_number);
 
     static std::filesystem::path get_models_path(std::string_view game);
 
@@ -101,21 +105,27 @@ class Model
     static constexpr auto GAME_NUMBER_WIDTH{6};
     static constexpr auto MODEL_CACHE_SIZE{static_cast<std::size_t>(10e4)};
     static constexpr auto MODEL_NAME_EXTENSION{".ckpt"};
+    static constexpr std::size_t BATCH_SIZE{128};
+    static constexpr std::size_t EPOCH_SIZE{5};
 
     using Cache = misc::Cache<propnet::State, Network::Eval, caches::LRUCachePolicy, MODEL_CACHE_SIZE>;
 
     Model(const propnet::Propnet &propnet, std::string_view game, Network &&network);
 
     Network::Eval eval(const propnet::State &state);
+    void log_time(std::size_t game_number);
 
     static std::string get_file_name(std::size_t game_number);
+    static std::filesystem::path get_time_log_file_path(std::filesystem::path models_path);
     static void create_directory_if_not_exists(const std::filesystem::path &path);
+    static std::chrono::milliseconds get_time_ms();
     static Model load_file_path(const propnet::Propnet &propnet, std::string_view game,
                                 const std::filesystem::path &file_name);
 
     const propnet::Propnet &propnet;
     std::filesystem::path models_path;
     Network network;
+    std::ofstream time_log_file;
     std::chrono::milliseconds start_time_ms;
     std::shared_ptr<Cache> cache;
 };

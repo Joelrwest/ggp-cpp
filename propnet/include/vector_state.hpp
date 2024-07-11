@@ -15,12 +15,12 @@ class State
   public:
     State();
     State(std::size_t size);
-    State(const State &other);
-    State(State &&other);
+    State(const State &other) = default;
+    State(State &&other) = default;
 
-    State &operator=(const State &other);
-    State &operator=(State &&other);
-    bool operator==(const State &other) const;
+    State &operator=(const State &other) = default;
+    State &operator=(State &&other) = default;
+    bool operator==(const State &other) const = default;
 
     bool get(PropId getting_id) const;
     void update(PropId updating_id, bool new_value);

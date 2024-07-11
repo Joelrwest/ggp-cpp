@@ -32,6 +32,11 @@ class Role
 
     Role(std::string_view name, std::span<const std::shared_ptr<const PropositionNode>> sees,
          std::span<const Legal> legals, std::span<const Goal> goals);
+    Role(const Role &other) = default;
+    Role(Role &&other) = default;
+
+    Role &operator=(const Role &other) = default;
+    Role &operator=(Role &&other) = default;
 
     std::string_view get_name() const;
     Reward get_reward(const State &state) const;

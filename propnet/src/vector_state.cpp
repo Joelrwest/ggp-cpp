@@ -10,20 +10,6 @@ State::State(std::size_t size) : state(size), is_initial{true}
 {
 }
 
-State::State(const State &other) : state{other.state}, is_initial{other.is_initial}
-{
-}
-
-State::State(State &&other) : state{std::move(other.state)}, is_initial{other.is_initial}
-{
-}
-
-State &State::operator=(const State &other) = default;
-
-State &State::operator=(State &&other) = default;
-
-bool State::operator==(const State &other) const = default;
-
 bool State::get(PropId getting_id) const
 {
     return state.at(getting_id);

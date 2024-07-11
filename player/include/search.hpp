@@ -44,7 +44,6 @@ class BaseMCCFR
 
   private:
     static constexpr auto NUM_ITERATIONS{static_cast<std::size_t>(10e4)};
-    static constexpr std::size_t PRINT_FREQUENCY{NUM_ITERATIONS / 5};
 
     ExpectedValue make_traversers_move(std::vector<std::reference_wrapper<InformationSet>> &current_information_sets,
                                        propnet::Role &traversing_role, propnet::State &state, Depth curr_depth);

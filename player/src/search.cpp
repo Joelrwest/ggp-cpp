@@ -83,6 +83,13 @@ std::vector<std::pair<Policy, ExpectedValue>> BaseMCCFR::search(const propnet::S
         current_information_sets.emplace_back(base_information_set);
     }
 
+    static std::mutex mutex{};
+    static std::size_t search_count{0};
+    mutex.lock();
+    ++search_count; // TODO: Remove
+    std::cout << "Launching search number " << search_count << "!\n";
+    mutex.unlock();
+
     for (std::size_t iteration_count{1}; iteration_count <= NUM_ITERATIONS; ++iteration_count)
     {
         /*
@@ -92,11 +99,6 @@ std::vector<std::pair<Policy, ExpectedValue>> BaseMCCFR::search(const propnet::S
         {
             auto state_copy{state};
             make_traversers_move(current_information_sets, traversing_role, state_copy, 0);
-        }
-
-        if (iteration_count % PRINT_FREQUENCY == 0)
-        {
-            std::cout << "External MCCFR iteration number " << iteration_count << '\n';
         }
     }
 

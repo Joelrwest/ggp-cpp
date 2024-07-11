@@ -27,13 +27,18 @@ concept DerivedSampler = requires(DerivedSamplerT sampler, const std::vector<boo
     {
         sampler.add_history(observation, prev_input)
         } -> std::convertible_to<void>;
-};
+}; // TODO: Concept fails but idk why... && std::copyable<DerivedSamplerT>;
 
 template <DerivedSampler SamplerT = RandomSampler> class Player : public agents::Agent
 {
   public:
     Player(const propnet::Role &role, const propnet::Propnet &propnet, Model &model, std::size_t num_threads);
     Player(const propnet::Role &role, const propnet::Propnet &propnet, Model &model);
+    Player(const Player &other) = default;
+    Player(Player &&other) = default;
+
+    Player &operator=(const Player &other) = default;
+    Player &operator=(Player &&other) = default;
 
     void prepare_new_game() override;
     propnet::PropId get_legal_input_impl(std::span<const propnet::PropId> legal_inputs);
@@ -50,7 +55,7 @@ template <DerivedSampler SamplerT = RandomSampler> class Player : public agents:
     static Depth search_depth_limit_heuristic(const propnet::Propnet &propnet);
 
     SamplerT sampler;
-    const propnet::Role &role;
+    const propnet::Role &role; // TODO: Should be proper role not reference?
     const propnet::Propnet &propnet;
     std::size_t num_threads;
     Depth search_depth_limit;
