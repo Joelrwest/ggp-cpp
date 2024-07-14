@@ -1,5 +1,5 @@
 # cython: profile=True
-from propnet.constants import (AND, OR, PROPOSITION, TRANSITION, NOT, CONSTANT,
+from constants import (AND, OR, PROPOSITION, TRANSITION, NOT, CONSTANT,
                         UNKNOWN, base, input, legal, goal, sees, terminal,
                         other)
 import re

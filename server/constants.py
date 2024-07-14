@@ -1,3 +1,7 @@
+"""
+TODO: Not ideal since this is duplicated from games/constants.py
+"""
+
 AND = 1
 OR = 2
 PROPOSITION = 3

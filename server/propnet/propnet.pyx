@@ -1,6 +1,6 @@
 # cython: profile=True
 from propnet.node import node_types, transition_split, Node
-from propnet.constants import (AND, OR, PROPOSITION, TRANSITION, NOT, CONSTANT,
+from constants import (AND, OR, PROPOSITION, TRANSITION, NOT, CONSTANT,
                         UNKNOWN, init, base, input, legal, goal, sees, terminal,
                         other)
 import os
@@ -38,8 +38,14 @@ def make_propnet(gdl, name):
 
 
 def load_propnet(base):
-    propnet = importlib.import_module(f"games.python.{base}")
-    return Propnet.Create(propnet.roles, propnet.entries)
+    current_file_path = os.path.dirname(__file__)
+    module_path = os.path.abspath(os.path.join(current_file_path, '..', '..', 'games', 'python', f"{base}.py"))
+
+    spec = importlib.util.spec_from_file_location(base, module_path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+
+    return Propnet.Create(module.roles, module.entries)
 
 
 def convert_to_propnet(filename):
