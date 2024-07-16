@@ -104,7 +104,7 @@ int main(int argc, char **argv)
     const auto time_limit_function{
         get_time_limit_function(is_time_limit ? std::optional<std::size_t>{time_limit} : std::nullopt)};
 
-    // TODO: Setup
+    // TODO: Setup so that multiple games can actually be played
     if (num_concurrent_games != 1)
     {
         throw std::logic_error{"Not set up to work for more than 1 game currently"};

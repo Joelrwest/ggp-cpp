@@ -22,6 +22,7 @@ class InformationSet
     void choose_input(propnet::PropId input);
     propnet::PropId get_chosen_input() const;
     Regrets regret_match() const;
+    std::pair<Policy, ExpectedValue> normalise() const;
 
     Policy cumulative_policy; // TODO: I know it's bad style to have this public but meh
     Regrets regrets;
@@ -38,12 +39,16 @@ class BaseMCCFR
 {
   public:
     std::vector<std::pair<Policy, ExpectedValue>> search(const propnet::State &state);
+    std::vector<std::pair<Policy, ExpectedValue>> search(const propnet::State &state, std::size_t num_iterations);
+    std::vector<std::pair<Policy, ExpectedValue>> search(
+        const propnet::State &state, std::size_t num_iterations,
+        std::function<void(const std::vector<std::reference_wrapper<InformationSet>> &)> logger);
 
   protected:
     BaseMCCFR(const propnet::Propnet &propnet, std::optional<std::reference_wrapper<Model>> model, Depth depth_limit);
 
   private:
-    static constexpr auto NUM_ITERATIONS{static_cast<std::size_t>(1e4)};
+    static constexpr auto DEFAULT_NUM_ITERATIONS{static_cast<std::size_t>(1e4)};
 
     ExpectedValue make_traversers_move(std::vector<std::reference_wrapper<InformationSet>> &current_information_sets,
                                        propnet::Role &traversing_role, propnet::State &state, Depth curr_depth);
