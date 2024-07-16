@@ -8,7 +8,40 @@ https://www.geeksforgeeks.org/how-to-plot-a-time-series-in-matplotlib/
 import matplotlib.pyplot as plt
 import json
 
-BENCHMARK_FILENAME = '0000002000.json'
+# Can change the input files, the time taken, and the colours used from these top constants
+
+OLD_FILENAME = 'old.json'
+NEW_FILENAME = 'new.json'
+
+OLD_TIME_FILTER_MS = 600
+NEW_TIME_FILTER_MS = 20
+COMBINED_TIME_FILTERS_MS = (
+    OLD_TIME_FILTER_MS,
+    NEW_TIME_FILTER_MS,
+    (OLD_TIME_FILTER_MS + NEW_TIME_FILTER_MS) / 2,
+)
+
+NEW_PREFIX = 'new'
+OLD_PREFIX = 'old'
+COMBINED_PREFIX = 'combined'
+
+OLD_COLOURS = (
+    'red',
+    'tomato',
+)
+NEW_COLOURS = (
+    'limegreen',
+    'darkgreen',
+)
+
+X_AXIS_NAME = 'Time (ms)'
+
+IDEAL_COLOUR = 'dimgrey'
+IDEAL_STYLE = ':'
+
+X_TICKS_ROTATION = 30
+
+# End of changable constants
 
 PLAYER_1 = 'player1'
 PLAYER_2 = 'player2'
@@ -40,13 +73,22 @@ IDEAL_PROBABILITIES = {
     SCISSORS: 0.2,
 }
 
-X_AXIS_NAME = 'Time (ms)'
+TOTAL_GAME_REWARD = 100
 
-def get_time_data_ms(data):
-    return [
+def get_time_data_ms(data, filter_after_ms = None):
+    time_data_ms = [
         iteration[TIME_KEY] / 1e3
         for iteration in data[ITERATIONS_KEY]
     ]
+
+    if filter_after_ms is not None:
+        time_data_ms = [
+            time
+            for time in time_data_ms
+            if time <= filter_after_ms
+        ]
+
+    return time_data_ms
 
 def calculate_non_adapting_ev(probabilities: dict[str, float], player: str):
     """
@@ -68,49 +110,53 @@ def calculate_adapting_ev(probabilities: dict[str, float], player: str):
     opponent_ev_scissors =  100 * probabilities[MOVES_TO_INPUTS[player][PAPER]] + 50 * probabilities[MOVES_TO_INPUTS[player][SCISSORS]]
 
     opponent_ev = max(opponent_ev_rock, opponent_ev_paper, opponent_ev_scissors)
-    return 100 - opponent_ev # Can be done this way since it's a 0 sum game
+    return TOTAL_GAME_REWARD - opponent_ev # Can be done this way since it's a 0 sum game
 
-def create_ev_data(data, x: list[float], calculate_ev_function) -> None:
+def create_ev_data(data, x: list[float], calculate_ev_function, colours: tuple[str]) -> None:
+    num_points = len(x)
+    iterations = data[ITERATIONS_KEY][:num_points]
+
     y_1 = [
         calculate_ev_function(iteration[PROBABILITIES_KEY], PLAYER_1)
-        for iteration in data[ITERATIONS_KEY]
+        for iteration in iterations
     ]
 
     y_2 = [
         calculate_ev_function(iteration[PROBABILITIES_KEY], PLAYER_2)
-        for iteration in data[ITERATIONS_KEY]
+        for iteration in iterations
     ]
 
-    plt.plot(x, y_1, color='red')
-    plt.plot(x, y_2, color='green')
+    plt.plot(x, y_1, color=colours[0])
+    plt.plot(x, y_2, color=colours[1])
 
-    plt.xticks(rotation=30, ha='right')
+    plt.xticks(rotation=X_TICKS_ROTATION, ha='right')
 
     plt.xlabel(X_AXIS_NAME)
 
-def create_non_adapting_ev_plot(data, x: list[float]) -> None:
-    create_ev_data(data, x, calculate_non_adapting_ev)
+    plt.tight_layout()
 
-    plt.ylabel('Expected Value Against Non-Adapting Optimal Opponent')
+def create_non_adapting_ev_plot(data, x: list[float], colours: tuple[str]) -> None:
+    create_ev_data(data, x, calculate_non_adapting_ev, colours)
 
-    plt.savefig('non-adapting-ev-plot')
+    plt.ylabel('Expected Value')
+    plt.title('Expected Value Against Non-Adapting Optimal Opponent')
 
-def create_adapting_ev_plot(data, x: list[float]) -> None:
-    create_ev_data(data, x, calculate_adapting_ev)
+def create_adapting_ev_plot(data, x: list[float], colours: tuple[str]) -> None:
+    create_ev_data(data, x, calculate_adapting_ev, colours)
 
     y_3 = [
-        50
-        for _ in data[ITERATIONS_KEY]
+        TOTAL_GAME_REWARD / 2
+        for _ in data[ITERATIONS_KEY][:len(x)]
     ]
 
-    plt.plot(x, y_3, color='blue', linestyle='dotted')
+    plt.plot(x, y_3, color=IDEAL_COLOUR, linestyle=IDEAL_STYLE)
 
-    plt.ylabel('Expected Value Against Adapting Optimal Opponent')
+    plt.ylabel('Expected Value')
+    plt.title('Expected Value Against Adapting Optimal Opponent')
 
-    plt.savefig('adapting-ev-plot')
-
-def create_convergence_graph(data, x: list[float], move: str):
-    iterations = data[ITERATIONS_KEY]
+def create_convergence_plot(data, x: list[float], move: str, colours: tuple[str]):
+    num_points = len(x)
+    iterations = data[ITERATIONS_KEY][:num_points]
 
     y_1 = [
         iteration[PROBABILITIES_KEY][MOVES_TO_INPUTS[PLAYER_1][move]]
@@ -119,39 +165,71 @@ def create_convergence_graph(data, x: list[float], move: str):
 
     y_2 = [
         iteration[PROBABILITIES_KEY][MOVES_TO_INPUTS[PLAYER_2][move]]
-        for iteration in data[ITERATIONS_KEY]
+        for iteration in iterations
     ]
 
     y_3 = [
         IDEAL_PROBABILITIES[move]
-        for _ in data[ITERATIONS_KEY]
+        for _ in iterations
     ]
 
-    plt.plot(x, y_1, color='red')
-    plt.plot(x, y_2, color='green')
-    plt.plot(x, y_3, color='blue', linestyle='dotted')
+    plt.plot(x, y_1, color=colours[0])
+    plt.plot(x, y_2, color=colours[1])
+    plt.plot(x, y_3, color=IDEAL_COLOUR, linestyle=IDEAL_STYLE)
 
-    plt.xticks(rotation=30, ha='right')
+    plt.xticks(rotation=X_TICKS_ROTATION, ha='right')
 
     plt.xlabel(X_AXIS_NAME)
-    plt.ylabel(f"Convergence of {move.capitalize().replace(' ', '-')} Over Time")
+    plt.ylabel('Probability of Playing')
+    plt.title(f"Convergence of {move.capitalize().replace(' ', '-')} Over Time")
 
-    plt.savefig(f"{move.lower()}-convergence-plot")
+    plt.tight_layout()
 
 def main() -> None:
-    with open(BENCHMARK_FILENAME, 'r') as file:
-        data = json.loads(file.read())
+    with open(OLD_FILENAME, 'r') as file:
+        data_old = json.loads(file.read())
+    with open(NEW_FILENAME, 'r') as file:
+        data_new = json.loads(file.read())
 
-    x = get_time_data_ms(data)
+    x_old = get_time_data_ms(data_old, OLD_TIME_FILTER_MS)
+    x_new = get_time_data_ms(data_new, NEW_TIME_FILTER_MS)
 
-    create_non_adapting_ev_plot(data, x)
-    plt.clf()
-    create_adapting_ev_plot(data, x)
-    plt.clf()
-
-    for move in (ROCK, PAPER, SCISSORS):
-        create_convergence_graph(data, x, move)
+    # Create individual plots
+    for x, data, colours, prefix in ((x_old, data_old, OLD_COLOURS, OLD_PREFIX), (x_new, data_new, NEW_COLOURS, NEW_PREFIX)):
+        create_non_adapting_ev_plot(data, x, colours)
+        plt.savefig(f"{prefix}-non-adapting-ev-plot")
         plt.clf()
+
+        create_adapting_ev_plot(data, x, colours)
+        plt.savefig(f"{prefix}-adapting-ev-plot")
+        plt.clf()
+
+        for move in (ROCK, PAPER, SCISSORS):
+            create_convergence_plot(data, x, move, colours)
+            plt.savefig(f"{prefix}-{move.lower()}-convergence-plot")
+            plt.clf()
+
+    # Created combined plots
+    for count, combined_time_filter_ms in enumerate(COMBINED_TIME_FILTERS_MS):
+        x_old = get_time_data_ms(data_old, combined_time_filter_ms)
+        x_new = get_time_data_ms(data_new, combined_time_filter_ms)
+        prefix = f"{COMBINED_PREFIX}-{count}"
+
+        create_non_adapting_ev_plot(data_old, x_old, OLD_COLOURS)
+        create_non_adapting_ev_plot(data_new, x_new, NEW_COLOURS)
+        plt.savefig(f"{prefix}-non-adapting-ev-plot")
+        plt.clf()
+
+        create_adapting_ev_plot(data_old, x_old, OLD_COLOURS)
+        create_adapting_ev_plot(data_new, x_new, NEW_COLOURS)
+        plt.savefig(f"{prefix}-adapting-ev-plot")
+        plt.clf()
+
+        for move in (ROCK, PAPER, SCISSORS):
+            create_convergence_plot(data_old, x_old, move, OLD_COLOURS)
+            create_convergence_plot(data_new, x_new, move, NEW_COLOURS)
+            plt.savefig(f"{prefix}-{move.lower()}-convergence-plot")
+            plt.clf()
 
 if __name__ == '__main__':
     main()

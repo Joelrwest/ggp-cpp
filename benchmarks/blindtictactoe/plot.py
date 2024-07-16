@@ -8,7 +8,20 @@ https://www.geeksforgeeks.org/how-to-plot-a-time-series-in-matplotlib/
 import matplotlib.pyplot as plt
 import json
 
-BENCHMARK_FILENAME = '0000001200.json'
+# Can change the input files, the time taken, and the colours used from these top constants
+
+FILENAME = '0000001200.json'
+
+COLOURS = (
+    'indigo',
+    'mediumorchid',
+)
+
+X_AXIS_NAME = 'Time (h)'
+
+X_TICKS_ROTATION = 30
+
+# End of changable constants
 
 PLAYER_X = 'x'
 PLAYER_O = 'o'
@@ -64,45 +77,46 @@ MOVES_TO_INPUTS = {
     },
 }
 
-X_AXIS_NAME = 'Time (m)'
-
-def get_time_data_m(data):
+def get_time_data_h(data):
     return [
-        iteration[TIME_KEY] / 60e6
+        iteration[TIME_KEY] / (60 * 60 * 1e6)
         for iteration in data[ITERATIONS_KEY]
     ]
 
-def create_convergence_graph(data, x: list[float], move: str):
-    iterations = data[ITERATIONS_KEY]
+def create_convergence_plot(data, x: list[float], move: str):
+    num_points = len(x)
+    iterations = data[ITERATIONS_KEY][:num_points]
 
-    y_x = [
+    y_1 = [
         iteration[PROBABILITIES_KEY][MOVES_TO_INPUTS[PLAYER_X][move]]
         for iteration in iterations
     ]
 
-    y_o = [
+    y_2 = [
         iteration[PROBABILITIES_KEY][MOVES_TO_INPUTS[PLAYER_O][move]]
-        for iteration in data[ITERATIONS_KEY]
+        for iteration in iterations
     ]
 
-    plt.plot(x, y_x, color='red')
-    plt.plot(x, y_o, color='green')
+    plt.plot(x, y_1, color=COLOURS[0])
+    plt.plot(x, y_2, color=COLOURS[1])
 
-    plt.xticks(rotation=30, ha='right')
+    plt.xticks(rotation=X_TICKS_ROTATION, ha='right')
 
     plt.xlabel(X_AXIS_NAME)
-    plt.ylabel(f"Convergence of {move.capitalize()} Over Time")
+    plt.ylabel('Probability of Playing')
+    plt.title(f"Convergence of {move.capitalize()} Over Time")
 
-    plt.savefig(f"scissor-paper-rock-{move.lower().replace(' ', '-')}-convergence-plot")
+    plt.tight_layout()
 
 def main() -> None:
-    with open(BENCHMARK_FILENAME, 'r') as file:
+    with open(FILENAME, 'r') as file:
         data = json.loads(file.read())
 
-    x = get_time_data_m(data)
+    x = get_time_data_h(data)
 
     for move in ALL_MOVES:
-        create_convergence_graph(data, x, move)
+        create_convergence_plot(data, x, move)
+        plt.savefig(f"{move.lower().replace(' ', '-')}-convergence-plot")
         plt.clf()
 
 if __name__ == '__main__':
