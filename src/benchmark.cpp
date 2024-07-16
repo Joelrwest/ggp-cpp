@@ -8,8 +8,8 @@
 #include <sstream>
 
 static constexpr auto SCISSOR_PAPER_ROCK_GAME{"scissor_paper_rock"};
-static constexpr auto SCISSOR_PAPER_ROCK_SAVE_FREQUENCY{2000};
-static constexpr auto SCISSOR_PAPER_ROCK_NUM_ITERATIONS{16000};
+static constexpr auto SCISSOR_PAPER_ROCK_SAVE_FREQUENCY{300000};
+static constexpr auto SCISSOR_PAPER_ROCK_NUM_ITERATIONS{300000};
 
 static constexpr auto BLINDTICTACTOE_GAME{"blindtictactoe"};
 static constexpr auto BLINDTICTACTOE_SAVE_FREQUENCY{1000};
@@ -125,7 +125,7 @@ int main(void)
     /*
     Manually change the game you want to benchmark here
     */
-    benchmark_scissor_paper_rock();
+    benchmark_blindtictactoe();
 
     return 0;
 }
