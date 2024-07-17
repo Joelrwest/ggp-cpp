@@ -38,8 +38,6 @@ GROUP_COLOURS = (
 
 X_AXIS_NAME = 'Time (h)'
 
-X_TICKS_ROTATION = 30
-
 # End of changable constants
 
 PLAYER_X = 'x'
@@ -78,7 +76,7 @@ SIMILAR_MOVES = (
         )
     ),
     (
-        'Middle-Side moves',
+        'Middle-Side Moves',
         (
             MARK_1_2,
             MARK_2_1,
@@ -143,12 +141,8 @@ def create_convergence_plot(iterations, x: list[float], move: str, colours: tupl
     plt.plot(x, y_1, color=colours[0])
     plt.plot(x, y_2, color=colours[1])
 
-    plt.xticks(rotation=X_TICKS_ROTATION, ha='right')
-
     plt.xlabel(X_AXIS_NAME)
-    plt.ylabel('Probability of Playing')
-
-    plt.tight_layout()
+    plt.ylabel('Probability')
 
 def main() -> None:
     with open(FILENAME, 'r') as file:
@@ -160,6 +154,7 @@ def main() -> None:
     for move in ALL_MOVES:
         create_convergence_plot(iterations, x, move, SINGLE_COLOURS)
         plt.title(f"Convergence of {move.capitalize()} Over Time")
+        plt.tight_layout()
         plt.savefig(f"{move.lower().replace(' ', '-')}-convergence-plot")
         plt.clf()
 
@@ -167,6 +162,7 @@ def main() -> None:
         for move, colours in zip(similar_moves, GROUP_COLOURS):
             create_convergence_plot(iterations, x, move, colours)
         plt.title(f"Convergence of {title} Over Time")
+        plt.tight_layout()
         plt.savefig(f"{title.lower().replace(' ', '-')}-convergence-plot")
         plt.clf()
 
