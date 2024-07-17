@@ -136,8 +136,18 @@ std::vector<ExpectedValue> Model::eval_evs(const propnet::State &state)
     return std::vector<ExpectedValue>(start_ptr, end_ptr);
 }
 
-// std::vector<std::vector<double>> Model::eval_policies(const propnet::State &state)
-// {} TODO
+std::vector<std::vector<double>> Model::eval_policies(const propnet::State &state)
+{
+    std::vector<std::vector<double>> policies{};
+    for (auto &policy : eval(state).second)
+    {
+        const auto start_ptr{policy.data_ptr<double>()};
+        const auto end_ptr{start_ptr + policy.numel()};
+        policies.emplace_back(start_ptr, end_ptr);
+    }
+
+    return policies;
+}
 
 void Model::train(const ReplayBuffer &replay_buffer)
 {
@@ -216,11 +226,19 @@ Model::Model(const propnet::Propnet &propnet, std::string_view game, Network &&n
 
 Network::Eval Model::eval(const propnet::State &state)
 {
+    if (const auto [eval, is_present]{cache->TryGet(state)}; is_present)
+    {
+        return *eval;
+    }
+
     auto bytes{state.to_bytes()};
     const at::IntArrayRef sizes{static_cast<std::int64_t>(propnet.size())};
     const auto tensor{torch::from_blob(bytes.data(), sizes, torch::kUInt8)};
+    const auto eval{network.forward(tensor)};
 
-    return network.forward(tensor);
+    cache->Put(state, eval);
+
+    return eval;
 }
 
 void Model::log_time(std::size_t game_number)

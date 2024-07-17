@@ -93,7 +93,7 @@ class Model
 
     ExpectedValue eval_ev(const propnet::State &state, propnet::Role::Id id);
     std::vector<ExpectedValue> eval_evs(const propnet::State &state);
-    // TODO: std::vector<std::vector<double>> eval_policies(const propnet::State &state);
+    std::vector<std::vector<double>> eval_policies(const propnet::State &state);
 
     void train(const ReplayBuffer &replay_buffer);
     void save(std::size_t game_number);

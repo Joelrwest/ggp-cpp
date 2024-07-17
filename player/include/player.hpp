@@ -55,7 +55,7 @@ template <DerivedSampler SamplerT = RandomSampler> class Player : public agents:
     static Depth search_depth_limit_heuristic(const propnet::Propnet &propnet);
 
     SamplerT sampler;
-    const propnet::Role &role; // TODO: Should be proper role not reference?
+    const propnet::Role &role; // TODO: Should be proper role not reference? Other spots too
     const propnet::Propnet &propnet;
     std::size_t num_threads;
     Depth search_depth_limit;

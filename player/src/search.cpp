@@ -69,7 +69,42 @@ Regrets InformationSet::regret_match() const
     return policy;
 }
 
+std::pair<Policy, ExpectedValue> InformationSet::normalise() const
+{
+    const auto cumulative_policy_sum{
+        std::accumulate(cumulative_policy.begin(), cumulative_policy.end(), 0.0,
+                        [](const auto accumulation, const auto &pair) { return accumulation + pair.second; })};
+
+    if (cumulative_policy_sum == 0.0)
+    {
+        throw std::logic_error{"Nothing recorded in cumulative policy"};
+    }
+
+    Policy policy{};
+    for (const auto &[input, probability] : cumulative_policy)
+    {
+        const auto normalised_probability{probability / cumulative_policy_sum};
+        policy.emplace(input, normalised_probability);
+    }
+
+    const auto ev{cumulative_expected_value / total_visits};
+
+    return std::make_pair(std::move(policy), ev);
+}
+
 std::vector<std::pair<Policy, ExpectedValue>> BaseMCCFR::search(const propnet::State &state)
+{
+    return search(state, DEFAULT_NUM_ITERATIONS);
+}
+
+std::vector<std::pair<Policy, ExpectedValue>> BaseMCCFR::search(const propnet::State &state, std::size_t num_iterations)
+{
+    return search(state, num_iterations, [](const auto &) {});
+}
+
+std::vector<std::pair<Policy, ExpectedValue>> BaseMCCFR::search(
+    const propnet::State &state, std::size_t num_iterations,
+    std::function<void(const std::vector<std::reference_wrapper<InformationSet>> &)> logger)
 {
     /*
     Psuedocode from:
@@ -83,7 +118,7 @@ std::vector<std::pair<Policy, ExpectedValue>> BaseMCCFR::search(const propnet::S
         current_information_sets.emplace_back(base_information_set);
     }
 
-    for (std::size_t iteration_count{1}; iteration_count <= NUM_ITERATIONS; ++iteration_count)
+    for (std::size_t iteration_count{1}; iteration_count <= num_iterations; ++iteration_count)
     {
         /*
         The role that's currently traversing
@@ -93,31 +128,14 @@ std::vector<std::pair<Policy, ExpectedValue>> BaseMCCFR::search(const propnet::S
             auto state_copy{state};
             make_traversers_move(current_information_sets, traversing_role, state_copy, 0);
         }
+
+        logger(current_information_sets);
     }
 
     const auto num_players{propnet.num_player_roles()};
     std::vector<std::pair<Policy, ExpectedValue>> policy_ev_pairs{};
     std::transform(base_information_sets.begin(), base_information_sets.end(), std::back_inserter(policy_ev_pairs),
-                   [num_players](auto &entry) {
-                       auto &cumulative_policy{entry.cumulative_policy};
-                       const auto cumulative_policy_sum{std::accumulate(
-                           cumulative_policy.begin(), cumulative_policy.end(), 0.0,
-                           [](const auto accumulation, const auto &pair) { return accumulation + pair.second; })};
-
-                       if (cumulative_policy_sum == 0.0)
-                       {
-                           throw std::logic_error{"Nothing recorded in cumulative policy"};
-                       }
-
-                       for (auto &[input, probability] : cumulative_policy)
-                       {
-                           probability /= cumulative_policy_sum;
-                       }
-
-                       const auto ev{entry.cumulative_expected_value / entry.total_visits};
-
-                       return std::make_pair(std::move(cumulative_policy), ev);
-                   });
+                   [num_players](auto &entry) { return entry.normalise(); });
 
     return policy_ev_pairs;
 }
