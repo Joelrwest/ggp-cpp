@@ -35,7 +35,7 @@ class PropnetWrapper:
     def get_scores(self) -> dict[str, int]:
         return {
             role: score
-            for role, score in self.propnet.scores(self.data)
+            for role, score in self.propnet.scores(self.data).items()
             if role != RANDOM_ROLE
         }
 

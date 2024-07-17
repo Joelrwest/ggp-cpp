@@ -60,6 +60,7 @@ class Parser
     void add_entry(const nlohmann::json &entry);
     void add_proposition(PropId id, std::string_view type, std::string &&display, const nlohmann::json &entry);
 
+    std::string game_name;
     std::vector<Role> player_roles{};
     std::optional<Role> random_role{std::nullopt};
     std::vector<std::shared_ptr<const Node>> nodes{};

@@ -145,7 +145,7 @@ cdef class Proposition:
             assert(len(inputs) == 1)
         elif prop_type == goal:
             self.role, score = GOAL_RE.match(gdl).groups()
-            self.score = int(score)/100
+            self.score = int(score)
             assert(len(inputs) == 1)
         elif prop_type == input:
             self.normalised_gdl = gdl.replace(' ', '')

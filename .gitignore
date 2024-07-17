@@ -233,6 +233,7 @@ play
 train
 debug
 benchmark
+play-external
 
 # Models folder
 models/

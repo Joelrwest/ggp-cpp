@@ -3,12 +3,11 @@
 
 namespace propnet
 {
-
-Propnet::Propnet(std::span<const Role> player_roles, const std::optional<Role> &random_role,
+Propnet::Propnet(std::string_view game_name, std::span<const Role> player_roles, const std::optional<Role> &random_role,
                  std::span<const std::shared_ptr<const Node>> nodes, PropId terminal,
                  std::span<const PropId> topologically_sorted_nodes,
                  std::span<const PropId> non_post_topologically_sorted_nodes)
-    : player_roles{player_roles.begin(), player_roles.end()},
+    : game_name{game_name}, player_roles{player_roles.begin(), player_roles.end()},
       random_role{random_role}, nodes{nodes.begin(), nodes.end()}, terminal{terminal},
       topologically_sorted_nodes{topologically_sorted_nodes.begin(), topologically_sorted_nodes.end()},
       non_post_topologically_sorted_nodes{non_post_topologically_sorted_nodes.begin(),
@@ -23,6 +22,11 @@ Propnet::Propnet(std::span<const Role> player_roles, const std::optional<Role> &
     take_sees_inputs(initial_state, EMPTY_INPUTS);
     take_non_sees_inputs(initial_state, EMPTY_INPUTS);
     initial_state.set_not_is_initial();
+}
+
+std::string_view Propnet::get_game_name() const
+{
+    return game_name;
 }
 
 std::span<const Role> Propnet::get_player_roles() const

@@ -317,9 +317,9 @@ cdef class Propnet:
         )
 
     def scores(self, data):
+        scores = {}
         if self.is_terminal(data):
-            scores = {}
             for g in self.goal:
                 if data[g.id]:
                     scores[g.role] = g.score
-            return scores
+        return scores
