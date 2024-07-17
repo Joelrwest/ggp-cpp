@@ -39,8 +39,6 @@ X_AXIS_NAME = 'Time (ms)'
 IDEAL_COLOUR = 'dimgrey'
 IDEAL_STYLE = ':'
 
-X_TICKS_ROTATION = 30
-
 # End of changable constants
 
 PLAYER_1 = 'player1'
