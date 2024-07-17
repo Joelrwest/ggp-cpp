@@ -8,7 +8,6 @@
 #include <sstream>
 
 static constexpr auto SCISSOR_PAPER_ROCK_GAME{"scissor_paper_rock"};
-static constexpr auto SCISSOR_PAPER_ROCK_SAVE_FREQUENCY{300000};
 static constexpr auto SCISSOR_PAPER_ROCK_NUM_ITERATIONS{300000};
 
 static constexpr auto BLINDTICTACTOE_GAME{"blindtictactoe"};
@@ -39,6 +38,11 @@ class BenchmarkLogger
     std::chrono::microseconds cumulative_time_taken;
     std::chrono::microseconds last_log_time;
 };
+
+void benchmark(std::string_view game, std::size_t num_iterations);
+void benchmark(std::string_view game, std::size_t num_iterations, std::size_t save_frequency);
+void benchmark_scissor_paper_rock();
+void benchmark_blindtictactoe();
 
 BenchmarkLogger::BenchmarkLogger(std::string_view game, std::size_t save_frequency)
     : game{game}, save_frequency{save_frequency}, iteration_count{0},
@@ -99,7 +103,13 @@ std::chrono::microseconds BenchmarkLogger::get_time_us()
     return now_time_us;
 }
 
-void benchmark(std::string_view game, std::size_t save_frequency, std::size_t num_iterations)
+void benchmark(std::string_view game, std::size_t num_iterations)
+{
+    const auto save_frequency{num_iterations};
+    benchmark(game, num_iterations, save_frequency);
+}
+
+void benchmark(std::string_view game, std::size_t num_iterations, std::size_t save_frequency)
 {
     const propnet::Propnet propnet{setup::load_propnet(game)};
     player::search::FullMCCFR mccfr{propnet};
@@ -112,12 +122,12 @@ void benchmark(std::string_view game, std::size_t save_frequency, std::size_t nu
 
 void benchmark_scissor_paper_rock()
 {
-    benchmark(SCISSOR_PAPER_ROCK_GAME, SCISSOR_PAPER_ROCK_SAVE_FREQUENCY, SCISSOR_PAPER_ROCK_NUM_ITERATIONS);
+    benchmark(SCISSOR_PAPER_ROCK_GAME, SCISSOR_PAPER_ROCK_NUM_ITERATIONS);
 }
 
 void benchmark_blindtictactoe()
 {
-    benchmark(BLINDTICTACTOE_GAME, BLINDTICTACTOE_SAVE_FREQUENCY, BLINDTICTACTOE_NUM_ITERATIONS);
+    benchmark(BLINDTICTACTOE_GAME, BLINDTICTACTOE_NUM_ITERATIONS, BLINDTICTACTOE_SAVE_FREQUENCY);
 }
 
 int main(void)
@@ -125,7 +135,7 @@ int main(void)
     /*
     Manually change the game you want to benchmark here
     */
-    benchmark_blindtictactoe();
+    benchmark_scissor_paper_rock();
 
     return 0;
 }
