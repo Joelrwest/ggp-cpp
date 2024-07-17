@@ -128,17 +128,13 @@ def create_ev_data(iterations, x: list[float], calculate_ev_function, colours: t
     plt.plot(x, y_1, color=colours[0])
     plt.plot(x, y_2, color=colours[1])
 
-    plt.xticks(rotation=X_TICKS_ROTATION, ha='right')
-
     plt.xlabel(X_AXIS_NAME)
-
-    plt.tight_layout()
 
 def create_non_adapting_ev_plot(iterations, x: list[float], colours: tuple[str]) -> None:
     create_ev_data(iterations, x, calculate_non_adapting_ev, colours)
 
     plt.ylabel('Expected Value')
-    plt.title('Expected Value Against Non-Adapting Optimal Opponent')
+    plt.title('Expected Value Against Static Optimal Opponent')
 
 def create_adapting_ev_plot(iterations, x: list[float], colours: tuple[str]) -> None:
     create_ev_data(iterations, x, calculate_adapting_ev, colours)
@@ -151,7 +147,7 @@ def create_adapting_ev_plot(iterations, x: list[float], colours: tuple[str]) -> 
     plt.plot(x, y_3, color=IDEAL_COLOUR, linestyle=IDEAL_STYLE)
 
     plt.ylabel('Expected Value')
-    plt.title('Expected Value Against Adapting Optimal Opponent')
+    plt.title('Expected Value Against Exploitative Optimal Opponent')
 
 def create_convergence_plot(iterations, x: list[float], move: str, colours: tuple[str]):
     iterations = iterations[:len(x)]
@@ -175,13 +171,9 @@ def create_convergence_plot(iterations, x: list[float], move: str, colours: tupl
     plt.plot(x, y_2, color=colours[1])
     plt.plot(x, y_3, color=IDEAL_COLOUR, linestyle=IDEAL_STYLE)
 
-    plt.xticks(rotation=X_TICKS_ROTATION, ha='right')
-
     plt.xlabel(X_AXIS_NAME)
-    plt.ylabel('Probability of Playing')
+    plt.ylabel('Probability')
     plt.title(f"Convergence of {move.capitalize().replace(' ', '-')} Over Time")
-
-    plt.tight_layout()
 
 def main() -> None:
     with open(OLD_FILENAME, 'r') as file:
@@ -195,15 +187,18 @@ def main() -> None:
     # Create individual plots
     for x, iterations, colours, prefix in ((x_old, iterations_old, OLD_COLOURS, OLD_PREFIX), (x_new, iterations_new, NEW_COLOURS, NEW_PREFIX)):
         create_non_adapting_ev_plot(iterations, x, colours)
+        plt.tight_layout()
         plt.savefig(f"{prefix}-non-adapting-ev-plot")
         plt.clf()
 
         create_adapting_ev_plot(iterations, x, colours)
+        plt.tight_layout()
         plt.savefig(f"{prefix}-adapting-ev-plot")
         plt.clf()
 
         for move in (ROCK, PAPER, SCISSORS):
             create_convergence_plot(iterations, x, move, colours)
+            plt.tight_layout()
             plt.savefig(f"{prefix}-{move.lower()}-convergence-plot")
             plt.clf()
 
@@ -215,17 +210,20 @@ def main() -> None:
 
         create_non_adapting_ev_plot(iterations_old, x_old, OLD_COLOURS)
         create_non_adapting_ev_plot(iterations_new, x_new, NEW_COLOURS)
+        plt.tight_layout()
         plt.savefig(f"{prefix}-non-adapting-ev-plot")
         plt.clf()
 
         create_adapting_ev_plot(iterations_old, x_old, OLD_COLOURS)
         create_adapting_ev_plot(iterations_new, x_new, NEW_COLOURS)
+        plt.tight_layout()
         plt.savefig(f"{prefix}-adapting-ev-plot")
         plt.clf()
 
         for move in (ROCK, PAPER, SCISSORS):
             create_convergence_plot(iterations_old, x_old, move, OLD_COLOURS)
             create_convergence_plot(iterations_new, x_new, move, NEW_COLOURS)
+            plt.tight_layout()
             plt.savefig(f"{prefix}-{move.lower()}-convergence-plot")
             plt.clf()
 
