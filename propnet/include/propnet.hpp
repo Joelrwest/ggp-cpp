@@ -26,7 +26,7 @@ class Propnet
     /*
     Slightly strange interface, but works well with the parser.
     */
-    Propnet(std::span<const Role> player_roles, const std::optional<Role> &random_role,
+    Propnet(std::string_view game_name, std::span<const Role> player_roles, const std::optional<Role> &random_role,
             std::span<const std::shared_ptr<const Node>> nodes, PropId terminal,
             std::span<const PropId> topologically_sorted_nodes,
             std::span<const PropId> non_post_topologically_sorted_nodes);
@@ -36,6 +36,7 @@ class Propnet
     Propnet &operator=(const Propnet &other) = default;
     Propnet &operator=(Propnet &&other) = default;
 
+    std::string_view get_game_name() const;
     std::span<const Role> get_player_roles() const;
     std::vector<Role> get_player_roles_excluding(Role::Id excluding_id) const;
     const std::optional<Role> &get_random_role() const;
@@ -56,6 +57,7 @@ class Propnet
   private:
     void take_inputs_impl(State &state, const InputSet &inputs, std::span<const PropId> ids) const;
 
+    std::string game_name;
     std::vector<Role> player_roles;
     std::optional<Role> random_role;
     std::vector<std::shared_ptr<const Node>> nodes;

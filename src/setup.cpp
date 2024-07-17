@@ -45,6 +45,32 @@ propnet::Propnet load_propnet(std::string_view game)
     }
 }
 
+std::unique_ptr<agents::Agent> create_agent(const propnet::Propnet &propnet)
+{
+    const auto &roles{propnet.get_player_roles()};
+    while (true)
+    {
+        std::string role_name{};
+        std::cout << "Enter agent role: ";
+        std::cin >> role_name;
+
+        const auto role_it{std::find_if(roles.begin(), roles.end(),
+                                        [&role_name](const auto &role) { return role_name == role.get_name(); })};
+        if (role_it != roles.end())
+        {
+            return create_agent(*role_it);
+        }
+
+        std::cout << "Error occurred whilst trying to find a role with name " << role_name << '\n';
+        std::cout << "Valid roles are:\n";
+        for (const auto &role : roles)
+        {
+            std::cout << role.get_name() << '\n';
+        }
+        std::cout << "Please try again.\n";
+    }
+}
+
 std::unique_ptr<agents::Agent> create_agent(const propnet::Role &role)
 {
     while (true)

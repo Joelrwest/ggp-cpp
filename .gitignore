@@ -233,6 +233,11 @@ play
 train
 debug
 benchmark
+play-external
 
 # Models folder
 models/
+
+# Extra files created inside Python propnet
+server/propnet/*.c
+server/propnet/*.html

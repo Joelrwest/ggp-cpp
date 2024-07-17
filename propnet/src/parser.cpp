@@ -37,7 +37,7 @@ Completely terrible and unreadable, but gets
 the job done and I don't wanna spend any more
 time than needed parsing stuff in C++.
 */
-Parser::Parser(std::string_view game)
+Parser::Parser(std::string_view game) : game_name{game}
 {
     std::filesystem::path game_path{GAMES_PATH};
     game_path.append(game);
@@ -136,7 +136,8 @@ Parser::Parser(std::string_view game)
 
 Propnet Parser::create_propnet()
 {
-    return Propnet{player_roles,
+    return Propnet{game_name,
+                   player_roles,
                    random_role,
                    nodes,
                    terminal.value(),
