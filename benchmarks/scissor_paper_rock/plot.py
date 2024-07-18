@@ -26,12 +26,12 @@ OLD_PREFIX = 'old'
 COMBINED_PREFIX = 'combined'
 
 OLD_COLOURS = (
-    'red',
-    'tomato',
+    'salmon',
+    'maroon',
 )
 NEW_COLOURS = (
-    'limegreen',
-    'darkgreen',
+    'orchid',
+    'indigo',
 )
 
 X_AXIS_NAME = 'Time (ms)'
@@ -39,7 +39,11 @@ X_AXIS_NAME = 'Time (ms)'
 IDEAL_COLOUR = 'dimgrey'
 IDEAL_STYLE = ':'
 
+FONT_SIZE = 16
+
 # End of changable constants
+
+plt.rcParams.update({'font.size': FONT_SIZE})
 
 PLAYER_1 = 'player1'
 PLAYER_2 = 'player2'
@@ -131,8 +135,8 @@ def create_ev_data(iterations, x: list[float], calculate_ev_function, colours: t
 def create_non_adapting_ev_plot(iterations, x: list[float], colours: tuple[str]) -> None:
     create_ev_data(iterations, x, calculate_non_adapting_ev, colours)
 
-    plt.ylabel('Expected Value')
-    plt.title('Expected Value Against Static Optimal Opponent')
+    plt.ylabel('EV')
+    plt.title('EV Against Static Optimal Opponent')
 
 def create_adapting_ev_plot(iterations, x: list[float], colours: tuple[str]) -> None:
     create_ev_data(iterations, x, calculate_adapting_ev, colours)
@@ -144,8 +148,8 @@ def create_adapting_ev_plot(iterations, x: list[float], colours: tuple[str]) -> 
 
     plt.plot(x, y_3, color=IDEAL_COLOUR, linestyle=IDEAL_STYLE)
 
-    plt.ylabel('Expected Value')
-    plt.title('Expected Value Against Exploitative Optimal Opponent')
+    plt.ylabel('EV')
+    plt.title('EV Against Exploitative Optimal Opponent')
 
 def create_convergence_plot(iterations, x: list[float], move: str, colours: tuple[str]):
     iterations = iterations[:len(x)]

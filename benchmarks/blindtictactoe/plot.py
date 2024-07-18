@@ -13,32 +13,33 @@ import json
 FILENAME = 'data.json'
 
 SINGLE_COLOURS = (
+    'orchid',
     'indigo',
-    'mediumorchid',
 )
 
 GROUP_COLOURS = (
+    SINGLE_COLOURS,
     (
-        'darkorange',
-        'orange',
-    ),
-    (
+        'salmon',
         'maroon',
-        'indianred',
     ),
     (
-        'darkolivegreen',
-        'olivedrab',
+        'mediumseagreen',
+        'darkgreen',
     ),
     (
+        'cornflowerblue',
         'mediumblue',
-        'royalblue',
     ),
 )
 
 X_AXIS_NAME = 'Time (h)'
 
+FONT_SIZE = 14
+
 # End of changable constants
+
+plt.rcParams.update({'font.size': FONT_SIZE})
 
 PLAYER_X = 'x'
 PLAYER_O = 'o'
