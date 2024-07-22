@@ -65,7 +65,7 @@ class Network : public torch::nn::Module
 
   private:
     static constexpr auto DROPOUT_ZERO_PROBABILITY{0.2};
-    static constexpr auto SOFTMAX_DIMENSION{1}; // TODO: Not 100% sure about this
+    static constexpr auto SOFTMAX_DIMENSION{-1};
 
     std::size_t input_size;
     std::size_t hidden_layer_size;
@@ -93,7 +93,8 @@ class Model
 
     ExpectedValue eval_ev(const propnet::State &state, propnet::Role::Id id);
     std::vector<ExpectedValue> eval_evs(const propnet::State &state);
-    std::vector<std::vector<double>> eval_policies(const propnet::State &state);
+    std::vector<Probability> eval_policy(const propnet::State &state, propnet::Role::Id id);
+    std::vector<std::vector<Probability>> eval_policies(const propnet::State &state);
 
     void train(const ReplayBuffer &replay_buffer);
     void save(std::size_t game_number);

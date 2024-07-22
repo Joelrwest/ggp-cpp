@@ -5,9 +5,20 @@
 #include "../propnet/include/propnet.hpp"
 #include "../propnet/include/role.hpp"
 
+#include <boost/program_options.hpp>
+
+namespace po = boost::program_options;
+
 namespace setup
 {
-propnet::Propnet load_propnet();
+class ProgramOptionsError : public std::invalid_argument
+{
+  public:
+    ProgramOptionsError(const char *message);
+};
+
+po::options_description create_base_program_options(std::string &game);
+po::variables_map parse_program_options(po::options_description &options_description, int argc, char **argv);
 propnet::Propnet load_propnet(std::string_view game);
 std::unique_ptr<agents::Agent> create_agent(const propnet::Propnet &propnet);
 std::unique_ptr<agents::Agent> create_agent(const propnet::Role &role);

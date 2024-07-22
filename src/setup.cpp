@@ -8,23 +8,51 @@
 
 namespace setup
 {
-propnet::Propnet load_propnet()
-{
-    while (true)
-    {
-        std::string game;
-        try
-        {
-            std::cout << "Enter game name (spelt same as json): ";
-            std::cin >> game;
+static constexpr auto HELP_COMMAND{"help"};
+static constexpr auto GAME_COMMAND{"game"};
 
-            return load_propnet(game);
-        }
-        catch (const propnet::ParsingError &error)
+ProgramOptionsError::ProgramOptionsError(const char *message) : std::invalid_argument{message}
+{
+}
+
+po::options_description create_base_program_options(std::string &game)
+{
+    po::options_description options_description{"Allowed options"};
+    options_description.add_options()(HELP_COMMAND, "produce help message")(
+        GAME_COMMAND, po::value<std::string>(&game)->required(), "game to play");
+
+    return options_description;
+}
+
+po::variables_map parse_program_options(po::options_description &options_description, int argc, char **argv)
+{
+    po::variables_map variables_map;
+    po::store(po::parse_command_line(argc, argv, options_description), variables_map);
+    try
+    {
+        po::notify(variables_map);
+    }
+    catch (const boost::program_options::required_option &error)
+    {
+        if (variables_map.contains(HELP_COMMAND))
         {
-            std::cout << "Please try again.\n";
+            std::cout << options_description;
+            throw ProgramOptionsError{"Help option given"};
+        }
+        else
+        {
+            std::cout << error.what();
+            throw ProgramOptionsError{"Invalid options given"};
         }
     }
+
+    if (variables_map.contains(HELP_COMMAND))
+    {
+        std::cout << options_description;
+        throw ProgramOptionsError{"Help option given"};
+    }
+
+    return variables_map;
 }
 
 propnet::Propnet load_propnet(std::string_view game)
@@ -52,7 +80,7 @@ std::unique_ptr<agents::Agent> create_agent(const propnet::Propnet &propnet)
     {
         std::string role_name{};
         std::cout << "Enter agent role: ";
-        std::cin >> role_name;
+        std::cin >> role_name; // TODO: Remove this and instead make it a command line argument
 
         const auto role_it{std::find_if(roles.begin(), roles.end(),
                                         [&role_name](const auto &role) { return role_name == role.get_name(); })};

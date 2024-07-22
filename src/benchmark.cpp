@@ -116,7 +116,7 @@ void benchmark(std::string_view game, std::size_t num_iterations, std::size_t sa
     const auto initial_state{propnet.create_initial_state()};
 
     BenchmarkLogger logger{game, save_frequency};
-    mccfr.search(initial_state, num_iterations,
+    mccfr.search(initial_state, num_iterations, std::chrono::seconds::max(),
                  [&logger](const auto &current_information_sets) { logger.log(current_information_sets); });
 }
 

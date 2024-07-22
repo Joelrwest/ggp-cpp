@@ -6,6 +6,7 @@
 #include "random_sampler.hpp"
 #include "types.hpp"
 
+#include <chrono>
 #include <lru_cache_policy.hpp>
 #include <memory>
 #include <vector>
@@ -38,17 +39,23 @@ class InformationSet
 class BaseMCCFR
 {
   public:
+    // TODO: This interface is super clunky
     std::vector<std::pair<Policy, ExpectedValue>> search(const propnet::State &state);
     std::vector<std::pair<Policy, ExpectedValue>> search(const propnet::State &state, std::size_t num_iterations);
+    std::vector<std::pair<Policy, ExpectedValue>> search(const propnet::State &state, std::chrono::seconds duration);
+    std::vector<std::pair<Policy, ExpectedValue>> search(const propnet::State &state, std::size_t max_iterations,
+                                                         std::chrono::seconds max_duration);
     std::vector<std::pair<Policy, ExpectedValue>> search(
-        const propnet::State &state, std::size_t num_iterations,
+        const propnet::State &state, std::size_t max_iterations, std::chrono::seconds max_duration,
         std::function<void(const std::vector<std::reference_wrapper<InformationSet>> &)> logger);
 
   protected:
     BaseMCCFR(const propnet::Propnet &propnet, std::optional<std::reference_wrapper<Model>> model, Depth depth_limit);
 
   private:
-    static constexpr auto DEFAULT_NUM_ITERATIONS{static_cast<std::size_t>(1e4)};
+    static constexpr auto DEFAULT_MAX_ITERATIONS{static_cast<std::size_t>(1e5)};
+
+    inline static const auto noop_lambda{[](const auto &) {}};
 
     ExpectedValue make_traversers_move(std::vector<std::reference_wrapper<InformationSet>> &current_information_sets,
                                        propnet::Role &traversing_role, propnet::State &state, Depth curr_depth);

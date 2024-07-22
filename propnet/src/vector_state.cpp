@@ -30,15 +30,6 @@ void State::set_not_is_initial()
     is_initial = false;
 }
 
-std::vector<std::byte> State::to_bytes() const
-{
-    std::vector<std::byte> bytes{};
-    std::transform(state.begin(), state.end(), std::back_inserter(bytes),
-                   [](const auto proposition) { return proposition ? std::byte{1} : std::byte{0}; });
-
-    return bytes;
-}
-
 std::ostream &operator<<(std::ostream &os, const State &state)
 {
     os << (state.is_initial ? "Initial state\n" : "Not initial state\n");

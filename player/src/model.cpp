@@ -63,7 +63,7 @@ Network::Eval Network::forward(torch::Tensor x)
     /*
     Get values for each role
     */
-    const auto values{values_head->forward(x)};
+    const auto values{values_head->forward(x).to(torch::kFloat64)}; // TODO: See comment below
 
     /*
     Common extra layer before each role gets a policy
@@ -76,7 +76,8 @@ Network::Eval Network::forward(torch::Tensor x)
     std::vector<torch::Tensor> policies{};
     for (auto &policy_head : policy_heads)
     {
-        policies.push_back(policy_head->forward(x));
+        policies.push_back(policy_head->forward(x).to(
+            torch::kFloat64)); // TODO: How to take in float64's instead so we don't need to do the conversion
     }
 
     return std::make_pair(std::move(values), std::move(policies));
@@ -136,12 +137,22 @@ std::vector<ExpectedValue> Model::eval_evs(const propnet::State &state)
     return std::vector<ExpectedValue>(start_ptr, end_ptr);
 }
 
-std::vector<std::vector<double>> Model::eval_policies(const propnet::State &state)
+std::vector<Probability> Model::eval_policy(const propnet::State &state, propnet::Role::Id id)
 {
-    std::vector<std::vector<double>> policies{};
+    auto policy{eval(state).second[id]};
+    const auto start_ptr{policy.data_ptr<Probability>()};
+    const auto end_ptr{start_ptr + policy.numel()};
+
+    return std::vector<ExpectedValue>(start_ptr, end_ptr);
+    ;
+}
+
+std::vector<std::vector<Probability>> Model::eval_policies(const propnet::State &state)
+{
+    std::vector<std::vector<Probability>> policies{};
     for (auto &policy : eval(state).second)
     {
-        const auto start_ptr{policy.data_ptr<double>()};
+        const auto start_ptr{policy.data_ptr<Probability>()};
         const auto end_ptr{start_ptr + policy.numel()};
         policies.emplace_back(start_ptr, end_ptr);
     }
@@ -231,10 +242,10 @@ Network::Eval Model::eval(const propnet::State &state)
         return *eval;
     }
 
-    auto bytes{state.to_bytes()};
+    auto vec{state.to_vec<float>()};
     const at::IntArrayRef sizes{static_cast<std::int64_t>(propnet.size())};
-    const auto tensor{torch::from_blob(bytes.data(), sizes, torch::kUInt8)};
-    const auto eval{network.forward(tensor)};
+    const auto tensor{torch::from_blob(vec.data(), sizes, torch::kFloat32)};
+    auto eval{network.forward(tensor)};
 
     cache->Put(state, eval);
 

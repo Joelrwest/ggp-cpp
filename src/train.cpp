@@ -4,8 +4,6 @@
 #include "../player/include/search.hpp"
 #include "setup.hpp"
 
-#include <boost/program_options.hpp>
-
 #include <chrono>
 #include <fstream>
 #include <future>
@@ -16,22 +14,13 @@
 #include <string>
 #include <thread>
 
-namespace po = boost::program_options;
-
-static constexpr auto HELP_COMMAND{"help"};
 static constexpr auto NUM_CONCURRENT_GAMES_COMMAND{"num_concurrent_games"};
 static constexpr auto DEFAULT_NUM_CONCURRENT_GAMES{1};
 static constexpr auto TIME_LIMIT_COMMAND{"time_limit"};
-static constexpr auto GAME_COMMAND{"game"};
 static constexpr auto READABLE_TIME_FORMAT{"%X %e %b %Y %Z"};
-static constexpr auto COMPLETE_CFR_CACHE_SIZE{static_cast<std::size_t>(1e4)};
 static constexpr auto TIME_LOG_FILE_NAME{"time-log.txt"};
+static constexpr std::chrono::seconds MAX_FULL_CFR_TIME_S{20};
 static constexpr std::size_t MIN_GAMES_PER_MODEL_SAVE{10};
-
-using CompleteCfrCache =
-    player::misc::Cache<propnet::State,
-                        std::shared_future<std::vector<std::pair<player::Policy, player::ExpectedValue>>>,
-                        caches::LRUCachePolicy, COMPLETE_CFR_CACHE_SIZE>;
 
 std::function<bool()> get_time_limit_function(std::optional<std::size_t> time_limit);
 std::string to_readable_time(const std::chrono::time_point<std::chrono::system_clock> &time_point);
@@ -40,8 +29,7 @@ void play_concurrent_games(const propnet::Propnet &propnet, player::ReplayBuffer
                            std::vector<std::vector<player::Player<>>> &all_players,
                            std::vector<std::optional<agents::RandomAgent>> &all_random);
 void play_game(const propnet::Propnet &propnet, player::ReplayBuffer &replay_buffer, std::mutex &replay_buffer_lock,
-               CompleteCfrCache &complete_cfr_cache, std::vector<player::Player<>> &players,
-               std::optional<agents::RandomAgent> &random);
+               std::vector<player::Player<>> &players, std::optional<agents::RandomAgent> &random);
 
 class TimeLimit
 {
@@ -64,40 +52,14 @@ int main(int argc, char **argv)
     std::size_t num_concurrent_games;
     std::size_t time_limit;
     std::string game{};
-    po::options_description options_description{"Allowed options"};
-    options_description.add_options()(HELP_COMMAND, "produce help message")(
+    auto options_description{setup::create_base_program_options(game)};
+    options_description.add_options()(
         NUM_CONCURRENT_GAMES_COMMAND,
         po::value<std::size_t>(&num_concurrent_games)->default_value(DEFAULT_NUM_CONCURRENT_GAMES),
         "set number of games to play concurrently for training")(
-        TIME_LIMIT_COMMAND, po::value<std::size_t>(&time_limit), "maximum time allowed to train (in minutes)")(
-        GAME_COMMAND, po::value<std::string>(&game)->required(), "game to train on");
+        TIME_LIMIT_COMMAND, po::value<std::size_t>(&time_limit), "maximum time allowed to train (in minutes)");
 
-    po::variables_map variables_map;
-    po::store(po::parse_command_line(argc, argv, options_description), variables_map);
-    try
-    {
-        po::notify(variables_map);
-    }
-    catch (const boost::program_options::required_option &error)
-    {
-        if (variables_map.contains(HELP_COMMAND))
-        {
-            std::cout << options_description;
-            return 2;
-        }
-        else
-        {
-            std::cout << error.what();
-            return 1;
-        }
-    }
-
-    if (variables_map.contains(HELP_COMMAND))
-    {
-        std::cout << options_description;
-        return 2;
-    }
-
+    const auto variables_map{setup::parse_program_options(options_description, argc, argv)};
     std::cout << "Training with " << num_concurrent_games << " concurrent game(s)\n\n";
 
     const auto is_time_limit{variables_map.contains(TIME_LIMIT_COMMAND)};
@@ -152,6 +114,7 @@ void train(std::size_t num_concurrent_games, const std::function<bool()> &time_l
 
     player::ReplayBuffer replay_buffer{};
     auto model{setup::load_model(propnet, game)};
+    model.eval_evs(propnet.create_initial_state());
     std::cout << '\n';
 
     const auto hardware_threads{std::thread::hardware_concurrency()};
@@ -201,16 +164,13 @@ void play_concurrent_games(const propnet::Propnet &propnet, player::ReplayBuffer
 {
     std::mutex replay_buffer_lock{};
 
-    CompleteCfrCache complete_cfr_cache{};
-
     std::vector<std::thread> threads{};
     auto all_random_it{all_random.begin()};
     for (auto &players : all_players)
     {
-        threads.emplace_back(
-            [&propnet, &replay_buffer, &replay_buffer_lock, &complete_cfr_cache, &players, all_random_it]() {
-                play_game(propnet, replay_buffer, replay_buffer_lock, complete_cfr_cache, players, *all_random_it);
-            });
+        threads.emplace_back([&propnet, &replay_buffer, &replay_buffer_lock, &players, all_random_it]() {
+            play_game(propnet, replay_buffer, replay_buffer_lock, players, *all_random_it);
+        });
     }
 
     for (auto &thread : threads)
@@ -220,8 +180,7 @@ void play_concurrent_games(const propnet::Propnet &propnet, player::ReplayBuffer
 }
 
 void play_game(const propnet::Propnet &propnet, player::ReplayBuffer &replay_buffer, std::mutex &replay_buffer_lock,
-               CompleteCfrCache &complete_cfr_cache, std::vector<player::Player<>> &players,
-               std::optional<agents::RandomAgent> &random)
+               std::vector<player::Player<>> &players, std::optional<agents::RandomAgent> &random)
 {
     auto state{propnet.create_initial_state()};
     for (auto &player : players)
@@ -232,15 +191,10 @@ void play_game(const propnet::Propnet &propnet, player::ReplayBuffer &replay_buf
 
     while (!propnet.is_game_over(state))
     {
-        if (!complete_cfr_cache.Cached(state))
-        {
-            complete_cfr_cache.Put(state, std::async(std::launch::async, [&propnet, state]() {
-                                       player::search::FullMCCFR mccfr{propnet};
-                                       return mccfr.search(state);
-                                   }));
-        }
-
-        const auto &cfr_future{*complete_cfr_cache.Get(state).get()};
+        auto cfr_future{std::async(std::launch::async, [&propnet, state]() {
+            player::search::FullMCCFR mccfr{propnet};
+            return mccfr.search(state, MAX_FULL_CFR_TIME_S);
+        })};
 
         std::vector<std::future<propnet::PropId>> input_futures{};
         for (auto &player : players)
@@ -259,8 +213,7 @@ void play_game(const propnet::Propnet &propnet, player::ReplayBuffer &replay_buf
         for (auto &input_future : input_futures)
         {
             input_future.wait();
-            const auto input{input_future.get()};
-            inputs.add(input);
+            inputs.add(input_future.get());
         }
 
         propnet.take_sees_inputs(state, inputs);
@@ -271,14 +224,14 @@ void play_game(const propnet::Propnet &propnet, player::ReplayBuffer &replay_buf
         propnet.take_non_sees_inputs(state, inputs);
 
         cfr_future.wait();
-        const auto &cfr_results{cfr_future.get()};
+        auto cfr_results{cfr_future.get()};
 
         std::vector<player::Policy> policies{};
         std::vector<player::ExpectedValue> values{};
-        for (const auto &cfr_result : cfr_results)
+        for (auto &cfr_result : cfr_results)
         {
-            policies.push_back(cfr_result.first);
-            values.push_back(cfr_result.second);
+            policies.push_back(std::move(cfr_result.first));
+            values.push_back(std::move(cfr_result.second));
         }
 
         {

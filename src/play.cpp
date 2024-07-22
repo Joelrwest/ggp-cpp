@@ -8,9 +8,13 @@
 
 static constexpr auto NUM_GAMES{10};
 
-int main(void)
+int main(int argc, char **argv)
 {
-    const propnet::Propnet propnet{setup::load_propnet()};
+    std::string game{};
+    auto options_description{setup::create_base_program_options(game)};
+    setup::parse_program_options(options_description, argc, argv);
+
+    const propnet::Propnet propnet{setup::load_propnet(game)};
     const auto agents{setup::create_agents(propnet)};
     for (auto game_count{0}; game_count < NUM_GAMES; ++game_count)
     {

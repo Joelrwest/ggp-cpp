@@ -47,10 +47,12 @@ template <DerivedSampler SamplerT = RandomSampler> class Player : public agents:
     void add_history(propnet::PropId prev_input) override;
 
   private:
-    static constexpr auto LOG_MAX_STATES_SEARCHED{std::log(2 * 1e8)};
+    static constexpr auto LOG_MAX_STATES_SEARCHED{std::log(1e15)};
     static constexpr std::size_t DEFAULT_NUM_THREADS{1};
     static constexpr std::size_t MAX_SAMPLE_SIZE{50};
-    static constexpr std::size_t MAX_CFR_TIME_SECONDS{1};
+    static constexpr auto MAX_CFR_ITERATIONS{static_cast<std::size_t>(1e5)};
+    static constexpr std::chrono::seconds MAX_CFR_TIME_S{6};
+    static constexpr std::chrono::seconds MAX_SEARCH_TIME_S{20};
 
     static Depth search_depth_limit_heuristic(const propnet::Propnet &propnet);
 
@@ -95,7 +97,7 @@ propnet::PropId Player<SamplerT>::get_legal_input_impl(std::span<const propnet::
     std::mutex cumulative_policy_lock{};
 
     const auto start_time{std::chrono::system_clock::now()};
-    const auto end_time{start_time + std::chrono::seconds(MAX_CFR_TIME_SECONDS)};
+    const auto end_time{start_time + MAX_SEARCH_TIME_S};
     for (std::size_t thread_count{0}; thread_count < num_threads; ++thread_count)
     {
         threads.emplace_back([this, &legal_inputs, &num_sampled, &num_sampled_lock, &cumulative_policy,
@@ -118,8 +120,9 @@ propnet::PropId Player<SamplerT>::get_legal_input_impl(std::span<const propnet::
                     ++num_sampled;
                 }
 
+                std::cout << "Searching at depth " << search_depth_limit << '\n';
                 search::DepthLimitedMCCFR mccfr{propnet, model, search_depth_limit};
-                const auto search_results{mccfr.search(sampler.sample_state())};
+                const auto search_results{mccfr.search(sampler.sample_state(), MAX_CFR_ITERATIONS, MAX_CFR_TIME_S)};
 
                 const auto id{role.get_id()};
                 const auto &role_search_results{search_results.at(id)};
@@ -130,6 +133,7 @@ propnet::PropId Player<SamplerT>::get_legal_input_impl(std::span<const propnet::
                     for (auto &[input, probability] : cumulative_policy)
                     {
                         probability += policy.at(input);
+                        std::cout << probability << '\n';
                     }
                 }
             }
@@ -147,6 +151,9 @@ template <DerivedSampler SamplerT> Depth Player<SamplerT>::search_depth_limit_he
     const auto max_branching_factor{std::accumulate(
         roles.begin(), roles.end(), propnet.is_randomness() ? propnet.get_random_role()->get_max_policy_size() : 1,
         [](const auto &accumulation, const auto &role) { return accumulation * role.get_max_policy_size(); })};
+
+    std::cout << max_branching_factor << '\n';
+    std::cout << LOG_MAX_STATES_SEARCHED << '\n';
 
     return LOG_MAX_STATES_SEARCHED / std::log(max_branching_factor);
 }

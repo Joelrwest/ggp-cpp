@@ -94,18 +94,33 @@ std::pair<Policy, ExpectedValue> InformationSet::normalise() const
 
 std::vector<std::pair<Policy, ExpectedValue>> BaseMCCFR::search(const propnet::State &state)
 {
-    return search(state, DEFAULT_NUM_ITERATIONS);
+    return search(state, DEFAULT_MAX_ITERATIONS);
 }
 
 std::vector<std::pair<Policy, ExpectedValue>> BaseMCCFR::search(const propnet::State &state, std::size_t num_iterations)
 {
-    return search(state, num_iterations, [](const auto &) {});
+    return search(state, num_iterations, std::chrono::seconds::max(), noop_lambda);
+}
+
+std::vector<std::pair<Policy, ExpectedValue>> BaseMCCFR::search(const propnet::State &state,
+                                                                std::chrono::seconds duration)
+{
+    return search(state, std::numeric_limits<std::size_t>::max(), duration, noop_lambda);
+}
+
+std::vector<std::pair<Policy, ExpectedValue>> BaseMCCFR::search(const propnet::State &state, std::size_t max_iterations,
+                                                                std::chrono::seconds max_duration)
+{
+    return search(state, max_iterations, max_duration, noop_lambda);
 }
 
 std::vector<std::pair<Policy, ExpectedValue>> BaseMCCFR::search(
-    const propnet::State &state, std::size_t num_iterations,
+    const propnet::State &state, std::size_t max_iterations, std::chrono::seconds max_duration,
     std::function<void(const std::vector<std::reference_wrapper<InformationSet>> &)> logger)
 {
+    const auto is_time_limit{max_duration != std::chrono::seconds::max()};
+    const auto end_time{std::chrono::system_clock::now() + max_duration};
+
     /*
     Psuedocode from:
 
@@ -118,7 +133,9 @@ std::vector<std::pair<Policy, ExpectedValue>> BaseMCCFR::search(
         current_information_sets.emplace_back(base_information_set);
     }
 
-    for (std::size_t iteration_count{1}; iteration_count <= num_iterations; ++iteration_count)
+    for (std::size_t iteration_count{1};
+         iteration_count <= max_iterations && (!is_time_limit || std::chrono::system_clock::now() < end_time);
+         ++iteration_count)
     {
         /*
         The role that's currently traversing
@@ -264,6 +281,7 @@ ExpectedValue BaseMCCFR::next_state(std::vector<std::reference_wrapper<Informati
         /*
         Return the models estimate of the traversers utility
         */
+        std::cout << "Returning from depth " << curr_depth << '\n';
         const auto id{traversing_role.get_id()};
         return model->get().eval_ev(state, id);
     }
