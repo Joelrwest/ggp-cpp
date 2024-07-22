@@ -24,7 +24,8 @@ propnet::PropId RandomAgent::get_legal_input_impl(std::span<const propnet::PropI
 
 void RandomAgent::get_legal_inputs_impl(std::span<propnet::PropId> legal_inputs) const
 {
-    std::random_shuffle(legal_inputs.begin(), legal_inputs.end());
+    static std::mt19937 random_engine{std::random_device{}()};
+    std::shuffle(legal_inputs.begin(), legal_inputs.end(), random_engine);
 }
 
 FirstAgent::FirstAgent(const propnet::Role &role) : NonSeeingAgent{role}

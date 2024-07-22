@@ -22,22 +22,28 @@ class ReplayBuffer
 
     struct Item
     {
-        Item(propnet::State state, std::vector<Policy> policies, std::vector<ExpectedValue> values);
+        Item(propnet::State state, std::vector<Policy> policies, std::vector<ExpectedValue> evs);
 
         propnet::State state;
         std::vector<Policy> policies;
-        std::vector<ExpectedValue> values;
+        std::vector<ExpectedValue> evs;
+    };
+
+    struct Sample
+    {
+        torch::Tensor states;
+        torch::Tensor policies;
+        torch::Tensor evs;
     };
 
     template <typename... ItemArgs> void add(ItemArgs... item_args);
-    std::tuple<torch::Tensor, torch::Tensor, torch::Tensor> sample(std::size_t sample_size) const;
+    Sample sample(std::size_t sample_size) const;
     std::size_t size() const;
 
   private:
     static constexpr auto MAX_SIZE{1500};
 
-    std::size_t max_policy_size;
-    std::size_t num_players;
+    const propnet::Propnet &propnet;
     std::deque<Item> buffer;
 };
 
@@ -54,7 +60,11 @@ template <typename... ItemArgs> void ReplayBuffer::add(ItemArgs... item_args)
 class Network : public torch::nn::Module
 {
   public:
-    using Eval = std::pair<torch::Tensor, std::vector<torch::Tensor>>;
+    struct Eval
+    {
+        torch::Tensor evs;
+        torch::Tensor policies;
+    };
 
     Network(const propnet::Propnet &propnet);
     Network(const Network &) = default;
@@ -72,7 +82,7 @@ class Network : public torch::nn::Module
     std::size_t input_size;
     std::size_t hidden_layer_size;
     torch::nn::Sequential features_head;
-    torch::nn::Sequential values_head;
+    torch::nn::Sequential evs_head;
     torch::nn::Sequential common_policy_head;
     std::vector<torch::nn::Sequential> policy_heads;
 };
@@ -106,9 +116,9 @@ class Model
   private:
     static constexpr auto MODEL_NAME_BASE{"game-num-"};
     static constexpr auto GAME_NUMBER_WIDTH{6};
-    static constexpr auto MODEL_CACHE_SIZE{static_cast<std::size_t>(1e4)};
+    static constexpr auto MODEL_CACHE_SIZE{static_cast<std::size_t>(1e5)};
     static constexpr auto MODEL_NAME_EXTENSION{".ckpt"};
-    static constexpr std::size_t BATCH_SIZE{128};
+    static constexpr std::size_t BATCH_SIZE{2};
     static constexpr std::size_t NUM_EPOCHS{5};
 
     using Cache = misc::Cache<propnet::State, Network::Eval, caches::LRUCachePolicy, MODEL_CACHE_SIZE>;

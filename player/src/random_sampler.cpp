@@ -148,14 +148,18 @@ std::optional<propnet::State> RandomSampler::sample_state_impl(AllHistories::ite
     std::transform(player_roles.begin(), player_roles.end(), std::back_inserter(randomised_legal_inputs),
                    [&state](const auto &player_role) {
                        auto player_inputs{player_role.get_legal_inputs(state)};
-                       std::random_shuffle(player_inputs.begin(), player_inputs.end());
+
+                       static std::mt19937 random_engine{std::random_device{}()};
+                       std::shuffle(player_inputs.begin(), player_inputs.end(), random_engine);
                        return player_inputs;
                    });
 
     if (random_role.has_value())
     {
         auto randoms_inputs{random_role->get_legal_inputs(state)};
-        std::random_shuffle(randoms_inputs.begin(), randoms_inputs.end());
+
+        static std::mt19937 random_engine{std::random_device{}()};
+        std::shuffle(randoms_inputs.begin(), randoms_inputs.end(), random_engine);
         randomised_legal_inputs.push_back(randoms_inputs);
     }
 

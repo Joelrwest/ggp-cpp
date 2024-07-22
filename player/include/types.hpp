@@ -2,8 +2,8 @@
 
 #include "../../propnet/include/types.hpp"
 
-#include <unordered_map>
 #include <map>
+#include <unordered_map>
 
 namespace player
 {

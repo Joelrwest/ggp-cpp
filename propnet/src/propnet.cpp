@@ -75,7 +75,10 @@ bool Propnet::is_randomness() const
 
 std::size_t Propnet::get_max_policy_size() const
 {
-    const auto role_it{std::max_element(player_roles.begin(), player_roles.end(), [](const auto &role_1, const auto &role_2) { return role_1.get_max_policy_size() < role_2.get_max_policy_size(); })};
+    const auto role_it{
+        std::max_element(player_roles.begin(), player_roles.end(), [](const auto &role_1, const auto &role_2) {
+            return role_1.get_max_policy_size() < role_2.get_max_policy_size();
+        })};
     return role_it->get_max_policy_size();
 }
 

@@ -24,8 +24,8 @@ This project expects it to be downloaded to `~`, but this can be changed via the
 For example, as of writing this the ***CPU-only*** version of LibTorch can be installed via:
 
 ```bash
-curl https://download.pytorch.org/libtorch/cpu/libtorch-cxx11-abi-shared-with-deps-latest%2Bcpu.zip --output libtorch.zip # Download
-unzip libtorch.zip -d ~ # Unzip
+wget https://download.pytorch.org/libtorch/nightly/cpu/libtorch-shared-with-deps-latest.zip # Download
+unzip libtorch-shared-with-deps-latest.zip -d ~ # Unzip
 rm libtorch.zip # Cleanup
 ```
 

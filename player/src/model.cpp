@@ -4,16 +4,16 @@
 
 namespace player
 {
-ReplayBuffer::ReplayBuffer(const propnet::Propnet &propnet) : max_policy_size{propnet.get_max_policy_size()}, num_players{propnet.num_player_roles()}, buffer{}
+ReplayBuffer::ReplayBuffer(const propnet::Propnet &propnet) : propnet{propnet}, buffer{}
 {
 }
 
-ReplayBuffer::Item::Item(propnet::State state, std::vector<Policy> policies, std::vector<ExpectedValue> values)
-    : state{std::move(state)}, policies{std::move(policies)}, values{std::move(values)}
+ReplayBuffer::Item::Item(propnet::State state, std::vector<Policy> policies, std::vector<ExpectedValue> evs)
+    : state{std::move(state)}, policies{std::move(policies)}, evs{std::move(evs)}
 {
 }
 
-std::tuple<torch::Tensor, torch::Tensor, torch::Tensor> ReplayBuffer::sample(std::size_t sample_size) const
+ReplayBuffer::Sample ReplayBuffer::sample(std::size_t sample_size) const
 {
     std::vector<ReplayBuffer::Item> sample_items{};
     std::sample(buffer.begin(), buffer.end(), std::back_inserter(sample_items), sample_size,
@@ -21,7 +21,8 @@ std::tuple<torch::Tensor, torch::Tensor, torch::Tensor> ReplayBuffer::sample(std
 
     std::vector<float> linear_states{};
     std::vector<float> linear_policies{};
-    std::vector<float> linear_values{};
+    std::vector<float> linear_evs{};
+    const auto max_policy_size{propnet.get_max_policy_size()};
     for (auto &sample_item : sample_items)
     {
         const auto state{sample_item.state.to_vec<float>()};
@@ -29,20 +30,30 @@ std::tuple<torch::Tensor, torch::Tensor, torch::Tensor> ReplayBuffer::sample(std
 
         for (auto &policy : sample_item.policies)
         {
-            std::transform(policy.begin(), policy.end(), std::back_inserter(linear_policies), [](const auto &entry) { return entry.second; });
+            std::transform(policy.begin(), policy.end(), std::back_inserter(linear_policies),
+                           [](const auto &entry) { return entry.second; });
             const auto num_fill{max_policy_size - policy.size()};
             std::fill_n(std::back_inserter(linear_policies), num_fill, 0.0);
         }
 
-        const auto &values{sample_item.values};
-        std::copy(values.begin(), values.end(), std::back_inserter(linear_values));
+        const auto &evs{sample_item.evs};
+        std::copy(evs.begin(), evs.end(), std::back_inserter(linear_evs));
     }
 
-    auto states_tensor{torch::from_blob(linear_states.data(), {static_cast<std::int64_t>(sample_size)}, torch::kFloat32)};
-    auto policies_tensor{torch::from_blob(linear_policies.data(), {static_cast<std::int64_t>(sample_size), static_cast<std::int64_t>(num_players), static_cast<std::int64_t>(max_policy_size)}, torch::kFloat32)};
-    auto values_tensor{torch::from_blob(linear_values.data(), {static_cast<std::int64_t>(sample_size), static_cast<std::int64_t>(num_players)}, torch::kFloat32)};
+    const auto num_players{propnet.num_player_roles()};
+    auto states_tensor{torch::from_blob(
+        linear_states.data(), {static_cast<std::int64_t>(sample_size), static_cast<std::int64_t>(propnet.size())},
+        torch::kFloat32)};
+    auto policies_tensor{
+        torch::from_blob(linear_policies.data(),
+                         {static_cast<std::int64_t>(sample_size), static_cast<std::int64_t>(num_players),
+                          static_cast<std::int64_t>(max_policy_size)},
+                         torch::kFloat32)};
+    auto evs_tensor{torch::from_blob(linear_evs.data(),
+                                     {static_cast<std::int64_t>(sample_size), static_cast<std::int64_t>(num_players)},
+                                     torch::kFloat32)};
 
-    return std::make_tuple(std::move(states_tensor), std::move(policies_tensor), std::move(values_tensor));
+    return {.states = std::move(states_tensor), .policies = std::move(policies_tensor), .evs = std::move(evs_tensor)};
 }
 
 std::size_t ReplayBuffer::size() const
@@ -63,7 +74,7 @@ Network::Network(const propnet::Propnet &propnet)
                     torch::nn::Linear{hidden_layer_size, hidden_layer_size},
                     torch::nn::ELU{},
                     torch::nn::Dropout{DROPOUT_ZERO_PROBABILITY}},
-      values_head{torch::nn::Linear{hidden_layer_size, propnet.num_player_roles()}, torch::nn::Sigmoid{}},
+      evs_head{torch::nn::Linear{hidden_layer_size, propnet.num_player_roles()}, torch::nn::Sigmoid{}},
       common_policy_head{torch::nn::Linear{hidden_layer_size, hidden_layer_size}, torch::nn::ELU{},
                          torch::nn::Dropout{DROPOUT_ZERO_PROBABILITY}},
       policy_heads{}
@@ -84,9 +95,9 @@ Network::Eval Network::forward(torch::Tensor x)
     x = features_head->forward(x);
 
     /*
-    Get values for each role
+    Get evs for each role
     */
-    const auto values{values_head->forward(x).to(torch::kFloat64)}; // TODO: See comment below
+    auto evs{evs_head->forward(x).to(torch::kFloat64)}; // TODO: See comment below
 
     /*
     Common extra layer before each role gets a policy
@@ -103,7 +114,7 @@ Network::Eval Network::forward(torch::Tensor x)
             torch::kFloat64)); // TODO: How to take in float64's instead so we don't need to do the conversion
     }
 
-    return std::make_pair(std::move(values), std::move(policies));
+    return {.evs = std::move(evs), .policies = torch::stack(policies)};
 }
 
 Model::Model(const propnet::Propnet &propnet, std::string_view game) : Model{propnet, game, Network{propnet}}
@@ -146,14 +157,14 @@ Model Model::load_game_number(const propnet::Propnet &propnet, std::string_view 
 
 ExpectedValue Model::eval_ev(const propnet::State &state, propnet::Role::Id id)
 {
-    auto evs{eval(state).first};
+    auto evs{eval(state).evs};
 
     return evs[id].item<ExpectedValue>();
 }
 
 std::vector<ExpectedValue> Model::eval_evs(const propnet::State &state)
 {
-    auto evs{eval(state).first};
+    auto evs{eval(state).evs};
     const auto start_ptr{evs.data_ptr<ExpectedValue>()};
     const auto end_ptr{start_ptr + evs.numel()};
 
@@ -162,7 +173,7 @@ std::vector<ExpectedValue> Model::eval_evs(const propnet::State &state)
 
 std::vector<Probability> Model::eval_policy(const propnet::State &state, propnet::Role::Id id)
 {
-    auto policy{eval(state).second[id]};
+    auto policy{eval(state).policies[id]};
     const auto start_ptr{policy.data_ptr<Probability>()};
     const auto end_ptr{start_ptr + policy.numel()};
 
@@ -171,9 +182,12 @@ std::vector<Probability> Model::eval_policy(const propnet::State &state, propnet
 
 std::vector<std::vector<Probability>> Model::eval_policies(const propnet::State &state)
 {
+    const auto policies_eval{eval(state).policies};
+
     std::vector<std::vector<Probability>> policies{};
-    for (auto &policy : eval(state).second)
+    for (auto id{0u}; policies_eval.numel(); ++id)
     {
+        const auto &policy{policies_eval[id]};
         const auto start_ptr{policy.data_ptr<Probability>()};
         const auto end_ptr{start_ptr + policy.numel()};
         policies.emplace_back(start_ptr, end_ptr);
@@ -198,6 +212,9 @@ void Model::train(const ReplayBuffer &replay_buffer)
     {
         auto sample{replay_buffer.sample(BATCH_SIZE)};
         std::cout << "Took sample!\n";
+        std::cout << sample.states << "\n\n\n";
+        std::cout << sample.policies << "\n\n\n";
+        std::cout << sample.evs << "\n\n\n";
 
         // auto inputs_vec{};
         // inputs = torch.tensor([x[0] for x in sample]).float()
