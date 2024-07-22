@@ -14,6 +14,9 @@ static constexpr auto BLINDTICTACTOE_GAME{"blindtictactoe"};
 static constexpr auto BLINDTICTACTOE_SAVE_FREQUENCY{1000};
 static constexpr auto BLINDTICTACTOE_NUM_ITERATIONS{std::numeric_limits<std::size_t>::max()};
 
+static constexpr auto BIASED_BLINDTICTACTOE_GAME{"blindtictactoeXbias"};
+static constexpr auto VERY_BIASED_BLINDTICTACTOE_GAME{"blindtictactoeXwins"};
+
 class BenchmarkLogger
 {
   public:
@@ -41,8 +44,6 @@ class BenchmarkLogger
 
 void benchmark(std::string_view game, std::size_t num_iterations);
 void benchmark(std::string_view game, std::size_t num_iterations, std::size_t save_frequency);
-void benchmark_scissor_paper_rock();
-void benchmark_blindtictactoe();
 
 BenchmarkLogger::BenchmarkLogger(std::string_view game, std::size_t save_frequency)
     : game{game}, save_frequency{save_frequency}, iteration_count{0},
@@ -120,22 +121,33 @@ void benchmark(std::string_view game, std::size_t num_iterations, std::size_t sa
                  [&logger](const auto &current_information_sets) { logger.log(current_information_sets); });
 }
 
-void benchmark_scissor_paper_rock()
+int main(int argc, char **argv)
 {
-    benchmark(SCISSOR_PAPER_ROCK_GAME, SCISSOR_PAPER_ROCK_NUM_ITERATIONS);
-}
+    std::string game{};
+    auto options_description{setup::create_base_program_options(game)};
+    setup::parse_program_options(options_description, argc, argv);
 
-void benchmark_blindtictactoe()
-{
-    benchmark(BLINDTICTACTOE_GAME, BLINDTICTACTOE_NUM_ITERATIONS, BLINDTICTACTOE_SAVE_FREQUENCY);
-}
-
-int main(void)
-{
-    /*
-    Manually change the game you want to benchmark here
-    */
-    benchmark_scissor_paper_rock();
+    if (game == SCISSOR_PAPER_ROCK_GAME)
+    {
+        benchmark(SCISSOR_PAPER_ROCK_GAME, SCISSOR_PAPER_ROCK_NUM_ITERATIONS);
+    }
+    else if (game == BLINDTICTACTOE_GAME)
+    {
+        benchmark(BLINDTICTACTOE_GAME, BLINDTICTACTOE_NUM_ITERATIONS, BLINDTICTACTOE_SAVE_FREQUENCY);
+    }
+    else if (game == BIASED_BLINDTICTACTOE_GAME)
+    {
+        benchmark(BIASED_BLINDTICTACTOE_GAME, BLINDTICTACTOE_NUM_ITERATIONS, BLINDTICTACTOE_SAVE_FREQUENCY);
+    }
+    else if (game == VERY_BIASED_BLINDTICTACTOE_GAME)
+    {
+        benchmark(VERY_BIASED_BLINDTICTACTOE_GAME, BLINDTICTACTOE_NUM_ITERATIONS, BLINDTICTACTOE_SAVE_FREQUENCY);
+    }
+    else
+    {
+        std::cout << "Game " << game << " hasn't yet been setup for benchmarking\n";
+        return 1;
+    }
 
     return 0;
 }
