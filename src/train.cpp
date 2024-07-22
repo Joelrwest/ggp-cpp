@@ -112,7 +112,7 @@ void train(std::size_t num_concurrent_games, const std::function<bool()> &time_l
     const auto propnet{setup::load_propnet(game)};
     std::cout << '\n';
 
-    player::ReplayBuffer replay_buffer{};
+    player::ReplayBuffer replay_buffer{propnet};
     auto model{setup::load_model(propnet, game)};
     model.eval_evs(propnet.create_initial_state());
     std::cout << '\n';

@@ -18,7 +18,7 @@ namespace player
 class ReplayBuffer
 {
   public:
-    ReplayBuffer();
+    ReplayBuffer(const propnet::Propnet &propnet);
 
     struct Item
     {
@@ -30,12 +30,14 @@ class ReplayBuffer
     };
 
     template <typename... ItemArgs> void add(ItemArgs... item_args);
-    std::vector<Item> sample(std::size_t sample_size) const;
+    std::tuple<torch::Tensor, torch::Tensor, torch::Tensor> sample(std::size_t sample_size) const;
     std::size_t size() const;
 
   private:
     static constexpr auto MAX_SIZE{1500};
 
+    std::size_t max_policy_size;
+    std::size_t num_players;
     std::deque<Item> buffer;
 };
 
@@ -107,7 +109,7 @@ class Model
     static constexpr auto MODEL_CACHE_SIZE{static_cast<std::size_t>(1e4)};
     static constexpr auto MODEL_NAME_EXTENSION{".ckpt"};
     static constexpr std::size_t BATCH_SIZE{128};
-    static constexpr std::size_t EPOCH_SIZE{5};
+    static constexpr std::size_t NUM_EPOCHS{5};
 
     using Cache = misc::Cache<propnet::State, Network::Eval, caches::LRUCachePolicy, MODEL_CACHE_SIZE>;
 

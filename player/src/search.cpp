@@ -40,7 +40,7 @@ propnet::PropId InformationSet::get_chosen_input() const
     return *previous_input;
 }
 
-Regrets InformationSet::regret_match() const
+Policy InformationSet::regret_match() const
 {
     const auto total_positive_regret{
         std::accumulate(regrets.begin(), regrets.end(), 0.0, [](auto accumulation, const auto &regret_pair) {
@@ -281,7 +281,6 @@ ExpectedValue BaseMCCFR::next_state(std::vector<std::reference_wrapper<Informati
         /*
         Return the models estimate of the traversers utility
         */
-        std::cout << "Returning from depth " << curr_depth << '\n';
         const auto id{traversing_role.get_id()};
         return model->get().eval_ev(state, id);
     }

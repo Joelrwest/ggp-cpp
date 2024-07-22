@@ -4,7 +4,7 @@
 
 namespace player
 {
-ReplayBuffer::ReplayBuffer() : buffer{}
+ReplayBuffer::ReplayBuffer(const propnet::Propnet &propnet) : max_policy_size{propnet.get_max_policy_size()}, num_players{propnet.num_player_roles()}, buffer{}
 {
 }
 
@@ -13,13 +13,36 @@ ReplayBuffer::Item::Item(propnet::State state, std::vector<Policy> policies, std
 {
 }
 
-std::vector<ReplayBuffer::Item> ReplayBuffer::sample(std::size_t sample_size) const
+std::tuple<torch::Tensor, torch::Tensor, torch::Tensor> ReplayBuffer::sample(std::size_t sample_size) const
 {
-    std::vector<ReplayBuffer::Item> sample{};
-    std::sample(buffer.begin(), buffer.end(), std::back_inserter(sample), sample_size,
+    std::vector<ReplayBuffer::Item> sample_items{};
+    std::sample(buffer.begin(), buffer.end(), std::back_inserter(sample_items), sample_size,
                 std::mt19937{std::random_device{}()});
 
-    return sample;
+    std::vector<float> linear_states{};
+    std::vector<float> linear_policies{};
+    std::vector<float> linear_values{};
+    for (auto &sample_item : sample_items)
+    {
+        const auto state{sample_item.state.to_vec<float>()};
+        std::copy(state.begin(), state.end(), std::back_inserter(linear_states));
+
+        for (auto &policy : sample_item.policies)
+        {
+            std::transform(policy.begin(), policy.end(), std::back_inserter(linear_policies), [](const auto &entry) { return entry.second; });
+            const auto num_fill{max_policy_size - policy.size()};
+            std::fill_n(std::back_inserter(linear_policies), num_fill, 0.0);
+        }
+
+        const auto &values{sample_item.values};
+        std::copy(values.begin(), values.end(), std::back_inserter(linear_values));
+    }
+
+    auto states_tensor{torch::from_blob(linear_states.data(), {static_cast<std::int64_t>(sample_size)}, torch::kFloat32)};
+    auto policies_tensor{torch::from_blob(linear_policies.data(), {static_cast<std::int64_t>(sample_size), static_cast<std::int64_t>(num_players), static_cast<std::int64_t>(max_policy_size)}, torch::kFloat32)};
+    auto values_tensor{torch::from_blob(linear_values.data(), {static_cast<std::int64_t>(sample_size), static_cast<std::int64_t>(num_players)}, torch::kFloat32)};
+
+    return std::make_tuple(std::move(states_tensor), std::move(policies_tensor), std::move(values_tensor));
 }
 
 std::size_t ReplayBuffer::size() const
@@ -45,10 +68,10 @@ Network::Network(const propnet::Propnet &propnet)
                          torch::nn::Dropout{DROPOUT_ZERO_PROBABILITY}},
       policy_heads{}
 {
-    const auto &player_roles{propnet.get_player_roles()};
-    for (const auto &player_role : player_roles)
+    const auto max_policy_size{propnet.get_max_policy_size()};
+    for (auto head_count{0u}; head_count < propnet.num_player_roles(); ++head_count)
     {
-        policy_heads.emplace_back(torch::nn::Linear{hidden_layer_size, player_role.get_max_policy_size()},
+        policy_heads.emplace_back(torch::nn::Linear{hidden_layer_size, max_policy_size},
                                   torch::nn::Softmax{SOFTMAX_DIMENSION});
     }
 }
@@ -144,7 +167,6 @@ std::vector<Probability> Model::eval_policy(const propnet::State &state, propnet
     const auto end_ptr{start_ptr + policy.numel()};
 
     return std::vector<ExpectedValue>(start_ptr, end_ptr);
-    ;
 }
 
 std::vector<std::vector<Probability>> Model::eval_policies(const propnet::State &state)
@@ -167,37 +189,34 @@ void Model::train(const ReplayBuffer &replay_buffer)
         return;
     }
 
+    torch::optim::Adam optimiser{network.parameters()};
+    torch::nn::MSELoss loss_calculator{};
+
     cache->clear();
-    network.train();
-    for (std::size_t count{0}; count < EPOCH_SIZE; ++count)
+    network.train(true);
+    for (std::size_t epoch_count{1}; epoch_count <= NUM_EPOCHS; ++epoch_count)
     {
-        const auto sample{replay_buffer.sample(BATCH_SIZE)};
+        auto sample{replay_buffer.sample(BATCH_SIZE)};
         std::cout << "Took sample!\n";
 
-        // sample = random.sample(self.replay_buffer, batchsize)
-        // # sample = np.array(sample)
+        // auto inputs_vec{};
         // inputs = torch.tensor([x[0] for x in sample]).float()
         // probs = torch.stack([x[1] for x in sample]).float()
-        // # probs = torch.zeros((batchsize, len(self.roles), max(len(actions) for actions in sample[0][1])))
-        // # for i, x in enumerate(sample):
-        // #     for j, role in enumerate(self.roles):
-        // #         for k, val in enumerate(x[1][j]):
-        // #             probs[i,j, k] = val
-        // # probs = [[torch.tensor(x[1][i]).float() for i, role in enumerate(self.roles)] for x in sample]
         // values = torch.tensor([x[2] for x in sample]).float()
-        // # inputs = torch.tensor(sample[:,0])
-        // # probs = torch.tensor(sample[:,1])
-        // # values = torch.tensor(sample[:,2])
 
-        // self.optimiser.zero_grad()
-        // output = self.network(inputs)
-        // loss = self.loss_func(output[0], probs) + self.loss_func(output[1], values)
-        // sum_loss += loss
-        // loss.backward()
-        // self.optimiser.step()
+        optimiser.zero_grad();
+        // const auto output{network.forward(inputs)};
+        // auto loss{loss_calculator->forward() + loss_calculator->forward()};
+        // // loss = self.loss_func(output[0], probs) + self.loss_func(output[1], values)
+        // total_loss += loss;
+        // loss.backward();
+        optimiser.step();
 
-        // logging.info('Loss is', loss.item())
+        // std::cout << "Epoch " << epoch_count << " loss: " << loss.item() << '\n';
     }
+
+    // std::cout << "Total loss across epochs: " << total_loss << "\n\n";
+    network.train(false); // TODO: ??
 }
 
 void Model::save(std::size_t game_number)
@@ -243,9 +262,8 @@ Network::Eval Model::eval(const propnet::State &state)
     }
 
     auto vec{state.to_vec<float>()};
-    const at::IntArrayRef sizes{static_cast<std::int64_t>(propnet.size())};
-    const auto tensor{torch::from_blob(vec.data(), sizes, torch::kFloat32)};
-    auto eval{network.forward(tensor)};
+    auto tensor{torch::from_blob(vec.data(), {static_cast<std::int64_t>(vec.size())}, torch::kFloat32)};
+    auto eval{network.forward(std::move(tensor))};
 
     cache->Put(state, eval);
 

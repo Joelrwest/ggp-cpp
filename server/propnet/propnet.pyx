@@ -48,19 +48,6 @@ def load_propnet(base):
     return Propnet.Create(module.roles, module.entries)
 
 
-def convert_to_propnet(filename):
-    filename = os.path.abspath(filename)
-    base = os.path.basename(filename).replace('.kif', '').replace('.gdl', '')
-    out_fn = os.path.join('games', base+'.py')
-    out_fn = os.path.abspath(out_fn)
-    print('Error: Update convert_to_propnet to use the correct paths for your system')
-    exit(1)
-
-    # TODO: This needs to be updated to be more general but ceebs
-    os.chdir('/Users/zac/work/comp/thesis/ggp-base')
-    os.system(f'/usr/bin/env /Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home/bin/java -Dfile.encoding=UTF-8 @/Users/zac/work/comp/thesis/code/utils/convert.argfile propnet_convert.Convert {filename} {out_fn}')
-
-
 cdef class Propnet:
     cdef public list roles
     cdef public list nodes
@@ -300,13 +287,6 @@ cdef class Propnet:
 
     def is_terminal(self, data):
         return data[self.terminal.id]
-
-    # TODO: Why would you ever use this?
-    # def get_state(self, data):
-    #     return tuple(
-    #         int(data[p.id])
-    #         for p in self.propositions
-    #     )
 
     def data2num(self, data):
         return int(

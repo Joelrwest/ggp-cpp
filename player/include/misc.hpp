@@ -35,9 +35,12 @@ template <typename T> class LazyCartesianProductGenerator
     bool is_next;
 };
 
+template <typename T>
+concept PolicyMap = std::same_as<typename T::mapped_type, Probability>;
+
 template <typename T> const T::value_type &sample_random(const T &population);
-template <typename T> T sample_policy(const std::unordered_map<T, Probability> &policy);
-template <typename T> T sample_policy(const std::unordered_map<T, Probability> &policy, Probability policy_sum);
+template <PolicyMap T> T::key_type sample_policy(T &policy);
+template <PolicyMap T> T::key_type sample_policy(T &policy, Probability policy_sum);
 
 // Unfortunately cannot be reused from the policy code...
 template <typename T, typename U> T sample_counts(const std::unordered_map<T, U> &counts, U total_count);
@@ -126,12 +129,12 @@ template <typename T> const T::value_type &sample_random(const T &population)
     return population[idx];
 }
 
-template <typename T> T sample_policy(const std::unordered_map<T, Probability> &policy)
+template <PolicyMap T> T::key_type sample_policy(T &policy)
 {
     return sample_policy(policy, Probability{1.0});
 }
 
-template <typename T> T sample_policy(const std::unordered_map<T, Probability> &policy, Probability policy_sum)
+template <PolicyMap T> T::key_type sample_policy(T &policy, Probability policy_sum)
 {
     static std::mt19937 random_engine{std::random_device{}()};
     static std::uniform_real_distribution<Probability> distribution(0.0, policy_sum);

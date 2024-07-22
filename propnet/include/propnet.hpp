@@ -53,6 +53,7 @@ class Propnet
     std::size_t size() const;
     std::size_t num_player_roles() const;
     bool is_randomness() const;
+    std::size_t get_max_policy_size() const;
 
   private:
     void take_inputs_impl(State &state, const InputSet &inputs, std::span<const PropId> ids) const;

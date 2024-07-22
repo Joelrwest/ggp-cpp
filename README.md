@@ -1,4 +1,4 @@
-# TODO: Adapting Deep Learning and Search for Imperfect-Information Games in a General Game Playing Context
+# Optimising Deep Learning and Search for Imperfect-Information Games in General Game Playing
 
 An [imperfect-information general game playing](https://en.wikipedia.org/wiki/General_game_playing) codebase written in C++ which utilises deep learning and CFR search.
 Codebase can be seperated into 2 distinct sections:
@@ -25,8 +25,8 @@ For example, as of writing this the ***CPU-only*** version of LibTorch can be in
 
 ```bash
 curl https://download.pytorch.org/libtorch/cpu/libtorch-cxx11-abi-shared-with-deps-latest%2Bcpu.zip --output libtorch.zip # Download
-unzip libtorch.zip -d ~ # Unzip to required spot
-rm libtorch.zip # Remove zip
+unzip libtorch.zip -d ~ # Unzip
+rm libtorch.zip # Cleanup
 ```
 
 Next pull in other non-machine specific dependancies and setup CMake via:

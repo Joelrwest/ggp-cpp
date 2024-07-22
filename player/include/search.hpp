@@ -22,7 +22,7 @@ class InformationSet
                                              const propnet::State &state);
     void choose_input(propnet::PropId input);
     propnet::PropId get_chosen_input() const;
-    Regrets regret_match() const;
+    Policy regret_match() const;
     std::pair<Policy, ExpectedValue> normalise() const;
 
     Policy cumulative_policy; // TODO: I know it's bad style to have this public but meh

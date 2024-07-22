@@ -120,7 +120,6 @@ propnet::PropId Player<SamplerT>::get_legal_input_impl(std::span<const propnet::
                     ++num_sampled;
                 }
 
-                std::cout << "Searching at depth " << search_depth_limit << '\n';
                 search::DepthLimitedMCCFR mccfr{propnet, model, search_depth_limit};
                 const auto search_results{mccfr.search(sampler.sample_state(), MAX_CFR_ITERATIONS, MAX_CFR_TIME_S)};
 
@@ -133,7 +132,6 @@ propnet::PropId Player<SamplerT>::get_legal_input_impl(std::span<const propnet::
                     for (auto &[input, probability] : cumulative_policy)
                     {
                         probability += policy.at(input);
-                        std::cout << probability << '\n';
                     }
                 }
             }
@@ -151,9 +149,6 @@ template <DerivedSampler SamplerT> Depth Player<SamplerT>::search_depth_limit_he
     const auto max_branching_factor{std::accumulate(
         roles.begin(), roles.end(), propnet.is_randomness() ? propnet.get_random_role()->get_max_policy_size() : 1,
         [](const auto &accumulation, const auto &role) { return accumulation * role.get_max_policy_size(); })};
-
-    std::cout << max_branching_factor << '\n';
-    std::cout << LOG_MAX_STATES_SEARCHED << '\n';
 
     return LOG_MAX_STATES_SEARCHED / std::log(max_branching_factor);
 }
