@@ -103,6 +103,8 @@ class Model
     static Model load_most_recent(const propnet::Propnet &propnet, std::string_view game);
     static Model load_game_number(const propnet::Propnet &propnet, std::string_view game, std::size_t game_number);
 
+    void enable_training();
+    void disable_training();
     ExpectedValue eval_ev(const propnet::State &state, propnet::Role::Id id);
     std::vector<ExpectedValue> eval_evs(const propnet::State &state);
     std::vector<Probability> eval_policy(const propnet::State &state, propnet::Role::Id id);

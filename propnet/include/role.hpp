@@ -58,4 +58,6 @@ class Role
     std::vector<Goal> goals;
     Id role_id;
 };
+
+std::ostream &operator<<(std::ostream &os, const Role &role);
 } // namespace propnet

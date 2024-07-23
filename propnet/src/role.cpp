@@ -105,4 +105,12 @@ Role::Id Role::allocate_role_id()
 
     return role_counter++;
 }
+
+std::ostream &operator<<(std::ostream &os, const Role &role)
+{
+    os << "Role name: " << role.get_name() << ", ";
+    os << "Role id: " << role.get_id();
+
+    return os;
+}
 } // namespace propnet

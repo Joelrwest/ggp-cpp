@@ -27,6 +27,26 @@ void InputSet::add(PropId input)
 {
     inputs.insert(input);
 }
+
+std::ostream &operator<<(std::ostream &os, const InputSet &inputs)
+{
+    os << "{ ";
+    const auto end{inputs.inputs.end()};
+    for (auto it{inputs.inputs.begin()}; it != end;)
+    {
+        os << *it;
+
+        ++it;
+        if (it != end)
+        {
+            os << ',';
+        }
+        os << ' ';
+    }
+    os << '}';
+
+    return os;
+}
 } // namespace propnet
 
 namespace std

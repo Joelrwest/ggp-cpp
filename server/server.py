@@ -202,10 +202,10 @@ async def handler(websocket) -> None:
             print('Done playing!')
             directory_path = os.path.join('..', 'benchmarks', state.game)
             os.makedirs(directory_path, exist_ok=True)
-            file_name = '-vs-'.join([
+            file_name = f"strength-{'-vs-'.join([
                 f"{role}-{program}"
                 for role, program in state.connected_roles.items()
-            ])
+            ])}"
             file_path = os.path.join(directory_path, file_name)
             with open(file_path, 'w') as file:
                 file.write(json.dumps({

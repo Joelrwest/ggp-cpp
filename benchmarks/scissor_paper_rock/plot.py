@@ -21,8 +21,8 @@ COMBINED_TIME_FILTERS_MS = (
     (OLD_TIME_FILTER_MS + NEW_TIME_FILTER_MS) / 2,
 )
 
-NEW_PREFIX = 'new'
-OLD_PREFIX = 'old'
+NEW_PREFIX = 'speed-new'
+OLD_PREFIX = 'speed-old'
 COMBINED_PREFIX = 'combined'
 
 OLD_COLOURS = (

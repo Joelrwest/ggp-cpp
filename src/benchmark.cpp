@@ -11,11 +11,14 @@ static constexpr auto SCISSOR_PAPER_ROCK_GAME{"scissor_paper_rock"};
 static constexpr auto SCISSOR_PAPER_ROCK_NUM_ITERATIONS{300000};
 
 static constexpr auto BLINDTICTACTOE_GAME{"blindtictactoe"};
-static constexpr auto BLINDTICTACTOE_SAVE_FREQUENCY{1000};
-static constexpr auto BLINDTICTACTOE_NUM_ITERATIONS{std::numeric_limits<std::size_t>::max()};
-
 static constexpr auto BIASED_BLINDTICTACTOE_GAME{"blindtictactoeXbias"};
 static constexpr auto VERY_BIASED_BLINDTICTACTOE_GAME{"blindtictactoeXwins"};
+static constexpr auto BLINDTICTACTOE_NUM_ITERATIONS{std::numeric_limits<std::size_t>::max()};
+static constexpr auto BLINDTICTACTOE_SAVE_FREQUENCY{1000};
+
+static constexpr auto MEIER_GAME{"meier"};
+static constexpr auto MEIER_NUM_ITERATIONS{5};
+static constexpr auto MEIER_SAVE_FREQUENCY{1};
 
 class BenchmarkLogger
 {
@@ -85,6 +88,7 @@ void BenchmarkLogger::save() const
 {
     std::stringstream path_stream{};
     path_stream << BENCHMARK_FOLDER << '/' << game << '/';
+    path_stream << "speed-";
     path_stream << std::setfill('0') << std::setw(10) << iteration_count;
     path_stream << ".json";
     const auto path{path_stream.str()};
@@ -142,6 +146,10 @@ int main(int argc, char **argv)
     else if (game == VERY_BIASED_BLINDTICTACTOE_GAME)
     {
         benchmark(VERY_BIASED_BLINDTICTACTOE_GAME, BLINDTICTACTOE_NUM_ITERATIONS, BLINDTICTACTOE_SAVE_FREQUENCY);
+    }
+    else if (game == MEIER_GAME)
+    {
+        benchmark(MEIER_GAME, MEIER_NUM_ITERATIONS, MEIER_SAVE_FREQUENCY);
     }
     else
     {

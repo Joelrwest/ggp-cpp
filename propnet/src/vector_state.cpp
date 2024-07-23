@@ -32,12 +32,24 @@ void State::set_not_is_initial()
 
 std::ostream &operator<<(std::ostream &os, const State &state)
 {
-    os << (state.is_initial ? "Initial state\n" : "Not initial state\n");
-    for (auto id{0u}; id < state.state.size(); ++id)
+    const auto size{state.state.size()};
+
+    os << (state.is_initial ? "Initial state" : "Not initial state") << ", size is " << size;
+    if (size > 0)
     {
-        os << id << ": " << state.state.at(id) << ' ';
+        os << ", ";
     }
-    return os << '\n';
+
+    for (auto id{0u}; id < size; ++id)
+    {
+        os << id << ": " << (state.state.at(id) ? 'T' : 'F');
+        if (id != size - 1)
+        {
+            os << ", ";
+        }
+    }
+
+    return os;
 }
 } // namespace propnet
 

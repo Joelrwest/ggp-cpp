@@ -4,6 +4,7 @@
 
 #include <cstdint>
 #include <functional>
+#include <ostream>
 #include <unordered_set>
 
 namespace propnet
@@ -26,6 +27,7 @@ class InputSet
     void add(PropId input);
 
     friend class std::hash<InputSet>;
+    friend std::ostream &operator<<(std::ostream &os, const InputSet &inputs);
 
   private:
     std::unordered_set<PropId> inputs;

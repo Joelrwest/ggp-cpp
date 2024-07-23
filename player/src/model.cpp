@@ -48,10 +48,10 @@ ReplayBuffer::Sample ReplayBuffer::sample(std::size_t sample_size) const
         torch::from_blob(linear_policies.data(),
                          {static_cast<std::int64_t>(sample_size), static_cast<std::int64_t>(num_players),
                           static_cast<std::int64_t>(max_policy_size)},
-                         torch::kFloat32)};
+                         torch::kFloat64)};
     auto evs_tensor{torch::from_blob(linear_evs.data(),
                                      {static_cast<std::int64_t>(sample_size), static_cast<std::int64_t>(num_players)},
-                                     torch::kFloat32)};
+                                     torch::kFloat64)};
 
     return {.states = std::move(states_tensor), .policies = std::move(policies_tensor), .evs = std::move(evs_tensor)};
 }
@@ -154,6 +154,15 @@ Model Model::load_game_number(const propnet::Propnet &propnet, std::string_view 
 
     return load_file_path(propnet, game, path);
 }
+void Model::enable_training()
+{
+    network.train();
+}
+
+void Model::disable_training()
+{
+    network.train(false);
+}
 
 ExpectedValue Model::eval_ev(const propnet::State &state, propnet::Role::Id id)
 {
@@ -205,9 +214,9 @@ void Model::train(const ReplayBuffer &replay_buffer)
 
     torch::optim::Adam optimiser{network.parameters()};
     torch::nn::MSELoss loss_calculator{};
+    double total_loss{0};
 
     cache->clear();
-    network.train(true);
     for (std::size_t epoch_count{1}; epoch_count <= NUM_EPOCHS; ++epoch_count)
     {
         auto sample{replay_buffer.sample(BATCH_SIZE)};
@@ -216,24 +225,23 @@ void Model::train(const ReplayBuffer &replay_buffer)
         std::cout << sample.policies << "\n\n\n";
         std::cout << sample.evs << "\n\n\n";
 
-        // auto inputs_vec{};
-        // inputs = torch.tensor([x[0] for x in sample]).float()
-        // probs = torch.stack([x[1] for x in sample]).float()
-        // values = torch.tensor([x[2] for x in sample]).float()
-
         optimiser.zero_grad();
-        // const auto output{network.forward(inputs)};
-        // auto loss{loss_calculator->forward() + loss_calculator->forward()};
-        // // loss = self.loss_func(output[0], probs) + self.loss_func(output[1], values)
-        // total_loss += loss;
-        // loss.backward();
+
+        auto output{network.forward(sample.states)};
+
+        const auto evs_loss{loss_calculator->forward(output.evs, sample.evs)};
+        const auto policies_loss{loss_calculator->forward(output.policies, sample.policies)};
+        const auto loss{evs_loss + policies_loss};
+        const auto loss_scalar{loss.item<double>()};
+        total_loss += loss_scalar;
+
+        loss.backward();
         optimiser.step();
 
-        // std::cout << "Epoch " << epoch_count << " loss: " << loss.item() << '\n';
+        std::cout << "Epoch " << epoch_count << " loss: " << loss_scalar << '\n';
     }
 
-    // std::cout << "Total loss across epochs: " << total_loss << "\n\n";
-    network.train(false); // TODO: ??
+    std::cout << "Total loss across epochs: " << total_loss << "\n\n";
 }
 
 void Model::save(std::size_t game_number)
