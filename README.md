@@ -26,7 +26,7 @@ For example, as of writing this the ***CPU-only*** version of LibTorch can be in
 ```bash
 wget https://download.pytorch.org/libtorch/nightly/cpu/libtorch-shared-with-deps-latest.zip # Download
 unzip libtorch-shared-with-deps-latest.zip -d ~ # Unzip
-rm libtorch.zip # Cleanup
+rm libtorch-shared-with-deps-latest.zip # Cleanup
 ```
 
 Next pull in other non-machine specific dependancies and setup CMake via:
