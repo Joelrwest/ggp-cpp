@@ -4,6 +4,7 @@
 
 #include <cstdint>
 #include <functional>
+#include <initializer_list>
 #include <ostream>
 #include <unordered_set>
 
@@ -18,6 +19,7 @@ class InputSet
     InputSet(InputSet &&inputs) = default;
     InputSet(const std::unordered_set<PropId> &inputs);
     InputSet(std::unordered_set<PropId> &&inputs);
+    InputSet(std::initializer_list<PropId> &&inputs);
 
     InputSet &operator=(const InputSet &other) = default;
     InputSet &operator=(InputSet &&other) = default;

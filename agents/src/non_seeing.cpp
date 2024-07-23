@@ -17,7 +17,7 @@ RandomAgent::RandomAgent(const propnet::Role &role) : NonSeeingAgent{role}
 propnet::PropId RandomAgent::get_legal_input_impl(std::span<const propnet::PropId> legal_inputs)
 {
     static std::mt19937 random_engine{std::random_device{}()};
-    static std::uniform_int_distribution<> distribution(0, legal_inputs.size() - 1);
+    std::uniform_int_distribution<> distribution(0, legal_inputs.size() - 1);
     const auto idx{distribution(random_engine)};
     return legal_inputs[idx];
 }

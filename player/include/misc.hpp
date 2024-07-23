@@ -124,7 +124,7 @@ template <typename T> void LazyCartesianProductGenerator<T>::operator++()
 template <typename T> const T::value_type &sample_random(const T &population)
 {
     static std::mt19937 random_engine{std::random_device{}()};
-    static std::uniform_int_distribution<> distribution(0, population.size() - 1);
+    std::uniform_int_distribution<> distribution(0, population.size() - 1);
     const auto idx{distribution(random_engine)};
     return population[idx];
 }
@@ -137,7 +137,7 @@ template <PolicyMap T> T::key_type sample_policy(T &policy)
 template <PolicyMap T> T::key_type sample_policy(T &policy, Probability policy_sum)
 {
     static std::mt19937 random_engine{std::random_device{}()};
-    static std::uniform_real_distribution<Probability> distribution(0.0, policy_sum);
+    std::uniform_real_distribution<Probability> distribution(0.0, policy_sum);
     const auto choice{distribution(random_engine)};
     Probability accumulation{0.0};
     for (const auto &[key, probability] : policy)
@@ -155,7 +155,7 @@ template <PolicyMap T> T::key_type sample_policy(T &policy, Probability policy_s
 template <typename T, typename U> T sample_counts(const std::unordered_map<T, U> &counts, U total_count)
 {
     static std::mt19937 random_engine{std::random_device{}()};
-    static std::uniform_int_distribution<U> distribution(U{0}, total_count);
+    std::uniform_int_distribution<U> distribution(U{0}, total_count);
     const auto choice{distribution(random_engine)};
     U accumulation{0};
     for (const auto &[key, count] : counts)
