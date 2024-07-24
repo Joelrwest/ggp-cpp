@@ -92,35 +92,62 @@ std::pair<Policy, ExpectedValue> InformationSet::normalise() const
     return std::make_pair(std::move(policy), ev);
 }
 
-std::vector<std::pair<Policy, ExpectedValue>> BaseMCCFR::search(const propnet::State &state)
+MCCFR::Options::Options()
+    : iteration_limit{std::numeric_limits<decltype(iteration_limit)>::max()},
+      time_limit{std::nullopt}, logger{default_logger}
 {
-    return search(state, DEFAULT_MAX_ITERATIONS);
 }
 
-std::vector<std::pair<Policy, ExpectedValue>> BaseMCCFR::search(const propnet::State &state, std::size_t num_iterations)
+MCCFR::Options &MCCFR::Options::add_iteration_limit(std::size_t num_iterations)
 {
-    return search(state, num_iterations, std::chrono::seconds::max(), noop_lambda);
+    iteration_limit = num_iterations;
+    return *this;
 }
 
-std::vector<std::pair<Policy, ExpectedValue>> BaseMCCFR::search(const propnet::State &state,
-                                                                std::chrono::seconds duration)
+MCCFR::Options &MCCFR::Options::add_time_limit(std::chrono::seconds duration)
 {
-    return search(state, std::numeric_limits<std::size_t>::max(), duration, noop_lambda);
+    time_limit.emplace(duration);
+    return *this;
 }
 
-std::vector<std::pair<Policy, ExpectedValue>> BaseMCCFR::search(const propnet::State &state, std::size_t max_iterations,
-                                                                std::chrono::seconds max_duration)
+MCCFR::Options &MCCFR::Options::add_logger(LoggerFunction &&logger)
 {
-    return search(state, max_iterations, max_duration, noop_lambda);
+    this->logger = logger;
+    return *this;
 }
 
-std::vector<std::pair<Policy, ExpectedValue>> BaseMCCFR::search(
-    const propnet::State &state, std::size_t max_iterations, std::chrono::seconds max_duration,
-    std::function<void(const std::vector<std::reference_wrapper<InformationSet>> &)> logger)
+std::size_t MCCFR::Options::get_iteration_limit() const
 {
-    const auto is_time_limit{max_duration != std::chrono::seconds::max()};
-    const auto end_time{std::chrono::system_clock::now() + max_duration};
+    return iteration_limit;
+}
 
+std::function<bool()> MCCFR::Options::get_time_remaining_function() const
+{
+    if (time_limit.has_value())
+    {
+        return [end_time = std::chrono::system_clock::now() + *time_limit]() {
+            return std::chrono::system_clock::now() < end_time;
+        };
+    }
+    else
+    {
+        return always_time_remaining_function;
+    }
+}
+
+MCCFR::Options::LoggerFunction &MCCFR::Options::get_logger()
+{
+    return logger;
+}
+
+std::vector<std::pair<Policy, ExpectedValue>> MCCFR::search(const propnet::State &state)
+{
+    static MCCFR::Options options{};
+    return search(state, options);
+}
+
+std::vector<std::pair<Policy, ExpectedValue>> MCCFR::search(const propnet::State &state, MCCFR::Options &options)
+{
     /*
     Psuedocode from:
 
@@ -133,8 +160,9 @@ std::vector<std::pair<Policy, ExpectedValue>> BaseMCCFR::search(
         current_information_sets.emplace_back(base_information_set);
     }
 
-    for (std::size_t iteration_count{1};
-         iteration_count <= max_iterations && (!is_time_limit || std::chrono::system_clock::now() < end_time);
+    const auto time_remaining_function{options.get_time_remaining_function()};
+    auto &logger{options.get_logger()};
+    for (std::size_t iteration_count{1}; iteration_count <= options.get_iteration_limit() && time_remaining_function();
          ++iteration_count)
     {
         /*
@@ -157,8 +185,7 @@ std::vector<std::pair<Policy, ExpectedValue>> BaseMCCFR::search(
     return policy_ev_pairs;
 }
 
-BaseMCCFR::BaseMCCFR(const propnet::Propnet &propnet, std::optional<std::reference_wrapper<Model>> model,
-                     Depth depth_limit)
+MCCFR::MCCFR(const propnet::Propnet &propnet, std::optional<std::reference_wrapper<Model>> model, Depth depth_limit)
     : propnet{propnet}, player_roles{propnet.get_player_roles().begin(), propnet.get_player_roles().end()},
       random_role{propnet.get_random_role()},
       base_information_sets{create_base_information_sets(propnet)}, model{model}, depth_limit{depth_limit}
@@ -169,9 +196,8 @@ BaseMCCFR::BaseMCCFR(const propnet::Propnet &propnet, std::optional<std::referen
     }
 }
 
-ExpectedValue BaseMCCFR::make_traversers_move(
-    std::vector<std::reference_wrapper<InformationSet>> &current_information_sets, propnet::Role &traversing_role,
-    propnet::State &state, Depth curr_depth)
+ExpectedValue MCCFR::make_traversers_move(std::vector<std::reference_wrapper<InformationSet>> &current_information_sets,
+                                          propnet::Role &traversing_role, propnet::State &state, Depth curr_depth)
 {
     const auto id{traversing_role.get_id()};
     auto &current_information_set{current_information_sets.at(id).get()};
@@ -201,7 +227,7 @@ ExpectedValue BaseMCCFR::make_traversers_move(
     return policy_reward;
 }
 
-ExpectedValue BaseMCCFR::make_non_traversers_moves(
+ExpectedValue MCCFR::make_non_traversers_moves(
     std::vector<std::reference_wrapper<InformationSet>> &current_information_sets, propnet::Role &traversing_role,
     propnet::State &state, Depth curr_depth)
 {
@@ -233,8 +259,8 @@ ExpectedValue BaseMCCFR::make_non_traversers_moves(
     return next_state(current_information_sets, traversing_role, state, curr_depth);
 }
 
-ExpectedValue BaseMCCFR::next_state(std::vector<std::reference_wrapper<InformationSet>> &current_information_sets,
-                                    propnet::Role &traversing_role, propnet::State &state, Depth curr_depth)
+ExpectedValue MCCFR::next_state(std::vector<std::reference_wrapper<InformationSet>> &current_information_sets,
+                                propnet::Role &traversing_role, propnet::State &state, Depth curr_depth)
 {
     /*
     All players have already given their inputs,
@@ -301,7 +327,7 @@ ExpectedValue BaseMCCFR::next_state(std::vector<std::reference_wrapper<Informati
     return make_traversers_move(next_information_sets, traversing_role, state, curr_depth + 1);
 }
 
-std::vector<InformationSet> BaseMCCFR::create_base_information_sets(const propnet::Propnet &propnet)
+std::vector<InformationSet> MCCFR::create_base_information_sets(const propnet::Propnet &propnet)
 {
     const auto initial_state{propnet.create_initial_state()};
     std::vector<InformationSet> base_information_sets{};
@@ -314,13 +340,12 @@ std::vector<InformationSet> BaseMCCFR::create_base_information_sets(const propne
     return base_information_sets;
 }
 
-FullMCCFR::FullMCCFR(const propnet::Propnet &propnet)
-    : BaseMCCFR{propnet, std::nullopt, std::numeric_limits<Depth>::max()}
+FullMCCFR::FullMCCFR(const propnet::Propnet &propnet) : MCCFR{propnet, std::nullopt, std::numeric_limits<Depth>::max()}
 {
 }
 
 DepthLimitedMCCFR::DepthLimitedMCCFR(const propnet::Propnet &propnet, Model &model, Depth depth_limit)
-    : BaseMCCFR{propnet, std::optional<std::reference_wrapper<Model>>{model}, depth_limit}
+    : MCCFR{propnet, std::optional<std::reference_wrapper<Model>>{model}, depth_limit}
 {
 }
 } // namespace player::search

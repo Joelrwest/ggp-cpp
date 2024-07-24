@@ -121,7 +121,11 @@ propnet::PropId Player<SamplerT>::get_legal_input_impl(std::span<const propnet::
                 }
 
                 search::DepthLimitedMCCFR mccfr{propnet, model, search_depth_limit};
-                const auto search_results{mccfr.search(sampler.sample_state(), MAX_CFR_ITERATIONS, MAX_CFR_TIME_S)};
+
+                static auto options{player::search::MCCFR::Options{}
+                                              .add_iteration_limit(MAX_CFR_ITERATIONS)
+                                              .add_time_limit(MAX_CFR_TIME_S)};
+                const auto search_results{mccfr.search(sampler.sample_state(), options)};
 
                 const auto id{role.get_id()};
                 const auto &role_search_results{search_results.at(id)};

@@ -193,8 +193,10 @@ void play_game(const propnet::Propnet &propnet, player::ReplayBuffer &replay_buf
     while (!propnet.is_game_over(state))
     {
         auto cfr_future{std::async(std::launch::async, [&propnet, state]() {
+            static auto options{player::search::MCCFR::Options{}.add_time_limit(MAX_FULL_CFR_TIME_S)};
+
             player::search::FullMCCFR mccfr{propnet};
-            return mccfr.search(state, MAX_FULL_CFR_TIME_S);
+            return mccfr.search(state, options);
         })};
 
         std::vector<std::future<propnet::PropId>> input_futures{};

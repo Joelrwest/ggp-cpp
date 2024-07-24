@@ -36,26 +36,41 @@ class InformationSet
     std::optional<propnet::PropId> previous_input;
 };
 
-class BaseMCCFR
+class MCCFR
 {
   public:
-    // TODO: This interface is super clunky
+    class Options
+    {
+      public:
+        using LoggerFunction = std::function<void(const std::vector<std::reference_wrapper<InformationSet>> &)>;
+
+        Options();
+
+        Options &add_iteration_limit(std::size_t num_iterations);
+        Options &add_time_limit(std::chrono::seconds duration);
+        Options &add_logger(LoggerFunction &&logger);
+
+        std::size_t get_iteration_limit() const;
+        std::function<bool()> get_time_remaining_function() const;
+        LoggerFunction &get_logger();
+
+      private:
+        inline static const auto default_logger{[](const auto &) {}};
+        inline static const auto always_time_remaining_function{[]() { return true; }};
+
+        std::size_t iteration_limit;
+        std::optional<std::chrono::seconds> time_limit;
+        LoggerFunction logger;
+    };
+
     std::vector<std::pair<Policy, ExpectedValue>> search(const propnet::State &state);
-    std::vector<std::pair<Policy, ExpectedValue>> search(const propnet::State &state, std::size_t num_iterations);
-    std::vector<std::pair<Policy, ExpectedValue>> search(const propnet::State &state, std::chrono::seconds duration);
-    std::vector<std::pair<Policy, ExpectedValue>> search(const propnet::State &state, std::size_t max_iterations,
-                                                         std::chrono::seconds max_duration);
-    std::vector<std::pair<Policy, ExpectedValue>> search(
-        const propnet::State &state, std::size_t max_iterations, std::chrono::seconds max_duration,
-        std::function<void(const std::vector<std::reference_wrapper<InformationSet>> &)> logger);
+    std::vector<std::pair<Policy, ExpectedValue>> search(const propnet::State &state, Options &options);
 
   protected:
-    BaseMCCFR(const propnet::Propnet &propnet, std::optional<std::reference_wrapper<Model>> model, Depth depth_limit);
+    MCCFR(const propnet::Propnet &propnet, std::optional<std::reference_wrapper<Model>> model, Depth depth_limit);
 
   private:
     static constexpr auto DEFAULT_MAX_ITERATIONS{static_cast<std::size_t>(1e5)};
-
-    inline static const auto noop_lambda{[](const auto &) {}};
 
     ExpectedValue make_traversers_move(std::vector<std::reference_wrapper<InformationSet>> &current_information_sets,
                                        propnet::Role &traversing_role, propnet::State &state, Depth curr_depth);
@@ -77,13 +92,13 @@ class BaseMCCFR
     Depth depth_limit;
 };
 
-class FullMCCFR : public BaseMCCFR
+class FullMCCFR : public MCCFR
 {
   public:
     FullMCCFR(const propnet::Propnet &propnet);
 };
 
-class DepthLimitedMCCFR : public BaseMCCFR
+class DepthLimitedMCCFR : public MCCFR
 {
   public:
     DepthLimitedMCCFR(const propnet::Propnet &propnet, Model &model, Depth depth_limit);

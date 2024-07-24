@@ -14,18 +14,18 @@ static constexpr auto BLINDTICTACTOE_GAME{"blindtictactoe"};
 static constexpr auto BIASED_BLINDTICTACTOE_GAME{"blindtictactoeXbias"};
 static constexpr auto VERY_BIASED_BLINDTICTACTOE_GAME{"blindtictactoeXwins"};
 static constexpr auto BLINDTICTACTOE_NUM_ITERATIONS{std::numeric_limits<std::size_t>::max()};
-static constexpr auto BLINDTICTACTOE_SAVE_FREQUENCY{1000};
+static constexpr auto BLINDTICTACTOE_SAVE_FREQUENCY{2000};
 
 static constexpr auto MEIER_GAME{"meier"};
-static constexpr auto MEIER_NUM_ITERATIONS{5};
-static constexpr auto MEIER_SAVE_FREQUENCY{1};
+static constexpr auto MEIER_NUM_ITERATIONS{60000};
 
 class BenchmarkLogger
 {
   public:
     BenchmarkLogger(std::string_view game, std::size_t save_frequency);
 
-    void log(const std::vector<std::reference_wrapper<player::search::InformationSet>> &current_information_sets);
+    void operator()(
+        const std::vector<std::reference_wrapper<player::search::InformationSet>> &current_information_sets);
 
   private:
     static constexpr auto BENCHMARK_FOLDER{"benchmarks"};
@@ -54,12 +54,12 @@ BenchmarkLogger::BenchmarkLogger(std::string_view game, std::size_t save_frequen
 {
 }
 
-void BenchmarkLogger::log(
+void BenchmarkLogger::operator()(
     const std::vector<std::reference_wrapper<player::search::InformationSet>> &current_information_sets)
 {
-    ++iteration_count;
     const auto time_since_last_log{get_time_us() - last_log_time};
     cumulative_time_taken += time_since_last_log;
+    ++iteration_count;
 
     nlohmann::json current_log{{TIME_KEY, cumulative_time_taken.count()},
                                {PROBABILITIES_KEY, nlohmann::json::object()}};
@@ -80,8 +80,7 @@ void BenchmarkLogger::log(
         save();
     }
 
-    const auto end_log_time{get_time_us()};
-    last_log_time = end_log_time;
+    last_log_time = get_time_us();
 }
 
 void BenchmarkLogger::save() const
@@ -94,9 +93,11 @@ void BenchmarkLogger::save() const
     const auto path{path_stream.str()};
 
     std::cout << "Outputting to " << path << '\n';
+    std::cout.flush();
 
     std::ofstream output_file{path};
     output_file << json_log;
+    output_file.flush();
     output_file.close();
 }
 
@@ -120,9 +121,10 @@ void benchmark(std::string_view game, std::size_t num_iterations, std::size_t sa
     player::search::FullMCCFR mccfr{propnet};
     const auto initial_state{propnet.create_initial_state()};
 
-    BenchmarkLogger logger{game, save_frequency};
-    mccfr.search(initial_state, num_iterations, std::chrono::seconds::max(),
-                 [&logger](const auto &current_information_sets) { logger.log(current_information_sets); });
+    auto options{player::search::MCCFR::Options{}
+                           .add_iteration_limit(num_iterations)
+                           .add_logger(BenchmarkLogger{game, save_frequency})};
+    mccfr.search(initial_state, options);
 }
 
 int main(int argc, char **argv)
@@ -149,7 +151,7 @@ int main(int argc, char **argv)
     }
     else if (game == MEIER_GAME)
     {
-        benchmark(MEIER_GAME, MEIER_NUM_ITERATIONS, MEIER_SAVE_FREQUENCY);
+        benchmark(MEIER_GAME, MEIER_NUM_ITERATIONS);
     }
     else
     {

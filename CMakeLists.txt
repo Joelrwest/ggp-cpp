@@ -6,6 +6,7 @@ include(FetchContent)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_BUILD_TYPE Release)
+set(OPTIMIZE_DEPENDENCIES ON)
 
 set(BOOST_INCLUDE_LIBRARIES program_options asio beast)
 set(BOOST_ENABLE_CMAKE ON)
@@ -33,29 +34,25 @@ target_link_libraries(setup PUBLIC agents)
 target_link_libraries(setup PUBLIC player)
 target_link_libraries(setup PUBLIC Boost::program_options)
 target_link_libraries(setup PUBLIC "${TORCH_LIBRARIES}")
+target_compile_options(setup PRIVATE -O3 -Wall -Wextra -Wpedantic -Werror)
 
 add_executable(play src/play.cpp)
 target_link_libraries(play PUBLIC setup)
-
-target_compile_options(play PRIVATE -Wall -Wextra -Wpedantic -Werror)
+target_compile_options(play PRIVATE -O3 -Wall -Wextra -Wpedantic -Werror)
 
 add_executable(train src/train.cpp)
 target_link_libraries(train PUBLIC setup)
-
-target_compile_options(train PRIVATE -Wall -Wextra -Wpedantic -Werror)
+target_compile_options(train PRIVATE -O3 -Wall -Wextra -Wpedantic -Werror)
 
 add_executable(debug src/debug.cpp)
 target_link_libraries(debug PUBLIC setup)
-
-target_compile_options(debug PRIVATE -Wall -Wextra -Wpedantic -Werror)
+target_compile_options(debug PRIVATE -O3 -Wall -Wextra -Wpedantic -Werror)
 
 add_executable(benchmark src/benchmark.cpp)
 target_link_libraries(benchmark PUBLIC setup)
-
-target_compile_options(benchmark PRIVATE -Wall -Wextra -Wpedantic -Werror)
+target_compile_options(benchmark PRIVATE -O3 -Wall -Wextra -Wpedantic -Werror)
 
 add_executable(play-external src/play_external.cpp)
 target_link_libraries(play-external PUBLIC setup)
 target_link_libraries(play-external PUBLIC Boost::asio Boost::beast)
-
-target_compile_options(play-external PRIVATE -Wall -Wextra -Wpedantic -Werror)
+target_compile_options(play-external PRIVATE -O3 -Wall -Wextra -Wpedantic -Werror)
