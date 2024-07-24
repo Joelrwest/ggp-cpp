@@ -16,9 +16,6 @@ static constexpr auto VERY_BIASED_BLINDTICTACTOE_GAME{"blindtictactoeXwins"};
 static constexpr auto BLINDTICTACTOE_NUM_ITERATIONS{std::numeric_limits<std::size_t>::max()};
 static constexpr auto BLINDTICTACTOE_SAVE_FREQUENCY{2000};
 
-static constexpr auto MEIER_GAME{"meier"};
-static constexpr auto MEIER_NUM_ITERATIONS{60000};
-
 class BenchmarkLogger
 {
   public:
@@ -122,8 +119,8 @@ void benchmark(std::string_view game, std::size_t num_iterations, std::size_t sa
     const auto initial_state{propnet.create_initial_state()};
 
     auto options{player::search::MCCFR::Options{}
-                           .add_iteration_limit(num_iterations)
-                           .add_logger(BenchmarkLogger{game, save_frequency})};
+                     .add_iteration_limit(num_iterations)
+                     .add_logger(BenchmarkLogger{game, save_frequency})};
     mccfr.search(initial_state, options);
 }
 
@@ -148,10 +145,6 @@ int main(int argc, char **argv)
     else if (game == VERY_BIASED_BLINDTICTACTOE_GAME)
     {
         benchmark(VERY_BIASED_BLINDTICTACTOE_GAME, BLINDTICTACTOE_NUM_ITERATIONS, BLINDTICTACTOE_SAVE_FREQUENCY);
-    }
-    else if (game == MEIER_GAME)
-    {
-        benchmark(MEIER_GAME, MEIER_NUM_ITERATIONS);
     }
     else
     {

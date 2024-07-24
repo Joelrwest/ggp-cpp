@@ -10,7 +10,7 @@ import json
 
 # Can change the input files, the time taken, and the colours used from these top constants
 
-FILENAME = 'speed_data.json'
+FILENAME = 'speed-data.json'
 
 SINGLE_COLOURS = (
     'orchid',

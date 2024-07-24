@@ -10,7 +10,7 @@ import json
 
 # Can change the input files, the time taken, and the colours used from these top constants
 
-FILENAME = 'speed_data.json'
+FILENAME = 'speed-0000010000.json'
 
 SINGLE_COLOURS = (
     'orchid',
@@ -35,7 +35,7 @@ GROUP_COLOURS = (
 
 X_AXIS_NAME = 'Time (h)'
 
-FONT_SIZE = 14
+FONT_SIZE = 12
 
 # End of changable constants
 
@@ -99,28 +99,33 @@ TIME_KEY = 'time'
 
 MOVES_TO_INPUTS = {
     PLAYER_X: {
-        MARK_1_1: '153',
-        MARK_1_2: '82',
-        MARK_1_3: '528',
-        MARK_2_1: '123',
-        MARK_2_2: '324',
-        MARK_2_3: '416',
-        MARK_3_1: '73',
-        MARK_3_2: '173',
-        MARK_3_3: '471',
+        MARK_1_1: '445',
+        MARK_1_2: '115',
+        MARK_1_3: '304',
+        MARK_2_1: '134',
+        MARK_2_2: '506',
+        MARK_2_3: '516',
+        MARK_3_1: '281',
+        MARK_3_2: '114',
+        MARK_3_3: '52',
     },
     PLAYER_O: {
-        MARK_1_1: '57',
-        MARK_1_2: '268',
-        MARK_1_3: '500',
-        MARK_2_1: '41',
-        MARK_2_2: '62',
-        MARK_2_3: '137',
-        MARK_3_1: '192',
-        MARK_3_2: '531',
-        MARK_3_3: '207',
+        MARK_1_1: '166',
+        MARK_1_2: '596',
+        MARK_1_3: '433',
+        MARK_2_1: '472',
+        MARK_2_2: '87',
+        MARK_2_3: '171',
+        MARK_3_1: '215',
+        MARK_3_2: '373',
+        MARK_3_3: '579',
     },
 }
+
+PLAYERS = [
+    player
+    for player in MOVES_TO_INPUTS.keys()
+]
 
 def get_time_data_h(iterations):
     return [
@@ -128,19 +133,13 @@ def get_time_data_h(iterations):
         for iteration in iterations
     ]
 
-def create_convergence_plot(iterations, x: list[float], move: str, colours: tuple[str]):
-    y_1 = [
-        iteration[PROBABILITIES_KEY][MOVES_TO_INPUTS[PLAYER_X][move]]
+def create_convergence_plot(iterations, x: list[float], player: str, move: str, colour):
+    y = [
+        iteration[PROBABILITIES_KEY][MOVES_TO_INPUTS[player][move]]
         for iteration in iterations
     ]
 
-    y_2 = [
-        iteration[PROBABILITIES_KEY][MOVES_TO_INPUTS[PLAYER_O][move]]
-        for iteration in iterations
-    ]
-
-    plt.plot(x, y_1, color=colours[0])
-    plt.plot(x, y_2, color=colours[1])
+    plt.plot(x, y, color=colour)
 
     plt.xlabel(X_AXIS_NAME)
     plt.ylabel('Probability')
@@ -152,16 +151,36 @@ def main() -> None:
     x = get_time_data_h(iterations)
     iterations = iterations[:len(x)]
 
-    for move in ALL_MOVES:
-        create_convergence_plot(iterations, x, move, SINGLE_COLOURS)
-        plt.title(f"Convergence of {move.capitalize()} Over Time")
-        plt.tight_layout()
-        plt.savefig(f"{move.lower().replace(' ', '-')}-convergence-plot")
-        plt.clf()
+    for player, colour in zip(PLAYERS, SINGLE_COLOURS):
+        for move in ALL_MOVES:
+            create_convergence_plot(iterations, x, player, move, colour)
+            plt.title(f"Convergence of {move.capitalize()} for {player} Over Time")
+            plt.tight_layout()
+            plt.savefig(f"{player}-{move.lower().replace(' ', '-')}-convergence-plot")
+            plt.clf()
+
+    for idx, player in enumerate(PLAYERS):
+        for title, similar_moves in SIMILAR_MOVES:
+            group_colours = (
+                colours[idx]
+                for colours in GROUP_COLOURS
+            )
+
+            for move, colours in zip(similar_moves, group_colours):
+                create_convergence_plot(iterations, x, player, move, colours)
+            plt.title(f"Convergence of {title} for {player} Over Time")
+            plt.tight_layout()
+            plt.savefig(f"{player}-{title.lower().replace(' ', '-')}-convergence-plot")
+            plt.clf()
 
     for title, similar_moves in SIMILAR_MOVES:
-        for move, colours in zip(similar_moves, GROUP_COLOURS):
-            create_convergence_plot(iterations, x, move, colours)
+        for idx, player in enumerate(PLAYERS):
+            group_colours = (
+                colours[idx]
+                for colours in GROUP_COLOURS
+            )
+            for move, colours in zip(similar_moves, group_colours):
+                    create_convergence_plot(iterations, x, player, move, colours)
         plt.title(f"Convergence of {title} Over Time")
         plt.tight_layout()
         plt.savefig(f"{title.lower().replace(' ', '-')}-convergence-plot")
