@@ -1,0 +1,12 @@
+PLAYER_X = 'x'
+PLAYER_O = 'o'
+
+MARK_1_1 = 'mark 1 1'
+MARK_1_2 = 'mark 1 2'
+MARK_1_3 = 'mark 1 3'
+MARK_2_1 = 'mark 2 1'
+MARK_2_2 = 'mark 2 2'
+MARK_2_3 = 'mark 2 3'
+MARK_3_1 = 'mark 3 1'
+MARK_3_2 = 'mark 3 2'
+MARK_3_3 = 'mark 3 3'

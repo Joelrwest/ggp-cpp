@@ -118,8 +118,9 @@ void train(std::size_t num_concurrent_games, const std::function<bool()> &time_l
     model.eval_evs(propnet.create_initial_state());
     std::cout << '\n';
 
-    const auto hardware_threads{std::thread::hardware_concurrency()};
-    const auto threads_per_player{hardware_threads / (2 * propnet.num_player_roles())};
+    // const auto hardware_threads{std::thread::hardware_concurrency()}; // TODO
+    // const auto threads_per_player{hardware_threads / (2 * propnet.num_player_roles())};
+    const auto threads_per_player{1};
     std::cout << "Using " << threads_per_player << " threads per player\n\n";
 
     std::vector<std::vector<player::Player<>>> all_players{};

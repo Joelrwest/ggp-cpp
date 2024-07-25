@@ -33,7 +33,8 @@ GROUP_COLOURS = (
     ),
 )
 
-X_AXIS_NAME = 'Time (h)'
+X_AXIS_NAME_TIME = 'Time (h)'
+X_AXIS_NAME_NUM_ITERATIONS = 'Number of Iterations'
 
 FONT_SIZE = 14
 
@@ -128,6 +129,11 @@ def get_time_data_h(iterations):
         for iteration in iterations
     ]
 
+def get_iteration_num_data(iterations):
+    return [
+        i for i in range(len(iterations))
+    ]
+
 def create_convergence_plot(iterations, x: list[float], move: str, colours: tuple[str]):
     y_1 = [
         iteration[PROBABILITIES_KEY][MOVES_TO_INPUTS[PLAYER_X][move]]
@@ -142,29 +148,48 @@ def create_convergence_plot(iterations, x: list[float], move: str, colours: tupl
     plt.plot(x, y_1, color=colours[0])
     plt.plot(x, y_2, color=colours[1])
 
-    plt.xlabel(X_AXIS_NAME)
     plt.ylabel('Probability')
 
 def main() -> None:
     with open(FILENAME, 'r') as file:
         iterations = json.loads(file.read())[ITERATIONS_KEY]
 
-    x = get_time_data_h(iterations)
-    iterations = iterations[:len(x)]
+    x_time = get_time_data_h(iterations)
+    x_iteration_num = get_iteration_num_data(iterations)
+    iterations = iterations[:len(x_time)]
 
     for move in ALL_MOVES:
-        create_convergence_plot(iterations, x, move, SINGLE_COLOURS)
+        create_convergence_plot(iterations, x_time, move, SINGLE_COLOURS)
+        plt.xlabel(X_AXIS_NAME_TIME)
         plt.title(f"Convergence of {move.capitalize()} Over Time")
         plt.tight_layout()
-        plt.savefig(f"{move.lower().replace(' ', '-')}-convergence-plot")
+        plt.savefig(f"{move.lower().replace(' ', '-')}-time-convergence-plot")
+        plt.clf()
+
+    for move in ALL_MOVES:
+        create_convergence_plot(iterations, x_iteration_num, move, SINGLE_COLOURS)
+        plt.xlabel(X_AXIS_NAME_NUM_ITERATIONS)
+        plt.title(f"Convergence of {move.capitalize()}")
+        plt.tight_layout()
+        plt.savefig(f"{move.lower().replace(' ', '-')}-iteration-num-convergence-plot")
         plt.clf()
 
     for title, similar_moves in SIMILAR_MOVES:
         for move, colours in zip(similar_moves, GROUP_COLOURS):
-            create_convergence_plot(iterations, x, move, colours)
+            create_convergence_plot(iterations, x_time, move, colours)
+        plt.xlabel(X_AXIS_NAME_TIME)
         plt.title(f"Convergence of {title} Over Time")
         plt.tight_layout()
-        plt.savefig(f"{title.lower().replace(' ', '-')}-convergence-plot")
+        plt.savefig(f"{title.lower().replace(' ', '-')}-time-convergence-plot")
+        plt.clf()
+
+    for title, similar_moves in SIMILAR_MOVES:
+        for move, colours in zip(similar_moves, GROUP_COLOURS):
+            create_convergence_plot(iterations, x_iteration_num, move, colours)
+        plt.xlabel(X_AXIS_NAME_NUM_ITERATIONS)
+        plt.title(f"Convergence of {title}")
+        plt.tight_layout()
+        plt.savefig(f"{title.lower().replace(' ', '-')}-iteration-num-convergence-plot")
         plt.clf()
 
 if __name__ == '__main__':

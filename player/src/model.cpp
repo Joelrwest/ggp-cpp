@@ -4,6 +4,8 @@
 
 namespace player
 {
+static const torch::Device device{torch::cuda::is_available() ? torch::kCUDA : torch::kCPU};
+
 ReplayBuffer::ReplayBuffer(const propnet::Propnet &propnet) : propnet{propnet}, buffer{}
 {
 }
@@ -43,15 +45,15 @@ ReplayBuffer::Sample ReplayBuffer::sample(std::size_t sample_size) const
     const auto num_players{propnet.num_player_roles()};
     auto states_tensor{torch::from_blob(
         linear_states.data(), {static_cast<std::int64_t>(sample_size), static_cast<std::int64_t>(propnet.size())},
-        torch::kFloat32)};
+        torch::TensorOptions().device(device).dtype(torch::kFloat32))};
     auto policies_tensor{
         torch::from_blob(linear_policies.data(),
                          {static_cast<std::int64_t>(sample_size), static_cast<std::int64_t>(num_players),
                           static_cast<std::int64_t>(max_policy_size)},
-                         torch::kFloat64)};
+                         torch::TensorOptions().device(device).dtype(torch::kFloat64))};
     auto evs_tensor{torch::from_blob(linear_evs.data(),
                                      {static_cast<std::int64_t>(sample_size), static_cast<std::int64_t>(num_players)},
-                                     torch::kFloat64)};
+                                     torch::TensorOptions().device(device).dtype(torch::kFloat64))};
 
     return {.states = std::move(states_tensor), .policies = std::move(policies_tensor), .evs = std::move(evs_tensor)};
 }
@@ -63,27 +65,14 @@ std::size_t ReplayBuffer::size() const
 
 Network::Network(const propnet::Propnet &propnet)
     : input_size{propnet.size()}, hidden_layer_size{input_size},
-      features_head{torch::nn::Linear{input_size, hidden_layer_size},
-                    torch::nn::ELU{},
-                    torch::nn::Dropout{DROPOUT_ZERO_PROBABILITY},
-
-                    torch::nn::Linear{hidden_layer_size, hidden_layer_size},
-                    torch::nn::ELU{},
-                    torch::nn::Dropout{DROPOUT_ZERO_PROBABILITY},
-
-                    torch::nn::Linear{hidden_layer_size, hidden_layer_size},
-                    torch::nn::ELU{},
-                    torch::nn::Dropout{DROPOUT_ZERO_PROBABILITY}},
-      evs_head{torch::nn::Linear{hidden_layer_size, propnet.num_player_roles()}, torch::nn::Sigmoid{}},
-      common_policy_head{torch::nn::Linear{hidden_layer_size, hidden_layer_size}, torch::nn::ELU{},
-                         torch::nn::Dropout{DROPOUT_ZERO_PROBABILITY}},
-      policy_heads{}
+      features_head{register_module("features", make_features_head(input_size, hidden_layer_size))},
+      evs_head{register_module("evs", make_evs_head(hidden_layer_size, propnet.num_player_roles()))},
+      common_policy_head{register_module("common-policy", make_common_policy_head(hidden_layer_size))}, policy_heads{}
 {
     const auto max_policy_size{propnet.get_max_policy_size()};
     for (auto head_count{0u}; head_count < propnet.num_player_roles(); ++head_count)
     {
-        policy_heads.emplace_back(torch::nn::Linear{hidden_layer_size, max_policy_size},
-                                  torch::nn::Softmax{SOFTMAX_DIMENSION});
+        policy_heads.emplace_back(register_module("policy-" + head_count, make_policy_head(max_policy_size)));
     }
 }
 
@@ -115,6 +104,38 @@ Network::Eval Network::forward(torch::Tensor x)
     }
 
     return {.evs = std::move(evs), .policies = torch::stack(policies)};
+}
+
+torch::nn::Sequential Network::make_features_head(std::size_t input_size, std::size_t hidden_layer_size)
+{
+    return torch::nn::Sequential{torch::nn::Linear{input_size, hidden_layer_size},
+                                 torch::nn::ELU{},
+                                 torch::nn::Dropout{DROPOUT_ZERO_PROBABILITY},
+
+                                 torch::nn::Linear{hidden_layer_size, hidden_layer_size},
+                                 torch::nn::ELU{},
+                                 torch::nn::Dropout{DROPOUT_ZERO_PROBABILITY},
+
+                                 torch::nn::Linear{hidden_layer_size, hidden_layer_size},
+                                 torch::nn::ELU{},
+                                 torch::nn::Dropout{DROPOUT_ZERO_PROBABILITY}};
+}
+
+torch::nn::Sequential Network::make_evs_head(std::size_t hidden_layer_size, std::size_t num_player_roles)
+{
+    return torch::nn::Sequential{torch::nn::Linear{hidden_layer_size, num_player_roles}, torch::nn::Sigmoid{}};
+}
+
+torch::nn::Sequential Network::make_common_policy_head(std::size_t hidden_layer_size)
+{
+    return torch::nn::Sequential{torch::nn::Linear{hidden_layer_size, hidden_layer_size}, torch::nn::ELU{},
+                                 torch::nn::Dropout{DROPOUT_ZERO_PROBABILITY}};
+}
+
+torch::nn::Sequential Network::make_policy_head(std::size_t max_policy_size) const
+{
+    return torch::nn::Sequential{torch::nn::Linear{hidden_layer_size, max_policy_size},
+                                 torch::nn::Softmax{SOFTMAX_DIMENSION}};
 }
 
 Model::Model(const propnet::Propnet &propnet, std::string_view game) : Model{propnet, game, Network{propnet}}
@@ -277,6 +298,7 @@ Model::Model(const propnet::Propnet &propnet, std::string_view game, Network &&n
     : propnet{propnet}, models_path{get_models_path(game)}, network{network},
       time_log_file{get_time_log_file_path(models_path)}, start_time_ms{get_time_ms()}, cache{std::make_shared<Cache>()}
 {
+    network.to(device);
 }
 
 Network::Eval Model::eval(const propnet::State &state)
@@ -287,7 +309,8 @@ Network::Eval Model::eval(const propnet::State &state)
     }
 
     auto vec{state.to_vec<float>()};
-    auto tensor{torch::from_blob(vec.data(), {static_cast<std::int64_t>(vec.size())}, torch::kFloat32)};
+    auto tensor{torch::from_blob(vec.data(), {static_cast<std::int64_t>(vec.size())},
+                                 torch::TensorOptions().device(device).dtype(torch::kFloat32))};
     auto eval{network.forward(std::move(tensor))};
 
     cache->Put(state, eval);

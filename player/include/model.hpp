@@ -79,6 +79,11 @@ class Network : public torch::nn::Module
     static constexpr auto DROPOUT_ZERO_PROBABILITY{0.2};
     static constexpr auto SOFTMAX_DIMENSION{-1};
 
+    static torch::nn::Sequential make_features_head(std::size_t input_size, std::size_t hidden_layer_size);
+    static torch::nn::Sequential make_evs_head(std::size_t hidden_layer_size, std::size_t num_player_roles);
+    static torch::nn::Sequential make_common_policy_head(std::size_t hidden_layer_size);
+    torch::nn::Sequential make_policy_head(std::size_t max_policy_size) const;
+
     std::size_t input_size;
     std::size_t hidden_layer_size;
     torch::nn::Sequential features_head;
