@@ -85,7 +85,7 @@ void BenchmarkLogger::save() const
     std::stringstream path_stream{};
     path_stream << BENCHMARK_FOLDER << '/' << game << '/';
     path_stream << "speed-";
-    path_stream << std::setfill('0') << std::setw(10) << iteration_count;
+    path_stream << std::setfill('0') << std::setw(8) << iteration_count;
     path_stream << ".json";
     const auto path{path_stream.str()};
 
