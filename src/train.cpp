@@ -19,8 +19,8 @@ static constexpr auto DEFAULT_NUM_CONCURRENT_GAMES{1};
 static constexpr auto TIME_LIMIT_COMMAND{"time_limit"};
 static constexpr auto READABLE_TIME_FORMAT{"%X %e %b %Y %Z"};
 static constexpr auto TIME_LOG_FILE_NAME{"time-log.txt"};
-static constexpr std::chrono::seconds MAX_FULL_CFR_TIME_S{20};
-static constexpr std::size_t MIN_GAMES_PER_MODEL_SAVE{10};
+static constexpr std::chrono::seconds MAX_FULL_CFR_TIME_S{2};
+static constexpr std::size_t MIN_GAMES_PER_MODEL_SAVE{100};
 
 std::function<bool()> get_time_limit_function(std::optional<std::size_t> time_limit);
 std::string to_readable_time(const std::chrono::time_point<std::chrono::system_clock> &time_point);

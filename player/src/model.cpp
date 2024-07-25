@@ -11,25 +11,29 @@ ReplayBuffer::ReplayBuffer(const propnet::Propnet &propnet) : propnet{propnet}, 
 }
 
 ReplayBuffer::Item::Item(propnet::State state, std::vector<Policy> policies, std::vector<ExpectedValue> evs)
-    : state{std::move(state)}, policies{std::move(policies)}, evs{std::move(evs)}
+    : state{state.to_vec<double>()}, policies{std::move(policies)}, evs{std::move(evs)}
 {
 }
 
 ReplayBuffer::Sample ReplayBuffer::sample(std::size_t sample_size) const
 {
+    const auto max_policy_size{propnet.get_max_policy_size()};
+    const auto state_size{static_cast<std::int64_t>(propnet.size())};
+    const auto num_players{static_cast<std::int64_t>(propnet.num_player_roles())};
+
     std::vector<ReplayBuffer::Item> sample_items{};
     std::sample(buffer.begin(), buffer.end(), std::back_inserter(sample_items), sample_size,
                 std::mt19937{std::random_device{}()});
 
-    std::vector<float> linear_states{};
-    std::vector<float> linear_policies{};
-    std::vector<float> linear_evs{};
-    const auto max_policy_size{propnet.get_max_policy_size()};
+    std::vector<torch::Tensor> states{};
+    std::vector<torch::Tensor> policies{};
+    std::vector<torch::Tensor> evs{};
     for (auto &sample_item : sample_items)
     {
-        const auto state{sample_item.state.to_vec<float>()};
-        std::copy(state.begin(), state.end(), std::back_inserter(linear_states));
+        states.push_back(torch::from_blob(sample_item.state.data(), {state_size},
+                                          torch::TensorOptions().device(device).dtype(torch::kFloat32)));
 
+        std::vector<double> linear_policies{};
         for (auto &policy : sample_item.policies)
         {
             std::transform(policy.begin(), policy.end(), std::back_inserter(linear_policies),
@@ -37,25 +41,15 @@ ReplayBuffer::Sample ReplayBuffer::sample(std::size_t sample_size) const
             const auto num_fill{max_policy_size - policy.size()};
             std::fill_n(std::back_inserter(linear_policies), num_fill, 0.0);
         }
+        policies.push_back(torch::from_blob(linear_policies.data(),
+                                            {num_players, static_cast<std::int64_t>(max_policy_size)},
+                                            torch::TensorOptions().device(device).dtype(torch::kFloat64)));
 
-        const auto &evs{sample_item.evs};
-        std::copy(evs.begin(), evs.end(), std::back_inserter(linear_evs));
+        evs.push_back(torch::from_blob(sample_item.evs.data(), {num_players},
+                                       torch::TensorOptions().device(device).dtype(torch::kFloat64)));
     }
 
-    const auto num_players{propnet.num_player_roles()};
-    auto states_tensor{torch::from_blob(
-        linear_states.data(), {static_cast<std::int64_t>(sample_size), static_cast<std::int64_t>(propnet.size())},
-        torch::TensorOptions().device(device).dtype(torch::kFloat32))};
-    auto policies_tensor{
-        torch::from_blob(linear_policies.data(),
-                         {static_cast<std::int64_t>(sample_size), static_cast<std::int64_t>(num_players),
-                          static_cast<std::int64_t>(max_policy_size)},
-                         torch::TensorOptions().device(device).dtype(torch::kFloat64))};
-    auto evs_tensor{torch::from_blob(linear_evs.data(),
-                                     {static_cast<std::int64_t>(sample_size), static_cast<std::int64_t>(num_players)},
-                                     torch::TensorOptions().device(device).dtype(torch::kFloat64))};
-
-    return {.states = std::move(states_tensor), .policies = std::move(policies_tensor), .evs = std::move(evs_tensor)};
+    return {.states = torch::stack(states), .policies = torch::stack(policies), .evs = torch::stack(evs)};
 }
 
 std::size_t ReplayBuffer::size() const
@@ -78,6 +72,8 @@ Network::Network(const propnet::Propnet &propnet)
 
 Network::Eval Network::forward(torch::Tensor x)
 {
+    const auto multiple_states{x.dim() > 1};
+
     /*
     Extract common features
     */
@@ -99,11 +95,12 @@ Network::Eval Network::forward(torch::Tensor x)
     std::vector<torch::Tensor> policies{};
     for (auto &policy_head : policy_heads)
     {
-        policies.push_back(policy_head->forward(x).to(
-            torch::kFloat64)); // TODO: How to take in float64's instead so we don't need to do the conversion
+        auto policy{policy_head->forward(x).to(
+            torch::kFloat64)}; // TODO: How to take in float64's instead so we don't need to do the conversion
+        policies.push_back(multiple_states ? policy.squeeze(1) : std::move(policy));
     }
 
-    return {.evs = std::move(evs), .policies = torch::stack(policies)};
+    return {.evs = std::move(evs), .policies = multiple_states ? torch::cat(policies, 1) : torch::stack(policies)};
 }
 
 torch::nn::Sequential Network::make_features_head(std::size_t input_size, std::size_t hidden_layer_size)
@@ -175,14 +172,33 @@ Model Model::load_game_number(const propnet::Propnet &propnet, std::string_view 
 
     return load_file_path(propnet, game, path);
 }
+
 void Model::enable_training()
 {
+    if (network.is_training())
+    {
+        throw std::logic_error{"Tried to enable training mode whilst already being in training mode"};
+    }
+
     network.train();
+    optimiser = std::make_unique<torch::optim::Adam>(network.parameters());
+    loss_calculator = torch::nn::MSELoss{};
+
+    std::cout << "Model set to training mode\n";
 }
 
-void Model::disable_training()
+void Model::enable_eval()
 {
-    network.train(false);
+    if (!network.is_training())
+    {
+        throw std::logic_error{"Tried to enable evaluation mode whilst already being in evaluation mode"};
+    }
+
+    network.eval();
+    optimiser = nullptr;
+    loss_calculator = nullptr;
+
+    std::cout << "Model set to evaluation mode\n";
 }
 
 ExpectedValue Model::eval_ev(const propnet::State &state, propnet::Role::Id id)
@@ -228,36 +244,44 @@ std::vector<std::vector<Probability>> Model::eval_policies(const propnet::State 
 
 void Model::train(const ReplayBuffer &replay_buffer)
 {
+    if (!network.is_training())
+    {
+        throw std::logic_error{"Tried to train with network not in training mode (Model::enable_training not called)"};
+    }
+
     if (replay_buffer.size() <= BATCH_SIZE)
     {
         return;
     }
 
-    torch::optim::Adam optimiser{network.parameters()};
-    torch::nn::MSELoss loss_calculator{};
-    double total_loss{0};
-
     cache->clear();
+    double total_loss{0};
     for (std::size_t epoch_count{1}; epoch_count <= NUM_EPOCHS; ++epoch_count)
     {
         auto sample{replay_buffer.sample(BATCH_SIZE)};
-        std::cout << "Took sample!\n";
-        std::cout << sample.states << "\n\n\n";
-        std::cout << sample.policies << "\n\n\n";
-        std::cout << sample.evs << "\n\n\n";
 
-        optimiser.zero_grad();
+        optimiser->zero_grad();
 
         auto output{network.forward(sample.states)};
 
         const auto evs_loss{loss_calculator->forward(output.evs, sample.evs)};
+        /*
+        TODO: Currently the policies part of the network isn't being used for anything, so isn't trained
+        const auto policies_loss{loss_calculator->forward(output.policies, sample.policies)};
+        const auto loss{evs_loss + policies_loss};
+        */
+        // const auto loss{evs_loss};
+        std::cout << sample.states << "\n\nMonkey\n\n";
+        std::cout << output.policies << "\n\nMonkey\n\n";
+        std::cout << sample.policies << std::endl;
+
         const auto policies_loss{loss_calculator->forward(output.policies, sample.policies)};
         const auto loss{evs_loss + policies_loss};
         const auto loss_scalar{loss.item<double>()};
         total_loss += loss_scalar;
 
         loss.backward();
-        optimiser.step();
+        optimiser->step();
 
         std::cout << "Epoch " << epoch_count << " loss: " << loss_scalar << '\n';
     }
@@ -295,10 +319,13 @@ std::filesystem::path Model::get_models_path(std::string_view game)
 }
 
 Model::Model(const propnet::Propnet &propnet, std::string_view game, Network &&network)
-    : propnet{propnet}, models_path{get_models_path(game)}, network{network},
-      time_log_file{get_time_log_file_path(models_path)}, start_time_ms{get_time_ms()}, cache{std::make_shared<Cache>()}
+    : propnet{propnet}, models_path{get_models_path(game)}, network{std::move(network)}, optimiser{nullptr},
+      loss_calculator{nullptr}, time_log_file{get_time_log_file_path(models_path)},
+      start_time_ms{get_time_ms()}, cache{std::make_shared<Cache>()}
 {
-    network.to(device);
+    this->network.to(device);
+    this->network.eval();
+    std::cout << "Model created in evaluation mode (default)\n";
 }
 
 Network::Eval Model::eval(const propnet::State &state)
@@ -326,8 +353,7 @@ void Model::log_time(std::size_t game_number)
     const auto num_s{num_ms / 1e3};
 
     time_log_file << "Game number " << std::setfill('0') << std::setw(GAME_NUMBER_WIDTH) << game_number;
-    time_log_file << " took " << num_s << " seconds to reach\n";
-    time_log_file.flush();
+    time_log_file << " took " << num_s << " seconds to reach" << std::endl;
 }
 
 std::string Model::get_file_name(std::size_t game_number)

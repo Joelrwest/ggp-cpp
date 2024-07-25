@@ -24,7 +24,7 @@ class ReplayBuffer
     {
         Item(propnet::State state, std::vector<Policy> policies, std::vector<ExpectedValue> evs);
 
-        propnet::State state;
+        std::vector<double> state;
         std::vector<Policy> policies;
         std::vector<ExpectedValue> evs;
     };
@@ -109,7 +109,7 @@ class Model
     static Model load_game_number(const propnet::Propnet &propnet, std::string_view game, std::size_t game_number);
 
     void enable_training();
-    void disable_training();
+    void enable_eval();
     ExpectedValue eval_ev(const propnet::State &state, propnet::Role::Id id);
     std::vector<ExpectedValue> eval_evs(const propnet::State &state);
     std::vector<Probability> eval_policy(const propnet::State &state, propnet::Role::Id id);
@@ -125,7 +125,7 @@ class Model
     static constexpr auto GAME_NUMBER_WIDTH{6};
     static constexpr auto MODEL_CACHE_SIZE{static_cast<std::size_t>(1e5)};
     static constexpr auto MODEL_NAME_EXTENSION{".ckpt"};
-    static constexpr std::size_t BATCH_SIZE{2};
+    static constexpr std::size_t BATCH_SIZE{5};
     static constexpr std::size_t NUM_EPOCHS{5};
 
     using Cache = misc::Cache<propnet::State, Network::Eval, caches::LRUCachePolicy, MODEL_CACHE_SIZE>;
@@ -145,6 +145,8 @@ class Model
     const propnet::Propnet &propnet;
     std::filesystem::path models_path;
     Network network;
+    std::unique_ptr<torch::optim::Adam> optimiser;
+    torch::nn::MSELoss loss_calculator;
     std::ofstream time_log_file;
     std::chrono::milliseconds start_time_ms;
     std::shared_ptr<Cache> cache;

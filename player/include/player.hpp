@@ -51,8 +51,8 @@ template <DerivedSampler SamplerT = RandomSampler> class Player : public agents:
     static constexpr std::size_t DEFAULT_NUM_THREADS{1};
     static constexpr std::size_t MAX_SAMPLE_SIZE{50};
     static constexpr auto MAX_CFR_ITERATIONS{static_cast<std::size_t>(1e5)};
-    static constexpr std::chrono::seconds MAX_CFR_TIME_S{6};
-    static constexpr std::chrono::seconds MAX_SEARCH_TIME_S{20};
+    static constexpr std::chrono::seconds MAX_CFR_TIME_S{1};
+    static constexpr std::chrono::seconds MAX_SEARCH_TIME_S{2};
 
     static Depth search_depth_limit_heuristic(const propnet::Propnet &propnet);
 

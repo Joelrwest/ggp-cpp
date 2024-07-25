@@ -14,11 +14,11 @@ InputSet::InputSet(const std::unordered_set<PropId> &inputs) : inputs{inputs}
 {
 }
 
-InputSet::InputSet(std::unordered_set<PropId> &&inputs) : inputs{inputs}
+InputSet::InputSet(std::unordered_set<PropId> &&inputs) : inputs{std::move(inputs)}
 {
 }
 
-InputSet::InputSet(std::initializer_list<PropId> &&inputs) : inputs{inputs}
+InputSet::InputSet(std::initializer_list<PropId> &&inputs) : inputs{std::move(inputs)}
 {
 }
 

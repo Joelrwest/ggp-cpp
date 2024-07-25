@@ -107,7 +107,7 @@ std::pair<Client::MessageType, nlohmann::json> Client::read_message()
     std::string input{input_stream_it, std::istreambuf_iterator<char>{}};
 
     /*
-    TODO: I hate my life this wasted so much time.
+    I hate my life this wasted so much time.
     This only works if you do as below (with assignment)
     but not if you you use the constructor like this?? Why????
 

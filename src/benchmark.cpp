@@ -19,7 +19,7 @@ static constexpr auto BLINDTICTACTOE_SAVE_FREQUENCY{2000};
 class BenchmarkLogger
 {
   public:
-    BenchmarkLogger(std::string_view game, std::size_t save_frequency);
+    BenchmarkLogger(std::string_view game, std::size_t save_frequency, std::size_t print_frequency);
 
     void operator()(
         const std::vector<std::reference_wrapper<player::search::InformationSet>> &current_information_sets);
@@ -36,6 +36,7 @@ class BenchmarkLogger
 
     std::string game;
     std::size_t save_frequency;
+    std::size_t print_frequency;
     std::size_t iteration_count;
     nlohmann::json json_log;
     std::chrono::microseconds cumulative_time_taken;
@@ -44,9 +45,11 @@ class BenchmarkLogger
 
 void benchmark(std::string_view game, std::size_t num_iterations);
 void benchmark(std::string_view game, std::size_t num_iterations, std::size_t save_frequency);
+void benchmark(std::string_view game, std::size_t num_iterations, std::size_t save_frequency,
+               std::size_t print_frequency);
 
-BenchmarkLogger::BenchmarkLogger(std::string_view game, std::size_t save_frequency)
-    : game{game}, save_frequency{save_frequency}, iteration_count{0},
+BenchmarkLogger::BenchmarkLogger(std::string_view game, std::size_t save_frequency, std::size_t print_frequency)
+    : game{game}, save_frequency{save_frequency}, print_frequency{print_frequency}, iteration_count{0},
       json_log{{ITERATIONS_KEY, nlohmann::json::array()}}, cumulative_time_taken{0}, last_log_time{get_time_us()}
 {
 }
@@ -72,6 +75,11 @@ void BenchmarkLogger::operator()(
 
     json_log[ITERATIONS_KEY].push_back(std::move(current_log));
 
+    if (iteration_count % print_frequency == 0)
+    {
+        std::cout << "Iteration " << iteration_count << " completed" << std::endl;
+    }
+
     if (iteration_count % save_frequency == 0)
     {
         save();
@@ -89,8 +97,7 @@ void BenchmarkLogger::save() const
     path_stream << ".json";
     const auto path{path_stream.str()};
 
-    std::cout << "Outputting to " << path << '\n';
-    std::cout.flush();
+    std::cout << "Outputting to " << path << std::endl;
 
     std::ofstream output_file{path};
     output_file << json_log;
@@ -114,13 +121,20 @@ void benchmark(std::string_view game, std::size_t num_iterations)
 
 void benchmark(std::string_view game, std::size_t num_iterations, std::size_t save_frequency)
 {
+    const auto print_frequency{save_frequency / 10};
+    benchmark(game, num_iterations, save_frequency, print_frequency);
+}
+
+void benchmark(std::string_view game, std::size_t num_iterations, std::size_t save_frequency,
+               std::size_t print_frequency)
+{
     const propnet::Propnet propnet{setup::load_propnet(game)};
     player::search::FullMCCFR mccfr{propnet};
     const auto initial_state{propnet.create_initial_state()};
 
     auto options{player::search::MCCFR::Options{}
                      .add_iteration_limit(num_iterations)
-                     .add_logger(BenchmarkLogger{game, save_frequency})};
+                     .add_logger(BenchmarkLogger{game, save_frequency, print_frequency})};
     mccfr.search(initial_state, options);
 }
 

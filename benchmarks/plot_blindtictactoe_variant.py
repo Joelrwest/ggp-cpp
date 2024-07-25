@@ -127,7 +127,7 @@ def parse_command_line() -> tuple[str, str]:
     )
     argument_parser.add_argument(
         '-f',
-        '--file',
+        '--file_name',
         dest='file_name',
         required=True,
         type=str,

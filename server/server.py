@@ -66,6 +66,7 @@ def get_command_line_arguments() -> tuple[str, int]:
     argument_parser = ArgumentParser()
     argument_parser.add_argument(
         '-g',
+        '--game',
         dest='game',
         required=True,
         type=str,
@@ -73,6 +74,7 @@ def get_command_line_arguments() -> tuple[str, int]:
     )
     argument_parser.add_argument(
         '-n',
+        '--num_games',
         dest='num_games',
         required=False,
         type=int,

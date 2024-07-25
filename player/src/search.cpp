@@ -1,8 +1,6 @@
 #include "../include/search.hpp"
 #include "../include/model.hpp"
 
-#include <iostream>
-
 namespace player::search
 {
 InformationSet::InformationSet(std::span<const propnet::PropId> legal_inputs)

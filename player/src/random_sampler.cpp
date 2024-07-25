@@ -95,6 +95,11 @@ RandomSampler::History::History(RandomSampler::History &&other)
     invalid_inputs_cache_lock.lock();
     invalid_inputs_cache = std::move(other.invalid_inputs_cache);
     invalid_inputs_cache_lock.unlock();
+
+    /*
+    other's locks are purposely not unlocked.
+    Better to have a deadlock than for something undefined to happen
+    */
 }
 
 RandomSampler::History &RandomSampler::History::operator=(const RandomSampler::History &other)
@@ -124,6 +129,10 @@ RandomSampler::History &RandomSampler::History::operator=(RandomSampler::History
         invalid_inputs_cache = std::move(other.invalid_inputs_cache);
         invalid_inputs_cache_lock.unlock();
     }
+
+    /*
+    Ditto with no unlocking other's locks.
+    */
 
     return *this;
 }
