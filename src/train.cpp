@@ -19,7 +19,7 @@ static constexpr auto DEFAULT_NUM_CONCURRENT_GAMES{1};
 static constexpr auto TIME_LIMIT_COMMAND{"time_limit"};
 static constexpr auto READABLE_TIME_FORMAT{"%X %e %b %Y %Z"};
 static constexpr auto TIME_LOG_FILE_NAME{"time-log.txt"};
-static constexpr std::chrono::seconds MAX_FULL_CFR_TIME_S{2};
+static constexpr std::chrono::seconds MAX_FULL_CFR_TIME_S{3};
 static constexpr std::size_t MIN_GAMES_PER_MODEL_SAVE{100};
 
 std::function<bool()> get_time_limit_function(std::optional<std::size_t> time_limit);
@@ -115,7 +115,7 @@ void train(std::size_t num_concurrent_games, const std::function<bool()> &time_l
     player::ReplayBuffer replay_buffer{propnet};
     auto model{setup::load_model(propnet, game)};
     model.enable_training();
-    model.eval_evs(propnet.create_initial_state());
+    std::cout << model.eval_evs(propnet.create_initial_state()) << '\n';
     std::cout << '\n';
 
     // const auto hardware_threads{std::thread::hardware_concurrency()}; // TODO
@@ -146,7 +146,7 @@ void train(std::size_t num_concurrent_games, const std::function<bool()> &time_l
         model.train(replay_buffer);
 
         game_number += num_concurrent_games;
-        std::cout << game_number << " game(s) played\n";
+        std::cout << std::setfill(' ') << std::setw(4) << game_number << " game(s) played\n";
 
         const auto games_since_last_save{game_number - last_save_game_number};
         if (games_since_last_save >= MIN_GAMES_PER_MODEL_SAVE)

@@ -9,4 +9,4 @@ add_library(propnet STATIC src/nodes.cpp src/input_set.cpp src/propnet.cpp src/v
 target_include_directories(propnet PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 target_link_libraries(propnet PUBLIC nlohmann_json::nlohmann_json)
-target_compile_options(propnet PRIVATE -O3 -Wall -Wextra -Wpedantic -Werror)
+target_compile_options(propnet PRIVATE -Wall -Wextra -Wpedantic -Werror)

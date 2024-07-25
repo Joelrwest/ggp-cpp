@@ -124,8 +124,8 @@ class Model
     static constexpr auto MODEL_NAME_BASE{"game-num-"};
     static constexpr auto GAME_NUMBER_WIDTH{6};
     static constexpr auto MODEL_CACHE_SIZE{static_cast<std::size_t>(1e5)};
-    static constexpr auto MODEL_NAME_EXTENSION{".ckpt"};
-    static constexpr std::size_t BATCH_SIZE{5};
+    static constexpr auto MODEL_NAME_EXTENSION{".pt"};
+    static constexpr std::size_t BATCH_SIZE{64};
     static constexpr std::size_t NUM_EPOCHS{5};
 
     using Cache = misc::Cache<propnet::State, Network::Eval, caches::LRUCachePolicy, MODEL_CACHE_SIZE>;

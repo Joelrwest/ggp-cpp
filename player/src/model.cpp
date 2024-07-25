@@ -72,7 +72,7 @@ Network::Network(const propnet::Propnet &propnet)
 
 Network::Eval Network::forward(torch::Tensor x)
 {
-    const auto multiple_states{x.dim() > 1};
+    // const auto multiple_states{x.dim() > 1};
 
     /*
     Extract common features
@@ -97,10 +97,11 @@ Network::Eval Network::forward(torch::Tensor x)
     {
         auto policy{policy_head->forward(x).to(
             torch::kFloat64)}; // TODO: How to take in float64's instead so we don't need to do the conversion
-        policies.push_back(multiple_states ? policy.squeeze(1) : std::move(policy));
+        // policies.push_back(multiple_states ? policy.unsqueeze(1) : std::move(policy));
+        policies.push_back(std::move(policy));
     }
-
-    return {.evs = std::move(evs), .policies = multiple_states ? torch::cat(policies, 1) : torch::stack(policies)};
+    return {.evs = std::move(evs), .policies = torch::stack(policies)};
+    // return {.evs = std::move(evs), .policies = multiple_states ? torch::cat(policies, 1) : torch::stack(policies)};
 }
 
 torch::nn::Sequential Network::make_features_head(std::size_t input_size, std::size_t hidden_layer_size)
@@ -120,7 +121,7 @@ torch::nn::Sequential Network::make_features_head(std::size_t input_size, std::s
 
 torch::nn::Sequential Network::make_evs_head(std::size_t hidden_layer_size, std::size_t num_player_roles)
 {
-    return torch::nn::Sequential{torch::nn::Linear{hidden_layer_size, num_player_roles}, torch::nn::Sigmoid{}};
+    return torch::nn::Sequential{torch::nn::Linear{hidden_layer_size, num_player_roles}};
 }
 
 torch::nn::Sequential Network::make_common_policy_head(std::size_t hidden_layer_size)
@@ -265,18 +266,15 @@ void Model::train(const ReplayBuffer &replay_buffer)
         auto output{network.forward(sample.states)};
 
         const auto evs_loss{loss_calculator->forward(output.evs, sample.evs)};
+
+        std::cout << "Output\n" << output.evs[0] << "\nSample\n" << sample.evs[0] << '\n';
         /*
         TODO: Currently the policies part of the network isn't being used for anything, so isn't trained
-        const auto policies_loss{loss_calculator->forward(output.policies, sample.policies)};
-        const auto loss{evs_loss + policies_loss};
-        */
-        // const auto loss{evs_loss};
-        std::cout << sample.states << "\n\nMonkey\n\n";
-        std::cout << output.policies << "\n\nMonkey\n\n";
-        std::cout << sample.policies << std::endl;
 
         const auto policies_loss{loss_calculator->forward(output.policies, sample.policies)};
-        const auto loss{evs_loss + policies_loss};
+        const auto loss{EVS_LOSS_WEIGHT * evs_loss + POLICIES_LOSS_WEIGHT * policies_loss};
+        */
+        const auto loss{evs_loss};
         const auto loss_scalar{loss.item<double>()};
         total_loss += loss_scalar;
 
@@ -291,15 +289,12 @@ void Model::train(const ReplayBuffer &replay_buffer)
 
 void Model::save(std::size_t game_number)
 {
-    torch::serialize::OutputArchive output_archive{};
-    network.save(output_archive);
-
     const auto file_name{get_file_name(game_number)};
 
     auto file_path{models_path};
     file_path.append(file_name);
 
-    output_archive.save_to(file_path);
+    // torch::save(network, file_path);
 
     log_time(game_number);
 
@@ -326,6 +321,7 @@ Model::Model(const propnet::Propnet &propnet, std::string_view game, Network &&n
     this->network.to(device);
     this->network.eval();
     std::cout << "Model created in evaluation mode (default)\n";
+    std::cout << "Model loaded onto device " << device << '\n';
 }
 
 Network::Eval Model::eval(const propnet::State &state)
@@ -398,9 +394,7 @@ std::chrono::milliseconds Model::get_time_ms()
 Model Model::load_file_path(const propnet::Propnet &propnet, std::string_view game, const std::filesystem::path &path)
 {
     Network network{propnet};
-    torch::serialize::InputArchive input_archive{};
-    input_archive.load_from(path);
-    network.load(input_archive);
+    // torch::load(network, path);
 
     return Model{propnet, game, std::move(network)};
 }

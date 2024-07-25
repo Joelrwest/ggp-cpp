@@ -5,4 +5,4 @@ target_include_directories(agents PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 target_link_libraries(agents PUBLIC propnet)
 target_link_libraries(agents PUBLIC caches)
-target_compile_options(agents PRIVATE -O3 -Wall -Wextra -Wpedantic -Werror)
+target_compile_options(agents PRIVATE -Wall -Wextra -Wpedantic -Werror)
