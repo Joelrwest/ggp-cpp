@@ -17,6 +17,7 @@
 static constexpr auto NUM_CONCURRENT_GAMES_COMMAND{"num_concurrent_games"};
 static constexpr auto DEFAULT_NUM_CONCURRENT_GAMES{1};
 static constexpr auto TIME_LIMIT_COMMAND{"time_limit"};
+static constexpr auto MODEL_GAME_NUMBER_COMMAND{"model-number"};
 static constexpr auto READABLE_TIME_FORMAT{"%X %e %b %Y %Z"};
 static constexpr auto TIME_LOG_FILE_NAME{"time-log.txt"};
 static constexpr std::chrono::seconds MAX_FULL_CFR_TIME_S{3};
@@ -24,7 +25,8 @@ static constexpr std::size_t MIN_GAMES_PER_MODEL_SAVE{100};
 
 std::function<bool()> get_time_limit_function(std::optional<std::size_t> time_limit);
 std::string to_readable_time(const std::chrono::time_point<std::chrono::system_clock> &time_point);
-void train(std::size_t num_concurrent_games, const std::function<bool()> &time_limit_function, std::string_view game);
+void train(std::size_t num_concurrent_games, const std::function<bool()> &time_limit_function, std::string_view game,
+           std::optional<std::size_t> model_game_num);
 void play_concurrent_games(const propnet::Propnet &propnet, player::ReplayBuffer &replay_buffer,
                            std::vector<std::vector<player::Player<>>> &all_players,
                            std::vector<std::optional<agents::RandomAgent>> &all_random);
@@ -52,12 +54,14 @@ int main(int argc, char **argv)
     std::size_t num_concurrent_games;
     std::size_t time_limit;
     std::string game{};
+    std::size_t game_number;
     auto options_description{setup::create_base_program_options(game)};
     options_description.add_options()(
         NUM_CONCURRENT_GAMES_COMMAND,
         po::value<std::size_t>(&num_concurrent_games)->default_value(DEFAULT_NUM_CONCURRENT_GAMES),
         "set number of games to play concurrently for training")(
-        TIME_LIMIT_COMMAND, po::value<std::size_t>(&time_limit), "maximum time allowed to train (in minutes)");
+        TIME_LIMIT_COMMAND, po::value<std::size_t>(&time_limit), "maximum time allowed to train (in minutes)")(
+        MODEL_GAME_NUMBER_COMMAND, po::value<std::size_t>(&game_number), "game number to load model from");
 
     const auto variables_map{setup::parse_program_options(options_description, argc, argv)};
     std::cout << "Training with " << num_concurrent_games << " concurrent game(s)\n\n";
@@ -65,13 +69,15 @@ int main(int argc, char **argv)
     const auto is_time_limit{variables_map.contains(TIME_LIMIT_COMMAND)};
     const auto time_limit_function{
         get_time_limit_function(is_time_limit ? std::optional<std::size_t>{time_limit} : std::nullopt)};
+    const auto is_model_game_number{variables_map.contains(MODEL_GAME_NUMBER_COMMAND)};
+    const auto model_game_number{is_model_game_number ? std::optional<std::size_t>{game_number} : std::nullopt};
 
     // TODO: Setup so that multiple games can actually be played
     if (num_concurrent_games != 1)
     {
         throw std::logic_error{"Not set up to work for more than 1 game currently"};
     }
-    train(num_concurrent_games, time_limit_function, game);
+    train(num_concurrent_games, time_limit_function, game, model_game_number);
 
     std::cout << "Training complete!\n";
 
@@ -107,13 +113,15 @@ std::string to_readable_time(const std::chrono::time_point<std::chrono::system_c
     return readable_time.str();
 }
 
-void train(std::size_t num_concurrent_games, const std::function<bool()> &time_limit_function, std::string_view game)
+void train(std::size_t num_concurrent_games, const std::function<bool()> &time_limit_function, std::string_view game,
+           std::optional<std::size_t> model_game_number)
 {
     const auto propnet{setup::load_propnet(game)};
     std::cout << '\n';
 
     player::ReplayBuffer replay_buffer{propnet};
-    auto model{setup::load_model(propnet, game)};
+    auto model{model_game_number.has_value() ? player::Model::load_game_number(propnet, game, *model_game_number)
+                                             : player::Model{propnet, game}};
     model.enable_training();
     std::cout << model.eval_evs(propnet.create_initial_state()) << '\n';
     std::cout << '\n';
