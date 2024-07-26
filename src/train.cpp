@@ -165,6 +165,7 @@ void train(std::size_t num_concurrent_games, const std::function<bool()> &time_l
             std::cout << "Saved on game number " << game_number << "\n\n";
             last_save_game_number = game_number;
         }
+        std::cout << "Current initial state\n\n" << model.eval_evs(propnet.create_initial_state()) << "\n\n";
     }
 }
 
