@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.11 FATAL_ERROR)
 set(Torch_DIR "~/libtorch/share/cmake/Torch")
 find_package(Torch REQUIRED)
 
-add_library(player STATIC src/bogo_random_sampler.cpp src/search.cpp src/random_sampler.cpp src/policy_sampler.cpp src/model.cpp)
+add_library(player STATIC src/bogo_random_sampler.cpp src/search.cpp src/misc.cpp src/random_sampler.cpp src/policy_sampler.cpp src/model.cpp)
 
 target_include_directories(player PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 

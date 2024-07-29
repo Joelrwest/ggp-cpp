@@ -43,7 +43,7 @@ std::ostream &operator<<(std::ostream &os, const State &state)
         os << ", ";
     }
 
-    const auto id_width{std::ceil(std::log10(size))};
+    const auto id_width{static_cast<std::size_t>(std::ceil(std::log10(size)))};
     for (auto id{0u}; id < size; ++id)
     {
         os << (state.state.at(id) ? "\033[1;32m" : "\033[1;31m");

@@ -5,6 +5,7 @@
 #include <cache.hpp>
 
 #include <cstdint>
+#include <optional>
 #include <random>
 #include <span>
 #include <unordered_set>
@@ -61,6 +62,43 @@ class Cache : public UnderlyingCache<KeyT, ValueT, PolicyT>
     Cache();
 
     void clear();
+};
+
+class TimeOption
+{
+  public:
+    TimeOption();
+    TimeOption(const TimeOption &other) = default;
+    TimeOption(TimeOption &&other) = default;
+
+    TimeOption &operator=(const TimeOption &other) = default;
+    TimeOption &operator=(TimeOption &&other) = default;
+
+    template <typename T> void add(T duration);
+    std::function<bool()> get_function() const;
+
+  private:
+    inline static const auto always_time_remaining_function{[]() { return true; }};
+
+  public:
+    std::optional<std::chrono::milliseconds> time_limit;
+};
+
+class IterationLimitOption
+{
+  public:
+    IterationLimitOption();
+    IterationLimitOption(const IterationLimitOption &other) = default;
+    IterationLimitOption(IterationLimitOption &&other) = default;
+
+    IterationLimitOption &operator=(const IterationLimitOption &other) = default;
+    IterationLimitOption &operator=(IterationLimitOption &&other) = default;
+
+    void add(std::size_t num_iterations);
+    std::size_t get() const;
+
+  private:
+    std::size_t iteration_limit;
 };
 
 template <typename T>
@@ -199,5 +237,10 @@ template <typename KeyT, typename ValueT, template <typename> typename PolicyT, 
 void Cache<KeyT, ValueT, PolicyT, SIZE>::clear()
 {
     this->Clear();
+}
+
+template <typename T> void TimeOption::add(T duration)
+{
+    time_limit.emplace(std::chrono::duration_cast<std::chrono::milliseconds>(duration));
 }
 } // namespace player::misc

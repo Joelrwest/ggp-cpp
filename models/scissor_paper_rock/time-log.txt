@@ -1,1 +1,1 @@
-Game number 000100 took 300.026 seconds to reach
+Game number 000100 took 75.642 seconds to reach

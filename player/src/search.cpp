@@ -90,22 +90,8 @@ std::pair<Policy, ExpectedValue> InformationSet::normalise() const
     return std::make_pair(std::move(policy), ev);
 }
 
-MCCFR::Options::Options()
-    : iteration_limit{std::numeric_limits<decltype(iteration_limit)>::max()},
-      time_limit{std::nullopt}, logger{default_logger}
+MCCFR::Options::Options() : logger{default_logger}, time_limit_option{}, iteration_limit_option{}
 {
-}
-
-MCCFR::Options &MCCFR::Options::add_iteration_limit(std::size_t num_iterations)
-{
-    iteration_limit = num_iterations;
-    return *this;
-}
-
-MCCFR::Options &MCCFR::Options::add_time_limit(std::chrono::seconds duration)
-{
-    time_limit.emplace(duration);
-    return *this;
 }
 
 MCCFR::Options &MCCFR::Options::add_logger(LoggerFunction &&logger)
@@ -114,28 +100,25 @@ MCCFR::Options &MCCFR::Options::add_logger(LoggerFunction &&logger)
     return *this;
 }
 
-std::size_t MCCFR::Options::get_iteration_limit() const
+MCCFR::Options &MCCFR::Options::add_iteration_limit(std::size_t num_iterations)
 {
-    return iteration_limit;
-}
-
-std::function<bool()> MCCFR::Options::get_time_remaining_function() const
-{
-    if (time_limit.has_value())
-    {
-        return [end_time = std::chrono::system_clock::now() + *time_limit]() {
-            return std::chrono::system_clock::now() < end_time;
-        };
-    }
-    else
-    {
-        return always_time_remaining_function;
-    }
+    iteration_limit_option.add(num_iterations);
+    return *this;
 }
 
 MCCFR::Options::LoggerFunction &MCCFR::Options::get_logger()
 {
     return logger;
+}
+
+std::function<bool()> MCCFR::Options::get_time_remaining_function() const
+{
+    return time_limit_option.get_function();
+}
+
+std::size_t MCCFR::Options::get_iteration_limit() const
+{
+    return iteration_limit_option.get();
 }
 
 std::vector<std::pair<Policy, ExpectedValue>> MCCFR::search(const propnet::State &state)
@@ -160,7 +143,8 @@ std::vector<std::pair<Policy, ExpectedValue>> MCCFR::search(const propnet::State
 
     const auto time_remaining_function{options.get_time_remaining_function()};
     auto &logger{options.get_logger()};
-    for (std::size_t iteration_count{1}; iteration_count <= options.get_iteration_limit() && time_remaining_function();
+    const auto iteration_limit{options.get_iteration_limit()};
+    for (std::size_t iteration_count{1}; iteration_count <= iteration_limit && time_remaining_function();
          ++iteration_count)
     {
         /*

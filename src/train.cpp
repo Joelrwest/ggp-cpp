@@ -14,14 +14,36 @@
 #include <string>
 #include <thread>
 
-static constexpr auto NUM_CONCURRENT_GAMES_COMMAND{"num_concurrent_games"};
+static constexpr auto NUM_CONCURRENT_GAMES_COMMAND{"concurrent-games"};
 static constexpr auto DEFAULT_NUM_CONCURRENT_GAMES{1};
 static constexpr auto TIME_LIMIT_COMMAND{"time-limit"};
 static constexpr auto MODEL_GAME_NUMBER_COMMAND{"model-number"};
 static constexpr auto READABLE_TIME_FORMAT{"%X %e %b %Y %Z"};
 static constexpr auto TIME_LOG_FILE_NAME{"time-log.txt"};
+
+/*
+Full CFR constant
+*/
 static constexpr std::chrono::seconds MAX_FULL_CFR_TIME_S{3};
+
+/*
+Game saving
+*/
 static constexpr std::size_t MIN_GAMES_PER_MODEL_SAVE{100};
+
+/*
+Player constants
+*/
+static constexpr std::size_t MAX_PLAYER_SAMPLE_SIZE{50};
+static constexpr auto MAX_PLAYER_CFR_ITERATIONS{static_cast<std::size_t>(1e8)};
+static constexpr std::chrono::seconds MAX_PLAYER_CFR_TIME_S{3};
+static constexpr std::chrono::seconds MAX_PLAYER_TOTAL_SEARCH_TIME_S{3};
+
+/*
+Training constants
+*/
+static constexpr std::size_t BATCH_SIZE{128};
+static constexpr std::size_t NUM_EPOCHS{5};
 
 std::function<bool()> get_time_limit_function(std::optional<std::size_t> time_limit);
 std::string to_readable_time(const std::chrono::time_point<std::chrono::system_clock> &time_point);
@@ -64,6 +86,7 @@ int main(int argc, char **argv)
         MODEL_GAME_NUMBER_COMMAND, po::value<std::size_t>(&game_number), "game number to load model from");
 
     const auto variables_map{setup::parse_program_options(options_description, argc, argv)};
+
     std::cout << "Training with " << num_concurrent_games << " concurrent game(s)\n\n";
 
     const auto is_time_limit{variables_map.contains(TIME_LIMIT_COMMAND)};
@@ -72,11 +95,6 @@ int main(int argc, char **argv)
     const auto is_model_game_number{variables_map.contains(MODEL_GAME_NUMBER_COMMAND)};
     const auto model_game_number{is_model_game_number ? std::optional<std::size_t>{game_number} : std::nullopt};
 
-    // TODO: Setup so that multiple games can actually be played
-    if (num_concurrent_games != 1)
-    {
-        throw std::logic_error{"Not set up to work for more than 1 game currently"};
-    }
     train(num_concurrent_games, time_limit_function, game, model_game_number);
 
     std::cout << "Training complete!\n";
@@ -124,19 +142,27 @@ void train(std::size_t num_concurrent_games, const std::function<bool()> &time_l
                                              : player::Model{propnet, game}};
     std::cout << '\n';
 
-    // const auto hardware_threads{std::thread::hardware_concurrency()}; // TODO
-    // const auto threads_per_player{hardware_threads / (2 * propnet.num_player_roles())};
-    const auto threads_per_player{1};
-    std::cout << "Using " << threads_per_player << " threads per player\n\n";
+    const auto hardware_threads{std::thread::hardware_concurrency()};
+    const auto num_threads{num_concurrent_games * (propnet.num_player_roles() + 1)};
+    if (num_threads > 1.5 * hardware_threads)
+    {
+        std::cout << "Warning: Playing with significantly more threads (" << num_threads << ") ";
+        std::cout << "than there are hardware threads (" << hardware_threads << ")\n";
+    }
 
     std::vector<std::vector<player::Player<>>> all_players{};
     std::vector<std::optional<agents::RandomAgent>> all_random{};
+    const auto player_options{player::Player<>::Options{}
+                                  .add_cfr_iteration_limit(MAX_PLAYER_CFR_ITERATIONS)
+                                  .add_cfr_time_limit(MAX_PLAYER_CFR_TIME_S)
+                                  .add_max_sample_size(MAX_PLAYER_SAMPLE_SIZE)
+                                  .add_total_time_limit(MAX_PLAYER_TOTAL_SEARCH_TIME_S)};
     for (std::size_t game_count{0}; game_count < num_concurrent_games; ++game_count)
     {
         std::vector<player::Player<>> players{};
         for (const auto &role : propnet.get_player_roles())
         {
-            players.emplace_back(role, propnet, model, threads_per_player);
+            players.emplace_back(role, propnet, model, player_options);
         }
         all_players.push_back(std::move(players));
 
@@ -149,10 +175,10 @@ void train(std::size_t num_concurrent_games, const std::function<bool()> &time_l
     while (time_limit_function())
     {
         play_concurrent_games(propnet, replay_buffer, all_players, all_random);
-        model.train(replay_buffer);
+        model.train(replay_buffer, BATCH_SIZE, num_concurrent_games * NUM_EPOCHS);
 
         game_number += num_concurrent_games;
-        std::cout << std::setfill(' ') << std::setw(4) << game_number << " game(s) played\n";
+        std::cout << std::setfill(' ') << std::setw(5) << game_number << " game(s) played\n";
 
         const auto games_since_last_save{game_number - last_save_game_number};
         if (games_since_last_save >= MIN_GAMES_PER_MODEL_SAVE)

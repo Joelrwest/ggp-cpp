@@ -45,22 +45,27 @@ class MCCFR
         using LoggerFunction = std::function<void(const std::vector<std::reference_wrapper<InformationSet>> &)>;
 
         Options();
+        Options(const Options &other) = default;
+        Options(Options &&other) = default;
 
-        Options &add_iteration_limit(std::size_t num_iterations);
-        Options &add_time_limit(std::chrono::seconds duration);
+        Options &operator=(const Options &other) = default;
+        Options &operator=(Options &&other) = default;
+
         Options &add_logger(LoggerFunction &&logger);
-
-        std::size_t get_iteration_limit() const;
-        std::function<bool()> get_time_remaining_function() const;
         LoggerFunction &get_logger();
+
+        template <typename T> Options &add_time_limit(T duration);
+        std::function<bool()> get_time_remaining_function() const;
+
+        Options &add_iteration_limit(std::size_t iteration_limit);
+        std::size_t get_iteration_limit() const;
 
       private:
         inline static const auto default_logger{[](const auto &) {}};
-        inline static const auto always_time_remaining_function{[]() { return true; }};
 
-        std::size_t iteration_limit;
-        std::optional<std::chrono::seconds> time_limit;
         LoggerFunction logger;
+        misc::TimeOption time_limit_option;
+        misc::IterationLimitOption iteration_limit_option;
     };
 
     std::vector<std::pair<Policy, ExpectedValue>> search(const propnet::State &state);
@@ -103,4 +108,10 @@ class DepthLimitedMCCFR : public MCCFR
   public:
     DepthLimitedMCCFR(const propnet::Propnet &propnet, Model &model, Depth depth_limit);
 };
+
+template <typename T> MCCFR::Options &MCCFR::Options::add_time_limit(T duration)
+{
+    time_limit_option.add(duration);
+    return *this;
+}
 } // namespace player::search

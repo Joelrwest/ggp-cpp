@@ -2,11 +2,11 @@
 
 #include <torch/script.h>
 
+namespace player
+{
 inline static const torch::Device device{torch::cuda::is_available() ? torch::kCUDA : torch::kCPU};
 inline static const torch::ScalarType dtype{torch::kFloat64};
 
-namespace player
-{
 ReplayBuffer::ReplayBuffer(const propnet::Propnet &propnet) : propnet{propnet}, buffer{}
 {
 }
@@ -59,7 +59,7 @@ std::size_t ReplayBuffer::size() const
 }
 
 Network::Network(const propnet::Propnet &propnet)
-    : input_size{propnet.size()}, hidden_layer_size{input_size},
+    : input_size{propnet.size()}, hidden_layer_size{2 * input_size},
       features_head{register_module(FEATURES_HEAD_NAME, make_features_head(input_size, hidden_layer_size))},
       evs_head{register_module(EVS_HEAD_NAME, make_evs_head(hidden_layer_size, propnet.num_player_roles()))},
       common_policy_head{register_module(COMMON_POLICY_HEAD_NAME, make_common_policy_head(hidden_layer_size))},
@@ -220,9 +220,9 @@ std::vector<std::vector<Probability>> Model::eval_policies(const propnet::State 
     return policies;
 }
 
-void Model::train(const ReplayBuffer &replay_buffer)
+void Model::train(const ReplayBuffer &replay_buffer, std::size_t batch_size, std::size_t num_epochs)
 {
-    if (replay_buffer.size() <= BATCH_SIZE)
+    if (replay_buffer.size() <= batch_size)
     {
         return;
     }
@@ -231,9 +231,9 @@ void Model::train(const ReplayBuffer &replay_buffer)
     cache->clear();
 
     double total_loss{0};
-    for (std::size_t epoch_count{1}; epoch_count <= NUM_EPOCHS; ++epoch_count)
+    for (std::size_t epoch_count{1}; epoch_count <= num_epochs; ++epoch_count)
     {
-        auto sample{replay_buffer.sample(BATCH_SIZE)};
+        auto sample{replay_buffer.sample(batch_size)};
 
         optimiser.zero_grad();
 

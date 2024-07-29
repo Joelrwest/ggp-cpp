@@ -118,7 +118,7 @@ class Model
     std::vector<Probability> eval_policy(const propnet::State &state, propnet::Role::Id id);
     std::vector<std::vector<Probability>> eval_policies(const propnet::State &state);
 
-    void train(const ReplayBuffer &replay_buffer);
+    void train(const ReplayBuffer &replay_buffer, std::size_t batch_size, std::size_t num_epochs);
     void save(std::size_t game_number);
 
     static std::filesystem::path get_models_path(std::string_view game);
@@ -129,8 +129,6 @@ class Model
     static constexpr auto GAME_NUMBER_WIDTH{6};
     static constexpr auto MODEL_CACHE_SIZE{static_cast<std::size_t>(1e5)};
     static constexpr auto MODEL_EXTENSION{".pt"};
-    static constexpr std::size_t BATCH_SIZE{128};
-    static constexpr std::size_t NUM_EPOCHS{5};
 
     using Cache = misc::Cache<propnet::State, Network::Eval, caches::LRUCachePolicy, MODEL_CACHE_SIZE>;
 
