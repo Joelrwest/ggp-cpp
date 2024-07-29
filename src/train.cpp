@@ -199,24 +199,26 @@ void play_game(const propnet::Propnet &propnet, player::ReplayBuffer &replay_buf
 
     while (!propnet.is_game_over(state))
     {
-        auto cfr_future{std::async(std::launch::async, [&propnet, state]() {
+        const auto state_copy{state};
+
+        auto cfr_future{std::async(std::launch::async, [&propnet, &state_copy]() {
             static auto options{player::search::MCCFR::Options{}.add_time_limit(MAX_FULL_CFR_TIME_S)};
 
             player::search::FullMCCFR mccfr{propnet};
-            return mccfr.search(state, options);
+            return mccfr.search(state_copy, options);
         })};
 
         std::vector<std::future<propnet::PropId>> input_futures{};
         for (auto &player : players)
         {
-            input_futures.push_back(
-                std::async(std::launch::async, [&player, &state]() { return player.get_legal_input(state); }));
+            input_futures.push_back(std::async(
+                std::launch::async, [&player, &state_copy]() { return player.get_legal_input(state_copy); }));
         }
 
         propnet::InputSet inputs{};
         if (random.has_value())
         {
-            const auto input{random->get_legal_input(state)};
+            const auto input{random->get_legal_input(state_copy)};
             inputs.add(input);
         }
 
@@ -246,7 +248,7 @@ void play_game(const propnet::Propnet &propnet, player::ReplayBuffer &replay_buf
 
         {
             std::lock_guard replay_buffer_guard{replay_buffer_lock};
-            replay_buffer.add(state, std::move(policies), std::move(values));
+            replay_buffer.add(std::move(state_copy), std::move(policies), std::move(values));
         }
     }
 }

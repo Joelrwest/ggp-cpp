@@ -24,7 +24,7 @@ class ReplayBuffer
     {
         Item(propnet::State state, std::vector<Policy> policies, std::vector<ExpectedValue> evs);
 
-        propnet::State state;
+        std::vector<double> state;
         std::vector<Policy> policies;
         std::vector<ExpectedValue> evs;
     };
@@ -85,14 +85,14 @@ class Network : public torch::nn::Module
     static constexpr auto POLICY_HEAD_PREFIX{"policy-"};
 
     static torch::nn::Sequential make_features_head(std::size_t input_size, std::size_t hidden_layer_size);
-    static torch::nn::Sequential make_evs_head(std::size_t hidden_layer_size, std::size_t num_player_roles);
+    static torch::nn::Linear make_evs_head(std::size_t hidden_layer_size, std::size_t num_player_roles);
     static torch::nn::Sequential make_common_policy_head(std::size_t hidden_layer_size);
     torch::nn::Sequential make_policy_head(std::size_t max_policy_size) const;
 
     std::size_t input_size;
     std::size_t hidden_layer_size;
     torch::nn::Sequential features_head;
-    torch::nn::Sequential evs_head;
+    torch::nn::Linear evs_head;
     torch::nn::Sequential common_policy_head;
     std::vector<torch::nn::Sequential> policy_heads;
 };
@@ -129,8 +129,8 @@ class Model
     static constexpr auto GAME_NUMBER_WIDTH{6};
     static constexpr auto MODEL_CACHE_SIZE{static_cast<std::size_t>(1e5)};
     static constexpr auto MODEL_EXTENSION{".pt"};
-    static constexpr std::size_t BATCH_SIZE{16};
-    static constexpr std::size_t NUM_EPOCHS{2};
+    static constexpr std::size_t BATCH_SIZE{128};
+    static constexpr std::size_t NUM_EPOCHS{5};
 
     using Cache = misc::Cache<propnet::State, Network::Eval, caches::LRUCachePolicy, MODEL_CACHE_SIZE>;
 

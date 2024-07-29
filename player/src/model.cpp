@@ -2,16 +2,17 @@
 
 #include <torch/script.h>
 
+inline static const torch::Device device{torch::cuda::is_available() ? torch::kCUDA : torch::kCPU};
+inline static const torch::ScalarType dtype{torch::kFloat64};
+
 namespace player
 {
-static const torch::Device device{torch::cuda::is_available() ? torch::kCUDA : torch::kCPU};
-
 ReplayBuffer::ReplayBuffer(const propnet::Propnet &propnet) : propnet{propnet}, buffer{}
 {
 }
 
 ReplayBuffer::Item::Item(propnet::State state, std::vector<Policy> policies, std::vector<ExpectedValue> evs)
-    : state{std::move(state)}, policies{std::move(policies)}, evs{std::move(evs)}
+    : state{state.to_vec<double>()}, policies{std::move(policies)}, evs{std::move(evs)}
 {
 }
 
@@ -30,9 +31,8 @@ ReplayBuffer::Sample ReplayBuffer::sample(std::size_t sample_size) const
     std::vector<torch::Tensor> evs{};
     for (auto &sample_item : sample_items)
     {
-        auto state_vec{sample_item.state.to_vec<float>()};
-        states.push_back(torch::from_blob(state_vec.data(), {state_size},
-                                          torch::TensorOptions().device(device).dtype(torch::kFloat32)));
+        states.push_back(torch::from_blob(sample_item.state.data(), {state_size},
+                                          torch::TensorOptions().device(device).dtype(dtype)));
 
         std::vector<double> linear_policies{};
         for (auto &policy : sample_item.policies)
@@ -44,10 +44,10 @@ ReplayBuffer::Sample ReplayBuffer::sample(std::size_t sample_size) const
         }
         policies.push_back(torch::from_blob(linear_policies.data(),
                                             {num_players, static_cast<std::int64_t>(max_policy_size)},
-                                            torch::TensorOptions().device(device).dtype(torch::kFloat64)));
+                                            torch::TensorOptions().device(device).dtype(dtype)));
 
         evs.push_back(torch::from_blob(sample_item.evs.data(), {num_players},
-                                       torch::TensorOptions().device(device).dtype(torch::kFloat64)));
+                                       torch::TensorOptions().device(device).dtype(dtype)));
     }
 
     return {.states = torch::stack(states), .policies = torch::stack(policies), .evs = torch::stack(evs)};
@@ -84,13 +84,7 @@ Network::Eval Network::forward(torch::Tensor x)
     /*
     Get evs for each role
     */
-    auto evs{evs_head->forward(x).to(
-        torch::kFloat64)}; // TODO: How to take in float64's instead so we don't need to do the conversion
-
-    /*
-    Common extra layer before each role gets a policy
-    */
-    x = common_policy_head->forward(x);
+    auto evs{evs_head->forward(x)};
 
     /*
     Get policies for each role
@@ -99,11 +93,13 @@ Network::Eval Network::forward(torch::Tensor x)
     TODO: Not yet implemented...
     const auto multiple_states{x.dim() > 1};
 
+    Common extra layer before each role gets a policy
+    x = common_policy_head->forward(x);
+
     std::vector<torch::Tensor> policies{};
     for (auto &policy_head : policy_heads)
     {
-        auto policy{policy_head->forward(x).to(
-            torch::kFloat64)};
+        auto policy{policy_head->forward(x).to(dtype)};
         policies.push_back(multiple_states ? policy.unsqueeze(1) : std::move(policy));
     }
 
@@ -128,9 +124,9 @@ torch::nn::Sequential Network::make_features_head(std::size_t input_size, std::s
                                  torch::nn::Dropout{DROPOUT_ZERO_PROBABILITY}};
 }
 
-torch::nn::Sequential Network::make_evs_head(std::size_t hidden_layer_size, std::size_t num_player_roles)
+torch::nn::Linear Network::make_evs_head(std::size_t hidden_layer_size, std::size_t num_player_roles)
 {
-    return torch::nn::Sequential{torch::nn::Linear{hidden_layer_size, num_player_roles}};
+    return torch::nn::Linear{hidden_layer_size, num_player_roles};
 }
 
 torch::nn::Sequential Network::make_common_policy_head(std::size_t hidden_layer_size)
@@ -245,7 +241,6 @@ void Model::train(const ReplayBuffer &replay_buffer)
 
         const auto evs_loss{loss_calculator->forward(output.evs, sample.evs)};
         evs_loss.backward();
-
         /*
         TODO: Currently the policies part of the network isn't being used for anything, so isn't trained
 
@@ -305,10 +300,13 @@ Model::Model(const propnet::Propnet &propnet, std::string_view game, Network &&n
       optimiser{this->network.parameters()}, loss_calculator{}, time_log_file{get_time_log_file_path(models_path)},
       start_time_ms{get_time_ms()}, cache{std::make_shared<Cache>()}
 {
-    this->network.to(device);
+    this->network.to(device, dtype);
+    std::cout << "Model loaded onto device '" << device << "' with dtype '" << dtype << "'\n";
+
     this->network.eval();
     std::cout << "Model created in evaluation mode (default)\n";
-    std::cout << "Model loaded onto device " << device << '\n';
+
+    loss_calculator->to(device, dtype);
 }
 
 void Model::enable_training()
@@ -333,14 +331,14 @@ void Model::enable_eval()
 
 Network::Eval Model::eval(const propnet::State &state)
 {
-    // if (const auto [eval, is_present]{cache->TryGet(state)}; is_present)
-    // {
-    //     return *eval;
-    // }
+    if (const auto [eval, is_present]{cache->TryGet(state)}; is_present)
+    {
+        return *eval;
+    }
 
-    auto state_vec{state.to_vec<float>()};
+    auto state_vec{state.to_vec<double>()};
     auto tensor{torch::from_blob(state_vec.data(), {static_cast<std::int64_t>(state_vec.size())},
-                                 torch::TensorOptions().device(device).dtype(torch::kFloat32))};
+                                 torch::TensorOptions().device(device).dtype(dtype))};
     auto eval{network.forward(tensor.unsqueeze(0))};
 
     cache->Put(state, eval);
