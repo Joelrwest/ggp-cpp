@@ -159,4 +159,20 @@ std::unique_ptr<agents::Agent> agent_factory(std::string_view name, const propne
         throw std::invalid_argument{"Given unkown agent name"};
     }
 }
+
+player::Model load_model(const propnet::Propnet &propnet, std::string_view game)
+{
+    try
+    {
+        std::cout << "Attempting to load most recent model\n";
+        return player::Model::load_most_recent(propnet, game);
+    }
+    catch (std::runtime_error &error)
+    {
+        std::cout << error.what() << '\n';
+        std::cout << "Creating new model\n";
+
+        return player::Model{propnet, game};
+    }
+}
 } // namespace setup

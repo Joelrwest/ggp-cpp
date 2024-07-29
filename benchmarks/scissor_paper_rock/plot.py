@@ -10,19 +10,19 @@ import json
 
 # Can change the input files, the time taken, and the colours used from these top constants
 
-OLD_FILENAME = 'old.json'
-NEW_FILENAME = 'new.json'
+OLD_FILENAME = 'speed-old.json'
+NEW_FILENAME = 'speed-new.json'
 
 OLD_TIME_FILTER_MS = 600
-NEW_TIME_FILTER_MS = 20
+NEW_TIME_FILTER_MS = 60
 COMBINED_TIME_FILTERS_MS = (
     OLD_TIME_FILTER_MS,
     NEW_TIME_FILTER_MS,
-    (OLD_TIME_FILTER_MS + NEW_TIME_FILTER_MS) / 2,
+    100,
 )
 
-NEW_PREFIX = 'speed-new'
-OLD_PREFIX = 'speed-old'
+NEW_PREFIX = 'new'
+OLD_PREFIX = 'old'
 COMBINED_PREFIX = 'combined'
 
 OLD_COLOURS = (

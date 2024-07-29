@@ -106,58 +106,6 @@ Network::Eval Network::forward(torch::Tensor x)
     return {.evs = std::move(evs), .policies = multiple_states ? torch::cat(policies, 1) : torch::stack(policies)};
 }
 
-void Network::piecewise_save(const std::filesystem::path &path) const
-{
-    auto features_path{path};
-    features_path.append(FEATURES_HEAD_NAME);
-    torch::save(features_head, features_path);
-
-    auto evs_path{path};
-    evs_path.append(EVS_HEAD_NAME);
-    torch::save(evs_head, evs_path);
-
-    auto common_policy_path{path};
-    common_policy_path.append(COMMON_POLICY_HEAD_NAME);
-    torch::save(common_policy_head, common_policy_path);
-
-    for (auto head_count{0u}; head_count < policy_heads.size(); ++head_count)
-    {
-        std::stringstream policy_name{};
-        policy_name << POLICY_HEAD_PREFIX << head_count;
-
-        auto policy_path{path};
-        policy_path.append(policy_name.str());
-
-        torch::save(policy_heads.at(head_count), policy_path);
-    }
-}
-
-void Network::piecewise_load(const std::filesystem::path &path)
-{
-    auto features_path{path};
-    features_path.append(FEATURES_HEAD_NAME);
-    torch::load(features_head, features_path);
-
-    auto evs_path{path};
-    evs_path.append(EVS_HEAD_NAME);
-    torch::load(evs_head, evs_path);
-
-    auto common_policy_path{path};
-    common_policy_path.append(COMMON_POLICY_HEAD_NAME);
-    torch::load(common_policy_head, common_policy_path);
-
-    for (auto head_count{0u}; head_count < policy_heads.size(); ++head_count)
-    {
-        std::stringstream policy_name{};
-        policy_name << POLICY_HEAD_PREFIX << head_count;
-
-        auto policy_path{path};
-        policy_path.append(policy_name.str());
-
-        torch::load(policy_heads.at(head_count), policy_path);
-    }
-}
-
 torch::nn::Sequential Network::make_features_head(std::size_t input_size, std::size_t hidden_layer_size)
 {
     return torch::nn::Sequential{torch::nn::Linear{input_size, hidden_layer_size},
@@ -194,35 +142,38 @@ Model::Model(const propnet::Propnet &propnet, std::string_view game) : Model{pro
 {
 }
 
+Model Model::load_most_recent(const propnet::Propnet &propnet, std::string_view game)
+{
+    std::optional<std::filesystem::directory_entry> most_recent_file{};
+    auto path{get_models_path(game)};
+    for (const auto &file : std::filesystem::directory_iterator(path))
+    {
+        const auto is_model{file.path().extension() == MODEL_EXTENSION};
+        const auto is_newer{!most_recent_file.has_value() ||
+                            most_recent_file->last_write_time() < file.last_write_time()};
+        if (is_model && is_newer)
+        {
+            most_recent_file.emplace(file);
+        }
+    }
+
+    if (most_recent_file.has_value())
+    {
+        return load_file_path(propnet, game, most_recent_file->path());
+    }
+    else
+    {
+        throw std::runtime_error{"No recent model to be loaded"};
+    }
+}
+
 Model Model::load_game_number(const propnet::Propnet &propnet, std::string_view game, std::size_t game_number)
 {
-    const auto folder_name{get_folder_name(game_number)};
+    const auto file_name{get_file_name(game_number)};
     auto path{get_models_path(game)};
-    path.append(folder_name);
+    path.append(file_name);
 
-    return load_folder_path(propnet, game, path);
-}
-
-void Model::enable_training()
-{
-    if (network.is_training())
-    {
-        throw std::logic_error{"Tried to enable training mode whilst already being in training mode"};
-    }
-
-    network.train();
-    std::cout << "Model set to training mode\n";
-}
-
-void Model::enable_eval()
-{
-    if (!network.is_training())
-    {
-        throw std::logic_error{"Tried to enable evaluation mode whilst already being in evaluation mode"};
-    }
-
-    network.eval();
-    std::cout << "Model set to evaluation mode\n";
+    return load_file_path(propnet, game, path);
 }
 
 ExpectedValue Model::eval_ev(const propnet::State &state, propnet::Role::Id id)
@@ -268,17 +219,14 @@ std::vector<std::vector<Probability>> Model::eval_policies(const propnet::State 
 
 void Model::train(const ReplayBuffer &replay_buffer)
 {
-    if (!network.is_training())
-    {
-        throw std::logic_error{"Tried to train with network not in training mode (Model::enable_training not called)"};
-    }
-
     if (replay_buffer.size() <= BATCH_SIZE)
     {
         return;
     }
 
+    enable_training();
     cache->clear();
+
     double total_loss{0};
     for (std::size_t epoch_count{1}; epoch_count <= NUM_EPOCHS; ++epoch_count)
     {
@@ -289,40 +237,46 @@ void Model::train(const ReplayBuffer &replay_buffer)
         auto output{network.forward(sample.states)};
 
         const auto evs_loss{loss_calculator->forward(output.evs, sample.evs)};
+        evs_loss.backward();
 
-        std::cout << "Output\n" << output.evs[0] << "\nSample\n" << sample.evs[0] << '\n';
+        std::cout << "Output\n" << output.evs << "\nSample\n" << sample.evs << "\nLoss\n" << evs_loss << '\n';
         /*
         TODO: Currently the policies part of the network isn't being used for anything, so isn't trained
 
         const auto policies_loss{loss_calculator->forward(output.policies, sample.policies)};
         const auto loss{EVS_LOSS_WEIGHT * evs_loss + POLICIES_LOSS_WEIGHT * policies_loss};
         */
-        const auto loss{evs_loss};
-        const auto loss_scalar{loss.item<double>()};
+        const auto loss_scalar{evs_loss.item<double>()};
         total_loss += loss_scalar;
 
-        loss.backward();
         optimiser.step();
 
         std::cout << "Epoch " << epoch_count << " loss: " << loss_scalar << '\n';
     }
 
     std::cout << "Total loss across epochs: " << total_loss << "\n\n";
+    enable_eval();
 }
 
 void Model::save(std::size_t game_number)
 {
-    const auto folder_name{get_folder_name(game_number)};
+    const auto file_name{get_file_name(game_number)};
 
-    auto folder_path{models_path};
-    folder_path.append(folder_name);
-    create_directory_if_not_exists(folder_path);
+    auto file_path{models_path};
+    file_path.append(file_name);
 
-    network.piecewise_save(folder_path);
+    torch::serialize::OutputArchive output_archive{};
+    network.save(output_archive);
+    output_archive.save_to(file_path);
+
+    const auto optimiser_name{get_optimiser_name(game_number)};
+    auto optimiser_path{models_path};
+    optimiser_path.append(optimiser_name);
+    torch::save(optimiser, optimiser_path);
 
     log_time(game_number);
 
-    std::cout << "Saved model to " << folder_path << '\n';
+    std::cout << "Saved model to " << file_path << ", optimiser to " << optimiser_path << '\n';
 }
 
 std::filesystem::path Model::get_models_path(std::string_view game)
@@ -348,12 +302,32 @@ Model::Model(const propnet::Propnet &propnet, std::string_view game, Network &&n
     std::cout << "Model loaded onto device " << device << '\n';
 }
 
+void Model::enable_training()
+{
+    if (network.is_training())
+    {
+        throw std::logic_error{"Tried to enable training mode whilst already being in training mode"};
+    }
+
+    network.train();
+}
+
+void Model::enable_eval()
+{
+    if (!network.is_training())
+    {
+        throw std::logic_error{"Tried to enable evaluation mode whilst already being in evaluation mode"};
+    }
+
+    network.eval();
+}
+
 Network::Eval Model::eval(const propnet::State &state)
 {
-    if (const auto [eval, is_present]{cache->TryGet(state)}; is_present)
-    {
-        return *eval;
-    }
+    // if (const auto [eval, is_present]{cache->TryGet(state)}; is_present)
+    // {
+    //     return *eval;
+    // }
 
     auto vec{state.to_vec<float>()};
     auto tensor{torch::from_blob(vec.data(), {static_cast<std::int64_t>(vec.size())},
@@ -376,12 +350,22 @@ void Model::log_time(std::size_t game_number)
     time_log_file << " took " << num_s << " seconds to reach" << std::endl;
 }
 
-std::string Model::get_folder_name(std::size_t game_number)
+std::string Model::get_file_name(std::size_t game_number)
 {
-    std::stringstream folder_name_stream{};
-    folder_name_stream << MODEL_NAME_BASE << std::setfill('0') << std::setw(GAME_NUMBER_WIDTH) << game_number;
+    std::stringstream file_name_stream{};
+    file_name_stream << MODEL_NAME_BASE << std::setfill('0') << std::setw(GAME_NUMBER_WIDTH) << game_number
+                     << MODEL_EXTENSION;
 
-    return folder_name_stream.str();
+    return file_name_stream.str();
+}
+
+std::string Model::get_optimiser_name(std::size_t game_number)
+{
+    std::stringstream file_name_stream{};
+    file_name_stream << OPTIMISER_NAME_BASE << std::setfill('0') << std::setw(GAME_NUMBER_WIDTH) << game_number
+                     << MODEL_EXTENSION;
+
+    return file_name_stream.str();
 }
 
 std::filesystem::path Model::get_time_log_file_path(std::filesystem::path models_path)
@@ -414,11 +398,13 @@ std::chrono::milliseconds Model::get_time_ms()
     return now_time_ms;
 }
 
-Model Model::load_folder_path(const propnet::Propnet &propnet, std::string_view game, const std::filesystem::path &path)
+Model Model::load_file_path(const propnet::Propnet &propnet, std::string_view game, const std::filesystem::path &path)
 {
-    // TODO: Save and load optimiser too
+    // TODO: Load optimiser too
     Network network{propnet};
-    network.piecewise_load(path);
+    torch::serialize::InputArchive input_archive{};
+    input_archive.load_from(path);
+    network.load(input_archive);
 
     return Model{propnet, game, std::move(network)};
 }

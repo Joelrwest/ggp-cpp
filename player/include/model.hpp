@@ -74,9 +74,6 @@ class Network : public torch::nn::Module
     Network &operator=(Network &&) = default;
 
     Eval forward(torch::Tensor x);
-    void piecewise_save(const std::filesystem::path &path)
-        const; // TODO: Using torch::save/torch::load on Network directly doesn't work... not sure why
-    void piecewise_load(const std::filesystem::path &path);
 
   private:
     static constexpr auto DROPOUT_ZERO_PROBABILITY{0.2};
@@ -113,10 +110,9 @@ class Model
     static constexpr auto MODELS_FOLDER_NAME{"models"};
     static constexpr auto TIME_LOG_FILE_NAME{"time-log.txt"};
 
+    static Model load_most_recent(const propnet::Propnet &propnet, std::string_view game);
     static Model load_game_number(const propnet::Propnet &propnet, std::string_view game, std::size_t game_number);
 
-    void enable_training();
-    void enable_eval();
     ExpectedValue eval_ev(const propnet::State &state, propnet::Role::Id id);
     std::vector<ExpectedValue> eval_evs(const propnet::State &state);
     std::vector<Probability> eval_policy(const propnet::State &state, propnet::Role::Id id);
@@ -128,26 +124,30 @@ class Model
     static std::filesystem::path get_models_path(std::string_view game);
 
   private:
-    static constexpr auto MODEL_NAME_BASE{"game-num-"};
+    static constexpr auto MODEL_NAME_BASE{"model-game-num-"};
+    static constexpr auto OPTIMISER_NAME_BASE{"optimiser-game-num-"};
     static constexpr auto GAME_NUMBER_WIDTH{6};
     static constexpr auto MODEL_CACHE_SIZE{static_cast<std::size_t>(1e5)};
-    static constexpr auto MODEL_NAME_EXTENSION{".pt"};
-    static constexpr std::size_t BATCH_SIZE{64};
-    static constexpr std::size_t NUM_EPOCHS{5};
+    static constexpr auto MODEL_EXTENSION{".pt"};
+    static constexpr std::size_t BATCH_SIZE{16};
+    static constexpr std::size_t NUM_EPOCHS{2};
 
     using Cache = misc::Cache<propnet::State, Network::Eval, caches::LRUCachePolicy, MODEL_CACHE_SIZE>;
 
     Model(const propnet::Propnet &propnet, std::string_view game, Network &&network);
 
+    void enable_training();
+    void enable_eval();
     Network::Eval eval(const propnet::State &state);
     void log_time(std::size_t game_number);
 
-    static std::string get_folder_name(std::size_t game_number);
+    static std::string get_file_name(std::size_t game_number);
+    static std::string get_optimiser_name(std::size_t game_number);
     static std::filesystem::path get_time_log_file_path(std::filesystem::path models_path);
     static void create_directory_if_not_exists(const std::filesystem::path &path);
     static std::chrono::milliseconds get_time_ms();
-    static Model load_folder_path(const propnet::Propnet &propnet, std::string_view game,
-                                  const std::filesystem::path &file_name);
+    static Model load_file_path(const propnet::Propnet &propnet, std::string_view game,
+                                const std::filesystem::path &file_name);
 
     const propnet::Propnet &propnet;
     std::filesystem::path models_path;

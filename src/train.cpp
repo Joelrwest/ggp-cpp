@@ -16,7 +16,7 @@
 
 static constexpr auto NUM_CONCURRENT_GAMES_COMMAND{"num_concurrent_games"};
 static constexpr auto DEFAULT_NUM_CONCURRENT_GAMES{1};
-static constexpr auto TIME_LIMIT_COMMAND{"time_limit"};
+static constexpr auto TIME_LIMIT_COMMAND{"time-limit"};
 static constexpr auto MODEL_GAME_NUMBER_COMMAND{"model-number"};
 static constexpr auto READABLE_TIME_FORMAT{"%X %e %b %Y %Z"};
 static constexpr auto TIME_LOG_FILE_NAME{"time-log.txt"};
@@ -122,8 +122,6 @@ void train(std::size_t num_concurrent_games, const std::function<bool()> &time_l
     player::ReplayBuffer replay_buffer{propnet};
     auto model{model_game_number.has_value() ? player::Model::load_game_number(propnet, game, *model_game_number)
                                              : player::Model{propnet, game}};
-    model.enable_training();
-    std::cout << model.eval_evs(propnet.create_initial_state()) << '\n';
     std::cout << '\n';
 
     // const auto hardware_threads{std::thread::hardware_concurrency()}; // TODO
@@ -165,7 +163,7 @@ void train(std::size_t num_concurrent_games, const std::function<bool()> &time_l
             std::cout << "Saved on game number " << game_number << "\n\n";
             last_save_game_number = game_number;
         }
-        std::cout << "Current initial state\n\n" << model.eval_evs(propnet.create_initial_state()) << "\n\n";
+        std::cout << "Current initial state\n" << model.eval_evs(propnet.create_initial_state()) << "\n\n";
     }
 }
 
