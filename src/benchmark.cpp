@@ -16,6 +16,10 @@ static constexpr auto VERY_BIASED_BLINDTICTACTOE_GAME{"blindtictactoeXwins"};
 static constexpr auto BLINDTICTACTOE_NUM_ITERATIONS{std::numeric_limits<std::size_t>::max()};
 static constexpr auto BLINDTICTACTOE_SAVE_FREQUENCY{2000};
 
+static constexpr auto STRATEGO_GAME{"stratego"};
+static constexpr auto STRATEGO_NUM_ITERATIONS{std::numeric_limits<std::size_t>::max()};
+static constexpr auto STRATEGO_SAVE_FREQUENCY{100};
+
 class BenchmarkLogger
 {
   public:
@@ -159,6 +163,10 @@ int main(int argc, char **argv)
     else if (game == VERY_BIASED_BLINDTICTACTOE_GAME)
     {
         benchmark(VERY_BIASED_BLINDTICTACTOE_GAME, BLINDTICTACTOE_NUM_ITERATIONS, BLINDTICTACTOE_SAVE_FREQUENCY);
+    }
+    else if (game == STRATEGO_GAME)
+    {
+        benchmark(STRATEGO_GAME, STRATEGO_NUM_ITERATIONS, STRATEGO_SAVE_FREQUENCY);
     }
     else
     {

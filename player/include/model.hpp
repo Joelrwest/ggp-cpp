@@ -24,7 +24,7 @@ class ReplayBuffer
     {
         Item(propnet::State state, std::vector<Policy> policies, std::vector<ExpectedValue> evs);
 
-        std::vector<double> state;
+        propnet::State state;
         std::vector<Policy> policies;
         std::vector<ExpectedValue> evs;
     };

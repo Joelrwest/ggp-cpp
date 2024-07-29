@@ -11,7 +11,7 @@ ReplayBuffer::ReplayBuffer(const propnet::Propnet &propnet) : propnet{propnet}, 
 }
 
 ReplayBuffer::Item::Item(propnet::State state, std::vector<Policy> policies, std::vector<ExpectedValue> evs)
-    : state{state.to_vec<double>()}, policies{std::move(policies)}, evs{std::move(evs)}
+    : state{std::move(state)}, policies{std::move(policies)}, evs{std::move(evs)}
 {
 }
 
@@ -30,7 +30,8 @@ ReplayBuffer::Sample ReplayBuffer::sample(std::size_t sample_size) const
     std::vector<torch::Tensor> evs{};
     for (auto &sample_item : sample_items)
     {
-        states.push_back(torch::from_blob(sample_item.state.data(), {state_size},
+        auto state_vec{sample_item.state.to_vec<float>()};
+        states.push_back(torch::from_blob(state_vec.data(), {state_size},
                                           torch::TensorOptions().device(device).dtype(torch::kFloat32)));
 
         std::vector<double> linear_policies{};
@@ -75,8 +76,6 @@ Network::Network(const propnet::Propnet &propnet)
 
 Network::Eval Network::forward(torch::Tensor x)
 {
-    const auto multiple_states{x.dim() > 1};
-
     /*
     Extract common features
     */
@@ -85,7 +84,8 @@ Network::Eval Network::forward(torch::Tensor x)
     /*
     Get evs for each role
     */
-    auto evs{evs_head->forward(x).to(torch::kFloat64)}; // TODO: See comment below
+    auto evs{evs_head->forward(x).to(
+        torch::kFloat64)}; // TODO: How to take in float64's instead so we don't need to do the conversion
 
     /*
     Common extra layer before each role gets a policy
@@ -95,15 +95,22 @@ Network::Eval Network::forward(torch::Tensor x)
     /*
     Get policies for each role
     */
+    /*
+    TODO: Not yet implemented...
+    const auto multiple_states{x.dim() > 1};
+
     std::vector<torch::Tensor> policies{};
     for (auto &policy_head : policy_heads)
     {
         auto policy{policy_head->forward(x).to(
-            torch::kFloat64)}; // TODO: How to take in float64's instead so we don't need to do the conversion
+            torch::kFloat64)};
         policies.push_back(multiple_states ? policy.unsqueeze(1) : std::move(policy));
     }
 
     return {.evs = std::move(evs), .policies = multiple_states ? torch::cat(policies, 1) : torch::stack(policies)};
+    */
+
+    return {.evs = std::move(evs), .policies = torch::zeros(0)};
 }
 
 torch::nn::Sequential Network::make_features_head(std::size_t input_size, std::size_t hidden_layer_size)
@@ -239,11 +246,13 @@ void Model::train(const ReplayBuffer &replay_buffer)
         const auto evs_loss{loss_calculator->forward(output.evs, sample.evs)};
         evs_loss.backward();
 
-        std::cout << "Output\n" << output.evs << "\nSample\n" << sample.evs << "\nLoss\n" << evs_loss << '\n';
         /*
         TODO: Currently the policies part of the network isn't being used for anything, so isn't trained
 
         const auto policies_loss{loss_calculator->forward(output.policies, sample.policies)};
+
+        TODO: Come up with the weights appropriately depending on what needs to be optimised.
+        Likely the evs are far more important that the policies.
         const auto loss{EVS_LOSS_WEIGHT * evs_loss + POLICIES_LOSS_WEIGHT * policies_loss};
         */
         const auto loss_scalar{evs_loss.item<double>()};
@@ -329,10 +338,10 @@ Network::Eval Model::eval(const propnet::State &state)
     //     return *eval;
     // }
 
-    auto vec{state.to_vec<float>()};
-    auto tensor{torch::from_blob(vec.data(), {static_cast<std::int64_t>(vec.size())},
+    auto state_vec{state.to_vec<float>()};
+    auto tensor{torch::from_blob(state_vec.data(), {static_cast<std::int64_t>(state_vec.size())},
                                  torch::TensorOptions().device(device).dtype(torch::kFloat32))};
-    auto eval{network.forward(std::move(tensor))};
+    auto eval{network.forward(tensor.unsqueeze(0))};
 
     cache->Put(state, eval);
 
