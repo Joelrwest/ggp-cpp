@@ -22,7 +22,7 @@ class Agent
     std::string_view get_role_name() const;
 
   protected:
-    virtual void add_history(propnet::PropId prev_input);
+    virtual void add_history(propnet::PropId prev_input, std::span<const propnet::PropId> legal_inputs);
 
   private:
     virtual propnet::PropId get_legal_input_impl(std::span<const propnet::PropId> legal_inputs) = 0;

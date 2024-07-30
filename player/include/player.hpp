@@ -16,7 +16,7 @@ namespace player
 {
 template <typename DerivedSamplerT>
 concept DerivedSampler = requires(DerivedSamplerT sampler, const std::vector<bool> &observation,
-                                  propnet::PropId prev_input)
+                                  propnet::PropId prev_input, std::span<const propnet::PropId> legal_inputs)
 {
     {
         sampler.sample_state()
@@ -25,7 +25,7 @@ concept DerivedSampler = requires(DerivedSamplerT sampler, const std::vector<boo
         sampler.prepare_new_game()
         } -> std::convertible_to<void>;
     {
-        sampler.add_history(observation, prev_input)
+        sampler.add_history(observation, prev_input, legal_inputs)
         } -> std::convertible_to<void>;
 }; // TODO: Concept fails but idk why... && std::copyable<DerivedSamplerT>;
 
@@ -78,7 +78,7 @@ template <DerivedSampler SamplerT = RandomSampler> class Player : public agents:
     propnet::PropId get_legal_input_impl(std::span<const propnet::PropId> legal_inputs);
 
   protected:
-    void add_history(propnet::PropId prev_input) override;
+    void add_history(propnet::PropId prev_input, std::span<const propnet::PropId> legal_inputs) override;
 
   private:
     static constexpr auto LOG_MAX_STATES_SEARCHED{std::log(1e15)};
@@ -212,7 +212,8 @@ propnet::PropId Player<SamplerT>::get_legal_input_impl(std::span<const propnet::
 
                     search::DepthLimitedMCCFR mccfr{propnet, model, search_depth_limit};
 
-                    const auto search_results{mccfr.search(sampler.sample_state(), cfr_options)};
+                    const auto sampled_state{sampler.sample_state()};
+                    const auto search_results{mccfr.search(sampled_state, cfr_options)};
 
                     const auto id{role.get_id()};
                     const auto &role_search_results{search_results.at(id)};
@@ -220,6 +221,11 @@ propnet::PropId Player<SamplerT>::get_legal_input_impl(std::span<const propnet::
 
                     {
                         const std::lock_guard<std::mutex> cumulative_policy_guard{cumulative_policy_lock};
+                        if (policy.size() != cumulative_policy.size())
+                        {
+                            throw std::logic_error{"Policy for sampled state is of a different size to the cumulative policy"};
+                        }
+
                         for (auto &[input, probability] : cumulative_policy)
                         {
                             probability += policy.at(input);
@@ -244,9 +250,9 @@ template <DerivedSampler SamplerT> Depth Player<SamplerT>::search_depth_limit_he
     return LOG_MAX_STATES_SEARCHED / std::log(max_branching_factor);
 }
 
-template <DerivedSampler SamplerT> void Player<SamplerT>::add_history(propnet::PropId prev_input)
+template <DerivedSampler SamplerT> void Player<SamplerT>::add_history(propnet::PropId prev_input, std::span<const propnet::PropId> legal_inputs)
 {
-    const auto observations{get_observations_cache()};
-    sampler.add_history(observations, prev_input);
+    const auto &observations{get_observations_cache()};
+    sampler.add_history(observations, prev_input, legal_inputs);
 }
 } // namespace player

@@ -3,8 +3,8 @@
 #include "types.hpp"
 
 #include <cache.hpp>
-
 #include <cstdint>
+#include <iostream>
 #include <optional>
 #include <random>
 #include <span>
@@ -186,6 +186,10 @@ template <PolicyMap T> T::key_type sample_policy(T &policy, Probability policy_s
             return key;
         }
     }
+
+    std::cout << choice << '\n';
+    std::cout << policy_sum << '\n';
+    std::cout << accumulation << '\n';
 
     throw std::runtime_error{"Policy did not sum to policy_sum"};
 }

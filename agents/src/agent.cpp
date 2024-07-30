@@ -24,18 +24,18 @@ void Agent::take_observations(const propnet::State &state)
     observations_cache = role.get_observations(state);
 }
 
-void Agent::add_history(propnet::PropId)
+void Agent::add_history(propnet::PropId, std::span<const propnet::PropId>)
 { /* Let the children define if needed */
 }
 
 propnet::PropId Agent::get_legal_input(const propnet::State &state)
 {
+    const auto legal_inputs{role.get_legal_inputs(state)};
     if (prev_input.has_value())
     {
-        add_history(*prev_input);
+        add_history(*prev_input, legal_inputs);
     }
 
-    const auto legal_inputs{role.get_legal_inputs(state)};
     const auto input{legal_inputs.size() == 1 ? legal_inputs.front() : get_legal_input_impl(legal_inputs)};
     prev_input.emplace(input);
 

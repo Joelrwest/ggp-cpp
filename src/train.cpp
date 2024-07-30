@@ -225,7 +225,7 @@ void play_game(const propnet::Propnet &propnet, player::ReplayBuffer &replay_buf
 
     while (!propnet.is_game_over(state))
     {
-        const auto state_copy{state};
+        auto state_copy{state};
 
         auto cfr_future{std::async(std::launch::async, [&propnet, &state_copy]() {
             static auto options{player::search::MCCFR::Options{}.add_time_limit(MAX_FULL_CFR_TIME_S)};

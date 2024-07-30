@@ -31,8 +31,9 @@ ReplayBuffer::Sample ReplayBuffer::sample(std::size_t sample_size) const
     std::vector<torch::Tensor> evs{};
     for (auto &sample_item : sample_items)
     {
-        states.push_back(torch::from_blob(sample_item.state.data(), {state_size},
-                                          torch::TensorOptions().device(device).dtype(dtype)));
+        auto state{torch::from_blob(sample_item.state.data(), {state_size}, torch::TensorOptions().dtype(dtype))};
+        state = state.to(device);
+        states.push_back(std::move(state));
 
         std::vector<double> linear_policies{};
         for (auto &policy : sample_item.policies)
@@ -42,12 +43,14 @@ ReplayBuffer::Sample ReplayBuffer::sample(std::size_t sample_size) const
             const auto num_fill{max_policy_size - policy.size()};
             std::fill_n(std::back_inserter(linear_policies), num_fill, 0.0);
         }
-        policies.push_back(torch::from_blob(linear_policies.data(),
-                                            {num_players, static_cast<std::int64_t>(max_policy_size)},
-                                            torch::TensorOptions().device(device).dtype(dtype)));
+        auto policy{torch::from_blob(linear_policies.data(), {num_players, static_cast<std::int64_t>(max_policy_size)},
+                                     torch::TensorOptions().dtype(dtype))};
+        policy = policy.to(device);
+        policies.push_back(std::move(policy));
 
-        evs.push_back(torch::from_blob(sample_item.evs.data(), {num_players},
-                                       torch::TensorOptions().device(device).dtype(dtype)));
+        auto ev{torch::from_blob(sample_item.evs.data(), {num_players}, torch::TensorOptions().dtype(dtype))};
+        ev = ev.to(device);
+        evs.push_back(std::move(ev));
     }
 
     return {.states = torch::stack(states), .policies = torch::stack(policies), .evs = torch::stack(evs)};
@@ -189,6 +192,8 @@ ExpectedValue Model::eval_ev(const propnet::State &state, propnet::Role::Id id)
 std::vector<ExpectedValue> Model::eval_evs(const propnet::State &state)
 {
     auto evs{eval(state).evs};
+    evs = evs.to(torch::kCPU);
+
     const auto start_ptr{evs.data_ptr<ExpectedValue>()};
     const auto end_ptr{start_ptr + evs.numel()};
 
@@ -198,6 +203,8 @@ std::vector<ExpectedValue> Model::eval_evs(const propnet::State &state)
 std::vector<Probability> Model::eval_policy(const propnet::State &state, propnet::Role::Id id)
 {
     auto policy{eval(state).policies[id]};
+    policy = policy.to(torch::kCPU);
+
     const auto start_ptr{policy.data_ptr<Probability>()};
     const auto end_ptr{start_ptr + policy.numel()};
 
@@ -206,7 +213,8 @@ std::vector<Probability> Model::eval_policy(const propnet::State &state, propnet
 
 std::vector<std::vector<Probability>> Model::eval_policies(const propnet::State &state)
 {
-    const auto policies_eval{eval(state).policies};
+    auto policies_eval{eval(state).policies};
+    policies_eval = policies_eval.to(torch::kCPU);
 
     std::vector<std::vector<Probability>> policies{};
     for (auto id{0u}; policies_eval.numel(); ++id)
@@ -337,9 +345,10 @@ Network::Eval Model::eval(const propnet::State &state)
     }
 
     auto state_vec{state.to_vec<double>()};
-    auto tensor{torch::from_blob(state_vec.data(), {static_cast<std::int64_t>(state_vec.size())},
-                                 torch::TensorOptions().device(device).dtype(dtype))};
-    auto eval{network.forward(tensor.unsqueeze(0))};
+    auto state_tensor{torch::from_blob(state_vec.data(), {static_cast<std::int64_t>(state_vec.size())},
+                                       torch::TensorOptions().dtype(dtype))};
+    state_tensor = state_tensor.to(device);
+    auto eval{network.forward(std::move(state_tensor))};
 
     cache->Put(state, eval);
 
