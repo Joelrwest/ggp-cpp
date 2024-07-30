@@ -29,7 +29,10 @@ bool InputSet::contains(PropId input) const
 
 void InputSet::add(PropId input)
 {
-    inputs.insert(input);
+    if (const auto [_, was_inserted]{inputs.insert(input)}; !was_inserted)
+    {
+        throw std::logic_error{"Inserted an input that was already present"};
+    }
 }
 
 std::ostream &operator<<(std::ostream &os, const InputSet &inputs)

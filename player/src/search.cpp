@@ -135,6 +135,7 @@ std::vector<std::pair<Policy, ExpectedValue>> MCCFR::search(const propnet::State
     Monte Carlo Sampling and Regret Minimization for Equilibrium
     Computation and Decision-Making in Large Extensive Form Games
     */
+    std::vector<InformationSet> base_information_sets{create_base_information_sets(propnet, state)};
     std::vector<std::reference_wrapper<InformationSet>> current_information_sets{};
     for (auto &base_information_set : base_information_sets)
     {
@@ -169,8 +170,7 @@ std::vector<std::pair<Policy, ExpectedValue>> MCCFR::search(const propnet::State
 
 MCCFR::MCCFR(const propnet::Propnet &propnet, std::optional<std::reference_wrapper<Model>> model, Depth depth_limit)
     : propnet{propnet}, player_roles{propnet.get_player_roles().begin(), propnet.get_player_roles().end()},
-      random_role{propnet.get_random_role()},
-      base_information_sets{create_base_information_sets(propnet)}, model{model}, depth_limit{depth_limit}
+      random_role{propnet.get_random_role()}, model{model}, depth_limit{depth_limit}
 {
     if (depth_limit == 0)
     {
@@ -309,13 +309,13 @@ ExpectedValue MCCFR::next_state(std::vector<std::reference_wrapper<InformationSe
     return make_traversers_move(next_information_sets, traversing_role, state, curr_depth + 1);
 }
 
-std::vector<InformationSet> MCCFR::create_base_information_sets(const propnet::Propnet &propnet)
+std::vector<InformationSet> MCCFR::create_base_information_sets(const propnet::Propnet &propnet,
+                                                                const propnet::State &state)
 {
-    const auto initial_state{propnet.create_initial_state()};
     std::vector<InformationSet> base_information_sets{};
     for (const auto &role : propnet.get_player_roles())
     {
-        const auto legal_inputs{role.get_legal_inputs(initial_state)};
+        const auto legal_inputs{role.get_legal_inputs(state)};
         base_information_sets.emplace_back(std::move(legal_inputs));
     }
 

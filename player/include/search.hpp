@@ -87,12 +87,12 @@ class MCCFR
     ExpectedValue next_state(std::vector<std::reference_wrapper<InformationSet>> &current_information_sets,
                              propnet::Role &traversing_role, propnet::State &state, Depth curr_depth);
 
-    static std::vector<InformationSet> create_base_information_sets(const propnet::Propnet &propnet);
+    std::vector<InformationSet> create_base_information_sets(const propnet::Propnet &propnet,
+                                                             const propnet::State &state);
 
     const propnet::Propnet &propnet;
     std::vector<propnet::Role> player_roles;
     std::optional<propnet::Role> random_role;
-    std::vector<InformationSet> base_information_sets;
     std::optional<std::reference_wrapper<Model>> model;
     Depth depth_limit;
 };

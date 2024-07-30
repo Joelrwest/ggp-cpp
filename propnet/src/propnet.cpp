@@ -38,7 +38,7 @@ std::vector<Role> Propnet::get_player_roles_excluding(Role::Id excluding_id) con
 {
     std::vector<Role> player_roles_excluding{};
     std::copy_if(player_roles.begin(), player_roles.end(), std::back_inserter(player_roles_excluding),
-                 [excluding_id](const auto &role) { return role.get_id() == excluding_id; });
+                 [excluding_id](const auto &role) { return role.get_id() != excluding_id; });
 
     return player_roles_excluding;
 }

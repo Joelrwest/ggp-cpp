@@ -223,7 +223,8 @@ propnet::PropId Player<SamplerT>::get_legal_input_impl(std::span<const propnet::
                         const std::lock_guard<std::mutex> cumulative_policy_guard{cumulative_policy_lock};
                         if (policy.size() != cumulative_policy.size())
                         {
-                            throw std::logic_error{"Policy for sampled state is of a different size to the cumulative policy"};
+                            throw std::logic_error{
+                                "Policy for sampled state is of a different size to the cumulative policy"};
                         }
 
                         for (auto &[input, probability] : cumulative_policy)
@@ -250,7 +251,8 @@ template <DerivedSampler SamplerT> Depth Player<SamplerT>::search_depth_limit_he
     return LOG_MAX_STATES_SEARCHED / std::log(max_branching_factor);
 }
 
-template <DerivedSampler SamplerT> void Player<SamplerT>::add_history(propnet::PropId prev_input, std::span<const propnet::PropId> legal_inputs)
+template <DerivedSampler SamplerT>
+void Player<SamplerT>::add_history(propnet::PropId prev_input, std::span<const propnet::PropId> legal_inputs)
 {
     const auto &observations{get_observations_cache()};
     sampler.add_history(observations, prev_input, legal_inputs);

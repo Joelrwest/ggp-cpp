@@ -16,44 +16,48 @@
 
 static constexpr auto NUM_CONCURRENT_GAMES_COMMAND{"concurrent-games"};
 static constexpr auto DEFAULT_NUM_CONCURRENT_GAMES{1};
+
 static constexpr auto TIME_LIMIT_COMMAND{"time-limit"};
 static constexpr auto MODEL_GAME_NUMBER_COMMAND{"model-number"};
+
+static constexpr auto MAX_FULL_CFR_TIME_COMMAND{"full-cfr-time"};
+static constexpr auto DEFAULT_MAX_FULL_CFR_TIME_S{30};
+
+static constexpr auto MIN_GAMES_PER_MODEL_SAVE_COMMAND{"games-per-save"};
+static constexpr auto DEFAULT_MIN_GAMES_PER_MODEL_SAVE{100};
+
+static constexpr auto MAX_PLAYER_SAMPLE_SIZE_COMMAND{"player-sample-size"};
+static constexpr auto DEFAULT_MAX_PLAYER_SAMPLE_SIZE{50};
+
+static constexpr auto MAX_PLAYER_CFR_TIME_COMMAND{"player-cfr-time"};
+static constexpr auto DEFAULT_MAX_PLAYER_CFR_TIME_S{3};
+
+static constexpr auto MAX_PLAYER_TOTAL_SEARCH_TIME_COMMAND{"player-total-time"};
+static constexpr auto DEFAULT_MAX_PLAYER_TOTAL_SEARCH_TIME_S{30};
+
+static constexpr auto BATCH_SIZE_COMMAND{"batch-size"};
+static constexpr auto DEFAULT_BATCH_SIZE{128};
+
+static constexpr auto BASE_NUM_EPOCHS_COMMAND{"base-num-epochs"};
+static constexpr auto DEFAULT_BASE_NUM_EPOCHS{5};
+
 static constexpr auto READABLE_TIME_FORMAT{"%X %e %b %Y %Z"};
 static constexpr auto TIME_LOG_FILE_NAME{"time-log.txt"};
-
-/*
-Full CFR constant
-*/
-static constexpr std::chrono::seconds MAX_FULL_CFR_TIME_S{3};
-
-/*
-Game saving
-*/
-static constexpr std::size_t MIN_GAMES_PER_MODEL_SAVE{100};
-
-/*
-Player constants
-*/
-static constexpr std::size_t MAX_PLAYER_SAMPLE_SIZE{50};
-static constexpr auto MAX_PLAYER_CFR_ITERATIONS{static_cast<std::size_t>(1e8)};
-static constexpr std::chrono::seconds MAX_PLAYER_CFR_TIME_S{3};
-static constexpr std::chrono::seconds MAX_PLAYER_TOTAL_SEARCH_TIME_S{3};
-
-/*
-Training constants
-*/
-static constexpr std::size_t BATCH_SIZE{128};
-static constexpr std::size_t NUM_EPOCHS{5};
 
 std::function<bool()> get_time_limit_function(std::optional<std::size_t> time_limit);
 std::string to_readable_time(const std::chrono::time_point<std::chrono::system_clock> &time_point);
 void train(std::size_t num_concurrent_games, const std::function<bool()> &time_limit_function, std::string_view game,
-           std::optional<std::size_t> model_game_num);
+           std::optional<std::size_t> model_game_number, std::chrono::seconds max_full_cfr_time,
+           std::size_t min_games_per_model_save, std::size_t max_player_sample_size,
+           std::chrono::seconds max_player_cfr_time, std::chrono::seconds max_player_total_search_time,
+           std::size_t batch_size, std::size_t base_num_epochs);
 void play_concurrent_games(const propnet::Propnet &propnet, player::ReplayBuffer &replay_buffer,
                            std::vector<std::vector<player::Player<>>> &all_players,
-                           std::vector<std::optional<agents::RandomAgent>> &all_random);
+                           std::vector<std::optional<agents::RandomAgent>> &all_random,
+                           std::chrono::seconds max_full_cfr_time);
 void play_game(const propnet::Propnet &propnet, player::ReplayBuffer &replay_buffer, std::mutex &replay_buffer_lock,
-               std::vector<player::Player<>> &players, std::optional<agents::RandomAgent> &random);
+               std::vector<player::Player<>> &players, std::optional<agents::RandomAgent> &random,
+               std::chrono::seconds max_full_cfr_time);
 
 class TimeLimit
 {
@@ -73,17 +77,44 @@ class TimeLimit
 
 int main(int argc, char **argv)
 {
-    std::size_t num_concurrent_games;
-    std::size_t time_limit;
+    std::size_t num_concurrent_games{};
+    std::size_t time_limit{};
     std::string game{};
-    std::size_t game_number;
+    std::size_t model_game_number{};
+    std::size_t max_full_cfr_time_s{};
+    std::size_t min_games_per_model_save{};
+    std::size_t max_player_sample_size{};
+    std::size_t max_player_cfr_time_s{};
+    std::size_t max_player_total_search_time_s{};
+    std::size_t batch_size{};
+    std::size_t base_num_epochs{};
     auto options_description{setup::create_base_program_options(game)};
+
     options_description.add_options()(
         NUM_CONCURRENT_GAMES_COMMAND,
         po::value<std::size_t>(&num_concurrent_games)->default_value(DEFAULT_NUM_CONCURRENT_GAMES),
         "set number of games to play concurrently for training")(
         TIME_LIMIT_COMMAND, po::value<std::size_t>(&time_limit), "maximum time allowed to train (in minutes)")(
-        MODEL_GAME_NUMBER_COMMAND, po::value<std::size_t>(&game_number), "game number to load model from");
+        MODEL_GAME_NUMBER_COMMAND, po::value<std::size_t>(&model_game_number), "game number to load model from")(
+        MAX_FULL_CFR_TIME_COMMAND,
+        po::value<std::size_t>(&max_full_cfr_time_s)->default_value(DEFAULT_MAX_FULL_CFR_TIME_S),
+        "maximum time that the full CFR is allowed to run each search for (in seconds)")(
+        MIN_GAMES_PER_MODEL_SAVE_COMMAND,
+        po::value<std::size_t>(&min_games_per_model_save)->default_value(DEFAULT_MIN_GAMES_PER_MODEL_SAVE),
+        "minimum games to be played each time the model is saved")(
+        MAX_PLAYER_SAMPLE_SIZE_COMMAND,
+        po::value<std::size_t>(&max_player_sample_size)->default_value(DEFAULT_MAX_PLAYER_SAMPLE_SIZE),
+        "maximum sample size for players")(
+        MAX_PLAYER_CFR_TIME_COMMAND,
+        po::value<std::size_t>(&max_player_cfr_time_s)->default_value(DEFAULT_MAX_PLAYER_CFR_TIME_S),
+        "maximum time that players can CFR search each sampled state (in seconds)")(
+        MAX_PLAYER_TOTAL_SEARCH_TIME_COMMAND,
+        po::value<std::size_t>(&max_player_total_search_time_s)->default_value(DEFAULT_MAX_PLAYER_TOTAL_SEARCH_TIME_S),
+        "maximum time that the players can search for in total (in seconds)")(
+        BATCH_SIZE_COMMAND, po::value<std::size_t>(&batch_size)->default_value(DEFAULT_BATCH_SIZE),
+        "batch size used when training")(
+        BASE_NUM_EPOCHS_COMMAND, po::value<std::size_t>(&base_num_epochs)->default_value(DEFAULT_BASE_NUM_EPOCHS),
+        "base epoch size used when training. Actual epoch size is num_concurrent_games * base_num_epochs");
 
     const auto variables_map{setup::parse_program_options(options_description, argc, argv)};
 
@@ -93,9 +124,17 @@ int main(int argc, char **argv)
     const auto time_limit_function{
         get_time_limit_function(is_time_limit ? std::optional<std::size_t>{time_limit} : std::nullopt)};
     const auto is_model_game_number{variables_map.contains(MODEL_GAME_NUMBER_COMMAND)};
-    const auto model_game_number{is_model_game_number ? std::optional<std::size_t>{game_number} : std::nullopt};
 
-    train(num_concurrent_games, time_limit_function, game, model_game_number);
+    const std::optional<std::size_t> model_game_number_optional{
+        is_model_game_number ? std::optional<std::size_t>{model_game_number} : std::nullopt};
+
+    const std::chrono::seconds max_full_cfr_time{max_full_cfr_time_s};
+    const std::chrono::seconds max_player_cfr_time{max_player_cfr_time_s};
+    const std::chrono::seconds max_player_total_search_time{max_player_total_search_time_s};
+
+    train(num_concurrent_games, time_limit_function, game, model_game_number_optional, max_full_cfr_time,
+          min_games_per_model_save, max_player_sample_size, max_player_cfr_time, max_player_total_search_time,
+          batch_size, base_num_epochs);
 
     std::cout << "Training complete!\n";
 
@@ -132,7 +171,10 @@ std::string to_readable_time(const std::chrono::time_point<std::chrono::system_c
 }
 
 void train(std::size_t num_concurrent_games, const std::function<bool()> &time_limit_function, std::string_view game,
-           std::optional<std::size_t> model_game_number)
+           std::optional<std::size_t> model_game_number, std::chrono::seconds max_full_cfr_time,
+           std::size_t min_games_per_model_save, std::size_t max_player_sample_size,
+           std::chrono::seconds max_player_cfr_time, std::chrono::seconds max_player_total_search_time,
+           std::size_t batch_size, std::size_t base_num_epochs)
 {
     const auto propnet{setup::load_propnet(game)};
     std::cout << '\n';
@@ -153,10 +195,9 @@ void train(std::size_t num_concurrent_games, const std::function<bool()> &time_l
     std::vector<std::vector<player::Player<>>> all_players{};
     std::vector<std::optional<agents::RandomAgent>> all_random{};
     const auto player_options{player::Player<>::Options{}
-                                  .add_cfr_iteration_limit(MAX_PLAYER_CFR_ITERATIONS)
-                                  .add_cfr_time_limit(MAX_PLAYER_CFR_TIME_S)
-                                  .add_max_sample_size(MAX_PLAYER_SAMPLE_SIZE)
-                                  .add_total_time_limit(MAX_PLAYER_TOTAL_SEARCH_TIME_S)};
+                                  .add_cfr_time_limit(max_player_cfr_time)
+                                  .add_max_sample_size(max_player_sample_size)
+                                  .add_total_time_limit(max_player_total_search_time)};
     for (std::size_t game_count{0}; game_count < num_concurrent_games; ++game_count)
     {
         std::vector<player::Player<>> players{};
@@ -174,14 +215,14 @@ void train(std::size_t num_concurrent_games, const std::function<bool()> &time_l
     std::size_t last_save_game_number{0};
     while (time_limit_function())
     {
-        play_concurrent_games(propnet, replay_buffer, all_players, all_random);
-        model.train(replay_buffer, BATCH_SIZE, num_concurrent_games * NUM_EPOCHS);
+        play_concurrent_games(propnet, replay_buffer, all_players, all_random, max_full_cfr_time);
+        model.train(replay_buffer, batch_size, num_concurrent_games * base_num_epochs);
 
         game_number += num_concurrent_games;
         std::cout << std::setfill(' ') << std::setw(5) << game_number << " game(s) played\n";
 
         const auto games_since_last_save{game_number - last_save_game_number};
-        if (games_since_last_save >= MIN_GAMES_PER_MODEL_SAVE)
+        if (games_since_last_save >= min_games_per_model_save)
         {
             std::cout << '\n';
             model.save(game_number);
@@ -194,7 +235,8 @@ void train(std::size_t num_concurrent_games, const std::function<bool()> &time_l
 
 void play_concurrent_games(const propnet::Propnet &propnet, player::ReplayBuffer &replay_buffer,
                            std::vector<std::vector<player::Player<>>> &all_players,
-                           std::vector<std::optional<agents::RandomAgent>> &all_random)
+                           std::vector<std::optional<agents::RandomAgent>> &all_random,
+                           std::chrono::seconds max_full_cfr_time)
 {
     std::mutex replay_buffer_lock{};
 
@@ -202,9 +244,10 @@ void play_concurrent_games(const propnet::Propnet &propnet, player::ReplayBuffer
     auto all_random_it{all_random.begin()};
     for (auto &players : all_players)
     {
-        threads.emplace_back([&propnet, &replay_buffer, &replay_buffer_lock, &players, all_random_it]() {
-            play_game(propnet, replay_buffer, replay_buffer_lock, players, *all_random_it);
-        });
+        threads.emplace_back(
+            [&propnet, &replay_buffer, &replay_buffer_lock, &players, all_random_it, max_full_cfr_time]() {
+                play_game(propnet, replay_buffer, replay_buffer_lock, players, *all_random_it, max_full_cfr_time);
+            });
     }
 
     for (auto &thread : threads)
@@ -214,7 +257,8 @@ void play_concurrent_games(const propnet::Propnet &propnet, player::ReplayBuffer
 }
 
 void play_game(const propnet::Propnet &propnet, player::ReplayBuffer &replay_buffer, std::mutex &replay_buffer_lock,
-               std::vector<player::Player<>> &players, std::optional<agents::RandomAgent> &random)
+               std::vector<player::Player<>> &players, std::optional<agents::RandomAgent> &random,
+               std::chrono::seconds max_full_cfr_time)
 {
     auto state{propnet.create_initial_state()};
     for (auto &player : players)
@@ -227,8 +271,8 @@ void play_game(const propnet::Propnet &propnet, player::ReplayBuffer &replay_buf
     {
         auto state_copy{state};
 
-        auto cfr_future{std::async(std::launch::async, [&propnet, &state_copy]() {
-            static auto options{player::search::MCCFR::Options{}.add_time_limit(MAX_FULL_CFR_TIME_S)};
+        auto cfr_future{std::async(std::launch::async, [&propnet, &state_copy, max_full_cfr_time]() {
+            static auto options{player::search::MCCFR::Options{}.add_time_limit(max_full_cfr_time)};
 
             player::search::FullMCCFR mccfr{propnet};
             return mccfr.search(state_copy, options);

@@ -19,7 +19,8 @@ class RandomSampler
     RandomSampler &operator=(RandomSampler &&other) = default;
 
     void prepare_new_game();
-    void add_history(const std::vector<bool> &observation, propnet::PropId prev_input, std::span<const propnet::PropId> legal_inputs);
+    void add_history(const std::vector<bool> &observation, propnet::PropId prev_input,
+                     std::span<const propnet::PropId> legal_inputs);
     void pop_history();
     propnet::State sample_state();
     std::vector<propnet::State> sample_states(std::size_t num_states);
@@ -27,7 +28,8 @@ class RandomSampler
   private:
     struct History
     {
-        History(const std::vector<bool> &observation, propnet::PropId prev_input, std::span<const propnet::PropId> legal_inputs);
+        History(const std::vector<bool> &observation, propnet::PropId prev_input,
+                std::span<const propnet::PropId> legal_inputs);
         History(const History &other);
         History(History &&other);
 
@@ -53,9 +55,9 @@ class RandomSampler
 
     std::optional<propnet::State> sample_state_impl(AllHistories::iterator all_histories_it,
                                                     AllHistories::iterator all_histories_end_it, propnet::State state);
-    inline static bool is_invalid_state(History& history, const propnet::State &state);
-    inline static void add_invalid_state(History& history, const propnet::State &state);
-    inline static bool is_invalid_inputs(History& history, const propnet::InputSet &inputs);
-    inline static void add_invalid_inputs(History& history, const propnet::InputSet &inputs);
+    inline static bool is_invalid_state(History &history, const propnet::State &state);
+    inline static void add_invalid_state(History &history, const propnet::State &state);
+    inline static bool is_invalid_inputs(History &history, const propnet::InputSet &inputs);
+    inline static void add_invalid_inputs(History &history, const propnet::InputSet &inputs);
 };
 } // namespace player
