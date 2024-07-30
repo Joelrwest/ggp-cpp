@@ -34,7 +34,7 @@ propnet::State RandomSampler::sample_state()
         return propnet.create_initial_state();
     }
 
-    const auto state{sample_state_impl(all_histories.begin(), all_histories.end(), propnet.create_initial_state())};
+    const auto state{sample_state_impl(all_histories.begin(), propnet.create_initial_state())};
 
     if (!state.has_value())
     {
@@ -55,13 +55,13 @@ std::vector<propnet::State> RandomSampler::sample_states(std::size_t num_states)
 RandomSampler::History::History(const std::vector<bool> &observation, propnet::PropId prev_input,
                                 std::span<const propnet::PropId> legal_inputs)
     : observation{observation}, prev_input{prev_input}, legal_inputs{legal_inputs.begin(), legal_inputs.end()},
-      invalid_state_cache{}, invalid_state_cache_lock{}, invalid_inputs_cache{}, invalid_inputs_cache_lock{}
+      invalid_state_cache{}, invalid_state_cache_lock{}
 {
 }
 
 RandomSampler::History::History(const RandomSampler::History &other)
     : observation{other.observation}, prev_input{other.prev_input}, legal_inputs{other.legal_inputs},
-      invalid_state_cache{}, invalid_state_cache_lock{}, invalid_inputs_cache{}, invalid_inputs_cache_lock{}
+      invalid_state_cache{}, invalid_state_cache_lock{}
 {
     /*
     Awful awful awful and wish this was avoidable...
@@ -76,31 +76,19 @@ RandomSampler::History::History(const RandomSampler::History &other)
     invalid_state_cache = other.invalid_state_cache;
     invalid_state_cache_lock.unlock();
     non_const_other.invalid_state_cache_lock.unlock_shared();
-
-    non_const_other.invalid_inputs_cache_lock.lock_shared();
-    invalid_inputs_cache_lock.lock();
-    invalid_inputs_cache = other.invalid_inputs_cache;
-    invalid_inputs_cache_lock.unlock();
-    non_const_other.invalid_inputs_cache_lock.unlock_shared();
 }
 
 RandomSampler::History::History(RandomSampler::History &&other)
-    : observation{std::move(other.observation)}, prev_input{std::move(other.prev_input)}, legal_inputs{std::move(
-                                                                                              other.legal_inputs)},
-      invalid_state_cache{}, invalid_state_cache_lock{}, invalid_inputs_cache{}, invalid_inputs_cache_lock{}
+    : observation{std::move(other.observation)}, prev_input{std::move(other.prev_input)},
+      legal_inputs{std::move(other.legal_inputs)}, invalid_state_cache{}, invalid_state_cache_lock{}
 {
     other.invalid_state_cache_lock.lock();
     invalid_state_cache_lock.lock();
     invalid_state_cache = std::move(other.invalid_state_cache);
     invalid_state_cache_lock.unlock();
 
-    other.invalid_inputs_cache_lock.lock();
-    invalid_inputs_cache_lock.lock();
-    invalid_inputs_cache = std::move(other.invalid_inputs_cache);
-    invalid_inputs_cache_lock.unlock();
-
     /*
-    other's locks are purposely not unlocked.
+    Lock is purposely not unlocked.
     Better to have a deadlock than for something undefined to happen
     */
 }
@@ -126,22 +114,16 @@ RandomSampler::History &RandomSampler::History::operator=(RandomSampler::History
         invalid_state_cache_lock.lock();
         invalid_state_cache = std::move(other.invalid_state_cache);
         invalid_state_cache_lock.unlock();
-
-        other.invalid_inputs_cache_lock.lock();
-        invalid_inputs_cache_lock.lock();
-        invalid_inputs_cache = std::move(other.invalid_inputs_cache);
-        invalid_inputs_cache_lock.unlock();
     }
 
     /*
-    Ditto with no unlocking other's locks.
+    Ditto with no unlocking other's lock
     */
 
     return *this;
 }
 
 std::optional<propnet::State> RandomSampler::sample_state_impl(AllHistories::iterator all_histories_it,
-                                                               AllHistories::iterator all_histories_end_it,
                                                                propnet::State state)
 {
     /*
@@ -182,18 +164,12 @@ std::optional<propnet::State> RandomSampler::sample_state_impl(AllHistories::ite
         propnet::InputSet inputs{cartesian_product_generator.get()};
         inputs.add(all_histories_it->prev_input);
 
-        if (is_invalid_inputs(*all_histories_it, inputs))
-        {
-            continue;
-        }
-
         auto next_state{state};
         propnet.take_sees_inputs(next_state, inputs);
 
         const auto observations{sampler_role.get_observations(next_state)};
         if (observations != all_histories_it->observation)
         {
-            add_invalid_inputs(*all_histories_it, inputs);
             continue;
         }
 
@@ -204,24 +180,22 @@ std::optional<propnet::State> RandomSampler::sample_state_impl(AllHistories::ite
         */
         if (is_invalid_state(*all_histories_it, next_state))
         {
-            add_invalid_inputs(*all_histories_it, inputs);
             continue;
         }
 
         const auto legal_inputs{sampler_role.get_legal_inputs(next_state)};
         if (legal_inputs != all_histories_it->legal_inputs)
         {
-            add_invalid_inputs(*all_histories_it, inputs);
             continue;
         }
 
-        if (next_all_histories_it == all_histories_end_it)
+        if (next_all_histories_it == all_histories.end())
         {
             return std::optional{next_state};
         }
         else
         {
-            const auto sampled_state{sample_state_impl(next_all_histories_it, all_histories_end_it, next_state)};
+            const auto sampled_state{sample_state_impl(next_all_histories_it, next_state)};
 
             if (sampled_state.has_value())
             {
@@ -230,7 +204,6 @@ std::optional<propnet::State> RandomSampler::sample_state_impl(AllHistories::ite
             else
             {
                 add_invalid_state(*all_histories_it, next_state);
-                add_invalid_inputs(*all_histories_it, inputs);
             }
         }
     }
@@ -252,21 +225,5 @@ void RandomSampler::add_invalid_state(History &history, const propnet::State &st
     history.invalid_state_cache_lock.lock();
     history.invalid_state_cache.insert(std::move(state));
     history.invalid_state_cache_lock.unlock();
-}
-
-bool RandomSampler::is_invalid_inputs(History &history, const propnet::InputSet &inputs)
-{
-    history.invalid_inputs_cache_lock.lock_shared();
-    const auto is_invalid_inputs{history.invalid_inputs_cache.contains(inputs)};
-    history.invalid_inputs_cache_lock.unlock_shared();
-
-    return is_invalid_inputs;
-}
-
-void RandomSampler::add_invalid_inputs(History &history, const propnet::InputSet &inputs)
-{
-    history.invalid_inputs_cache_lock.lock();
-    history.invalid_inputs_cache.insert(std::move(inputs));
-    history.invalid_inputs_cache_lock.unlock();
 }
 } // namespace player

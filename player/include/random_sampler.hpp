@@ -41,8 +41,6 @@ class RandomSampler
         std::vector<propnet::PropId> legal_inputs;
         std::unordered_set<propnet::State> invalid_state_cache;
         std::shared_mutex invalid_state_cache_lock;
-        std::unordered_set<propnet::InputSet> invalid_inputs_cache;
-        std::shared_mutex invalid_inputs_cache_lock;
     };
 
     std::deque<History> all_histories{};
@@ -53,11 +51,8 @@ class RandomSampler
 
     using AllHistories = decltype(all_histories);
 
-    std::optional<propnet::State> sample_state_impl(AllHistories::iterator all_histories_it,
-                                                    AllHistories::iterator all_histories_end_it, propnet::State state);
+    std::optional<propnet::State> sample_state_impl(AllHistories::iterator all_histories_it, propnet::State state);
     inline static bool is_invalid_state(History &history, const propnet::State &state);
     inline static void add_invalid_state(History &history, const propnet::State &state);
-    inline static bool is_invalid_inputs(History &history, const propnet::InputSet &inputs);
-    inline static void add_invalid_inputs(History &history, const propnet::InputSet &inputs);
 };
 } // namespace player

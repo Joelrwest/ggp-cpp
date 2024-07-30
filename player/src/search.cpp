@@ -284,8 +284,13 @@ ExpectedValue MCCFR::next_state(std::vector<std::reference_wrapper<InformationSe
         return traversing_role.get_reward(state);
     }
 
-    if (curr_depth == depth_limit && model.has_value())
+    if (curr_depth == depth_limit)
     {
+        if (!model.has_value())
+        {
+            throw std::logic_error{"Depth limit was reached without model"};
+        }
+
         /*
         Return the models estimate of the traversers utility
         */
