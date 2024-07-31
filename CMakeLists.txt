@@ -5,7 +5,7 @@ include(FetchContent)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_BUILD_TYPE Release)
+set(CMAKE_BUILD_TYPE Debug)
 set(OPTIMIZE_DEPENDENCIES ON)
 
 set(BOOST_INCLUDE_LIBRARIES program_options asio beast)
@@ -39,6 +39,10 @@ target_compile_options(setup PRIVATE -Wall -Wextra -Wpedantic -Werror)
 add_executable(play src/play.cpp)
 target_link_libraries(play PUBLIC setup)
 target_compile_options(play PRIVATE -Wall -Wextra -Wpedantic -Werror)
+
+add_executable(temp src/temp.cpp)
+target_link_libraries(temp PUBLIC setup)
+target_compile_options(temp PRIVATE -Wall -Wextra -Wpedantic -Werror)
 
 add_executable(train src/train.cpp)
 target_link_libraries(train PUBLIC setup)
