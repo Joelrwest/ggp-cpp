@@ -165,20 +165,28 @@ def main() -> None:
 
     for player, colour in zip(players, SINGLE_COLOURS):
         for move in ALL_MOVES:
+            legend = []
             create_convergence_plot(moves_to_inputs, iterations, x_time, player, move, colour)
+            legend.append(f"{player} {move}")
             plt.xlabel(X_AXIS_NAME_TIME)
             plt.title(f"Convergence of {move.capitalize()} for {player} Over Time")
             plt.tight_layout()
             save_figure(game, f"{player}-{move.lower().replace(' ', '-')}-time-convergence-plot")
+            plt.legend(legend)
+            save_figure(game, f"{player}-{move.lower().replace(' ', '-')}-time-convergence-legend-plot")
             plt.clf()
 
     for player, colour in zip(players, SINGLE_COLOURS):
         for move in ALL_MOVES:
+            legend = []
             create_convergence_plot(moves_to_inputs, iterations, x_iteration_num, player, move, colour)
+            legend.append(f"{player} {move}")
             plt.xlabel(X_AXIS_NAME_NUM_ITERATIONS)
             plt.title(f"Convergence of {move.capitalize()} for {player}")
             plt.tight_layout()
             save_figure(game, f"{player}-{move.lower().replace(' ', '-')}-iteration-num-convergence-plot")
+            plt.legend(legend)
+            save_figure(game, f"{player}-{move.lower().replace(' ', '-')}-iteration-num-convergence-legend-plot")
             plt.clf()
 
     for idx, player in enumerate(players):
@@ -188,23 +196,32 @@ def main() -> None:
                 for colours in GROUP_COLOURS
             ]
 
+            legend = []
             for move, colours in zip(similar_moves, group_colours):
                 create_convergence_plot(moves_to_inputs, iterations, x_time, player, move, colours)
+                legend.append(f"{player} {move}")
             plt.xlabel(X_AXIS_NAME_TIME)
             plt.title(f"Convergence of {title} for {player} Over Time")
             plt.tight_layout()
             save_figure(game, f"{player}-{title.lower().replace(' ', '-')}-time-convergence-plot")
+            plt.legend(legend)
+            save_figure(game, f"{player}-{title.lower().replace(' ', '-')}-time-convergence-legend-plot")
             plt.clf()
 
+            legend = []
             for move, colours in zip(similar_moves, group_colours):
                 create_convergence_plot(moves_to_inputs, iterations, x_iteration_num, player, move, colours)
+                legend.append(f"{player} {move}")
             plt.xlabel(X_AXIS_NAME_NUM_ITERATIONS)
             plt.title(f"Convergence of {title} for {player}")
             plt.tight_layout()
             save_figure(game, f"{player}-{title.lower().replace(' ', '-')}-iteration-num-convergence-plot")
+            plt.legend(legend)
+            save_figure(game, f"{player}-{title.lower().replace(' ', '-')}-iteration-num-convergence-legend-plot")
             plt.clf()
 
     for title, similar_moves in SIMILAR_MOVES:
+        legend = []
         for idx, player in enumerate(players):
             group_colours = [
                 colours[idx]
@@ -212,12 +229,16 @@ def main() -> None:
             ]
             for move, colours in zip(similar_moves, group_colours):
                 create_convergence_plot(moves_to_inputs, iterations, x_time, player, move, colours)
+                legend.append(f"{player} {move}")
         plt.xlabel(X_AXIS_NAME_TIME)
         plt.title(f"Convergence of {title} Over Time")
         plt.tight_layout()
-        save_figure(game, f"{title.lower().replace(' ', '-')}-time-convergence-plot")
+        save_figure(game, f"{title.lower().replace(' ', '-')}-iteration-num-convergence-plot")
+        plt.legend(legend)
+        save_figure(game, f"{title.lower().replace(' ', '-')}-time-convergence-legend-plot")
         plt.clf()
 
+        legend = []
         for idx, player in enumerate(players):
             group_colours = [
                 colours[idx]
@@ -225,10 +246,13 @@ def main() -> None:
             ]
             for move, colours in zip(similar_moves, group_colours):
                 create_convergence_plot(moves_to_inputs, iterations, x_iteration_num, player, move, colours)
+                legend.append(f"{player} {move}")
         plt.xlabel(X_AXIS_NAME_NUM_ITERATIONS)
         plt.title(f"Convergence of {title}")
         plt.tight_layout()
         save_figure(game, f"{title.lower().replace(' ', '-')}-iteration-num-convergence-plot")
+        plt.legend(legend)
+        save_figure(game, f"{title.lower().replace(' ', '-')}-iteration-num-convergence-legend-plot")
         plt.clf()
 
 if __name__ == '__main__':
