@@ -1,5 +1,7 @@
 from blindtictactoe_constants import *
 
+NAME = 'blindtictactoeXbias'
+
 MOVES_TO_INPUTS = {
     PLAYER_X: {
         MARK_1_1: '445',

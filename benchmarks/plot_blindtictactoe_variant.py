@@ -47,10 +47,6 @@ FONT_SIZE = 12
 
 plt.rcParams.update({'font.size': FONT_SIZE})
 
-NORMAL = 'blindtictactoe'
-BIASED = 'blindtictactoeXbias'
-WINNING = 'blindtictactoeXwins'
-
 ALL_MOVES = (
     MARK_1_1,
     MARK_1_2,
@@ -145,11 +141,11 @@ def save_figure(game: str, file_name: str) -> None:
 
 def main() -> None:
     game, file_name = parse_command_line()
-    if game == NORMAL:
+    if game == normal.NAME:
         moves_to_inputs = normal.MOVES_TO_INPUTS
-    elif game == BIASED:
+    elif game == biased.NAME:
         moves_to_inputs = biased.MOVES_TO_INPUTS
-    elif game == WINNING:
+    elif game == winning.NAME:
         moves_to_inputs = winning.MOVES_TO_INPUTS
     else:
         print('Unknown variant of blindtictactoe')

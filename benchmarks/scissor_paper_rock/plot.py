@@ -36,10 +36,13 @@ NEW_COLOURS = (
 
 X_AXIS_NAME = 'Time (ms)'
 
-IDEAL_COLOUR = 'dimgrey'
+IDEAL_COLOUR = 'black'
 IDEAL_STYLE = ':'
 
 FONT_SIZE = 16
+
+OLD_LEGEND = ['Old Player 1', 'Old Player 2']
+NEW_LEGEND = ['New Player 1', 'New Player 2']
 
 # End of changable constants
 
@@ -138,9 +141,7 @@ def create_non_adapting_ev_plot(iterations, x: list[float], colours: tuple[str])
     plt.ylabel('EV')
     plt.title('EV Against Static Optimal Opponent')
 
-def create_adapting_ev_plot(iterations, x: list[float], colours: tuple[str]) -> None:
-    create_ev_data(iterations, x, calculate_adapting_ev, colours)
-
+def plot_ideal_ev(iterations, x: list[float]):
     y_3 = [
         TOTAL_GAME_REWARD / 2
         for _ in iterations[:len(x)]
@@ -148,8 +149,19 @@ def create_adapting_ev_plot(iterations, x: list[float], colours: tuple[str]) -> 
 
     plt.plot(x, y_3, color=IDEAL_COLOUR, linestyle=IDEAL_STYLE)
 
+def create_adapting_ev_plot(iterations, x: list[float], colours: tuple[str]) -> None:
+    create_ev_data(iterations, x, calculate_adapting_ev, colours)
+
     plt.ylabel('EV')
     plt.title('EV Against Exploitative Optimal Opponent')
+
+def plot_ideal_convergence(iterations, x: list[float], move: str):
+    iterations = iterations[:len(x)]
+    y_3 = [
+        IDEAL_PROBABILITIES[move]
+        for _ in iterations
+    ]
+    plt.plot(x, y_3, color=IDEAL_COLOUR, linestyle=IDEAL_STYLE)
 
 def create_convergence_plot(iterations, x: list[float], move: str, colours: tuple[str]):
     iterations = iterations[:len(x)]
@@ -164,14 +176,8 @@ def create_convergence_plot(iterations, x: list[float], move: str, colours: tupl
         for iteration in iterations
     ]
 
-    y_3 = [
-        IDEAL_PROBABILITIES[move]
-        for _ in iterations
-    ]
-
     plt.plot(x, y_1, color=colours[0])
     plt.plot(x, y_2, color=colours[1])
-    plt.plot(x, y_3, color=IDEAL_COLOUR, linestyle=IDEAL_STYLE)
 
     plt.xlabel(X_AXIS_NAME)
     plt.ylabel('Probability')
@@ -187,20 +193,25 @@ def main() -> None:
     x_new = get_time_data_ms(iterations_new, NEW_TIME_FILTER_MS)
 
     # Create individual plots
-    for x, iterations, colours, prefix in ((x_old, iterations_old, OLD_COLOURS, OLD_PREFIX), (x_new, iterations_new, NEW_COLOURS, NEW_PREFIX)):
+    for x, iterations, colours, prefix, legend in ((x_old, iterations_old, OLD_COLOURS, OLD_PREFIX, OLD_LEGEND), (x_new, iterations_new, NEW_COLOURS, NEW_PREFIX, NEW_LEGEND)):
         create_non_adapting_ev_plot(iterations, x, colours)
         plt.tight_layout()
+        plt.legend(legend)
         plt.savefig(f"{prefix}-non-adapting-ev-plot")
         plt.clf()
 
         create_adapting_ev_plot(iterations, x, colours)
+        plot_ideal_ev(iterations, x)
         plt.tight_layout()
+        plt.legend(legend)
         plt.savefig(f"{prefix}-adapting-ev-plot")
         plt.clf()
 
         for move in (ROCK, PAPER, SCISSORS):
             create_convergence_plot(iterations, x, move, colours)
+            plot_ideal_convergence(iterations, x, move)
             plt.tight_layout()
+            plt.legend(legend)
             plt.savefig(f"{prefix}-{move.lower()}-convergence-plot")
             plt.clf()
 
@@ -213,19 +224,24 @@ def main() -> None:
         create_non_adapting_ev_plot(iterations_old, x_old, OLD_COLOURS)
         create_non_adapting_ev_plot(iterations_new, x_new, NEW_COLOURS)
         plt.tight_layout()
+        plt.legend(OLD_LEGEND + NEW_LEGEND)
         plt.savefig(f"{prefix}-non-adapting-ev-plot")
         plt.clf()
 
         create_adapting_ev_plot(iterations_old, x_old, OLD_COLOURS)
         create_adapting_ev_plot(iterations_new, x_new, NEW_COLOURS)
+        plot_ideal_ev(iterations_old, x_old)
         plt.tight_layout()
+        plt.legend(OLD_LEGEND + NEW_LEGEND)
         plt.savefig(f"{prefix}-adapting-ev-plot")
         plt.clf()
 
         for move in (ROCK, PAPER, SCISSORS):
             create_convergence_plot(iterations_old, x_old, move, OLD_COLOURS)
             create_convergence_plot(iterations_new, x_new, move, NEW_COLOURS)
+            plot_ideal_convergence(iterations_old, x_old, move)
             plt.tight_layout()
+            plt.legend(OLD_LEGEND + NEW_LEGEND)
             plt.savefig(f"{prefix}-{move.lower()}-convergence-plot")
             plt.clf()
 
