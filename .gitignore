@@ -238,3 +238,7 @@ play-external
 # Extra files created inside Python propnet
 server/propnet/*.c
 server/propnet/*.html
+
+# Remote files created
+detect_cuda_compute_capabilities.cu
+detect_cuda_version.cc

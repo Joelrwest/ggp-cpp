@@ -30,13 +30,6 @@ def split_gdl(gdl):
     return filter(None, _split_gdl(gdl))
 
 
-def make_propnet(gdl, name):
-    fn = os.path.join('rulesheets', name + '.kif')
-    with open(fn, 'w') as f:
-        f.write(gdl)
-    return convert_to_propnet(fn)
-
-
 def load_propnet(base):
     current_file_path = os.path.dirname(__file__)
     module_path = os.path.abspath(os.path.join(current_file_path, '..', '..', 'games', 'python', f"{base}.py"))

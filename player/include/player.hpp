@@ -32,6 +32,8 @@ concept DerivedSampler = requires(DerivedSamplerT sampler, const std::vector<boo
 template <DerivedSampler SamplerT = RandomSampler> class Player : public agents::Agent
 {
   public:
+    static constexpr auto NAME{"player"};
+
     class Options
     {
       public:
