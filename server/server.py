@@ -17,7 +17,6 @@ import random
 import os
 
 HOST = 'localhost'
-PORT = 8080
 MAX_GAMES = int(5e4)
 
 TYPE_KEY = 'type'
@@ -81,15 +80,24 @@ def get_command_line_arguments() -> tuple[str, int]:
         default=MAX_GAMES,
         help='Number of games to be played.'
     )
+    argument_parser.add_argument(
+        '-p',
+        '--port',
+        dest='port',
+        required=True,
+        type=int,
+        help='Port to start server on.'
+    )
     arguments = argument_parser.parse_args()
 
     game: str = arguments.game
     num_games: int = arguments.num_games
+    port: int = arguments.port
     if num_games < 1:
         print(f"Must play at least 1 game (given {num_games})")
         exit(1)
 
-    return game, num_games
+    return game, num_games, port
 
 async def new_connection(websocket, event) -> None:
     try:
@@ -226,11 +234,11 @@ async def handler(websocket) -> None:
 
 async def main() -> None:
     global state
-    game, num_games = get_command_line_arguments()
+    game, num_games, port = get_command_line_arguments()
     state = State(game, num_games)
     print(f"Playing {game} {num_games} times")
 
-    async with websockets.serve(handler, HOST, PORT):
+    async with websockets.serve(handler, HOST, port):
         await asyncio.Future()
 
 if __name__ == '__main__':

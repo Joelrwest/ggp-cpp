@@ -194,9 +194,8 @@ int main(int argc, char **argv)
     auto options_description{setup::create_base_program_options(game)};
     options_description.add_options()(AGENT_COMMAND, po::value<std::string>(&agent_name)->required(),
                                       "agent name to play")(
-        ROLE_COMMAND, po::value<std::string>(&role_name)->required(),
-        "agent role to be given")(MODEL_GAME_NUMBER_COMMAND, po::value<std::size_t>(&model_game_number)->required(),
-                                  "game number to load model from")(
+        ROLE_COMMAND, po::value<std::string>(&role_name)->required(), "agent role to be given")(
+        MODEL_GAME_NUMBER_COMMAND, po::value<std::size_t>(&model_game_number), "game number to load model from")(
         MAX_SAMPLE_SIZE_COMMAND, po::value<std::size_t>(&max_sample_size)->default_value(DEFAULT_MAX_SAMPLE_SIZE),
         "maximum sample size for ggp player (if player agent type is given)")(
         MAX_CFR_TIME_COMMAND, po::value<std::size_t>(&max_cfr_time_s)->default_value(DEFAULT_MAX_CFR_TIME_S),
