@@ -176,6 +176,11 @@ MCCFR::MCCFR(const propnet::Propnet &propnet, std::optional<std::reference_wrapp
     {
         throw std::logic_error{"Cannot have depth limit of 0"};
     }
+
+    if (player_roles.size() < 2)
+    {
+        throw std::logic_error{"MCCFR implementation assumes there's at least 2 players"};
+    }
 }
 
 ExpectedValue MCCFR::make_traversers_move(std::vector<std::reference_wrapper<InformationSet>> &current_information_sets,

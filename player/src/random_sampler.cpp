@@ -178,7 +178,7 @@ std::optional<propnet::State> RandomSampler::sample_state_impl(AllHistories::ite
         /*
         Check if this state is invalid
         */
-        if (is_invalid_state(*all_histories_it, next_state))
+        if (is_invalid_state(*all_histories_it, next_state) || propnet.is_game_over(state))
         {
             continue;
         }
