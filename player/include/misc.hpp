@@ -68,6 +68,7 @@ class TimeOption
 {
   public:
     TimeOption();
+    template <typename T> TimeOption(T duration);
     TimeOption(const TimeOption &other) = default;
     TimeOption(TimeOption &&other) = default;
 
@@ -88,13 +89,14 @@ class IterationLimitOption
 {
   public:
     IterationLimitOption();
+    IterationLimitOption(std::size_t iteration_limit);
     IterationLimitOption(const IterationLimitOption &other) = default;
     IterationLimitOption(IterationLimitOption &&other) = default;
 
     IterationLimitOption &operator=(const IterationLimitOption &other) = default;
     IterationLimitOption &operator=(IterationLimitOption &&other) = default;
 
-    void add(std::size_t num_iterations);
+    void add(std::size_t iteration_limit);
     std::size_t get() const;
 
   private:
@@ -241,6 +243,11 @@ template <typename KeyT, typename ValueT, template <typename> typename PolicyT, 
 void Cache<KeyT, ValueT, PolicyT, SIZE>::clear()
 {
     this->Clear();
+}
+
+template <typename T>
+TimeOption::TimeOption(T duration) : time_limit{std::chrono::duration_cast<std::chrono::milliseconds>(duration)}
+{
 }
 
 template <typename T> void TimeOption::add(T duration)

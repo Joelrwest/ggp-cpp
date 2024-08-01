@@ -53,6 +53,9 @@ template <DerivedSampler SamplerT = RandomSampler> class Player : public agents:
         template <typename T> Options &add_total_time_limit(T duration);
         std::function<bool()> get_total_time_remaining_function() const;
 
+        Options &add_depth_limit(Depth depth_limit);
+        Depth get_depth_limit() const;
+
         template <typename T> Options &add_cfr_time_limit(T duration);
         Options &add_cfr_iteration_limit(std::size_t iteration_limit);
         search::MCCFR::Options &get_cfr_options();
@@ -60,11 +63,14 @@ template <DerivedSampler SamplerT = RandomSampler> class Player : public agents:
       private:
         static constexpr std::size_t DEFAULT_THREAD_LIMIT{1};
         static constexpr std::size_t DEFAULT_MAX_SAMPLE_SIZE{50};
-        static constexpr std::chrono::seconds DEFAULT_CFR_TIME_LIMIT_S{100};
+        static constexpr std::chrono::seconds DEFAULT_TOTAL_TIME_LIMIT_S{30};
+        static constexpr Depth DEFAULT_DEPTH_LIMIT{4};
+        static constexpr std::chrono::seconds DEFAULT_CFR_TIME_LIMIT_S{3};
 
         std::size_t thread_limit;
         std::size_t max_sample_size;
         misc::TimeOption total_time_limit_option;
+        Depth depth_limit;
         search::MCCFR::Options cfr_options;
     };
 
@@ -83,21 +89,17 @@ template <DerivedSampler SamplerT = RandomSampler> class Player : public agents:
     void add_history(propnet::PropId prev_input, std::span<const propnet::PropId> legal_inputs) override;
 
   private:
-    static constexpr auto LOG_MAX_STATES_SEARCHED{std::log(1e15)};
-
-    static Depth search_depth_limit_heuristic(const propnet::Propnet &propnet);
-
     SamplerT sampler;
     const propnet::Role &role; // TODO: Should be proper role not reference? Other spots too
     const propnet::Propnet &propnet;
     Options options;
-    Depth search_depth_limit;
     Model &model;
 };
 
 template <DerivedSampler SamplerT>
 Player<SamplerT>::Options::Options()
-    : thread_limit{DEFAULT_THREAD_LIMIT}, max_sample_size{DEFAULT_MAX_SAMPLE_SIZE}, total_time_limit_option{},
+    : thread_limit{DEFAULT_THREAD_LIMIT}, max_sample_size{DEFAULT_MAX_SAMPLE_SIZE},
+      total_time_limit_option{DEFAULT_TOTAL_TIME_LIMIT_S}, depth_limit{DEFAULT_DEPTH_LIMIT},
       cfr_options{search::MCCFR::Options{}.add_time_limit(DEFAULT_CFR_TIME_LIMIT_S)}
 {
 }
@@ -139,6 +141,17 @@ std::function<bool()> Player<SamplerT>::Options::get_total_time_remaining_functi
 {
     return total_time_limit_option.get_function();
 }
+template <DerivedSampler SamplerT>
+Player<SamplerT>::Options &Player<SamplerT>::Options::add_depth_limit(Depth depth_limit)
+{
+    this->depth_limit = depth_limit;
+    return *this;
+}
+
+template <DerivedSampler SamplerT> Depth Player<SamplerT>::Options::get_depth_limit() const
+{
+    return depth_limit;
+}
 
 template <DerivedSampler SamplerT>
 template <typename T>
@@ -168,8 +181,7 @@ Player<SamplerT>::Player(const propnet::Role &role, const propnet::Propnet &prop
 
 template <DerivedSampler SamplerT>
 Player<SamplerT>::Player(const propnet::Role &role, const propnet::Propnet &propnet, Model &model, Options options)
-    : Agent{role}, sampler{role, propnet}, role{role}, propnet{propnet}, options{std::move(options)},
-      search_depth_limit{search_depth_limit_heuristic(propnet)}, model{model}
+    : Agent{role}, sampler{role, propnet}, role{role}, propnet{propnet}, options{std::move(options)}, model{model}
 {
 }
 
@@ -200,6 +212,7 @@ propnet::PropId Player<SamplerT>::get_legal_input_impl(std::span<const propnet::
                 auto &cfr_options{options.get_cfr_options()};
                 const auto total_time_remaining_function{options.get_total_time_remaining_function()};
                 const auto max_sample_size{options.get_max_sample_size()};
+                const auto depth_limit{options.get_depth_limit()};
                 while (total_time_remaining_function())
                 {
                     {
@@ -212,7 +225,7 @@ propnet::PropId Player<SamplerT>::get_legal_input_impl(std::span<const propnet::
                         ++num_sampled;
                     }
 
-                    search::DepthLimitedMCCFR mccfr{propnet, model, search_depth_limit};
+                    search::DepthLimitedMCCFR mccfr{propnet, model, depth_limit};
 
                     const auto sampled_state{sampler.sample_state()};
                     const auto search_results{mccfr.search(sampled_state, cfr_options)};
@@ -241,16 +254,6 @@ propnet::PropId Player<SamplerT>::get_legal_input_impl(std::span<const propnet::
     std::for_each(threads.begin(), threads.end(), [](auto &thread) { thread.join(); });
 
     return misc::sample_policy(cumulative_policy, static_cast<Probability>(num_sampled));
-}
-
-template <DerivedSampler SamplerT> Depth Player<SamplerT>::search_depth_limit_heuristic(const propnet::Propnet &propnet)
-{
-    const auto &roles{propnet.get_player_roles()};
-    const auto max_branching_factor{std::accumulate(
-        roles.begin(), roles.end(), propnet.is_randomness() ? propnet.get_random_role()->get_max_policy_size() : 1,
-        [](const auto &accumulation, const auto &role) { return accumulation * role.get_max_policy_size(); })};
-
-    return LOG_MAX_STATES_SEARCHED / std::log(max_branching_factor);
 }
 
 template <DerivedSampler SamplerT>

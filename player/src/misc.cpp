@@ -24,6 +24,10 @@ IterationLimitOption::IterationLimitOption() : iteration_limit{std::numeric_limi
 {
 }
 
+IterationLimitOption::IterationLimitOption(std::size_t iteration_limit) : iteration_limit{iteration_limit}
+{
+}
+
 void IterationLimitOption::add(std::size_t iteration_limit)
 {
     this->iteration_limit = iteration_limit;
