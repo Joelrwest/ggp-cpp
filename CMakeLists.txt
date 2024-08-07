@@ -40,10 +40,6 @@ add_executable(play src/play.cpp)
 target_link_libraries(play PUBLIC setup)
 target_compile_options(play PRIVATE -Wall -Wextra -Wpedantic -Werror)
 
-add_executable(temp src/temp.cpp)
-target_link_libraries(temp PUBLIC setup)
-target_compile_options(temp PRIVATE -Wall -Wextra -Wpedantic -Werror)
-
 add_executable(train src/train.cpp)
 target_link_libraries(train PUBLIC setup)
 target_compile_options(train PRIVATE -Wall -Wextra -Wpedantic -Werror)

@@ -117,7 +117,7 @@ RandomSampler::History &RandomSampler::History::operator=(RandomSampler::History
     }
 
     /*
-    Ditto with no unlocking other's lock
+    Ditto with not unlocking other's lock
     */
 
     return *this;
@@ -223,7 +223,7 @@ bool RandomSampler::is_invalid_state(History &history, const propnet::State &sta
 void RandomSampler::add_invalid_state(History &history, const propnet::State &state)
 {
     history.invalid_state_cache_lock.lock();
-    history.invalid_state_cache.insert(std::move(state));
+    history.invalid_state_cache.insert(state);
     history.invalid_state_cache_lock.unlock();
 }
 } // namespace player

@@ -1,11 +1,11 @@
 # Optimising Deep Learning and Search for Imperfect-Information Games in General Game Playing
 
-An [imperfect-information general game playing](https://en.wikipedia.org/wiki/General_game_playing) codebase written in C++ which utilises deep learning and CFR search.
+An imperfect-information [general game playing](https://en.wikipedia.org/wiki/General_game_playing) codebase written in C++ which utilises deep learning and CFR search.
 
 Done as part of a bachelors thesis under Prof. Michael Thielscher at UNSW.
 Goal was to extend previous works [Hidden Information General Game
 Playing with Deep Learning and Search](https://cgi.cse.unsw.edu.au/~mit/Papers/PRICAI22.pdf) by Zachary Partridge (also under Michael Thielscher at UNSW).
-See the [corresponding paper](TODO: Link) for more details.
+See the corresponding [paper](documents/thesis.pdf) for more details.
 
 ## Installation
 
@@ -53,9 +53,9 @@ For example, to train a model for Blind Tic-Tac-Toe using 10 concurrent games (a
 
 Models are then outputted to `models/<game>/`.
 To load models within code call `player::Model::load_game_number`.
-Note that pretrained models contained in this repository are trained on CUDA and thus don't work for CPU only versions of LibTorch.
+Note that pretrained models contained in this repository are trained on CUDA and thus don't work for CPU-only versions of LibTorch.
 
-## Repository structure
+## Repository Structure
 
 * Code is seperated into modules
     + `agents/` contains code related to the base agent which all other agents are derived from (including the player) and simple agents (e.g., human, random, plays first, plays last).
